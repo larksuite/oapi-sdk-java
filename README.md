@@ -358,6 +358,7 @@ public class Sample {
 ```java
 package com.larksuite.oapi.sample.api;
 
+import com.larksuite.oapi.core.Config;
 import com.larksuite.oapi.core.api.Api;
 import com.larksuite.oapi.core.api.response.Response;
 
@@ -367,7 +368,7 @@ public class Sample {
     // Return value Description:
     // Response<O>：Results of the request（= http response body）
     // Exception：Exception in sending request
-    Response<O> response = Api.send(config Config, Request <I,O> request) throws Exception;
+    Response<O> response = Api.send(Config config, Request <I,O> request) throws Exception;
 }
 ```
 

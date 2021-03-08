@@ -446,7 +446,7 @@ public class Sample {
     // 返回值说明：
     // Response<O>：请求的结果（= http response body）
     // Exception：发送请求出现的异常
-    Response<O> response = Api.send(config Config, Request <I,O> request) throws Exception;
+    Response<O> response = Api.send(Config config, Request <I,O> request) throws Exception;
 }
 ```
 
