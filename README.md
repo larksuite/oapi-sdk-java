@@ -224,8 +224,6 @@ public class CardController extends CardServlet {
 
 ### How to build app settings(AppSettings)
 
-### 如何构建应用配置（AppSettings）
-
 ```java
 package com.larksuite.oapi.sample.api;
 
@@ -369,7 +367,7 @@ public class Sample {
     // Return value Description:
     // Response<O>：Results of the request（= http response body）
     // Exception：Exception in sending request
-    Response<O> response = Api.send(config, Request <I,O> request) throws Exception;
+    Response<O> response = Api.send(config Config, Request <I,O> request) throws Exception;
 }
 ```
 
