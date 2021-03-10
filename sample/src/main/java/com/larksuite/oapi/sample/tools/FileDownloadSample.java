@@ -16,7 +16,7 @@ public class FileDownloadSample {
         download2();
     }
 
-    // bs
+    // file bytes
     private static void download1() throws IOException {
         FileOutputStream fileOutputStream = new FileOutputStream("download.png");
         byte[] bs = Files.DownloadFile(URL);
@@ -24,7 +24,7 @@ public class FileDownloadSample {
         fileOutputStream.close();
     }
 
-    // stream
+    // file stream
     private static void download2() throws IOException {
         FileOutputStream fileOutputStream = new FileOutputStream("download2.png");
         InputStream fileStream = Files.DownloadFileToStream(URL);

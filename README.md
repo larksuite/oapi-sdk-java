@@ -374,8 +374,8 @@ public class Sample {
 
 ### 下载文件工具
 
-- 通过网络请求下载文件
-- 更多使用示例，请看：[sample/tools/FileDownloadSample.java](sample/src/main/java/com/larksuite/oapi/sample/tools/FileDownloadSample.java)
+- Download files via network request
+- For more use examples, please see:[sample/tools/FileDownloadSample.java](sample/src/main/java/com/larksuite/oapi/sample/tools/FileDownloadSample.java)
 
 ```java
 import com.larksuite.oapi.core.api.tools.Files;
