@@ -372,7 +372,7 @@ public class Sample {
 }
 ```
 
-### 下载文件工具
+### Download File Tool
 
 - Download files via network request
 - For more use examples, please see:[sample/tools/FileDownloadSample.java](sample/src/main/java/com/larksuite/oapi/sample/tools/FileDownloadSample.java)
