@@ -372,6 +372,31 @@ public class Sample {
 }
 ```
 
+### 下载文件工具
+
+- 通过网络请求下载文件
+- 更多使用示例，请看：[sample/tools/FileDownloadSample.java](sample/src/main/java/com/larksuite/oapi/sample/tools/FileDownloadSample.java)
+
+```java
+import com.larksuite.oapi.core.api.tools.Files;
+
+/**
+* @param url File net url
+* @return InputStream must close!!!!
+* @throws IOException IO exception
+*/
+public static InputStream DownloadFileToStream(String url) throws IOException {}
+
+/**
+* @param url File net url
+* @return File bytes
+* @throws IOException IO exception
+*/
+public static byte[] DownloadFile(String url) throws IOException {
+}
+
+```
+
 ## License
 
 ---
