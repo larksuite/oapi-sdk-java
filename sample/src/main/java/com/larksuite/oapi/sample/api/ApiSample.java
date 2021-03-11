@@ -1,6 +1,8 @@
 package com.larksuite.oapi.sample.api;
 
+import com.larksuite.oapi.core.AppSettings;
 import com.larksuite.oapi.core.Config;
+import com.larksuite.oapi.core.Domain;
 import com.larksuite.oapi.core.Keys;
 import com.larksuite.oapi.core.api.*;
 import com.larksuite.oapi.core.api.request.FormData;
@@ -8,6 +10,7 @@ import com.larksuite.oapi.core.api.request.FormDataFile;
 import com.larksuite.oapi.core.api.request.Request;
 import com.larksuite.oapi.core.api.response.Response;
 import com.larksuite.oapi.core.utils.Jsons;
+import com.larksuite.oapi.sample.config.Configs;
 
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -19,8 +22,11 @@ import java.util.concurrent.TimeUnit;
 
 public class ApiSample {
 
-    // for test
-    private static final Config config = Config.getTestInternalConf("online");
+    // for Cutome APP（自建应用）
+    private static final AppSettings appSettings = Config.getInternalAppSettingsByEnv();
+    // config with redis store
+    // private static final Config config = Configs.getConfigWithRedisStore(Domain.FeiShu, appSettings);
+    private static final Config config = Configs.getConfig(Domain.FeiShu, appSettings);
 
 
     public static void main(String[] args) throws Exception {

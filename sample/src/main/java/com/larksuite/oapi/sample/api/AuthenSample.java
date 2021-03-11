@@ -1,11 +1,14 @@
 package com.larksuite.oapi.sample.api;
 
+import com.larksuite.oapi.core.AppSettings;
 import com.larksuite.oapi.core.Config;
+import com.larksuite.oapi.core.Domain;
 import com.larksuite.oapi.core.api.BatchReqCall;
 import com.larksuite.oapi.core.api.ReqCallResult;
 import com.larksuite.oapi.core.api.request.Request;
 import com.larksuite.oapi.core.api.response.Response;
 import com.larksuite.oapi.core.utils.Jsons;
+import com.larksuite.oapi.sample.config.Configs;
 import com.larksuite.oapi.service.authen.v1.AuthenService;
 import com.larksuite.oapi.service.authen.v1.model.AuthenAccessTokenReqBody;
 import com.larksuite.oapi.service.authen.v1.model.AuthenRefreshAccessTokenReqBody;
@@ -16,12 +19,12 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class AuthenSample {
-    // for test
-    private static final Config config = Config.getTestInternalConf("online");
 
-    // for online
-    // private static final AppSettings appSettings = Config.getInternalAppSettingsByEnv();
-    // private static final Config config = ConfigUtils.getConfig(com.larksuite.oapi.core.Constants.Domain.FeiShu, appSettings);
+    // for Cutome APP（自建应用）
+    private static final AppSettings appSettings = Config.getInternalAppSettingsByEnv();
+    // config with redis store
+    // private static final Config config = Configs.getConfigWithRedisStore(Domain.FeiShu, appSettings);
+    private static final Config config = Configs.getConfig(Domain.FeiShu, appSettings);
 
     public static void main(String[] args) throws Exception {
         testAccessToken();

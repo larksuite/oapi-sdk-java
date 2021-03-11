@@ -1,9 +1,12 @@
 package com.larksuite.oapi.sample.api;
 
+import com.larksuite.oapi.core.AppSettings;
 import com.larksuite.oapi.core.Config;
+import com.larksuite.oapi.core.Domain;
 import com.larksuite.oapi.core.api.request.FormDataFile;
 import com.larksuite.oapi.core.api.response.Response;
 import com.larksuite.oapi.core.utils.Jsons;
+import com.larksuite.oapi.sample.config.Configs;
 import com.larksuite.oapi.service.image.v4.ImageService;
 import com.larksuite.oapi.service.image.v4.model.Image;
 
@@ -12,16 +15,16 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class ImageSample {
-    // for test
-    private static final Config config = Config.getTestInternalConf("online");
 
-    // for online
-    // private static final AppSettings appSettings = Config.getInternalAppSettingsByEnv();
-    // private static final Config config = ConfigUtils.getConfig(com.larksuite.oapi.core.Constants.Domain.FeiShu, appSettings);
+    // for Cutome APP（自建应用）
+    private static final AppSettings appSettings = Config.getInternalAppSettingsByEnv();
+    // config with redis store
+    // private static final Config config = Configs.getConfigWithRedisStore(Domain.FeiShu, appSettings);
+    private static final Config config = Configs.getConfig(Domain.FeiShu, appSettings);
 
     public static void main(String[] args) throws Exception {
-        //testPut();
-        testGet();
+        testPut();
+        //testGet();
     }
 
     private static void testPut() throws Exception {
