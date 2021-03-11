@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class Action {
     @SerializedName("value")
-    private Map<String, String> value;
+    private Map<String, Object> value;
     @SerializedName("tag")
     private String tag;
     @SerializedName("option")
@@ -14,11 +14,11 @@ public class Action {
     @SerializedName("timezone")
     private String timezone;
 
-    public Map<String, String> getValue() {
+    public Map<String, Object> getValue() {
         return value;
     }
 
-    public void setValue(Map<String, String> value) {
+    public void setValue(Map<String, Object> value) {
         this.value = value;
     }
 

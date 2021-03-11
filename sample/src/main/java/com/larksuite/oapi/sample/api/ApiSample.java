@@ -117,7 +117,7 @@ public class ApiSample {
         Map<String, Object> message = new HashMap<>();
         message.put("user_id", "77bbc392");
         message.put("msg_type", "interactive");
-        String content = "{\"config\":{\"wide_screen_mode\":true},\"i18n_elements\":{\"zh_cn\":[{\"tag\":\"div\",\"text\":{\"tag\":\"lark_md\",\"content\":\"[飞书](https://www.feishu.cn)整合即时沟通、日历、音视频会议、云文档、云盘、工作台等功能于一体，成就组织和个人，更高效、更愉悦。\"}},{\"tag\":\"action\",\"actions\":[{\"tag\":\"button\",\"text\":{\"tag\":\"plain_text\",\"content\":\"主按钮\"},\"type\":\"primary\",\"value\":{\"key\":\"primary\"}},{\"tag\":\"button\",\"text\":{\"tag\":\"plain_text\",\"content\":\"次按钮\"},\"type\":\"default\",\"value\":{\"key\":\"default\"}}]}]}}";
+        String content = "{\"config\":{\"wide_screen_mode\":true},\"i18n_elements\":{\"zh_cn\":[{\"tag\":\"div\",\"text\":{\"tag\":\"lark_md\",\"content\":\"[飞书](https://www.feishu.cn)整合即时沟通、日历、音视频会议、云文档、云盘、工作台等功能于一体，成就组织和个人，更高效、更愉悦。\"}},{\"tag\":\"action\",\"actions\":[{\"tag\":\"button\",\"text\":{\"tag\":\"plain_text\",\"content\":\"主按钮\"},\"type\":\"primary\",\"value\":{\"key\":\"primary\",\"key2\":1}},{\"tag\":\"button\",\"text\":{\"tag\":\"plain_text\",\"content\":\"次按钮\"},\"type\":\"default\",\"value\":{\"key\":\"default\"}}]}]}}";
         message.put("card", Jsons.DEFAULT_GSON.fromJson(content, HashMap.class));
         Request<Map<String, Object>, Map<String, Object>> request = Request.newRequest("message/v4/send",
                 "POST", AccessTokenType.Tenant, message, new HashMap<>());
