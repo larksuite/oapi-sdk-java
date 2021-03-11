@@ -15,7 +15,8 @@ public class ContactSample {
     // for Cutome APP（自建应用）
     private static final AppSettings appSettings = Config.getInternalAppSettingsByEnv();
     // config with redis store
-    // private static final Config config = Configs.getConfigWithRedisStore(Domain.FeiShu, appSettings);
+    // private static final Config config = Configs.getConfigWithRedisStore("https://open.feishu.cn", appSettings);
+    // private static final Config config = Configs.getConfig("https://open.feishu.cn", appSettings);
     private static final Config config = Configs.getConfig(Domain.FeiShu, appSettings);
 
     public static void main(String[] args) throws Exception {

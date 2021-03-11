@@ -21,6 +21,7 @@ public class InitConfig {
         AppSettings appSettings = Config.getInternalAppSettingsByEnv();
         // config with redis store
         // Config config = Configs.getConfigWithRedisStore(Domain.FeiShu, appSettings);
+        // Config config = Configs.getConfig("https://open.feishu.cn", appSettings);
         Config config = Configs.getConfig(Domain.FeiShu, appSettings);
         log.debug("config:{}", config);
         return config;
