@@ -7,6 +7,10 @@
     <artifactId>larksuite-oapi</artifactId>
     <version>1.0.0</version>
     <name>larksuite-oapi</name>
+    <description>Larksuite open platform facilitates the integration of enterprise applications and larksuite, making
+        collaboration and
+        management more efficient
+    </description>
     <url>https://github.com/larksuite/oapi-sdk-java</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -16,6 +20,7 @@
         <logback.version>1.2.3</logback.version>
         <slf4j.version>1.7.30</slf4j.version>
         <maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
+        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <maven-surefire-plugin.version>2.12.4</maven-surefire-plugin.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
@@ -33,12 +38,15 @@
     </developers>
     <licenses>
         <license>
-            <name>The Apache Software License, Version 2.0</name>
+            <name>The Apache License, Version 2.0</name>
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
         </license>
     </licenses>
-
+    <scm>
+        <connection>scm:git:git://github.com/larksuite/oapi-sdk-java.git</connection>
+        <developerConnection>scm:git:ssh://github.com:larksuite/oapi-sdk-java.git</developerConnection>
+        <url>http://github.com/larksuite/oapi-sdk-java/tree/main</url>
+    </scm>
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
@@ -172,6 +180,27 @@
                         <link>http://docs.oracle.com/javase/8/docs/api</link>
                     </links>
                 </configuration>
+            </plugin>
+            <!-- GPG -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>${maven-gpg-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                        <configuration>
+                            <gpgArguments>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
