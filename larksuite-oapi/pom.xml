@@ -7,10 +7,7 @@
     <artifactId>larksuite-oapi</artifactId>
     <version>1.0.0</version>
     <name>larksuite-oapi</name>
-    <description>Larksuite open platform facilitates the integration of enterprise applications and larksuite, making
-        collaboration and
-        management more efficient
-    </description>
+    <description>Larksuite open platform facilitates the integration of enterprise applications and larksuite, making collaboration and management more efficient</description>
     <url>https://github.com/larksuite/oapi-sdk-java</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
