@@ -49,7 +49,7 @@ public class UnmarshalRespSubHandler implements SubHandler {
             Object output = Jsons.DEFAULT_GSON.fromJson(body, req.getOutput().getClass());
             req.getResponse().setData((O) output);
         } else {
-            if (b.getData() == null) {
+            if (b.getData() == null || b.getData().size() == 0) {
                 return;
             }
             String data = Jsons.DEFAULT_GSON.toJson(b.getData());

@@ -23,546 +23,30 @@ public class ContactService {
 
     private final Config config;
     private final String basePath;
-    private final CustomAttrEvents customAttrEvents;
-    private final Departments departments;
-    private final DepartmentEvents departmentEvents;
     private final DepartmentUnits departmentUnits;
-    private final GroupEvents groupEvents;
-    private final Scopes scopes;
     private final Users users;
-    private final UserEvents userEvents;
     private final UserGroups userGroups;
     private final UserGroupMembers userGroupMembers;
+    private final Departments departments;
+    private final DepartmentEvents departmentEvents;
+    private final GroupEvents groupEvents;
+    private final UserEvents userEvents;
+    private final Scopes scopes;
+    private final CustomAttrEvents customAttrEvents;
 
     public ContactService(Config config) {
         this.config = config;
         this.basePath = serviceBasePath;
-        this.customAttrEvents = new CustomAttrEvents(this);
-        this.departments = new Departments(this);
-        this.departmentEvents = new DepartmentEvents(this);
         this.departmentUnits = new DepartmentUnits(this);
-        this.groupEvents = new GroupEvents(this);
-        this.scopes = new Scopes(this);
         this.users = new Users(this);
-        this.userEvents = new UserEvents(this);
         this.userGroups = new UserGroups(this);
         this.userGroupMembers = new UserGroupMembers(this);
-    }
-
-    public CustomAttrEvents getCustomAttrEvents() {
-        return customAttrEvents;
-    }
-
-    public static class CustomAttrEvents {
-
-        private final ContactService service;
-
-        public CustomAttrEvents(ContactService service) {
-            this.service = service;
-        }
-    
-    }
-
-    public Departments getDepartments() {
-        return departments;
-    }
-
-    public static class Departments {
-
-        private final ContactService service;
-
-        public Departments(ContactService service) {
-            this.service = service;
-        }
-    
-        public DepartmentUpdateDepartmentIdReqCall updateDepartmentId(DepartmentUpdateDepartmentIdReqBody body, RequestOptFn... optFns) {
-            return new DepartmentUpdateDepartmentIdReqCall(this, body, optFns);
-        }
-    
-        public DepartmentUpdateReqCall update(Department body, RequestOptFn... optFns) {
-            return new DepartmentUpdateReqCall(this, body, optFns);
-        }
-    
-        public DepartmentUnbindDepartmentChatReqCall unbindDepartmentChat(DepartmentUnbindDepartmentChatReqBody body, RequestOptFn... optFns) {
-            return new DepartmentUnbindDepartmentChatReqCall(this, body, optFns);
-        }
-    
-        public DepartmentSearchReqCall search(DepartmentSearchReqBody body, RequestOptFn... optFns) {
-            return new DepartmentSearchReqCall(this, body, optFns);
-        }
-    
-        public DepartmentPatchReqCall patch(Department body, RequestOptFn... optFns) {
-            return new DepartmentPatchReqCall(this, body, optFns);
-        }
-    
-        public DepartmentParentReqCall parent(RequestOptFn... optFns) {
-            return new DepartmentParentReqCall(this, optFns);
-        }
-    
-        public DepartmentListReqCall list(DepartmentListReqBody body, RequestOptFn... optFns) {
-            return new DepartmentListReqCall(this, body, optFns);
-        }
-    
-        public DepartmentGetReqCall get(RequestOptFn... optFns) {
-            return new DepartmentGetReqCall(this, optFns);
-        }
-    
-        public DepartmentDeleteReqCall delete(RequestOptFn... optFns) {
-            return new DepartmentDeleteReqCall(this, optFns);
-        }
-    
-        public DepartmentCreateReqCall create(Department body, RequestOptFn... optFns) {
-            return new DepartmentCreateReqCall(this, body, optFns);
-        }
-    
-    }
-    public static class DepartmentUpdateDepartmentIdReqCall extends ReqCaller<DepartmentUpdateDepartmentIdReqBody, EmptyData> {
-        private final Departments departments;
-        
-        private final DepartmentUpdateDepartmentIdReqBody body;
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private EmptyData result;
-        
-        private DepartmentUpdateDepartmentIdReqCall(Departments departments, DepartmentUpdateDepartmentIdReqBody body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.departments = departments;
-        }
-        
-        public DepartmentUpdateDepartmentIdReqCall setDepartmentId(String departmentId){
-            this.pathParams.put("department_id", departmentId);
-            return this;
-        }
-        
-        public DepartmentUpdateDepartmentIdReqCall setDepartmentIdType(String departmentIdType){
-            this.queryParams.put("department_id_type", departmentIdType);
-            return this;
-        }
-
-        @Override
-        public Response<EmptyData> execute() throws Exception {
-            String httpPath = this.departments.service.basePath + "/" + "departments/:department_id/update_department_id";
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<DepartmentUpdateDepartmentIdReqBody, EmptyData> request = Request.newRequest(httpPath, "PATCH",
-                    new AccessTokenType[]{AccessTokenType.Tenant},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.departments.service.config, request);
-        }
-    }
-    public static class DepartmentUpdateReqCall extends ReqCaller<Department, DepartmentUpdateResult> {
-        private final Departments departments;
-        
-        private final Department body;
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private DepartmentUpdateResult result;
-        
-        private DepartmentUpdateReqCall(Departments departments, Department body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new DepartmentUpdateResult();
-            this.departments = departments;
-        }
-        
-        public DepartmentUpdateReqCall setDepartmentId(String departmentId){
-            this.pathParams.put("department_id", departmentId);
-            return this;
-        }
-        
-        public DepartmentUpdateReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-        public DepartmentUpdateReqCall setDepartmentIdType(String departmentIdType){
-            this.queryParams.put("department_id_type", departmentIdType);
-            return this;
-        }
-
-        @Override
-        public Response<DepartmentUpdateResult> execute() throws Exception {
-            String httpPath = this.departments.service.basePath + "/" + "departments/:department_id";
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Department, DepartmentUpdateResult> request = Request.newRequest(httpPath, "PUT",
-                    new AccessTokenType[]{AccessTokenType.Tenant},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.departments.service.config, request);
-        }
-    }
-    public static class DepartmentUnbindDepartmentChatReqCall extends ReqCaller<DepartmentUnbindDepartmentChatReqBody, EmptyData> {
-        private final Departments departments;
-        
-        private final DepartmentUnbindDepartmentChatReqBody body;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private EmptyData result;
-        
-        private DepartmentUnbindDepartmentChatReqCall(Departments departments, DepartmentUnbindDepartmentChatReqBody body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.departments = departments;
-        }
-        
-        
-        public DepartmentUnbindDepartmentChatReqCall setDepartmentIdType(String departmentIdType){
-            this.queryParams.put("department_id_type", departmentIdType);
-            return this;
-        }
-
-        @Override
-        public Response<EmptyData> execute() throws Exception {
-            String httpPath = this.departments.service.basePath + "/" + "departments/unbind_department_chat";
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<DepartmentUnbindDepartmentChatReqBody, EmptyData> request = Request.newRequest(httpPath, "POST",
-                    new AccessTokenType[]{AccessTokenType.Tenant},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.departments.service.config, request);
-        }
-    }
-    public static class DepartmentSearchReqCall extends ReqCaller<DepartmentSearchReqBody, DepartmentSearchResult> {
-        private final Departments departments;
-        
-        private final DepartmentSearchReqBody body;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private DepartmentSearchResult result;
-        
-        private DepartmentSearchReqCall(Departments departments, DepartmentSearchReqBody body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new DepartmentSearchResult();
-            this.departments = departments;
-        }
-        
-        
-        public DepartmentSearchReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-        public DepartmentSearchReqCall setDepartmentIdType(String departmentIdType){
-            this.queryParams.put("department_id_type", departmentIdType);
-            return this;
-        }
-        public DepartmentSearchReqCall setPageToken(String pageToken){
-            this.queryParams.put("page_token", pageToken);
-            return this;
-        }
-        public DepartmentSearchReqCall setPageSize(Integer pageSize){
-            this.queryParams.put("page_size", pageSize);
-            return this;
-        }
-
-        @Override
-        public Response<DepartmentSearchResult> execute() throws Exception {
-            String httpPath = this.departments.service.basePath + "/" + "departments/search";
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<DepartmentSearchReqBody, DepartmentSearchResult> request = Request.newRequest(httpPath, "POST",
-                    new AccessTokenType[]{AccessTokenType.User},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.departments.service.config, request);
-        }
-    }
-    public static class DepartmentPatchReqCall extends ReqCaller<Department, DepartmentPatchResult> {
-        private final Departments departments;
-        
-        private final Department body;
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private DepartmentPatchResult result;
-        
-        private DepartmentPatchReqCall(Departments departments, Department body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new DepartmentPatchResult();
-            this.departments = departments;
-        }
-        
-        public DepartmentPatchReqCall setDepartmentId(String departmentId){
-            this.pathParams.put("department_id", departmentId);
-            return this;
-        }
-        
-        public DepartmentPatchReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-        public DepartmentPatchReqCall setDepartmentIdType(String departmentIdType){
-            this.queryParams.put("department_id_type", departmentIdType);
-            return this;
-        }
-
-        @Override
-        public Response<DepartmentPatchResult> execute() throws Exception {
-            String httpPath = this.departments.service.basePath + "/" + "departments/:department_id";
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Department, DepartmentPatchResult> request = Request.newRequest(httpPath, "PATCH",
-                    new AccessTokenType[]{AccessTokenType.Tenant},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.departments.service.config, request);
-        }
-    }
-    public static class DepartmentParentReqCall extends ReqCaller<Object, DepartmentParentResult> {
-        private final Departments departments;
-        
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private DepartmentParentResult result;
-        
-        private DepartmentParentReqCall(Departments departments, RequestOptFn... optFns) {
-        
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new DepartmentParentResult();
-            this.departments = departments;
-        }
-        
-        
-        public DepartmentParentReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-        public DepartmentParentReqCall setDepartmentIdType(String departmentIdType){
-            this.queryParams.put("department_id_type", departmentIdType);
-            return this;
-        }
-        public DepartmentParentReqCall setDepartmentId(String departmentId){
-            this.queryParams.put("department_id", departmentId);
-            return this;
-        }
-        public DepartmentParentReqCall setPageToken(String pageToken){
-            this.queryParams.put("page_token", pageToken);
-            return this;
-        }
-        public DepartmentParentReqCall setPageSize(Integer pageSize){
-            this.queryParams.put("page_size", pageSize);
-            return this;
-        }
-
-        @Override
-        public Response<DepartmentParentResult> execute() throws Exception {
-            String httpPath = this.departments.service.basePath + "/" + "departments/parent";
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, DepartmentParentResult> request = Request.newRequest(httpPath, "GET",
-                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.departments.service.config, request);
-        }
-    }
-    public static class DepartmentListReqCall extends ReqCaller<DepartmentListReqBody, DepartmentListResult> {
-        private final Departments departments;
-        
-        private final DepartmentListReqBody body;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private DepartmentListResult result;
-        
-        private DepartmentListReqCall(Departments departments, DepartmentListReqBody body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new DepartmentListResult();
-            this.departments = departments;
-        }
-        
-        
-        public DepartmentListReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-        public DepartmentListReqCall setDepartmentIdType(String departmentIdType){
-            this.queryParams.put("department_id_type", departmentIdType);
-            return this;
-        }
-        public DepartmentListReqCall setParentDepartmentId(String parentDepartmentId){
-            this.queryParams.put("parent_department_id", parentDepartmentId);
-            return this;
-        }
-        public DepartmentListReqCall setPageToken(String pageToken){
-            this.queryParams.put("page_token", pageToken);
-            return this;
-        }
-        public DepartmentListReqCall setPageSize(Integer pageSize){
-            this.queryParams.put("page_size", pageSize);
-            return this;
-        }
-
-        @Override
-        public Response<DepartmentListResult> execute() throws Exception {
-            String httpPath = this.departments.service.basePath + "/" + "departments";
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<DepartmentListReqBody, DepartmentListResult> request = Request.newRequest(httpPath, "GET",
-                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.departments.service.config, request);
-        }
-    }
-    public static class DepartmentGetReqCall extends ReqCaller<Object, DepartmentGetResult> {
-        private final Departments departments;
-        
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private DepartmentGetResult result;
-        
-        private DepartmentGetReqCall(Departments departments, RequestOptFn... optFns) {
-        
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new DepartmentGetResult();
-            this.departments = departments;
-        }
-        
-        public DepartmentGetReqCall setDepartmentId(String departmentId){
-            this.pathParams.put("department_id", departmentId);
-            return this;
-        }
-        
-        public DepartmentGetReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-        public DepartmentGetReqCall setDepartmentIdType(String departmentIdType){
-            this.queryParams.put("department_id_type", departmentIdType);
-            return this;
-        }
-
-        @Override
-        public Response<DepartmentGetResult> execute() throws Exception {
-            String httpPath = this.departments.service.basePath + "/" + "departments/:department_id";
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, DepartmentGetResult> request = Request.newRequest(httpPath, "GET",
-                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.departments.service.config, request);
-        }
-    }
-    public static class DepartmentDeleteReqCall extends ReqCaller<Object, EmptyData> {
-        private final Departments departments;
-        
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private EmptyData result;
-        
-        private DepartmentDeleteReqCall(Departments departments, RequestOptFn... optFns) {
-        
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.departments = departments;
-        }
-        
-        public DepartmentDeleteReqCall setDepartmentId(String departmentId){
-            this.pathParams.put("department_id", departmentId);
-            return this;
-        }
-        
-        public DepartmentDeleteReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-        public DepartmentDeleteReqCall setDepartmentIdType(String departmentIdType){
-            this.queryParams.put("department_id_type", departmentIdType);
-            return this;
-        }
-
-        @Override
-        public Response<EmptyData> execute() throws Exception {
-            String httpPath = this.departments.service.basePath + "/" + "departments/:department_id";
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, EmptyData> request = Request.newRequest(httpPath, "DELETE",
-                    new AccessTokenType[]{AccessTokenType.Tenant},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.departments.service.config, request);
-        }
-    }
-    public static class DepartmentCreateReqCall extends ReqCaller<Department, DepartmentCreateResult> {
-        private final Departments departments;
-        
-        private final Department body;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private DepartmentCreateResult result;
-        
-        private DepartmentCreateReqCall(Departments departments, Department body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new DepartmentCreateResult();
-            this.departments = departments;
-        }
-        
-        
-        public DepartmentCreateReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-        public DepartmentCreateReqCall setDepartmentIdType(String departmentIdType){
-            this.queryParams.put("department_id_type", departmentIdType);
-            return this;
-        }
-        public DepartmentCreateReqCall setClientToken(String clientToken){
-            this.queryParams.put("client_token", clientToken);
-            return this;
-        }
-
-        @Override
-        public Response<DepartmentCreateResult> execute() throws Exception {
-            String httpPath = this.departments.service.basePath + "/" + "departments";
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Department, DepartmentCreateResult> request = Request.newRequest(httpPath, "POST",
-                    new AccessTokenType[]{AccessTokenType.Tenant},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.departments.service.config, request);
-        }
-    }
-
-    public DepartmentEvents getDepartmentEvents() {
-        return departmentEvents;
-    }
-
-    public static class DepartmentEvents {
-
-        private final ContactService service;
-
-        public DepartmentEvents(ContactService service) {
-            this.service = service;
-        }
-    
+        this.departments = new Departments(this);
+        this.departmentEvents = new DepartmentEvents(this);
+        this.groupEvents = new GroupEvents(this);
+        this.userEvents = new UserEvents(this);
+        this.scopes = new Scopes(this);
+        this.customAttrEvents = new CustomAttrEvents(this);
     }
 
     public DepartmentUnits getDepartmentUnits() {
@@ -635,6 +119,7 @@ public class ContactService {
             this.pathParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
             this.departmentUnits = departmentUnits;
         }
         
@@ -678,34 +163,6 @@ public class ContactService {
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.departmentUnits.service.config, request);
         }
-    }
-
-    public GroupEvents getGroupEvents() {
-        return groupEvents;
-    }
-
-    public static class GroupEvents {
-
-        private final ContactService service;
-
-        public GroupEvents(ContactService service) {
-            this.service = service;
-        }
-    
-    }
-
-    public Scopes getScopes() {
-        return scopes;
-    }
-
-    public static class Scopes {
-
-        private final ContactService service;
-
-        public Scopes(ContactService service) {
-            this.service = service;
-        }
-    
     }
 
     public Users getUsers() {
@@ -765,6 +222,7 @@ public class ContactService {
             this.queryParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
             this.users = users;
         }
         
@@ -986,6 +444,7 @@ public class ContactService {
             this.queryParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
             this.users = users;
         }
         
@@ -1057,20 +516,6 @@ public class ContactService {
         }
     }
 
-    public UserEvents getUserEvents() {
-        return userEvents;
-    }
-
-    public static class UserEvents {
-
-        private final ContactService service;
-
-        public UserEvents(ContactService service) {
-            this.service = service;
-        }
-    
-    }
-
     public UserGroups getUserGroups() {
         return userGroups;
     }
@@ -1122,6 +567,7 @@ public class ContactService {
             this.pathParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
             this.userGroups = userGroups;
         }
         
@@ -1252,6 +698,7 @@ public class ContactService {
             this.pathParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
             this.userGroups = userGroups;
         }
         
@@ -1387,6 +834,7 @@ public class ContactService {
             this.queryParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
             this.userGroupMembers = userGroupMembers;
         }
         
@@ -1431,6 +879,7 @@ public class ContactService {
             this.queryParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
             this.userGroupMembers = userGroupMembers;
         }
         
@@ -1455,6 +904,569 @@ public class ContactService {
             return Api.send(this.userGroupMembers.service.config, request);
         }
     }
+
+    public Departments getDepartments() {
+        return departments;
+    }
+
+    public static class Departments {
+
+        private final ContactService service;
+
+        public Departments(ContactService service) {
+            this.service = service;
+        }
+    
+        public DepartmentUpdateDepartmentIdReqCall updateDepartmentId(DepartmentUpdateDepartmentIdReqBody body, RequestOptFn... optFns) {
+            return new DepartmentUpdateDepartmentIdReqCall(this, body, optFns);
+        }
+    
+        public DepartmentUpdateReqCall update(Department body, RequestOptFn... optFns) {
+            return new DepartmentUpdateReqCall(this, body, optFns);
+        }
+    
+        public DepartmentUnbindDepartmentChatReqCall unbindDepartmentChat(DepartmentUnbindDepartmentChatReqBody body, RequestOptFn... optFns) {
+            return new DepartmentUnbindDepartmentChatReqCall(this, body, optFns);
+        }
+    
+        public DepartmentSearchReqCall search(DepartmentSearchReqBody body, RequestOptFn... optFns) {
+            return new DepartmentSearchReqCall(this, body, optFns);
+        }
+    
+        public DepartmentPatchReqCall patch(Department body, RequestOptFn... optFns) {
+            return new DepartmentPatchReqCall(this, body, optFns);
+        }
+    
+        public DepartmentParentReqCall parent(RequestOptFn... optFns) {
+            return new DepartmentParentReqCall(this, optFns);
+        }
+    
+        public DepartmentListReqCall list(RequestOptFn... optFns) {
+            return new DepartmentListReqCall(this, optFns);
+        }
+    
+        public DepartmentGetReqCall get(RequestOptFn... optFns) {
+            return new DepartmentGetReqCall(this, optFns);
+        }
+    
+        public DepartmentDeleteReqCall delete(RequestOptFn... optFns) {
+            return new DepartmentDeleteReqCall(this, optFns);
+        }
+    
+        public DepartmentCreateReqCall create(Department body, RequestOptFn... optFns) {
+            return new DepartmentCreateReqCall(this, body, optFns);
+        }
+    
+    }
+    public static class DepartmentUpdateDepartmentIdReqCall extends ReqCaller<DepartmentUpdateDepartmentIdReqBody, EmptyData> {
+        private final Departments departments;
+        
+        private final DepartmentUpdateDepartmentIdReqBody body;
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private DepartmentUpdateDepartmentIdReqCall(Departments departments, DepartmentUpdateDepartmentIdReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.departments = departments;
+        }
+        
+        public DepartmentUpdateDepartmentIdReqCall setDepartmentId(String departmentId){
+            this.pathParams.put("department_id", departmentId);
+            return this;
+        }
+        
+        public DepartmentUpdateDepartmentIdReqCall setDepartmentIdType(String departmentIdType){
+            this.queryParams.put("department_id_type", departmentIdType);
+            return this;
+        }
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            String httpPath = this.departments.service.basePath + "/" + "departments/:department_id/update_department_id";
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            this.optFns.add(Request.setQueryParams(this.queryParams));
+            Request<DepartmentUpdateDepartmentIdReqBody, EmptyData> request = Request.newRequest(httpPath, "PATCH",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.departments.service.config, request);
+        }
+    }
+    public static class DepartmentUpdateReqCall extends ReqCaller<Department, DepartmentUpdateResult> {
+        private final Departments departments;
+        
+        private final Department body;
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private DepartmentUpdateResult result;
+        
+        private DepartmentUpdateReqCall(Departments departments, Department body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new DepartmentUpdateResult();
+            this.departments = departments;
+        }
+        
+        public DepartmentUpdateReqCall setDepartmentId(String departmentId){
+            this.pathParams.put("department_id", departmentId);
+            return this;
+        }
+        
+        public DepartmentUpdateReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+        public DepartmentUpdateReqCall setDepartmentIdType(String departmentIdType){
+            this.queryParams.put("department_id_type", departmentIdType);
+            return this;
+        }
+
+        @Override
+        public Response<DepartmentUpdateResult> execute() throws Exception {
+            String httpPath = this.departments.service.basePath + "/" + "departments/:department_id";
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            this.optFns.add(Request.setQueryParams(this.queryParams));
+            Request<Department, DepartmentUpdateResult> request = Request.newRequest(httpPath, "PUT",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.departments.service.config, request);
+        }
+    }
+    public static class DepartmentUnbindDepartmentChatReqCall extends ReqCaller<DepartmentUnbindDepartmentChatReqBody, EmptyData> {
+        private final Departments departments;
+        
+        private final DepartmentUnbindDepartmentChatReqBody body;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private DepartmentUnbindDepartmentChatReqCall(Departments departments, DepartmentUnbindDepartmentChatReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.departments = departments;
+        }
+        
+        
+        public DepartmentUnbindDepartmentChatReqCall setDepartmentIdType(String departmentIdType){
+            this.queryParams.put("department_id_type", departmentIdType);
+            return this;
+        }
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            String httpPath = this.departments.service.basePath + "/" + "departments/unbind_department_chat";
+            this.optFns.add(Request.setQueryParams(this.queryParams));
+            Request<DepartmentUnbindDepartmentChatReqBody, EmptyData> request = Request.newRequest(httpPath, "POST",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.departments.service.config, request);
+        }
+    }
+    public static class DepartmentSearchReqCall extends ReqCaller<DepartmentSearchReqBody, DepartmentSearchResult> {
+        private final Departments departments;
+        
+        private final DepartmentSearchReqBody body;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private DepartmentSearchResult result;
+        
+        private DepartmentSearchReqCall(Departments departments, DepartmentSearchReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new DepartmentSearchResult();
+            this.departments = departments;
+        }
+        
+        
+        public DepartmentSearchReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+        public DepartmentSearchReqCall setDepartmentIdType(String departmentIdType){
+            this.queryParams.put("department_id_type", departmentIdType);
+            return this;
+        }
+        public DepartmentSearchReqCall setPageToken(String pageToken){
+            this.queryParams.put("page_token", pageToken);
+            return this;
+        }
+        public DepartmentSearchReqCall setPageSize(Integer pageSize){
+            this.queryParams.put("page_size", pageSize);
+            return this;
+        }
+
+        @Override
+        public Response<DepartmentSearchResult> execute() throws Exception {
+            String httpPath = this.departments.service.basePath + "/" + "departments/search";
+            this.optFns.add(Request.setQueryParams(this.queryParams));
+            Request<DepartmentSearchReqBody, DepartmentSearchResult> request = Request.newRequest(httpPath, "POST",
+                    new AccessTokenType[]{AccessTokenType.User},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.departments.service.config, request);
+        }
+    }
+    public static class DepartmentPatchReqCall extends ReqCaller<Department, DepartmentPatchResult> {
+        private final Departments departments;
+        
+        private final Department body;
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private DepartmentPatchResult result;
+        
+        private DepartmentPatchReqCall(Departments departments, Department body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new DepartmentPatchResult();
+            this.departments = departments;
+        }
+        
+        public DepartmentPatchReqCall setDepartmentId(String departmentId){
+            this.pathParams.put("department_id", departmentId);
+            return this;
+        }
+        
+        public DepartmentPatchReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+        public DepartmentPatchReqCall setDepartmentIdType(String departmentIdType){
+            this.queryParams.put("department_id_type", departmentIdType);
+            return this;
+        }
+
+        @Override
+        public Response<DepartmentPatchResult> execute() throws Exception {
+            String httpPath = this.departments.service.basePath + "/" + "departments/:department_id";
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            this.optFns.add(Request.setQueryParams(this.queryParams));
+            Request<Department, DepartmentPatchResult> request = Request.newRequest(httpPath, "PATCH",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.departments.service.config, request);
+        }
+    }
+    public static class DepartmentParentReqCall extends ReqCaller<Object, DepartmentParentResult> {
+        private final Departments departments;
+        
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private DepartmentParentResult result;
+        
+        private DepartmentParentReqCall(Departments departments, RequestOptFn... optFns) {
+        
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new DepartmentParentResult();
+            this.departments = departments;
+        }
+        
+        
+        public DepartmentParentReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+        public DepartmentParentReqCall setDepartmentIdType(String departmentIdType){
+            this.queryParams.put("department_id_type", departmentIdType);
+            return this;
+        }
+        public DepartmentParentReqCall setDepartmentId(String departmentId){
+            this.queryParams.put("department_id", departmentId);
+            return this;
+        }
+        public DepartmentParentReqCall setPageToken(String pageToken){
+            this.queryParams.put("page_token", pageToken);
+            return this;
+        }
+        public DepartmentParentReqCall setPageSize(Integer pageSize){
+            this.queryParams.put("page_size", pageSize);
+            return this;
+        }
+
+        @Override
+        public Response<DepartmentParentResult> execute() throws Exception {
+            String httpPath = this.departments.service.basePath + "/" + "departments/parent";
+            this.optFns.add(Request.setQueryParams(this.queryParams));
+            Request<Object, DepartmentParentResult> request = Request.newRequest(httpPath, "GET",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.departments.service.config, request);
+        }
+    }
+    public static class DepartmentListReqCall extends ReqCaller<Object, DepartmentListResult> {
+        private final Departments departments;
+        
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private DepartmentListResult result;
+        
+        private DepartmentListReqCall(Departments departments, RequestOptFn... optFns) {
+        
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new DepartmentListResult();
+            this.departments = departments;
+        }
+        
+        
+        public DepartmentListReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+        public DepartmentListReqCall setDepartmentIdType(String departmentIdType){
+            this.queryParams.put("department_id_type", departmentIdType);
+            return this;
+        }
+        public DepartmentListReqCall setParentDepartmentId(String parentDepartmentId){
+            this.queryParams.put("parent_department_id", parentDepartmentId);
+            return this;
+        }
+        public DepartmentListReqCall setFetchChild(Boolean fetchChild){
+            this.queryParams.put("fetch_child", fetchChild);
+            return this;
+        }
+        public DepartmentListReqCall setPageToken(String pageToken){
+            this.queryParams.put("page_token", pageToken);
+            return this;
+        }
+        public DepartmentListReqCall setPageSize(Integer pageSize){
+            this.queryParams.put("page_size", pageSize);
+            return this;
+        }
+
+        @Override
+        public Response<DepartmentListResult> execute() throws Exception {
+            String httpPath = this.departments.service.basePath + "/" + "departments";
+            this.optFns.add(Request.setQueryParams(this.queryParams));
+            Request<Object, DepartmentListResult> request = Request.newRequest(httpPath, "GET",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.departments.service.config, request);
+        }
+    }
+    public static class DepartmentGetReqCall extends ReqCaller<Object, DepartmentGetResult> {
+        private final Departments departments;
+        
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private DepartmentGetResult result;
+        
+        private DepartmentGetReqCall(Departments departments, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new DepartmentGetResult();
+            this.departments = departments;
+        }
+        
+        public DepartmentGetReqCall setDepartmentId(String departmentId){
+            this.pathParams.put("department_id", departmentId);
+            return this;
+        }
+        
+        public DepartmentGetReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+        public DepartmentGetReqCall setDepartmentIdType(String departmentIdType){
+            this.queryParams.put("department_id_type", departmentIdType);
+            return this;
+        }
+
+        @Override
+        public Response<DepartmentGetResult> execute() throws Exception {
+            String httpPath = this.departments.service.basePath + "/" + "departments/:department_id";
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            this.optFns.add(Request.setQueryParams(this.queryParams));
+            Request<Object, DepartmentGetResult> request = Request.newRequest(httpPath, "GET",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.departments.service.config, request);
+        }
+    }
+    public static class DepartmentDeleteReqCall extends ReqCaller<Object, EmptyData> {
+        private final Departments departments;
+        
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private DepartmentDeleteReqCall(Departments departments, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.departments = departments;
+        }
+        
+        public DepartmentDeleteReqCall setDepartmentId(String departmentId){
+            this.pathParams.put("department_id", departmentId);
+            return this;
+        }
+        
+        public DepartmentDeleteReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+        public DepartmentDeleteReqCall setDepartmentIdType(String departmentIdType){
+            this.queryParams.put("department_id_type", departmentIdType);
+            return this;
+        }
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            String httpPath = this.departments.service.basePath + "/" + "departments/:department_id";
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            this.optFns.add(Request.setQueryParams(this.queryParams));
+            Request<Object, EmptyData> request = Request.newRequest(httpPath, "DELETE",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.departments.service.config, request);
+        }
+    }
+    public static class DepartmentCreateReqCall extends ReqCaller<Department, DepartmentCreateResult> {
+        private final Departments departments;
+        
+        private final Department body;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private DepartmentCreateResult result;
+        
+        private DepartmentCreateReqCall(Departments departments, Department body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new DepartmentCreateResult();
+            this.departments = departments;
+        }
+        
+        
+        public DepartmentCreateReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+        public DepartmentCreateReqCall setDepartmentIdType(String departmentIdType){
+            this.queryParams.put("department_id_type", departmentIdType);
+            return this;
+        }
+        public DepartmentCreateReqCall setClientToken(String clientToken){
+            this.queryParams.put("client_token", clientToken);
+            return this;
+        }
+
+        @Override
+        public Response<DepartmentCreateResult> execute() throws Exception {
+            String httpPath = this.departments.service.basePath + "/" + "departments";
+            this.optFns.add(Request.setQueryParams(this.queryParams));
+            Request<Department, DepartmentCreateResult> request = Request.newRequest(httpPath, "POST",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.departments.service.config, request);
+        }
+    }
+
+    public DepartmentEvents getDepartmentEvents() {
+        return departmentEvents;
+    }
+
+    public static class DepartmentEvents {
+
+        private final ContactService service;
+
+        public DepartmentEvents(ContactService service) {
+            this.service = service;
+        }
+    
+    }
+
+    public GroupEvents getGroupEvents() {
+        return groupEvents;
+    }
+
+    public static class GroupEvents {
+
+        private final ContactService service;
+
+        public GroupEvents(ContactService service) {
+            this.service = service;
+        }
+    
+    }
+
+    public UserEvents getUserEvents() {
+        return userEvents;
+    }
+
+    public static class UserEvents {
+
+        private final ContactService service;
+
+        public UserEvents(ContactService service) {
+            this.service = service;
+        }
+    
+    }
+
+    public Scopes getScopes() {
+        return scopes;
+    }
+
+    public static class Scopes {
+
+        private final ContactService service;
+
+        public Scopes(ContactService service) {
+            this.service = service;
+        }
+    
+    }
+
+    public CustomAttrEvents getCustomAttrEvents() {
+        return customAttrEvents;
+    }
+
+    public static class CustomAttrEvents {
+
+        private final ContactService service;
+
+        public CustomAttrEvents(ContactService service) {
+            this.service = service;
+        }
+    
+    }
     public void setDepartmentCreatedEventHandler(DepartmentCreatedEventHandler handler) {
         Event.setTypeHandler(this.config, "contact.department.created_v3", handler);
     }
@@ -1463,26 +1475,6 @@ public class ContactService {
         @Override
         public DepartmentCreatedEvent getEvent() {
             return new DepartmentCreatedEvent();
-        }
-    }
-    public void setUserGroupCreatedEventHandler(UserGroupCreatedEventHandler handler) {
-        Event.setTypeHandler(this.config, "contact.user_group.created_v3", handler);
-    }
-
-    public abstract static class UserGroupCreatedEventHandler implements IHandler<UserGroupCreatedEvent> {
-        @Override
-        public UserGroupCreatedEvent getEvent() {
-            return new UserGroupCreatedEvent();
-        }
-    }
-    public void setUserCreatedEventHandler(UserCreatedEventHandler handler) {
-        Event.setTypeHandler(this.config, "contact.user.created_v3", handler);
-    }
-
-    public abstract static class UserCreatedEventHandler implements IHandler<UserCreatedEvent> {
-        @Override
-        public UserCreatedEvent getEvent() {
-            return new UserCreatedEvent();
         }
     }
     public void setDepartmentDeletedEventHandler(DepartmentDeletedEventHandler handler) {
@@ -1495,14 +1487,24 @@ public class ContactService {
             return new DepartmentDeletedEvent();
         }
     }
-    public void setUserGroupDeletedEventHandler(UserGroupDeletedEventHandler handler) {
-        Event.setTypeHandler(this.config, "contact.user_group.deleted_v3", handler);
+    public void setDepartmentUpdatedEventHandler(DepartmentUpdatedEventHandler handler) {
+        Event.setTypeHandler(this.config, "contact.department.updated_v3", handler);
     }
 
-    public abstract static class UserGroupDeletedEventHandler implements IHandler<UserGroupDeletedEvent> {
+    public abstract static class DepartmentUpdatedEventHandler implements IHandler<DepartmentUpdatedEvent> {
         @Override
-        public UserGroupDeletedEvent getEvent() {
-            return new UserGroupDeletedEvent();
+        public DepartmentUpdatedEvent getEvent() {
+            return new DepartmentUpdatedEvent();
+        }
+    }
+    public void setUserCreatedEventHandler(UserCreatedEventHandler handler) {
+        Event.setTypeHandler(this.config, "contact.user.created_v3", handler);
+    }
+
+    public abstract static class UserCreatedEventHandler implements IHandler<UserCreatedEvent> {
+        @Override
+        public UserCreatedEvent getEvent() {
+            return new UserCreatedEvent();
         }
     }
     public void setUserDeletedEventHandler(UserDeletedEventHandler handler) {
@@ -1515,36 +1517,6 @@ public class ContactService {
             return new UserDeletedEvent();
         }
     }
-    public void setUserGroupMemberChangedEventHandler(UserGroupMemberChangedEventHandler handler) {
-        Event.setTypeHandler(this.config, "contact.user_group.member.changed_v3", handler);
-    }
-
-    public abstract static class UserGroupMemberChangedEventHandler implements IHandler<UserGroupMemberChangedEvent> {
-        @Override
-        public UserGroupMemberChangedEvent getEvent() {
-            return new UserGroupMemberChangedEvent();
-        }
-    }
-    public void setDepartmentUpdatedEventHandler(DepartmentUpdatedEventHandler handler) {
-        Event.setTypeHandler(this.config, "contact.department.updated_v3", handler);
-    }
-
-    public abstract static class DepartmentUpdatedEventHandler implements IHandler<DepartmentUpdatedEvent> {
-        @Override
-        public DepartmentUpdatedEvent getEvent() {
-            return new DepartmentUpdatedEvent();
-        }
-    }
-    public void setCustomAttrEventUpdatedEventHandler(CustomAttrEventUpdatedEventHandler handler) {
-        Event.setTypeHandler(this.config, "contact.custom_attr_event.updated_v3", handler);
-    }
-
-    public abstract static class CustomAttrEventUpdatedEventHandler implements IHandler<CustomAttrEventUpdatedEvent> {
-        @Override
-        public CustomAttrEventUpdatedEvent getEvent() {
-            return new CustomAttrEventUpdatedEvent();
-        }
-    }
     public void setUserUpdatedEventHandler(UserUpdatedEventHandler handler) {
         Event.setTypeHandler(this.config, "contact.user.updated_v3", handler);
     }
@@ -1553,6 +1525,36 @@ public class ContactService {
         @Override
         public UserUpdatedEvent getEvent() {
             return new UserUpdatedEvent();
+        }
+    }
+    public void setUserGroupCreatedEventHandler(UserGroupCreatedEventHandler handler) {
+        Event.setTypeHandler(this.config, "contact.user_group.created_v3", handler);
+    }
+
+    public abstract static class UserGroupCreatedEventHandler implements IHandler<UserGroupCreatedEvent> {
+        @Override
+        public UserGroupCreatedEvent getEvent() {
+            return new UserGroupCreatedEvent();
+        }
+    }
+    public void setUserGroupDeletedEventHandler(UserGroupDeletedEventHandler handler) {
+        Event.setTypeHandler(this.config, "contact.user_group.deleted_v3", handler);
+    }
+
+    public abstract static class UserGroupDeletedEventHandler implements IHandler<UserGroupDeletedEvent> {
+        @Override
+        public UserGroupDeletedEvent getEvent() {
+            return new UserGroupDeletedEvent();
+        }
+    }
+    public void setUserGroupUpdatedEventHandler(UserGroupUpdatedEventHandler handler) {
+        Event.setTypeHandler(this.config, "contact.user_group.updated_v3", handler);
+    }
+
+    public abstract static class UserGroupUpdatedEventHandler implements IHandler<UserGroupUpdatedEvent> {
+        @Override
+        public UserGroupUpdatedEvent getEvent() {
+            return new UserGroupUpdatedEvent();
         }
     }
     public void setScopeUpdatedEventHandler(ScopeUpdatedEventHandler handler) {
@@ -1565,14 +1567,24 @@ public class ContactService {
             return new ScopeUpdatedEvent();
         }
     }
-    public void setUserGroupUpdatedEventHandler(UserGroupUpdatedEventHandler handler) {
-        Event.setTypeHandler(this.config, "contact.user_group.updated_v3", handler);
+    public void setUserGroupMemberChangedEventHandler(UserGroupMemberChangedEventHandler handler) {
+        Event.setTypeHandler(this.config, "contact.user_group.member.changed_v3", handler);
     }
 
-    public abstract static class UserGroupUpdatedEventHandler implements IHandler<UserGroupUpdatedEvent> {
+    public abstract static class UserGroupMemberChangedEventHandler implements IHandler<UserGroupMemberChangedEvent> {
         @Override
-        public UserGroupUpdatedEvent getEvent() {
-            return new UserGroupUpdatedEvent();
+        public UserGroupMemberChangedEvent getEvent() {
+            return new UserGroupMemberChangedEvent();
+        }
+    }
+    public void setCustomAttrEventUpdatedEventHandler(CustomAttrEventUpdatedEventHandler handler) {
+        Event.setTypeHandler(this.config, "contact.custom_attr_event.updated_v3", handler);
+    }
+
+    public abstract static class CustomAttrEventUpdatedEventHandler implements IHandler<CustomAttrEventUpdatedEvent> {
+        @Override
+        public CustomAttrEventUpdatedEvent getEvent() {
+            return new CustomAttrEventUpdatedEvent();
         }
     }
 

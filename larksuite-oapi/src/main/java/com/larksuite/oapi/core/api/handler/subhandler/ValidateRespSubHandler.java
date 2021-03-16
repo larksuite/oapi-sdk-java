@@ -26,7 +26,7 @@ public class ValidateRespSubHandler implements SubHandler {
         if (Strings.isEmpty(contentType) || !contentType.contains(Constants.APPLICATION_JSON)) {
             ResponseBody responseBody = req.getHttpResponse().body();
             String body = responseBody == null ? "" : responseBody.string();
-            throw new ResponseInvalidException("status code:" + req.getHttpResponse().code() + ", content-type:"
+            throw new ResponseInvalidException("request id:" + ctx.getRequestID() + ", status code:" + req.getHttpResponse().code() + ", content-type:"
                     + contentType + ", not is:" + Constants.APPLICATION_JSON
                     + ", if is stream, please `Request.SetResponseStream()`, body:" + body);
         }

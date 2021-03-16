@@ -106,6 +106,7 @@ public class CalendarService {
             this.pathParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
             this.calendars = calendars;
         }
         
@@ -134,6 +135,7 @@ public class CalendarService {
         
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
             this.calendars = calendars;
         }
         
@@ -332,6 +334,7 @@ public class CalendarService {
             this.pathParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
             this.calendars = calendars;
         }
         
@@ -418,6 +421,7 @@ public class CalendarService {
             this.pathParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
             this.calendarAcls = calendarAcls;
         }
         
@@ -495,6 +499,7 @@ public class CalendarService {
             this.pathParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
             this.calendarAcls = calendarAcls;
         }
         
@@ -612,6 +617,7 @@ public class CalendarService {
             this.pathParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
             this.calendarEvents = calendarEvents;
         }
         
@@ -810,6 +816,7 @@ public class CalendarService {
             this.pathParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
             this.calendarEvents = calendarEvents;
         }
         
@@ -1001,6 +1008,7 @@ public class CalendarService {
             this.pathParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
             this.calendarEventAttendees = calendarEventAttendees;
         }
         
@@ -1109,6 +1117,7 @@ public class CalendarService {
             this.pathParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
             this.timeoffEvents = timeoffEvents;
         }
         
@@ -1274,16 +1283,6 @@ public class CalendarService {
             return Api.send(this.calendarEventAttendeeChatMembers.service.config, request);
         }
     }
-    public void setCalendarEventChangedEventHandler(CalendarEventChangedEventHandler handler) {
-        Event.setTypeHandler(this.config, "calendar.calendar.event.changed_v4", handler);
-    }
-
-    public abstract static class CalendarEventChangedEventHandler implements IHandler<CalendarEventChangedEvent> {
-        @Override
-        public CalendarEventChangedEvent getEvent() {
-            return new CalendarEventChangedEvent();
-        }
-    }
     public void setCalendarChangedEventHandler(CalendarChangedEventHandler handler) {
         Event.setTypeHandler(this.config, "calendar.calendar.changed_v4", handler);
     }
@@ -1292,6 +1291,16 @@ public class CalendarService {
         @Override
         public CalendarChangedEvent getEvent() {
             return new CalendarChangedEvent();
+        }
+    }
+    public void setCalendarEventChangedEventHandler(CalendarEventChangedEventHandler handler) {
+        Event.setTypeHandler(this.config, "calendar.calendar.event.changed_v4", handler);
+    }
+
+    public abstract static class CalendarEventChangedEventHandler implements IHandler<CalendarEventChangedEvent> {
+        @Override
+        public CalendarEventChangedEvent getEvent() {
+            return new CalendarEventChangedEvent();
         }
     }
     public void setCalendarAclCreatedEventHandler(CalendarAclCreatedEventHandler handler) {

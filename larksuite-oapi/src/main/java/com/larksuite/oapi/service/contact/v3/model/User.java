@@ -57,6 +57,8 @@ public class User {
     private String idpType;
     @SerializedName("time_zone")
     private String timeZone;
+    @SerializedName("description")
+    private String description;
 
     public String getUnionId() {
         return this.unionId;
@@ -272,6 +274,14 @@ public class User {
 
     public void setTimeZone(String timeZone) {
         this.timeZone = timeZone;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
 }

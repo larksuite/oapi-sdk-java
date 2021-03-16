@@ -11,6 +11,6 @@ public interface Constants {
     String HTTP_KEY_STATUS_CODE = "http_status_code";
     String URL_VERIFICATION = "url_verification";
 
-    String VERSION = "1.0.0";
+    String VERSION = "1.0.2";
 
 }
