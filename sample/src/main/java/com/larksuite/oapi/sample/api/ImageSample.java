@@ -24,8 +24,8 @@ public class ImageSample {
     private static final Config config = Configs.getConfig(Domain.FeiShu, appSettings);
 
     public static void main(String[] args) throws Exception {
-        testPut();
-        //testGet();
+        //testPut();
+        testGet();
     }
 
     private static void testPut() throws Exception {
@@ -43,7 +43,7 @@ public class ImageSample {
         ImageService service = new ImageService(config);
         try (FileOutputStream output = new FileOutputStream("test_download_img_1.png")) {
             ImageService.ImageGetReqCall reqCall = service.getImages().get();
-            reqCall.setImageKey("image key");
+            reqCall.setImageKey("img_ae87dceb-2327-4f2b-a011-4d6074b45cfg");
             reqCall.setResponseStream(output);
             Response response = reqCall.execute();
             System.out.println(response.getRequestID());

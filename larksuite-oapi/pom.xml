@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.larksuite.oapi</groupId>
     <artifactId>larksuite-oapi</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <name>larksuite-oapi</name>
     <description>Larksuite open platform facilitates the integration of enterprise applications and larksuite, making collaboration and management more efficient</description>
     <url>https://github.com/larksuite/oapi-sdk-java</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
-        <okhttp.version>4.9.0</okhttp.version>
+        <okhttp.version>4.9.1</okhttp.version>
         <gson.version>2.8.6</gson.version>
         <logback.version>1.2.3</logback.version>
         <slf4j.version>1.7.30</slf4j.version>

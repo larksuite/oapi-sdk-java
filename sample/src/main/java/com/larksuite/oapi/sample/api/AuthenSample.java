@@ -2,7 +2,6 @@ package com.larksuite.oapi.sample.api;
 
 import com.larksuite.oapi.core.AppSettings;
 import com.larksuite.oapi.core.Config;
-import com.larksuite.oapi.core.Domain;
 import com.larksuite.oapi.core.api.BatchReqCall;
 import com.larksuite.oapi.core.api.ReqCallResult;
 import com.larksuite.oapi.core.api.request.Request;
@@ -23,9 +22,9 @@ public class AuthenSample {
     // for Cutome APP（自建应用）
     private static final AppSettings appSettings = Config.getInternalAppSettingsByEnv();
     // config with redis store
-    // private static final Config config = Configs.getConfigWithRedisStore("https://open.feishu.cn", appSettings);
+    private static final Config config = Configs.getConfigWithRedisStore("https://open.feishu.cn", appSettings);
     // private static final Config config = Configs.getConfig("https://open.feishu.cn", appSettings);
-    private static final Config config = Configs.getConfig(Domain.FeiShu, appSettings);
+    // private static final Config config = Configs.getConfig(Domain.FeiShu, appSettings);
 
     public static void main(String[] args) throws Exception {
         testAccessToken();
@@ -37,7 +36,7 @@ public class AuthenSample {
         AuthenService service = new AuthenService(config);
         AuthenAccessTokenReqBody body = new AuthenAccessTokenReqBody();
         body.setGrantType("authorization_code");
-        body.setCode("4QGluIQ4wY8vw9XNyyza4e");
+        body.setCode("lYuFiIZKtOuKd4zrLO8soc");
         AuthenService.AuthenAccessTokenReqCall reqCall = service.getAuthens().accessToken(body);
         Response<UserAccessTokenInfo> response = reqCall.execute();
         System.out.println(Jsons.DEFAULT_GSON.toJson(response));

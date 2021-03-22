@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName;
 public class UserInfo {
     @SerializedName("name")
     private String name;
+    @SerializedName("en_name")
+    private String enName;
     @SerializedName("avatar_url")
     private String avatarUrl;
     @SerializedName("avatar_thumb")
@@ -13,16 +15,18 @@ public class UserInfo {
     private String avatarMiddle;
     @SerializedName("avatar_big")
     private String avatarBig;
-    @SerializedName("email")
-    private String email;
     @SerializedName("open_id")
     private String openId;
     @SerializedName("union_id")
     private String unionId;
+    @SerializedName("email")
+    private String email;
     @SerializedName("user_id")
     private String userId;
     @SerializedName("mobile")
     private String mobile;
+    @SerializedName("tenant_key")
+    private String tenantKey;
 
     public String getName() {
         return this.name;
@@ -30,6 +34,14 @@ public class UserInfo {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEnName() {
+        return this.enName;
+    }
+
+    public void setEnName(String enName) {
+        this.enName = enName;
     }
 
     public String getAvatarUrl() {
@@ -64,14 +76,6 @@ public class UserInfo {
         this.avatarBig = avatarBig;
     }
 
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getOpenId() {
         return this.openId;
     }
@@ -88,6 +92,14 @@ public class UserInfo {
         this.unionId = unionId;
     }
 
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getUserId() {
         return this.userId;
     }
@@ -102,6 +114,14 @@ public class UserInfo {
 
     public void setMobile(String mobile) {
         this.mobile = mobile;
+    }
+
+    public String getTenantKey() {
+        return this.tenantKey;
+    }
+
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
     }
 
 }

@@ -23,8 +23,12 @@ public class UserAccessTokenInfo {
     private String openId;
     @SerializedName("union_id")
     private String unionId;
+    @SerializedName("email")
+    private String email;
     @SerializedName("user_id")
     private String userId;
+    @SerializedName("mobile")
+    private String mobile;
     @SerializedName("tenant_key")
     private String tenantKey;
     @SerializedName("refresh_expires_in")
@@ -114,12 +118,28 @@ public class UserAccessTokenInfo {
         this.unionId = unionId;
     }
 
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getUserId() {
         return this.userId;
     }
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     public String getTenantKey() {
