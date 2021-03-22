@@ -22,10 +22,6 @@ public class Response<Data> {
         this.error = body.getError();
     }
 
-    public void setData(Data data) {
-        this.data = data;
-    }
-
     public String getRequestID() {
         return this.context.getRequestID();
     }
@@ -48,6 +44,10 @@ public class Response<Data> {
 
     public Data getData() {
         return data;
+    }
+
+    public void setData(Data data) {
+        this.data = data;
     }
 
     @Override

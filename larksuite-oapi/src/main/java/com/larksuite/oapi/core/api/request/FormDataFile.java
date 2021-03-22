@@ -59,10 +59,6 @@ public class FormDataFile {
     }
 
     public void write(OutputStream output) throws IOException {
-        try {
-            IOs.copy(content(), output);
-        } finally {
-            content().close();
-        }
+        IOs.copy(content(), output);
     }
 }

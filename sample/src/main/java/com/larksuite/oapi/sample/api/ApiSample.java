@@ -113,7 +113,7 @@ public class ApiSample {
      * send card message
      */
     private static void sendCardMessage() throws Exception {
-        // config.getStore().put(Keys.tenantAccessTokenKey(config.getAppSettings().getAppID(), ""), "t-xxxxxxxxxxxxxxxxxxxxxxxxx", 1000, TimeUnit.DAYS);
+        config.getStore().put(Keys.tenantAccessTokenKey(config.getAppSettings().getAppID(), ""), "t-fb5d8bcd958242e297d9feeb3c1f83e2dd989ba4", 1000, TimeUnit.DAYS);
         Map<String, Object> message = new HashMap<>();
         message.put("user_id", "77bbc392");
         message.put("msg_type", "interactive");

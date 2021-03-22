@@ -2,7 +2,7 @@ package com.larksuite.oapi.core.api.request;
 
 import com.larksuite.oapi.core.api.AccessTokenType;
 import com.larksuite.oapi.core.api.request.requestoptfn.*;
-import okhttp3.Response;
+import com.larksuite.oapi.okhttp3_14.Response;
 
 import java.io.InputStream;
 import java.util.Map;
@@ -10,8 +10,8 @@ import java.util.concurrent.TimeUnit;
 
 public class Request<I, O> extends BaseRequest<I, O> {
 
-    private okhttp3.Request.Builder httpRequestBuilder;
-    private okhttp3.Response httpResponse;
+    private com.larksuite.oapi.okhttp3_14.Request.Builder httpRequestBuilder;
+    private Response httpResponse;
 
     private byte[] requestBody;
     private String requestBodyFilePath;
@@ -76,11 +76,11 @@ public class Request<I, O> extends BaseRequest<I, O> {
         return getHttpMethod() + " " + url() + " " + getAccessTokenType();
     }
 
-    public okhttp3.Request.Builder getHttpRequestBuilder() {
+    public com.larksuite.oapi.okhttp3_14.Request.Builder getHttpRequestBuilder() {
         return httpRequestBuilder;
     }
 
-    public void setHttpRequestBuilder(okhttp3.Request.Builder httpRequestBuilder) {
+    public void setHttpRequestBuilder(com.larksuite.oapi.okhttp3_14.Request.Builder httpRequestBuilder) {
         this.httpRequestBuilder = httpRequestBuilder;
     }
 

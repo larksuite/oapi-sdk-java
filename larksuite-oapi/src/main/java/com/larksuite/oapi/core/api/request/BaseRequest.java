@@ -18,13 +18,13 @@ public class BaseRequest<I, O> {
     private final I input;
     private final Set<AccessTokenType> accessTokenTypeSet;
     private final List<RequestOptFn> requestOptFns;
+    private final O output;
     private String httpPath;
     private String queryParams;
     private AccessTokenType accessTokenType;
     private String tenantKey;
     private String userAccessToken;
     private boolean isNotDataField;
-    private final O output;
     private long timeoutOfMs;
     private boolean retry;
     private boolean isResponseStream;

@@ -1,6 +1,6 @@
 package com.larksuite.oapi.core.api.tools;
 
-import okhttp3.OkHttpClient;
+import com.larksuite.oapi.okhttp3_14.OkHttpClient;
 
 import java.util.concurrent.TimeUnit;
 

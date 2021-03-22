@@ -5,8 +5,8 @@ import com.larksuite.oapi.core.Context;
 import com.larksuite.oapi.core.api.exception.ResponseInvalidException;
 import com.larksuite.oapi.core.api.handler.SubHandler;
 import com.larksuite.oapi.core.api.request.Request;
+import com.larksuite.oapi.okhttp3_14.ResponseBody;
 import com.larksuite.oapi.core.utils.Strings;
-import okhttp3.ResponseBody;
 
 public class ValidateRespSubHandler implements SubHandler {
     @Override

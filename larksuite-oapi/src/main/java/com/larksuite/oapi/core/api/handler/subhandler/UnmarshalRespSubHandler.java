@@ -18,7 +18,7 @@ public class UnmarshalRespSubHandler implements SubHandler {
 
     @Override
     public <I, O> void handle(Context ctx, Request<I, O> req) throws Exception {
-        okhttp3.Response httpResponse = req.getHttpResponse();
+        com.larksuite.oapi.okhttp3_14.Response httpResponse = req.getHttpResponse();
         if (req.isResponseStreamReal()) {
             try {
                 if (req.getOutput() instanceof OutputStream) {

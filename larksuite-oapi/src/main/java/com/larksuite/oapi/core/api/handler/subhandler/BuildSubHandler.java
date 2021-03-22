@@ -7,10 +7,10 @@ import com.larksuite.oapi.core.api.handler.SubHandler;
 import com.larksuite.oapi.core.api.request.FormData;
 import com.larksuite.oapi.core.api.request.FormDataFile;
 import com.larksuite.oapi.core.api.request.Request;
+import com.larksuite.oapi.okhttp3_14.MediaType;
+import com.larksuite.oapi.okhttp3_14.RequestBody;
 import com.larksuite.oapi.core.utils.Jsons;
 import com.larksuite.oapi.core.utils.Strings;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -106,12 +106,12 @@ public class BuildSubHandler implements SubHandler {
         }
         RequestBody body = null;
         if (req.getRequestBody() != null) {
-            body = RequestBody.create(req.getRequestBody(), MediaType.parse(req.getContentType()));
+            body = RequestBody.create(MediaType.parse(req.getContentType()), req.getRequestBody());
         }
         if (req.getRequestBodyFilePath() != null) {
-            body = RequestBody.create(new File(req.getRequestBodyFilePath()), MediaType.parse(req.getContentType()));
+            body = RequestBody.create(MediaType.parse(req.getContentType()), new File(req.getRequestBodyFilePath()));
         }
-        okhttp3.Request.Builder builder = new okhttp3.Request.Builder().url(req.fullUrl(conf.getDomain())).method(req.getHttpMethod(), body);
+        com.larksuite.oapi.okhttp3_14.Request.Builder builder = new com.larksuite.oapi.okhttp3_14.Request.Builder().url(req.fullUrl(conf.getDomain())).method(req.getHttpMethod(), body);
         builder.header("User-Agent", "oapi-sdk-java/" + Constants.VERSION);
         req.setHttpRequestBuilder(builder);
     }

@@ -3,6 +3,7 @@ package com.larksuite.oapi.sample.api;
 import com.larksuite.oapi.core.AppSettings;
 import com.larksuite.oapi.core.Config;
 import com.larksuite.oapi.core.Domain;
+import com.larksuite.oapi.core.Keys;
 import com.larksuite.oapi.core.api.request.FormDataFile;
 import com.larksuite.oapi.core.api.response.Response;
 import com.larksuite.oapi.core.utils.Jsons;
@@ -13,6 +14,7 @@ import com.larksuite.oapi.service.image.v4.model.Image;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.concurrent.TimeUnit;
 
 public class ImageSample {
 
@@ -26,24 +28,27 @@ public class ImageSample {
     public static void main(String[] args) throws Exception {
         //testPut();
         testGet();
+        System.out.println("end");
     }
 
     private static void testPut() throws Exception {
+        config.getStore().put(Keys.tenantAccessTokenKey(config.getAppSettings().getAppID(), ""), "t-xxxxxxxxxxxxxxxxxxxxxxxxx", 1000, TimeUnit.DAYS);
         ImageService service = new ImageService(config);
         ImageService.ImagePutReqCall reqCall = service.getImages().put();
-        InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.png");
-        reqCall.setImage(new FormDataFile().setContentStream(inputStream));
-        reqCall.setImageType("message");
-        Response<Image> response = reqCall.execute();
-        System.out.println();
-        System.out.println(Jsons.DEFAULT_GSON.toJson(response));
+        try (InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.png")) {
+            reqCall.setImage(new FormDataFile().setContentStream(inputStream));
+            reqCall.setImageType("message");
+            Response<Image> response = reqCall.execute();
+            System.out.println();
+            System.out.println(Jsons.DEFAULT_GSON.toJson(response));
+        }
     }
 
     private static void testGet() throws Exception {
         ImageService service = new ImageService(config);
         try (FileOutputStream output = new FileOutputStream("test_download_img_1.png")) {
             ImageService.ImageGetReqCall reqCall = service.getImages().get();
-            reqCall.setImageKey("img_ae87dceb-2327-4f2b-a011-4d6074b45cfg");
+            reqCall.setImageKey("img_e91d9511-dd89-49f2-aca7-380b26ea7beg");
             reqCall.setResponseStream(output);
             Response response = reqCall.execute();
             System.out.println(response.getRequestID());

@@ -122,7 +122,7 @@ public class AccessToken {
         }
     }
 
-    public static void signApp(Context ctx, okhttp3.Request.Builder httpRequestBuilder) throws Exception {
+    public static void signApp(Context ctx, com.larksuite.oapi.okhttp3_14.Request.Builder httpRequestBuilder) throws Exception {
         BaseRequest base = BaseRequest.byContext(ctx);
         Config config = Config.ByCtx(ctx);
         if (!base.isRetry()) {
@@ -142,7 +142,7 @@ public class AccessToken {
         sign(httpRequestBuilder, appAccessToken.getAppAccessToken());
     }
 
-    public static void signTenant(Context ctx, okhttp3.Request.Builder httpRequestBuilder) throws Exception {
+    public static void signTenant(Context ctx, com.larksuite.oapi.okhttp3_14.Request.Builder httpRequestBuilder) throws Exception {
         BaseRequest base = BaseRequest.byContext(ctx);
         Config config = Config.ByCtx(ctx);
         String tenantKey = base.getTenantKey() == null ? "" : base.getTenantKey();
@@ -169,14 +169,14 @@ public class AccessToken {
         sign(httpRequestBuilder, tenantAccessToken.getTenantAccessToken());
     }
 
-    public static void signUser(Context ctx, okhttp3.Request.Builder httpRequestBuilder) {
+    public static void signUser(Context ctx, com.larksuite.oapi.okhttp3_14.Request.Builder httpRequestBuilder) {
         BaseRequest base = BaseRequest.byContext(ctx);
         if (!Strings.isEmpty(base.getUserAccessToken())) {
             sign(httpRequestBuilder, base.getUserAccessToken());
         }
     }
 
-    private static void sign(okhttp3.Request.Builder httpRequestBuilder, String token) {
+    private static void sign(com.larksuite.oapi.okhttp3_14.Request.Builder httpRequestBuilder, String token) {
         httpRequestBuilder.header("Authorization", "Bearer " + token);
     }
 
