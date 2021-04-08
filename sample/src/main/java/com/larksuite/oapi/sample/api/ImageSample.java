@@ -26,8 +26,8 @@ public class ImageSample {
     private static final Config config = Configs.getConfig(Domain.FeiShu, appSettings);
 
     public static void main(String[] args) throws Exception {
-        //testPut();
-        testGet();
+        testPut();
+        //testGet();
         System.out.println("end");
     }
 
@@ -39,7 +39,8 @@ public class ImageSample {
             reqCall.setImage(new FormDataFile().setContentStream(inputStream));
             reqCall.setImageType("message");
             Response<Image> response = reqCall.execute();
-            System.out.println();
+            System.out.println(response.getRequestID());
+            System.out.println(response.getHTTPStatusCode());
             System.out.println(Jsons.DEFAULT_GSON.toJson(response));
         }
     }
@@ -51,6 +52,7 @@ public class ImageSample {
             reqCall.setImageKey("img_e91d9511-dd89-49f2-aca7-380b26ea7beg");
             reqCall.setResponseStream(output);
             Response response = reqCall.execute();
+            System.out.println(Jsons.DEFAULT_GSON.toJson(response.getHeader()));
             System.out.println(response.getRequestID());
             System.out.println(response.getHTTPStatusCode());
         } catch (IOException e) {

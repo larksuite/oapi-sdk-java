@@ -2,6 +2,8 @@
 package com.larksuite.oapi.service.contact.v3.model;
 
 import com.google.gson.annotations.SerializedName;
+import java.util.Map;
+
 public class UserOrder {
     @SerializedName("department_id")
     private String departmentId;

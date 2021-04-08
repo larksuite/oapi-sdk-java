@@ -2,6 +2,8 @@
 package com.larksuite.oapi.service.contact.v3.model;
 
 import com.google.gson.annotations.SerializedName;
+import java.util.Map;
+
 public class User {
     @SerializedName("union_id")
     private String unionId;
@@ -38,7 +40,7 @@ public class User {
     @SerializedName("work_station")
     private String workStation;
     @SerializedName("join_time")
-    private String joinTime;
+    private Integer joinTime;
     @SerializedName("is_tenant_manager")
     private Boolean isTenantManager;
     @SerializedName("employee_no")
@@ -196,11 +198,11 @@ public class User {
         this.workStation = workStation;
     }
 
-    public String getJoinTime() {
+    public Integer getJoinTime() {
         return this.joinTime;
     }
 
-    public void setJoinTime(String joinTime) {
+    public void setJoinTime(Integer joinTime) {
         this.joinTime = joinTime;
     }
 

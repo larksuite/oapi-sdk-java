@@ -2,6 +2,8 @@
 package com.larksuite.oapi.service.calendar.v4.model;
 
 import com.google.gson.annotations.SerializedName;
+import java.util.Map;
+
 public class Schema {
     @SerializedName("ui_name")
     private String uiName;

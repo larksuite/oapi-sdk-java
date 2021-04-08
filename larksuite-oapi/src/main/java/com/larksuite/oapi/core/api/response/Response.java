@@ -1,6 +1,7 @@
 package com.larksuite.oapi.core.api.response;
 
 import com.larksuite.oapi.core.Context;
+import com.larksuite.oapi.core.model.OapiHeader;
 
 public class Response<Data> {
     private transient final Context context;
@@ -20,6 +21,10 @@ public class Response<Data> {
         this.code = body.getCode();
         this.msg = body.getMsg();
         this.error = body.getError();
+    }
+
+    public OapiHeader getHeader() {
+        return this.context.getHeader();
     }
 
     public String getRequestID() {
