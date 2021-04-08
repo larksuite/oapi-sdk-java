@@ -18,15 +18,11 @@ import java.util.ArrayList;
 
 public class ImageService {
 
-    private static final String serviceBasePath = "image/v4";
-
     private final Config config;
-    private final String basePath;
     private final Images images;
 
     public ImageService(Config config) {
         this.config = config;
-        this.basePath = serviceBasePath;
         this.images = new Images(this);
     }
 
@@ -42,14 +38,49 @@ public class ImageService {
             this.service = service;
         }
     
-        public ImagePutReqCall put(RequestOptFn... optFns) {
-            return new ImagePutReqCall(this, optFns);
-        }
-    
         public ImageGetReqCall get(RequestOptFn... optFns) {
             return new ImageGetReqCall(this, optFns);
         }
     
+        public ImagePutReqCall put(RequestOptFn... optFns) {
+            return new ImagePutReqCall(this, optFns);
+        }
+    
+    }
+    public static class ImageGetReqCall extends ReqCaller<Object, OutputStream> {
+        private final Images images;
+        
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private OutputStream result;
+        
+        private ImageGetReqCall(Images images, RequestOptFn... optFns) {
+        
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.images = images;
+        }
+        
+        
+        public ImageGetReqCall setImageKey(String imageKey){
+            this.queryParams.put("image_key", imageKey);
+            return this;
+        }
+        public ImageGetReqCall setResponseStream(OutputStream result){
+            this.result = result;
+            return this;
+        }
+
+        @Override
+        public Response<OutputStream> execute() throws Exception {
+            this.optFns.add(Request.setQueryParams(this.queryParams));
+            this.optFns.add(Request.setResponseStream());
+            Request<Object, OutputStream> request = Request.newRequest("image/v4/get", "GET",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.images.service.config, request);
+        }
     }
     public static class ImagePutReqCall extends ReqCaller<FormData, Image> {
         private final Images images;
@@ -80,46 +111,9 @@ public class ImageService {
 
         @Override
         public Response<Image> execute() throws Exception {
-            String httpPath = this.images.service.basePath + "/" + "put";
-            Request<FormData, Image> request = Request.newRequest(httpPath, "POST",
+            Request<FormData, Image> request = Request.newRequest("image/v4/put", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.images.service.config, request);
-        }
-    }
-    public static class ImageGetReqCall extends ReqCaller<Object, OutputStream> {
-        private final Images images;
-        
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private OutputStream result;
-        
-        private ImageGetReqCall(Images images, RequestOptFn... optFns) {
-        
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.images = images;
-        }
-        
-        
-        public ImageGetReqCall setImageKey(String imageKey){
-            this.queryParams.put("image_key", imageKey);
-            return this;
-        }
-        public ImageGetReqCall setResponseStream(OutputStream result){
-            this.result = result;
-            return this;
-        }
-
-        @Override
-        public Response<OutputStream> execute() throws Exception {
-            String httpPath = this.images.service.basePath + "/" + "get";
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            this.optFns.add(Request.setResponseStream());
-            Request<Object, OutputStream> request = Request.newRequest(httpPath, "GET",
-                    new AccessTokenType[]{AccessTokenType.Tenant},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.images.service.config, request);
         }
     }

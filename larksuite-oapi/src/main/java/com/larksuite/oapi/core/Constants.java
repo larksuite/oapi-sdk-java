@@ -6,11 +6,12 @@ public interface Constants {
     String APPLICATION_JSON = "application/json";
     String DEFAULT_CONTENT_TYPE = APPLICATION_JSON + "; charset=utf-8";
 
+    String HTTP_HEADER = "HTTP_HEADER";
     String HTTP_HEADER_KEY_REQUEST_ID = "X-Request-Id";
     String HTTP_HEADER_KEY_LOG_ID = "X-Log-Id";
     String HTTP_KEY_STATUS_CODE = "http_status_code";
     String URL_VERIFICATION = "url_verification";
 
-    String VERSION = "1.0.2";
+    String VERSION = "1.0.6";
 
 }

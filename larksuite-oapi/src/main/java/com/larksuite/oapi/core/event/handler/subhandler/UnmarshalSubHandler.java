@@ -8,6 +8,7 @@ import com.larksuite.oapi.core.event.handler.ISubHandler;
 import com.larksuite.oapi.core.event.model.Fuzzy;
 import com.larksuite.oapi.core.event.model.HTTPEvent;
 import com.larksuite.oapi.core.exception.TokenInvalidException;
+import com.larksuite.oapi.core.model.OapiHeader;
 import com.larksuite.oapi.core.utils.Jsons;
 import com.larksuite.oapi.core.utils.Strings;
 import org.slf4j.Logger;
@@ -19,9 +20,7 @@ public class UnmarshalSubHandler implements ISubHandler {
 
     @Override
     public void handle(Context context, HTTPEvent httpEvent) throws Exception {
-        String logID = httpEvent.getRequest().getHeader().getFirstValue(Constants.HTTP_HEADER_KEY_LOG_ID);
-        String requestID = httpEvent.getRequest().getHeader().getFirstValue(Constants.HTTP_HEADER_KEY_REQUEST_ID);
-        context.setRequestID(logID, requestID);
+        context.set(Constants.HTTP_HEADER, httpEvent.getRequest().getHeader());
         String requestBody = httpEvent.getRequest().getBody();
         log.debug("[unmarshal] event: {}", requestBody);
         Config config = Config.ByCtx(context);

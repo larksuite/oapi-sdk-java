@@ -17,15 +17,11 @@ import java.util.ArrayList;
 
 public class AuthenService {
 
-    private static final String serviceBasePath = "authen/v1";
-
     private final Config config;
-    private final String basePath;
     private final Authens authens;
 
     public AuthenService(Config config) {
         this.config = config;
-        this.basePath = serviceBasePath;
         this.authens = new Authens(this);
     }
 
@@ -41,40 +37,41 @@ public class AuthenService {
             this.service = service;
         }
     
-        public AuthenUserInfoReqCall userInfo(RequestOptFn... optFns) {
-            return new AuthenUserInfoReqCall(this, optFns);
+        public AuthenAccessTokenReqCall accessToken(AuthenAccessTokenReqBody body, RequestOptFn... optFns) {
+            return new AuthenAccessTokenReqCall(this, body, optFns);
         }
     
         public AuthenRefreshAccessTokenReqCall refreshAccessToken(AuthenRefreshAccessTokenReqBody body, RequestOptFn... optFns) {
             return new AuthenRefreshAccessTokenReqCall(this, body, optFns);
         }
     
-        public AuthenAccessTokenReqCall accessToken(AuthenAccessTokenReqBody body, RequestOptFn... optFns) {
-            return new AuthenAccessTokenReqCall(this, body, optFns);
+        public AuthenUserInfoReqCall userInfo(RequestOptFn... optFns) {
+            return new AuthenUserInfoReqCall(this, optFns);
         }
     
     }
-    public static class AuthenUserInfoReqCall extends ReqCaller<Object, UserInfo> {
+    public static class AuthenAccessTokenReqCall extends ReqCaller<AuthenAccessTokenReqBody, UserAccessTokenInfo> {
         private final Authens authens;
         
+        private final AuthenAccessTokenReqBody body;
         private final List<RequestOptFn> optFns;
-        private UserInfo result;
+        private UserAccessTokenInfo result;
         
-        private AuthenUserInfoReqCall(Authens authens, RequestOptFn... optFns) {
+        private AuthenAccessTokenReqCall(Authens authens, AuthenAccessTokenReqBody body, RequestOptFn... optFns) {
         
+            this.body = body;
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new UserInfo();
+            this.result = new UserAccessTokenInfo();
             this.authens = authens;
         }
         
 
         @Override
-        public Response<UserInfo> execute() throws Exception {
-            String httpPath = this.authens.service.basePath + "/" + "user_info";
-            Request<Object, UserInfo> request = Request.newRequest(httpPath, "GET",
-                    new AccessTokenType[]{AccessTokenType.User},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+        public Response<UserAccessTokenInfo> execute() throws Exception {
+            Request<AuthenAccessTokenReqBody, UserAccessTokenInfo> request = Request.newRequest("authen/v1/access_token", "POST",
+                    new AccessTokenType[]{AccessTokenType.App},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.authens.service.config, request);
         }
     }
@@ -97,36 +94,32 @@ public class AuthenService {
 
         @Override
         public Response<UserAccessTokenInfo> execute() throws Exception {
-            String httpPath = this.authens.service.basePath + "/" + "refresh_access_token";
-            Request<AuthenRefreshAccessTokenReqBody, UserAccessTokenInfo> request = Request.newRequest(httpPath, "POST",
+            Request<AuthenRefreshAccessTokenReqBody, UserAccessTokenInfo> request = Request.newRequest("authen/v1/refresh_access_token", "POST",
                     new AccessTokenType[]{AccessTokenType.App},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.authens.service.config, request);
         }
     }
-    public static class AuthenAccessTokenReqCall extends ReqCaller<AuthenAccessTokenReqBody, UserAccessTokenInfo> {
+    public static class AuthenUserInfoReqCall extends ReqCaller<Object, UserInfo> {
         private final Authens authens;
         
-        private final AuthenAccessTokenReqBody body;
         private final List<RequestOptFn> optFns;
-        private UserAccessTokenInfo result;
+        private UserInfo result;
         
-        private AuthenAccessTokenReqCall(Authens authens, AuthenAccessTokenReqBody body, RequestOptFn... optFns) {
+        private AuthenUserInfoReqCall(Authens authens, RequestOptFn... optFns) {
         
-            this.body = body;
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new UserAccessTokenInfo();
+            this.result = new UserInfo();
             this.authens = authens;
         }
         
 
         @Override
-        public Response<UserAccessTokenInfo> execute() throws Exception {
-            String httpPath = this.authens.service.basePath + "/" + "access_token";
-            Request<AuthenAccessTokenReqBody, UserAccessTokenInfo> request = Request.newRequest(httpPath, "POST",
-                    new AccessTokenType[]{AccessTokenType.App},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+        public Response<UserInfo> execute() throws Exception {
+            Request<Object, UserInfo> request = Request.newRequest("authen/v1/user_info", "GET",
+                    new AccessTokenType[]{AccessTokenType.User},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.authens.service.config, request);
         }
     }

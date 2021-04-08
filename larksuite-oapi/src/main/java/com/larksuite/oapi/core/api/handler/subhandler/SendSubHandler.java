@@ -5,6 +5,7 @@ import com.larksuite.oapi.core.Context;
 import com.larksuite.oapi.core.api.handler.SubHandler;
 import com.larksuite.oapi.core.api.request.Request;
 import com.larksuite.oapi.core.api.tools.OKHttps;
+import com.larksuite.oapi.core.model.OapiHeader;
 import com.larksuite.oapi.okhttp3_14.OkHttpClient;
 import com.larksuite.oapi.okhttp3_14.Response;
 
@@ -20,9 +21,8 @@ public class SendSubHandler implements SubHandler {
         }
         com.larksuite.oapi.okhttp3_14.Request request = req.getHttpRequestBuilder().build();
         Response response = okHttpClient.newCall(request).execute();
-        String logID = response.header(Constants.HTTP_HEADER_KEY_LOG_ID);
-        String requestID = response.header(Constants.HTTP_HEADER_KEY_REQUEST_ID);
-        context.setRequestID(logID, requestID);
+        OapiHeader oapiHeader =new OapiHeader(response.headers().toMultimap());
+        context.set(Constants.HTTP_HEADER, oapiHeader);
         context.set(Constants.HTTP_KEY_STATUS_CODE, response.code());
         req.setHttpResponse(response);
         req.setResponse(new com.larksuite.oapi.core.api.response.Response<>(context));

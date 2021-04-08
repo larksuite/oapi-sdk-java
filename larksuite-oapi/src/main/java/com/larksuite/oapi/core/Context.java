@@ -1,5 +1,6 @@
 package com.larksuite.oapi.core;
 
+import com.larksuite.oapi.core.model.OapiHeader;
 import com.larksuite.oapi.core.utils.Strings;
 
 import java.util.HashMap;
@@ -21,20 +22,17 @@ public class Context {
         return m.get(key);
     }
 
-    public void setRequestID(String logID, String requestID) {
-        if (!Strings.isEmpty(logID)) {
-            set(Constants.HTTP_HEADER_KEY_REQUEST_ID, logID);
-            return;
-        }
-        set(Constants.HTTP_HEADER_KEY_REQUEST_ID, requestID);
+    public OapiHeader getHeader() {
+        return (OapiHeader) this.m.get(Constants.HTTP_HEADER);
     }
 
     public String getRequestID() {
-        Object v = this.m.get(Constants.HTTP_HEADER_KEY_REQUEST_ID);
-        if (v != null) {
-            return (String) v;
+        OapiHeader header = getHeader();
+        String logID = header.firstValue(Constants.HTTP_HEADER_KEY_LOG_ID);
+        if (!Strings.isEmpty(logID)) {
+            return logID;
         }
-        return "";
+        return header.firstValue(Constants.HTTP_HEADER_KEY_REQUEST_ID);
     }
 
     public int getHTTPStatusCode() {

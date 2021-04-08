@@ -2,6 +2,8 @@
 package com.larksuite.oapi.service.authen.v1.model;
 
 import com.google.gson.annotations.SerializedName;
+import java.util.Map;
+
 public class UserInfo {
     @SerializedName("name")
     private String name;

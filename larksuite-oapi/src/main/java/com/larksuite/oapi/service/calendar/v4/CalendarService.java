@@ -19,10 +19,7 @@ import java.util.ArrayList;
 
 public class CalendarService {
 
-    private static final String serviceBasePath = "calendar/v4";
-
     private final Config config;
-    private final String basePath;
     private final Calendars calendars;
     private final CalendarAcls calendarAcls;
     private final CalendarEvents calendarEvents;
@@ -34,7 +31,6 @@ public class CalendarService {
 
     public CalendarService(Config config) {
         this.config = config;
-        this.basePath = serviceBasePath;
         this.calendars = new Calendars(this);
         this.calendarAcls = new CalendarAcls(this);
         this.calendarEvents = new CalendarEvents(this);
@@ -57,24 +53,16 @@ public class CalendarService {
             this.service = service;
         }
     
-        public CalendarUnsubscribeReqCall unsubscribe(RequestOptFn... optFns) {
-            return new CalendarUnsubscribeReqCall(this, optFns);
-        }
-    
-        public CalendarSubscriptionReqCall subscription(RequestOptFn... optFns) {
-            return new CalendarSubscriptionReqCall(this, optFns);
-        }
-    
-        public CalendarSubscribeReqCall subscribe(RequestOptFn... optFns) {
-            return new CalendarSubscribeReqCall(this, optFns);
-        }
-    
-        public CalendarSearchReqCall search(CalendarSearchReqBody body, RequestOptFn... optFns) {
-            return new CalendarSearchReqCall(this, body, optFns);
+        public CalendarCreateReqCall create(Calendar body, RequestOptFn... optFns) {
+            return new CalendarCreateReqCall(this, body, optFns);
         }
     
         public CalendarPatchReqCall patch(Calendar body, RequestOptFn... optFns) {
             return new CalendarPatchReqCall(this, body, optFns);
+        }
+    
+        public CalendarDeleteReqCall delete(RequestOptFn... optFns) {
+            return new CalendarDeleteReqCall(this, optFns);
         }
     
         public CalendarListReqCall list(RequestOptFn... optFns) {
@@ -85,135 +73,44 @@ public class CalendarService {
             return new CalendarGetReqCall(this, optFns);
         }
     
-        public CalendarDeleteReqCall delete(RequestOptFn... optFns) {
-            return new CalendarDeleteReqCall(this, optFns);
+        public CalendarSearchReqCall search(CalendarSearchReqBody body, RequestOptFn... optFns) {
+            return new CalendarSearchReqCall(this, body, optFns);
         }
     
-        public CalendarCreateReqCall create(Calendar body, RequestOptFn... optFns) {
-            return new CalendarCreateReqCall(this, body, optFns);
+        public CalendarUnsubscribeReqCall unsubscribe(RequestOptFn... optFns) {
+            return new CalendarUnsubscribeReqCall(this, optFns);
+        }
+    
+        public CalendarSubscribeReqCall subscribe(RequestOptFn... optFns) {
+            return new CalendarSubscribeReqCall(this, optFns);
+        }
+    
+        public CalendarSubscriptionReqCall subscription(RequestOptFn... optFns) {
+            return new CalendarSubscriptionReqCall(this, optFns);
         }
     
     }
-    public static class CalendarUnsubscribeReqCall extends ReqCaller<Object, EmptyData> {
+    public static class CalendarCreateReqCall extends ReqCaller<Calendar, CalendarCreateResult> {
         private final Calendars calendars;
         
-        private final Map<String, Object> pathParams;
+        private final Calendar body;
         private final List<RequestOptFn> optFns;
-        private EmptyData result;
+        private CalendarCreateResult result;
         
-        private CalendarUnsubscribeReqCall(Calendars calendars, RequestOptFn... optFns) {
-        
-            this.pathParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new EmptyData();
-            this.calendars = calendars;
-        }
-        
-        public CalendarUnsubscribeReqCall setCalendarId(String calendarId){
-            this.pathParams.put("calendar_id", calendarId);
-            return this;
-        }
-
-        @Override
-        public Response<EmptyData> execute() throws Exception {
-            String httpPath = this.calendars.service.basePath + "/" + "calendars/:calendar_id/unsubscribe";
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest(httpPath, "POST",
-                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.calendars.service.config, request);
-        }
-    }
-    public static class CalendarSubscriptionReqCall extends ReqCaller<Object, EmptyData> {
-        private final Calendars calendars;
-        
-        private final List<RequestOptFn> optFns;
-        private EmptyData result;
-        
-        private CalendarSubscriptionReqCall(Calendars calendars, RequestOptFn... optFns) {
-        
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new EmptyData();
-            this.calendars = calendars;
-        }
-        
-
-        @Override
-        public Response<EmptyData> execute() throws Exception {
-            String httpPath = this.calendars.service.basePath + "/" + "calendars/subscription";
-            Request<Object, EmptyData> request = Request.newRequest(httpPath, "POST",
-                    new AccessTokenType[]{AccessTokenType.User},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.calendars.service.config, request);
-        }
-    }
-    public static class CalendarSubscribeReqCall extends ReqCaller<Object, CalendarSubscribeResult> {
-        private final Calendars calendars;
-        
-        private final Map<String, Object> pathParams;
-        private final List<RequestOptFn> optFns;
-        private CalendarSubscribeResult result;
-        
-        private CalendarSubscribeReqCall(Calendars calendars, RequestOptFn... optFns) {
-        
-            this.pathParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new CalendarSubscribeResult();
-            this.calendars = calendars;
-        }
-        
-        public CalendarSubscribeReqCall setCalendarId(String calendarId){
-            this.pathParams.put("calendar_id", calendarId);
-            return this;
-        }
-
-        @Override
-        public Response<CalendarSubscribeResult> execute() throws Exception {
-            String httpPath = this.calendars.service.basePath + "/" + "calendars/:calendar_id/subscribe";
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, CalendarSubscribeResult> request = Request.newRequest(httpPath, "POST",
-                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.calendars.service.config, request);
-        }
-    }
-    public static class CalendarSearchReqCall extends ReqCaller<CalendarSearchReqBody, CalendarSearchResult> {
-        private final Calendars calendars;
-        
-        private final CalendarSearchReqBody body;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private CalendarSearchResult result;
-        
-        private CalendarSearchReqCall(Calendars calendars, CalendarSearchReqBody body, RequestOptFn... optFns) {
+        private CalendarCreateReqCall(Calendars calendars, Calendar body, RequestOptFn... optFns) {
         
             this.body = body;
-            this.queryParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new CalendarSearchResult();
+            this.result = new CalendarCreateResult();
             this.calendars = calendars;
         }
         
-        
-        public CalendarSearchReqCall setPageToken(String pageToken){
-            this.queryParams.put("page_token", pageToken);
-            return this;
-        }
-        public CalendarSearchReqCall setPageSize(Integer pageSize){
-            this.queryParams.put("page_size", pageSize);
-            return this;
-        }
 
         @Override
-        public Response<CalendarSearchResult> execute() throws Exception {
-            String httpPath = this.calendars.service.basePath + "/" + "calendars/search";
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<CalendarSearchReqBody, CalendarSearchResult> request = Request.newRequest(httpPath, "POST",
-                    new AccessTokenType[]{AccessTokenType.Tenant},
+        public Response<CalendarCreateResult> execute() throws Exception {
+            Request<Calendar, CalendarCreateResult> request = Request.newRequest("calendar/v4/calendars", "POST",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendars.service.config, request);
         }
@@ -243,11 +140,40 @@ public class CalendarService {
 
         @Override
         public Response<CalendarPatchResult> execute() throws Exception {
-            String httpPath = this.calendars.service.basePath + "/" + "calendars/:calendar_id";
             this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Calendar, CalendarPatchResult> request = Request.newRequest(httpPath, "PATCH",
+            Request<Calendar, CalendarPatchResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id", "PATCH",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.calendars.service.config, request);
+        }
+    }
+    public static class CalendarDeleteReqCall extends ReqCaller<Object, EmptyData> {
+        private final Calendars calendars;
+        
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private CalendarDeleteReqCall(Calendars calendars, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.calendars = calendars;
+        }
+        
+        public CalendarDeleteReqCall setCalendarId(String calendarId){
+            this.pathParams.put("calendar_id", calendarId);
+            return this;
+        }
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            Request<Object, EmptyData> request = Request.newRequest("calendar/v4/calendars/:calendar_id", "DELETE",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendars.service.config, request);
         }
     }
@@ -283,9 +209,8 @@ public class CalendarService {
 
         @Override
         public Response<CalendarListResult> execute() throws Exception {
-            String httpPath = this.calendars.service.basePath + "/" + "calendars";
             this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, CalendarListResult> request = Request.newRequest(httpPath, "GET",
+            Request<Object, CalendarListResult> request = Request.newRequest("calendar/v4/calendars", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendars.service.config, request);
@@ -314,22 +239,58 @@ public class CalendarService {
 
         @Override
         public Response<Calendar> execute() throws Exception {
-            String httpPath = this.calendars.service.basePath + "/" + "calendars/:calendar_id";
             this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, Calendar> request = Request.newRequest(httpPath, "GET",
+            Request<Object, Calendar> request = Request.newRequest("calendar/v4/calendars/:calendar_id", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendars.service.config, request);
         }
     }
-    public static class CalendarDeleteReqCall extends ReqCaller<Object, EmptyData> {
+    public static class CalendarSearchReqCall extends ReqCaller<CalendarSearchReqBody, CalendarSearchResult> {
+        private final Calendars calendars;
+        
+        private final CalendarSearchReqBody body;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private CalendarSearchResult result;
+        
+        private CalendarSearchReqCall(Calendars calendars, CalendarSearchReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new CalendarSearchResult();
+            this.calendars = calendars;
+        }
+        
+        
+        public CalendarSearchReqCall setPageToken(String pageToken){
+            this.queryParams.put("page_token", pageToken);
+            return this;
+        }
+        public CalendarSearchReqCall setPageSize(Integer pageSize){
+            this.queryParams.put("page_size", pageSize);
+            return this;
+        }
+
+        @Override
+        public Response<CalendarSearchResult> execute() throws Exception {
+            this.optFns.add(Request.setQueryParams(this.queryParams));
+            Request<CalendarSearchReqBody, CalendarSearchResult> request = Request.newRequest("calendar/v4/calendars/search", "POST",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.calendars.service.config, request);
+        }
+    }
+    public static class CalendarUnsubscribeReqCall extends ReqCaller<Object, EmptyData> {
         private final Calendars calendars;
         
         private final Map<String, Object> pathParams;
         private final List<RequestOptFn> optFns;
         private EmptyData result;
         
-        private CalendarDeleteReqCall(Calendars calendars, RequestOptFn... optFns) {
+        private CalendarUnsubscribeReqCall(Calendars calendars, RequestOptFn... optFns) {
         
             this.pathParams = new HashMap<>();
             this.optFns = new ArrayList<>();
@@ -338,44 +299,70 @@ public class CalendarService {
             this.calendars = calendars;
         }
         
-        public CalendarDeleteReqCall setCalendarId(String calendarId){
+        public CalendarUnsubscribeReqCall setCalendarId(String calendarId){
             this.pathParams.put("calendar_id", calendarId);
             return this;
         }
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            String httpPath = this.calendars.service.basePath + "/" + "calendars/:calendar_id";
             this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest(httpPath, "DELETE",
-                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
+            Request<Object, EmptyData> request = Request.newRequest("calendar/v4/calendars/:calendar_id/unsubscribe", "POST",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendars.service.config, request);
         }
     }
-    public static class CalendarCreateReqCall extends ReqCaller<Calendar, CalendarCreateResult> {
+    public static class CalendarSubscribeReqCall extends ReqCaller<Object, CalendarSubscribeResult> {
         private final Calendars calendars;
         
-        private final Calendar body;
+        private final Map<String, Object> pathParams;
         private final List<RequestOptFn> optFns;
-        private CalendarCreateResult result;
+        private CalendarSubscribeResult result;
         
-        private CalendarCreateReqCall(Calendars calendars, Calendar body, RequestOptFn... optFns) {
+        private CalendarSubscribeReqCall(Calendars calendars, RequestOptFn... optFns) {
         
-            this.body = body;
+            this.pathParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new CalendarCreateResult();
+            this.result = new CalendarSubscribeResult();
+            this.calendars = calendars;
+        }
+        
+        public CalendarSubscribeReqCall setCalendarId(String calendarId){
+            this.pathParams.put("calendar_id", calendarId);
+            return this;
+        }
+
+        @Override
+        public Response<CalendarSubscribeResult> execute() throws Exception {
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            Request<Object, CalendarSubscribeResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/subscribe", "POST",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.calendars.service.config, request);
+        }
+    }
+    public static class CalendarSubscriptionReqCall extends ReqCaller<Object, EmptyData> {
+        private final Calendars calendars;
+        
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private CalendarSubscriptionReqCall(Calendars calendars, RequestOptFn... optFns) {
+        
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
             this.calendars = calendars;
         }
         
 
         @Override
-        public Response<CalendarCreateResult> execute() throws Exception {
-            String httpPath = this.calendars.service.basePath + "/" + "calendars";
-            Request<Calendar, CalendarCreateResult> request = Request.newRequest(httpPath, "POST",
-                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+        public Response<EmptyData> execute() throws Exception {
+            Request<Object, EmptyData> request = Request.newRequest("calendar/v4/calendars/subscription", "POST",
+                    new AccessTokenType[]{AccessTokenType.User},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendars.service.config, request);
         }
     }
@@ -392,10 +379,6 @@ public class CalendarService {
             this.service = service;
         }
     
-        public CalendarAclSubscriptionReqCall subscription(RequestOptFn... optFns) {
-            return new CalendarAclSubscriptionReqCall(this, optFns);
-        }
-    
         public CalendarAclListReqCall list(RequestOptFn... optFns) {
             return new CalendarAclListReqCall(this, optFns);
         }
@@ -408,37 +391,10 @@ public class CalendarService {
             return new CalendarAclCreateReqCall(this, body, optFns);
         }
     
-    }
-    public static class CalendarAclSubscriptionReqCall extends ReqCaller<Object, EmptyData> {
-        private final CalendarAcls calendarAcls;
-        
-        private final Map<String, Object> pathParams;
-        private final List<RequestOptFn> optFns;
-        private EmptyData result;
-        
-        private CalendarAclSubscriptionReqCall(CalendarAcls calendarAcls, RequestOptFn... optFns) {
-        
-            this.pathParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new EmptyData();
-            this.calendarAcls = calendarAcls;
+        public CalendarAclSubscriptionReqCall subscription(RequestOptFn... optFns) {
+            return new CalendarAclSubscriptionReqCall(this, optFns);
         }
-        
-        public CalendarAclSubscriptionReqCall setCalendarId(String calendarId){
-            this.pathParams.put("calendar_id", calendarId);
-            return this;
-        }
-
-        @Override
-        public Response<EmptyData> execute() throws Exception {
-            String httpPath = this.calendarAcls.service.basePath + "/" + "calendars/:calendar_id/acls/subscription";
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest(httpPath, "POST",
-                    new AccessTokenType[]{AccessTokenType.User},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.calendarAcls.service.config, request);
-        }
+    
     }
     public static class CalendarAclListReqCall extends ReqCaller<Object, CalendarAclListResult> {
         private final CalendarAcls calendarAcls;
@@ -478,10 +434,9 @@ public class CalendarService {
 
         @Override
         public Response<CalendarAclListResult> execute() throws Exception {
-            String httpPath = this.calendarAcls.service.basePath + "/" + "calendars/:calendar_id/acls";
             this.optFns.add(Request.setPathParams(this.pathParams));
             this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, CalendarAclListResult> request = Request.newRequest(httpPath, "GET",
+            Request<Object, CalendarAclListResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/acls", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarAcls.service.config, request);
@@ -514,9 +469,8 @@ public class CalendarService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            String httpPath = this.calendarAcls.service.basePath + "/" + "calendars/:calendar_id/acls/:acl_id";
             this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest(httpPath, "DELETE",
+            Request<Object, EmptyData> request = Request.newRequest("calendar/v4/calendars/:calendar_id/acls/:acl_id", "DELETE",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarAcls.service.config, request);
@@ -554,12 +508,41 @@ public class CalendarService {
 
         @Override
         public Response<CalendarAcl> execute() throws Exception {
-            String httpPath = this.calendarAcls.service.basePath + "/" + "calendars/:calendar_id/acls";
             this.optFns.add(Request.setPathParams(this.pathParams));
             this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<CalendarAcl, CalendarAcl> request = Request.newRequest(httpPath, "POST",
+            Request<CalendarAcl, CalendarAcl> request = Request.newRequest("calendar/v4/calendars/:calendar_id/acls", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.calendarAcls.service.config, request);
+        }
+    }
+    public static class CalendarAclSubscriptionReqCall extends ReqCaller<Object, EmptyData> {
+        private final CalendarAcls calendarAcls;
+        
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private CalendarAclSubscriptionReqCall(CalendarAcls calendarAcls, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.calendarAcls = calendarAcls;
+        }
+        
+        public CalendarAclSubscriptionReqCall setCalendarId(String calendarId){
+            this.pathParams.put("calendar_id", calendarId);
+            return this;
+        }
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            Request<Object, EmptyData> request = Request.newRequest("calendar/v4/calendars/:calendar_id/acls/subscription", "POST",
+                    new AccessTokenType[]{AccessTokenType.User},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarAcls.service.config, request);
         }
     }
@@ -576,43 +559,43 @@ public class CalendarService {
             this.service = service;
         }
     
-        public CalendarEventSubscriptionReqCall subscription(RequestOptFn... optFns) {
-            return new CalendarEventSubscriptionReqCall(this, optFns);
-        }
-    
-        public CalendarEventSearchReqCall search(CalendarEventSearchReqBody body, RequestOptFn... optFns) {
-            return new CalendarEventSearchReqCall(this, body, optFns);
-        }
-    
-        public CalendarEventPatchReqCall patch(CalendarEvent body, RequestOptFn... optFns) {
-            return new CalendarEventPatchReqCall(this, body, optFns);
-        }
-    
-        public CalendarEventListReqCall list(RequestOptFn... optFns) {
-            return new CalendarEventListReqCall(this, optFns);
+        public CalendarEventDeleteReqCall delete(RequestOptFn... optFns) {
+            return new CalendarEventDeleteReqCall(this, optFns);
         }
     
         public CalendarEventGetReqCall get(RequestOptFn... optFns) {
             return new CalendarEventGetReqCall(this, optFns);
         }
     
-        public CalendarEventDeleteReqCall delete(RequestOptFn... optFns) {
-            return new CalendarEventDeleteReqCall(this, optFns);
-        }
-    
         public CalendarEventCreateReqCall create(CalendarEvent body, RequestOptFn... optFns) {
             return new CalendarEventCreateReqCall(this, body, optFns);
         }
     
+        public CalendarEventListReqCall list(RequestOptFn... optFns) {
+            return new CalendarEventListReqCall(this, optFns);
+        }
+    
+        public CalendarEventPatchReqCall patch(CalendarEvent body, RequestOptFn... optFns) {
+            return new CalendarEventPatchReqCall(this, body, optFns);
+        }
+    
+        public CalendarEventSearchReqCall search(CalendarEventSearchReqBody body, RequestOptFn... optFns) {
+            return new CalendarEventSearchReqCall(this, body, optFns);
+        }
+    
+        public CalendarEventSubscriptionReqCall subscription(RequestOptFn... optFns) {
+            return new CalendarEventSubscriptionReqCall(this, optFns);
+        }
+    
     }
-    public static class CalendarEventSubscriptionReqCall extends ReqCaller<Object, EmptyData> {
+    public static class CalendarEventDeleteReqCall extends ReqCaller<Object, EmptyData> {
         private final CalendarEvents calendarEvents;
         
         private final Map<String, Object> pathParams;
         private final List<RequestOptFn> optFns;
         private EmptyData result;
         
-        private CalendarEventSubscriptionReqCall(CalendarEvents calendarEvents, RequestOptFn... optFns) {
+        private CalendarEventDeleteReqCall(CalendarEvents calendarEvents, RequestOptFn... optFns) {
         
             this.pathParams = new HashMap<>();
             this.optFns = new ArrayList<>();
@@ -621,102 +604,85 @@ public class CalendarService {
             this.calendarEvents = calendarEvents;
         }
         
-        public CalendarEventSubscriptionReqCall setCalendarId(String calendarId){
+        public CalendarEventDeleteReqCall setCalendarId(String calendarId){
             this.pathParams.put("calendar_id", calendarId);
             return this;
         }
-
-        @Override
-        public Response<EmptyData> execute() throws Exception {
-            String httpPath = this.calendarEvents.service.basePath + "/" + "calendars/:calendar_id/events/subscription";
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest(httpPath, "POST",
-                    new AccessTokenType[]{AccessTokenType.User},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.calendarEvents.service.config, request);
-        }
-    }
-    public static class CalendarEventSearchReqCall extends ReqCaller<CalendarEventSearchReqBody, CalendarEventSearchResult> {
-        private final CalendarEvents calendarEvents;
-        
-        private final CalendarEventSearchReqBody body;
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private CalendarEventSearchResult result;
-        
-        private CalendarEventSearchReqCall(CalendarEvents calendarEvents, CalendarEventSearchReqBody body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new CalendarEventSearchResult();
-            this.calendarEvents = calendarEvents;
-        }
-        
-        public CalendarEventSearchReqCall setCalendarId(String calendarId){
-            this.pathParams.put("calendar_id", calendarId);
-            return this;
-        }
-        
-        public CalendarEventSearchReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-        public CalendarEventSearchReqCall setPageToken(String pageToken){
-            this.queryParams.put("page_token", pageToken);
-            return this;
-        }
-        public CalendarEventSearchReqCall setPageSize(Integer pageSize){
-            this.queryParams.put("page_size", pageSize);
-            return this;
-        }
-
-        @Override
-        public Response<CalendarEventSearchResult> execute() throws Exception {
-            String httpPath = this.calendarEvents.service.basePath + "/" + "calendars/:calendar_id/events/search";
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<CalendarEventSearchReqBody, CalendarEventSearchResult> request = Request.newRequest(httpPath, "POST",
-                    new AccessTokenType[]{AccessTokenType.User},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.calendarEvents.service.config, request);
-        }
-    }
-    public static class CalendarEventPatchReqCall extends ReqCaller<CalendarEvent, CalendarEventPatchResult> {
-        private final CalendarEvents calendarEvents;
-        
-        private final CalendarEvent body;
-        private final Map<String, Object> pathParams;
-        private final List<RequestOptFn> optFns;
-        private CalendarEventPatchResult result;
-        
-        private CalendarEventPatchReqCall(CalendarEvents calendarEvents, CalendarEvent body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.pathParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new CalendarEventPatchResult();
-            this.calendarEvents = calendarEvents;
-        }
-        
-        public CalendarEventPatchReqCall setCalendarId(String calendarId){
-            this.pathParams.put("calendar_id", calendarId);
-            return this;
-        }
-        public CalendarEventPatchReqCall setEventId(String eventId){
+        public CalendarEventDeleteReqCall setEventId(String eventId){
             this.pathParams.put("event_id", eventId);
             return this;
         }
 
         @Override
-        public Response<CalendarEventPatchResult> execute() throws Exception {
-            String httpPath = this.calendarEvents.service.basePath + "/" + "calendars/:calendar_id/events/:event_id";
+        public Response<EmptyData> execute() throws Exception {
             this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<CalendarEvent, CalendarEventPatchResult> request = Request.newRequest(httpPath, "PATCH",
+            Request<Object, EmptyData> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/:event_id", "DELETE",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.calendarEvents.service.config, request);
+        }
+    }
+    public static class CalendarEventGetReqCall extends ReqCaller<Object, CalendarEventGetResult> {
+        private final CalendarEvents calendarEvents;
+        
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private CalendarEventGetResult result;
+        
+        private CalendarEventGetReqCall(CalendarEvents calendarEvents, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new CalendarEventGetResult();
+            this.calendarEvents = calendarEvents;
+        }
+        
+        public CalendarEventGetReqCall setCalendarId(String calendarId){
+            this.pathParams.put("calendar_id", calendarId);
+            return this;
+        }
+        public CalendarEventGetReqCall setEventId(String eventId){
+            this.pathParams.put("event_id", eventId);
+            return this;
+        }
+
+        @Override
+        public Response<CalendarEventGetResult> execute() throws Exception {
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            Request<Object, CalendarEventGetResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/:event_id", "GET",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.calendarEvents.service.config, request);
+        }
+    }
+    public static class CalendarEventCreateReqCall extends ReqCaller<CalendarEvent, CalendarEventCreateResult> {
+        private final CalendarEvents calendarEvents;
+        
+        private final CalendarEvent body;
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private CalendarEventCreateResult result;
+        
+        private CalendarEventCreateReqCall(CalendarEvents calendarEvents, CalendarEvent body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new CalendarEventCreateResult();
+            this.calendarEvents = calendarEvents;
+        }
+        
+        public CalendarEventCreateReqCall setCalendarId(String calendarId){
+            this.pathParams.put("calendar_id", calendarId);
+            return this;
+        }
+
+        @Override
+        public Response<CalendarEventCreateResult> execute() throws Exception {
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            Request<CalendarEvent, CalendarEventCreateResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarEvents.service.config, request);
@@ -760,58 +726,106 @@ public class CalendarService {
 
         @Override
         public Response<CalendarEventListResult> execute() throws Exception {
-            String httpPath = this.calendarEvents.service.basePath + "/" + "calendars/:calendar_id/events";
             this.optFns.add(Request.setPathParams(this.pathParams));
             this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, CalendarEventListResult> request = Request.newRequest(httpPath, "GET",
+            Request<Object, CalendarEventListResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarEvents.service.config, request);
         }
     }
-    public static class CalendarEventGetReqCall extends ReqCaller<Object, CalendarEventGetResult> {
+    public static class CalendarEventPatchReqCall extends ReqCaller<CalendarEvent, CalendarEventPatchResult> {
         private final CalendarEvents calendarEvents;
         
+        private final CalendarEvent body;
         private final Map<String, Object> pathParams;
         private final List<RequestOptFn> optFns;
-        private CalendarEventGetResult result;
+        private CalendarEventPatchResult result;
         
-        private CalendarEventGetReqCall(CalendarEvents calendarEvents, RequestOptFn... optFns) {
+        private CalendarEventPatchReqCall(CalendarEvents calendarEvents, CalendarEvent body, RequestOptFn... optFns) {
         
+            this.body = body;
             this.pathParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new CalendarEventGetResult();
+            this.result = new CalendarEventPatchResult();
             this.calendarEvents = calendarEvents;
         }
         
-        public CalendarEventGetReqCall setCalendarId(String calendarId){
+        public CalendarEventPatchReqCall setCalendarId(String calendarId){
             this.pathParams.put("calendar_id", calendarId);
             return this;
         }
-        public CalendarEventGetReqCall setEventId(String eventId){
+        public CalendarEventPatchReqCall setEventId(String eventId){
             this.pathParams.put("event_id", eventId);
             return this;
         }
 
         @Override
-        public Response<CalendarEventGetResult> execute() throws Exception {
-            String httpPath = this.calendarEvents.service.basePath + "/" + "calendars/:calendar_id/events/:event_id";
+        public Response<CalendarEventPatchResult> execute() throws Exception {
             this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, CalendarEventGetResult> request = Request.newRequest(httpPath, "GET",
+            Request<CalendarEvent, CalendarEventPatchResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/:event_id", "PATCH",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarEvents.service.config, request);
         }
     }
-    public static class CalendarEventDeleteReqCall extends ReqCaller<Object, EmptyData> {
+    public static class CalendarEventSearchReqCall extends ReqCaller<CalendarEventSearchReqBody, CalendarEventSearchResult> {
+        private final CalendarEvents calendarEvents;
+        
+        private final CalendarEventSearchReqBody body;
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private CalendarEventSearchResult result;
+        
+        private CalendarEventSearchReqCall(CalendarEvents calendarEvents, CalendarEventSearchReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new CalendarEventSearchResult();
+            this.calendarEvents = calendarEvents;
+        }
+        
+        public CalendarEventSearchReqCall setCalendarId(String calendarId){
+            this.pathParams.put("calendar_id", calendarId);
+            return this;
+        }
+        
+        public CalendarEventSearchReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+        public CalendarEventSearchReqCall setPageToken(String pageToken){
+            this.queryParams.put("page_token", pageToken);
+            return this;
+        }
+        public CalendarEventSearchReqCall setPageSize(Integer pageSize){
+            this.queryParams.put("page_size", pageSize);
+            return this;
+        }
+
+        @Override
+        public Response<CalendarEventSearchResult> execute() throws Exception {
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            this.optFns.add(Request.setQueryParams(this.queryParams));
+            Request<CalendarEventSearchReqBody, CalendarEventSearchResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/search", "POST",
+                    new AccessTokenType[]{AccessTokenType.User},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.calendarEvents.service.config, request);
+        }
+    }
+    public static class CalendarEventSubscriptionReqCall extends ReqCaller<Object, EmptyData> {
         private final CalendarEvents calendarEvents;
         
         private final Map<String, Object> pathParams;
         private final List<RequestOptFn> optFns;
         private EmptyData result;
         
-        private CalendarEventDeleteReqCall(CalendarEvents calendarEvents, RequestOptFn... optFns) {
+        private CalendarEventSubscriptionReqCall(CalendarEvents calendarEvents, RequestOptFn... optFns) {
         
             this.pathParams = new HashMap<>();
             this.optFns = new ArrayList<>();
@@ -820,55 +834,17 @@ public class CalendarService {
             this.calendarEvents = calendarEvents;
         }
         
-        public CalendarEventDeleteReqCall setCalendarId(String calendarId){
+        public CalendarEventSubscriptionReqCall setCalendarId(String calendarId){
             this.pathParams.put("calendar_id", calendarId);
-            return this;
-        }
-        public CalendarEventDeleteReqCall setEventId(String eventId){
-            this.pathParams.put("event_id", eventId);
             return this;
         }
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            String httpPath = this.calendarEvents.service.basePath + "/" + "calendars/:calendar_id/events/:event_id";
             this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest(httpPath, "DELETE",
-                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
+            Request<Object, EmptyData> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/subscription", "POST",
+                    new AccessTokenType[]{AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.calendarEvents.service.config, request);
-        }
-    }
-    public static class CalendarEventCreateReqCall extends ReqCaller<CalendarEvent, CalendarEventCreateResult> {
-        private final CalendarEvents calendarEvents;
-        
-        private final CalendarEvent body;
-        private final Map<String, Object> pathParams;
-        private final List<RequestOptFn> optFns;
-        private CalendarEventCreateResult result;
-        
-        private CalendarEventCreateReqCall(CalendarEvents calendarEvents, CalendarEvent body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.pathParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new CalendarEventCreateResult();
-            this.calendarEvents = calendarEvents;
-        }
-        
-        public CalendarEventCreateReqCall setCalendarId(String calendarId){
-            this.pathParams.put("calendar_id", calendarId);
-            return this;
-        }
-
-        @Override
-        public Response<CalendarEventCreateResult> execute() throws Exception {
-            String httpPath = this.calendarEvents.service.basePath + "/" + "calendars/:calendar_id/events";
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<CalendarEvent, CalendarEventCreateResult> request = Request.newRequest(httpPath, "POST",
-                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarEvents.service.config, request);
         }
     }
@@ -889,12 +865,12 @@ public class CalendarService {
             return new CalendarEventAttendeeListReqCall(this, optFns);
         }
     
-        public CalendarEventAttendeeCreateReqCall create(CalendarEventAttendeeCreateReqBody body, RequestOptFn... optFns) {
-            return new CalendarEventAttendeeCreateReqCall(this, body, optFns);
-        }
-    
         public CalendarEventAttendeeBatchDeleteReqCall batchDelete(CalendarEventAttendeeBatchDeleteReqBody body, RequestOptFn... optFns) {
             return new CalendarEventAttendeeBatchDeleteReqCall(this, body, optFns);
+        }
+    
+        public CalendarEventAttendeeCreateReqCall create(CalendarEventAttendeeCreateReqBody body, RequestOptFn... optFns) {
+            return new CalendarEventAttendeeCreateReqCall(this, body, optFns);
         }
     
     }
@@ -940,12 +916,47 @@ public class CalendarService {
 
         @Override
         public Response<CalendarEventAttendeeListResult> execute() throws Exception {
-            String httpPath = this.calendarEventAttendees.service.basePath + "/" + "calendars/:calendar_id/events/:event_id/attendees";
             this.optFns.add(Request.setPathParams(this.pathParams));
             this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, CalendarEventAttendeeListResult> request = Request.newRequest(httpPath, "GET",
+            Request<Object, CalendarEventAttendeeListResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/:event_id/attendees", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.calendarEventAttendees.service.config, request);
+        }
+    }
+    public static class CalendarEventAttendeeBatchDeleteReqCall extends ReqCaller<CalendarEventAttendeeBatchDeleteReqBody, EmptyData> {
+        private final CalendarEventAttendees calendarEventAttendees;
+        
+        private final CalendarEventAttendeeBatchDeleteReqBody body;
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private CalendarEventAttendeeBatchDeleteReqCall(CalendarEventAttendees calendarEventAttendees, CalendarEventAttendeeBatchDeleteReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.calendarEventAttendees = calendarEventAttendees;
+        }
+        
+        public CalendarEventAttendeeBatchDeleteReqCall setCalendarId(String calendarId){
+            this.pathParams.put("calendar_id", calendarId);
+            return this;
+        }
+        public CalendarEventAttendeeBatchDeleteReqCall setEventId(String eventId){
+            this.pathParams.put("event_id", eventId);
+            return this;
+        }
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            Request<CalendarEventAttendeeBatchDeleteReqBody, EmptyData> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/:event_id/attendees/batch_delete", "POST",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarEventAttendees.service.config, request);
         }
     }
@@ -985,47 +996,9 @@ public class CalendarService {
 
         @Override
         public Response<CalendarEventAttendeeCreateResult> execute() throws Exception {
-            String httpPath = this.calendarEventAttendees.service.basePath + "/" + "calendars/:calendar_id/events/:event_id/attendees";
             this.optFns.add(Request.setPathParams(this.pathParams));
             this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<CalendarEventAttendeeCreateReqBody, CalendarEventAttendeeCreateResult> request = Request.newRequest(httpPath, "POST",
-                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.calendarEventAttendees.service.config, request);
-        }
-    }
-    public static class CalendarEventAttendeeBatchDeleteReqCall extends ReqCaller<CalendarEventAttendeeBatchDeleteReqBody, EmptyData> {
-        private final CalendarEventAttendees calendarEventAttendees;
-        
-        private final CalendarEventAttendeeBatchDeleteReqBody body;
-        private final Map<String, Object> pathParams;
-        private final List<RequestOptFn> optFns;
-        private EmptyData result;
-        
-        private CalendarEventAttendeeBatchDeleteReqCall(CalendarEventAttendees calendarEventAttendees, CalendarEventAttendeeBatchDeleteReqBody body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.pathParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new EmptyData();
-            this.calendarEventAttendees = calendarEventAttendees;
-        }
-        
-        public CalendarEventAttendeeBatchDeleteReqCall setCalendarId(String calendarId){
-            this.pathParams.put("calendar_id", calendarId);
-            return this;
-        }
-        public CalendarEventAttendeeBatchDeleteReqCall setEventId(String eventId){
-            this.pathParams.put("event_id", eventId);
-            return this;
-        }
-
-        @Override
-        public Response<EmptyData> execute() throws Exception {
-            String httpPath = this.calendarEventAttendees.service.basePath + "/" + "calendars/:calendar_id/events/:event_id/attendees/batch_delete";
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<CalendarEventAttendeeBatchDeleteReqBody, EmptyData> request = Request.newRequest(httpPath, "POST",
+            Request<CalendarEventAttendeeCreateReqBody, CalendarEventAttendeeCreateResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/:event_id/attendees", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarEventAttendees.service.config, request);
@@ -1075,9 +1048,8 @@ public class CalendarService {
 
         @Override
         public Response<FreebusyListResult> execute() throws Exception {
-            String httpPath = this.freebusys.service.basePath + "/" + "freebusy/list";
             this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<FreebusyListReqBody, FreebusyListResult> request = Request.newRequest(httpPath, "POST",
+            Request<FreebusyListReqBody, FreebusyListResult> request = Request.newRequest("calendar/v4/freebusy/list", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.freebusys.service.config, request);
@@ -1128,9 +1100,8 @@ public class CalendarService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            String httpPath = this.timeoffEvents.service.basePath + "/" + "timeoff_events/:timeoff_event_id";
             this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest(httpPath, "DELETE",
+            Request<Object, EmptyData> request = Request.newRequest("calendar/v4/timeoff_events/:timeoff_event_id", "DELETE",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.timeoffEvents.service.config, request);
@@ -1162,9 +1133,8 @@ public class CalendarService {
 
         @Override
         public Response<TimeoffEvent> execute() throws Exception {
-            String httpPath = this.timeoffEvents.service.basePath + "/" + "timeoff_events";
             this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<TimeoffEvent, TimeoffEvent> request = Request.newRequest(httpPath, "POST",
+            Request<TimeoffEvent, TimeoffEvent> request = Request.newRequest("calendar/v4/timeoff_events", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.timeoffEvents.service.config, request);
@@ -1207,8 +1177,7 @@ public class CalendarService {
 
         @Override
         public Response<SettingGenerateCaldavConfResult> execute() throws Exception {
-            String httpPath = this.settings.service.basePath + "/" + "settings/generate_caldav_conf";
-            Request<SettingGenerateCaldavConfReqBody, SettingGenerateCaldavConfResult> request = Request.newRequest(httpPath, "POST",
+            Request<SettingGenerateCaldavConfReqBody, SettingGenerateCaldavConfResult> request = Request.newRequest("calendar/v4/settings/generate_caldav_conf", "POST",
                     new AccessTokenType[]{AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.settings.service.config, request);
@@ -1274,10 +1243,9 @@ public class CalendarService {
 
         @Override
         public Response<CalendarEventAttendeeChatMemberListResult> execute() throws Exception {
-            String httpPath = this.calendarEventAttendeeChatMembers.service.basePath + "/" + "calendars/:calendar_id/events/:event_id/attendees/:attendee_id/chat_members";
             this.optFns.add(Request.setPathParams(this.pathParams));
             this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, CalendarEventAttendeeChatMemberListResult> request = Request.newRequest(httpPath, "GET",
+            Request<Object, CalendarEventAttendeeChatMemberListResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/:event_id/attendees/:attendee_id/chat_members", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarEventAttendeeChatMembers.service.config, request);

@@ -23,11 +23,11 @@ public class OapiHeader {
         return m.keySet();
     }
 
-    public List<String> getMultiValues(String name) {
+    public List<String> values(String name) {
         return this.m.get(normalizeKey(name));
     }
 
-    public String getFirstValue(String name) {
+    public String firstValue(String name) {
         List<String> values = this.m.get(normalizeKey(name));
         if (values != null && values.size() > 0) {
             return values.get(0);

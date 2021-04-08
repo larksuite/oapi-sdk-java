@@ -2,6 +2,8 @@
 package com.larksuite.oapi.service.calendar.v4.model;
 
 import com.google.gson.annotations.SerializedName;
+import java.util.Map;
+
 public class CalendarEventChangedEventData {
     @SerializedName("calendar_id")
     private String calendarId;

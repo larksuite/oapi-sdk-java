@@ -9,7 +9,10 @@ import com.larksuite.oapi.core.api.response.Response;
 import com.larksuite.oapi.core.utils.Jsons;
 import com.larksuite.oapi.sample.config.Configs;
 import com.larksuite.oapi.service.contact.v3.ContactService;
-import com.larksuite.oapi.service.contact.v3.model.*;
+import com.larksuite.oapi.service.contact.v3.model.DepartmentListResult;
+import com.larksuite.oapi.service.contact.v3.model.User;
+import com.larksuite.oapi.service.contact.v3.model.UserDeleteReqBody;
+import com.larksuite.oapi.service.contact.v3.model.UserPatchResult;
 
 public class ContactSample {
     // for Cutome APP（自建应用）
@@ -47,9 +50,9 @@ public class ContactSample {
 
     public static void main(String[] args) throws Exception {
         ContactService contactService = new ContactService(config);
-        // patch(contactService);
+        patch(contactService);
         // delete(contactService);
-        departmentList(contactService);
+        //departmentList(contactService);
 
     }
 }

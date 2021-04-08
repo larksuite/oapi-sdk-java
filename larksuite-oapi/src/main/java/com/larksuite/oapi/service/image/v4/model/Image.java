@@ -2,6 +2,8 @@
 package com.larksuite.oapi.service.image.v4.model;
 
 import com.google.gson.annotations.SerializedName;
+import java.util.Map;
+
 public class Image {
     @SerializedName("image_key")
     private String imageKey;

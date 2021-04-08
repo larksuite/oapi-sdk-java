@@ -1,5 +1,6 @@
 [**README of Larksuite(Overseas)**](README.md) | 飞书
 
+
 # 飞书开放接口SDK
 
 ## 概述
@@ -25,7 +26,7 @@
 <dependency>
     <groupId>com.larksuite.oapi</groupId>
     <artifactId>larksuite-oapi</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
 </dependency>
 ```
 
