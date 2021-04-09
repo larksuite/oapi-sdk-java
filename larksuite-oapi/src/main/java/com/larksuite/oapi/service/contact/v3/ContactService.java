@@ -10,7 +10,6 @@ import com.larksuite.oapi.core.Config;
 import com.larksuite.oapi.core.event.Event;
 import com.larksuite.oapi.core.event.IHandler;
 import com.larksuite.oapi.service.contact.v3.model.*;
-
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Arrays;
@@ -27,6 +26,7 @@ public class ContactService {
     private final Departments departments;
     private final Scopes scopes;
     private final CustomAttrEvents customAttrEvents;
+    private final EmployeeTypeEnums employeeTypeEnums;
 
     public ContactService(Config config) {
         this.config = config;
@@ -37,6 +37,7 @@ public class ContactService {
         this.departments = new Departments(this);
         this.scopes = new Scopes(this);
         this.customAttrEvents = new CustomAttrEvents(this);
+        this.employeeTypeEnums = new EmployeeTypeEnums(this);
     }
 
     public DepartmentUnits getDepartmentUnits() {
@@ -1382,6 +1383,59 @@ public class ContactService {
         }
     
     }
+
+    public EmployeeTypeEnums getEmployeeTypeEnums() {
+        return employeeTypeEnums;
+    }
+
+    public static class EmployeeTypeEnums {
+
+        private final ContactService service;
+
+        public EmployeeTypeEnums(ContactService service) {
+            this.service = service;
+        }
+    
+        public EmployeeTypeEnumListReqCall list(RequestOptFn... optFns) {
+            return new EmployeeTypeEnumListReqCall(this, optFns);
+        }
+    
+    }
+    public static class EmployeeTypeEnumListReqCall extends ReqCaller<Object, EmployeeTypeEnumListResult> {
+        private final EmployeeTypeEnums employeeTypeEnums;
+        
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private EmployeeTypeEnumListResult result;
+        
+        private EmployeeTypeEnumListReqCall(EmployeeTypeEnums employeeTypeEnums, RequestOptFn... optFns) {
+        
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmployeeTypeEnumListResult();
+            this.employeeTypeEnums = employeeTypeEnums;
+        }
+        
+        
+        public EmployeeTypeEnumListReqCall setPageToken(String pageToken){
+            this.queryParams.put("page_token", pageToken);
+            return this;
+        }
+        public EmployeeTypeEnumListReqCall setPageSize(Integer pageSize){
+            this.queryParams.put("page_size", pageSize);
+            return this;
+        }
+
+        @Override
+        public Response<EmployeeTypeEnumListResult> execute() throws Exception {
+            this.optFns.add(Request.setQueryParams(this.queryParams));
+            Request<Object, EmployeeTypeEnumListResult> request = Request.newRequest("contact/v3/employee_type_enums", "GET",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.employeeTypeEnums.service.config, request);
+        }
+    }
     public void setDepartmentCreatedEventHandler(DepartmentCreatedEventHandler handler) {
         Event.setTypeHandler(this.config, "contact.department.created_v3", handler);
     }
@@ -1500,6 +1554,56 @@ public class ContactService {
         @Override
         public CustomAttrEventUpdatedEvent getEvent() {
             return new CustomAttrEventUpdatedEvent();
+        }
+    }
+    public void setEmployeeTypeEnumActivedEventHandler(EmployeeTypeEnumActivedEventHandler handler) {
+        Event.setTypeHandler(this.config, "contact.employee_type_enum.actived_v3", handler);
+    }
+
+    public abstract static class EmployeeTypeEnumActivedEventHandler implements IHandler<EmployeeTypeEnumActivedEvent> {
+        @Override
+        public EmployeeTypeEnumActivedEvent getEvent() {
+            return new EmployeeTypeEnumActivedEvent();
+        }
+    }
+    public void setEmployeeTypeEnumCreatedEventHandler(EmployeeTypeEnumCreatedEventHandler handler) {
+        Event.setTypeHandler(this.config, "contact.employee_type_enum.created_v3", handler);
+    }
+
+    public abstract static class EmployeeTypeEnumCreatedEventHandler implements IHandler<EmployeeTypeEnumCreatedEvent> {
+        @Override
+        public EmployeeTypeEnumCreatedEvent getEvent() {
+            return new EmployeeTypeEnumCreatedEvent();
+        }
+    }
+    public void setEmployeeTypeEnumDeactivatedEventHandler(EmployeeTypeEnumDeactivatedEventHandler handler) {
+        Event.setTypeHandler(this.config, "contact.employee_type_enum.deactivated_v3", handler);
+    }
+
+    public abstract static class EmployeeTypeEnumDeactivatedEventHandler implements IHandler<EmployeeTypeEnumDeactivatedEvent> {
+        @Override
+        public EmployeeTypeEnumDeactivatedEvent getEvent() {
+            return new EmployeeTypeEnumDeactivatedEvent();
+        }
+    }
+    public void setEmployeeTypeEnumDeletedEventHandler(EmployeeTypeEnumDeletedEventHandler handler) {
+        Event.setTypeHandler(this.config, "contact.employee_type_enum.deleted_v3", handler);
+    }
+
+    public abstract static class EmployeeTypeEnumDeletedEventHandler implements IHandler<EmployeeTypeEnumDeletedEvent> {
+        @Override
+        public EmployeeTypeEnumDeletedEvent getEvent() {
+            return new EmployeeTypeEnumDeletedEvent();
+        }
+    }
+    public void setEmployeeTypeEnumUpdatedEventHandler(EmployeeTypeEnumUpdatedEventHandler handler) {
+        Event.setTypeHandler(this.config, "contact.employee_type_enum.updated_v3", handler);
+    }
+
+    public abstract static class EmployeeTypeEnumUpdatedEventHandler implements IHandler<EmployeeTypeEnumUpdatedEvent> {
+        @Override
+        public EmployeeTypeEnumUpdatedEvent getEvent() {
+            return new EmployeeTypeEnumUpdatedEvent();
         }
     }
 

@@ -10,7 +10,6 @@ import com.larksuite.oapi.core.Config;
 import com.larksuite.oapi.core.event.Event;
 import com.larksuite.oapi.core.event.IHandler;
 import com.larksuite.oapi.service.calendar.v4.model.*;
-
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Arrays;
