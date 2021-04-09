@@ -17,10 +17,10 @@ public class InitSubHandler implements ISubHandler {
     public void handle(Context context, HTTPCard httpCard) throws Exception {
         OapiRequest request = httpCard.getRequest();
         context.set(Constants.HTTP_HEADER, request.getHeader());
-        String timestamp = request.getHeader().firstValue(Header.X_LARK_REQUEST_TIMESTAMP);
-        String nonce = request.getHeader().firstValue(Header.X_LARK_REQUEST_NONCE);
-        String signature = request.getHeader().firstValue(Header.X_LARK_SIGNATURE);
-        String refreshToken = request.getHeader().firstValue(Header.X_REFRESH_TOKEN);
+        String timestamp = request.getHeader().getFirstValue(Header.X_LARK_REQUEST_TIMESTAMP);
+        String nonce = request.getHeader().getFirstValue(Header.X_LARK_REQUEST_NONCE);
+        String signature = request.getHeader().getFirstValue(Header.X_LARK_SIGNATURE);
+        String refreshToken = request.getHeader().getFirstValue(Header.X_REFRESH_TOKEN);
         Header header = new Header(timestamp, nonce, signature, refreshToken);
         httpCard.setHeader(header);
         httpCard.setInput(httpCard.getRequest().getBody());
