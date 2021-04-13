@@ -28,11 +28,11 @@ public class Context {
 
     public String getRequestID() {
         OapiHeader header = getHeader();
-        String logID = header.firstValue(Constants.HTTP_HEADER_KEY_LOG_ID);
+        String logID = header.getFirstValue(Constants.HTTP_HEADER_KEY_LOG_ID);
         if (!Strings.isEmpty(logID)) {
             return logID;
         }
-        return header.firstValue(Constants.HTTP_HEADER_KEY_REQUEST_ID);
+        return header.getFirstValue(Constants.HTTP_HEADER_KEY_REQUEST_ID);
     }
 
     public int getHTTPStatusCode() {

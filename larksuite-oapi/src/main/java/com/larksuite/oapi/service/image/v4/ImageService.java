@@ -8,7 +8,6 @@ import com.larksuite.oapi.core.api.request.*;
 import com.larksuite.oapi.core.api.response.*;
 import com.larksuite.oapi.core.Config;
 import com.larksuite.oapi.service.image.v4.model.*;
-
 import java.io.*;
 import java.util.Map;
 import java.util.HashMap;

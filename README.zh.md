@@ -26,7 +26,7 @@
 <dependency>
     <groupId>com.larksuite.oapi</groupId>
     <artifactId>larksuite-oapi</artifactId>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
 </dependency>
 ```
 
@@ -483,9 +483,9 @@ public static byte[] DownloadFile(String url) throws IOException {
 |业务域|版本|路径|代码示例|
 |---|---|---|----|
 |[用户身份验证](https://open.feishu.cn/document/ukTMukTMukTM/uETOwYjLxkDM24SM5AjN)|v1|[service/authen](larksuite-oapi/src/main/java/com/larksuite/oapi/service/authen)|[sample/api/AuthenSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/AuthenSample.java)|
-|[图片](https://open.feishu.cn/document/ukTMukTMukTM/uEDO04SM4QjLxgDN)|v4|[service/image](larksuite-oapi/src/main/java/com/larksuite/oapi/service/image)|[sample/api/ImageSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ImageSample.java)|
 |[通讯录](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/introduction)|v3|[service/contact](larksuite-oapi/src/main/java/com/larksuite/oapi/service/contact)|[sample/api/ContactSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ContactSample.java)|
 |[日历](https://open.feishu.cn/document/ukTMukTMukTM/uETM3YjLxEzN24SMxcjN)|v4|[service/calendar](larksuite-oapi/src/main/java/com/larksuite/oapi/service/calendar)|[sample/api/CalendarSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/CalendarSample.java)|
+|[消息与群组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)|v1|[service/im](larksuite-oapi/src/main/java/com/larksuite/oapi/service/im)||
 
 ## License
 
