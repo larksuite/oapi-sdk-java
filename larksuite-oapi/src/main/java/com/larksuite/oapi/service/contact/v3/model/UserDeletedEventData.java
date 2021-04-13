@@ -6,7 +6,7 @@ public class UserDeletedEventData {
     @SerializedName("object")
     private UserEvent object;
     @SerializedName("old_object")
-    private UserEvent oldObject;
+    private OldUserObject oldObject;
 
     public UserEvent getObject() {
         return this.object;
@@ -16,11 +16,11 @@ public class UserDeletedEventData {
         this.object = object;
     }
 
-    public UserEvent getOldObject() {
+    public OldUserObject getOldObject() {
         return this.oldObject;
     }
 
-    public void setOldObject(UserEvent oldObject) {
+    public void setOldObject(OldUserObject oldObject) {
         this.oldObject = oldObject;
     }
 

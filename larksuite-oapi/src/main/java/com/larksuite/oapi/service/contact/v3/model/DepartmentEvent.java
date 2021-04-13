@@ -19,10 +19,8 @@ public class DepartmentEvent {
     private Integer order;
     @SerializedName("unit_ids")
     private String[] unitIds;
-    @SerializedName("member_count")
-    private Integer memberCount;
     @SerializedName("status")
-    private Integer status;
+    private DepartmentStatus status;
 
     public String getName() {
         return this.name;
@@ -88,19 +86,11 @@ public class DepartmentEvent {
         this.unitIds = unitIds;
     }
 
-    public Integer getMemberCount() {
-        return this.memberCount;
-    }
-
-    public void setMemberCount(Integer memberCount) {
-        this.memberCount = memberCount;
-    }
-
-    public Integer getStatus() {
+    public DepartmentStatus getStatus() {
         return this.status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(DepartmentStatus status) {
         this.status = status;
     }
 

@@ -6,7 +6,7 @@ public class DepartmentDeletedEventData {
     @SerializedName("object")
     private DepartmentEvent object;
     @SerializedName("old_object")
-    private DepartmentEvent oldObject;
+    private OldDepartmentObject oldObject;
 
     public DepartmentEvent getObject() {
         return this.object;
@@ -16,11 +16,11 @@ public class DepartmentDeletedEventData {
         this.object = object;
     }
 
-    public DepartmentEvent getOldObject() {
+    public OldDepartmentObject getOldObject() {
         return this.oldObject;
     }
 
-    public void setOldObject(DepartmentEvent oldObject) {
+    public void setOldObject(OldDepartmentObject oldObject) {
         this.oldObject = oldObject;
     }
 

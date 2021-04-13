@@ -59,6 +59,10 @@ public class User {
     private String timeZone;
     @SerializedName("description")
     private String description;
+    @SerializedName("need_send_notification")
+    private Boolean needSendNotification;
+    @SerializedName("notification_option")
+    private NotificationOption notificationOption;
 
     public String getUnionId() {
         return this.unionId;
@@ -282,6 +286,22 @@ public class User {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Boolean getNeedSendNotification() {
+        return this.needSendNotification;
+    }
+
+    public void setNeedSendNotification(Boolean needSendNotification) {
+        this.needSendNotification = needSendNotification;
+    }
+
+    public NotificationOption getNotificationOption() {
+        return this.notificationOption;
+    }
+
+    public void setNotificationOption(NotificationOption notificationOption) {
+        this.notificationOption = notificationOption;
     }
 
 }

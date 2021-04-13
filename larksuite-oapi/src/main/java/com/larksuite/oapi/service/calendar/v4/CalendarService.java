@@ -7,8 +7,6 @@ import com.larksuite.oapi.core.api.ReqCaller;
 import com.larksuite.oapi.core.api.request.*;
 import com.larksuite.oapi.core.api.response.*;
 import com.larksuite.oapi.core.Config;
-import com.larksuite.oapi.core.event.Event;
-import com.larksuite.oapi.core.event.IHandler;
 import com.larksuite.oapi.service.calendar.v4.model.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -1248,46 +1246,6 @@ public class CalendarService {
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarEventAttendeeChatMembers.service.config, request);
-        }
-    }
-    public void setCalendarChangedEventHandler(CalendarChangedEventHandler handler) {
-        Event.setTypeHandler(this.config, "calendar.calendar.changed_v4", handler);
-    }
-
-    public abstract static class CalendarChangedEventHandler implements IHandler<CalendarChangedEvent> {
-        @Override
-        public CalendarChangedEvent getEvent() {
-            return new CalendarChangedEvent();
-        }
-    }
-    public void setCalendarEventChangedEventHandler(CalendarEventChangedEventHandler handler) {
-        Event.setTypeHandler(this.config, "calendar.calendar.event.changed_v4", handler);
-    }
-
-    public abstract static class CalendarEventChangedEventHandler implements IHandler<CalendarEventChangedEvent> {
-        @Override
-        public CalendarEventChangedEvent getEvent() {
-            return new CalendarEventChangedEvent();
-        }
-    }
-    public void setCalendarAclCreatedEventHandler(CalendarAclCreatedEventHandler handler) {
-        Event.setTypeHandler(this.config, "calendar.calendar.acl.created_v4", handler);
-    }
-
-    public abstract static class CalendarAclCreatedEventHandler implements IHandler<CalendarAclCreatedEvent> {
-        @Override
-        public CalendarAclCreatedEvent getEvent() {
-            return new CalendarAclCreatedEvent();
-        }
-    }
-    public void setCalendarAclDeletedEventHandler(CalendarAclDeletedEventHandler handler) {
-        Event.setTypeHandler(this.config, "calendar.calendar.acl.deleted_v4", handler);
-    }
-
-    public abstract static class CalendarAclDeletedEventHandler implements IHandler<CalendarAclDeletedEvent> {
-        @Override
-        public CalendarAclDeletedEvent getEvent() {
-            return new CalendarAclDeletedEvent();
         }
     }
 
