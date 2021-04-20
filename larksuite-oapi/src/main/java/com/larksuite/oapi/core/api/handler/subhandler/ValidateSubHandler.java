@@ -26,9 +26,9 @@ public class ValidateSubHandler implements SubHandler {
             if (req.getAccessTokenType() == AccessTokenType.Tenant && Strings.isEmpty(req.getTenantKey())) {
                 throw new TenantKeyEmptyException();
             }
-            if (req.getAccessTokenType() == AccessTokenType.User && Strings.isEmpty(req.getUserAccessToken())) {
-                throw new UserAccessTokenKeyEmptyException();
-            }
+        }
+        if (req.getAccessTokenType() == AccessTokenType.User && Strings.isEmpty(req.getUserAccessToken())) {
+            throw new UserAccessTokenKeyEmptyException();
         }
     }
 }

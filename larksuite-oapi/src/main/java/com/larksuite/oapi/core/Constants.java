@@ -8,10 +8,10 @@ public interface Constants {
 
     String HTTP_HEADER = "HTTP_HEADER";
     String HTTP_HEADER_KEY_REQUEST_ID = "X-Request-Id";
-    String HTTP_HEADER_KEY_LOG_ID = "X-Log-Id";
+    String HTTP_HEADER_KEY_LOG_ID = "X-Tt-Logid";
     String HTTP_KEY_STATUS_CODE = "http_status_code";
     String URL_VERIFICATION = "url_verification";
 
-    String VERSION = "1.0.7";
+    String VERSION = "1.0.8";
 
 }
