@@ -1,5 +1,6 @@
 package com.larksuite.oapi.core.api.tools;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -13,6 +14,13 @@ public class IOs {
                 break;
             }
             output.write(bs, 0, c);
+        }
+    }
+
+    public static byte[] readAll(InputStream input) throws IOException {
+        try (ByteArrayOutputStream bos = new ByteArrayOutputStream();) {
+            copy(input, bos);
+            return bos.toByteArray();
         }
     }
 }
