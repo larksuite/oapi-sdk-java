@@ -11,6 +11,7 @@ import com.larksuite.oapi.sample.config.Configs;
 import com.larksuite.oapi.service.image.v4.ImageService;
 import com.larksuite.oapi.service.image.v4.model.Image;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,7 +35,7 @@ public class ImageSample {
         // config.getStore().put(Keys.tenantAccessTokenKey(config.getAppSettings().getAppID(), ""), "t-xxxxxxxxxxxxxxxxxxxxxxxxx", 1000, TimeUnit.DAYS);
         ImageService service = new ImageService(config);
         ImageService.ImagePutReqCall reqCall = service.getImages().put();
-        try (InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.png")) {
+        try (InputStream inputStream = new FileInputStream("/tmp/file_name")) {
             // method 1: use byte stream
             // reqCall.setImage(new FormDataFile().setContentStream(inputStream));
             // method 2: use byte array

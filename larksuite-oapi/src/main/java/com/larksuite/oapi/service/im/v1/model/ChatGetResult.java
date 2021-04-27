@@ -41,6 +41,8 @@ public class ChatGetResult {
     private Boolean external;
     @SerializedName("tenant_key")
     private String tenantKey;
+    @SerializedName("labels")
+    private String[] labels;
 
     public String getAvatar() {
         return this.avatar;
@@ -192,6 +194,14 @@ public class ChatGetResult {
 
     public void setTenantKey(String tenantKey) {
         this.tenantKey = tenantKey;
+    }
+
+    public String[] getLabels() {
+        return this.labels;
+    }
+
+    public void setLabels(String[] labels) {
+        this.labels = labels;
     }
 
 }

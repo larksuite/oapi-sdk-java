@@ -21,33 +21,25 @@ public class ImService {
 
     private final Config config;
     private final Messages messages;
-    private final Resources resources;
-    private final Announcements announcements;
     private final Chats chats;
-    private final Images images;
-    private final Files files;
     private final ChatMemberUsers chatMemberUsers;
     private final ChatMemberBots chatMemberBots;
-    private final Memberss memberss;
     private final ChatAnnouncements chatAnnouncements;
     private final ChatMemberss chatMemberss;
-    private final ChatModerations chatModerations;
+    private final Files files;
+    private final Images images;
     private final MessageResources messageResources;
 
     public ImService(Config config) {
         this.config = config;
         this.messages = new Messages(this);
-        this.resources = new Resources(this);
-        this.announcements = new Announcements(this);
         this.chats = new Chats(this);
-        this.images = new Images(this);
-        this.files = new Files(this);
         this.chatMemberUsers = new ChatMemberUsers(this);
         this.chatMemberBots = new ChatMemberBots(this);
-        this.memberss = new Memberss(this);
         this.chatAnnouncements = new ChatAnnouncements(this);
         this.chatMemberss = new ChatMemberss(this);
-        this.chatModerations = new ChatModerations(this);
+        this.files = new Files(this);
+        this.images = new Images(this);
         this.messageResources = new MessageResources(this);
     }
 
@@ -65,18 +57,6 @@ public class ImService {
     
         public MessageListReqCall list(RequestOptFn... optFns) {
             return new MessageListReqCall(this, optFns);
-        }
-    
-        public MessageUrgentAppReqCall urgentApp(UrgentReceivers body, RequestOptFn... optFns) {
-            return new MessageUrgentAppReqCall(this, body, optFns);
-        }
-    
-        public MessageUrgentPhoneReqCall urgentPhone(UrgentReceivers body, RequestOptFn... optFns) {
-            return new MessageUrgentPhoneReqCall(this, body, optFns);
-        }
-    
-        public MessageUrgentSmsReqCall urgentSms(UrgentReceivers body, RequestOptFn... optFns) {
-            return new MessageUrgentSmsReqCall(this, body, optFns);
         }
     
         public MessagePatchReqCall patch(MessagePatchReqBody body, RequestOptFn... optFns) {
@@ -101,10 +81,6 @@ public class ImService {
     
         public MessageGetReqCall get(RequestOptFn... optFns) {
             return new MessageGetReqCall(this, optFns);
-        }
-    
-        public MessageUrgentReadUsersReqCall urgentReadUsers(RequestOptFn... optFns) {
-            return new MessageUrgentReadUsersReqCall(this, optFns);
         }
     
     }
@@ -156,126 +132,6 @@ public class ImService {
             Request<Object, MessageListResult> request = Request.newRequest("im/v1/messages", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.messages.service.config, request);
-        }
-    }
-    public static class MessageUrgentAppReqCall extends ReqCaller<UrgentReceivers, MessageUrgentAppResult> {
-        private final Messages messages;
-        
-        private final UrgentReceivers body;
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private MessageUrgentAppResult result;
-        
-        private MessageUrgentAppReqCall(Messages messages, UrgentReceivers body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new MessageUrgentAppResult();
-            this.messages = messages;
-        }
-        
-        public MessageUrgentAppReqCall setMessageId(String messageId){
-            this.pathParams.put("message_id", messageId);
-            return this;
-        }
-        
-        public MessageUrgentAppReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-
-        @Override
-        public Response<MessageUrgentAppResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<UrgentReceivers, MessageUrgentAppResult> request = Request.newRequest("im/v1/messages/:message_id/urgent_app", "PATCH",
-                    new AccessTokenType[]{AccessTokenType.Tenant},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.messages.service.config, request);
-        }
-    }
-    public static class MessageUrgentPhoneReqCall extends ReqCaller<UrgentReceivers, MessageUrgentPhoneResult> {
-        private final Messages messages;
-        
-        private final UrgentReceivers body;
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private MessageUrgentPhoneResult result;
-        
-        private MessageUrgentPhoneReqCall(Messages messages, UrgentReceivers body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new MessageUrgentPhoneResult();
-            this.messages = messages;
-        }
-        
-        public MessageUrgentPhoneReqCall setMessageId(String messageId){
-            this.pathParams.put("message_id", messageId);
-            return this;
-        }
-        
-        public MessageUrgentPhoneReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-
-        @Override
-        public Response<MessageUrgentPhoneResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<UrgentReceivers, MessageUrgentPhoneResult> request = Request.newRequest("im/v1/messages/:message_id/urgent_phone", "PATCH",
-                    new AccessTokenType[]{AccessTokenType.Tenant},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.messages.service.config, request);
-        }
-    }
-    public static class MessageUrgentSmsReqCall extends ReqCaller<UrgentReceivers, MessageUrgentSmsResult> {
-        private final Messages messages;
-        
-        private final UrgentReceivers body;
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private MessageUrgentSmsResult result;
-        
-        private MessageUrgentSmsReqCall(Messages messages, UrgentReceivers body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new MessageUrgentSmsResult();
-            this.messages = messages;
-        }
-        
-        public MessageUrgentSmsReqCall setMessageId(String messageId){
-            this.pathParams.put("message_id", messageId);
-            return this;
-        }
-        
-        public MessageUrgentSmsReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-
-        @Override
-        public Response<MessageUrgentSmsResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<UrgentReceivers, MessageUrgentSmsResult> request = Request.newRequest("im/v1/messages/:message_id/urgent_sms", "PATCH",
-                    new AccessTokenType[]{AccessTokenType.Tenant},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.messages.service.config, request);
         }
     }
@@ -480,208 +336,6 @@ public class ImService {
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.messages.service.config, request);
-        }
-    }
-    public static class MessageUrgentReadUsersReqCall extends ReqCaller<Object, MessageUrgentReadUsersResult> {
-        private final Messages messages;
-        
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private MessageUrgentReadUsersResult result;
-        
-        private MessageUrgentReadUsersReqCall(Messages messages, RequestOptFn... optFns) {
-        
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new MessageUrgentReadUsersResult();
-            this.messages = messages;
-        }
-        
-        public MessageUrgentReadUsersReqCall setMessageId(String messageId){
-            this.pathParams.put("message_id", messageId);
-            return this;
-        }
-        
-        public MessageUrgentReadUsersReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-        public MessageUrgentReadUsersReqCall setPageSize(Integer pageSize){
-            this.queryParams.put("page_size", pageSize);
-            return this;
-        }
-        public MessageUrgentReadUsersReqCall setPageToken(String pageToken){
-            this.queryParams.put("page_token", pageToken);
-            return this;
-        }
-
-        @Override
-        public Response<MessageUrgentReadUsersResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, MessageUrgentReadUsersResult> request = Request.newRequest("im/v1/messages/:message_id/urgent_read_users", "GET",
-                    new AccessTokenType[]{AccessTokenType.Tenant},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.messages.service.config, request);
-        }
-    }
-
-    public Resources getResources() {
-        return resources;
-    }
-
-    public static class Resources {
-
-        private final ImService service;
-
-        public Resources(ImService service) {
-            this.service = service;
-        }
-    
-        public ResourceGetReqCall get(RequestOptFn... optFns) {
-            return new ResourceGetReqCall(this, optFns);
-        }
-    
-    }
-    public static class ResourceGetReqCall extends ReqCaller<Object, OutputStream> {
-        private final Resources resources;
-        
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private OutputStream result;
-        
-        private ResourceGetReqCall(Resources resources, RequestOptFn... optFns) {
-        
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.resources = resources;
-        }
-        
-        public ResourceGetReqCall setMessageId(String messageId){
-            this.pathParams.put("message_id", messageId);
-            return this;
-        }
-        public ResourceGetReqCall setFileKey(String fileKey){
-            this.pathParams.put("file_key", fileKey);
-            return this;
-        }
-        
-        public ResourceGetReqCall setType(String type){
-            this.queryParams.put("type", type);
-            return this;
-        }
-        public ResourceGetReqCall setResponseStream(OutputStream result){
-            this.result = result;
-            return this;
-        }
-
-        @Override
-        public Response<OutputStream> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            this.optFns.add(Request.setResponseStream());
-            Request<Object, OutputStream> request = Request.newRequest("im/v1/messages/:message_id/resources/:file_key", "GET",
-                    new AccessTokenType[]{AccessTokenType.Tenant},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.resources.service.config, request);
-        }
-    }
-
-    public Announcements getAnnouncements() {
-        return announcements;
-    }
-
-    public static class Announcements {
-
-        private final ImService service;
-
-        public Announcements(ImService service) {
-            this.service = service;
-        }
-    
-        public AnnouncementGetReqCall get(RequestOptFn... optFns) {
-            return new AnnouncementGetReqCall(this, optFns);
-        }
-    
-        public AnnouncementPatchReqCall patch(AnnouncementPatchReqBody body, RequestOptFn... optFns) {
-            return new AnnouncementPatchReqCall(this, body, optFns);
-        }
-    
-    }
-    public static class AnnouncementGetReqCall extends ReqCaller<Object, AnnouncementGetResult> {
-        private final Announcements announcements;
-        
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private AnnouncementGetResult result;
-        
-        private AnnouncementGetReqCall(Announcements announcements, RequestOptFn... optFns) {
-        
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new AnnouncementGetResult();
-            this.announcements = announcements;
-        }
-        
-        public AnnouncementGetReqCall setChatId(String chatId){
-            this.pathParams.put("chat_id", chatId);
-            return this;
-        }
-        
-        public AnnouncementGetReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-
-        @Override
-        public Response<AnnouncementGetResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, AnnouncementGetResult> request = Request.newRequest("im/v1/chats/:chat_id/announcement", "GET",
-                    new AccessTokenType[]{AccessTokenType.User},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.announcements.service.config, request);
-        }
-    }
-    public static class AnnouncementPatchReqCall extends ReqCaller<AnnouncementPatchReqBody, EmptyData> {
-        private final Announcements announcements;
-        
-        private final AnnouncementPatchReqBody body;
-        private final Map<String, Object> pathParams;
-        private final List<RequestOptFn> optFns;
-        private EmptyData result;
-        
-        private AnnouncementPatchReqCall(Announcements announcements, AnnouncementPatchReqBody body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.pathParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new EmptyData();
-            this.announcements = announcements;
-        }
-        
-        public AnnouncementPatchReqCall setChatId(String chatId){
-            this.pathParams.put("chat_id", chatId);
-            return this;
-        }
-
-        @Override
-        public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<AnnouncementPatchReqBody, EmptyData> request = Request.newRequest("im/v1/chats/:chat_id/announcement", "PATCH",
-                    new AccessTokenType[]{AccessTokenType.User},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.announcements.service.config, request);
         }
     }
 
@@ -946,198 +600,6 @@ public class ImService {
         }
     }
 
-    public Images getImages() {
-        return images;
-    }
-
-    public static class Images {
-
-        private final ImService service;
-
-        public Images(ImService service) {
-            this.service = service;
-        }
-    
-        public ImageCreateReqCall create(RequestOptFn... optFns) {
-            return new ImageCreateReqCall(this, optFns);
-        }
-    
-        public ImageGetReqCall get(RequestOptFn... optFns) {
-            return new ImageGetReqCall(this, optFns);
-        }
-    
-    }
-    public static class ImageCreateReqCall extends ReqCaller<FormData, ImageCreateResult> {
-        private final Images images;
-        private final FormData body;
-        private final List<RequestOptFn> optFns;
-        private ImageCreateResult result;
-        
-        private ImageCreateReqCall(Images images, RequestOptFn... optFns) {
-        
-            this.body = new FormData();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new ImageCreateResult();
-            this.images = images;
-        }
-        
-        
-        public ImageCreateReqCall setImageType(String imageType){
-            this.body.addField("image_type", imageType);
-            return this;
-        }
-        
-        public ImageCreateReqCall setImage(FormDataFile image){
-            this.body.addFile("image", image);
-            return this;
-        }
-        
-
-        @Override
-        public Response<ImageCreateResult> execute() throws Exception {
-            Request<FormData, ImageCreateResult> request = Request.newRequest("im/v1/images", "POST",
-                    new AccessTokenType[]{AccessTokenType.Tenant},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.images.service.config, request);
-        }
-    }
-    public static class ImageGetReqCall extends ReqCaller<Object, OutputStream> {
-        private final Images images;
-        
-        private final Map<String, Object> pathParams;
-        private final List<RequestOptFn> optFns;
-        private OutputStream result;
-        
-        private ImageGetReqCall(Images images, RequestOptFn... optFns) {
-        
-            this.pathParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.images = images;
-        }
-        
-        public ImageGetReqCall setImageKey(String imageKey){
-            this.pathParams.put("image_key", imageKey);
-            return this;
-        }
-        public ImageGetReqCall setResponseStream(OutputStream result){
-            this.result = result;
-            return this;
-        }
-
-        @Override
-        public Response<OutputStream> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setResponseStream());
-            Request<Object, OutputStream> request = Request.newRequest("im/v1/images/:image_key", "GET",
-                    new AccessTokenType[]{AccessTokenType.Tenant},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.images.service.config, request);
-        }
-    }
-
-    public Files getFiles() {
-        return files;
-    }
-
-    public static class Files {
-
-        private final ImService service;
-
-        public Files(ImService service) {
-            this.service = service;
-        }
-    
-        public FileCreateReqCall create(RequestOptFn... optFns) {
-            return new FileCreateReqCall(this, optFns);
-        }
-    
-        public FileGetReqCall get(RequestOptFn... optFns) {
-            return new FileGetReqCall(this, optFns);
-        }
-    
-    }
-    public static class FileCreateReqCall extends ReqCaller<FormData, FileCreateResult> {
-        private final Files files;
-        private final FormData body;
-        private final List<RequestOptFn> optFns;
-        private FileCreateResult result;
-        
-        private FileCreateReqCall(Files files, RequestOptFn... optFns) {
-        
-            this.body = new FormData();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new FileCreateResult();
-            this.files = files;
-        }
-        
-        
-        public FileCreateReqCall setFileType(String fileType){
-            this.body.addField("file_type", fileType);
-            return this;
-        }
-        
-        public FileCreateReqCall setFileName(String fileName){
-            this.body.addField("file_name", fileName);
-            return this;
-        }
-        
-        public FileCreateReqCall setDuration(Integer duration){
-            this.body.addField("duration", duration);
-            return this;
-        }
-        
-        public FileCreateReqCall setFile(FormDataFile file){
-            this.body.addFile("file", file);
-            return this;
-        }
-        
-
-        @Override
-        public Response<FileCreateResult> execute() throws Exception {
-            Request<FormData, FileCreateResult> request = Request.newRequest("im/v1/files", "POST",
-                    new AccessTokenType[]{AccessTokenType.Tenant},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.files.service.config, request);
-        }
-    }
-    public static class FileGetReqCall extends ReqCaller<Object, OutputStream> {
-        private final Files files;
-        
-        private final Map<String, Object> pathParams;
-        private final List<RequestOptFn> optFns;
-        private OutputStream result;
-        
-        private FileGetReqCall(Files files, RequestOptFn... optFns) {
-        
-            this.pathParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.files = files;
-        }
-        
-        public FileGetReqCall setFileKey(String fileKey){
-            this.pathParams.put("file_key", fileKey);
-            return this;
-        }
-        public FileGetReqCall setResponseStream(OutputStream result){
-            this.result = result;
-            return this;
-        }
-
-        @Override
-        public Response<OutputStream> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setResponseStream());
-            Request<Object, OutputStream> request = Request.newRequest("im/v1/files/:file_key", "GET",
-                    new AccessTokenType[]{AccessTokenType.Tenant},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.files.service.config, request);
-        }
-    }
-
     public ChatMemberUsers getChatMemberUsers() {
         return chatMemberUsers;
     }
@@ -1164,226 +626,6 @@ public class ImService {
             this.service = service;
         }
     
-    }
-
-    public Memberss getMemberss() {
-        return memberss;
-    }
-
-    public static class Memberss {
-
-        private final ImService service;
-
-        public Memberss(ImService service) {
-            this.service = service;
-        }
-    
-        public MembersGetReqCall get(RequestOptFn... optFns) {
-            return new MembersGetReqCall(this, optFns);
-        }
-    
-        public MembersCreateReqCall create(MembersCreateReqBody body, RequestOptFn... optFns) {
-            return new MembersCreateReqCall(this, body, optFns);
-        }
-    
-        public MembersMeJoinReqCall meJoin(RequestOptFn... optFns) {
-            return new MembersMeJoinReqCall(this, optFns);
-        }
-    
-        public MembersDeleteReqCall delete(MembersDeleteReqBody body, RequestOptFn... optFns) {
-            return new MembersDeleteReqCall(this, body, optFns);
-        }
-    
-        public MembersIsInChatReqCall isInChat(RequestOptFn... optFns) {
-            return new MembersIsInChatReqCall(this, optFns);
-        }
-    
-    }
-    public static class MembersGetReqCall extends ReqCaller<Object, MembersGetResult> {
-        private final Memberss memberss;
-        
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private MembersGetResult result;
-        
-        private MembersGetReqCall(Memberss memberss, RequestOptFn... optFns) {
-        
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new MembersGetResult();
-            this.memberss = memberss;
-        }
-        
-        public MembersGetReqCall setChatId(String chatId){
-            this.pathParams.put("chat_id", chatId);
-            return this;
-        }
-        
-        public MembersGetReqCall setMemberIdType(String memberIdType){
-            this.queryParams.put("member_id_type", memberIdType);
-            return this;
-        }
-        public MembersGetReqCall setPageToken(String pageToken){
-            this.queryParams.put("page_token", pageToken);
-            return this;
-        }
-        public MembersGetReqCall setPageSize(Integer pageSize){
-            this.queryParams.put("page_size", pageSize);
-            return this;
-        }
-
-        @Override
-        public Response<MembersGetResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, MembersGetResult> request = Request.newRequest("im/v1/chats/:chat_id/members", "GET",
-                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.memberss.service.config, request);
-        }
-    }
-    public static class MembersCreateReqCall extends ReqCaller<MembersCreateReqBody, MembersCreateResult> {
-        private final Memberss memberss;
-        
-        private final MembersCreateReqBody body;
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private MembersCreateResult result;
-        
-        private MembersCreateReqCall(Memberss memberss, MembersCreateReqBody body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new MembersCreateResult();
-            this.memberss = memberss;
-        }
-        
-        public MembersCreateReqCall setChatId(String chatId){
-            this.pathParams.put("chat_id", chatId);
-            return this;
-        }
-        
-        public MembersCreateReqCall setMemberIdType(String memberIdType){
-            this.queryParams.put("member_id_type", memberIdType);
-            return this;
-        }
-
-        @Override
-        public Response<MembersCreateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<MembersCreateReqBody, MembersCreateResult> request = Request.newRequest("im/v1/chats/:chat_id/members", "POST",
-                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.memberss.service.config, request);
-        }
-    }
-    public static class MembersMeJoinReqCall extends ReqCaller<Object, EmptyData> {
-        private final Memberss memberss;
-        
-        private final Map<String, Object> pathParams;
-        private final List<RequestOptFn> optFns;
-        private EmptyData result;
-        
-        private MembersMeJoinReqCall(Memberss memberss, RequestOptFn... optFns) {
-        
-            this.pathParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new EmptyData();
-            this.memberss = memberss;
-        }
-        
-        public MembersMeJoinReqCall setChatId(String chatId){
-            this.pathParams.put("chat_id", chatId);
-            return this;
-        }
-
-        @Override
-        public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest("im/v1/chats/:chat_id/members/me_join", "PATCH",
-                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.memberss.service.config, request);
-        }
-    }
-    public static class MembersDeleteReqCall extends ReqCaller<MembersDeleteReqBody, MembersDeleteResult> {
-        private final Memberss memberss;
-        
-        private final MembersDeleteReqBody body;
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private MembersDeleteResult result;
-        
-        private MembersDeleteReqCall(Memberss memberss, MembersDeleteReqBody body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new MembersDeleteResult();
-            this.memberss = memberss;
-        }
-        
-        public MembersDeleteReqCall setChatId(String chatId){
-            this.pathParams.put("chat_id", chatId);
-            return this;
-        }
-        
-        public MembersDeleteReqCall setMemberIdType(String memberIdType){
-            this.queryParams.put("member_id_type", memberIdType);
-            return this;
-        }
-
-        @Override
-        public Response<MembersDeleteResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<MembersDeleteReqBody, MembersDeleteResult> request = Request.newRequest("im/v1/chats/:chat_id/members", "DELETE",
-                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.memberss.service.config, request);
-        }
-    }
-    public static class MembersIsInChatReqCall extends ReqCaller<Object, MembersIsInChatResult> {
-        private final Memberss memberss;
-        
-        private final Map<String, Object> pathParams;
-        private final List<RequestOptFn> optFns;
-        private MembersIsInChatResult result;
-        
-        private MembersIsInChatReqCall(Memberss memberss, RequestOptFn... optFns) {
-        
-            this.pathParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new MembersIsInChatResult();
-            this.memberss = memberss;
-        }
-        
-        public MembersIsInChatReqCall setChatId(String chatId){
-            this.pathParams.put("chat_id", chatId);
-            return this;
-        }
-
-        @Override
-        public Response<MembersIsInChatResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, MembersIsInChatResult> request = Request.newRequest("im/v1/chats/:chat_id/members/is_in_chat", "GET",
-                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.memberss.service.config, request);
-        }
     }
 
     public ChatAnnouncements getChatAnnouncements() {
@@ -1698,111 +940,195 @@ public class ImService {
         }
     }
 
-    public ChatModerations getChatModerations() {
-        return chatModerations;
+    public Files getFiles() {
+        return files;
     }
 
-    public static class ChatModerations {
+    public static class Files {
 
         private final ImService service;
 
-        public ChatModerations(ImService service) {
+        public Files(ImService service) {
             this.service = service;
         }
     
-        public ChatModerationGetReqCall get(RequestOptFn... optFns) {
-            return new ChatModerationGetReqCall(this, optFns);
+        public FileCreateReqCall create(RequestOptFn... optFns) {
+            return new FileCreateReqCall(this, optFns);
         }
     
-        public ChatModerationUpdateReqCall update(ChatModerationUpdateReqBody body, RequestOptFn... optFns) {
-            return new ChatModerationUpdateReqCall(this, body, optFns);
+        public FileGetReqCall get(RequestOptFn... optFns) {
+            return new FileGetReqCall(this, optFns);
         }
     
     }
-    public static class ChatModerationGetReqCall extends ReqCaller<Object, ChatModerationGetResult> {
-        private final ChatModerations chatModerations;
-        
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
+    public static class FileCreateReqCall extends ReqCaller<FormData, FileCreateResult> {
+        private final Files files;
+        private final FormData body;
         private final List<RequestOptFn> optFns;
-        private ChatModerationGetResult result;
+        private FileCreateResult result;
         
-        private ChatModerationGetReqCall(ChatModerations chatModerations, RequestOptFn... optFns) {
+        private FileCreateReqCall(Files files, RequestOptFn... optFns) {
         
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
+            this.body = new FormData();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new ChatModerationGetResult();
-            this.chatModerations = chatModerations;
+            this.result = new FileCreateResult();
+            this.files = files;
         }
         
-        public ChatModerationGetReqCall setChatId(String chatId){
-            this.pathParams.put("chat_id", chatId);
+        
+        public FileCreateReqCall setFileType(String fileType){
+            this.body.addField("file_type", fileType);
             return this;
         }
         
-        public ChatModerationGetReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
+        public FileCreateReqCall setFileName(String fileName){
+            this.body.addField("file_name", fileName);
             return this;
         }
-        public ChatModerationGetReqCall setPageToken(String pageToken){
-            this.queryParams.put("page_token", pageToken);
+        
+        public FileCreateReqCall setDuration(Integer duration){
+            this.body.addField("duration", duration);
             return this;
         }
-        public ChatModerationGetReqCall setPageSize(Integer pageSize){
-            this.queryParams.put("page_size", pageSize);
+        
+        public FileCreateReqCall setFile(FormDataFile file){
+            this.body.addFile("file", file);
             return this;
         }
+        
 
         @Override
-        public Response<ChatModerationGetResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, ChatModerationGetResult> request = Request.newRequest("im/v1/chats/:chat_id/moderation", "GET",
-                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.chatModerations.service.config, request);
-        }
-    }
-    public static class ChatModerationUpdateReqCall extends ReqCaller<ChatModerationUpdateReqBody, EmptyData> {
-        private final ChatModerations chatModerations;
-        
-        private final ChatModerationUpdateReqBody body;
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private EmptyData result;
-        
-        private ChatModerationUpdateReqCall(ChatModerations chatModerations, ChatModerationUpdateReqBody body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new EmptyData();
-            this.chatModerations = chatModerations;
-        }
-        
-        public ChatModerationUpdateReqCall setChatId(String chatId){
-            this.pathParams.put("chat_id", chatId);
-            return this;
-        }
-        
-        public ChatModerationUpdateReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-
-        @Override
-        public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<ChatModerationUpdateReqBody, EmptyData> request = Request.newRequest("im/v1/chats/:chat_id/moderation", "PUT",
-                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+        public Response<FileCreateResult> execute() throws Exception {
+            Request<FormData, FileCreateResult> request = Request.newRequest("im/v1/files", "POST",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.chatModerations.service.config, request);
+            return Api.send(this.files.service.config, request);
+        }
+    }
+    public static class FileGetReqCall extends ReqCaller<Object, OutputStream> {
+        private final Files files;
+        
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private OutputStream result;
+        
+        private FileGetReqCall(Files files, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.files = files;
+        }
+        
+        public FileGetReqCall setFileKey(String fileKey){
+            this.pathParams.put("file_key", fileKey);
+            return this;
+        }
+        public FileGetReqCall setResponseStream(OutputStream result){
+            this.result = result;
+            return this;
+        }
+
+        @Override
+        public Response<OutputStream> execute() throws Exception {
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            this.optFns.add(Request.setResponseStream());
+            Request<Object, OutputStream> request = Request.newRequest("im/v1/files/:file_key", "GET",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.files.service.config, request);
+        }
+    }
+
+    public Images getImages() {
+        return images;
+    }
+
+    public static class Images {
+
+        private final ImService service;
+
+        public Images(ImService service) {
+            this.service = service;
+        }
+    
+        public ImageCreateReqCall create(RequestOptFn... optFns) {
+            return new ImageCreateReqCall(this, optFns);
+        }
+    
+        public ImageGetReqCall get(RequestOptFn... optFns) {
+            return new ImageGetReqCall(this, optFns);
+        }
+    
+    }
+    public static class ImageCreateReqCall extends ReqCaller<FormData, ImageCreateResult> {
+        private final Images images;
+        private final FormData body;
+        private final List<RequestOptFn> optFns;
+        private ImageCreateResult result;
+        
+        private ImageCreateReqCall(Images images, RequestOptFn... optFns) {
+        
+            this.body = new FormData();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new ImageCreateResult();
+            this.images = images;
+        }
+        
+        
+        public ImageCreateReqCall setImageType(String imageType){
+            this.body.addField("image_type", imageType);
+            return this;
+        }
+        
+        public ImageCreateReqCall setImage(FormDataFile image){
+            this.body.addFile("image", image);
+            return this;
+        }
+        
+
+        @Override
+        public Response<ImageCreateResult> execute() throws Exception {
+            Request<FormData, ImageCreateResult> request = Request.newRequest("im/v1/images", "POST",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.images.service.config, request);
+        }
+    }
+    public static class ImageGetReqCall extends ReqCaller<Object, OutputStream> {
+        private final Images images;
+        
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private OutputStream result;
+        
+        private ImageGetReqCall(Images images, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.images = images;
+        }
+        
+        public ImageGetReqCall setImageKey(String imageKey){
+            this.pathParams.put("image_key", imageKey);
+            return this;
+        }
+        public ImageGetReqCall setResponseStream(OutputStream result){
+            this.result = result;
+            return this;
+        }
+
+        @Override
+        public Response<OutputStream> execute() throws Exception {
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            this.optFns.add(Request.setResponseStream());
+            Request<Object, OutputStream> request = Request.newRequest("im/v1/images/:image_key", "GET",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.images.service.config, request);
         }
     }
 
@@ -1899,16 +1225,6 @@ public class ImService {
             return new ChatDisbandedEvent();
         }
     }
-    public void setChatMemberBotAddedEventHandler(ChatMemberBotAddedEventHandler handler) {
-        Event.setTypeHandler(this.config, "im.chat.member.bot.added_v1", handler);
-    }
-
-    public abstract static class ChatMemberBotAddedEventHandler implements IHandler<ChatMemberBotAddedEvent> {
-        @Override
-        public ChatMemberBotAddedEvent getEvent() {
-            return new ChatMemberBotAddedEvent();
-        }
-    }
     public void setChatMemberUserAddedEventHandler(ChatMemberUserAddedEventHandler handler) {
         Event.setTypeHandler(this.config, "im.chat.member.user.added_v1", handler);
     }
@@ -1917,6 +1233,16 @@ public class ImService {
         @Override
         public ChatMemberUserAddedEvent getEvent() {
             return new ChatMemberUserAddedEvent();
+        }
+    }
+    public void setChatMemberBotAddedEventHandler(ChatMemberBotAddedEventHandler handler) {
+        Event.setTypeHandler(this.config, "im.chat.member.bot.added_v1", handler);
+    }
+
+    public abstract static class ChatMemberBotAddedEventHandler implements IHandler<ChatMemberBotAddedEvent> {
+        @Override
+        public ChatMemberBotAddedEvent getEvent() {
+            return new ChatMemberBotAddedEvent();
         }
     }
     public void setChatMemberBotDeletedEventHandler(ChatMemberBotDeletedEventHandler handler) {
@@ -1967,16 +1293,6 @@ public class ImService {
         @Override
         public MessageMessageReadEvent getEvent() {
             return new MessageMessageReadEvent();
-        }
-    }
-    public void setMessageUrgentMessageReadEventHandler(MessageUrgentMessageReadEventHandler handler) {
-        Event.setTypeHandler(this.config, "im.message.urgent_message_read_v1", handler);
-    }
-
-    public abstract static class MessageUrgentMessageReadEventHandler implements IHandler<MessageUrgentMessageReadEvent> {
-        @Override
-        public MessageUrgentMessageReadEvent getEvent() {
-            return new MessageUrgentMessageReadEvent();
         }
     }
 
