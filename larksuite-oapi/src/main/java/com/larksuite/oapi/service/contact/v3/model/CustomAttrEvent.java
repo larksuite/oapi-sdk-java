@@ -8,7 +8,7 @@ public class CustomAttrEvent {
     @SerializedName("field_value_types")
     private String fieldValueTypes;
     @SerializedName("i18n_field_names")
-    private String iQXnFieldNames;
+    private String i18nFieldNames;
     @SerializedName("allow_open_query")
     private String allowOpenQuery;
 
@@ -29,11 +29,11 @@ public class CustomAttrEvent {
     }
 
     public String getI18nFieldNames() {
-        return this.iQXnFieldNames;
+        return this.i18nFieldNames;
     }
 
-    public void setI18nFieldNames(String iQXnFieldNames) {
-        this.iQXnFieldNames = iQXnFieldNames;
+    public void setI18nFieldNames(String i18nFieldNames) {
+        this.i18nFieldNames = i18nFieldNames;
     }
 
     public String getAllowOpenQuery() {

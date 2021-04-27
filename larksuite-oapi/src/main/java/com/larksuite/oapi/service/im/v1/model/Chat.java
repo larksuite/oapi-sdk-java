@@ -12,7 +12,7 @@ public class Chat {
     @SerializedName("description")
     private String description;
     @SerializedName("i18n_names")
-    private I18nNames iQXnNames;
+    private I18nNames i18nNames;
     @SerializedName("only_owner_add")
     private Boolean onlyOwnerAdd;
     @SerializedName("share_allowed")
@@ -59,11 +59,11 @@ public class Chat {
     }
 
     public I18nNames getI18nNames() {
-        return this.iQXnNames;
+        return this.i18nNames;
     }
 
-    public void setI18nNames(I18nNames iQXnNames) {
-        this.iQXnNames = iQXnNames;
+    public void setI18nNames(I18nNames i18nNames) {
+        this.i18nNames = i18nNames;
     }
 
     public Boolean getOnlyOwnerAdd() {

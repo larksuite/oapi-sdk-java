@@ -14,7 +14,7 @@ public class EmployeeTypeEnum {
     @SerializedName("enum_status")
     private Integer enumStatus;
     @SerializedName("i18n_content")
-    private I18nContent[] iQXnContent;
+    private I18nContent[] i18nContent;
 
     public String getEnumId() {
         return this.enumId;
@@ -57,11 +57,11 @@ public class EmployeeTypeEnum {
     }
 
     public I18nContent[] getI18nContent() {
-        return this.iQXnContent;
+        return this.i18nContent;
     }
 
-    public void setI18nContent(I18nContent[] iQXnContent) {
-        this.iQXnContent = iQXnContent;
+    public void setI18nContent(I18nContent[] i18nContent) {
+        this.i18nContent = i18nContent;
     }
 
 }

@@ -10,7 +10,7 @@ public class ChatCreateReqBody {
     @SerializedName("description")
     private String description;
     @SerializedName("i18n_names")
-    private I18nNames iQXnNames;
+    private I18nNames i18nNames;
     @SerializedName("owner_id")
     private String ownerId;
     @SerializedName("chat_mode")
@@ -51,11 +51,11 @@ public class ChatCreateReqBody {
     }
 
     public I18nNames getI18nNames() {
-        return this.iQXnNames;
+        return this.i18nNames;
     }
 
-    public void setI18nNames(I18nNames iQXnNames) {
-        this.iQXnNames = iQXnNames;
+    public void setI18nNames(I18nNames i18nNames) {
+        this.i18nNames = i18nNames;
     }
 
     public String getOwnerId() {
