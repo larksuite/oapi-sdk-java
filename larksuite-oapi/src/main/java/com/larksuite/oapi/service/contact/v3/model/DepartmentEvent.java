@@ -17,8 +17,6 @@ public class DepartmentEvent {
     private String chatId;
     @SerializedName("order")
     private Integer order;
-    @SerializedName("unit_ids")
-    private String[] unitIds;
     @SerializedName("status")
     private DepartmentStatus status;
 
@@ -78,13 +76,6 @@ public class DepartmentEvent {
         this.order = order;
     }
 
-    public String[] getUnitIds() {
-        return this.unitIds;
-    }
-
-    public void setUnitIds(String[] unitIds) {
-        this.unitIds = unitIds;
-    }
 
     public DepartmentStatus getStatus() {
         return this.status;

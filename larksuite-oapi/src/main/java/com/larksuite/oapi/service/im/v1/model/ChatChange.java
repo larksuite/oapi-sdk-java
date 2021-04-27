@@ -29,8 +29,6 @@ public class ChatChange {
     private String moderationPermission;
     @SerializedName("owner_id")
     private UserId ownerId;
-    @SerializedName("labels")
-    private String[] labels;
 
     public String getAvatar() {
         return this.avatar;
@@ -136,12 +134,5 @@ public class ChatChange {
         this.ownerId = ownerId;
     }
 
-    public String[] getLabels() {
-        return this.labels;
-    }
-
-    public void setLabels(String[] labels) {
-        this.labels = labels;
-    }
 
 }

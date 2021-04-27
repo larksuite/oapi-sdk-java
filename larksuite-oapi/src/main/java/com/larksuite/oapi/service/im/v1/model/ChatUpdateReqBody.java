@@ -27,8 +27,6 @@ public class ChatUpdateReqBody {
     private String leaveMessageVisibility;
     @SerializedName("membership_approval")
     private String membershipApproval;
-    @SerializedName("labels")
-    private String[] labels;
 
     public String getAvatar() {
         return this.avatar;
@@ -126,12 +124,5 @@ public class ChatUpdateReqBody {
         this.membershipApproval = membershipApproval;
     }
 
-    public String[] getLabels() {
-        return this.labels;
-    }
-
-    public void setLabels(String[] labels) {
-        this.labels = labels;
-    }
 
 }

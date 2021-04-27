@@ -43,8 +43,6 @@ public class ChatCreateResult {
     private String membershipApproval;
     @SerializedName("moderation_permission")
     private String moderationPermission;
-    @SerializedName("labels")
-    private String[] labels;
 
     public String getChatId() {
         return this.chatId;
@@ -206,12 +204,5 @@ public class ChatCreateResult {
         this.moderationPermission = moderationPermission;
     }
 
-    public String[] getLabels() {
-        return this.labels;
-    }
-
-    public void setLabels(String[] labels) {
-        this.labels = labels;
-    }
 
 }

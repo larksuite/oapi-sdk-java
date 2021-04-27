@@ -25,8 +25,6 @@ public class Chat {
     private String ownerUserId;
     @SerializedName("type")
     private String type;
-    @SerializedName("labels")
-    private String[] labels;
 
     public String getChatId() {
         return this.chatId;
@@ -116,12 +114,5 @@ public class Chat {
         this.type = type;
     }
 
-    public String[] getLabels() {
-        return this.labels;
-    }
-
-    public void setLabels(String[] labels) {
-        this.labels = labels;
-    }
 
 }

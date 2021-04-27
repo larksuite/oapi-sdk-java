@@ -15,8 +15,6 @@ public class UserEvent {
     private String email;
     @SerializedName("mobile")
     private String mobile;
-    @SerializedName("mobile_visible")
-    private Boolean mobileVisible;
     @SerializedName("gender")
     private Integer gender;
     @SerializedName("avatar")
@@ -35,18 +33,12 @@ public class UserEvent {
     private String workStation;
     @SerializedName("join_time")
     private Integer joinTime;
-    @SerializedName("is_tenant_manager")
-    private Boolean isTenantManager;
     @SerializedName("employee_no")
     private String employeeNo;
     @SerializedName("employee_type")
     private Integer employeeType;
-    @SerializedName("positions")
-    private UserPosition[] positions;
     @SerializedName("orders")
     private UserOrder[] orders;
-    @SerializedName("time_zone")
-    private String timeZone;
     @SerializedName("custom_attrs")
     private UserCustomAttr[] customAttrs;
 
@@ -98,13 +90,6 @@ public class UserEvent {
         this.mobile = mobile;
     }
 
-    public Boolean getMobileVisible() {
-        return this.mobileVisible;
-    }
-
-    public void setMobileVisible(Boolean mobileVisible) {
-        this.mobileVisible = mobileVisible;
-    }
 
     public Integer getGender() {
         return this.gender;
@@ -178,13 +163,6 @@ public class UserEvent {
         this.joinTime = joinTime;
     }
 
-    public Boolean getIsTenantManager() {
-        return this.isTenantManager;
-    }
-
-    public void setIsTenantManager(Boolean isTenantManager) {
-        this.isTenantManager = isTenantManager;
-    }
 
     public String getEmployeeNo() {
         return this.employeeNo;
@@ -202,13 +180,6 @@ public class UserEvent {
         this.employeeType = employeeType;
     }
 
-    public UserPosition[] getPositions() {
-        return this.positions;
-    }
-
-    public void setPositions(UserPosition[] positions) {
-        this.positions = positions;
-    }
 
     public UserOrder[] getOrders() {
         return this.orders;
@@ -218,13 +189,6 @@ public class UserEvent {
         this.orders = orders;
     }
 
-    public String getTimeZone() {
-        return this.timeZone;
-    }
-
-    public void setTimeZone(String timeZone) {
-        this.timeZone = timeZone;
-    }
 
     public UserCustomAttr[] getCustomAttrs() {
         return this.customAttrs;
