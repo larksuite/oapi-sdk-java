@@ -10,7 +10,7 @@ public class ChatChange {
     @SerializedName("description")
     private String description;
     @SerializedName("i18n_names")
-    private I18nNames iQXnNames;
+    private I18nNames i18nNames;
     @SerializedName("add_member_permission")
     private String addMemberPermission;
     @SerializedName("share_card_permission")
@@ -55,11 +55,11 @@ public class ChatChange {
     }
 
     public I18nNames getI18nNames() {
-        return this.iQXnNames;
+        return this.i18nNames;
     }
 
-    public void setI18nNames(I18nNames iQXnNames) {
-        this.iQXnNames = iQXnNames;
+    public void setI18nNames(I18nNames i18nNames) {
+        this.i18nNames = i18nNames;
     }
 
     public String getAddMemberPermission() {

@@ -6,7 +6,7 @@ public class Department {
     @SerializedName("name")
     private String name;
     @SerializedName("i18n_name")
-    private DepartmentI18nName iQXnName;
+    private DepartmentI18nName i18nName;
     @SerializedName("parent_department_id")
     private String parentDepartmentId;
     @SerializedName("department_id")
@@ -37,11 +37,11 @@ public class Department {
     }
 
     public DepartmentI18nName getI18nName() {
-        return this.iQXnName;
+        return this.i18nName;
     }
 
-    public void setI18nName(DepartmentI18nName iQXnName) {
-        this.iQXnName = iQXnName;
+    public void setI18nName(DepartmentI18nName i18nName) {
+        this.i18nName = i18nName;
     }
 
     public String getParentDepartmentId() {
