@@ -32,10 +32,10 @@ public class DefaultStore implements IStore {
 
     @Override
     public void put(String key, String value, int expire, TimeUnit timeUnit) {
-        log.debug("put key:{}, value:{}, expire:{} second", key, value, timeUnit.toSeconds(expire));
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.SECOND, (int) timeUnit.toSeconds(expire));
         Value v = new Value(value, calendar.getTime());
+        log.debug("put key:{}, value:{}, expire time:{} ", key, value, calendar.getTime());
         this.cm.put(key, v);
     }
 

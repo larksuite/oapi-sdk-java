@@ -114,4 +114,5 @@ public class ChatCreateReqBody {
         this.membershipApproval = membershipApproval;
     }
 
+
 }

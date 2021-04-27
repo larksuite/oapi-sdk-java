@@ -45,20 +45,12 @@ public class User {
     private String employeeNo;
     @SerializedName("employee_type")
     private Integer employeeType;
-    @SerializedName("positions")
-    private UserPosition[] positions;
     @SerializedName("orders")
     private UserOrder[] orders;
     @SerializedName("custom_attrs")
     private UserCustomAttr[] customAttrs;
     @SerializedName("enterprise_email")
     private String enterpriseEmail;
-    @SerializedName("idp_type")
-    private String idpType;
-    @SerializedName("time_zone")
-    private String timeZone;
-    @SerializedName("description")
-    private String description;
     @SerializedName("need_send_notification")
     private Boolean needSendNotification;
     @SerializedName("notification_option")
@@ -232,13 +224,6 @@ public class User {
         this.employeeType = employeeType;
     }
 
-    public UserPosition[] getPositions() {
-        return this.positions;
-    }
-
-    public void setPositions(UserPosition[] positions) {
-        this.positions = positions;
-    }
 
     public UserOrder[] getOrders() {
         return this.orders;
@@ -264,29 +249,8 @@ public class User {
         this.enterpriseEmail = enterpriseEmail;
     }
 
-    public String getIdpType() {
-        return this.idpType;
-    }
 
-    public void setIdpType(String idpType) {
-        this.idpType = idpType;
-    }
 
-    public String getTimeZone() {
-        return this.timeZone;
-    }
-
-    public void setTimeZone(String timeZone) {
-        this.timeZone = timeZone;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public Boolean getNeedSendNotification() {
         return this.needSendNotification;

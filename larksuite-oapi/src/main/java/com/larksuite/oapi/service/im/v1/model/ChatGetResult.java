@@ -194,4 +194,5 @@ public class ChatGetResult {
         this.tenantKey = tenantKey;
     }
 
+
 }

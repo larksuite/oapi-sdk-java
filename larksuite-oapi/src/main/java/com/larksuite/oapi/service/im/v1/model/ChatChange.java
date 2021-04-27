@@ -134,4 +134,5 @@ public class ChatChange {
         this.ownerId = ownerId;
     }
 
+
 }

@@ -204,4 +204,5 @@ public class ChatCreateResult {
         this.moderationPermission = moderationPermission;
     }
 
+
 }

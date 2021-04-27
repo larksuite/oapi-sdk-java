@@ -26,7 +26,7 @@ public class ContactSample {
         User user = new User();
         user.setName("rename");
 
-        Response<UserPatchResult> response = contactService.getUsers().patch(user, Request.setTenantKey("Tenant Key"))
+        Response<UserPatchResult> response = contactService.getUsers().patch(user)
                 .setUserId("77bbc392").setUserIdType("user_id").execute();
         System.out.println(response.getRequestID());
         System.out.println(response.getHTTPStatusCode());

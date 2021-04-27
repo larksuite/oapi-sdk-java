@@ -31,7 +31,6 @@ public class Handler {
             complement(httpEvent, response);
         } catch (Exception e) {
             if (e instanceof NotFoundHandlerException) {
-                log.info("event handle failed, requestId:{} - {}", context.getRequestID(), e.getMessage());
                 response.setBody(String.format(OapiResponse.RESPONSE_FORMAT, e.getMessage()));
                 return;
             }
