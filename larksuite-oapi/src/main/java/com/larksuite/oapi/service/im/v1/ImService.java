@@ -1225,16 +1225,6 @@ public class ImService {
             return new ChatDisbandedEvent();
         }
     }
-    public void setChatMemberBotAddedEventHandler(ChatMemberBotAddedEventHandler handler) {
-        Event.setTypeHandler(this.config, "im.chat.member.bot.added_v1", handler);
-    }
-
-    public abstract static class ChatMemberBotAddedEventHandler implements IHandler<ChatMemberBotAddedEvent> {
-        @Override
-        public ChatMemberBotAddedEvent getEvent() {
-            return new ChatMemberBotAddedEvent();
-        }
-    }
     public void setChatMemberUserAddedEventHandler(ChatMemberUserAddedEventHandler handler) {
         Event.setTypeHandler(this.config, "im.chat.member.user.added_v1", handler);
     }
@@ -1243,6 +1233,16 @@ public class ImService {
         @Override
         public ChatMemberUserAddedEvent getEvent() {
             return new ChatMemberUserAddedEvent();
+        }
+    }
+    public void setChatMemberBotAddedEventHandler(ChatMemberBotAddedEventHandler handler) {
+        Event.setTypeHandler(this.config, "im.chat.member.bot.added_v1", handler);
+    }
+
+    public abstract static class ChatMemberBotAddedEventHandler implements IHandler<ChatMemberBotAddedEvent> {
+        @Override
+        public ChatMemberBotAddedEvent getEvent() {
+            return new ChatMemberBotAddedEvent();
         }
     }
     public void setChatMemberBotDeletedEventHandler(ChatMemberBotDeletedEventHandler handler) {
