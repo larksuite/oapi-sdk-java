@@ -80,8 +80,8 @@ public class SheetsService {
             return new SpreadsheetsDimensionRangeUpdateReqCall(this, body, optFns);
         }
     
-        public SpreadsheetsImportReqCall import_(RequestOptFn... optFns) {
-            return new SpreadsheetsImportReqCall(this, optFns);
+        public SpreadsheetsImportReqCall import_(SpreadsheetsImportReqBody body, RequestOptFn... optFns) {
+            return new SpreadsheetsImportReqCall(this, body, optFns);
         }
     
         public SpreadsheetsImportResultReqCall importResult(RequestOptFn... optFns) {
@@ -152,8 +152,8 @@ public class SheetsService {
             return new SpreadsheetsValuesGetReqCall(this, optFns);
         }
     
-        public SpreadsheetsValuesImageReqCall valuesImage(RequestOptFn... optFns) {
-            return new SpreadsheetsValuesImageReqCall(this, optFns);
+        public SpreadsheetsValuesImageReqCall valuesImage(SpreadsheetsValuesImageReqBody body, RequestOptFn... optFns) {
+            return new SpreadsheetsValuesImageReqCall(this, body, optFns);
         }
     
         public SpreadsheetsValuesPrependReqCall valuesPrepend(SpreadsheetsValuesPrependReqBody body, RequestOptFn... optFns) {
@@ -529,41 +529,26 @@ public class SheetsService {
             return Api.send(this.spreadsheetss.service.config, request);
         }
     }
-    public static class SpreadsheetsImportReqCall extends ReqCaller<FormData, SpreadsheetsImportResult> {
+    public static class SpreadsheetsImportReqCall extends ReqCaller<SpreadsheetsImportReqBody, SpreadsheetsImportResult> {
         private final Spreadsheetss spreadsheetss;
-        private final FormData body;
+        
+        private final SpreadsheetsImportReqBody body;
         private final List<RequestOptFn> optFns;
         private SpreadsheetsImportResult result;
         
-        private SpreadsheetsImportReqCall(Spreadsheetss spreadsheetss, RequestOptFn... optFns) {
+        private SpreadsheetsImportReqCall(Spreadsheetss spreadsheetss, SpreadsheetsImportReqBody body, RequestOptFn... optFns) {
         
-            this.body = new FormData();
+            this.body = body;
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
             this.result = new SpreadsheetsImportResult();
             this.spreadsheetss = spreadsheetss;
         }
         
-        
-        public SpreadsheetsImportReqCall setFile(FormDataFile file){
-            this.body.addFile("file", file);
-            return this;
-        }
-        
-        public SpreadsheetsImportReqCall setName(String name){
-            this.body.addField("name", name);
-            return this;
-        }
-        
-        public SpreadsheetsImportReqCall setFolderToken(String folderToken){
-            this.body.addField("folderToken", folderToken);
-            return this;
-        }
-        
 
         @Override
         public Response<SpreadsheetsImportResult> execute() throws Exception {
-            Request<FormData, SpreadsheetsImportResult> request = Request.newRequest("sheets/v2/import", "POST",
+            Request<SpreadsheetsImportReqBody, SpreadsheetsImportResult> request = Request.newRequest("sheets/v2/import", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -1164,16 +1149,17 @@ public class SheetsService {
             return Api.send(this.spreadsheetss.service.config, request);
         }
     }
-    public static class SpreadsheetsValuesImageReqCall extends ReqCaller<FormData, SpreadsheetsValuesImageResult> {
+    public static class SpreadsheetsValuesImageReqCall extends ReqCaller<SpreadsheetsValuesImageReqBody, SpreadsheetsValuesImageResult> {
         private final Spreadsheetss spreadsheetss;
-        private final FormData body;
+        
+        private final SpreadsheetsValuesImageReqBody body;
         private final Map<String, Object> pathParams;
         private final List<RequestOptFn> optFns;
         private SpreadsheetsValuesImageResult result;
         
-        private SpreadsheetsValuesImageReqCall(Spreadsheetss spreadsheetss, RequestOptFn... optFns) {
+        private SpreadsheetsValuesImageReqCall(Spreadsheetss spreadsheetss, SpreadsheetsValuesImageReqBody body, RequestOptFn... optFns) {
         
-            this.body = new FormData();
+            this.body = body;
             this.pathParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
@@ -1185,27 +1171,11 @@ public class SheetsService {
             this.pathParams.put("spreadsheetToken", spreadsheetToken);
             return this;
         }
-        
-        public SpreadsheetsValuesImageReqCall setRange(String range){
-            this.body.addField("range", range);
-            return this;
-        }
-        
-        public SpreadsheetsValuesImageReqCall setImage(FormDataFile image){
-            this.body.addFile("image", image);
-            return this;
-        }
-        
-        public SpreadsheetsValuesImageReqCall setName(String name){
-            this.body.addField("name", name);
-            return this;
-        }
-        
 
         @Override
         public Response<SpreadsheetsValuesImageResult> execute() throws Exception {
             this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<FormData, SpreadsheetsValuesImageResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/values_image", "POST",
+            Request<SpreadsheetsValuesImageReqBody, SpreadsheetsValuesImageResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/values_image", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
