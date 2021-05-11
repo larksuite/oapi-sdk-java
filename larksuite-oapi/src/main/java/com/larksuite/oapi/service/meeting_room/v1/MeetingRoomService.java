@@ -106,7 +106,7 @@ public class MeetingRoomService {
         @Override
         public Response<BuildingBatchGetResult> execute() throws Exception {
             this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, BuildingBatchGetResult> request = Request.newRequest("meeting_room/v1/building/batch_get", "GET",
+            Request<Object, BuildingBatchGetResult> request = Request.newRequest("meeting_room/building/batch_get", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.buildings.service.config, request);
@@ -137,7 +137,7 @@ public class MeetingRoomService {
         @Override
         public Response<BuildingBatchGetIdResult> execute() throws Exception {
             this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, BuildingBatchGetIdResult> request = Request.newRequest("meeting_room/v1/building/batch_get_id", "GET",
+            Request<Object, BuildingBatchGetIdResult> request = Request.newRequest("meeting_room/building/batch_get_id", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.buildings.service.config, request);
@@ -162,7 +162,7 @@ public class MeetingRoomService {
 
         @Override
         public Response<BuildingCreateResult> execute() throws Exception {
-            Request<BuildingCreateReqBody, BuildingCreateResult> request = Request.newRequest("meeting_room/v1/building/create", "POST",
+            Request<BuildingCreateReqBody, BuildingCreateResult> request = Request.newRequest("meeting_room/building/create", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.buildings.service.config, request);
@@ -185,7 +185,7 @@ public class MeetingRoomService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            Request<Object, EmptyData> request = Request.newRequest("meeting_room/v1/building/delete", "POST",
+            Request<Object, EmptyData> request = Request.newRequest("meeting_room/building/delete", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.buildings.service.config, request);
@@ -228,7 +228,7 @@ public class MeetingRoomService {
         @Override
         public Response<BuildingListResult> execute() throws Exception {
             this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, BuildingListResult> request = Request.newRequest("meeting_room/v1/building/list", "GET",
+            Request<Object, BuildingListResult> request = Request.newRequest("meeting_room/building/list", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.buildings.service.config, request);
@@ -253,7 +253,7 @@ public class MeetingRoomService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            Request<BuildingUpdateReqBody, EmptyData> request = Request.newRequest("meeting_room/v1/building/update", "POST",
+            Request<BuildingUpdateReqBody, EmptyData> request = Request.newRequest("meeting_room/building/update", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.buildings.service.config, request);
@@ -294,7 +294,7 @@ public class MeetingRoomService {
 
         @Override
         public Response<CountryListResult> execute() throws Exception {
-            Request<Object, CountryListResult> request = Request.newRequest("meeting_room/v1/country/list", "GET",
+            Request<Object, CountryListResult> request = Request.newRequest("meeting_room/country/list", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.countrys.service.config, request);
@@ -343,7 +343,7 @@ public class MeetingRoomService {
         @Override
         public Response<DistrictListResult> execute() throws Exception {
             this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, DistrictListResult> request = Request.newRequest("meeting_room/v1/district/list", "GET",
+            Request<Object, DistrictListResult> request = Request.newRequest("meeting_room/district/list", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.districts.service.config, request);
@@ -400,7 +400,7 @@ public class MeetingRoomService {
         @Override
         public Response<FreebusyBatchGetResult> execute() throws Exception {
             this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, FreebusyBatchGetResult> request = Request.newRequest("meeting_room/v1/freebusy/batch_get", "GET",
+            Request<Object, FreebusyBatchGetResult> request = Request.newRequest("meeting_room/freebusy/batch_get", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.freebusys.service.config, request);
@@ -443,7 +443,7 @@ public class MeetingRoomService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            Request<InstanceReplyReqBody, EmptyData> request = Request.newRequest("meeting_room/v1/instance/reply", "POST",
+            Request<InstanceReplyReqBody, EmptyData> request = Request.newRequest("meeting_room/instance/reply", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.instances.service.config, request);
@@ -516,7 +516,7 @@ public class MeetingRoomService {
         @Override
         public Response<RoomBatchGetResult> execute() throws Exception {
             this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, RoomBatchGetResult> request = Request.newRequest("meeting_room/v1/room/batch_get", "GET",
+            Request<Object, RoomBatchGetResult> request = Request.newRequest("meeting_room/room/batch_get", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.rooms.service.config, request);
@@ -547,7 +547,7 @@ public class MeetingRoomService {
         @Override
         public Response<RoomBatchGetIdResult> execute() throws Exception {
             this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, RoomBatchGetIdResult> request = Request.newRequest("meeting_room/v1/room/batch_get_id", "GET",
+            Request<Object, RoomBatchGetIdResult> request = Request.newRequest("meeting_room/room/batch_get_id", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.rooms.service.config, request);
@@ -572,7 +572,7 @@ public class MeetingRoomService {
 
         @Override
         public Response<RoomCreateResult> execute() throws Exception {
-            Request<RoomCreateReqBody, RoomCreateResult> request = Request.newRequest("meeting_room/v1/room/create", "POST",
+            Request<RoomCreateReqBody, RoomCreateResult> request = Request.newRequest("meeting_room/room/create", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.rooms.service.config, request);
@@ -595,7 +595,7 @@ public class MeetingRoomService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            Request<Object, EmptyData> request = Request.newRequest("meeting_room/v1/room/delete", "POST",
+            Request<Object, EmptyData> request = Request.newRequest("meeting_room/room/delete", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.rooms.service.config, request);
@@ -642,7 +642,7 @@ public class MeetingRoomService {
         @Override
         public Response<RoomListResult> execute() throws Exception {
             this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, RoomListResult> request = Request.newRequest("meeting_room/v1/room/list", "GET",
+            Request<Object, RoomListResult> request = Request.newRequest("meeting_room/room/list", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.rooms.service.config, request);
@@ -667,7 +667,7 @@ public class MeetingRoomService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            Request<RoomUpdateReqBody, EmptyData> request = Request.newRequest("meeting_room/v1/room/update", "POST",
+            Request<RoomUpdateReqBody, EmptyData> request = Request.newRequest("meeting_room/room/update", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.rooms.service.config, request);
@@ -710,7 +710,7 @@ public class MeetingRoomService {
 
         @Override
         public Response<SummaryBatchGetResult> execute() throws Exception {
-            Request<SummaryBatchGetReqBody, SummaryBatchGetResult> request = Request.newRequest("meeting_room/v1/summary/batch_get", "POST",
+            Request<SummaryBatchGetReqBody, SummaryBatchGetResult> request = Request.newRequest("meeting_room/summary/batch_get", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.summarys.service.config, request);

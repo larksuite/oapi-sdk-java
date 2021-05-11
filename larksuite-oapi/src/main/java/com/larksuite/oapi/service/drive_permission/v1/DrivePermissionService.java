@@ -80,7 +80,7 @@ public class DrivePermissionService {
 
         @Override
         public Response<MemberCreateResult> execute() throws Exception {
-            Request<MemberCreateReqBody, MemberCreateResult> request = Request.newRequest("drive/permission/v1/member/create", "POST",
+            Request<MemberCreateReqBody, MemberCreateResult> request = Request.newRequest("drive/permission/member/create", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.members.service.config, request);
@@ -105,7 +105,7 @@ public class DrivePermissionService {
 
         @Override
         public Response<MemberDeleteResult> execute() throws Exception {
-            Request<MemberDeleteReqBody, MemberDeleteResult> request = Request.newRequest("drive/permission/v1/member/delete", "POST",
+            Request<MemberDeleteReqBody, MemberDeleteResult> request = Request.newRequest("drive/permission/member/delete", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.members.service.config, request);
@@ -130,7 +130,7 @@ public class DrivePermissionService {
 
         @Override
         public Response<MemberListResult> execute() throws Exception {
-            Request<MemberListReqBody, MemberListResult> request = Request.newRequest("drive/permission/v1/member/list", "POST",
+            Request<MemberListReqBody, MemberListResult> request = Request.newRequest("drive/permission/member/list", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.members.service.config, request);
@@ -155,7 +155,7 @@ public class DrivePermissionService {
 
         @Override
         public Response<MemberPermittedResult> execute() throws Exception {
-            Request<MemberPermittedReqBody, MemberPermittedResult> request = Request.newRequest("drive/permission/v1/member/permitted", "POST",
+            Request<MemberPermittedReqBody, MemberPermittedResult> request = Request.newRequest("drive/permission/member/permitted", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.members.service.config, request);
@@ -180,7 +180,7 @@ public class DrivePermissionService {
 
         @Override
         public Response<MemberTransferResult> execute() throws Exception {
-            Request<MemberTransferReqBody, MemberTransferResult> request = Request.newRequest("drive/permission/v1/member/transfer", "POST",
+            Request<MemberTransferReqBody, MemberTransferResult> request = Request.newRequest("drive/permission/member/transfer", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.members.service.config, request);
@@ -205,7 +205,7 @@ public class DrivePermissionService {
 
         @Override
         public Response<MemberUpdateResult> execute() throws Exception {
-            Request<MemberUpdateReqBody, MemberUpdateResult> request = Request.newRequest("drive/permission/v1/member/update", "POST",
+            Request<MemberUpdateReqBody, MemberUpdateResult> request = Request.newRequest("drive/permission/member/update", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.members.service.config, request);
@@ -248,7 +248,7 @@ public class DrivePermissionService {
 
         @Override
         public Response<PublicUpdateResult> execute() throws Exception {
-            Request<PublicUpdateReqBody, PublicUpdateResult> request = Request.newRequest("drive/permission/v1/public/update", "POST",
+            Request<PublicUpdateReqBody, PublicUpdateResult> request = Request.newRequest("drive/permission/public/update", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.publics.service.config, request);
