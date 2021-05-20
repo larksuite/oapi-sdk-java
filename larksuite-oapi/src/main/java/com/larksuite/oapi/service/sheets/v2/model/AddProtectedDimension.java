@@ -6,7 +6,7 @@ public class AddProtectedDimension {
     @SerializedName("dimension")
     private Dimension dimension;
     @SerializedName("editors")
-    private Integer[] editors;
+    private Long[] editors;
     @SerializedName("lockInfo")
     private String lockInfo;
     @SerializedName("protectId")
@@ -20,11 +20,11 @@ public class AddProtectedDimension {
         this.dimension = dimension;
     }
 
-    public Integer[] getEditors() {
+    public Long[] getEditors() {
         return this.editors;
     }
 
-    public void setEditors(Integer[] editors) {
+    public void setEditors(Long[] editors) {
         this.editors = editors;
     }
 

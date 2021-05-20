@@ -6,10 +6,14 @@ import com.google.gson.LongSerializationPolicy;
 
 public class Jsons {
 
-    public static final Gson DEFAULT_GSON = createGSON(false);
+    public static final Gson LONG_TO_STR_GSON = createGSON(false, true);
+    public static final Gson DEFAULT_GSON = createGSON(false, false);
 
-    public static Gson createGSON(boolean isPretty) {
-        GsonBuilder gsonBuilder = new GsonBuilder().setLongSerializationPolicy(LongSerializationPolicy.STRING);
+    public static Gson createGSON(boolean isPretty, boolean longToStr) {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        if (longToStr) {
+            gsonBuilder.setLongSerializationPolicy(LongSerializationPolicy.STRING);
+        }
         if (isPretty) {
             gsonBuilder.setPrettyPrinting();
         }

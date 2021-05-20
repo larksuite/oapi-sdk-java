@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName;
 public class CalendarEventAttendeeCreateReqBody {
     @SerializedName("attendees")
     private CalendarEventAttendee[] attendees;
+    @SerializedName("need_notification")
+    private Boolean needNotification;
 
     public CalendarEventAttendee[] getAttendees() {
         return this.attendees;
@@ -12,6 +14,14 @@ public class CalendarEventAttendeeCreateReqBody {
 
     public void setAttendees(CalendarEventAttendee[] attendees) {
         this.attendees = attendees;
+    }
+
+    public Boolean getNeedNotification() {
+        return this.needNotification;
+    }
+
+    public void setNeedNotification(Boolean needNotification) {
+        this.needNotification = needNotification;
     }
 
 }

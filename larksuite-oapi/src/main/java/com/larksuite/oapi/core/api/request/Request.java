@@ -71,6 +71,10 @@ public class Request<I, O> extends BaseRequest<I, O> {
         return new UserAccessToken(userAccessToken);
     }
 
+    public static RequestOptFn setSupportLongDataType() {
+        return new SupportLongDatatype();
+    }
+
     @Override
     public String toString() {
         return getHttpMethod() + " " + url() + " " + getAccessTokenType();

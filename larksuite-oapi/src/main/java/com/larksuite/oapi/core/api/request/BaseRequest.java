@@ -1,8 +1,10 @@
 package com.larksuite.oapi.core.api.request;
 
+import com.google.gson.Gson;
 import com.larksuite.oapi.core.Context;
 import com.larksuite.oapi.core.api.AccessTokenType;
 import com.larksuite.oapi.core.api.Constants;
+import com.larksuite.oapi.core.utils.Jsons;
 import com.larksuite.oapi.core.utils.Strings;
 
 import java.io.UnsupportedEncodingException;
@@ -29,6 +31,7 @@ public class BaseRequest<I, O> {
     private boolean retry;
     private boolean isResponseStream;
     private boolean isResponseStreamReal;
+    private Gson gson;
 
     public BaseRequest(String httpPath, String httpMethod, AccessTokenType accessTokenType,
                        I input, O output, RequestOptFn... requestOptFns) {
@@ -77,6 +80,10 @@ public class BaseRequest<I, O> {
         this.timeoutOfMs = opt.getTimeoutOfMs();
         this.isNotDataField = opt.isNotDataField();
         this.setResponseStream(opt.isResponseStream());
+        this.setGson(Jsons.LONG_TO_STR_GSON);
+        if (opt.isSupportLongDataType()) {
+            this.setGson(Jsons.DEFAULT_GSON);
+        }
         if (!Strings.isEmpty(opt.getTenantKey())) {
             if (this.getAccessTokenTypeSet().contains(AccessTokenType.Tenant)) {
                 this.tenantKey = opt.getTenantKey();
@@ -261,4 +268,11 @@ public class BaseRequest<I, O> {
     }
 
 
+    public Gson getGson() {
+        return gson;
+    }
+
+    public void setGson(Gson gson) {
+        this.gson = gson;
+    }
 }

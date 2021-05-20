@@ -21,10 +21,11 @@ public class CalendarService {
     private final CalendarAcls calendarAcls;
     private final CalendarEvents calendarEvents;
     private final CalendarEventAttendees calendarEventAttendees;
-    private final Freebusys freebusys;
-    private final TimeoffEvents timeoffEvents;
-    private final Settings settings;
     private final CalendarEventAttendeeChatMembers calendarEventAttendeeChatMembers;
+    private final Freebusys freebusys;
+    private final Settings settings;
+    private final TimeoffEvents timeoffEvents;
+    private final ExchangeBindings exchangeBindings;
 
     public CalendarService(Config config) {
         this.config = config;
@@ -32,10 +33,11 @@ public class CalendarService {
         this.calendarAcls = new CalendarAcls(this);
         this.calendarEvents = new CalendarEvents(this);
         this.calendarEventAttendees = new CalendarEventAttendees(this);
-        this.freebusys = new Freebusys(this);
-        this.timeoffEvents = new TimeoffEvents(this);
-        this.settings = new Settings(this);
         this.calendarEventAttendeeChatMembers = new CalendarEventAttendeeChatMembers(this);
+        this.freebusys = new Freebusys(this);
+        this.settings = new Settings(this);
+        this.timeoffEvents = new TimeoffEvents(this);
+        this.exchangeBindings = new ExchangeBindings(this);
     }
 
     public Calendars getCalendars() {
@@ -589,12 +591,14 @@ public class CalendarService {
         private final CalendarEvents calendarEvents;
         
         private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
         private final List<RequestOptFn> optFns;
         private EmptyData result;
         
         private CalendarEventDeleteReqCall(CalendarEvents calendarEvents, RequestOptFn... optFns) {
         
             this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
             this.result = new EmptyData();
@@ -609,10 +613,16 @@ public class CalendarService {
             this.pathParams.put("event_id", eventId);
             return this;
         }
+        
+        public CalendarEventDeleteReqCall setNeedNotification(Boolean needNotification){
+            this.queryParams.put("need_notification", needNotification);
+            return this;
+        }
 
         @Override
         public Response<EmptyData> execute() throws Exception {
             this.optFns.add(Request.setPathParams(this.pathParams));
+            this.optFns.add(Request.setQueryParams(this.queryParams));
             Request<Object, EmptyData> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/:event_id", "DELETE",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
@@ -1002,6 +1012,74 @@ public class CalendarService {
         }
     }
 
+    public CalendarEventAttendeeChatMembers getCalendarEventAttendeeChatMembers() {
+        return calendarEventAttendeeChatMembers;
+    }
+
+    public static class CalendarEventAttendeeChatMembers {
+
+        private final CalendarService service;
+
+        public CalendarEventAttendeeChatMembers(CalendarService service) {
+            this.service = service;
+        }
+    
+        public CalendarEventAttendeeChatMemberListReqCall list(RequestOptFn... optFns) {
+            return new CalendarEventAttendeeChatMemberListReqCall(this, optFns);
+        }
+    
+    }
+    public static class CalendarEventAttendeeChatMemberListReqCall extends ReqCaller<Object, CalendarEventAttendeeChatMemberListResult> {
+        private final CalendarEventAttendeeChatMembers calendarEventAttendeeChatMembers;
+        
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private CalendarEventAttendeeChatMemberListResult result;
+        
+        private CalendarEventAttendeeChatMemberListReqCall(CalendarEventAttendeeChatMembers calendarEventAttendeeChatMembers, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new CalendarEventAttendeeChatMemberListResult();
+            this.calendarEventAttendeeChatMembers = calendarEventAttendeeChatMembers;
+        }
+        
+        public CalendarEventAttendeeChatMemberListReqCall setCalendarId(String calendarId){
+            this.pathParams.put("calendar_id", calendarId);
+            return this;
+        }
+        public CalendarEventAttendeeChatMemberListReqCall setEventId(String eventId){
+            this.pathParams.put("event_id", eventId);
+            return this;
+        }
+        public CalendarEventAttendeeChatMemberListReqCall setAttendeeId(String attendeeId){
+            this.pathParams.put("attendee_id", attendeeId);
+            return this;
+        }
+        
+        public CalendarEventAttendeeChatMemberListReqCall setPageToken(String pageToken){
+            this.queryParams.put("page_token", pageToken);
+            return this;
+        }
+        public CalendarEventAttendeeChatMemberListReqCall setPageSize(Integer pageSize){
+            this.queryParams.put("page_size", pageSize);
+            return this;
+        }
+
+        @Override
+        public Response<CalendarEventAttendeeChatMemberListResult> execute() throws Exception {
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            this.optFns.add(Request.setQueryParams(this.queryParams));
+            Request<Object, CalendarEventAttendeeChatMemberListResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/:event_id/attendees/:attendee_id/chat_members", "GET",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.calendarEventAttendeeChatMembers.service.config, request);
+        }
+    }
+
     public Freebusys getFreebusys() {
         return freebusys;
     }
@@ -1050,6 +1128,49 @@ public class CalendarService {
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.freebusys.service.config, request);
+        }
+    }
+
+    public Settings getSettings() {
+        return settings;
+    }
+
+    public static class Settings {
+
+        private final CalendarService service;
+
+        public Settings(CalendarService service) {
+            this.service = service;
+        }
+    
+        public SettingGenerateCaldavConfReqCall generateCaldavConf(SettingGenerateCaldavConfReqBody body, RequestOptFn... optFns) {
+            return new SettingGenerateCaldavConfReqCall(this, body, optFns);
+        }
+    
+    }
+    public static class SettingGenerateCaldavConfReqCall extends ReqCaller<SettingGenerateCaldavConfReqBody, SettingGenerateCaldavConfResult> {
+        private final Settings settings;
+        
+        private final SettingGenerateCaldavConfReqBody body;
+        private final List<RequestOptFn> optFns;
+        private SettingGenerateCaldavConfResult result;
+        
+        private SettingGenerateCaldavConfReqCall(Settings settings, SettingGenerateCaldavConfReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new SettingGenerateCaldavConfResult();
+            this.settings = settings;
+        }
+        
+
+        @Override
+        public Response<SettingGenerateCaldavConfResult> execute() throws Exception {
+            Request<SettingGenerateCaldavConfReqBody, SettingGenerateCaldavConfResult> request = Request.newRequest("calendar/v4/settings/generate_caldav_conf", "POST",
+                    new AccessTokenType[]{AccessTokenType.User},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.settings.service.config, request);
         }
     }
 
@@ -1138,114 +1259,130 @@ public class CalendarService {
         }
     }
 
-    public Settings getSettings() {
-        return settings;
+    public ExchangeBindings getExchangeBindings() {
+        return exchangeBindings;
     }
 
-    public static class Settings {
+    public static class ExchangeBindings {
 
         private final CalendarService service;
 
-        public Settings(CalendarService service) {
+        public ExchangeBindings(CalendarService service) {
             this.service = service;
         }
     
-        public SettingGenerateCaldavConfReqCall generateCaldavConf(SettingGenerateCaldavConfReqBody body, RequestOptFn... optFns) {
-            return new SettingGenerateCaldavConfReqCall(this, body, optFns);
+        public ExchangeBindingCreateReqCall create(ExchangeBinding body, RequestOptFn... optFns) {
+            return new ExchangeBindingCreateReqCall(this, body, optFns);
+        }
+    
+        public ExchangeBindingDeleteReqCall delete(RequestOptFn... optFns) {
+            return new ExchangeBindingDeleteReqCall(this, optFns);
+        }
+    
+        public ExchangeBindingGetReqCall get(RequestOptFn... optFns) {
+            return new ExchangeBindingGetReqCall(this, optFns);
         }
     
     }
-    public static class SettingGenerateCaldavConfReqCall extends ReqCaller<SettingGenerateCaldavConfReqBody, SettingGenerateCaldavConfResult> {
-        private final Settings settings;
+    public static class ExchangeBindingCreateReqCall extends ReqCaller<ExchangeBinding, ExchangeBinding> {
+        private final ExchangeBindings exchangeBindings;
         
-        private final SettingGenerateCaldavConfReqBody body;
+        private final ExchangeBinding body;
+        private final Map<String, Object> queryParams;
         private final List<RequestOptFn> optFns;
-        private SettingGenerateCaldavConfResult result;
+        private ExchangeBinding result;
         
-        private SettingGenerateCaldavConfReqCall(Settings settings, SettingGenerateCaldavConfReqBody body, RequestOptFn... optFns) {
+        private ExchangeBindingCreateReqCall(ExchangeBindings exchangeBindings, ExchangeBinding body, RequestOptFn... optFns) {
         
             this.body = body;
+            this.queryParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new SettingGenerateCaldavConfResult();
-            this.settings = settings;
+            this.result = new ExchangeBinding();
+            this.exchangeBindings = exchangeBindings;
         }
         
+        
+        public ExchangeBindingCreateReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
 
         @Override
-        public Response<SettingGenerateCaldavConfResult> execute() throws Exception {
-            Request<SettingGenerateCaldavConfReqBody, SettingGenerateCaldavConfResult> request = Request.newRequest("calendar/v4/settings/generate_caldav_conf", "POST",
+        public Response<ExchangeBinding> execute() throws Exception {
+            this.optFns.add(Request.setQueryParams(this.queryParams));
+            Request<ExchangeBinding, ExchangeBinding> request = Request.newRequest("calendar/v4/exchange_bindings", "POST",
                     new AccessTokenType[]{AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.settings.service.config, request);
+            return Api.send(this.exchangeBindings.service.config, request);
         }
     }
-
-    public CalendarEventAttendeeChatMembers getCalendarEventAttendeeChatMembers() {
-        return calendarEventAttendeeChatMembers;
-    }
-
-    public static class CalendarEventAttendeeChatMembers {
-
-        private final CalendarService service;
-
-        public CalendarEventAttendeeChatMembers(CalendarService service) {
-            this.service = service;
+    public static class ExchangeBindingDeleteReqCall extends ReqCaller<Object, EmptyData> {
+        private final ExchangeBindings exchangeBindings;
+        
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private ExchangeBindingDeleteReqCall(ExchangeBindings exchangeBindings, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.exchangeBindings = exchangeBindings;
         }
-    
-        public CalendarEventAttendeeChatMemberListReqCall list(RequestOptFn... optFns) {
-            return new CalendarEventAttendeeChatMemberListReqCall(this, optFns);
+        
+        public ExchangeBindingDeleteReqCall setExchangeBindingId(String exchangeBindingId){
+            this.pathParams.put("exchange_binding_id", exchangeBindingId);
+            return this;
         }
-    
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            Request<Object, EmptyData> request = Request.newRequest("calendar/v4/exchange_bindings/:exchange_binding_id", "DELETE",
+                    new AccessTokenType[]{AccessTokenType.User},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.exchangeBindings.service.config, request);
+        }
     }
-    public static class CalendarEventAttendeeChatMemberListReqCall extends ReqCaller<Object, CalendarEventAttendeeChatMemberListResult> {
-        private final CalendarEventAttendeeChatMembers calendarEventAttendeeChatMembers;
+    public static class ExchangeBindingGetReqCall extends ReqCaller<Object, ExchangeBinding> {
+        private final ExchangeBindings exchangeBindings;
         
         private final Map<String, Object> pathParams;
         private final Map<String, Object> queryParams;
         private final List<RequestOptFn> optFns;
-        private CalendarEventAttendeeChatMemberListResult result;
+        private ExchangeBinding result;
         
-        private CalendarEventAttendeeChatMemberListReqCall(CalendarEventAttendeeChatMembers calendarEventAttendeeChatMembers, RequestOptFn... optFns) {
+        private ExchangeBindingGetReqCall(ExchangeBindings exchangeBindings, RequestOptFn... optFns) {
         
             this.pathParams = new HashMap<>();
             this.queryParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new CalendarEventAttendeeChatMemberListResult();
-            this.calendarEventAttendeeChatMembers = calendarEventAttendeeChatMembers;
+            this.result = new ExchangeBinding();
+            this.exchangeBindings = exchangeBindings;
         }
         
-        public CalendarEventAttendeeChatMemberListReqCall setCalendarId(String calendarId){
-            this.pathParams.put("calendar_id", calendarId);
-            return this;
-        }
-        public CalendarEventAttendeeChatMemberListReqCall setEventId(String eventId){
-            this.pathParams.put("event_id", eventId);
-            return this;
-        }
-        public CalendarEventAttendeeChatMemberListReqCall setAttendeeId(String attendeeId){
-            this.pathParams.put("attendee_id", attendeeId);
+        public ExchangeBindingGetReqCall setExchangeBindingId(String exchangeBindingId){
+            this.pathParams.put("exchange_binding_id", exchangeBindingId);
             return this;
         }
         
-        public CalendarEventAttendeeChatMemberListReqCall setPageToken(String pageToken){
-            this.queryParams.put("page_token", pageToken);
-            return this;
-        }
-        public CalendarEventAttendeeChatMemberListReqCall setPageSize(Integer pageSize){
-            this.queryParams.put("page_size", pageSize);
+        public ExchangeBindingGetReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
             return this;
         }
 
         @Override
-        public Response<CalendarEventAttendeeChatMemberListResult> execute() throws Exception {
+        public Response<ExchangeBinding> execute() throws Exception {
             this.optFns.add(Request.setPathParams(this.pathParams));
             this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, CalendarEventAttendeeChatMemberListResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/:event_id/attendees/:attendee_id/chat_members", "GET",
-                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
+            Request<Object, ExchangeBinding> request = Request.newRequest("calendar/v4/exchange_bindings/:exchange_binding_id", "GET",
+                    new AccessTokenType[]{AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.calendarEventAttendeeChatMembers.service.config, request);
+            return Api.send(this.exchangeBindings.service.config, request);
         }
     }
 

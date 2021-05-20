@@ -7,10 +7,9 @@ import com.larksuite.oapi.core.api.handler.SubHandler;
 import com.larksuite.oapi.core.api.request.FormData;
 import com.larksuite.oapi.core.api.request.FormDataFile;
 import com.larksuite.oapi.core.api.request.Request;
+import com.larksuite.oapi.core.utils.Strings;
 import com.larksuite.oapi.okhttp3_14.MediaType;
 import com.larksuite.oapi.okhttp3_14.RequestBody;
-import com.larksuite.oapi.core.utils.Jsons;
-import com.larksuite.oapi.core.utils.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -98,7 +97,7 @@ public class BuildSubHandler implements SubHandler {
                     log.debug("[build]request:{}, body:formdata:{}", req.toString(), req.getRequestBodyFilePath());
                 } else {
                     req.setContentType(DEFAULT_CONTENT_TYPE);
-                    String body = Jsons.createGSON(false).toJson(req.getInput());
+                    String body = req.getGson().toJson(req.getInput());
                     req.setRequestBody(body.getBytes(StandardCharsets.UTF_8));
                     log.debug("[build]request:{}, body:{}", req.toString(), body);
                 }
