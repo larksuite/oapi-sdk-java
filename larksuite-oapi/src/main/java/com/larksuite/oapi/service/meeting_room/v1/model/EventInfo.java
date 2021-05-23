@@ -6,7 +6,7 @@ public class EventInfo {
     @SerializedName("uid")
     private String uid;
     @SerializedName("original_time")
-    private String originalTime;
+    private Integer originalTime;
     @SerializedName("summary")
     private String summary;
 
@@ -18,11 +18,11 @@ public class EventInfo {
         this.uid = uid;
     }
 
-    public String getOriginalTime() {
+    public Integer getOriginalTime() {
         return this.originalTime;
     }
 
-    public void setOriginalTime(String originalTime) {
+    public void setOriginalTime(Integer originalTime) {
         this.originalTime = originalTime;
     }
 

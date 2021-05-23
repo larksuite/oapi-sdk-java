@@ -35,7 +35,7 @@
         <dependency>
             <groupId>com.larksuite.oapi</groupId>
             <artifactId>larksuite-oapi</artifactId>
-            <version>1.0.16</version>
+            <version>1.0.17-snapshot</version>
         </dependency>
         <dependency>
             <groupId>redis.clients</groupId>

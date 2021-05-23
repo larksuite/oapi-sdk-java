@@ -110,7 +110,7 @@ public class BuildSubHandler implements SubHandler {
         if (req.getRequestBodyFilePath() != null) {
             body = RequestBody.create(MediaType.parse(req.getContentType()), new File(req.getRequestBodyFilePath()));
         }
-        com.larksuite.oapi.okhttp3_14.Request.Builder builder = new com.larksuite.oapi.okhttp3_14.Request.Builder().url(req.fullUrl(conf.getDomain())).method(req.getHttpMethod(), body);
+        com.larksuite.oapi.okhttp3_14.Request.Builder builder = new com.larksuite.oapi.okhttp3_14.Request.Builder().url(req.url()).method(req.getHttpMethod(), body);
         builder.header("User-Agent", "oapi-sdk-java/" + Constants.VERSION);
         req.setHttpRequestBuilder(builder);
     }

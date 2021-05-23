@@ -14,7 +14,7 @@ public class DocsApiSearchReqBody {
     @SerializedName("chat_ids")
     private String[] chatIds;
     @SerializedName("docs_types")
-    private String docsTypes;
+    private String[] docsTypes;
 
     public String getSearchKey() {
         return this.searchKey;
@@ -56,11 +56,11 @@ public class DocsApiSearchReqBody {
         this.chatIds = chatIds;
     }
 
-    public String getDocsTypes() {
+    public String[] getDocsTypes() {
         return this.docsTypes;
     }
 
-    public void setDocsTypes(String docsTypes) {
+    public void setDocsTypes(String[] docsTypes) {
         this.docsTypes = docsTypes;
     }
 

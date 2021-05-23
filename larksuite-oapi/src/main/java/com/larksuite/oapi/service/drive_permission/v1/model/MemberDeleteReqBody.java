@@ -9,6 +9,8 @@ public class MemberDeleteReqBody {
     private String type;
     @SerializedName("member_type")
     private String memberType;
+    @SerializedName("member_id")
+    private String memberId;
 
     public String getToken() {
         return this.token;
@@ -32,6 +34,14 @@ public class MemberDeleteReqBody {
 
     public void setMemberType(String memberType) {
         this.memberType = memberType;
+    }
+
+    public String getMemberId() {
+        return this.memberId;
+    }
+
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
     }
 
 }

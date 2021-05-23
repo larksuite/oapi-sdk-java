@@ -3,6 +3,8 @@ package com.larksuite.oapi.service.meeting_room.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BuildingUpdateReqBody {
+    @SerializedName("building_id")
+    private String buildingId;
     @SerializedName("name")
     private String name;
     @SerializedName("floors")
@@ -13,6 +15,14 @@ public class BuildingUpdateReqBody {
     private String districtId;
     @SerializedName("custom_building_id")
     private String customBuildingId;
+
+    public String getBuildingId() {
+        return this.buildingId;
+    }
+
+    public void setBuildingId(String buildingId) {
+        this.buildingId = buildingId;
+    }
 
     public String getName() {
         return this.name;

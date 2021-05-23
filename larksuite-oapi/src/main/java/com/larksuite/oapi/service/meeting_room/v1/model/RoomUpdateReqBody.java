@@ -3,6 +3,8 @@ package com.larksuite.oapi.service.meeting_room.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class RoomUpdateReqBody {
+    @SerializedName("room_id")
+    private String roomId;
     @SerializedName("name")
     private String name;
     @SerializedName("capacity")
@@ -11,6 +13,14 @@ public class RoomUpdateReqBody {
     private Boolean isDisabled;
     @SerializedName("custom_room_id")
     private String customRoomId;
+
+    public String getRoomId() {
+        return this.roomId;
+    }
+
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
+    }
 
     public String getName() {
         return this.name;

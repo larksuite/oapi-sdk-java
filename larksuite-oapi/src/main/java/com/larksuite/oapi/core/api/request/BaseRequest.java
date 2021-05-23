@@ -21,6 +21,7 @@ public class BaseRequest<I, O> {
     private final Set<AccessTokenType> accessTokenTypeSet;
     private final List<RequestOptFn> requestOptFns;
     private final O output;
+    private String domain;
     private String httpPath;
     private String queryParams;
     private AccessTokenType accessTokenType;
@@ -72,7 +73,8 @@ public class BaseRequest<I, O> {
         return "";
     }
 
-    public void init() {
+    public void init(String domain) {
+        this.setDomain(domain);
         RequestOpt opt = new RequestOpt();
         for (RequestOptFn f : this.getRequestOptFns()) {
             f.fn(opt);
@@ -187,6 +189,14 @@ public class BaseRequest<I, O> {
         return timeoutOfMs;
     }
 
+    public String getDomain() {
+        return domain;
+    }
+
+    public void setDomain(String domain) {
+        this.domain = domain;
+    }
+
     public String getHttpPath() {
         return httpPath;
     }
@@ -255,24 +265,19 @@ public class BaseRequest<I, O> {
         isResponseStreamReal = responseStreamReal;
     }
 
-    public String url() {
-        String path = "/" + Constants.OAPI_ROOT_PATH + "/" + this.getHttpPath();
-        if (!Strings.isEmpty(this.getQueryParams())) {
-            path += "?" + this.getQueryParams();
-        }
-        return path;
-    }
-
-    public String fullUrl(String domain) {
-        return domain + url();
-    }
-
-
     public Gson getGson() {
         return gson;
     }
 
     public void setGson(Gson gson) {
         this.gson = gson;
+    }
+
+    public String url() {
+        String path = this.getDomain() + "/" + Constants.OAPI_ROOT_PATH + "/" + this.getHttpPath();
+        if (!Strings.isEmpty(this.getQueryParams())) {
+            path += "?" + this.getQueryParams();
+        }
+        return path;
     }
 }

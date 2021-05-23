@@ -36,7 +36,7 @@ public class AuthenSample {
         AuthenService service = new AuthenService(config);
         AuthenAccessTokenReqBody body = new AuthenAccessTokenReqBody();
         body.setGrantType("authorization_code");
-        body.setCode("lYuFiIZKtOuKd4zrLO8soc");
+        body.setCode("sNmRfrs5OZbQpc9fZTqTre");
         AuthenService.AuthenAccessTokenReqCall reqCall = service.getAuthens().accessToken(body);
         Response<UserAccessTokenInfo> response = reqCall.execute();
         System.out.println(Jsons.DEFAULT_GSON.toJson(response));
