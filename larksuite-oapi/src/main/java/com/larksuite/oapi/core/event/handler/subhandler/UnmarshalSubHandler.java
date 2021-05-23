@@ -8,7 +8,6 @@ import com.larksuite.oapi.core.event.handler.ISubHandler;
 import com.larksuite.oapi.core.event.model.Fuzzy;
 import com.larksuite.oapi.core.event.model.HTTPEvent;
 import com.larksuite.oapi.core.exception.TokenInvalidException;
-import com.larksuite.oapi.core.model.OapiHeader;
 import com.larksuite.oapi.core.utils.Jsons;
 import com.larksuite.oapi.core.utils.Strings;
 import org.slf4j.Logger;

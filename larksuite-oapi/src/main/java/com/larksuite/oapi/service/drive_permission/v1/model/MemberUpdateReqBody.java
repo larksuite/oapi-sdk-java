@@ -9,6 +9,8 @@ public class MemberUpdateReqBody {
     private String type;
     @SerializedName("member_type")
     private String memberType;
+    @SerializedName("member_id")
+    private String memberId;
     @SerializedName("perm")
     private String perm;
     @SerializedName("notify_lark")
@@ -36,6 +38,14 @@ public class MemberUpdateReqBody {
 
     public void setMemberType(String memberType) {
         this.memberType = memberType;
+    }
+
+    public String getMemberId() {
+        return this.memberId;
+    }
+
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
     }
 
     public String getPerm() {

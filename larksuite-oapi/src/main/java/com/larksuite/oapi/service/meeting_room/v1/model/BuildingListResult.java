@@ -3,8 +3,28 @@ package com.larksuite.oapi.service.meeting_room.v1.model;
 import com.google.gson.annotations.SerializedName;
 
 public class BuildingListResult {
+    @SerializedName("page_token")
+    private String pageToken;
+    @SerializedName("has_more")
+    private Boolean hasMore;
     @SerializedName("buildings")
     private Building[] buildings;
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
+
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
     public Building[] getBuildings() {
         return this.buildings;

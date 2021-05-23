@@ -39,21 +39,21 @@ public class UnmarshalRespSubHandler implements SubHandler {
 
     public <I, O> void unmarshalResp(Request<I, O> req, String body) {
         body = body.trim();
-        Body b = Jsons.DEFAULT_GSON.fromJson(body, Body.class);
+        Body b = req.getGson().fromJson(body, Body.class);
         req.setRetry(b.retry());
         req.getResponse().setBody(b);
         if (b.getCode() != Body.ErrCodeOk) {
             return;
         }
         if (req.isNotDataField()) {
-            Object output = Jsons.DEFAULT_GSON.fromJson(body, req.getOutput().getClass());
+            Object output = req.getGson().fromJson(body, req.getOutput().getClass());
             req.getResponse().setData((O) output);
         } else {
             if (b.getData() == null || b.getData().size() == 0) {
                 return;
             }
-            String data = Jsons.DEFAULT_GSON.toJson(b.getData());
-            Object output = Jsons.DEFAULT_GSON.fromJson(data, req.getOutput().getClass());
+            String data = req.getGson().toJson(b.getData());
+            Object output = req.getGson().fromJson(data, req.getOutput().getClass());
             req.getResponse().setData((O) output);
         }
     }

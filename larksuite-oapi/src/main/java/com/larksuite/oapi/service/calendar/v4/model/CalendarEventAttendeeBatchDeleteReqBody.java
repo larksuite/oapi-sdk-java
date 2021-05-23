@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName;
 public class CalendarEventAttendeeBatchDeleteReqBody {
     @SerializedName("attendee_ids")
     private String[] attendeeIds;
+    @SerializedName("need_notification")
+    private Boolean needNotification;
 
     public String[] getAttendeeIds() {
         return this.attendeeIds;
@@ -12,6 +14,14 @@ public class CalendarEventAttendeeBatchDeleteReqBody {
 
     public void setAttendeeIds(String[] attendeeIds) {
         this.attendeeIds = attendeeIds;
+    }
+
+    public Boolean getNeedNotification() {
+        return this.needNotification;
+    }
+
+    public void setNeedNotification(Boolean needNotification) {
+        this.needNotification = needNotification;
     }
 
 }

@@ -6,7 +6,7 @@ public class MetainfoProperties {
     @SerializedName("title")
     private String title;
     @SerializedName("ownerUser")
-    private Integer ownerUser;
+    private Long ownerUser;
     @SerializedName("sheetCount")
     private Integer sheetCount;
     @SerializedName("revision")
@@ -20,11 +20,11 @@ public class MetainfoProperties {
         this.title = title;
     }
 
-    public Integer getOwnerUser() {
+    public Long getOwnerUser() {
         return this.ownerUser;
     }
 
-    public void setOwnerUser(Integer ownerUser) {
+    public void setOwnerUser(Long ownerUser) {
         this.ownerUser = ownerUser;
     }
 

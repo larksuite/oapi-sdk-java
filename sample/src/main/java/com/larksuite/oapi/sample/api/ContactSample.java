@@ -25,7 +25,6 @@ public class ContactSample {
     private static void patch(ContactService contactService) throws Exception {
         User user = new User();
         user.setName("rename");
-
         Response<UserPatchResult> response = contactService.getUsers().patch(user)
                 .setUserId("77bbc392").setUserIdType("user_id").execute();
         System.out.println(response.getRequestID());

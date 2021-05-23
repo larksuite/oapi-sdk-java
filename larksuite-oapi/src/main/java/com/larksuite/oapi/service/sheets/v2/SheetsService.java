@@ -713,6 +713,7 @@ public class SheetsService {
         @Override
         public Response<SpreadsheetsProtectedRangeBatchCreateResult> execute() throws Exception {
             this.optFns.add(Request.setPathParams(this.pathParams));
+            this.optFns.add(Request.setSupportLongDataType());
             Request<SpreadsheetsProtectedRangeBatchCreateReqBody, SpreadsheetsProtectedRangeBatchCreateResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/protected_dimension", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
@@ -1121,11 +1122,11 @@ public class SheetsService {
             this.spreadsheetss = spreadsheetss;
         }
         
-        public SpreadsheetsValuesGetReqCall setSpreadsheetToken(SpreadsheetToken spreadsheetToken){
+        public SpreadsheetsValuesGetReqCall setSpreadsheetToken(String spreadsheetToken){
             this.pathParams.put("spreadsheetToken", spreadsheetToken);
             return this;
         }
-        public SpreadsheetsValuesGetReqCall setRange(SpreadsheetToken range){
+        public SpreadsheetsValuesGetReqCall setRange(String range){
             this.pathParams.put("range", range);
             return this;
         }

@@ -11,6 +11,7 @@ public class RequestOpt {
     private long timeoutOfMs;
     private boolean isNotDataField;
     private boolean isResponseStream;
+    private boolean isSupportLongDataType;
 
     public long getTimeoutOfMs() {
         return timeoutOfMs;
@@ -66,5 +67,13 @@ public class RequestOpt {
 
     public void setResponseStream(boolean responseStream) {
         isResponseStream = responseStream;
+    }
+
+    public boolean isSupportLongDataType() {
+        return isSupportLongDataType;
+    }
+
+    public void setSupportLongDataType(boolean supportLongDataType) {
+        isSupportLongDataType = supportLongDataType;
     }
 }

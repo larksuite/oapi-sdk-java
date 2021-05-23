@@ -64,8 +64,8 @@ public class MeetingRoomService {
             return new BuildingCreateReqCall(this, body, optFns);
         }
     
-        public BuildingDeleteReqCall delete(RequestOptFn... optFns) {
-            return new BuildingDeleteReqCall(this, optFns);
+        public BuildingDeleteReqCall delete(BuildingDeleteReqBody body, RequestOptFn... optFns) {
+            return new BuildingDeleteReqCall(this, body, optFns);
         }
     
         public BuildingListReqCall list(RequestOptFn... optFns) {
@@ -168,14 +168,16 @@ public class MeetingRoomService {
             return Api.send(this.buildings.service.config, request);
         }
     }
-    public static class BuildingDeleteReqCall extends ReqCaller<Object, EmptyData> {
+    public static class BuildingDeleteReqCall extends ReqCaller<BuildingDeleteReqBody, EmptyData> {
         private final Buildings buildings;
         
+        private final BuildingDeleteReqBody body;
         private final List<RequestOptFn> optFns;
         private EmptyData result;
         
-        private BuildingDeleteReqCall(Buildings buildings, RequestOptFn... optFns) {
+        private BuildingDeleteReqCall(Buildings buildings, BuildingDeleteReqBody body, RequestOptFn... optFns) {
         
+            this.body = body;
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
             this.result = new EmptyData();
@@ -185,9 +187,9 @@ public class MeetingRoomService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            Request<Object, EmptyData> request = Request.newRequest("meeting_room/building/delete", "POST",
+            Request<BuildingDeleteReqBody, EmptyData> request = Request.newRequest("meeting_room/building/delete", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.buildings.service.config, request);
         }
     }
@@ -474,8 +476,8 @@ public class MeetingRoomService {
             return new RoomCreateReqCall(this, body, optFns);
         }
     
-        public RoomDeleteReqCall delete(RequestOptFn... optFns) {
-            return new RoomDeleteReqCall(this, optFns);
+        public RoomDeleteReqCall delete(RoomDeleteReqBody body, RequestOptFn... optFns) {
+            return new RoomDeleteReqCall(this, body, optFns);
         }
     
         public RoomListReqCall list(RequestOptFn... optFns) {
@@ -578,14 +580,16 @@ public class MeetingRoomService {
             return Api.send(this.rooms.service.config, request);
         }
     }
-    public static class RoomDeleteReqCall extends ReqCaller<Object, EmptyData> {
+    public static class RoomDeleteReqCall extends ReqCaller<RoomDeleteReqBody, EmptyData> {
         private final Rooms rooms;
         
+        private final RoomDeleteReqBody body;
         private final List<RequestOptFn> optFns;
         private EmptyData result;
         
-        private RoomDeleteReqCall(Rooms rooms, RequestOptFn... optFns) {
+        private RoomDeleteReqCall(Rooms rooms, RoomDeleteReqBody body, RequestOptFn... optFns) {
         
+            this.body = body;
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
             this.result = new EmptyData();
@@ -595,9 +599,9 @@ public class MeetingRoomService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            Request<Object, EmptyData> request = Request.newRequest("meeting_room/room/delete", "POST",
+            Request<RoomDeleteReqBody, EmptyData> request = Request.newRequest("meeting_room/room/delete", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.rooms.service.config, request);
         }
     }
@@ -770,16 +774,6 @@ public class MeetingRoomService {
             return new RoomUpdatedEvent();
         }
     }
-    public void setMeetingRoomStatusChangedEventHandler(MeetingRoomStatusChangedEventHandler handler) {
-        Event.setTypeHandler(this.config, "meeting_room.meeting_room.status_changed_v1", handler);
-    }
-
-    public abstract static class MeetingRoomStatusChangedEventHandler implements IHandler<MeetingRoomStatusChangedEvent> {
-        @Override
-        public MeetingRoomStatusChangedEvent getEvent() {
-            return new MeetingRoomStatusChangedEvent();
-        }
-    }
     public void setMeetingRoomCreatedEventHandler(MeetingRoomCreatedEventHandler handler) {
         Event.setTypeHandler(this.config, "meeting_room.meeting_room.created_v1", handler);
     }
@@ -798,6 +792,16 @@ public class MeetingRoomService {
         @Override
         public MeetingRoomDeletedEvent getEvent() {
             return new MeetingRoomDeletedEvent();
+        }
+    }
+    public void setMeetingRoomStatusChangedEventHandler(MeetingRoomStatusChangedEventHandler handler) {
+        Event.setTypeHandler(this.config, "meeting_room.meeting_room.status_changed_v1", handler);
+    }
+
+    public abstract static class MeetingRoomStatusChangedEventHandler implements IHandler<MeetingRoomStatusChangedEvent> {
+        @Override
+        public MeetingRoomStatusChangedEvent getEvent() {
+            return new MeetingRoomStatusChangedEvent();
         }
     }
     public void setMeetingRoomUpdatedEventHandler(MeetingRoomUpdatedEventHandler handler) {

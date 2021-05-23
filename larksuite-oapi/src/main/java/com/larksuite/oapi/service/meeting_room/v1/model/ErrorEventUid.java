@@ -6,7 +6,7 @@ public class ErrorEventUid {
     @SerializedName("uid")
     private String uid;
     @SerializedName("original_time")
-    private String originalTime;
+    private Integer originalTime;
     @SerializedName("error_msg")
     private String errorMsg;
 
@@ -18,11 +18,11 @@ public class ErrorEventUid {
         this.uid = uid;
     }
 
-    public String getOriginalTime() {
+    public Integer getOriginalTime() {
         return this.originalTime;
     }
 
-    public void setOriginalTime(String originalTime) {
+    public void setOriginalTime(Integer originalTime) {
         this.originalTime = originalTime;
     }
 

@@ -1,8 +1,10 @@
 package com.larksuite.oapi.core.api.request;
 
+import com.google.gson.Gson;
 import com.larksuite.oapi.core.Context;
 import com.larksuite.oapi.core.api.AccessTokenType;
 import com.larksuite.oapi.core.api.Constants;
+import com.larksuite.oapi.core.utils.Jsons;
 import com.larksuite.oapi.core.utils.Strings;
 
 import java.io.UnsupportedEncodingException;
@@ -19,6 +21,7 @@ public class BaseRequest<I, O> {
     private final Set<AccessTokenType> accessTokenTypeSet;
     private final List<RequestOptFn> requestOptFns;
     private final O output;
+    private String domain;
     private String httpPath;
     private String queryParams;
     private AccessTokenType accessTokenType;
@@ -29,6 +32,7 @@ public class BaseRequest<I, O> {
     private boolean retry;
     private boolean isResponseStream;
     private boolean isResponseStreamReal;
+    private Gson gson;
 
     public BaseRequest(String httpPath, String httpMethod, AccessTokenType accessTokenType,
                        I input, O output, RequestOptFn... requestOptFns) {
@@ -69,7 +73,8 @@ public class BaseRequest<I, O> {
         return "";
     }
 
-    public void init() {
+    public void init(String domain) {
+        this.setDomain(domain);
         RequestOpt opt = new RequestOpt();
         for (RequestOptFn f : this.getRequestOptFns()) {
             f.fn(opt);
@@ -77,6 +82,10 @@ public class BaseRequest<I, O> {
         this.timeoutOfMs = opt.getTimeoutOfMs();
         this.isNotDataField = opt.isNotDataField();
         this.setResponseStream(opt.isResponseStream());
+        this.setGson(Jsons.LONG_TO_STR_GSON);
+        if (opt.isSupportLongDataType()) {
+            this.setGson(Jsons.DEFAULT_GSON);
+        }
         if (!Strings.isEmpty(opt.getTenantKey())) {
             if (this.getAccessTokenTypeSet().contains(AccessTokenType.Tenant)) {
                 this.tenantKey = opt.getTenantKey();
@@ -180,6 +189,14 @@ public class BaseRequest<I, O> {
         return timeoutOfMs;
     }
 
+    public String getDomain() {
+        return domain;
+    }
+
+    public void setDomain(String domain) {
+        this.domain = domain;
+    }
+
     public String getHttpPath() {
         return httpPath;
     }
@@ -248,17 +265,19 @@ public class BaseRequest<I, O> {
         isResponseStreamReal = responseStreamReal;
     }
 
+    public Gson getGson() {
+        return gson;
+    }
+
+    public void setGson(Gson gson) {
+        this.gson = gson;
+    }
+
     public String url() {
-        String path = "/" + Constants.OAPI_ROOT_PATH + "/" + this.getHttpPath();
+        String path = this.getDomain() + "/" + Constants.OAPI_ROOT_PATH + "/" + this.getHttpPath();
         if (!Strings.isEmpty(this.getQueryParams())) {
             path += "?" + this.getQueryParams();
         }
         return path;
     }
-
-    public String fullUrl(String domain) {
-        return domain + url();
-    }
-
-
 }

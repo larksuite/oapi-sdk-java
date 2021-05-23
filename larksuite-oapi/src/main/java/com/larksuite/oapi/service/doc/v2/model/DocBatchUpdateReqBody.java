@@ -3,20 +3,10 @@ package com.larksuite.oapi.service.doc.v2.model;
 import com.google.gson.annotations.SerializedName;
 
 public class DocBatchUpdateReqBody {
-    @SerializedName("docToken")
-    private String docToken;
     @SerializedName("Revision")
     private Integer revision;
     @SerializedName("Requests")
     private String[] requests;
-
-    public String getDocToken() {
-        return this.docToken;
-    }
-
-    public void setDocToken(String docToken) {
-        this.docToken = docToken;
-    }
 
     public Integer getRevision() {
         return this.revision;

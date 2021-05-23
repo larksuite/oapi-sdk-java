@@ -62,7 +62,7 @@ public class SuiteService {
 
         @Override
         public Response<DocsApiMetaResult> execute() throws Exception {
-            Request<DocsApiMetaReqBody, DocsApiMetaResult> request = Request.newRequest("suite/docs_api/meta", "POST",
+            Request<DocsApiMetaReqBody, DocsApiMetaResult> request = Request.newRequest("suite/docs-api/meta", "POST",
                     new AccessTokenType[]{AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.docsApis.service.config, request);
@@ -87,7 +87,7 @@ public class SuiteService {
 
         @Override
         public Response<DocsApiSearchResult> execute() throws Exception {
-            Request<DocsApiSearchReqBody, DocsApiSearchResult> request = Request.newRequest("suite/docs_api/search/object", "POST",
+            Request<DocsApiSearchReqBody, DocsApiSearchResult> request = Request.newRequest("suite/docs-api/search/object", "POST",
                     new AccessTokenType[]{AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.docsApis.service.config, request);
