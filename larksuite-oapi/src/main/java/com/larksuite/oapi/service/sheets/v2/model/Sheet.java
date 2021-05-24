@@ -21,6 +21,8 @@ public class Sheet {
     private Merge[] merges;
     @SerializedName("protectedRange")
     private ProtectedRange protectedRange;
+    @SerializedName("blockInfo")
+    private BlockInfo blockInfo;
 
     public String getSheetId() {
         return this.sheetId;
@@ -92,6 +94,14 @@ public class Sheet {
 
     public void setProtectedRange(ProtectedRange protectedRange) {
         this.protectedRange = protectedRange;
+    }
+
+    public BlockInfo getBlockInfo() {
+        return this.blockInfo;
+    }
+
+    public void setBlockInfo(BlockInfo blockInfo) {
+        this.blockInfo = blockInfo;
     }
 
 }

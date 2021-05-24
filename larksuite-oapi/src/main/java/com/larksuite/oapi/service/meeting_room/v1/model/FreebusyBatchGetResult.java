@@ -9,7 +9,7 @@ public class FreebusyBatchGetResult {
     @SerializedName("time_max")
     private String timeMax;
     @SerializedName("free_busy")
-    private Map<String, RoomFreeBusy> freeBusy;
+    private Map<String, RoomFreeBusy[]> freeBusy;
 
     public String getTimeMin() {
         return this.timeMin;
@@ -27,11 +27,11 @@ public class FreebusyBatchGetResult {
         this.timeMax = timeMax;
     }
 
-    public Map<String, RoomFreeBusy> getFreeBusy() {
+    public Map<String, RoomFreeBusy[]> getFreeBusy() {
         return this.freeBusy;
     }
 
-    public void setFreeBusy(Map<String, RoomFreeBusy> freeBusy) {
+    public void setFreeBusy(Map<String, RoomFreeBusy[]> freeBusy) {
         this.freeBusy = freeBusy;
     }
 

@@ -383,6 +383,14 @@ public class SheetsService {
             this.pathParams.put("spreadsheetToken", spreadsheetToken);
             return this;
         }
+        public SpreadsheetsDataValidationGetReqCall setRange(String range){
+            this.pathParams.put("range", range);
+            return this;
+        }
+        public SpreadsheetsDataValidationGetReqCall setDataValidationType(String dataValidationType){
+            this.pathParams.put("dataValidationType", dataValidationType);
+            return this;
+        }
 
         @Override
         public Response<SpreadsheetsDataValidationGetResult> execute() throws Exception {

@@ -774,6 +774,16 @@ public class MeetingRoomService {
             return new RoomUpdatedEvent();
         }
     }
+    public void setMeetingRoomStatusChangedEventHandler(MeetingRoomStatusChangedEventHandler handler) {
+        Event.setTypeHandler(this.config, "meeting_room.meeting_room.status_changed_v1", handler);
+    }
+
+    public abstract static class MeetingRoomStatusChangedEventHandler implements IHandler<MeetingRoomStatusChangedEvent> {
+        @Override
+        public MeetingRoomStatusChangedEvent getEvent() {
+            return new MeetingRoomStatusChangedEvent();
+        }
+    }
     public void setMeetingRoomCreatedEventHandler(MeetingRoomCreatedEventHandler handler) {
         Event.setTypeHandler(this.config, "meeting_room.meeting_room.created_v1", handler);
     }
@@ -792,16 +802,6 @@ public class MeetingRoomService {
         @Override
         public MeetingRoomDeletedEvent getEvent() {
             return new MeetingRoomDeletedEvent();
-        }
-    }
-    public void setMeetingRoomStatusChangedEventHandler(MeetingRoomStatusChangedEventHandler handler) {
-        Event.setTypeHandler(this.config, "meeting_room.meeting_room.status_changed_v1", handler);
-    }
-
-    public abstract static class MeetingRoomStatusChangedEventHandler implements IHandler<MeetingRoomStatusChangedEvent> {
-        @Override
-        public MeetingRoomStatusChangedEvent getEvent() {
-            return new MeetingRoomStatusChangedEvent();
         }
     }
     public void setMeetingRoomUpdatedEventHandler(MeetingRoomUpdatedEventHandler handler) {

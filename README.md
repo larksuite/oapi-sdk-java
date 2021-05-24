@@ -32,6 +32,34 @@
 
 ---
 
+- If the larksuite-oapi dependency cannot be found and obtained, please add \<repositories\> in \<project\> of pom.xml
+
+```xml
+<project>
+    <repositories>
+        <repository>
+            <id>Central Repository</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>
+    <dependencies>
+        ...
+    </dependencies>
+</project>
+```
+
+- The latest release candidate provides more open services API and bug repair.
+
+```shell
+<dependency>
+    <groupId>com.larksuite.oapi</groupId>
+    <artifactId>larksuite-oapi</artifactId>
+    <version>1.0.17-rc2</version>
+</dependency>
+```
+
+- Stable version
+
 ```shell
 <dependency>
     <groupId>com.larksuite.oapi</groupId>
