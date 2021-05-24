@@ -22,6 +22,34 @@
 
 ---
 
+- 如果增加的 larksuite-oapi 依赖，无法发现获取，请在 pom.xml 的 \<project\> 里增加 \<repositories\>
+
+```xml
+<project>
+    <repositories>
+        <repository>
+            <id>Central Repository</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>
+    <dependencies>
+        ...
+    </dependencies>
+</project>
+```
+
+- 最新的发布候选版本，提供更多开放服务 API 以及 Bug 修复
+
+```shell
+<dependency>
+    <groupId>com.larksuite.oapi</groupId>
+    <artifactId>larksuite-oapi</artifactId>
+    <version>1.0.17-rc2</version>
+</dependency>
+```
+
+- 稳定版本
+
 ```shell
 <dependency>
     <groupId>com.larksuite.oapi</groupId>

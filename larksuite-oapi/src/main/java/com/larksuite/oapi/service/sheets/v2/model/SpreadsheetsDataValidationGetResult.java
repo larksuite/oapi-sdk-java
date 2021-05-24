@@ -7,8 +7,8 @@ public class SpreadsheetsDataValidationGetResult {
     private String spreadsheetToken;
     @SerializedName("sheetId")
     private String sheetId;
-    @SerializedName("dataValidation")
-    private DataValidationResponse dataValidation;
+    @SerializedName("dataValidations")
+    private DataValidationResponse[] dataValidations;
     @SerializedName("revision")
     private Integer revision;
 
@@ -28,12 +28,12 @@ public class SpreadsheetsDataValidationGetResult {
         this.sheetId = sheetId;
     }
 
-    public DataValidationResponse getDataValidation() {
-        return this.dataValidation;
+    public DataValidationResponse[] getDataValidations() {
+        return this.dataValidations;
     }
 
-    public void setDataValidation(DataValidationResponse dataValidation) {
-        this.dataValidation = dataValidation;
+    public void setDataValidations(DataValidationResponse[] dataValidations) {
+        this.dataValidations = dataValidations;
     }
 
     public Integer getRevision() {

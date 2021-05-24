@@ -27,11 +27,18 @@
         <maven-versions-plugin.version>2.7</maven-versions-plugin.version>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>Central Repository</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>com.larksuite.oapi</groupId>
             <artifactId>larksuite-oapi</artifactId>
-            <version>1.0.17-rc1</version>
+            <version>1.0.17-rc2</version>
         </dependency>
         <dependency>
             <groupId>redis.clients</groupId>
