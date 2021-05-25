@@ -38,7 +38,7 @@
 </project>
 ```
 
-- 最新的发布候选版本，提供更多开放服务 API 以及 Bug 修复
+- 最新的发布候选版本，提供更多[开放服务 API](/larksuite-oapi/src/main/java/com/larksuite/oapi/service) 以及 Bug 修复
 
 ```shell
 <dependency>

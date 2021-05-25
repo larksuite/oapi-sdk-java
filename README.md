@@ -41,7 +41,7 @@
 </project>
 ```
 
-- The latest release candidate provides more open services API and bug repair.
+- The latest release candidate provides more [open services API](/larksuite-oapi/src/main/java/com/larksuite/oapi/service) and bug repair.
 
 ```shell
 <dependency>
