@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.larksuite.oapi</groupId>
     <artifactId>larksuite</artifactId>
-    <version>1.0.17-rc2</version>
+    <version>1.0.17-rc3</version>
     <name>larksuite</name>
     <packaging>pom</packaging>
     <description>Larksuite open platform facilitates the integration of enterprise applications and larksuite, making

@@ -24,11 +24,13 @@ public class ImService {
     private final Chats chats;
     private final ChatMemberUsers chatMemberUsers;
     private final ChatMemberBots chatMemberBots;
+    private final MessageReactions messageReactions;
     private final ChatAnnouncements chatAnnouncements;
     private final ChatMemberss chatMemberss;
     private final Files files;
     private final Images images;
     private final MessageResources messageResources;
+    private final ChatCustomBots chatCustomBots;
 
     public ImService(Config config) {
         this.config = config;
@@ -36,11 +38,13 @@ public class ImService {
         this.chats = new Chats(this);
         this.chatMemberUsers = new ChatMemberUsers(this);
         this.chatMemberBots = new ChatMemberBots(this);
+        this.messageReactions = new MessageReactions(this);
         this.chatAnnouncements = new ChatAnnouncements(this);
         this.chatMemberss = new ChatMemberss(this);
         this.files = new Files(this);
         this.images = new Images(this);
         this.messageResources = new MessageResources(this);
+        this.chatCustomBots = new ChatCustomBots(this);
     }
 
     public Messages getMessages() {
@@ -628,6 +632,148 @@ public class ImService {
     
     }
 
+    public MessageReactions getMessageReactions() {
+        return messageReactions;
+    }
+
+    public static class MessageReactions {
+
+        private final ImService service;
+
+        public MessageReactions(ImService service) {
+            this.service = service;
+        }
+    
+        public MessageReactionCreateReqCall create(MessageReactionCreateReqBody body, RequestOptFn... optFns) {
+            return new MessageReactionCreateReqCall(this, body, optFns);
+        }
+    
+        public MessageReactionDeleteReqCall delete(RequestOptFn... optFns) {
+            return new MessageReactionDeleteReqCall(this, optFns);
+        }
+    
+        public MessageReactionListReqCall list(RequestOptFn... optFns) {
+            return new MessageReactionListReqCall(this, optFns);
+        }
+    
+    }
+    public static class MessageReactionCreateReqCall extends ReqCaller<MessageReactionCreateReqBody, MessageReaction> {
+        private final MessageReactions messageReactions;
+        
+        private final MessageReactionCreateReqBody body;
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private MessageReaction result;
+        
+        private MessageReactionCreateReqCall(MessageReactions messageReactions, MessageReactionCreateReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new MessageReaction();
+            this.messageReactions = messageReactions;
+        }
+        
+        public MessageReactionCreateReqCall setMessageId(String messageId){
+            this.pathParams.put("message_id", messageId);
+            return this;
+        }
+
+        @Override
+        public Response<MessageReaction> execute() throws Exception {
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            Request<MessageReactionCreateReqBody, MessageReaction> request = Request.newRequest("im/v1/messages/:message_id/reactions", "POST",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.messageReactions.service.config, request);
+        }
+    }
+    public static class MessageReactionDeleteReqCall extends ReqCaller<Object, MessageReaction> {
+        private final MessageReactions messageReactions;
+        
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private MessageReaction result;
+        
+        private MessageReactionDeleteReqCall(MessageReactions messageReactions, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new MessageReaction();
+            this.messageReactions = messageReactions;
+        }
+        
+        public MessageReactionDeleteReqCall setMessageId(String messageId){
+            this.pathParams.put("message_id", messageId);
+            return this;
+        }
+        public MessageReactionDeleteReqCall setReactionId(String reactionId){
+            this.pathParams.put("reaction_id", reactionId);
+            return this;
+        }
+
+        @Override
+        public Response<MessageReaction> execute() throws Exception {
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            Request<Object, MessageReaction> request = Request.newRequest("im/v1/messages/:message_id/reactions/:reaction_id", "DELETE",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.messageReactions.service.config, request);
+        }
+    }
+    public static class MessageReactionListReqCall extends ReqCaller<Object, MessageReactionListResult> {
+        private final MessageReactions messageReactions;
+        
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private MessageReactionListResult result;
+        
+        private MessageReactionListReqCall(MessageReactions messageReactions, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new MessageReactionListResult();
+            this.messageReactions = messageReactions;
+        }
+        
+        public MessageReactionListReqCall setMessageId(String messageId){
+            this.pathParams.put("message_id", messageId);
+            return this;
+        }
+        
+        public MessageReactionListReqCall setReactionType(String reactionType){
+            this.queryParams.put("reaction_type", reactionType);
+            return this;
+        }
+        public MessageReactionListReqCall setPageToken(String pageToken){
+            this.queryParams.put("page_token", pageToken);
+            return this;
+        }
+        public MessageReactionListReqCall setPageSize(Integer pageSize){
+            this.queryParams.put("page_size", pageSize);
+            return this;
+        }
+        public MessageReactionListReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+
+        @Override
+        public Response<MessageReactionListResult> execute() throws Exception {
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            this.optFns.add(Request.setQueryParams(this.queryParams));
+            Request<Object, MessageReactionListResult> request = Request.newRequest("im/v1/messages/:message_id/reactions", "GET",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.messageReactions.service.config, request);
+        }
+    }
+
     public ChatAnnouncements getChatAnnouncements() {
         return chatAnnouncements;
     }
@@ -1195,6 +1341,153 @@ public class ImService {
             return Api.send(this.messageResources.service.config, request);
         }
     }
+
+    public ChatCustomBots getChatCustomBots() {
+        return chatCustomBots;
+    }
+
+    public static class ChatCustomBots {
+
+        private final ImService service;
+
+        public ChatCustomBots(ImService service) {
+            this.service = service;
+        }
+    
+        public ChatCustomBotCreateReqCall create(ChatCustomBotCreateReqBody body, RequestOptFn... optFns) {
+            return new ChatCustomBotCreateReqCall(this, body, optFns);
+        }
+    
+        public ChatCustomBotDeleteReqCall delete(RequestOptFn... optFns) {
+            return new ChatCustomBotDeleteReqCall(this, optFns);
+        }
+    
+        public ChatCustomBotGetReqCall get(RequestOptFn... optFns) {
+            return new ChatCustomBotGetReqCall(this, optFns);
+        }
+    
+        public ChatCustomBotPatchReqCall patch(ChatCustomBotPatchReqBody body, RequestOptFn... optFns) {
+            return new ChatCustomBotPatchReqCall(this, body, optFns);
+        }
+    
+    }
+    public static class ChatCustomBotCreateReqCall extends ReqCaller<ChatCustomBotCreateReqBody, ChatCustomBotCreateResult> {
+        private final ChatCustomBots chatCustomBots;
+        
+        private final ChatCustomBotCreateReqBody body;
+        private final List<RequestOptFn> optFns;
+        private ChatCustomBotCreateResult result;
+        
+        private ChatCustomBotCreateReqCall(ChatCustomBots chatCustomBots, ChatCustomBotCreateReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new ChatCustomBotCreateResult();
+            this.chatCustomBots = chatCustomBots;
+        }
+        
+
+        @Override
+        public Response<ChatCustomBotCreateResult> execute() throws Exception {
+            Request<ChatCustomBotCreateReqBody, ChatCustomBotCreateResult> request = Request.newRequest("im/v1/chat_custom_bots", "POST",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.chatCustomBots.service.config, request);
+        }
+    }
+    public static class ChatCustomBotDeleteReqCall extends ReqCaller<Object, EmptyData> {
+        private final ChatCustomBots chatCustomBots;
+        
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private ChatCustomBotDeleteReqCall(ChatCustomBots chatCustomBots, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.chatCustomBots = chatCustomBots;
+        }
+        
+        public ChatCustomBotDeleteReqCall setBotId(Long botId){
+            this.pathParams.put("bot_id", botId);
+            return this;
+        }
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            Request<Object, EmptyData> request = Request.newRequest("im/v1/chat_custom_bots/:bot_id", "DELETE",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.chatCustomBots.service.config, request);
+        }
+    }
+    public static class ChatCustomBotGetReqCall extends ReqCaller<Object, ChatCustomBotGetResult> {
+        private final ChatCustomBots chatCustomBots;
+        
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private ChatCustomBotGetResult result;
+        
+        private ChatCustomBotGetReqCall(ChatCustomBots chatCustomBots, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new ChatCustomBotGetResult();
+            this.chatCustomBots = chatCustomBots;
+        }
+        
+        public ChatCustomBotGetReqCall setBotId(Long botId){
+            this.pathParams.put("bot_id", botId);
+            return this;
+        }
+
+        @Override
+        public Response<ChatCustomBotGetResult> execute() throws Exception {
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            Request<Object, ChatCustomBotGetResult> request = Request.newRequest("im/v1/chat_custom_bots/:bot_id", "GET",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.chatCustomBots.service.config, request);
+        }
+    }
+    public static class ChatCustomBotPatchReqCall extends ReqCaller<ChatCustomBotPatchReqBody, EmptyData> {
+        private final ChatCustomBots chatCustomBots;
+        
+        private final ChatCustomBotPatchReqBody body;
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private ChatCustomBotPatchReqCall(ChatCustomBots chatCustomBots, ChatCustomBotPatchReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.chatCustomBots = chatCustomBots;
+        }
+        
+        public ChatCustomBotPatchReqCall setBotId(Long botId){
+            this.pathParams.put("bot_id", botId);
+            return this;
+        }
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            Request<ChatCustomBotPatchReqBody, EmptyData> request = Request.newRequest("im/v1/chat_custom_bots/:bot_id", "PATCH",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.chatCustomBots.service.config, request);
+        }
+    }
     public void setMessageReceiveEventHandler(MessageReceiveEventHandler handler) {
         Event.setTypeHandler(this.config, "im.message.receive_v1", handler);
     }
@@ -1293,6 +1586,36 @@ public class ImService {
         @Override
         public MessageMessageReadEvent getEvent() {
             return new MessageMessageReadEvent();
+        }
+    }
+    public void setMessageUrgentMessageReadEventHandler(MessageUrgentMessageReadEventHandler handler) {
+        Event.setTypeHandler(this.config, "im.message.urgent_message_read_v1", handler);
+    }
+
+    public abstract static class MessageUrgentMessageReadEventHandler implements IHandler<MessageUrgentMessageReadEvent> {
+        @Override
+        public MessageUrgentMessageReadEvent getEvent() {
+            return new MessageUrgentMessageReadEvent();
+        }
+    }
+    public void setMessageReactionCreatedEventHandler(MessageReactionCreatedEventHandler handler) {
+        Event.setTypeHandler(this.config, "im.message.reaction.created_v1", handler);
+    }
+
+    public abstract static class MessageReactionCreatedEventHandler implements IHandler<MessageReactionCreatedEvent> {
+        @Override
+        public MessageReactionCreatedEvent getEvent() {
+            return new MessageReactionCreatedEvent();
+        }
+    }
+    public void setMessageReactionDeletedEventHandler(MessageReactionDeletedEventHandler handler) {
+        Event.setTypeHandler(this.config, "im.message.reaction.deleted_v1", handler);
+    }
+
+    public abstract static class MessageReactionDeletedEventHandler implements IHandler<MessageReactionDeletedEvent> {
+        @Override
+        public MessageReactionDeletedEvent getEvent() {
+            return new MessageReactionDeletedEvent();
         }
     }
 

@@ -536,6 +536,10 @@ public class DriveService {
             return new FileCommentReplyDeleteReqCall(this, optFns);
         }
     
+        public FileCommentReplyCreateReqCall create(FileCommentReplyCreateReqBody body, RequestOptFn... optFns) {
+            return new FileCommentReplyCreateReqCall(this, body, optFns);
+        }
+    
     }
     public static class FileCommentReplyUpdateReqCall extends ReqCaller<FileCommentReplyUpdateReqBody, EmptyData> {
         private final FileCommentReplys fileCommentReplys;
@@ -572,6 +576,10 @@ public class DriveService {
         
         public FileCommentReplyUpdateReqCall setFileType(String fileType){
             this.queryParams.put("file_type", fileType);
+            return this;
+        }
+        public FileCommentReplyUpdateReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
             return this;
         }
 
@@ -628,6 +636,54 @@ public class DriveService {
             Request<Object, EmptyData> request = Request.newRequest("drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id", "DELETE",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.fileCommentReplys.service.config, request);
+        }
+    }
+    public static class FileCommentReplyCreateReqCall extends ReqCaller<FileCommentReplyCreateReqBody, FileCommentReplyCreateResult> {
+        private final FileCommentReplys fileCommentReplys;
+        
+        private final FileCommentReplyCreateReqBody body;
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private FileCommentReplyCreateResult result;
+        
+        private FileCommentReplyCreateReqCall(FileCommentReplys fileCommentReplys, FileCommentReplyCreateReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new FileCommentReplyCreateResult();
+            this.fileCommentReplys = fileCommentReplys;
+        }
+        
+        public FileCommentReplyCreateReqCall setFileToken(String fileToken){
+            this.pathParams.put("file_token", fileToken);
+            return this;
+        }
+        public FileCommentReplyCreateReqCall setCommentId(Long commentId){
+            this.pathParams.put("comment_id", commentId);
+            return this;
+        }
+        
+        public FileCommentReplyCreateReqCall setFileType(String fileType){
+            this.queryParams.put("file_type", fileType);
+            return this;
+        }
+        public FileCommentReplyCreateReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+
+        @Override
+        public Response<FileCommentReplyCreateResult> execute() throws Exception {
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            this.optFns.add(Request.setQueryParams(this.queryParams));
+            Request<FileCommentReplyCreateReqBody, FileCommentReplyCreateResult> request = Request.newRequest("drive/v1/files/:file_token/comments/:comment_id/replies", "POST",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.fileCommentReplys.service.config, request);
         }
     }

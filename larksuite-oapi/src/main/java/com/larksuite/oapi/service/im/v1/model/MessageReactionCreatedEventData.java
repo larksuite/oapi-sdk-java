@@ -7,8 +7,12 @@ public class MessageReactionCreatedEventData {
     private String messageId;
     @SerializedName("reaction_type")
     private Emoji reactionType;
-    @SerializedName("operator_id")
-    private UserId operatorId;
+    @SerializedName("operator_type")
+    private String operatorType;
+    @SerializedName("user_id")
+    private UserId userId;
+    @SerializedName("app_id")
+    private String appId;
     @SerializedName("action_time")
     private String actionTime;
 
@@ -28,12 +32,28 @@ public class MessageReactionCreatedEventData {
         this.reactionType = reactionType;
     }
 
-    public UserId getOperatorId() {
-        return this.operatorId;
+    public String getOperatorType() {
+        return this.operatorType;
     }
 
-    public void setOperatorId(UserId operatorId) {
-        this.operatorId = operatorId;
+    public void setOperatorType(String operatorType) {
+        this.operatorType = operatorType;
+    }
+
+    public UserId getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(UserId userId) {
+        this.userId = userId;
+    }
+
+    public String getAppId() {
+        return this.appId;
+    }
+
+    public void setAppId(String appId) {
+        this.appId = appId;
     }
 
     public String getActionTime() {

@@ -6,7 +6,7 @@ public class ChatCustomBotCreateResult {
     @SerializedName("bot_id")
     private Long botId;
     @SerializedName("chat_id")
-    private String chatId;
+    private Long chatId;
     @SerializedName("avatar_key")
     private String avatarKey;
     @SerializedName("name")
@@ -14,9 +14,9 @@ public class ChatCustomBotCreateResult {
     @SerializedName("description")
     private String description;
     @SerializedName("i18n_names")
-    private I18nNames iQXnNames;
+    private I18nNames i18nNames;
     @SerializedName("i18n_descriptions")
-    private I18nNames iQXnDescriptions;
+    private I18nNames i18nDescriptions;
     @SerializedName("webhook")
     private String webhook;
     @SerializedName("allow_ips")
@@ -44,11 +44,11 @@ public class ChatCustomBotCreateResult {
         this.botId = botId;
     }
 
-    public String getChatId() {
+    public Long getChatId() {
         return this.chatId;
     }
 
-    public void setChatId(String chatId) {
+    public void setChatId(Long chatId) {
         this.chatId = chatId;
     }
 
@@ -77,19 +77,19 @@ public class ChatCustomBotCreateResult {
     }
 
     public I18nNames getI18nNames() {
-        return this.iQXnNames;
+        return this.i18nNames;
     }
 
-    public void setI18nNames(I18nNames iQXnNames) {
-        this.iQXnNames = iQXnNames;
+    public void setI18nNames(I18nNames i18nNames) {
+        this.i18nNames = i18nNames;
     }
 
     public I18nNames getI18nDescriptions() {
-        return this.iQXnDescriptions;
+        return this.i18nDescriptions;
     }
 
-    public void setI18nDescriptions(I18nNames iQXnDescriptions) {
-        this.iQXnDescriptions = iQXnDescriptions;
+    public void setI18nDescriptions(I18nNames i18nDescriptions) {
+        this.i18nDescriptions = i18nDescriptions;
     }
 
     public String getWebhook() {

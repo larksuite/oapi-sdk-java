@@ -2,9 +2,7 @@
 package com.larksuite.oapi.service.im.v1.model;
 import com.google.gson.annotations.SerializedName;
 
-public class ChatCustomBotCreateReqBody {
-    @SerializedName("chat_id")
-    private Long chatId;
+public class ChatCustomBotPatchReqBody {
     @SerializedName("avatar_key")
     private String avatarKey;
     @SerializedName("name")
@@ -17,16 +15,10 @@ public class ChatCustomBotCreateReqBody {
     private String[] keyWords;
     @SerializedName("signature_status")
     private Boolean signatureStatus;
-    @SerializedName("uuid")
-    private Long uuid;
-
-    public Long getChatId() {
-        return this.chatId;
-    }
-
-    public void setChatId(Long chatId) {
-        this.chatId = chatId;
-    }
+    @SerializedName("change_signature")
+    private Boolean changeSignature;
+    @SerializedName("enable")
+    private Boolean enable;
 
     public String getAvatarKey() {
         return this.avatarKey;
@@ -76,12 +68,20 @@ public class ChatCustomBotCreateReqBody {
         this.signatureStatus = signatureStatus;
     }
 
-    public Long getUuid() {
-        return this.uuid;
+    public Boolean getChangeSignature() {
+        return this.changeSignature;
     }
 
-    public void setUuid(Long uuid) {
-        this.uuid = uuid;
+    public void setChangeSignature(Boolean changeSignature) {
+        this.changeSignature = changeSignature;
+    }
+
+    public Boolean getEnable() {
+        return this.enable;
+    }
+
+    public void setEnable(Boolean enable) {
+        this.enable = enable;
     }
 
 }

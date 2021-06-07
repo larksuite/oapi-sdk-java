@@ -9,6 +9,8 @@ import com.larksuite.oapi.core.api.response.Response;
 import com.larksuite.oapi.core.utils.Jsons;
 import com.larksuite.oapi.service.im.v1.ImService;
 import com.larksuite.oapi.service.im.v1.model.ImageCreateResult;
+import com.larksuite.oapi.service.im.v1.model.Message;
+import com.larksuite.oapi.service.im.v1.model.MessageCreateReqBody;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -44,5 +46,21 @@ public class ImSample {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+        // body params
+        MessageCreateReqBody body = new MessageCreateReqBody();
+        body.setReceiveId("77bbc392");
+        body.setContent("{\"text\": \"test content\"}");
+        body.setMsgType("text");
+
+        ImService.MessageCreateReqCall reqCall2 = imService.getMessages().create(body);
+        // query params
+        reqCall2.setReceiveIdType("user_id");
+
+        Response<Message> resp2 = reqCall2.execute();
+        System.out.println(resp2.getRequestID());
+        System.out.println(resp2.getHTTPStatusCode());
+        System.out.println(Jsons.DEFAULT_GSON.toJson(resp2));
     }
 }

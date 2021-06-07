@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName;
 public class MessageReaction {
     @SerializedName("reaction_id")
     private String reactionId;
-    @SerializedName("operator_id")
-    private String operatorId;
+    @SerializedName("operator")
+    private Operator operator;
     @SerializedName("action_time")
     private String actionTime;
     @SerializedName("reaction_type")
@@ -20,12 +20,12 @@ public class MessageReaction {
         this.reactionId = reactionId;
     }
 
-    public String getOperatorId() {
-        return this.operatorId;
+    public Operator getOperator() {
+        return this.operator;
     }
 
-    public void setOperatorId(String operatorId) {
-        this.operatorId = operatorId;
+    public void setOperator(Operator operator) {
+        this.operator = operator;
     }
 
     public String getActionTime() {
