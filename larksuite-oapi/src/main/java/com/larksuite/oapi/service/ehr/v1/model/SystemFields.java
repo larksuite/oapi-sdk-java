@@ -122,9 +122,9 @@ public class SystemFields {
     @SerializedName("employee_form_status")
     private Integer employeeFormStatus;
     @SerializedName("create_time")
-    private Integer createTime;
+    private Long createTime;
     @SerializedName("update_time")
-    private Integer updateTime;
+    private Long updateTime;
 
     public String getName() {
         return this.name;
@@ -598,19 +598,19 @@ public class SystemFields {
         this.employeeFormStatus = employeeFormStatus;
     }
 
-    public Integer getCreateTime() {
+    public Long getCreateTime() {
         return this.createTime;
     }
 
-    public void setCreateTime(Integer createTime) {
+    public void setCreateTime(Long createTime) {
         this.createTime = createTime;
     }
 
-    public Integer getUpdateTime() {
+    public Long getUpdateTime() {
         return this.updateTime;
     }
 
-    public void setUpdateTime(Integer updateTime) {
+    public void setUpdateTime(Long updateTime) {
         this.updateTime = updateTime;
     }
 

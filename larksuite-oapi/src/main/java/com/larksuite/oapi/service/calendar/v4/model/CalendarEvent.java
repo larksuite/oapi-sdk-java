@@ -9,6 +9,8 @@ public class CalendarEvent {
     private String summary;
     @SerializedName("description")
     private String description;
+    @SerializedName("need_notification")
+    private Boolean needNotification;
     @SerializedName("start_time")
     private TimeInfo startTime;
     @SerializedName("end_time")
@@ -60,6 +62,14 @@ public class CalendarEvent {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Boolean getNeedNotification() {
+        return this.needNotification;
+    }
+
+    public void setNeedNotification(Boolean needNotification) {
+        this.needNotification = needNotification;
     }
 
     public TimeInfo getStartTime() {

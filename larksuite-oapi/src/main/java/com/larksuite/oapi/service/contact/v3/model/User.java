@@ -51,10 +51,14 @@ public class User {
     private UserCustomAttr[] customAttrs;
     @SerializedName("enterprise_email")
     private String enterpriseEmail;
+    @SerializedName("job_title")
+    private String jobTitle;
     @SerializedName("need_send_notification")
     private Boolean needSendNotification;
     @SerializedName("notification_option")
     private NotificationOption notificationOption;
+    @SerializedName("is_frozen")
+    private Boolean isFrozen;
 
     public String getUnionId() {
         return this.unionId;
@@ -252,6 +256,14 @@ public class User {
 
 
 
+    public String getJobTitle() {
+        return this.jobTitle;
+    }
+
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
+
     public Boolean getNeedSendNotification() {
         return this.needSendNotification;
     }
@@ -266,6 +278,14 @@ public class User {
 
     public void setNotificationOption(NotificationOption notificationOption) {
         this.notificationOption = notificationOption;
+    }
+
+    public Boolean getIsFrozen() {
+        return this.isFrozen;
+    }
+
+    public void setIsFrozen(Boolean isFrozen) {
+        this.isFrozen = isFrozen;
     }
 
 }

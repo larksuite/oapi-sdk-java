@@ -125,11 +125,11 @@ public class EhrService {
             this.queryParams.put("type", type);
             return this;
         }
-        public EmployeeListReqCall setStartTime(Integer startTime){
+        public EmployeeListReqCall setStartTime(Long startTime){
             this.queryParams.put("start_time", startTime);
             return this;
         }
-        public EmployeeListReqCall setEndTime(Integer endTime){
+        public EmployeeListReqCall setEndTime(Long endTime){
             this.queryParams.put("end_time", endTime);
             return this;
         }

@@ -1,6 +1,5 @@
 package com.larksuite.oapi.core.api.handler.subhandler;
 
-import com.larksuite.oapi.core.Config;
 import com.larksuite.oapi.core.Constants;
 import com.larksuite.oapi.core.Context;
 import com.larksuite.oapi.core.api.handler.SubHandler;
@@ -87,7 +86,6 @@ public class BuildSubHandler implements SubHandler {
 
     @Override
     public <I, O> void handle(Context ctx, Request<I, O> req) throws Exception {
-        Config conf = Config.ByCtx(ctx);
         if (!req.isRetry()) {
             if (req.getInput() != null) {
                 if (req.getInput() instanceof FormData) {
@@ -101,6 +99,8 @@ public class BuildSubHandler implements SubHandler {
                     req.setRequestBody(body.getBytes(StandardCharsets.UTF_8));
                     log.debug("[build]request:{}, body:{}", req.toString(), body);
                 }
+            } else {
+                log.debug("[build]request:{}", req.toString());
             }
         }
         RequestBody body = null;

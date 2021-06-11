@@ -6,7 +6,7 @@ public class MentionEvent {
     @SerializedName("key")
     private String key;
     @SerializedName("id")
-    private String id;
+    private UserId id;
     @SerializedName("name")
     private String name;
     @SerializedName("tenant_key")
@@ -20,11 +20,11 @@ public class MentionEvent {
         this.key = key;
     }
 
-    public String getId() {
+    public UserId getId() {
         return this.id;
     }
 
-    public void setId(String id) {
+    public void setId(UserId id) {
         this.id = id;
     }
 

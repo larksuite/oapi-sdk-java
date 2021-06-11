@@ -21,7 +21,7 @@ public class SendSubHandler implements SubHandler {
         }
         com.larksuite.oapi.okhttp3_14.Request request = req.getHttpRequestBuilder().build();
         Response response = okHttpClient.newCall(request).execute();
-        OapiHeader oapiHeader =new OapiHeader(response.headers().toMultimap());
+        OapiHeader oapiHeader = new OapiHeader(response.headers().toMultimap());
         context.set(Constants.HTTP_HEADER, oapiHeader);
         context.set(Constants.HTTP_KEY_STATUS_CODE, response.code());
         req.setHttpResponse(response);

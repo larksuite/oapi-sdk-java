@@ -11,6 +11,8 @@ public class ExchangeBinding {
     private String userId;
     @SerializedName("status")
     private String status;
+    @SerializedName("exchange_binding_id")
+    private String exchangeBindingId;
 
     public String getAdminAccount() {
         return this.adminAccount;
@@ -42,6 +44,14 @@ public class ExchangeBinding {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getExchangeBindingId() {
+        return this.exchangeBindingId;
+    }
+
+    public void setExchangeBindingId(String exchangeBindingId) {
+        this.exchangeBindingId = exchangeBindingId;
     }
 
 }

@@ -2,9 +2,11 @@
 package com.larksuite.oapi.service.contact.v3.model;
 import com.google.gson.annotations.SerializedName;
 
-public class DepartmentUnbindDepartmentChatReqBody {
+public class DepartmentParent {
     @SerializedName("department_id")
     private String departmentId;
+    @SerializedName("parent_ids")
+    private String[] parentIds;
 
     public String getDepartmentId() {
         return this.departmentId;
@@ -12,6 +14,14 @@ public class DepartmentUnbindDepartmentChatReqBody {
 
     public void setDepartmentId(String departmentId) {
         this.departmentId = departmentId;
+    }
+
+    public String[] getParentIds() {
+        return this.parentIds;
+    }
+
+    public void setParentIds(String[] parentIds) {
+        this.parentIds = parentIds;
     }
 
 }

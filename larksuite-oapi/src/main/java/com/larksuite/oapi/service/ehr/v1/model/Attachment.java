@@ -10,7 +10,7 @@ public class Attachment {
     @SerializedName("name")
     private String name;
     @SerializedName("size")
-    private Integer size;
+    private Long size;
 
     public String getId() {
         return this.id;
@@ -36,11 +36,11 @@ public class Attachment {
         this.name = name;
     }
 
-    public Integer getSize() {
+    public Long getSize() {
         return this.size;
     }
 
-    public void setSize(Integer size) {
+    public void setSize(Long size) {
         this.size = size;
     }
 

@@ -22,10 +22,10 @@ public class CalendarService {
     private final CalendarEvents calendarEvents;
     private final CalendarEventAttendees calendarEventAttendees;
     private final CalendarEventAttendeeChatMembers calendarEventAttendeeChatMembers;
+    private final ExchangeBindings exchangeBindings;
     private final Freebusys freebusys;
     private final Settings settings;
     private final TimeoffEvents timeoffEvents;
-    private final ExchangeBindings exchangeBindings;
 
     public CalendarService(Config config) {
         this.config = config;
@@ -34,10 +34,10 @@ public class CalendarService {
         this.calendarEvents = new CalendarEvents(this);
         this.calendarEventAttendees = new CalendarEventAttendees(this);
         this.calendarEventAttendeeChatMembers = new CalendarEventAttendeeChatMembers(this);
+        this.exchangeBindings = new ExchangeBindings(this);
         this.freebusys = new Freebusys(this);
         this.settings = new Settings(this);
         this.timeoffEvents = new TimeoffEvents(this);
-        this.exchangeBindings = new ExchangeBindings(this);
     }
 
     public Calendars getCalendars() {
@@ -722,6 +722,10 @@ public class CalendarService {
             this.queryParams.put("page_size", pageSize);
             return this;
         }
+        public CalendarEventListReqCall setAnchorTime(String anchorTime){
+            this.queryParams.put("anchor_time", anchorTime);
+            return this;
+        }
         public CalendarEventListReqCall setPageToken(String pageToken){
             this.queryParams.put("page_token", pageToken);
             return this;
@@ -1080,6 +1084,133 @@ public class CalendarService {
         }
     }
 
+    public ExchangeBindings getExchangeBindings() {
+        return exchangeBindings;
+    }
+
+    public static class ExchangeBindings {
+
+        private final CalendarService service;
+
+        public ExchangeBindings(CalendarService service) {
+            this.service = service;
+        }
+    
+        public ExchangeBindingCreateReqCall create(ExchangeBinding body, RequestOptFn... optFns) {
+            return new ExchangeBindingCreateReqCall(this, body, optFns);
+        }
+    
+        public ExchangeBindingDeleteReqCall delete(RequestOptFn... optFns) {
+            return new ExchangeBindingDeleteReqCall(this, optFns);
+        }
+    
+        public ExchangeBindingGetReqCall get(RequestOptFn... optFns) {
+            return new ExchangeBindingGetReqCall(this, optFns);
+        }
+    
+    }
+    public static class ExchangeBindingCreateReqCall extends ReqCaller<ExchangeBinding, ExchangeBinding> {
+        private final ExchangeBindings exchangeBindings;
+        
+        private final ExchangeBinding body;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private ExchangeBinding result;
+        
+        private ExchangeBindingCreateReqCall(ExchangeBindings exchangeBindings, ExchangeBinding body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new ExchangeBinding();
+            this.exchangeBindings = exchangeBindings;
+        }
+        
+        
+        public ExchangeBindingCreateReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+
+        @Override
+        public Response<ExchangeBinding> execute() throws Exception {
+            this.optFns.add(Request.setQueryParams(this.queryParams));
+            Request<ExchangeBinding, ExchangeBinding> request = Request.newRequest("calendar/v4/exchange_bindings", "POST",
+                    new AccessTokenType[]{AccessTokenType.User},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.exchangeBindings.service.config, request);
+        }
+    }
+    public static class ExchangeBindingDeleteReqCall extends ReqCaller<Object, EmptyData> {
+        private final ExchangeBindings exchangeBindings;
+        
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private ExchangeBindingDeleteReqCall(ExchangeBindings exchangeBindings, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.exchangeBindings = exchangeBindings;
+        }
+        
+        public ExchangeBindingDeleteReqCall setExchangeBindingId(String exchangeBindingId){
+            this.pathParams.put("exchange_binding_id", exchangeBindingId);
+            return this;
+        }
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            Request<Object, EmptyData> request = Request.newRequest("calendar/v4/exchange_bindings/:exchange_binding_id", "DELETE",
+                    new AccessTokenType[]{AccessTokenType.User},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.exchangeBindings.service.config, request);
+        }
+    }
+    public static class ExchangeBindingGetReqCall extends ReqCaller<Object, ExchangeBinding> {
+        private final ExchangeBindings exchangeBindings;
+        
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private ExchangeBinding result;
+        
+        private ExchangeBindingGetReqCall(ExchangeBindings exchangeBindings, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new ExchangeBinding();
+            this.exchangeBindings = exchangeBindings;
+        }
+        
+        public ExchangeBindingGetReqCall setExchangeBindingId(String exchangeBindingId){
+            this.pathParams.put("exchange_binding_id", exchangeBindingId);
+            return this;
+        }
+        
+        public ExchangeBindingGetReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+
+        @Override
+        public Response<ExchangeBinding> execute() throws Exception {
+            this.optFns.add(Request.setPathParams(this.pathParams));
+            this.optFns.add(Request.setQueryParams(this.queryParams));
+            Request<Object, ExchangeBinding> request = Request.newRequest("calendar/v4/exchange_bindings/:exchange_binding_id", "GET",
+                    new AccessTokenType[]{AccessTokenType.User},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.exchangeBindings.service.config, request);
+        }
+    }
+
     public Freebusys getFreebusys() {
         return freebusys;
     }
@@ -1256,133 +1387,6 @@ public class CalendarService {
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.timeoffEvents.service.config, request);
-        }
-    }
-
-    public ExchangeBindings getExchangeBindings() {
-        return exchangeBindings;
-    }
-
-    public static class ExchangeBindings {
-
-        private final CalendarService service;
-
-        public ExchangeBindings(CalendarService service) {
-            this.service = service;
-        }
-    
-        public ExchangeBindingCreateReqCall create(ExchangeBinding body, RequestOptFn... optFns) {
-            return new ExchangeBindingCreateReqCall(this, body, optFns);
-        }
-    
-        public ExchangeBindingDeleteReqCall delete(RequestOptFn... optFns) {
-            return new ExchangeBindingDeleteReqCall(this, optFns);
-        }
-    
-        public ExchangeBindingGetReqCall get(RequestOptFn... optFns) {
-            return new ExchangeBindingGetReqCall(this, optFns);
-        }
-    
-    }
-    public static class ExchangeBindingCreateReqCall extends ReqCaller<ExchangeBinding, ExchangeBinding> {
-        private final ExchangeBindings exchangeBindings;
-        
-        private final ExchangeBinding body;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private ExchangeBinding result;
-        
-        private ExchangeBindingCreateReqCall(ExchangeBindings exchangeBindings, ExchangeBinding body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new ExchangeBinding();
-            this.exchangeBindings = exchangeBindings;
-        }
-        
-        
-        public ExchangeBindingCreateReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-
-        @Override
-        public Response<ExchangeBinding> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<ExchangeBinding, ExchangeBinding> request = Request.newRequest("calendar/v4/exchange_bindings", "POST",
-                    new AccessTokenType[]{AccessTokenType.User},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.exchangeBindings.service.config, request);
-        }
-    }
-    public static class ExchangeBindingDeleteReqCall extends ReqCaller<Object, EmptyData> {
-        private final ExchangeBindings exchangeBindings;
-        
-        private final Map<String, Object> pathParams;
-        private final List<RequestOptFn> optFns;
-        private EmptyData result;
-        
-        private ExchangeBindingDeleteReqCall(ExchangeBindings exchangeBindings, RequestOptFn... optFns) {
-        
-            this.pathParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new EmptyData();
-            this.exchangeBindings = exchangeBindings;
-        }
-        
-        public ExchangeBindingDeleteReqCall setExchangeBindingId(String exchangeBindingId){
-            this.pathParams.put("exchange_binding_id", exchangeBindingId);
-            return this;
-        }
-
-        @Override
-        public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest("calendar/v4/exchange_bindings/:exchange_binding_id", "DELETE",
-                    new AccessTokenType[]{AccessTokenType.User},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.exchangeBindings.service.config, request);
-        }
-    }
-    public static class ExchangeBindingGetReqCall extends ReqCaller<Object, ExchangeBinding> {
-        private final ExchangeBindings exchangeBindings;
-        
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private ExchangeBinding result;
-        
-        private ExchangeBindingGetReqCall(ExchangeBindings exchangeBindings, RequestOptFn... optFns) {
-        
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new ExchangeBinding();
-            this.exchangeBindings = exchangeBindings;
-        }
-        
-        public ExchangeBindingGetReqCall setExchangeBindingId(String exchangeBindingId){
-            this.pathParams.put("exchange_binding_id", exchangeBindingId);
-            return this;
-        }
-        
-        public ExchangeBindingGetReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-
-        @Override
-        public Response<ExchangeBinding> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, ExchangeBinding> request = Request.newRequest("calendar/v4/exchange_bindings/:exchange_binding_id", "GET",
-                    new AccessTokenType[]{AccessTokenType.User},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.exchangeBindings.service.config, request);
         }
     }
 
