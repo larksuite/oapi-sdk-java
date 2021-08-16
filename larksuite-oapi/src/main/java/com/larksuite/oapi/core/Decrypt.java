@@ -36,7 +36,7 @@ public class Decrypt {
             byte[] r = cipher.doFinal(data);
             if (r.length > 0) {
                 int p = r.length - 1;
-                for (; p >= 0 && r[p] < 16; p--) {
+                for (; p >= 0 && r[p] <= 16; p--) {
                 }
                 if (p != r.length - 1) {
                     byte[] rr = new byte[p + 1];
