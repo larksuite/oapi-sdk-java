@@ -105,8 +105,8 @@ public class MeetingRoomService {
 
         @Override
         public Response<BuildingBatchGetResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, BuildingBatchGetResult> request = Request.newRequest("meeting_room/building/batch_get", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, BuildingBatchGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/meeting_room/building/batch_get", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.buildings.service.config, request);
@@ -136,8 +136,8 @@ public class MeetingRoomService {
 
         @Override
         public Response<BuildingBatchGetIdResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, BuildingBatchGetIdResult> request = Request.newRequest("meeting_room/building/batch_get_id", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, BuildingBatchGetIdResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/meeting_room/building/batch_get_id", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.buildings.service.config, request);
@@ -162,7 +162,7 @@ public class MeetingRoomService {
 
         @Override
         public Response<BuildingCreateResult> execute() throws Exception {
-            Request<BuildingCreateReqBody, BuildingCreateResult> request = Request.newRequest("meeting_room/building/create", "POST",
+            com.larksuite.oapi.core.api.request.Request<BuildingCreateReqBody, BuildingCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/meeting_room/building/create", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.buildings.service.config, request);
@@ -187,7 +187,7 @@ public class MeetingRoomService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            Request<BuildingDeleteReqBody, EmptyData> request = Request.newRequest("meeting_room/building/delete", "POST",
+            com.larksuite.oapi.core.api.request.Request<BuildingDeleteReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/meeting_room/building/delete", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.buildings.service.config, request);
@@ -229,8 +229,8 @@ public class MeetingRoomService {
 
         @Override
         public Response<BuildingListResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, BuildingListResult> request = Request.newRequest("meeting_room/building/list", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, BuildingListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/meeting_room/building/list", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.buildings.service.config, request);
@@ -255,7 +255,7 @@ public class MeetingRoomService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            Request<BuildingUpdateReqBody, EmptyData> request = Request.newRequest("meeting_room/building/update", "POST",
+            com.larksuite.oapi.core.api.request.Request<BuildingUpdateReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/meeting_room/building/update", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.buildings.service.config, request);
@@ -296,7 +296,7 @@ public class MeetingRoomService {
 
         @Override
         public Response<CountryListResult> execute() throws Exception {
-            Request<Object, CountryListResult> request = Request.newRequest("meeting_room/country/list", "GET",
+            com.larksuite.oapi.core.api.request.Request<Object, CountryListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/meeting_room/country/list", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.countrys.service.config, request);
@@ -344,8 +344,8 @@ public class MeetingRoomService {
 
         @Override
         public Response<DistrictListResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, DistrictListResult> request = Request.newRequest("meeting_room/district/list", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, DistrictListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/meeting_room/district/list", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.districts.service.config, request);
@@ -401,8 +401,8 @@ public class MeetingRoomService {
 
         @Override
         public Response<FreebusyBatchGetResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, FreebusyBatchGetResult> request = Request.newRequest("meeting_room/freebusy/batch_get", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, FreebusyBatchGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/meeting_room/freebusy/batch_get", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.freebusys.service.config, request);
@@ -445,7 +445,7 @@ public class MeetingRoomService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            Request<InstanceReplyReqBody, EmptyData> request = Request.newRequest("meeting_room/instance/reply", "POST",
+            com.larksuite.oapi.core.api.request.Request<InstanceReplyReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/meeting_room/instance/reply", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.instances.service.config, request);
@@ -517,8 +517,8 @@ public class MeetingRoomService {
 
         @Override
         public Response<RoomBatchGetResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, RoomBatchGetResult> request = Request.newRequest("meeting_room/room/batch_get", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, RoomBatchGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/meeting_room/room/batch_get", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.rooms.service.config, request);
@@ -548,8 +548,8 @@ public class MeetingRoomService {
 
         @Override
         public Response<RoomBatchGetIdResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, RoomBatchGetIdResult> request = Request.newRequest("meeting_room/room/batch_get_id", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, RoomBatchGetIdResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/meeting_room/room/batch_get_id", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.rooms.service.config, request);
@@ -574,7 +574,7 @@ public class MeetingRoomService {
 
         @Override
         public Response<RoomCreateResult> execute() throws Exception {
-            Request<RoomCreateReqBody, RoomCreateResult> request = Request.newRequest("meeting_room/room/create", "POST",
+            com.larksuite.oapi.core.api.request.Request<RoomCreateReqBody, RoomCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/meeting_room/room/create", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.rooms.service.config, request);
@@ -599,7 +599,7 @@ public class MeetingRoomService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            Request<RoomDeleteReqBody, EmptyData> request = Request.newRequest("meeting_room/room/delete", "POST",
+            com.larksuite.oapi.core.api.request.Request<RoomDeleteReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/meeting_room/room/delete", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.rooms.service.config, request);
@@ -645,8 +645,8 @@ public class MeetingRoomService {
 
         @Override
         public Response<RoomListResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, RoomListResult> request = Request.newRequest("meeting_room/room/list", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, RoomListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/meeting_room/room/list", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.rooms.service.config, request);
@@ -671,7 +671,7 @@ public class MeetingRoomService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            Request<RoomUpdateReqBody, EmptyData> request = Request.newRequest("meeting_room/room/update", "POST",
+            com.larksuite.oapi.core.api.request.Request<RoomUpdateReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/meeting_room/room/update", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.rooms.service.config, request);
@@ -714,7 +714,7 @@ public class MeetingRoomService {
 
         @Override
         public Response<SummaryBatchGetResult> execute() throws Exception {
-            Request<SummaryBatchGetReqBody, SummaryBatchGetResult> request = Request.newRequest("meeting_room/summary/batch_get", "POST",
+            com.larksuite.oapi.core.api.request.Request<SummaryBatchGetReqBody, SummaryBatchGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/meeting_room/summary/batch_get", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.summarys.service.config, request);
@@ -733,46 +733,6 @@ public class MeetingRoomService {
             this.service = service;
         }
     
-    }
-    public void setRoomCreatedEventHandler(RoomCreatedEventHandler handler) {
-        Event.setTypeHandler(this.config, "meeting_room.room.created_v1", handler);
-    }
-
-    public abstract static class RoomCreatedEventHandler implements IHandler<RoomCreatedEvent> {
-        @Override
-        public RoomCreatedEvent getEvent() {
-            return new RoomCreatedEvent();
-        }
-    }
-    public void setRoomDeletedEventHandler(RoomDeletedEventHandler handler) {
-        Event.setTypeHandler(this.config, "meeting_room.room.deleted_v1", handler);
-    }
-
-    public abstract static class RoomDeletedEventHandler implements IHandler<RoomDeletedEvent> {
-        @Override
-        public RoomDeletedEvent getEvent() {
-            return new RoomDeletedEvent();
-        }
-    }
-    public void setRoomStatusChangedEventHandler(RoomStatusChangedEventHandler handler) {
-        Event.setTypeHandler(this.config, "meeting_room.room.status_changed_v1", handler);
-    }
-
-    public abstract static class RoomStatusChangedEventHandler implements IHandler<RoomStatusChangedEvent> {
-        @Override
-        public RoomStatusChangedEvent getEvent() {
-            return new RoomStatusChangedEvent();
-        }
-    }
-    public void setRoomUpdatedEventHandler(RoomUpdatedEventHandler handler) {
-        Event.setTypeHandler(this.config, "meeting_room.room.updated_v1", handler);
-    }
-
-    public abstract static class RoomUpdatedEventHandler implements IHandler<RoomUpdatedEvent> {
-        @Override
-        public RoomUpdatedEvent getEvent() {
-            return new RoomUpdatedEvent();
-        }
     }
     public void setMeetingRoomStatusChangedEventHandler(MeetingRoomStatusChangedEventHandler handler) {
         Event.setTypeHandler(this.config, "meeting_room.meeting_room.status_changed_v1", handler);
@@ -812,6 +772,46 @@ public class MeetingRoomService {
         @Override
         public MeetingRoomUpdatedEvent getEvent() {
             return new MeetingRoomUpdatedEvent();
+        }
+    }
+    public void setRoomCreatedEventHandler(RoomCreatedEventHandler handler) {
+        Event.setTypeHandler(this.config, "meeting_room.room.created_v1", handler);
+    }
+
+    public abstract static class RoomCreatedEventHandler implements IHandler<RoomCreatedEvent> {
+        @Override
+        public RoomCreatedEvent getEvent() {
+            return new RoomCreatedEvent();
+        }
+    }
+    public void setRoomDeletedEventHandler(RoomDeletedEventHandler handler) {
+        Event.setTypeHandler(this.config, "meeting_room.room.deleted_v1", handler);
+    }
+
+    public abstract static class RoomDeletedEventHandler implements IHandler<RoomDeletedEvent> {
+        @Override
+        public RoomDeletedEvent getEvent() {
+            return new RoomDeletedEvent();
+        }
+    }
+    public void setRoomStatusChangedEventHandler(RoomStatusChangedEventHandler handler) {
+        Event.setTypeHandler(this.config, "meeting_room.room.status_changed_v1", handler);
+    }
+
+    public abstract static class RoomStatusChangedEventHandler implements IHandler<RoomStatusChangedEvent> {
+        @Override
+        public RoomStatusChangedEvent getEvent() {
+            return new RoomStatusChangedEvent();
+        }
+    }
+    public void setRoomUpdatedEventHandler(RoomUpdatedEventHandler handler) {
+        Event.setTypeHandler(this.config, "meeting_room.room.updated_v1", handler);
+    }
+
+    public abstract static class RoomUpdatedEventHandler implements IHandler<RoomUpdatedEvent> {
+        @Override
+        public RoomUpdatedEvent getEvent() {
+            return new RoomUpdatedEvent();
         }
     }
 

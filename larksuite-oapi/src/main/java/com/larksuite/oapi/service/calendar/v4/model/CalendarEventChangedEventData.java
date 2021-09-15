@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName;
 public class CalendarEventChangedEventData {
     @SerializedName("calendar_id")
     private String calendarId;
+    @SerializedName("user_id_list")
+    private UserId[] userIdList;
 
     public String getCalendarId() {
         return this.calendarId;
@@ -12,6 +14,14 @@ public class CalendarEventChangedEventData {
 
     public void setCalendarId(String calendarId) {
         this.calendarId = calendarId;
+    }
+
+    public UserId[] getUserIdList() {
+        return this.userIdList;
+    }
+
+    public void setUserIdList(UserId[] userIdList) {
+        this.userIdList = userIdList;
     }
 
 }

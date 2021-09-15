@@ -7,6 +7,8 @@ public class AppTableListResult {
     private Boolean hasMore;
     @SerializedName("page_token")
     private String pageToken;
+    @SerializedName("total")
+    private Integer total;
     @SerializedName("items")
     private AppTable[] items;
 
@@ -24,6 +26,14 @@ public class AppTableListResult {
 
     public void setPageToken(String pageToken) {
         this.pageToken = pageToken;
+    }
+
+    public Integer getTotal() {
+        return this.total;
+    }
+
+    public void setTotal(Integer total) {
+        this.total = total;
     }
 
     public AppTable[] getItems() {

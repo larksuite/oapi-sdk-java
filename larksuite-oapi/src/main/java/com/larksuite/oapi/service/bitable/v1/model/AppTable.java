@@ -7,6 +7,8 @@ public class AppTable {
     private String tableId;
     @SerializedName("revision")
     private Integer revision;
+    @SerializedName("name")
+    private String name;
 
     public String getTableId() {
         return this.tableId;
@@ -22,6 +24,14 @@ public class AppTable {
 
     public void setRevision(Integer revision) {
         this.revision = revision;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
 }

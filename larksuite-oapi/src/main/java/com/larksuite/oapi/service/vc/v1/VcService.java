@@ -19,19 +19,249 @@ import java.util.ArrayList;
 public class VcService {
 
     private final Config config;
-    private final MeetingRecordings meetingRecordings;
     private final Meetings meetings;
+    private final MeetingRecordings meetingRecordings;
     private final Reports reports;
-    private final RoomConfigs roomConfigs;
     private final Reserves reserves;
+    private final RoomConfigs roomConfigs;
 
     public VcService(Config config) {
         this.config = config;
-        this.meetingRecordings = new MeetingRecordings(this);
         this.meetings = new Meetings(this);
+        this.meetingRecordings = new MeetingRecordings(this);
         this.reports = new Reports(this);
-        this.roomConfigs = new RoomConfigs(this);
         this.reserves = new Reserves(this);
+        this.roomConfigs = new RoomConfigs(this);
+    }
+
+    public Meetings getMeetings() {
+        return meetings;
+    }
+
+    public static class Meetings {
+
+        private final VcService service;
+
+        public Meetings(VcService service) {
+            this.service = service;
+        }
+    
+        public MeetingInviteReqCall invite(MeetingInviteReqBody body, RequestOptFn... optFns) {
+            return new MeetingInviteReqCall(this, body, optFns);
+        }
+    
+        public MeetingSetHostReqCall setHost(MeetingSetHostReqBody body, RequestOptFn... optFns) {
+            return new MeetingSetHostReqCall(this, body, optFns);
+        }
+    
+        public MeetingEndReqCall end(RequestOptFn... optFns) {
+            return new MeetingEndReqCall(this, optFns);
+        }
+    
+        public MeetingGetReqCall get(RequestOptFn... optFns) {
+            return new MeetingGetReqCall(this, optFns);
+        }
+    
+        public MeetingKickoutReqCall kickout(MeetingKickoutReqBody body, RequestOptFn... optFns) {
+            return new MeetingKickoutReqCall(this, body, optFns);
+        }
+    
+    }
+    public static class MeetingInviteReqCall extends ReqCaller<MeetingInviteReqBody, MeetingInviteResult> {
+        private final Meetings meetings;
+        
+        private final MeetingInviteReqBody body;
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private MeetingInviteResult result;
+        
+        private MeetingInviteReqCall(Meetings meetings, MeetingInviteReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new MeetingInviteResult();
+            this.meetings = meetings;
+        }
+        
+        public MeetingInviteReqCall setMeetingId(Long meetingId){
+            this.pathParams.put("meeting_id", meetingId);
+            return this;
+        }
+        
+        public MeetingInviteReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+
+        @Override
+        public Response<MeetingInviteResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<MeetingInviteReqBody, MeetingInviteResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/vc/v1/meetings/:meeting_id/invite", "PATCH",
+                    new AccessTokenType[]{AccessTokenType.User},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.meetings.service.config, request);
+        }
+    }
+    public static class MeetingSetHostReqCall extends ReqCaller<MeetingSetHostReqBody, MeetingSetHostResult> {
+        private final Meetings meetings;
+        
+        private final MeetingSetHostReqBody body;
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private MeetingSetHostResult result;
+        
+        private MeetingSetHostReqCall(Meetings meetings, MeetingSetHostReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new MeetingSetHostResult();
+            this.meetings = meetings;
+        }
+        
+        public MeetingSetHostReqCall setMeetingId(Long meetingId){
+            this.pathParams.put("meeting_id", meetingId);
+            return this;
+        }
+        
+        public MeetingSetHostReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+
+        @Override
+        public Response<MeetingSetHostResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<MeetingSetHostReqBody, MeetingSetHostResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/vc/v1/meetings/:meeting_id/set_host", "PATCH",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.meetings.service.config, request);
+        }
+    }
+    public static class MeetingEndReqCall extends ReqCaller<Object, EmptyData> {
+        private final Meetings meetings;
+        
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private MeetingEndReqCall(Meetings meetings, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.meetings = meetings;
+        }
+        
+        public MeetingEndReqCall setMeetingId(Long meetingId){
+            this.pathParams.put("meeting_id", meetingId);
+            return this;
+        }
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/vc/v1/meetings/:meeting_id/end", "PATCH",
+                    new AccessTokenType[]{AccessTokenType.User},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.meetings.service.config, request);
+        }
+    }
+    public static class MeetingGetReqCall extends ReqCaller<Object, MeetingGetResult> {
+        private final Meetings meetings;
+        
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private MeetingGetResult result;
+        
+        private MeetingGetReqCall(Meetings meetings, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new MeetingGetResult();
+            this.meetings = meetings;
+        }
+        
+        public MeetingGetReqCall setMeetingId(Long meetingId){
+            this.pathParams.put("meeting_id", meetingId);
+            return this;
+        }
+        
+        public MeetingGetReqCall setWithParticipants(Boolean withParticipants){
+            this.queryParams.put("with_participants", withParticipants);
+            return this;
+        }
+        public MeetingGetReqCall setWithMeetingAbility(Boolean withMeetingAbility){
+            this.queryParams.put("with_meeting_ability", withMeetingAbility);
+            return this;
+        }
+        public MeetingGetReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+
+        @Override
+        public Response<MeetingGetResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, MeetingGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/vc/v1/meetings/:meeting_id", "GET",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.meetings.service.config, request);
+        }
+    }
+    public static class MeetingKickoutReqCall extends ReqCaller<MeetingKickoutReqBody, MeetingKickoutResult> {
+        private final Meetings meetings;
+        
+        private final MeetingKickoutReqBody body;
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private MeetingKickoutResult result;
+        
+        private MeetingKickoutReqCall(Meetings meetings, MeetingKickoutReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new MeetingKickoutResult();
+            this.meetings = meetings;
+        }
+        
+        public MeetingKickoutReqCall setMeetingId(Long meetingId){
+            this.pathParams.put("meeting_id", meetingId);
+            return this;
+        }
+        
+        public MeetingKickoutReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+
+        @Override
+        public Response<MeetingKickoutResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<MeetingKickoutReqBody, MeetingKickoutResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/vc/v1/meetings/:meeting_id/kickout", "POST",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.meetings.service.config, request);
+        }
     }
 
     public MeetingRecordings getMeetingRecordings() {
@@ -86,8 +316,8 @@ public class VcService {
 
         @Override
         public Response<MeetingRecordingGetResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, MeetingRecordingGetResult> request = Request.newRequest("vc/v1/meetings/:meeting_id/recording", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, MeetingRecordingGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/vc/v1/meetings/:meeting_id/recording", "GET",
                     new AccessTokenType[]{AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.meetingRecordings.service.config, request);
@@ -116,8 +346,8 @@ public class VcService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest("vc/v1/meetings/:meeting_id/recording/stop", "PATCH",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/vc/v1/meetings/:meeting_id/recording/stop", "PATCH",
                     new AccessTokenType[]{AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.meetingRecordings.service.config, request);
@@ -155,9 +385,9 @@ public class VcService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<MeetingRecordingSetPermissionReqBody, EmptyData> request = Request.newRequest("vc/v1/meetings/:meeting_id/recording/set_permission", "PATCH",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<MeetingRecordingSetPermissionReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/vc/v1/meetings/:meeting_id/recording/set_permission", "PATCH",
                     new AccessTokenType[]{AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.meetingRecordings.service.config, request);
@@ -188,252 +418,11 @@ public class VcService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<MeetingRecordingStartReqBody, EmptyData> request = Request.newRequest("vc/v1/meetings/:meeting_id/recording/start", "PATCH",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<MeetingRecordingStartReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/vc/v1/meetings/:meeting_id/recording/start", "PATCH",
                     new AccessTokenType[]{AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.meetingRecordings.service.config, request);
-        }
-    }
-
-    public Meetings getMeetings() {
-        return meetings;
-    }
-
-    public static class Meetings {
-
-        private final VcService service;
-
-        public Meetings(VcService service) {
-            this.service = service;
-        }
-    
-        public MeetingInviteReqCall invite(MeetingInviteReqBody body, RequestOptFn... optFns) {
-            return new MeetingInviteReqCall(this, body, optFns);
-        }
-    
-        public MeetingListReqCall list(RequestOptFn... optFns) {
-            return new MeetingListReqCall(this, optFns);
-        }
-    
-        public MeetingSetHostReqCall setHost(MeetingSetHostReqBody body, RequestOptFn... optFns) {
-            return new MeetingSetHostReqCall(this, body, optFns);
-        }
-    
-        public MeetingEndReqCall end(RequestOptFn... optFns) {
-            return new MeetingEndReqCall(this, optFns);
-        }
-    
-        public MeetingGetReqCall get(RequestOptFn... optFns) {
-            return new MeetingGetReqCall(this, optFns);
-        }
-    
-    }
-    public static class MeetingInviteReqCall extends ReqCaller<MeetingInviteReqBody, MeetingInviteResult> {
-        private final Meetings meetings;
-        
-        private final MeetingInviteReqBody body;
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private MeetingInviteResult result;
-        
-        private MeetingInviteReqCall(Meetings meetings, MeetingInviteReqBody body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new MeetingInviteResult();
-            this.meetings = meetings;
-        }
-        
-        public MeetingInviteReqCall setMeetingId(Long meetingId){
-            this.pathParams.put("meeting_id", meetingId);
-            return this;
-        }
-        
-        public MeetingInviteReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-
-        @Override
-        public Response<MeetingInviteResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<MeetingInviteReqBody, MeetingInviteResult> request = Request.newRequest("vc/v1/meetings/:meeting_id/invite", "PATCH",
-                    new AccessTokenType[]{AccessTokenType.User},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.meetings.service.config, request);
-        }
-    }
-    public static class MeetingListReqCall extends ReqCaller<Object, MeetingListResult> {
-        private final Meetings meetings;
-        
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private MeetingListResult result;
-        
-        private MeetingListReqCall(Meetings meetings, RequestOptFn... optFns) {
-        
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new MeetingListResult();
-            this.meetings = meetings;
-        }
-        
-        
-        public MeetingListReqCall setRoomId(Long roomId){
-            this.queryParams.put("room_id", roomId);
-            return this;
-        }
-        public MeetingListReqCall setStartTime(Long startTime){
-            this.queryParams.put("start_time", startTime);
-            return this;
-        }
-        public MeetingListReqCall setEndTime(Long endTime){
-            this.queryParams.put("end_time", endTime);
-            return this;
-        }
-        public MeetingListReqCall setStatus(Integer status){
-            this.queryParams.put("status", status);
-            return this;
-        }
-        public MeetingListReqCall setPageToken(String pageToken){
-            this.queryParams.put("page_token", pageToken);
-            return this;
-        }
-        public MeetingListReqCall setPageSize(Integer pageSize){
-            this.queryParams.put("page_size", pageSize);
-            return this;
-        }
-
-        @Override
-        public Response<MeetingListResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, MeetingListResult> request = Request.newRequest("vc/v1/meetings", "GET",
-                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.meetings.service.config, request);
-        }
-    }
-    public static class MeetingSetHostReqCall extends ReqCaller<MeetingSetHostReqBody, MeetingSetHostResult> {
-        private final Meetings meetings;
-        
-        private final MeetingSetHostReqBody body;
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private MeetingSetHostResult result;
-        
-        private MeetingSetHostReqCall(Meetings meetings, MeetingSetHostReqBody body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new MeetingSetHostResult();
-            this.meetings = meetings;
-        }
-        
-        public MeetingSetHostReqCall setMeetingId(Long meetingId){
-            this.pathParams.put("meeting_id", meetingId);
-            return this;
-        }
-        
-        public MeetingSetHostReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-
-        @Override
-        public Response<MeetingSetHostResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<MeetingSetHostReqBody, MeetingSetHostResult> request = Request.newRequest("vc/v1/meetings/:meeting_id/set_host", "PATCH",
-                    new AccessTokenType[]{AccessTokenType.User},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.meetings.service.config, request);
-        }
-    }
-    public static class MeetingEndReqCall extends ReqCaller<Object, EmptyData> {
-        private final Meetings meetings;
-        
-        private final Map<String, Object> pathParams;
-        private final List<RequestOptFn> optFns;
-        private EmptyData result;
-        
-        private MeetingEndReqCall(Meetings meetings, RequestOptFn... optFns) {
-        
-            this.pathParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new EmptyData();
-            this.meetings = meetings;
-        }
-        
-        public MeetingEndReqCall setMeetingId(Long meetingId){
-            this.pathParams.put("meeting_id", meetingId);
-            return this;
-        }
-
-        @Override
-        public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest("vc/v1/meetings/:meeting_id/end", "PATCH",
-                    new AccessTokenType[]{AccessTokenType.User},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.meetings.service.config, request);
-        }
-    }
-    public static class MeetingGetReqCall extends ReqCaller<Object, MeetingGetResult> {
-        private final Meetings meetings;
-        
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private MeetingGetResult result;
-        
-        private MeetingGetReqCall(Meetings meetings, RequestOptFn... optFns) {
-        
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new MeetingGetResult();
-            this.meetings = meetings;
-        }
-        
-        public MeetingGetReqCall setMeetingId(Long meetingId){
-            this.pathParams.put("meeting_id", meetingId);
-            return this;
-        }
-        
-        public MeetingGetReqCall setWithParticipants(Boolean withParticipants){
-            this.queryParams.put("with_participants", withParticipants);
-            return this;
-        }
-        public MeetingGetReqCall setWithMeetingAbility(Boolean withMeetingAbility){
-            this.queryParams.put("with_meeting_ability", withMeetingAbility);
-            return this;
-        }
-        public MeetingGetReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-
-        @Override
-        public Response<MeetingGetResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, MeetingGetResult> request = Request.newRequest("vc/v1/meetings/:meeting_id", "GET",
-                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.meetings.service.config, request);
         }
     }
 
@@ -491,11 +480,15 @@ public class VcService {
             this.queryParams.put("order_by", orderBy);
             return this;
         }
+        public ReportGetTopUserReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
 
         @Override
         public Response<ReportGetTopUserResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, ReportGetTopUserResult> request = Request.newRequest("vc/v1/reports/get_top_user", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, ReportGetTopUserResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/vc/v1/reports/get_top_user", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.reports.service.config, request);
@@ -529,109 +522,11 @@ public class VcService {
 
         @Override
         public Response<ReportGetDailyResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, ReportGetDailyResult> request = Request.newRequest("vc/v1/reports/get_daily", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, ReportGetDailyResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/vc/v1/reports/get_daily", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.reports.service.config, request);
-        }
-    }
-
-    public RoomConfigs getRoomConfigs() {
-        return roomConfigs;
-    }
-
-    public static class RoomConfigs {
-
-        private final VcService service;
-
-        public RoomConfigs(VcService service) {
-            this.service = service;
-        }
-    
-        public RoomConfigQueryReqCall query(RequestOptFn... optFns) {
-            return new RoomConfigQueryReqCall(this, optFns);
-        }
-    
-        public RoomConfigSetReqCall set(RoomConfigSetReqBody body, RequestOptFn... optFns) {
-            return new RoomConfigSetReqCall(this, body, optFns);
-        }
-    
-    }
-    public static class RoomConfigQueryReqCall extends ReqCaller<Object, RoomConfig> {
-        private final RoomConfigs roomConfigs;
-        
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private RoomConfig result;
-        
-        private RoomConfigQueryReqCall(RoomConfigs roomConfigs, RequestOptFn... optFns) {
-        
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new RoomConfig();
-            this.roomConfigs = roomConfigs;
-        }
-        
-        
-        public RoomConfigQueryReqCall setScope(Integer scope){
-            this.queryParams.put("scope", scope);
-            return this;
-        }
-        public RoomConfigQueryReqCall setCountryId(Long countryId){
-            this.queryParams.put("country_id", countryId);
-            return this;
-        }
-        public RoomConfigQueryReqCall setDistrictId(Long districtId){
-            this.queryParams.put("district_id", districtId);
-            return this;
-        }
-        public RoomConfigQueryReqCall setBuildingId(Long buildingId){
-            this.queryParams.put("building_id", buildingId);
-            return this;
-        }
-        public RoomConfigQueryReqCall setFloorName(String floorName){
-            this.queryParams.put("floor_name", floorName);
-            return this;
-        }
-        public RoomConfigQueryReqCall setRoomId(Long roomId){
-            this.queryParams.put("room_id", roomId);
-            return this;
-        }
-
-        @Override
-        public Response<RoomConfig> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, RoomConfig> request = Request.newRequest("vc/v1/room_configs/query", "GET",
-                    new AccessTokenType[]{AccessTokenType.Tenant},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.roomConfigs.service.config, request);
-        }
-    }
-    public static class RoomConfigSetReqCall extends ReqCaller<RoomConfigSetReqBody, EmptyData> {
-        private final RoomConfigs roomConfigs;
-        
-        private final RoomConfigSetReqBody body;
-        private final List<RequestOptFn> optFns;
-        private EmptyData result;
-        
-        private RoomConfigSetReqCall(RoomConfigs roomConfigs, RoomConfigSetReqBody body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new EmptyData();
-            this.roomConfigs = roomConfigs;
-        }
-        
-
-        @Override
-        public Response<EmptyData> execute() throws Exception {
-            Request<RoomConfigSetReqBody, EmptyData> request = Request.newRequest("vc/v1/room_configs/set", "POST",
-                    new AccessTokenType[]{AccessTokenType.Tenant},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.roomConfigs.service.config, request);
         }
     }
 
@@ -700,9 +595,9 @@ public class VcService {
 
         @Override
         public Response<ReserveUpdateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<ReserveUpdateReqBody, ReserveUpdateResult> request = Request.newRequest("vc/v1/reserves/:reserve_id", "PUT",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<ReserveUpdateReqBody, ReserveUpdateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/vc/v1/reserves/:reserve_id", "PUT",
                     new AccessTokenType[]{AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.reserves.service.config, request);
@@ -734,8 +629,8 @@ public class VcService {
 
         @Override
         public Response<ReserveApplyResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<ReserveApplyReqBody, ReserveApplyResult> request = Request.newRequest("vc/v1/reserves/apply", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<ReserveApplyReqBody, ReserveApplyResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/vc/v1/reserves/apply", "POST",
                     new AccessTokenType[]{AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.reserves.service.config, request);
@@ -745,12 +640,14 @@ public class VcService {
         private final Reserves reserves;
         
         private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
         private final List<RequestOptFn> optFns;
         private ReserveGetResult result;
         
         private ReserveGetReqCall(Reserves reserves, RequestOptFn... optFns) {
         
             this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
             this.result = new ReserveGetResult();
@@ -761,11 +658,17 @@ public class VcService {
             this.pathParams.put("reserve_id", reserveId);
             return this;
         }
+        
+        public ReserveGetReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
 
         @Override
         public Response<ReserveGetResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, ReserveGetResult> request = Request.newRequest("vc/v1/reserves/:reserve_id", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, ReserveGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/vc/v1/reserves/:reserve_id", "GET",
                     new AccessTokenType[]{AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.reserves.service.config, request);
@@ -798,12 +701,16 @@ public class VcService {
             this.queryParams.put("with_participants", withParticipants);
             return this;
         }
+        public ReserveGetActiveMeetingReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
 
         @Override
         public Response<ReserveGetActiveMeetingResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, ReserveGetActiveMeetingResult> request = Request.newRequest("vc/v1/reserves/:reserve_id/get_active_meeting", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, ReserveGetActiveMeetingResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/vc/v1/reserves/:reserve_id/get_active_meeting", "GET",
                     new AccessTokenType[]{AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.reserves.service.config, request);
@@ -832,11 +739,109 @@ public class VcService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest("vc/v1/reserves/:reserve_id", "DELETE",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/vc/v1/reserves/:reserve_id", "DELETE",
                     new AccessTokenType[]{AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.reserves.service.config, request);
+        }
+    }
+
+    public RoomConfigs getRoomConfigs() {
+        return roomConfigs;
+    }
+
+    public static class RoomConfigs {
+
+        private final VcService service;
+
+        public RoomConfigs(VcService service) {
+            this.service = service;
+        }
+    
+        public RoomConfigQueryReqCall query(RequestOptFn... optFns) {
+            return new RoomConfigQueryReqCall(this, optFns);
+        }
+    
+        public RoomConfigSetReqCall set(RoomConfigSetReqBody body, RequestOptFn... optFns) {
+            return new RoomConfigSetReqCall(this, body, optFns);
+        }
+    
+    }
+    public static class RoomConfigQueryReqCall extends ReqCaller<Object, RoomConfig> {
+        private final RoomConfigs roomConfigs;
+        
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private RoomConfig result;
+        
+        private RoomConfigQueryReqCall(RoomConfigs roomConfigs, RequestOptFn... optFns) {
+        
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new RoomConfig();
+            this.roomConfigs = roomConfigs;
+        }
+        
+        
+        public RoomConfigQueryReqCall setScope(Integer scope){
+            this.queryParams.put("scope", scope);
+            return this;
+        }
+        public RoomConfigQueryReqCall setCountryId(Long countryId){
+            this.queryParams.put("country_id", countryId);
+            return this;
+        }
+        public RoomConfigQueryReqCall setDistrictId(Long districtId){
+            this.queryParams.put("district_id", districtId);
+            return this;
+        }
+        public RoomConfigQueryReqCall setBuildingId(Long buildingId){
+            this.queryParams.put("building_id", buildingId);
+            return this;
+        }
+        public RoomConfigQueryReqCall setFloorName(String floorName){
+            this.queryParams.put("floor_name", floorName);
+            return this;
+        }
+        public RoomConfigQueryReqCall setRoomId(Long roomId){
+            this.queryParams.put("room_id", roomId);
+            return this;
+        }
+
+        @Override
+        public Response<RoomConfig> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, RoomConfig> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/vc/v1/room_configs/query", "GET",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.roomConfigs.service.config, request);
+        }
+    }
+    public static class RoomConfigSetReqCall extends ReqCaller<RoomConfigSetReqBody, EmptyData> {
+        private final RoomConfigs roomConfigs;
+        
+        private final RoomConfigSetReqBody body;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private RoomConfigSetReqCall(RoomConfigs roomConfigs, RoomConfigSetReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.roomConfigs = roomConfigs;
+        }
+        
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            com.larksuite.oapi.core.api.request.Request<RoomConfigSetReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/vc/v1/room_configs/set", "POST",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.roomConfigs.service.config, request);
         }
     }
     public void setMeetingLeaveMeetingEventHandler(MeetingLeaveMeetingEventHandler handler) {
@@ -907,16 +912,6 @@ public class VcService {
         @Override
         public MeetingRecordingStartedEvent getEvent() {
             return new MeetingRecordingStartedEvent();
-        }
-    }
-    public void setMeetingSendMeetingImEventHandler(MeetingSendMeetingImEventHandler handler) {
-        Event.setTypeHandler(this.config, "vc.meeting.send_meeting_im_v1", handler);
-    }
-
-    public abstract static class MeetingSendMeetingImEventHandler implements IHandler<MeetingSendMeetingImEvent> {
-        @Override
-        public MeetingSendMeetingImEvent getEvent() {
-            return new MeetingSendMeetingImEvent();
         }
     }
     public void setMeetingShareStartedEventHandler(MeetingShareStartedEventHandler handler) {

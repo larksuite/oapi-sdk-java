@@ -3,7 +3,6 @@ package com.larksuite.oapi.core.api.request;
 import com.google.gson.Gson;
 import com.larksuite.oapi.core.Context;
 import com.larksuite.oapi.core.api.AccessTokenType;
-import com.larksuite.oapi.core.api.Constants;
 import com.larksuite.oapi.core.utils.Jsons;
 import com.larksuite.oapi.core.utils.Strings;
 
@@ -274,7 +273,14 @@ public class BaseRequest<I, O> {
     }
 
     public String url() {
-        String path = this.getDomain() + "/" + Constants.OAPI_ROOT_PATH + "/" + this.getHttpPath();
+        String path = this.httpPath;
+        if (!path.startsWith("http")) {
+            if (path.startsWith("/open-apis")) {
+                path = this.getDomain() + this.getHttpPath();
+            } else {
+                path = this.getDomain() + "/open-apis/" + this.getHttpPath();
+            }
+        }
         if (!Strings.isEmpty(this.getQueryParams())) {
             path += "?" + this.getQueryParams();
         }

@@ -73,9 +73,9 @@ public class ImageService {
 
         @Override
         public Response<OutputStream> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            this.optFns.add(Request.setResponseStream());
-            Request<Object, OutputStream> request = Request.newRequest("image/v4/get", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setResponseStream());
+            com.larksuite.oapi.core.api.request.Request<Object, OutputStream> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/image/v4/get", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.images.service.config, request);
@@ -110,7 +110,7 @@ public class ImageService {
 
         @Override
         public Response<Image> execute() throws Exception {
-            Request<FormData, Image> request = Request.newRequest("image/v4/put", "POST",
+            com.larksuite.oapi.core.api.request.Request<FormData, Image> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/image/v4/put", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.images.service.config, request);

@@ -103,9 +103,9 @@ public class MailService {
 
         @Override
         public Response<MailgroupMemberListResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, MailgroupMemberListResult> request = Request.newRequest("mail/v1/mailgroups/:mailgroup_id/members", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, MailgroupMemberListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/mailgroups/:mailgroup_id/members", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.mailgroupMembers.service.config, request);
@@ -149,9 +149,9 @@ public class MailService {
 
         @Override
         public Response<MailgroupMember> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, MailgroupMember> request = Request.newRequest("mail/v1/mailgroups/:mailgroup_id/members/:member_id", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, MailgroupMember> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/mailgroups/:mailgroup_id/members/:member_id", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.mailgroupMembers.service.config, request);
@@ -193,9 +193,9 @@ public class MailService {
 
         @Override
         public Response<MailgroupMember> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<MailgroupMember, MailgroupMember> request = Request.newRequest("mail/v1/mailgroups/:mailgroup_id/members", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<MailgroupMember, MailgroupMember> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/mailgroups/:mailgroup_id/members", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.mailgroupMembers.service.config, request);
@@ -228,8 +228,8 @@ public class MailService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest("mail/v1/mailgroups/:mailgroup_id/members/:member_id", "DELETE",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/mailgroups/:mailgroup_id/members/:member_id", "DELETE",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.mailgroupMembers.service.config, request);
@@ -292,8 +292,8 @@ public class MailService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest("mail/v1/mailgroups/:mailgroup_id/permission_members/:permission_member_id", "DELETE",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members/:permission_member_id", "DELETE",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.mailgroupPermissionMembers.service.config, request);
@@ -337,9 +337,9 @@ public class MailService {
 
         @Override
         public Response<MailgroupPermissionMember> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, MailgroupPermissionMember> request = Request.newRequest("mail/v1/mailgroups/:mailgroup_id/permission_members/:permission_member_id", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, MailgroupPermissionMember> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members/:permission_member_id", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.mailgroupPermissionMembers.service.config, request);
@@ -387,9 +387,9 @@ public class MailService {
 
         @Override
         public Response<MailgroupPermissionMemberListResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, MailgroupPermissionMemberListResult> request = Request.newRequest("mail/v1/mailgroups/:mailgroup_id/permission_members", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, MailgroupPermissionMemberListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.mailgroupPermissionMembers.service.config, request);
@@ -431,9 +431,9 @@ public class MailService {
 
         @Override
         public Response<MailgroupPermissionMember> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<MailgroupPermissionMember, MailgroupPermissionMember> request = Request.newRequest("mail/v1/mailgroups/:mailgroup_id/permission_members", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<MailgroupPermissionMember, MailgroupPermissionMember> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.mailgroupPermissionMembers.service.config, request);
@@ -498,8 +498,8 @@ public class MailService {
 
         @Override
         public Response<PublicMailbox> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<PublicMailbox, PublicMailbox> request = Request.newRequest("mail/v1/public_mailboxes/:public_mailbox_id", "PUT",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<PublicMailbox, PublicMailbox> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/public_mailboxes/:public_mailbox_id", "PUT",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.publicMailboxs.service.config, request);
@@ -533,8 +533,8 @@ public class MailService {
 
         @Override
         public Response<PublicMailboxListResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, PublicMailboxListResult> request = Request.newRequest("mail/v1/public_mailboxes", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, PublicMailboxListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/public_mailboxes", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.publicMailboxs.service.config, request);
@@ -559,7 +559,7 @@ public class MailService {
 
         @Override
         public Response<PublicMailbox> execute() throws Exception {
-            Request<PublicMailbox, PublicMailbox> request = Request.newRequest("mail/v1/public_mailboxes", "POST",
+            com.larksuite.oapi.core.api.request.Request<PublicMailbox, PublicMailbox> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/public_mailboxes", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.publicMailboxs.service.config, request);
@@ -588,8 +588,8 @@ public class MailService {
 
         @Override
         public Response<PublicMailbox> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, PublicMailbox> request = Request.newRequest("mail/v1/public_mailboxes/:public_mailbox_id", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, PublicMailbox> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/public_mailboxes/:public_mailbox_id", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.publicMailboxs.service.config, request);
@@ -620,8 +620,8 @@ public class MailService {
 
         @Override
         public Response<PublicMailbox> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<PublicMailbox, PublicMailbox> request = Request.newRequest("mail/v1/public_mailboxes/:public_mailbox_id", "PATCH",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<PublicMailbox, PublicMailbox> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/public_mailboxes/:public_mailbox_id", "PATCH",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.publicMailboxs.service.config, request);
@@ -695,9 +695,9 @@ public class MailService {
 
         @Override
         public Response<PublicMailboxMember> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, PublicMailboxMember> request = Request.newRequest("mail/v1/public_mailboxes/:public_mailbox_id/members/:member_id", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, PublicMailboxMember> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members/:member_id", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.publicMailboxMembers.service.config, request);
@@ -730,8 +730,8 @@ public class MailService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest("mail/v1/public_mailboxes/:public_mailbox_id/members/:member_id", "DELETE",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members/:member_id", "DELETE",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.publicMailboxMembers.service.config, request);
@@ -760,8 +760,8 @@ public class MailService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest("mail/v1/public_mailboxes/:public_mailbox_id/members/clear", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members/clear", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.publicMailboxMembers.service.config, request);
@@ -805,9 +805,9 @@ public class MailService {
 
         @Override
         public Response<PublicMailboxMemberListResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, PublicMailboxMemberListResult> request = Request.newRequest("mail/v1/public_mailboxes/:public_mailbox_id/members", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, PublicMailboxMemberListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.publicMailboxMembers.service.config, request);
@@ -845,9 +845,9 @@ public class MailService {
 
         @Override
         public Response<PublicMailboxMember> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<PublicMailboxMember, PublicMailboxMember> request = Request.newRequest("mail/v1/public_mailboxes/:public_mailbox_id/members", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<PublicMailboxMember, PublicMailboxMember> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.publicMailboxMembers.service.config, request);
@@ -914,8 +914,8 @@ public class MailService {
 
         @Override
         public Response<Mailgroup> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, Mailgroup> request = Request.newRequest("mail/v1/mailgroups/:mailgroup_id", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, Mailgroup> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/mailgroups/:mailgroup_id", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.mailgroups.service.config, request);
@@ -946,8 +946,8 @@ public class MailService {
 
         @Override
         public Response<Mailgroup> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Mailgroup, Mailgroup> request = Request.newRequest("mail/v1/mailgroups/:mailgroup_id", "PUT",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Mailgroup, Mailgroup> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/mailgroups/:mailgroup_id", "PUT",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.mailgroups.service.config, request);
@@ -976,8 +976,8 @@ public class MailService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest("mail/v1/mailgroups/:mailgroup_id", "DELETE",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/mailgroups/:mailgroup_id", "DELETE",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.mailgroups.service.config, request);
@@ -1002,7 +1002,7 @@ public class MailService {
 
         @Override
         public Response<Mailgroup> execute() throws Exception {
-            Request<Mailgroup, Mailgroup> request = Request.newRequest("mail/v1/mailgroups", "POST",
+            com.larksuite.oapi.core.api.request.Request<Mailgroup, Mailgroup> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/mailgroups", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.mailgroups.service.config, request);
@@ -1036,8 +1036,8 @@ public class MailService {
 
         @Override
         public Response<MailgroupListResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, MailgroupListResult> request = Request.newRequest("mail/v1/mailgroups", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, MailgroupListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/mailgroups", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.mailgroups.service.config, request);
@@ -1068,8 +1068,8 @@ public class MailService {
 
         @Override
         public Response<Mailgroup> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Mailgroup, Mailgroup> request = Request.newRequest("mail/v1/mailgroups/:mailgroup_id", "PATCH",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Mailgroup, Mailgroup> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/mail/v1/mailgroups/:mailgroup_id", "PATCH",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.mailgroups.service.config, request);

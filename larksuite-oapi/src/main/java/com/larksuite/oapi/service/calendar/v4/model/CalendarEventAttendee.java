@@ -27,6 +27,10 @@ public class CalendarEventAttendee {
     private String roomId;
     @SerializedName("third_party_email")
     private String thirdPartyEmail;
+    @SerializedName("operate_id")
+    private String operateId;
+    @SerializedName("resource_customization")
+    private CalendarAttendeeResourceCustomization[] resourceCustomization;
 
     public String getType() {
         return this.type;
@@ -122,6 +126,22 @@ public class CalendarEventAttendee {
 
     public void setThirdPartyEmail(String thirdPartyEmail) {
         this.thirdPartyEmail = thirdPartyEmail;
+    }
+
+    public String getOperateId() {
+        return this.operateId;
+    }
+
+    public void setOperateId(String operateId) {
+        this.operateId = operateId;
+    }
+
+    public CalendarAttendeeResourceCustomization[] getResourceCustomization() {
+        return this.resourceCustomization;
+    }
+
+    public void setResourceCustomization(CalendarAttendeeResourceCustomization[] resourceCustomization) {
+        this.resourceCustomization = resourceCustomization;
     }
 
 }

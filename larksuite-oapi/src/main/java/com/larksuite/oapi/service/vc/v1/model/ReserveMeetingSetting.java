@@ -7,6 +7,10 @@ public class ReserveMeetingSetting {
     private String topic;
     @SerializedName("action_permissions")
     private ReserveActionPermission[] actionPermissions;
+    @SerializedName("meeting_initial_type")
+    private Integer meetingInitialType;
+    @SerializedName("call_setting")
+    private ReserveCallSetting callSetting;
 
     public String getTopic() {
         return this.topic;
@@ -22,6 +26,22 @@ public class ReserveMeetingSetting {
 
     public void setActionPermissions(ReserveActionPermission[] actionPermissions) {
         this.actionPermissions = actionPermissions;
+    }
+
+    public Integer getMeetingInitialType() {
+        return this.meetingInitialType;
+    }
+
+    public void setMeetingInitialType(Integer meetingInitialType) {
+        this.meetingInitialType = meetingInitialType;
+    }
+
+    public ReserveCallSetting getCallSetting() {
+        return this.callSetting;
+    }
+
+    public void setCallSetting(ReserveCallSetting callSetting) {
+        this.callSetting = callSetting;
     }
 
 }

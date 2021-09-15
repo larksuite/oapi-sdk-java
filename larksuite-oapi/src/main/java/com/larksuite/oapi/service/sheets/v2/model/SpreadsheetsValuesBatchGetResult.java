@@ -9,8 +9,8 @@ public class SpreadsheetsValuesBatchGetResult {
     private String spreadsheetToken;
     @SerializedName("totalCells")
     private Integer totalCells;
-    @SerializedName("valueRange")
-    private ValueRange[] valueRange;
+    @SerializedName("valueRanges")
+    private ValueRange[] valueRanges;
 
     public Integer getRevision() {
         return this.revision;
@@ -36,12 +36,12 @@ public class SpreadsheetsValuesBatchGetResult {
         this.totalCells = totalCells;
     }
 
-    public ValueRange[] getValueRange() {
-        return this.valueRange;
+    public ValueRange[] getValueRanges() {
+        return this.valueRanges;
     }
 
-    public void setValueRange(ValueRange[] valueRange) {
-        this.valueRange = valueRange;
+    public void setValueRanges(ValueRange[] valueRanges) {
+        this.valueRanges = valueRanges;
     }
 
 }

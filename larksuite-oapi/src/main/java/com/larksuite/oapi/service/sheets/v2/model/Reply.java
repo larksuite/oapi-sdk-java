@@ -6,9 +6,9 @@ public class Reply {
     @SerializedName("updateSheet")
     private Properties updateSheet;
     @SerializedName("addSheet")
-    private Properties addSheet;
+    private AddSheet addSheet;
     @SerializedName("copySheet")
-    private Properties copySheet;
+    private CopySheetReply copySheet;
     @SerializedName("deleteSheet")
     private DeleteSheetReply deleteSheet;
 
@@ -20,19 +20,19 @@ public class Reply {
         this.updateSheet = updateSheet;
     }
 
-    public Properties getAddSheet() {
+    public AddSheet getAddSheet() {
         return this.addSheet;
     }
 
-    public void setAddSheet(Properties addSheet) {
+    public void setAddSheet(AddSheet addSheet) {
         this.addSheet = addSheet;
     }
 
-    public Properties getCopySheet() {
+    public CopySheetReply getCopySheet() {
         return this.copySheet;
     }
 
-    public void setCopySheet(Properties copySheet) {
+    public void setCopySheet(CopySheetReply copySheet) {
         this.copySheet = copySheet;
     }
 

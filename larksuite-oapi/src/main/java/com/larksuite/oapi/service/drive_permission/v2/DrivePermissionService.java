@@ -62,7 +62,7 @@ public class DrivePermissionService {
 
         @Override
         public Response<PublicGetResult> execute() throws Exception {
-            Request<PublicGetReqBody, PublicGetResult> request = Request.newRequest("drive/permission/v2/public", "POST",
+            com.larksuite.oapi.core.api.request.Request<PublicGetReqBody, PublicGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/permission/v2/public", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.publics.service.config, request);
@@ -87,7 +87,7 @@ public class DrivePermissionService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            Request<PublicUpdateReqBody, EmptyData> request = Request.newRequest("drive/permission/v2/public/update", "POST",
+            com.larksuite.oapi.core.api.request.Request<PublicUpdateReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/permission/v2/public/update", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.publics.service.config, request);

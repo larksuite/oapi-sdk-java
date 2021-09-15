@@ -73,7 +73,7 @@ public class FaceVerifyService {
 
         @Override
         public Response<FaceVerifyCropFaceImageResult> execute() throws Exception {
-            Request<FormData, FaceVerifyCropFaceImageResult> request = Request.newRequest("face_verify/v1/crop_face_image", "POST",
+            com.larksuite.oapi.core.api.request.Request<FormData, FaceVerifyCropFaceImageResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/face_verify/v1/crop_face_image", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.faceVerifys.service.config, request);
@@ -111,8 +111,8 @@ public class FaceVerifyService {
 
         @Override
         public Response<FaceVerifyQueryAuthResultResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, FaceVerifyQueryAuthResultResult> request = Request.newRequest("face_verify/v1/query_auth_result", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, FaceVerifyQueryAuthResultResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/face_verify/v1/query_auth_result", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.faceVerifys.service.config, request);
@@ -153,8 +153,8 @@ public class FaceVerifyService {
 
         @Override
         public Response<FaceVerifyUploadFaceImageResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<FormData, FaceVerifyUploadFaceImageResult> request = Request.newRequest("face_verify/v1/upload_face_image", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<FormData, FaceVerifyUploadFaceImageResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/face_verify/v1/upload_face_image", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.faceVerifys.service.config, request);

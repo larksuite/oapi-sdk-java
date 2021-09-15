@@ -8,7 +8,9 @@ public class CalendarAclCreatedEventData {
     @SerializedName("role")
     private String role;
     @SerializedName("scope")
-    private AclScope scope;
+    private AclScopeEvent scope;
+    @SerializedName("user_id_list")
+    private UserId[] userIdList;
 
     public String getAclId() {
         return this.aclId;
@@ -26,12 +28,20 @@ public class CalendarAclCreatedEventData {
         this.role = role;
     }
 
-    public AclScope getScope() {
+    public AclScopeEvent getScope() {
         return this.scope;
     }
 
-    public void setScope(AclScope scope) {
+    public void setScope(AclScopeEvent scope) {
         this.scope = scope;
+    }
+
+    public UserId[] getUserIdList() {
+        return this.userIdList;
+    }
+
+    public void setUserIdList(UserId[] userIdList) {
+        this.userIdList = userIdList;
     }
 
 }

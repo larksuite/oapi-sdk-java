@@ -21,6 +21,7 @@ public class BitableService {
     private final AppTables appTables;
     private final AppTableFields appTableFields;
     private final AppTableRecords appTableRecords;
+    private final AppTableViews appTableViews;
 
     public BitableService(Config config) {
         this.config = config;
@@ -28,6 +29,7 @@ public class BitableService {
         this.appTables = new AppTables(this);
         this.appTableFields = new AppTableFields(this);
         this.appTableRecords = new AppTableRecords(this);
+        this.appTableViews = new AppTableViews(this);
     }
 
     public Apps getApps() {
@@ -70,9 +72,9 @@ public class BitableService {
 
         @Override
         public Response<AppGetResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, AppGetResult> request = Request.newRequest("bitable/v1/apps/:app_token", "GET",
-                    new AccessTokenType[]{AccessTokenType.User},
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, AppGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token", "GET",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.apps.service.config, request);
         }
@@ -90,10 +92,172 @@ public class BitableService {
             this.service = service;
         }
     
+        public AppTableBatchCreateReqCall batchCreate(AppTableBatchCreateReqBody body, RequestOptFn... optFns) {
+            return new AppTableBatchCreateReqCall(this, body, optFns);
+        }
+    
+        public AppTableBatchDeleteReqCall batchDelete(AppTableBatchDeleteReqBody body, RequestOptFn... optFns) {
+            return new AppTableBatchDeleteReqCall(this, body, optFns);
+        }
+    
+        public AppTableCreateReqCall create(AppTableCreateReqBody body, RequestOptFn... optFns) {
+            return new AppTableCreateReqCall(this, body, optFns);
+        }
+    
+        public AppTableDeleteReqCall delete(RequestOptFn... optFns) {
+            return new AppTableDeleteReqCall(this, optFns);
+        }
+    
         public AppTableListReqCall list(RequestOptFn... optFns) {
             return new AppTableListReqCall(this, optFns);
         }
     
+    }
+    public static class AppTableBatchCreateReqCall extends ReqCaller<AppTableBatchCreateReqBody, AppTableBatchCreateResult> {
+        private final AppTables appTables;
+        
+        private final AppTableBatchCreateReqBody body;
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private AppTableBatchCreateResult result;
+        
+        private AppTableBatchCreateReqCall(AppTables appTables, AppTableBatchCreateReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new AppTableBatchCreateResult();
+            this.appTables = appTables;
+        }
+        
+        public AppTableBatchCreateReqCall setAppToken(String appToken){
+            this.pathParams.put("app_token", appToken);
+            return this;
+        }
+        
+        public AppTableBatchCreateReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+
+        @Override
+        public Response<AppTableBatchCreateResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<AppTableBatchCreateReqBody, AppTableBatchCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token/tables/batch_create", "POST",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.appTables.service.config, request);
+        }
+    }
+    public static class AppTableBatchDeleteReqCall extends ReqCaller<AppTableBatchDeleteReqBody, EmptyData> {
+        private final AppTables appTables;
+        
+        private final AppTableBatchDeleteReqBody body;
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private AppTableBatchDeleteReqCall(AppTables appTables, AppTableBatchDeleteReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.appTables = appTables;
+        }
+        
+        public AppTableBatchDeleteReqCall setAppToken(String appToken){
+            this.pathParams.put("app_token", appToken);
+            return this;
+        }
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<AppTableBatchDeleteReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token/tables/batch_delete", "POST",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.appTables.service.config, request);
+        }
+    }
+    public static class AppTableCreateReqCall extends ReqCaller<AppTableCreateReqBody, AppTableCreateResult> {
+        private final AppTables appTables;
+        
+        private final AppTableCreateReqBody body;
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private AppTableCreateResult result;
+        
+        private AppTableCreateReqCall(AppTables appTables, AppTableCreateReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new AppTableCreateResult();
+            this.appTables = appTables;
+        }
+        
+        public AppTableCreateReqCall setAppToken(String appToken){
+            this.pathParams.put("app_token", appToken);
+            return this;
+        }
+        
+        public AppTableCreateReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+
+        @Override
+        public Response<AppTableCreateResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<AppTableCreateReqBody, AppTableCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token/tables", "POST",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.appTables.service.config, request);
+        }
+    }
+    public static class AppTableDeleteReqCall extends ReqCaller<Object, EmptyData> {
+        private final AppTables appTables;
+        
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private AppTableDeleteReqCall(AppTables appTables, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.appTables = appTables;
+        }
+        
+        public AppTableDeleteReqCall setAppToken(String appToken){
+            this.pathParams.put("app_token", appToken);
+            return this;
+        }
+        public AppTableDeleteReqCall setTableId(String tableId){
+            this.pathParams.put("table_id", tableId);
+            return this;
+        }
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token/tables/:table_id", "DELETE",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.appTables.service.config, request);
+        }
     }
     public static class AppTableListReqCall extends ReqCaller<Object, AppTableListResult> {
         private final AppTables appTables;
@@ -129,10 +293,10 @@ public class BitableService {
 
         @Override
         public Response<AppTableListResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, AppTableListResult> request = Request.newRequest("bitable/v1/apps/:app_token/tables", "GET",
-                    new AccessTokenType[]{AccessTokenType.User},
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, AppTableListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token/tables", "GET",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.appTables.service.config, request);
         }
@@ -150,10 +314,104 @@ public class BitableService {
             this.service = service;
         }
     
+        public AppTableFieldCreateReqCall create(AppTableField body, RequestOptFn... optFns) {
+            return new AppTableFieldCreateReqCall(this, body, optFns);
+        }
+    
+        public AppTableFieldDeleteReqCall delete(RequestOptFn... optFns) {
+            return new AppTableFieldDeleteReqCall(this, optFns);
+        }
+    
         public AppTableFieldListReqCall list(RequestOptFn... optFns) {
             return new AppTableFieldListReqCall(this, optFns);
         }
     
+        public AppTableFieldUpdateReqCall update(AppTableField body, RequestOptFn... optFns) {
+            return new AppTableFieldUpdateReqCall(this, body, optFns);
+        }
+    
+    }
+    public static class AppTableFieldCreateReqCall extends ReqCaller<AppTableField, AppTableFieldCreateResult> {
+        private final AppTableFields appTableFields;
+        
+        private final AppTableField body;
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private AppTableFieldCreateResult result;
+        
+        private AppTableFieldCreateReqCall(AppTableFields appTableFields, AppTableField body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new AppTableFieldCreateResult();
+            this.appTableFields = appTableFields;
+        }
+        
+        public AppTableFieldCreateReqCall setAppToken(String appToken){
+            this.pathParams.put("app_token", appToken);
+            return this;
+        }
+        public AppTableFieldCreateReqCall setTableId(String tableId){
+            this.pathParams.put("table_id", tableId);
+            return this;
+        }
+        
+        public AppTableFieldCreateReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+
+        @Override
+        public Response<AppTableFieldCreateResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<AppTableField, AppTableFieldCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields", "POST",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.appTableFields.service.config, request);
+        }
+    }
+    public static class AppTableFieldDeleteReqCall extends ReqCaller<Object, AppTableFieldDeleteResult> {
+        private final AppTableFields appTableFields;
+        
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private AppTableFieldDeleteResult result;
+        
+        private AppTableFieldDeleteReqCall(AppTableFields appTableFields, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new AppTableFieldDeleteResult();
+            this.appTableFields = appTableFields;
+        }
+        
+        public AppTableFieldDeleteReqCall setAppToken(String appToken){
+            this.pathParams.put("app_token", appToken);
+            return this;
+        }
+        public AppTableFieldDeleteReqCall setTableId(String tableId){
+            this.pathParams.put("table_id", tableId);
+            return this;
+        }
+        public AppTableFieldDeleteReqCall setFieldId(String fieldId){
+            this.pathParams.put("field_id", fieldId);
+            return this;
+        }
+
+        @Override
+        public Response<AppTableFieldDeleteResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, AppTableFieldDeleteResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id", "DELETE",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.appTableFields.service.config, request);
+        }
     }
     public static class AppTableFieldListReqCall extends ReqCaller<Object, AppTableFieldListResult> {
         private final AppTableFields appTableFields;
@@ -197,11 +455,51 @@ public class BitableService {
 
         @Override
         public Response<AppTableFieldListResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, AppTableFieldListResult> request = Request.newRequest("bitable/v1/apps/:app_token/tables/:table_id/fields", "GET",
-                    new AccessTokenType[]{AccessTokenType.User},
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, AppTableFieldListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields", "GET",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.appTableFields.service.config, request);
+        }
+    }
+    public static class AppTableFieldUpdateReqCall extends ReqCaller<AppTableField, AppTableFieldUpdateResult> {
+        private final AppTableFields appTableFields;
+        
+        private final AppTableField body;
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private AppTableFieldUpdateResult result;
+        
+        private AppTableFieldUpdateReqCall(AppTableFields appTableFields, AppTableField body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new AppTableFieldUpdateResult();
+            this.appTableFields = appTableFields;
+        }
+        
+        public AppTableFieldUpdateReqCall setAppToken(String appToken){
+            this.pathParams.put("app_token", appToken);
+            return this;
+        }
+        public AppTableFieldUpdateReqCall setTableId(String tableId){
+            this.pathParams.put("table_id", tableId);
+            return this;
+        }
+        public AppTableFieldUpdateReqCall setFieldId(String fieldId){
+            this.pathParams.put("field_id", fieldId);
+            return this;
+        }
+
+        @Override
+        public Response<AppTableFieldUpdateResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<AppTableField, AppTableFieldUpdateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id", "PUT",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.appTableFields.service.config, request);
         }
     }
@@ -222,32 +520,32 @@ public class BitableService {
             return new AppTableRecordBatchDeleteReqCall(this, body, optFns);
         }
     
+        public AppTableRecordBatchUpdateReqCall batchUpdate(AppTableRecordBatchUpdateReqBody body, RequestOptFn... optFns) {
+            return new AppTableRecordBatchUpdateReqCall(this, body, optFns);
+        }
+    
         public AppTableRecordBatchCreateReqCall batchCreate(AppTableRecordBatchCreateReqBody body, RequestOptFn... optFns) {
             return new AppTableRecordBatchCreateReqCall(this, body, optFns);
         }
     
-        public AppTableRecordGetReqCall get(RequestOptFn... optFns) {
-            return new AppTableRecordGetReqCall(this, optFns);
-        }
-    
-        public AppTableRecordUpdateReqCall update(AppTableRecord body, RequestOptFn... optFns) {
-            return new AppTableRecordUpdateReqCall(this, body, optFns);
+        public AppTableRecordCreateReqCall create(AppTableRecord body, RequestOptFn... optFns) {
+            return new AppTableRecordCreateReqCall(this, body, optFns);
         }
     
         public AppTableRecordDeleteReqCall delete(RequestOptFn... optFns) {
             return new AppTableRecordDeleteReqCall(this, optFns);
         }
     
+        public AppTableRecordGetReqCall get(RequestOptFn... optFns) {
+            return new AppTableRecordGetReqCall(this, optFns);
+        }
+    
         public AppTableRecordListReqCall list(RequestOptFn... optFns) {
             return new AppTableRecordListReqCall(this, optFns);
         }
     
-        public AppTableRecordBatchUpdateReqCall batchUpdate(AppTableRecordBatchUpdateReqBody body, RequestOptFn... optFns) {
-            return new AppTableRecordBatchUpdateReqCall(this, body, optFns);
-        }
-    
-        public AppTableRecordCreateReqCall create(AppTableRecord body, RequestOptFn... optFns) {
-            return new AppTableRecordCreateReqCall(this, body, optFns);
+        public AppTableRecordUpdateReqCall update(AppTableRecord body, RequestOptFn... optFns) {
+            return new AppTableRecordUpdateReqCall(this, body, optFns);
         }
     
     }
@@ -280,9 +578,53 @@ public class BitableService {
 
         @Override
         public Response<AppTableRecordBatchDeleteResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<AppTableRecordBatchDeleteReqBody, AppTableRecordBatchDeleteResult> request = Request.newRequest("bitable/v1/apps/:app_token/tables/:table_id/records/batch_delete", "POST",
-                    new AccessTokenType[]{AccessTokenType.User},
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<AppTableRecordBatchDeleteReqBody, AppTableRecordBatchDeleteResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_delete", "POST",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.appTableRecords.service.config, request);
+        }
+    }
+    public static class AppTableRecordBatchUpdateReqCall extends ReqCaller<AppTableRecordBatchUpdateReqBody, AppTableRecordBatchUpdateResult> {
+        private final AppTableRecords appTableRecords;
+        
+        private final AppTableRecordBatchUpdateReqBody body;
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private AppTableRecordBatchUpdateResult result;
+        
+        private AppTableRecordBatchUpdateReqCall(AppTableRecords appTableRecords, AppTableRecordBatchUpdateReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new AppTableRecordBatchUpdateResult();
+            this.appTableRecords = appTableRecords;
+        }
+        
+        public AppTableRecordBatchUpdateReqCall setAppToken(String appToken){
+            this.pathParams.put("app_token", appToken);
+            return this;
+        }
+        public AppTableRecordBatchUpdateReqCall setTableId(String tableId){
+            this.pathParams.put("table_id", tableId);
+            return this;
+        }
+        
+        public AppTableRecordBatchUpdateReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+
+        @Override
+        public Response<AppTableRecordBatchUpdateResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<AppTableRecordBatchUpdateReqBody, AppTableRecordBatchUpdateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_update", "POST",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.appTableRecords.service.config, request);
         }
@@ -323,11 +665,93 @@ public class BitableService {
 
         @Override
         public Response<AppTableRecordBatchCreateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<AppTableRecordBatchCreateReqBody, AppTableRecordBatchCreateResult> request = Request.newRequest("bitable/v1/apps/:app_token/tables/:table_id/records/batch_create", "POST",
-                    new AccessTokenType[]{AccessTokenType.User},
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<AppTableRecordBatchCreateReqBody, AppTableRecordBatchCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_create", "POST",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.appTableRecords.service.config, request);
+        }
+    }
+    public static class AppTableRecordCreateReqCall extends ReqCaller<AppTableRecord, AppTableRecordCreateResult> {
+        private final AppTableRecords appTableRecords;
+        
+        private final AppTableRecord body;
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private AppTableRecordCreateResult result;
+        
+        private AppTableRecordCreateReqCall(AppTableRecords appTableRecords, AppTableRecord body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new AppTableRecordCreateResult();
+            this.appTableRecords = appTableRecords;
+        }
+        
+        public AppTableRecordCreateReqCall setAppToken(String appToken){
+            this.pathParams.put("app_token", appToken);
+            return this;
+        }
+        public AppTableRecordCreateReqCall setTableId(String tableId){
+            this.pathParams.put("table_id", tableId);
+            return this;
+        }
+        
+        public AppTableRecordCreateReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+
+        @Override
+        public Response<AppTableRecordCreateResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<AppTableRecord, AppTableRecordCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records", "POST",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.appTableRecords.service.config, request);
+        }
+    }
+    public static class AppTableRecordDeleteReqCall extends ReqCaller<Object, DeleteRecord> {
+        private final AppTableRecords appTableRecords;
+        
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private DeleteRecord result;
+        
+        private AppTableRecordDeleteReqCall(AppTableRecords appTableRecords, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new DeleteRecord();
+            this.appTableRecords = appTableRecords;
+        }
+        
+        public AppTableRecordDeleteReqCall setAppToken(String appToken){
+            this.pathParams.put("app_token", appToken);
+            return this;
+        }
+        public AppTableRecordDeleteReqCall setTableId(String tableId){
+            this.pathParams.put("table_id", tableId);
+            return this;
+        }
+        public AppTableRecordDeleteReqCall setRecordId(String recordId){
+            this.pathParams.put("record_id", recordId);
+            return this;
+        }
+
+        @Override
+        public Response<DeleteRecord> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, DeleteRecord> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id", "DELETE",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.appTableRecords.service.config, request);
         }
     }
@@ -335,12 +759,14 @@ public class BitableService {
         private final AppTableRecords appTableRecords;
         
         private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
         private final List<RequestOptFn> optFns;
         private AppTableRecordGetResult result;
         
         private AppTableRecordGetReqCall(AppTableRecords appTableRecords, RequestOptFn... optFns) {
         
             this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
             this.result = new AppTableRecordGetResult();
@@ -359,12 +785,84 @@ public class BitableService {
             this.pathParams.put("record_id", recordId);
             return this;
         }
+        
+        public AppTableRecordGetReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
 
         @Override
         public Response<AppTableRecordGetResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, AppTableRecordGetResult> request = Request.newRequest("bitable/v1/apps/:app_token/tables/:table_id/records/:record_id", "GET",
-                    new AccessTokenType[]{AccessTokenType.User},
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, AppTableRecordGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id", "GET",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.appTableRecords.service.config, request);
+        }
+    }
+    public static class AppTableRecordListReqCall extends ReqCaller<Object, AppTableRecordListResult> {
+        private final AppTableRecords appTableRecords;
+        
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private AppTableRecordListResult result;
+        
+        private AppTableRecordListReqCall(AppTableRecords appTableRecords, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new AppTableRecordListResult();
+            this.appTableRecords = appTableRecords;
+        }
+        
+        public AppTableRecordListReqCall setAppToken(String appToken){
+            this.pathParams.put("app_token", appToken);
+            return this;
+        }
+        public AppTableRecordListReqCall setTableId(String tableId){
+            this.pathParams.put("table_id", tableId);
+            return this;
+        }
+        
+        public AppTableRecordListReqCall setViewId(String viewId){
+            this.queryParams.put("view_id", viewId);
+            return this;
+        }
+        public AppTableRecordListReqCall setFilter(String filter){
+            this.queryParams.put("filter", filter);
+            return this;
+        }
+        public AppTableRecordListReqCall setSort(String sort){
+            this.queryParams.put("sort", sort);
+            return this;
+        }
+        public AppTableRecordListReqCall setFieldNames(String fieldNames){
+            this.queryParams.put("field_names", fieldNames);
+            return this;
+        }
+        public AppTableRecordListReqCall setPageToken(String pageToken){
+            this.queryParams.put("page_token", pageToken);
+            return this;
+        }
+        public AppTableRecordListReqCall setPageSize(Integer pageSize){
+            this.queryParams.put("page_size", pageSize);
+            return this;
+        }
+        public AppTableRecordListReqCall setUserIdType(String userIdType){
+            this.queryParams.put("user_id_type", userIdType);
+            return this;
+        }
+
+        @Override
+        public Response<AppTableRecordListResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, AppTableRecordListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records", "GET",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.appTableRecords.service.config, request);
         }
@@ -409,188 +907,158 @@ public class BitableService {
 
         @Override
         public Response<AppTableRecordUpdateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<AppTableRecord, AppTableRecordUpdateResult> request = Request.newRequest("bitable/v1/apps/:app_token/tables/:table_id/records/:record_id", "PUT",
-                    new AccessTokenType[]{AccessTokenType.User},
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<AppTableRecord, AppTableRecordUpdateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id", "PUT",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.appTableRecords.service.config, request);
         }
     }
-    public static class AppTableRecordDeleteReqCall extends ReqCaller<Object, DeleteRecord> {
-        private final AppTableRecords appTableRecords;
+
+    public AppTableViews getAppTableViews() {
+        return appTableViews;
+    }
+
+    public static class AppTableViews {
+
+        private final BitableService service;
+
+        public AppTableViews(BitableService service) {
+            this.service = service;
+        }
+    
+        public AppTableViewCreateReqCall create(AppTableView body, RequestOptFn... optFns) {
+            return new AppTableViewCreateReqCall(this, body, optFns);
+        }
+    
+        public AppTableViewDeleteReqCall delete(RequestOptFn... optFns) {
+            return new AppTableViewDeleteReqCall(this, optFns);
+        }
+    
+        public AppTableViewListReqCall list(RequestOptFn... optFns) {
+            return new AppTableViewListReqCall(this, optFns);
+        }
+    
+    }
+    public static class AppTableViewCreateReqCall extends ReqCaller<AppTableView, AppTableViewCreateResult> {
+        private final AppTableViews appTableViews;
         
+        private final AppTableView body;
         private final Map<String, Object> pathParams;
         private final List<RequestOptFn> optFns;
-        private DeleteRecord result;
+        private AppTableViewCreateResult result;
         
-        private AppTableRecordDeleteReqCall(AppTableRecords appTableRecords, RequestOptFn... optFns) {
+        private AppTableViewCreateReqCall(AppTableViews appTableViews, AppTableView body, RequestOptFn... optFns) {
         
+            this.body = body;
             this.pathParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new DeleteRecord();
-            this.appTableRecords = appTableRecords;
+            this.result = new AppTableViewCreateResult();
+            this.appTableViews = appTableViews;
         }
         
-        public AppTableRecordDeleteReqCall setAppToken(String appToken){
+        public AppTableViewCreateReqCall setAppToken(String appToken){
             this.pathParams.put("app_token", appToken);
             return this;
         }
-        public AppTableRecordDeleteReqCall setTableId(String tableId){
+        public AppTableViewCreateReqCall setTableId(String tableId){
             this.pathParams.put("table_id", tableId);
-            return this;
-        }
-        public AppTableRecordDeleteReqCall setRecordId(String recordId){
-            this.pathParams.put("record_id", recordId);
             return this;
         }
 
         @Override
-        public Response<DeleteRecord> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, DeleteRecord> request = Request.newRequest("bitable/v1/apps/:app_token/tables/:table_id/records/:record_id", "DELETE",
-                    new AccessTokenType[]{AccessTokenType.User},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.appTableRecords.service.config, request);
+        public Response<AppTableViewCreateResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<AppTableView, AppTableViewCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views", "POST",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.appTableViews.service.config, request);
         }
     }
-    public static class AppTableRecordListReqCall extends ReqCaller<Object, AppTableRecordListResult> {
-        private final AppTableRecords appTableRecords;
+    public static class AppTableViewDeleteReqCall extends ReqCaller<Object, EmptyData> {
+        private final AppTableViews appTableViews;
+        
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private AppTableViewDeleteReqCall(AppTableViews appTableViews, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.appTableViews = appTableViews;
+        }
+        
+        public AppTableViewDeleteReqCall setAppToken(String appToken){
+            this.pathParams.put("app_token", appToken);
+            return this;
+        }
+        public AppTableViewDeleteReqCall setTableId(String tableId){
+            this.pathParams.put("table_id", tableId);
+            return this;
+        }
+        public AppTableViewDeleteReqCall setViewId(String viewId){
+            this.pathParams.put("view_id", viewId);
+            return this;
+        }
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id", "DELETE",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.appTableViews.service.config, request);
+        }
+    }
+    public static class AppTableViewListReqCall extends ReqCaller<Object, AppTableViewListResult> {
+        private final AppTableViews appTableViews;
         
         private final Map<String, Object> pathParams;
         private final Map<String, Object> queryParams;
         private final List<RequestOptFn> optFns;
-        private AppTableRecordListResult result;
+        private AppTableViewListResult result;
         
-        private AppTableRecordListReqCall(AppTableRecords appTableRecords, RequestOptFn... optFns) {
+        private AppTableViewListReqCall(AppTableViews appTableViews, RequestOptFn... optFns) {
         
             this.pathParams = new HashMap<>();
             this.queryParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new AppTableRecordListResult();
-            this.appTableRecords = appTableRecords;
+            this.result = new AppTableViewListResult();
+            this.appTableViews = appTableViews;
         }
         
-        public AppTableRecordListReqCall setAppToken(String appToken){
+        public AppTableViewListReqCall setAppToken(String appToken){
             this.pathParams.put("app_token", appToken);
             return this;
         }
-        public AppTableRecordListReqCall setTableId(String tableId){
+        public AppTableViewListReqCall setTableId(String tableId){
             this.pathParams.put("table_id", tableId);
             return this;
         }
         
-        public AppTableRecordListReqCall setViewId(String viewId){
-            this.queryParams.put("view_id", viewId);
-            return this;
-        }
-        public AppTableRecordListReqCall setPageToken(String pageToken){
-            this.queryParams.put("page_token", pageToken);
-            return this;
-        }
-        public AppTableRecordListReqCall setPageSize(Integer pageSize){
+        public AppTableViewListReqCall setPageSize(Integer pageSize){
             this.queryParams.put("page_size", pageSize);
             return this;
         }
+        public AppTableViewListReqCall setPageToken(String pageToken){
+            this.queryParams.put("page_token", pageToken);
+            return this;
+        }
 
         @Override
-        public Response<AppTableRecordListResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, AppTableRecordListResult> request = Request.newRequest("bitable/v1/apps/:app_token/tables/:table_id/records", "GET",
-                    new AccessTokenType[]{AccessTokenType.User},
+        public Response<AppTableViewListResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, AppTableViewListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views", "GET",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.appTableRecords.service.config, request);
-        }
-    }
-    public static class AppTableRecordBatchUpdateReqCall extends ReqCaller<AppTableRecordBatchUpdateReqBody, AppTableRecordBatchUpdateResult> {
-        private final AppTableRecords appTableRecords;
-        
-        private final AppTableRecordBatchUpdateReqBody body;
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private AppTableRecordBatchUpdateResult result;
-        
-        private AppTableRecordBatchUpdateReqCall(AppTableRecords appTableRecords, AppTableRecordBatchUpdateReqBody body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new AppTableRecordBatchUpdateResult();
-            this.appTableRecords = appTableRecords;
-        }
-        
-        public AppTableRecordBatchUpdateReqCall setAppToken(String appToken){
-            this.pathParams.put("app_token", appToken);
-            return this;
-        }
-        public AppTableRecordBatchUpdateReqCall setTableId(String tableId){
-            this.pathParams.put("table_id", tableId);
-            return this;
-        }
-        
-        public AppTableRecordBatchUpdateReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-
-        @Override
-        public Response<AppTableRecordBatchUpdateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<AppTableRecordBatchUpdateReqBody, AppTableRecordBatchUpdateResult> request = Request.newRequest("bitable/v1/apps/:app_token/tables/:table_id/records/batch_update", "POST",
-                    new AccessTokenType[]{AccessTokenType.User},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.appTableRecords.service.config, request);
-        }
-    }
-    public static class AppTableRecordCreateReqCall extends ReqCaller<AppTableRecord, AppTableRecordCreateResult> {
-        private final AppTableRecords appTableRecords;
-        
-        private final AppTableRecord body;
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private AppTableRecordCreateResult result;
-        
-        private AppTableRecordCreateReqCall(AppTableRecords appTableRecords, AppTableRecord body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new AppTableRecordCreateResult();
-            this.appTableRecords = appTableRecords;
-        }
-        
-        public AppTableRecordCreateReqCall setAppToken(String appToken){
-            this.pathParams.put("app_token", appToken);
-            return this;
-        }
-        public AppTableRecordCreateReqCall setTableId(String tableId){
-            this.pathParams.put("table_id", tableId);
-            return this;
-        }
-        
-        public AppTableRecordCreateReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-
-        @Override
-        public Response<AppTableRecordCreateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<AppTableRecord, AppTableRecordCreateResult> request = Request.newRequest("bitable/v1/apps/:app_token/tables/:table_id/records", "POST",
-                    new AccessTokenType[]{AccessTokenType.User},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.appTableRecords.service.config, request);
+            return Api.send(this.appTableViews.service.config, request);
         }
     }
 

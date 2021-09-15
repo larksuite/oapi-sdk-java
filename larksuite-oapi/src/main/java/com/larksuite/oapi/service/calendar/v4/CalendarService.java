@@ -7,6 +7,8 @@ import com.larksuite.oapi.core.api.ReqCaller;
 import com.larksuite.oapi.core.api.request.*;
 import com.larksuite.oapi.core.api.response.*;
 import com.larksuite.oapi.core.Config;
+import com.larksuite.oapi.core.event.Event;
+import com.larksuite.oapi.core.event.IHandler;
 import com.larksuite.oapi.service.calendar.v4.model.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -22,7 +24,6 @@ public class CalendarService {
     private final CalendarEvents calendarEvents;
     private final CalendarEventAttendees calendarEventAttendees;
     private final CalendarEventAttendeeChatMembers calendarEventAttendeeChatMembers;
-    private final ExchangeBindings exchangeBindings;
     private final Freebusys freebusys;
     private final Settings settings;
     private final TimeoffEvents timeoffEvents;
@@ -34,7 +35,6 @@ public class CalendarService {
         this.calendarEvents = new CalendarEvents(this);
         this.calendarEventAttendees = new CalendarEventAttendees(this);
         this.calendarEventAttendeeChatMembers = new CalendarEventAttendeeChatMembers(this);
-        this.exchangeBindings = new ExchangeBindings(this);
         this.freebusys = new Freebusys(this);
         this.settings = new Settings(this);
         this.timeoffEvents = new TimeoffEvents(this);
@@ -108,7 +108,7 @@ public class CalendarService {
 
         @Override
         public Response<CalendarCreateResult> execute() throws Exception {
-            Request<Calendar, CalendarCreateResult> request = Request.newRequest("calendar/v4/calendars", "POST",
+            com.larksuite.oapi.core.api.request.Request<Calendar, CalendarCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendars.service.config, request);
@@ -139,8 +139,8 @@ public class CalendarService {
 
         @Override
         public Response<CalendarPatchResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Calendar, CalendarPatchResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id", "PATCH",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Calendar, CalendarPatchResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/:calendar_id", "PATCH",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendars.service.config, request);
@@ -169,8 +169,8 @@ public class CalendarService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest("calendar/v4/calendars/:calendar_id", "DELETE",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/:calendar_id", "DELETE",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendars.service.config, request);
@@ -208,8 +208,8 @@ public class CalendarService {
 
         @Override
         public Response<CalendarListResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, CalendarListResult> request = Request.newRequest("calendar/v4/calendars", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, CalendarListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendars.service.config, request);
@@ -238,8 +238,8 @@ public class CalendarService {
 
         @Override
         public Response<Calendar> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, Calendar> request = Request.newRequest("calendar/v4/calendars/:calendar_id", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, Calendar> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/:calendar_id", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendars.service.config, request);
@@ -275,8 +275,8 @@ public class CalendarService {
 
         @Override
         public Response<CalendarSearchResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<CalendarSearchReqBody, CalendarSearchResult> request = Request.newRequest("calendar/v4/calendars/search", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<CalendarSearchReqBody, CalendarSearchResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/search", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendars.service.config, request);
@@ -305,8 +305,8 @@ public class CalendarService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest("calendar/v4/calendars/:calendar_id/unsubscribe", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/:calendar_id/unsubscribe", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendars.service.config, request);
@@ -335,8 +335,8 @@ public class CalendarService {
 
         @Override
         public Response<CalendarSubscribeResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, CalendarSubscribeResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/subscribe", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, CalendarSubscribeResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/:calendar_id/subscribe", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendars.service.config, request);
@@ -359,7 +359,7 @@ public class CalendarService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            Request<Object, EmptyData> request = Request.newRequest("calendar/v4/calendars/subscription", "POST",
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/subscription", "POST",
                     new AccessTokenType[]{AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendars.service.config, request);
@@ -433,9 +433,9 @@ public class CalendarService {
 
         @Override
         public Response<CalendarAclListResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, CalendarAclListResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/acls", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, CalendarAclListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/:calendar_id/acls", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarAcls.service.config, request);
@@ -468,8 +468,8 @@ public class CalendarService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest("calendar/v4/calendars/:calendar_id/acls/:acl_id", "DELETE",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/:calendar_id/acls/:acl_id", "DELETE",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarAcls.service.config, request);
@@ -507,9 +507,9 @@ public class CalendarService {
 
         @Override
         public Response<CalendarAcl> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<CalendarAcl, CalendarAcl> request = Request.newRequest("calendar/v4/calendars/:calendar_id/acls", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<CalendarAcl, CalendarAcl> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/:calendar_id/acls", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarAcls.service.config, request);
@@ -538,8 +538,8 @@ public class CalendarService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest("calendar/v4/calendars/:calendar_id/acls/subscription", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/:calendar_id/acls/subscription", "POST",
                     new AccessTokenType[]{AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarAcls.service.config, request);
@@ -621,9 +621,9 @@ public class CalendarService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, EmptyData> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/:event_id", "DELETE",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id", "DELETE",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarEvents.service.config, request);
@@ -656,8 +656,8 @@ public class CalendarService {
 
         @Override
         public Response<CalendarEventGetResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, CalendarEventGetResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/:event_id", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, CalendarEventGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarEvents.service.config, request);
@@ -688,8 +688,8 @@ public class CalendarService {
 
         @Override
         public Response<CalendarEventCreateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<CalendarEvent, CalendarEventCreateResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<CalendarEvent, CalendarEventCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/:calendar_id/events", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarEvents.service.config, request);
@@ -737,9 +737,9 @@ public class CalendarService {
 
         @Override
         public Response<CalendarEventListResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, CalendarEventListResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, CalendarEventListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/:calendar_id/events", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarEvents.service.config, request);
@@ -774,8 +774,8 @@ public class CalendarService {
 
         @Override
         public Response<CalendarEventPatchResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<CalendarEvent, CalendarEventPatchResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/:event_id", "PATCH",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<CalendarEvent, CalendarEventPatchResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id", "PATCH",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarEvents.service.config, request);
@@ -821,9 +821,9 @@ public class CalendarService {
 
         @Override
         public Response<CalendarEventSearchResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<CalendarEventSearchReqBody, CalendarEventSearchResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/search", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<CalendarEventSearchReqBody, CalendarEventSearchResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/:calendar_id/events/search", "POST",
                     new AccessTokenType[]{AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarEvents.service.config, request);
@@ -852,8 +852,8 @@ public class CalendarService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/subscription", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/:calendar_id/events/subscription", "POST",
                     new AccessTokenType[]{AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarEvents.service.config, request);
@@ -927,9 +927,9 @@ public class CalendarService {
 
         @Override
         public Response<CalendarEventAttendeeListResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, CalendarEventAttendeeListResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/:event_id/attendees", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, CalendarEventAttendeeListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarEventAttendees.service.config, request);
@@ -964,8 +964,8 @@ public class CalendarService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<CalendarEventAttendeeBatchDeleteReqBody, EmptyData> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/:event_id/attendees/batch_delete", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<CalendarEventAttendeeBatchDeleteReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees/batch_delete", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarEventAttendees.service.config, request);
@@ -1007,9 +1007,9 @@ public class CalendarService {
 
         @Override
         public Response<CalendarEventAttendeeCreateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<CalendarEventAttendeeCreateReqBody, CalendarEventAttendeeCreateResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/:event_id/attendees", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<CalendarEventAttendeeCreateReqBody, CalendarEventAttendeeCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarEventAttendees.service.config, request);
@@ -1075,139 +1075,12 @@ public class CalendarService {
 
         @Override
         public Response<CalendarEventAttendeeChatMemberListResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, CalendarEventAttendeeChatMemberListResult> request = Request.newRequest("calendar/v4/calendars/:calendar_id/events/:event_id/attendees/:attendee_id/chat_members", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, CalendarEventAttendeeChatMemberListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees/:attendee_id/chat_members", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.calendarEventAttendeeChatMembers.service.config, request);
-        }
-    }
-
-    public ExchangeBindings getExchangeBindings() {
-        return exchangeBindings;
-    }
-
-    public static class ExchangeBindings {
-
-        private final CalendarService service;
-
-        public ExchangeBindings(CalendarService service) {
-            this.service = service;
-        }
-    
-        public ExchangeBindingCreateReqCall create(ExchangeBinding body, RequestOptFn... optFns) {
-            return new ExchangeBindingCreateReqCall(this, body, optFns);
-        }
-    
-        public ExchangeBindingDeleteReqCall delete(RequestOptFn... optFns) {
-            return new ExchangeBindingDeleteReqCall(this, optFns);
-        }
-    
-        public ExchangeBindingGetReqCall get(RequestOptFn... optFns) {
-            return new ExchangeBindingGetReqCall(this, optFns);
-        }
-    
-    }
-    public static class ExchangeBindingCreateReqCall extends ReqCaller<ExchangeBinding, ExchangeBinding> {
-        private final ExchangeBindings exchangeBindings;
-        
-        private final ExchangeBinding body;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private ExchangeBinding result;
-        
-        private ExchangeBindingCreateReqCall(ExchangeBindings exchangeBindings, ExchangeBinding body, RequestOptFn... optFns) {
-        
-            this.body = body;
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new ExchangeBinding();
-            this.exchangeBindings = exchangeBindings;
-        }
-        
-        
-        public ExchangeBindingCreateReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-
-        @Override
-        public Response<ExchangeBinding> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<ExchangeBinding, ExchangeBinding> request = Request.newRequest("calendar/v4/exchange_bindings", "POST",
-                    new AccessTokenType[]{AccessTokenType.User},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.exchangeBindings.service.config, request);
-        }
-    }
-    public static class ExchangeBindingDeleteReqCall extends ReqCaller<Object, EmptyData> {
-        private final ExchangeBindings exchangeBindings;
-        
-        private final Map<String, Object> pathParams;
-        private final List<RequestOptFn> optFns;
-        private EmptyData result;
-        
-        private ExchangeBindingDeleteReqCall(ExchangeBindings exchangeBindings, RequestOptFn... optFns) {
-        
-            this.pathParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new EmptyData();
-            this.exchangeBindings = exchangeBindings;
-        }
-        
-        public ExchangeBindingDeleteReqCall setExchangeBindingId(String exchangeBindingId){
-            this.pathParams.put("exchange_binding_id", exchangeBindingId);
-            return this;
-        }
-
-        @Override
-        public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest("calendar/v4/exchange_bindings/:exchange_binding_id", "DELETE",
-                    new AccessTokenType[]{AccessTokenType.User},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.exchangeBindings.service.config, request);
-        }
-    }
-    public static class ExchangeBindingGetReqCall extends ReqCaller<Object, ExchangeBinding> {
-        private final ExchangeBindings exchangeBindings;
-        
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
-        private final List<RequestOptFn> optFns;
-        private ExchangeBinding result;
-        
-        private ExchangeBindingGetReqCall(ExchangeBindings exchangeBindings, RequestOptFn... optFns) {
-        
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
-            this.optFns = new ArrayList<>();
-            this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new ExchangeBinding();
-            this.exchangeBindings = exchangeBindings;
-        }
-        
-        public ExchangeBindingGetReqCall setExchangeBindingId(String exchangeBindingId){
-            this.pathParams.put("exchange_binding_id", exchangeBindingId);
-            return this;
-        }
-        
-        public ExchangeBindingGetReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
-            return this;
-        }
-
-        @Override
-        public Response<ExchangeBinding> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, ExchangeBinding> request = Request.newRequest("calendar/v4/exchange_bindings/:exchange_binding_id", "GET",
-                    new AccessTokenType[]{AccessTokenType.User},
-                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.exchangeBindings.service.config, request);
         }
     }
 
@@ -1254,8 +1127,8 @@ public class CalendarService {
 
         @Override
         public Response<FreebusyListResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<FreebusyListReqBody, FreebusyListResult> request = Request.newRequest("calendar/v4/freebusy/list", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<FreebusyListReqBody, FreebusyListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/freebusy/list", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.freebusys.service.config, request);
@@ -1298,7 +1171,7 @@ public class CalendarService {
 
         @Override
         public Response<SettingGenerateCaldavConfResult> execute() throws Exception {
-            Request<SettingGenerateCaldavConfReqBody, SettingGenerateCaldavConfResult> request = Request.newRequest("calendar/v4/settings/generate_caldav_conf", "POST",
+            com.larksuite.oapi.core.api.request.Request<SettingGenerateCaldavConfReqBody, SettingGenerateCaldavConfResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/settings/generate_caldav_conf", "POST",
                     new AccessTokenType[]{AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.settings.service.config, request);
@@ -1349,8 +1222,8 @@ public class CalendarService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, EmptyData> request = Request.newRequest("calendar/v4/timeoff_events/:timeoff_event_id", "DELETE",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/timeoff_events/:timeoff_event_id", "DELETE",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.timeoffEvents.service.config, request);
@@ -1382,11 +1255,51 @@ public class CalendarService {
 
         @Override
         public Response<TimeoffEvent> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<TimeoffEvent, TimeoffEvent> request = Request.newRequest("calendar/v4/timeoff_events", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<TimeoffEvent, TimeoffEvent> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/calendar/v4/timeoff_events", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.timeoffEvents.service.config, request);
+        }
+    }
+    public void setCalendarChangedEventHandler(CalendarChangedEventHandler handler) {
+        Event.setTypeHandler(this.config, "calendar.calendar.changed_v4", handler);
+    }
+
+    public abstract static class CalendarChangedEventHandler implements IHandler<CalendarChangedEvent> {
+        @Override
+        public CalendarChangedEvent getEvent() {
+            return new CalendarChangedEvent();
+        }
+    }
+    public void setCalendarAclCreatedEventHandler(CalendarAclCreatedEventHandler handler) {
+        Event.setTypeHandler(this.config, "calendar.calendar.acl.created_v4", handler);
+    }
+
+    public abstract static class CalendarAclCreatedEventHandler implements IHandler<CalendarAclCreatedEvent> {
+        @Override
+        public CalendarAclCreatedEvent getEvent() {
+            return new CalendarAclCreatedEvent();
+        }
+    }
+    public void setCalendarAclDeletedEventHandler(CalendarAclDeletedEventHandler handler) {
+        Event.setTypeHandler(this.config, "calendar.calendar.acl.deleted_v4", handler);
+    }
+
+    public abstract static class CalendarAclDeletedEventHandler implements IHandler<CalendarAclDeletedEvent> {
+        @Override
+        public CalendarAclDeletedEvent getEvent() {
+            return new CalendarAclDeletedEvent();
+        }
+    }
+    public void setCalendarEventChangedEventHandler(CalendarEventChangedEventHandler handler) {
+        Event.setTypeHandler(this.config, "calendar.calendar.event.changed_v4", handler);
+    }
+
+    public abstract static class CalendarEventChangedEventHandler implements IHandler<CalendarEventChangedEvent> {
+        @Override
+        public CalendarEventChangedEvent getEvent() {
+            return new CalendarEventChangedEvent();
         }
     }
 

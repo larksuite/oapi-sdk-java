@@ -62,7 +62,7 @@ public class TranslationService {
 
         @Override
         public Response<TextTranslateResult> execute() throws Exception {
-            Request<TextTranslateReqBody, TextTranslateResult> request = Request.newRequest("translation/v1/text/translate", "POST",
+            com.larksuite.oapi.core.api.request.Request<TextTranslateReqBody, TextTranslateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/translation/v1/text/translate", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.texts.service.config, request);
@@ -87,7 +87,7 @@ public class TranslationService {
 
         @Override
         public Response<TextDetectResult> execute() throws Exception {
-            Request<TextDetectReqBody, TextDetectResult> request = Request.newRequest("translation/v1/text/detect", "POST",
+            com.larksuite.oapi.core.api.request.Request<TextDetectReqBody, TextDetectResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/translation/v1/text/detect", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.texts.service.config, request);

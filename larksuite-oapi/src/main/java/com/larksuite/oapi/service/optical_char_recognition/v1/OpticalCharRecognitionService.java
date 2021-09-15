@@ -58,7 +58,7 @@ public class OpticalCharRecognitionService {
 
         @Override
         public Response<ImageBasicRecognizeResult> execute() throws Exception {
-            Request<ImageBasicRecognizeReqBody, ImageBasicRecognizeResult> request = Request.newRequest("optical_char_recognition/v1/image/basic_recognize", "POST",
+            com.larksuite.oapi.core.api.request.Request<ImageBasicRecognizeReqBody, ImageBasicRecognizeResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/optical_char_recognition/v1/image/basic_recognize", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.images.service.config, request);

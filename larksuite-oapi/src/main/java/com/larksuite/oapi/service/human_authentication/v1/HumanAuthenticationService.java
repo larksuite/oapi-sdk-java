@@ -71,8 +71,8 @@ public class HumanAuthenticationService {
 
         @Override
         public Response<IdentityCreateResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<IdentityCreateReqBody, IdentityCreateResult> request = Request.newRequest("human_authentication/v1/identities", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<IdentityCreateReqBody, IdentityCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/human_authentication/v1/identities", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.identitys.service.config, request);

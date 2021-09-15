@@ -80,9 +80,9 @@ public class DriveExplorerService {
 
         @Override
         public Response<FileCopyResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<FileCopyReqBody, FileCopyResult> request = Request.newRequest("drive/explorer/v2/file/copy/files/:fileToken", "POST",
-                    new AccessTokenType[]{AccessTokenType.User},
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<FileCopyReqBody, FileCopyResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/explorer/v2/file/copy/files/:fileToken", "POST",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.files.service.config, request);
         }
@@ -112,9 +112,9 @@ public class DriveExplorerService {
 
         @Override
         public Response<FileCreateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<FileCreateReqBody, FileCreateResult> request = Request.newRequest("drive/explorer/v2/file/:folderToken", "POST",
-                    new AccessTokenType[]{AccessTokenType.User},
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<FileCreateReqBody, FileCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/explorer/v2/file/:folderToken", "POST",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.files.service.config, request);
         }
@@ -142,9 +142,9 @@ public class DriveExplorerService {
 
         @Override
         public Response<FileDocsDeleteResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, FileDocsDeleteResult> request = Request.newRequest("drive/explorer/v2/file/docs/:docToken", "DELETE",
-                    new AccessTokenType[]{AccessTokenType.User},
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, FileDocsDeleteResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/explorer/v2/file/docs/:docToken", "DELETE",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.files.service.config, request);
         }
@@ -172,9 +172,9 @@ public class DriveExplorerService {
 
         @Override
         public Response<FileSpreadsheetsDeleteResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, FileSpreadsheetsDeleteResult> request = Request.newRequest("drive/explorer/v2/file/spreadsheets/:spreadsheetToken", "DELETE",
-                    new AccessTokenType[]{AccessTokenType.User},
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, FileSpreadsheetsDeleteResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/explorer/v2/file/spreadsheets/:spreadsheetToken", "DELETE",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.files.service.config, request);
         }
@@ -239,10 +239,10 @@ public class DriveExplorerService {
 
         @Override
         public Response<FolderChildrenResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, FolderChildrenResult> request = Request.newRequest("drive/explorer/v2/folder/:folderToken/children", "GET",
-                    new AccessTokenType[]{AccessTokenType.User},
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, FolderChildrenResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/explorer/v2/folder/:folderToken/children", "GET",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.folders.service.config, request);
         }
@@ -272,9 +272,9 @@ public class DriveExplorerService {
 
         @Override
         public Response<FolderCreateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<FolderCreateReqBody, FolderCreateResult> request = Request.newRequest("drive/explorer/v2/folder/:folderToken", "POST",
-                    new AccessTokenType[]{AccessTokenType.User},
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<FolderCreateReqBody, FolderCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/explorer/v2/folder/:folderToken", "POST",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.folders.service.config, request);
         }
@@ -302,9 +302,9 @@ public class DriveExplorerService {
 
         @Override
         public Response<FolderMetaResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, FolderMetaResult> request = Request.newRequest("drive/explorer/v2/folder/:folderToken/meta", "GET",
-                    new AccessTokenType[]{AccessTokenType.User},
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, FolderMetaResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/explorer/v2/folder/:folderToken/meta", "GET",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.folders.service.config, request);
         }
@@ -326,8 +326,8 @@ public class DriveExplorerService {
 
         @Override
         public Response<FolderRootMetaResult> execute() throws Exception {
-            Request<Object, FolderRootMetaResult> request = Request.newRequest("drive/explorer/v2/root_folder/meta", "GET",
-                    new AccessTokenType[]{AccessTokenType.User},
+            com.larksuite.oapi.core.api.request.Request<Object, FolderRootMetaResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/explorer/v2/root_folder/meta", "GET",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.folders.service.config, request);
         }

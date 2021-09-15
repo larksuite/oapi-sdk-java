@@ -62,7 +62,7 @@ public class SpeechToTextService {
 
         @Override
         public Response<SpeechFileRecognizeResult> execute() throws Exception {
-            Request<SpeechFileRecognizeReqBody, SpeechFileRecognizeResult> request = Request.newRequest("speech_to_text/v1/speech/file_recognize", "POST",
+            com.larksuite.oapi.core.api.request.Request<SpeechFileRecognizeReqBody, SpeechFileRecognizeResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/speech_to_text/v1/speech/file_recognize", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.speechs.service.config, request);
@@ -87,7 +87,7 @@ public class SpeechToTextService {
 
         @Override
         public Response<SpeechStreamRecognizeResult> execute() throws Exception {
-            Request<SpeechStreamRecognizeReqBody, SpeechStreamRecognizeResult> request = Request.newRequest("speech_to_text/v1/speech/stream_recognize", "POST",
+            com.larksuite.oapi.core.api.request.Request<SpeechStreamRecognizeReqBody, SpeechStreamRecognizeResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/speech_to_text/v1/speech/stream_recognize", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.speechs.service.config, request);

@@ -66,7 +66,7 @@ public class AuthenService {
 
         @Override
         public Response<UserAccessTokenInfo> execute() throws Exception {
-            Request<AuthenAccessTokenReqBody, UserAccessTokenInfo> request = Request.newRequest("authen/v1/access_token", "POST",
+            com.larksuite.oapi.core.api.request.Request<AuthenAccessTokenReqBody, UserAccessTokenInfo> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/authen/v1/access_token", "POST",
                     new AccessTokenType[]{AccessTokenType.App},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.authens.service.config, request);
@@ -91,7 +91,7 @@ public class AuthenService {
 
         @Override
         public Response<UserAccessTokenInfo> execute() throws Exception {
-            Request<AuthenRefreshAccessTokenReqBody, UserAccessTokenInfo> request = Request.newRequest("authen/v1/refresh_access_token", "POST",
+            com.larksuite.oapi.core.api.request.Request<AuthenRefreshAccessTokenReqBody, UserAccessTokenInfo> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/authen/v1/refresh_access_token", "POST",
                     new AccessTokenType[]{AccessTokenType.App},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.authens.service.config, request);
@@ -114,7 +114,7 @@ public class AuthenService {
 
         @Override
         public Response<UserInfo> execute() throws Exception {
-            Request<Object, UserInfo> request = Request.newRequest("authen/v1/user_info", "GET",
+            com.larksuite.oapi.core.api.request.Request<Object, UserInfo> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/authen/v1/user_info", "GET",
                     new AccessTokenType[]{AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.authens.service.config, request);

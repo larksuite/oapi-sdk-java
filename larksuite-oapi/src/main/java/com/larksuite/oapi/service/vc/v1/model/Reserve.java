@@ -11,6 +11,8 @@ public class Reserve {
     private String url;
     @SerializedName("app_link")
     private String appLink;
+    @SerializedName("live_link")
+    private String liveLink;
     @SerializedName("end_time")
     private Long endTime;
     @SerializedName("expire_status")
@@ -50,6 +52,14 @@ public class Reserve {
 
     public void setAppLink(String appLink) {
         this.appLink = appLink;
+    }
+
+    public String getLiveLink() {
+        return this.liveLink;
+    }
+
+    public void setLiveLink(String liveLink) {
+        this.liveLink = liveLink;
     }
 
     public Long getEndTime() {

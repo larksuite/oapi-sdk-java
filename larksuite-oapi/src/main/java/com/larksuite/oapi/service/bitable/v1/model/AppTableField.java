@@ -10,7 +10,7 @@ public class AppTableField {
     @SerializedName("type")
     private Integer type;
     @SerializedName("property")
-    private Object property;
+    private AppTableFieldProperty property;
 
     public String getFieldId() {
         return this.fieldId;
@@ -36,11 +36,11 @@ public class AppTableField {
         this.type = type;
     }
 
-    public Object getProperty() {
+    public AppTableFieldProperty getProperty() {
         return this.property;
     }
 
-    public void setProperty(Object property) {
+    public void setProperty(AppTableFieldProperty property) {
         this.property = property;
     }
 

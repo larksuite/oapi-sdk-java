@@ -82,8 +82,8 @@ public class DocService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<DocBatchUpdateReqBody, EmptyData> request = Request.newRequest("doc/v2/:docToken/batch_update", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<DocBatchUpdateReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/doc/v2/:docToken/batch_update", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.docs.service.config, request);
@@ -112,8 +112,8 @@ public class DocService {
 
         @Override
         public Response<DocContentResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, DocContentResult> request = Request.newRequest("doc/v2/:docToken/content", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, DocContentResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/doc/v2/:docToken/content", "GET",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.docs.service.config, request);
@@ -138,7 +138,7 @@ public class DocService {
 
         @Override
         public Response<DocCreateResult> execute() throws Exception {
-            Request<DocCreateReqBody, DocCreateResult> request = Request.newRequest("doc/v2/create", "POST",
+            com.larksuite.oapi.core.api.request.Request<DocCreateReqBody, DocCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/doc/v2/create", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.docs.service.config, request);
@@ -167,8 +167,8 @@ public class DocService {
 
         @Override
         public Response<DocMetaResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, DocMetaResult> request = Request.newRequest("doc/v2/meta/:docToken", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, DocMetaResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/doc/v2/meta/:docToken", "GET",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.docs.service.config, request);
@@ -197,8 +197,8 @@ public class DocService {
 
         @Override
         public Response<DocRawContentResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, DocRawContentResult> request = Request.newRequest("doc/v2/:docToken/raw_content", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, DocRawContentResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/doc/v2/:docToken/raw_content", "GET",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.docs.service.config, request);

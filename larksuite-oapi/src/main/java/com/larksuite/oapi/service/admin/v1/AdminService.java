@@ -91,8 +91,8 @@ public class AdminService {
 
         @Override
         public Response<AdminDeptStatListResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, AdminDeptStatListResult> request = Request.newRequest("admin/v1/admin_dept_stats", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, AdminDeptStatListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/admin/v1/admin_dept_stats", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.adminDeptStats.service.config, request);
@@ -168,8 +168,8 @@ public class AdminService {
 
         @Override
         public Response<AdminUserStatListResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, AdminUserStatListResult> request = Request.newRequest("admin/v1/admin_user_stats", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, AdminUserStatListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/admin/v1/admin_user_stats", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.adminUserStats.service.config, request);

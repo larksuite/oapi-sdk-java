@@ -70,9 +70,9 @@ public class EhrService {
 
         @Override
         public Response<OutputStream> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setResponseStream());
-            Request<Object, OutputStream> request = Request.newRequest("ehr/v1/attachments/:token", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setResponseStream());
+            com.larksuite.oapi.core.api.request.Request<Object, OutputStream> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/ehr/v1/attachments/:token", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.attachments.service.config, request);
@@ -152,8 +152,8 @@ public class EhrService {
 
         @Override
         public Response<EmployeeListResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, EmployeeListResult> request = Request.newRequest("ehr/v1/employees", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmployeeListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/ehr/v1/employees", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.employees.service.config, request);

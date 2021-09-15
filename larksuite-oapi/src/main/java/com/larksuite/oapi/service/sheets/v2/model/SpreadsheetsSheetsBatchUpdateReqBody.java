@@ -4,13 +4,13 @@ import com.google.gson.annotations.SerializedName;
 
 public class SpreadsheetsSheetsBatchUpdateReqBody {
     @SerializedName("requests")
-    private Requests requests;
+    private Request[] requests;
 
-    public Requests getRequests() {
+    public Request[] getRequests() {
         return this.requests;
     }
 
-    public void setRequests(Requests requests) {
+    public void setRequests(Request[] requests) {
         this.requests = requests;
     }
 

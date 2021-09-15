@@ -20,7 +20,7 @@ public class Sheet {
     @SerializedName("merges")
     private Merge[] merges;
     @SerializedName("protectedRange")
-    private ProtectedRange protectedRange;
+    private ProtectedRange[] protectedRange;
     @SerializedName("blockInfo")
     private BlockInfo blockInfo;
 
@@ -88,11 +88,11 @@ public class Sheet {
         this.merges = merges;
     }
 
-    public ProtectedRange getProtectedRange() {
+    public ProtectedRange[] getProtectedRange() {
         return this.protectedRange;
     }
 
-    public void setProtectedRange(ProtectedRange protectedRange) {
+    public void setProtectedRange(ProtectedRange[] protectedRange) {
         this.protectedRange = protectedRange;
     }
 

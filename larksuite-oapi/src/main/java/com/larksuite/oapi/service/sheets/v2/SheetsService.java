@@ -190,8 +190,8 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsConditionFormatsBatchCreateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsConditionFormatsBatchCreateReqBody, SpreadsheetsConditionFormatsBatchCreateResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/condition_formats/batch_create", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsConditionFormatsBatchCreateReqBody, SpreadsheetsConditionFormatsBatchCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/condition_formats/batch_create", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -222,8 +222,8 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsConditionFormatsBatchDeleteResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsConditionFormatsBatchDeleteReqBody, SpreadsheetsConditionFormatsBatchDeleteResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/condition_formats/batch_delete", "DELETE",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsConditionFormatsBatchDeleteReqBody, SpreadsheetsConditionFormatsBatchDeleteResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/condition_formats/batch_delete", "DELETE",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -259,9 +259,9 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsConditionFormatsBatchGetResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, SpreadsheetsConditionFormatsBatchGetResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/condition_formats", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, SpreadsheetsConditionFormatsBatchGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/condition_formats", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -292,8 +292,8 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsConditionFormatsBatchUpdateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsConditionFormatsBatchUpdateReqBody, SpreadsheetsConditionFormatsBatchUpdateResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/condition_formats/batch_update", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsConditionFormatsBatchUpdateReqBody, SpreadsheetsConditionFormatsBatchUpdateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/condition_formats/batch_update", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -324,8 +324,8 @@ public class SheetsService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsDataValidationCreateReqBody, EmptyData> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/dataValidation", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsDataValidationCreateReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/dataValidation", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -356,8 +356,8 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsDataValidationDeleteResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsDataValidationDeleteReqBody, SpreadsheetsDataValidationDeleteResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/dataValidation", "DELETE",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsDataValidationDeleteReqBody, SpreadsheetsDataValidationDeleteResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/dataValidation", "DELETE",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -394,8 +394,8 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsDataValidationGetResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<Object, SpreadsheetsDataValidationGetResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/dataValidation", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, SpreadsheetsDataValidationGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/dataValidation", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -434,8 +434,8 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsDataValidationUpdateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsDataValidationUpdateReqBody, SpreadsheetsDataValidationUpdateResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/dataValidation/:sheetId/:dataValidationId", "PUT",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsDataValidationUpdateReqBody, SpreadsheetsDataValidationUpdateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/dataValidation/:sheetId/:dataValidationId", "PUT",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -466,8 +466,8 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsDimensionRangeAddResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsDimensionRangeAddReqBody, SpreadsheetsDimensionRangeAddResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/dimension_range", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsDimensionRangeAddReqBody, SpreadsheetsDimensionRangeAddResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/dimension_range", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -498,8 +498,8 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsDimensionRangeDeleteResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsDimensionRangeDeleteReqBody, SpreadsheetsDimensionRangeDeleteResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/dimension_range", "DELETE",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsDimensionRangeDeleteReqBody, SpreadsheetsDimensionRangeDeleteResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/dimension_range", "DELETE",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -530,8 +530,8 @@ public class SheetsService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsDimensionRangeUpdateReqBody, EmptyData> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/dimension_range", "PUT",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsDimensionRangeUpdateReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/dimension_range", "PUT",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -556,7 +556,7 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsImportResult> execute() throws Exception {
-            Request<SpreadsheetsImportReqBody, SpreadsheetsImportResult> request = Request.newRequest("sheets/v2/import", "POST",
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsImportReqBody, SpreadsheetsImportResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/import", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -586,8 +586,8 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsImportResultResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, SpreadsheetsImportResultResult> request = Request.newRequest("sheets/v2/import/result", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, SpreadsheetsImportResultResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/import/result", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -618,8 +618,8 @@ public class SheetsService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsInsertDimensionRangeReqBody, EmptyData> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/insert_dimension_range", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsInsertDimensionRangeReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/insert_dimension_range", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -650,8 +650,8 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsMergeCellsResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsMergeCellsReqBody, SpreadsheetsMergeCellsResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/merge_cells", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsMergeCellsReqBody, SpreadsheetsMergeCellsResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/merge_cells", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -687,9 +687,9 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsMetainfoResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, SpreadsheetsMetainfoResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/metainfo", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, SpreadsheetsMetainfoResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/metainfo", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -720,9 +720,9 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsProtectedRangeBatchCreateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setSupportLongDataType());
-            Request<SpreadsheetsProtectedRangeBatchCreateReqBody, SpreadsheetsProtectedRangeBatchCreateResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/protected_dimension", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setSupportLongDataType());
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsProtectedRangeBatchCreateReqBody, SpreadsheetsProtectedRangeBatchCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/protected_dimension", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -753,8 +753,8 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsProtectedRangeBatchDeleteResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsProtectedRangeBatchDeleteReqBody, SpreadsheetsProtectedRangeBatchDeleteResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/protected_range_batch_del", "DELETE",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsProtectedRangeBatchDeleteReqBody, SpreadsheetsProtectedRangeBatchDeleteResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/protected_range_batch_del", "DELETE",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -794,9 +794,9 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsProtectedRangeBatchGetResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, SpreadsheetsProtectedRangeBatchGetResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/protected_range_batch_get", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, SpreadsheetsProtectedRangeBatchGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/protected_range_batch_get", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -827,8 +827,8 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsProtectedRangeBatchUpdateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsProtectedRangeBatchUpdateReqBody, SpreadsheetsProtectedRangeBatchUpdateResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/protected_range_batch_update", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsProtectedRangeBatchUpdateReqBody, SpreadsheetsProtectedRangeBatchUpdateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/protected_range_batch_update", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -859,8 +859,9 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsSheetsBatchUpdateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsSheetsBatchUpdateReqBody, SpreadsheetsSheetsBatchUpdateResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/sheets_batch_update", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setSupportLongDataType());
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsSheetsBatchUpdateReqBody, SpreadsheetsSheetsBatchUpdateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/sheets_batch_update", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -891,8 +892,9 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsSheetsUpdatePropertiesResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsSheetsUpdatePropertiesReqBody, SpreadsheetsSheetsUpdatePropertiesResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/properties", "PUT",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setSupportLongDataType());
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsSheetsUpdatePropertiesReqBody, SpreadsheetsSheetsUpdatePropertiesResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/properties", "PUT",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -923,8 +925,8 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsStyleUpdateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsStyleUpdateReqBody, SpreadsheetsStyleUpdateResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/style", "PUT",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsStyleUpdateReqBody, SpreadsheetsStyleUpdateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/style", "PUT",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -955,8 +957,8 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsStylesBatchUpdateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsStylesBatchUpdateReqBody, SpreadsheetsStylesBatchUpdateResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/styles_batch_update", "PUT",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsStylesBatchUpdateReqBody, SpreadsheetsStylesBatchUpdateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/styles_batch_update", "PUT",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -987,8 +989,8 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsUnmergeCellsResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsUnmergeCellsReqBody, SpreadsheetsUnmergeCellsResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/unmerge_cells", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsUnmergeCellsReqBody, SpreadsheetsUnmergeCellsResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/unmerge_cells", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -1026,9 +1028,9 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsValuesAppendResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<SpreadsheetsValuesAppendReqBody, SpreadsheetsValuesAppendResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/values_append", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsValuesAppendReqBody, SpreadsheetsValuesAppendResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/values_append", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -1072,9 +1074,9 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsValuesBatchGetResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, SpreadsheetsValuesBatchGetResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/values_batch_get", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, SpreadsheetsValuesBatchGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/values_batch_get", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -1105,8 +1107,8 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsValuesBatchUpdateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsValuesBatchUpdateReqBody, SpreadsheetsValuesBatchUpdateResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/values_batch_update", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsValuesBatchUpdateReqBody, SpreadsheetsValuesBatchUpdateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/values_batch_update", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -1150,9 +1152,9 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsValuesGetResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, SpreadsheetsValuesGetResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/values/:range", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, SpreadsheetsValuesGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/values/:range", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -1183,8 +1185,8 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsValuesImageResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsValuesImageReqBody, SpreadsheetsValuesImageResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/values_image", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsValuesImageReqBody, SpreadsheetsValuesImageResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/values_image", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -1215,8 +1217,8 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsValuesPrependResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsValuesPrependReqBody, SpreadsheetsValuesPrependResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/values_prepend", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsValuesPrependReqBody, SpreadsheetsValuesPrependResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/values_prepend", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);
@@ -1247,8 +1249,8 @@ public class SheetsService {
 
         @Override
         public Response<SpreadsheetsValuesUpdateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            Request<SpreadsheetsValuesUpdateReqBody, SpreadsheetsValuesUpdateResult> request = Request.newRequest("sheets/v2/spreadsheets/:spreadsheetToken/values", "PUT",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<SpreadsheetsValuesUpdateReqBody, SpreadsheetsValuesUpdateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/sheets/v2/spreadsheets/:spreadsheetToken/values", "PUT",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.spreadsheetss.service.config, request);

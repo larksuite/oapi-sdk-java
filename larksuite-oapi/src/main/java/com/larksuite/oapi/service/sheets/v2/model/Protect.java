@@ -8,7 +8,7 @@ public class Protect {
     @SerializedName("lockInfo")
     private String lockInfo;
     @SerializedName("userIds")
-    private Integer[] userIds;
+    private Long[] userIds;
 
     public String getLock() {
         return this.lock;
@@ -26,11 +26,11 @@ public class Protect {
         this.lockInfo = lockInfo;
     }
 
-    public Integer[] getUserIds() {
+    public Long[] getUserIds() {
         return this.userIds;
     }
 
-    public void setUserIds(Integer[] userIds) {
+    public void setUserIds(Long[] userIds) {
         this.userIds = userIds;
     }
 
