@@ -28,7 +28,7 @@ public class ValidateRespSubHandler implements SubHandler {
             String body = responseBody == null ? "" : responseBody.string();
             throw new ResponseInvalidException("request id:" + ctx.getRequestID() + ", status code:" + req.getHttpResponse().code() + ", content-type:"
                     + contentType + ", not is:" + Constants.APPLICATION_JSON
-                    + ", if is stream, please `Request.SetResponseStream()`, body:" + body);
+                    + ", body:" + body);
         }
     }
 }

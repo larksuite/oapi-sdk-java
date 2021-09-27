@@ -121,11 +121,15 @@ public class BaseRequest<I, O> {
                 j = subPath.length();
             }
             String varName = subPath.substring(1, j);
-            Object v = pathVar.get(varName);
-            if (v == null) {
-                throw new IllegalArgumentException("path:" + path + ", param name:" + varName + " not found value");
+            if (varName.equals("")) {
+                newPath.append(subPath.substring(0, j));
+            } else {
+                Object v = pathVar.get(varName);
+                if (v == null) {
+                    throw new IllegalArgumentException("path:" + path + ", param name:" + varName + " not found value");
+                }
+                newPath.append(v.toString());
             }
-            newPath.append(v.toString());
             if (j == subPath.length()) {
                 break;
             }
