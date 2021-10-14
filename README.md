@@ -58,16 +58,6 @@
 </dependency>
 ```
 
-- Stable version
-
-```shell
-<dependency>
-    <groupId>com.larksuite.oapi</groupId>
-    <artifactId>larksuite-oapi</artifactId>
-    <version>1.0.18-rc3</version>
-</dependency>
-```
-
 ## Explanation of terms
 
 - Larksuite: the overseas name of lark, which mainly provides services for overseas enterprises and has an

@@ -55,16 +55,6 @@
 </dependency>
 ```
 
-- 稳定版本
-
-```shell
-<dependency>
-    <groupId>com.larksuite.oapi</groupId>
-    <artifactId>larksuite-oapi</artifactId>
-    <version>1.0.18-rc3</version>
-</dependency>
-```
-
 ## 术语解释
 
 - 飞书（FeiShu）：Lark在中国的称呼，主要为国内的企业提供服务，拥有独立的[域名地址](https://www.feishu.cn)。

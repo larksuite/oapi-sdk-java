@@ -31,7 +31,7 @@ public class ImSample {
         ImService.ImageCreateReqCall reqCall = imService.getImages().create();
         reqCall.setImageType("message");
         // read files under Resources
-        try (InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("file path")) {
+        try (InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.png")) {
             // method 1: use byte stream
             reqCall.setImage(new FormDataFile().setContentStream(inputStream));
             // method 2: use byte array
