@@ -23,14 +23,22 @@ public class DriveService {
     private final Files files;
     private final FileComments fileComments;
     private final FileCommentReplys fileCommentReplys;
+    private final ImportTasks importTasks;
     private final Medias medias;
+    private final PermissionMembers permissionMembers;
+    private final PermissionPublics permissionPublics;
+    private final FileStatisticss fileStatisticss;
 
     public DriveService(Config config) {
         this.config = config;
         this.files = new Files(this);
         this.fileComments = new FileComments(this);
         this.fileCommentReplys = new FileCommentReplys(this);
+        this.importTasks = new ImportTasks(this);
         this.medias = new Medias(this);
+        this.permissionMembers = new PermissionMembers(this);
+        this.permissionPublics = new PermissionPublics(this);
+        this.fileStatisticss = new FileStatisticss(this);
     }
 
     public Files getFiles() {
@@ -49,7 +57,7 @@ public class DriveService {
             return new FileUploadFinishReqCall(this, body, optFns);
         }
     
-        public FileUploadPrepareReqCall uploadPrepare(UploadInfo body, RequestOptFn... optFns) {
+        public FileUploadPrepareReqCall uploadPrepare(FileUploadInfo body, RequestOptFn... optFns) {
             return new FileUploadPrepareReqCall(this, body, optFns);
         }
     
@@ -89,20 +97,20 @@ public class DriveService {
 
         @Override
         public Response<FileUploadFinishResult> execute() throws Exception {
-            Request<FileUploadFinishReqBody, FileUploadFinishResult> request = Request.newRequest("drive/v1/files/upload_finish", "POST",
+            com.larksuite.oapi.core.api.request.Request<FileUploadFinishReqBody, FileUploadFinishResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/files/upload_finish", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.files.service.config, request);
         }
     }
-    public static class FileUploadPrepareReqCall extends ReqCaller<UploadInfo, FileUploadPrepareResult> {
+    public static class FileUploadPrepareReqCall extends ReqCaller<FileUploadInfo, FileUploadPrepareResult> {
         private final Files files;
         
-        private final UploadInfo body;
+        private final FileUploadInfo body;
         private final List<RequestOptFn> optFns;
         private FileUploadPrepareResult result;
         
-        private FileUploadPrepareReqCall(Files files, UploadInfo body, RequestOptFn... optFns) {
+        private FileUploadPrepareReqCall(Files files, FileUploadInfo body, RequestOptFn... optFns) {
         
             this.body = body;
             this.optFns = new ArrayList<>();
@@ -114,7 +122,7 @@ public class DriveService {
 
         @Override
         public Response<FileUploadPrepareResult> execute() throws Exception {
-            Request<UploadInfo, FileUploadPrepareResult> request = Request.newRequest("drive/v1/files/upload_prepare", "POST",
+            com.larksuite.oapi.core.api.request.Request<FileUploadInfo, FileUploadPrepareResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/files/upload_prepare", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.files.service.config, request);
@@ -169,7 +177,7 @@ public class DriveService {
 
         @Override
         public Response<FileUploadAllResult> execute() throws Exception {
-            Request<FormData, FileUploadAllResult> request = Request.newRequest("drive/v1/files/upload_all", "POST",
+            com.larksuite.oapi.core.api.request.Request<FormData, FileUploadAllResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/files/upload_all", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.files.service.config, request);
@@ -219,7 +227,7 @@ public class DriveService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            Request<FormData, EmptyData> request = Request.newRequest("drive/v1/files/upload_part", "POST",
+            com.larksuite.oapi.core.api.request.Request<FormData, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/files/upload_part", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.files.service.config, request);
@@ -251,9 +259,9 @@ public class DriveService {
 
         @Override
         public Response<OutputStream> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setResponseStream());
-            Request<Object, OutputStream> request = Request.newRequest("drive/v1/files/:file_token/download", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setResponseStream());
+            com.larksuite.oapi.core.api.request.Request<Object, OutputStream> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/files/:file_token/download", "GET",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.files.service.config, request);
@@ -289,9 +297,9 @@ public class DriveService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, EmptyData> request = Request.newRequest("drive/v1/files/:file_token/subscribe", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/files/:file_token/subscribe", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.files.service.config, request);
@@ -363,9 +371,9 @@ public class DriveService {
 
         @Override
         public Response<FileComment> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<FileComment, FileComment> request = Request.newRequest("drive/v1/files/:file_token/comments", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<FileComment, FileComment> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/files/:file_token/comments", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.fileComments.service.config, request);
@@ -409,9 +417,9 @@ public class DriveService {
 
         @Override
         public Response<FileComment> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, FileComment> request = Request.newRequest("drive/v1/files/:file_token/comments/:comment_id", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, FileComment> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/files/:file_token/comments/:comment_id", "GET",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.fileComments.service.config, request);
@@ -463,9 +471,9 @@ public class DriveService {
 
         @Override
         public Response<FileCommentListResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, FileCommentListResult> request = Request.newRequest("drive/v1/files/:file_token/comments", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, FileCommentListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/files/:file_token/comments", "GET",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.fileComments.service.config, request);
@@ -507,9 +515,9 @@ public class DriveService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<FileCommentPatchReqBody, EmptyData> request = Request.newRequest("drive/v1/files/:file_token/comments/:comment_id", "PATCH",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<FileCommentPatchReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/files/:file_token/comments/:comment_id", "PATCH",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.fileComments.service.config, request);
@@ -534,10 +542,6 @@ public class DriveService {
     
         public FileCommentReplyDeleteReqCall delete(RequestOptFn... optFns) {
             return new FileCommentReplyDeleteReqCall(this, optFns);
-        }
-    
-        public FileCommentReplyCreateReqCall create(FileCommentReplyCreateReqBody body, RequestOptFn... optFns) {
-            return new FileCommentReplyCreateReqCall(this, body, optFns);
         }
     
     }
@@ -585,9 +589,9 @@ public class DriveService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<FileCommentReplyUpdateReqBody, EmptyData> request = Request.newRequest("drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id", "PUT",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<FileCommentReplyUpdateReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id", "PUT",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.fileCommentReplys.service.config, request);
@@ -631,60 +635,89 @@ public class DriveService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, EmptyData> request = Request.newRequest("drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id", "DELETE",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id", "DELETE",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.fileCommentReplys.service.config, request);
         }
     }
-    public static class FileCommentReplyCreateReqCall extends ReqCaller<FileCommentReplyCreateReqBody, FileCommentReplyCreateResult> {
-        private final FileCommentReplys fileCommentReplys;
+
+    public ImportTasks getImportTasks() {
+        return importTasks;
+    }
+
+    public static class ImportTasks {
+
+        private final DriveService service;
+
+        public ImportTasks(DriveService service) {
+            this.service = service;
+        }
+    
+        public ImportTaskCreateReqCall create(ImportTask body, RequestOptFn... optFns) {
+            return new ImportTaskCreateReqCall(this, body, optFns);
+        }
+    
+        public ImportTaskGetReqCall get(RequestOptFn... optFns) {
+            return new ImportTaskGetReqCall(this, optFns);
+        }
+    
+    }
+    public static class ImportTaskCreateReqCall extends ReqCaller<ImportTask, ImportTaskCreateResult> {
+        private final ImportTasks importTasks;
         
-        private final FileCommentReplyCreateReqBody body;
-        private final Map<String, Object> pathParams;
-        private final Map<String, Object> queryParams;
+        private final ImportTask body;
         private final List<RequestOptFn> optFns;
-        private FileCommentReplyCreateResult result;
+        private ImportTaskCreateResult result;
         
-        private FileCommentReplyCreateReqCall(FileCommentReplys fileCommentReplys, FileCommentReplyCreateReqBody body, RequestOptFn... optFns) {
+        private ImportTaskCreateReqCall(ImportTasks importTasks, ImportTask body, RequestOptFn... optFns) {
         
             this.body = body;
-            this.pathParams = new HashMap<>();
-            this.queryParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
-            this.result = new FileCommentReplyCreateResult();
-            this.fileCommentReplys = fileCommentReplys;
+            this.result = new ImportTaskCreateResult();
+            this.importTasks = importTasks;
         }
         
-        public FileCommentReplyCreateReqCall setFileToken(String fileToken){
-            this.pathParams.put("file_token", fileToken);
-            return this;
+
+        @Override
+        public Response<ImportTaskCreateResult> execute() throws Exception {
+            com.larksuite.oapi.core.api.request.Request<ImportTask, ImportTaskCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/import_tasks", "POST",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.importTasks.service.config, request);
         }
-        public FileCommentReplyCreateReqCall setCommentId(Long commentId){
-            this.pathParams.put("comment_id", commentId);
-            return this;
+    }
+    public static class ImportTaskGetReqCall extends ReqCaller<Object, ImportTaskGetResult> {
+        private final ImportTasks importTasks;
+        
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private ImportTaskGetResult result;
+        
+        private ImportTaskGetReqCall(ImportTasks importTasks, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new ImportTaskGetResult();
+            this.importTasks = importTasks;
         }
         
-        public FileCommentReplyCreateReqCall setFileType(String fileType){
-            this.queryParams.put("file_type", fileType);
-            return this;
-        }
-        public FileCommentReplyCreateReqCall setUserIdType(String userIdType){
-            this.queryParams.put("user_id_type", userIdType);
+        public ImportTaskGetReqCall setTicket(String ticket){
+            this.pathParams.put("ticket", ticket);
             return this;
         }
 
         @Override
-        public Response<FileCommentReplyCreateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<FileCommentReplyCreateReqBody, FileCommentReplyCreateResult> request = Request.newRequest("drive/v1/files/:file_token/comments/:comment_id/replies", "POST",
+        public Response<ImportTaskGetResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, ImportTaskGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/import_tasks/:ticket", "GET",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
-                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
-            return Api.send(this.fileCommentReplys.service.config, request);
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.importTasks.service.config, request);
         }
     }
 
@@ -712,7 +745,7 @@ public class DriveService {
             return new MediaUploadFinishReqCall(this, body, optFns);
         }
     
-        public MediaUploadPrepareReqCall uploadPrepare(UploadInfo body, RequestOptFn... optFns) {
+        public MediaUploadPrepareReqCall uploadPrepare(MediaUploadInfo body, RequestOptFn... optFns) {
             return new MediaUploadPrepareReqCall(this, body, optFns);
         }
     
@@ -769,7 +802,7 @@ public class DriveService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            Request<FormData, EmptyData> request = Request.newRequest("drive/v1/medias/upload_part", "POST",
+            com.larksuite.oapi.core.api.request.Request<FormData, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/medias/upload_part", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.medias.service.config, request);
@@ -816,6 +849,11 @@ public class DriveService {
             return this;
         }
         
+        public MediaUploadAllReqCall setExtra(String extra){
+            this.body.addField("extra", extra);
+            return this;
+        }
+        
         public MediaUploadAllReqCall setFile(FormDataFile file){
             this.body.addFile("file", file);
             return this;
@@ -824,7 +862,7 @@ public class DriveService {
 
         @Override
         public Response<MediaUploadAllResult> execute() throws Exception {
-            Request<FormData, MediaUploadAllResult> request = Request.newRequest("drive/v1/medias/upload_all", "POST",
+            com.larksuite.oapi.core.api.request.Request<FormData, MediaUploadAllResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/medias/upload_all", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.medias.service.config, request);
@@ -849,20 +887,20 @@ public class DriveService {
 
         @Override
         public Response<MediaUploadFinishResult> execute() throws Exception {
-            Request<MediaUploadFinishReqBody, MediaUploadFinishResult> request = Request.newRequest("drive/v1/medias/upload_finish", "POST",
+            com.larksuite.oapi.core.api.request.Request<MediaUploadFinishReqBody, MediaUploadFinishResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/medias/upload_finish", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.medias.service.config, request);
         }
     }
-    public static class MediaUploadPrepareReqCall extends ReqCaller<UploadInfo, MediaUploadPrepareResult> {
+    public static class MediaUploadPrepareReqCall extends ReqCaller<MediaUploadInfo, MediaUploadPrepareResult> {
         private final Medias medias;
         
-        private final UploadInfo body;
+        private final MediaUploadInfo body;
         private final List<RequestOptFn> optFns;
         private MediaUploadPrepareResult result;
         
-        private MediaUploadPrepareReqCall(Medias medias, UploadInfo body, RequestOptFn... optFns) {
+        private MediaUploadPrepareReqCall(Medias medias, MediaUploadInfo body, RequestOptFn... optFns) {
         
             this.body = body;
             this.optFns = new ArrayList<>();
@@ -874,7 +912,7 @@ public class DriveService {
 
         @Override
         public Response<MediaUploadPrepareResult> execute() throws Exception {
-            Request<UploadInfo, MediaUploadPrepareResult> request = Request.newRequest("drive/v1/medias/upload_prepare", "POST",
+            com.larksuite.oapi.core.api.request.Request<MediaUploadInfo, MediaUploadPrepareResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/medias/upload_prepare", "POST",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.medias.service.config, request);
@@ -901,11 +939,15 @@ public class DriveService {
             this.queryParams.put("file_tokens", fileTokens);
             return this;
         }
+        public MediaBatchGetTmpDownloadUrlReqCall setExtra(String extra){
+            this.queryParams.put("extra", extra);
+            return this;
+        }
 
         @Override
         public Response<MediaBatchGetTmpDownloadUrlResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, MediaBatchGetTmpDownloadUrlResult> request = Request.newRequest("drive/v1/medias/batch_get_tmp_download_url", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, MediaBatchGetTmpDownloadUrlResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/medias/batch_get_tmp_download_url", "GET",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.medias.service.config, request);
@@ -915,12 +957,14 @@ public class DriveService {
         private final Medias medias;
         
         private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
         private final List<RequestOptFn> optFns;
         private OutputStream result;
         
         private MediaDownloadReqCall(Medias medias, RequestOptFn... optFns) {
         
             this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
             this.optFns = new ArrayList<>();
             this.optFns.addAll(Arrays.asList(optFns));
             this.medias = medias;
@@ -930,6 +974,11 @@ public class DriveService {
             this.pathParams.put("file_token", fileToken);
             return this;
         }
+        
+        public MediaDownloadReqCall setExtra(String extra){
+            this.queryParams.put("extra", extra);
+            return this;
+        }
         public MediaDownloadReqCall setResponseStream(OutputStream result){
             this.result = result;
             return this;
@@ -937,12 +986,291 @@ public class DriveService {
 
         @Override
         public Response<OutputStream> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setResponseStream());
-            Request<Object, OutputStream> request = Request.newRequest("drive/v1/medias/:file_token/download", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setResponseStream());
+            com.larksuite.oapi.core.api.request.Request<Object, OutputStream> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/medias/:file_token/download", "GET",
                     new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.medias.service.config, request);
+        }
+    }
+
+    public PermissionMembers getPermissionMembers() {
+        return permissionMembers;
+    }
+
+    public static class PermissionMembers {
+
+        private final DriveService service;
+
+        public PermissionMembers(DriveService service) {
+            this.service = service;
+        }
+    
+        public PermissionMemberCreateReqCall create(Member body, RequestOptFn... optFns) {
+            return new PermissionMemberCreateReqCall(this, body, optFns);
+        }
+    
+        public PermissionMemberDeleteReqCall delete(RequestOptFn... optFns) {
+            return new PermissionMemberDeleteReqCall(this, optFns);
+        }
+    
+        public PermissionMemberUpdateReqCall update(Member body, RequestOptFn... optFns) {
+            return new PermissionMemberUpdateReqCall(this, body, optFns);
+        }
+    
+    }
+    public static class PermissionMemberCreateReqCall extends ReqCaller<Member, PermissionMemberCreateResult> {
+        private final PermissionMembers permissionMembers;
+        
+        private final Member body;
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private PermissionMemberCreateResult result;
+        
+        private PermissionMemberCreateReqCall(PermissionMembers permissionMembers, Member body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new PermissionMemberCreateResult();
+            this.permissionMembers = permissionMembers;
+        }
+        
+        public PermissionMemberCreateReqCall setToken(String token){
+            this.pathParams.put("token", token);
+            return this;
+        }
+        
+        public PermissionMemberCreateReqCall setType(String type){
+            this.queryParams.put("type", type);
+            return this;
+        }
+        public PermissionMemberCreateReqCall setNeedNotification(Boolean needNotification){
+            this.queryParams.put("need_notification", needNotification);
+            return this;
+        }
+
+        @Override
+        public Response<PermissionMemberCreateResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Member, PermissionMemberCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/permissions/:token/members", "POST",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.permissionMembers.service.config, request);
+        }
+    }
+    public static class PermissionMemberDeleteReqCall extends ReqCaller<Object, EmptyData> {
+        private final PermissionMembers permissionMembers;
+        
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private PermissionMemberDeleteReqCall(PermissionMembers permissionMembers, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.permissionMembers = permissionMembers;
+        }
+        
+        public PermissionMemberDeleteReqCall setToken(String token){
+            this.pathParams.put("token", token);
+            return this;
+        }
+        public PermissionMemberDeleteReqCall setMemberId(String memberId){
+            this.pathParams.put("member_id", memberId);
+            return this;
+        }
+        
+        public PermissionMemberDeleteReqCall setType(String type){
+            this.queryParams.put("type", type);
+            return this;
+        }
+        public PermissionMemberDeleteReqCall setMemberType(String memberType){
+            this.queryParams.put("member_type", memberType);
+            return this;
+        }
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/permissions/:token/members/:member_id", "DELETE",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.permissionMembers.service.config, request);
+        }
+    }
+    public static class PermissionMemberUpdateReqCall extends ReqCaller<Member, PermissionMemberUpdateResult> {
+        private final PermissionMembers permissionMembers;
+        
+        private final Member body;
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private PermissionMemberUpdateResult result;
+        
+        private PermissionMemberUpdateReqCall(PermissionMembers permissionMembers, Member body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new PermissionMemberUpdateResult();
+            this.permissionMembers = permissionMembers;
+        }
+        
+        public PermissionMemberUpdateReqCall setToken(String token){
+            this.pathParams.put("token", token);
+            return this;
+        }
+        public PermissionMemberUpdateReqCall setMemberId(String memberId){
+            this.pathParams.put("member_id", memberId);
+            return this;
+        }
+        
+        public PermissionMemberUpdateReqCall setNeedNotification(Boolean needNotification){
+            this.queryParams.put("need_notification", needNotification);
+            return this;
+        }
+        public PermissionMemberUpdateReqCall setType(String type){
+            this.queryParams.put("type", type);
+            return this;
+        }
+
+        @Override
+        public Response<PermissionMemberUpdateResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Member, PermissionMemberUpdateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/permissions/:token/members/:member_id", "PUT",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.permissionMembers.service.config, request);
+        }
+    }
+
+    public PermissionPublics getPermissionPublics() {
+        return permissionPublics;
+    }
+
+    public static class PermissionPublics {
+
+        private final DriveService service;
+
+        public PermissionPublics(DriveService service) {
+            this.service = service;
+        }
+    
+        public PermissionPublicPatchReqCall patch(PermissionPublic body, RequestOptFn... optFns) {
+            return new PermissionPublicPatchReqCall(this, body, optFns);
+        }
+    
+    }
+    public static class PermissionPublicPatchReqCall extends ReqCaller<PermissionPublic, PermissionPublicPatchResult> {
+        private final PermissionPublics permissionPublics;
+        
+        private final PermissionPublic body;
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private PermissionPublicPatchResult result;
+        
+        private PermissionPublicPatchReqCall(PermissionPublics permissionPublics, PermissionPublic body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new PermissionPublicPatchResult();
+            this.permissionPublics = permissionPublics;
+        }
+        
+        public PermissionPublicPatchReqCall setToken(String token){
+            this.pathParams.put("token", token);
+            return this;
+        }
+        
+        public PermissionPublicPatchReqCall setType(String type){
+            this.queryParams.put("type", type);
+            return this;
+        }
+
+        @Override
+        public Response<PermissionPublicPatchResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<PermissionPublic, PermissionPublicPatchResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/permissions/:token/public", "PATCH",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.permissionPublics.service.config, request);
+        }
+    }
+
+    public FileStatisticss getFileStatisticss() {
+        return fileStatisticss;
+    }
+
+    public static class FileStatisticss {
+
+        private final DriveService service;
+
+        public FileStatisticss(DriveService service) {
+            this.service = service;
+        }
+    
+        public FileStatisticsGetReqCall get(RequestOptFn... optFns) {
+            return new FileStatisticsGetReqCall(this, optFns);
+        }
+    
+    }
+    public static class FileStatisticsGetReqCall extends ReqCaller<Object, FileStatisticsGetResult> {
+        private final FileStatisticss fileStatisticss;
+        
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private FileStatisticsGetResult result;
+        
+        private FileStatisticsGetReqCall(FileStatisticss fileStatisticss, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new FileStatisticsGetResult();
+            this.fileStatisticss = fileStatisticss;
+        }
+        
+        public FileStatisticsGetReqCall setFileToken(String fileToken){
+            this.pathParams.put("file_token", fileToken);
+            return this;
+        }
+        
+        public FileStatisticsGetReqCall setFileType(String fileType){
+            this.queryParams.put("file_type", fileType);
+            return this;
+        }
+
+        @Override
+        public Response<FileStatisticsGetResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, FileStatisticsGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/drive/v1/files/:file_token/statistics", "GET",
+                    new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.fileStatisticss.service.config, request);
         }
     }
     public void setFileDeletedEventHandler(FileDeletedEventHandler handler) {
@@ -1003,6 +1331,16 @@ public class DriveService {
         @Override
         public FileTrashedEvent getEvent() {
             return new FileTrashedEvent();
+        }
+    }
+    public void setFileEditEventHandler(FileEditEventHandler handler) {
+        Event.setTypeHandler(this.config, "drive.file.edit_v1", handler);
+    }
+
+    public abstract static class FileEditEventHandler implements IHandler<FileEditEvent> {
+        @Override
+        public FileEditEvent getEvent() {
+            return new FileEditEvent();
         }
     }
 

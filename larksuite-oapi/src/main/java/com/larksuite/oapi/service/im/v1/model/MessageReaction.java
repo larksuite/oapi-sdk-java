@@ -8,7 +8,7 @@ public class MessageReaction {
     @SerializedName("operator")
     private Operator operator;
     @SerializedName("action_time")
-    private String actionTime;
+    private Long actionTime;
     @SerializedName("reaction_type")
     private Emoji reactionType;
 
@@ -28,11 +28,11 @@ public class MessageReaction {
         this.operator = operator;
     }
 
-    public String getActionTime() {
+    public Long getActionTime() {
         return this.actionTime;
     }
 
-    public void setActionTime(String actionTime) {
+    public void setActionTime(Long actionTime) {
         this.actionTime = actionTime;
     }
 

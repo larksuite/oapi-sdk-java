@@ -9,6 +9,8 @@ public class RoomConfig {
     private String displayBackground;
     @SerializedName("digital_signage")
     private RoomDigitalSignage digitalSignage;
+    @SerializedName("room_box_digital_signage")
+    private RoomDigitalSignage roomBoxDigitalSignage;
 
     public String getRoomBackground() {
         return this.roomBackground;
@@ -32,6 +34,14 @@ public class RoomConfig {
 
     public void setDigitalSignage(RoomDigitalSignage digitalSignage) {
         this.digitalSignage = digitalSignage;
+    }
+
+    public RoomDigitalSignage getRoomBoxDigitalSignage() {
+        return this.roomBoxDigitalSignage;
+    }
+
+    public void setRoomBoxDigitalSignage(RoomDigitalSignage roomBoxDigitalSignage) {
+        this.roomBoxDigitalSignage = roomBoxDigitalSignage;
     }
 
 }

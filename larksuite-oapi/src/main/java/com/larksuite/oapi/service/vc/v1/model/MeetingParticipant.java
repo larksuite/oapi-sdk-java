@@ -5,6 +5,12 @@ import com.google.gson.annotations.SerializedName;
 public class MeetingParticipant {
     @SerializedName("id")
     private String id;
+    @SerializedName("first_join_time")
+    private Long firstJoinTime;
+    @SerializedName("final_leave_time")
+    private Long finalLeaveTime;
+    @SerializedName("in_meeting_duration")
+    private Long inMeetingDuration;
     @SerializedName("user_type")
     private Integer userType;
     @SerializedName("is_host")
@@ -22,6 +28,30 @@ public class MeetingParticipant {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public Long getFirstJoinTime() {
+        return this.firstJoinTime;
+    }
+
+    public void setFirstJoinTime(Long firstJoinTime) {
+        this.firstJoinTime = firstJoinTime;
+    }
+
+    public Long getFinalLeaveTime() {
+        return this.finalLeaveTime;
+    }
+
+    public void setFinalLeaveTime(Long finalLeaveTime) {
+        this.finalLeaveTime = finalLeaveTime;
+    }
+
+    public Long getInMeetingDuration() {
+        return this.inMeetingDuration;
+    }
+
+    public void setInMeetingDuration(Long inMeetingDuration) {
+        this.inMeetingDuration = inMeetingDuration;
     }
 
     public Integer getUserType() {

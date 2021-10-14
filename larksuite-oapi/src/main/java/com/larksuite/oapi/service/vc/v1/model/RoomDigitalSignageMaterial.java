@@ -17,6 +17,10 @@ public class RoomDigitalSignageMaterial {
     private String cover;
     @SerializedName("md5")
     private String md5;
+    @SerializedName("vid")
+    private String vid;
+    @SerializedName("size")
+    private String size;
 
     public String getId() {
         return this.id;
@@ -72,6 +76,22 @@ public class RoomDigitalSignageMaterial {
 
     public void setMd5(String md5) {
         this.md5 = md5;
+    }
+
+    public String getVid() {
+        return this.vid;
+    }
+
+    public void setVid(String vid) {
+        this.vid = vid;
+    }
+
+    public String getSize() {
+        return this.size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
     }
 
 }

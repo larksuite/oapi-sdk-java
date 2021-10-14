@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName;
 public class App {
     @SerializedName("app_token")
     private String appToken;
+    @SerializedName("name")
+    private String name;
     @SerializedName("revision")
     private Integer revision;
 
@@ -14,6 +16,14 @@ public class App {
 
     public void setAppToken(String appToken) {
         this.appToken = appToken;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getRevision() {

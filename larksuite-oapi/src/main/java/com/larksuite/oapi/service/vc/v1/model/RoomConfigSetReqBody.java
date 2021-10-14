@@ -6,15 +6,15 @@ public class RoomConfigSetReqBody {
     @SerializedName("scope")
     private Integer scope;
     @SerializedName("country_id")
-    private Long countryId;
+    private String countryId;
     @SerializedName("district_id")
-    private Long districtId;
+    private String districtId;
     @SerializedName("building_id")
-    private Long buildingId;
+    private String buildingId;
     @SerializedName("floor_name")
     private String floorName;
     @SerializedName("room_id")
-    private Long roomId;
+    private String roomId;
     @SerializedName("room_config")
     private RoomConfig roomConfig;
 
@@ -26,27 +26,27 @@ public class RoomConfigSetReqBody {
         this.scope = scope;
     }
 
-    public Long getCountryId() {
+    public String getCountryId() {
         return this.countryId;
     }
 
-    public void setCountryId(Long countryId) {
+    public void setCountryId(String countryId) {
         this.countryId = countryId;
     }
 
-    public Long getDistrictId() {
+    public String getDistrictId() {
         return this.districtId;
     }
 
-    public void setDistrictId(Long districtId) {
+    public void setDistrictId(String districtId) {
         this.districtId = districtId;
     }
 
-    public Long getBuildingId() {
+    public String getBuildingId() {
         return this.buildingId;
     }
 
-    public void setBuildingId(Long buildingId) {
+    public void setBuildingId(String buildingId) {
         this.buildingId = buildingId;
     }
 
@@ -58,11 +58,11 @@ public class RoomConfigSetReqBody {
         this.floorName = floorName;
     }
 
-    public Long getRoomId() {
+    public String getRoomId() {
         return this.roomId;
     }
 
-    public void setRoomId(Long roomId) {
+    public void setRoomId(String roomId) {
         this.roomId = roomId;
     }
 

@@ -54,7 +54,7 @@
 <dependency>
     <groupId>com.larksuite.oapi</groupId>
     <artifactId>larksuite-oapi</artifactId>
-    <version>1.0.17-rc7</version>
+    <version>1.0.18-rc3</version>
 </dependency>
 ```
 
@@ -64,7 +64,7 @@
 <dependency>
     <groupId>com.larksuite.oapi</groupId>
     <artifactId>larksuite-oapi</artifactId>
-    <version>1.0.8</version>
+    <version>1.0.18-rc3</version>
 </dependency>
 ```
 

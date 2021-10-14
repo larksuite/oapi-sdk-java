@@ -137,7 +137,7 @@ public class EhrService {
             this.queryParams.put("user_id_type", userIdType);
             return this;
         }
-        public EmployeeListReqCall setUserIds(String userIds){
+        public EmployeeListReqCall setUserIds(String... userIds){
             this.queryParams.put("user_ids", userIds);
             return this;
         }

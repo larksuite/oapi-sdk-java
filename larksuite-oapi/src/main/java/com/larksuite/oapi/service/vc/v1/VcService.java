@@ -66,6 +66,10 @@ public class VcService {
             return new MeetingKickoutReqCall(this, body, optFns);
         }
     
+        public MeetingListByNoReqCall listByNo(RequestOptFn... optFns) {
+            return new MeetingListByNoReqCall(this, optFns);
+        }
+    
     }
     public static class MeetingInviteReqCall extends ReqCaller<MeetingInviteReqBody, MeetingInviteResult> {
         private final Meetings meetings;
@@ -260,6 +264,53 @@ public class VcService {
             com.larksuite.oapi.core.api.request.Request<MeetingKickoutReqBody, MeetingKickoutResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/vc/v1/meetings/:meeting_id/kickout", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.meetings.service.config, request);
+        }
+    }
+    public static class MeetingListByNoReqCall extends ReqCaller<Object, MeetingListByNoResult> {
+        private final Meetings meetings;
+        
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private MeetingListByNoResult result;
+        
+        private MeetingListByNoReqCall(Meetings meetings, RequestOptFn... optFns) {
+        
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new MeetingListByNoResult();
+            this.meetings = meetings;
+        }
+        
+        
+        public MeetingListByNoReqCall setMeetingNo(String meetingNo){
+            this.queryParams.put("meeting_no", meetingNo);
+            return this;
+        }
+        public MeetingListByNoReqCall setStartTime(Long startTime){
+            this.queryParams.put("start_time", startTime);
+            return this;
+        }
+        public MeetingListByNoReqCall setEndTime(Long endTime){
+            this.queryParams.put("end_time", endTime);
+            return this;
+        }
+        public MeetingListByNoReqCall setPageToken(String pageToken){
+            this.queryParams.put("page_token", pageToken);
+            return this;
+        }
+        public MeetingListByNoReqCall setPageSize(Integer pageSize){
+            this.queryParams.put("page_size", pageSize);
+            return this;
+        }
+
+        @Override
+        public Response<MeetingListByNoResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, MeetingListByNoResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/vc/v1/meetings/list_by_no", "GET",
+                    new AccessTokenType[]{AccessTokenType.User, AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.meetings.service.config, request);
         }
     }
@@ -789,15 +840,15 @@ public class VcService {
             this.queryParams.put("scope", scope);
             return this;
         }
-        public RoomConfigQueryReqCall setCountryId(Long countryId){
+        public RoomConfigQueryReqCall setCountryId(String countryId){
             this.queryParams.put("country_id", countryId);
             return this;
         }
-        public RoomConfigQueryReqCall setDistrictId(Long districtId){
+        public RoomConfigQueryReqCall setDistrictId(String districtId){
             this.queryParams.put("district_id", districtId);
             return this;
         }
-        public RoomConfigQueryReqCall setBuildingId(Long buildingId){
+        public RoomConfigQueryReqCall setBuildingId(String buildingId){
             this.queryParams.put("building_id", buildingId);
             return this;
         }
@@ -805,7 +856,7 @@ public class VcService {
             this.queryParams.put("floor_name", floorName);
             return this;
         }
-        public RoomConfigQueryReqCall setRoomId(Long roomId){
+        public RoomConfigQueryReqCall setRoomId(String roomId){
             this.queryParams.put("room_id", roomId);
             return this;
         }

@@ -20,20 +20,22 @@ public class ContactService {
 
     private final Config config;
     private final Users users;
-    private final UserGroups userGroups;
     private final Departments departments;
     private final Scopes scopes;
-    private final CustomAttrEvents customAttrEvents;
     private final EmployeeTypeEnums employeeTypeEnums;
+    private final CustomAttrs customAttrs;
+    private final Groups groups;
+    private final GroupMembers groupMembers;
 
     public ContactService(Config config) {
         this.config = config;
         this.users = new Users(this);
-        this.userGroups = new UserGroups(this);
         this.departments = new Departments(this);
         this.scopes = new Scopes(this);
-        this.customAttrEvents = new CustomAttrEvents(this);
         this.employeeTypeEnums = new EmployeeTypeEnums(this);
+        this.customAttrs = new CustomAttrs(this);
+        this.groups = new Groups(this);
+        this.groupMembers = new GroupMembers(this);
     }
 
     public Users getUsers() {
@@ -105,9 +107,9 @@ public class ContactService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<UserDeleteReqBody, EmptyData> request = Request.newRequest("contact/v3/users/:user_id", "DELETE",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<UserDeleteReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/users/:user_id", "DELETE",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.users.service.config, request);
@@ -149,9 +151,9 @@ public class ContactService {
 
         @Override
         public Response<UserUpdateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<User, UserUpdateResult> request = Request.newRequest("contact/v3/users/:user_id", "PUT",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<User, UserUpdateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/users/:user_id", "PUT",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.users.service.config, request);
@@ -191,8 +193,8 @@ public class ContactService {
 
         @Override
         public Response<UserCreateResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<User, UserCreateResult> request = Request.newRequest("contact/v3/users", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<User, UserCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/users", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.users.service.config, request);
@@ -234,9 +236,9 @@ public class ContactService {
 
         @Override
         public Response<UserPatchResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<User, UserPatchResult> request = Request.newRequest("contact/v3/users/:user_id", "PATCH",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<User, UserPatchResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/users/:user_id", "PATCH",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.users.service.config, request);
@@ -276,9 +278,9 @@ public class ContactService {
 
         @Override
         public Response<UserGetResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, UserGetResult> request = Request.newRequest("contact/v3/users/:user_id", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, UserGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/users/:user_id", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.users.service.config, request);
@@ -324,26 +326,12 @@ public class ContactService {
 
         @Override
         public Response<UserListResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, UserListResult> request = Request.newRequest("contact/v3/users", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, UserListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/users", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.users.service.config, request);
         }
-    }
-
-    public UserGroups getUserGroups() {
-        return userGroups;
-    }
-
-    public static class UserGroups {
-
-        private final ContactService service;
-
-        public UserGroups(ContactService service) {
-            this.service = service;
-        }
-    
     }
 
     public Departments getDepartments() {
@@ -425,9 +413,9 @@ public class ContactService {
 
         @Override
         public Response<DepartmentGetResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, DepartmentGetResult> request = Request.newRequest("contact/v3/departments/:department_id", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, DepartmentGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/departments/:department_id", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.departments.service.config, request);
@@ -477,8 +465,8 @@ public class ContactService {
 
         @Override
         public Response<DepartmentListResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, DepartmentListResult> request = Request.newRequest("contact/v3/departments", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, DepartmentListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/departments", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.departments.service.config, request);
@@ -520,9 +508,9 @@ public class ContactService {
 
         @Override
         public Response<DepartmentPatchResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Department, DepartmentPatchResult> request = Request.newRequest("contact/v3/departments/:department_id", "PATCH",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Department, DepartmentPatchResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/departments/:department_id", "PATCH",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.departments.service.config, request);
@@ -562,8 +550,8 @@ public class ContactService {
 
         @Override
         public Response<DepartmentCreateResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Department, DepartmentCreateResult> request = Request.newRequest("contact/v3/departments", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Department, DepartmentCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/departments", "POST",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.departments.service.config, request);
@@ -599,9 +587,9 @@ public class ContactService {
 
         @Override
         public Response<EmptyData> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, EmptyData> request = Request.newRequest("contact/v3/departments/:department_id", "DELETE",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/departments/:department_id", "DELETE",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.departments.service.config, request);
@@ -643,9 +631,9 @@ public class ContactService {
 
         @Override
         public Response<DepartmentUpdateResult> execute() throws Exception {
-            this.optFns.add(Request.setPathParams(this.pathParams));
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Department, DepartmentUpdateResult> request = Request.newRequest("contact/v3/departments/:department_id", "PUT",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Department, DepartmentUpdateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/departments/:department_id", "PUT",
                     new AccessTokenType[]{AccessTokenType.Tenant},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.departments.service.config, request);
@@ -691,8 +679,8 @@ public class ContactService {
 
         @Override
         public Response<DepartmentParentResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<Object, DepartmentParentResult> request = Request.newRequest("contact/v3/departments/parent", "GET",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, DepartmentParentResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/departments/parent", "GET",
                     new AccessTokenType[]{AccessTokenType.Tenant, AccessTokenType.User},
                     null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.departments.service.config, request);
@@ -736,8 +724,8 @@ public class ContactService {
 
         @Override
         public Response<DepartmentSearchResult> execute() throws Exception {
-            this.optFns.add(Request.setQueryParams(this.queryParams));
-            Request<DepartmentSearchReqBody, DepartmentSearchResult> request = Request.newRequest("contact/v3/departments/search", "POST",
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<DepartmentSearchReqBody, DepartmentSearchResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/departments/search", "POST",
                     new AccessTokenType[]{AccessTokenType.User},
                     this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
             return Api.send(this.departments.service.config, request);
@@ -758,20 +746,6 @@ public class ContactService {
     
     }
 
-    public CustomAttrEvents getCustomAttrEvents() {
-        return customAttrEvents;
-    }
-
-    public static class CustomAttrEvents {
-
-        private final ContactService service;
-
-        public CustomAttrEvents(ContactService service) {
-            this.service = service;
-        }
-    
-    }
-
     public EmployeeTypeEnums getEmployeeTypeEnums() {
         return employeeTypeEnums;
     }
@@ -784,6 +758,527 @@ public class ContactService {
             this.service = service;
         }
     
+        public EmployeeTypeEnumListReqCall list(RequestOptFn... optFns) {
+            return new EmployeeTypeEnumListReqCall(this, optFns);
+        }
+    
+        public EmployeeTypeEnumCreateReqCall create(EmployeeTypeEnum body, RequestOptFn... optFns) {
+            return new EmployeeTypeEnumCreateReqCall(this, body, optFns);
+        }
+    
+        public EmployeeTypeEnumDeleteReqCall delete(RequestOptFn... optFns) {
+            return new EmployeeTypeEnumDeleteReqCall(this, optFns);
+        }
+    
+        public EmployeeTypeEnumUpdateReqCall update(EmployeeTypeEnum body, RequestOptFn... optFns) {
+            return new EmployeeTypeEnumUpdateReqCall(this, body, optFns);
+        }
+    
+    }
+    public static class EmployeeTypeEnumListReqCall extends ReqCaller<Object, EmployeeTypeEnumListResult> {
+        private final EmployeeTypeEnums employeeTypeEnums;
+        
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private EmployeeTypeEnumListResult result;
+        
+        private EmployeeTypeEnumListReqCall(EmployeeTypeEnums employeeTypeEnums, RequestOptFn... optFns) {
+        
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmployeeTypeEnumListResult();
+            this.employeeTypeEnums = employeeTypeEnums;
+        }
+        
+        
+        public EmployeeTypeEnumListReqCall setPageToken(String pageToken){
+            this.queryParams.put("page_token", pageToken);
+            return this;
+        }
+        public EmployeeTypeEnumListReqCall setPageSize(Integer pageSize){
+            this.queryParams.put("page_size", pageSize);
+            return this;
+        }
+
+        @Override
+        public Response<EmployeeTypeEnumListResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmployeeTypeEnumListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/employee_type_enums", "GET",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.employeeTypeEnums.service.config, request);
+        }
+    }
+    public static class EmployeeTypeEnumCreateReqCall extends ReqCaller<EmployeeTypeEnum, EmployeeTypeEnumCreateResult> {
+        private final EmployeeTypeEnums employeeTypeEnums;
+        
+        private final EmployeeTypeEnum body;
+        private final List<RequestOptFn> optFns;
+        private EmployeeTypeEnumCreateResult result;
+        
+        private EmployeeTypeEnumCreateReqCall(EmployeeTypeEnums employeeTypeEnums, EmployeeTypeEnum body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmployeeTypeEnumCreateResult();
+            this.employeeTypeEnums = employeeTypeEnums;
+        }
+        
+
+        @Override
+        public Response<EmployeeTypeEnumCreateResult> execute() throws Exception {
+            com.larksuite.oapi.core.api.request.Request<EmployeeTypeEnum, EmployeeTypeEnumCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/employee_type_enums", "POST",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.employeeTypeEnums.service.config, request);
+        }
+    }
+    public static class EmployeeTypeEnumDeleteReqCall extends ReqCaller<Object, EmptyData> {
+        private final EmployeeTypeEnums employeeTypeEnums;
+        
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private EmployeeTypeEnumDeleteReqCall(EmployeeTypeEnums employeeTypeEnums, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.employeeTypeEnums = employeeTypeEnums;
+        }
+        
+        public EmployeeTypeEnumDeleteReqCall setEnumId(String enumId){
+            this.pathParams.put("enum_id", enumId);
+            return this;
+        }
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/employee_type_enums/:enum_id", "DELETE",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.employeeTypeEnums.service.config, request);
+        }
+    }
+    public static class EmployeeTypeEnumUpdateReqCall extends ReqCaller<EmployeeTypeEnum, EmployeeTypeEnumUpdateResult> {
+        private final EmployeeTypeEnums employeeTypeEnums;
+        
+        private final EmployeeTypeEnum body;
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private EmployeeTypeEnumUpdateResult result;
+        
+        private EmployeeTypeEnumUpdateReqCall(EmployeeTypeEnums employeeTypeEnums, EmployeeTypeEnum body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmployeeTypeEnumUpdateResult();
+            this.employeeTypeEnums = employeeTypeEnums;
+        }
+        
+        public EmployeeTypeEnumUpdateReqCall setEnumId(String enumId){
+            this.pathParams.put("enum_id", enumId);
+            return this;
+        }
+
+        @Override
+        public Response<EmployeeTypeEnumUpdateResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<EmployeeTypeEnum, EmployeeTypeEnumUpdateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/employee_type_enums/:enum_id", "PUT",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.employeeTypeEnums.service.config, request);
+        }
+    }
+
+    public CustomAttrs getCustomAttrs() {
+        return customAttrs;
+    }
+
+    public static class CustomAttrs {
+
+        private final ContactService service;
+
+        public CustomAttrs(ContactService service) {
+            this.service = service;
+        }
+    
+        public CustomAttrListReqCall list(RequestOptFn... optFns) {
+            return new CustomAttrListReqCall(this, optFns);
+        }
+    
+    }
+    public static class CustomAttrListReqCall extends ReqCaller<Object, CustomAttrListResult> {
+        private final CustomAttrs customAttrs;
+        
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private CustomAttrListResult result;
+        
+        private CustomAttrListReqCall(CustomAttrs customAttrs, RequestOptFn... optFns) {
+        
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new CustomAttrListResult();
+            this.customAttrs = customAttrs;
+        }
+        
+        
+        public CustomAttrListReqCall setPageSize(Integer pageSize){
+            this.queryParams.put("page_size", pageSize);
+            return this;
+        }
+        public CustomAttrListReqCall setPageToken(String pageToken){
+            this.queryParams.put("page_token", pageToken);
+            return this;
+        }
+
+        @Override
+        public Response<CustomAttrListResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, CustomAttrListResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/custom_attrs", "GET",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.customAttrs.service.config, request);
+        }
+    }
+
+    public Groups getGroups() {
+        return groups;
+    }
+
+    public static class Groups {
+
+        private final ContactService service;
+
+        public Groups(ContactService service) {
+            this.service = service;
+        }
+    
+        public GroupCreateReqCall create(GroupCreateReqBody body, RequestOptFn... optFns) {
+            return new GroupCreateReqCall(this, body, optFns);
+        }
+    
+        public GroupSimplelistReqCall simplelist(RequestOptFn... optFns) {
+            return new GroupSimplelistReqCall(this, optFns);
+        }
+    
+        public GroupDeleteReqCall delete(RequestOptFn... optFns) {
+            return new GroupDeleteReqCall(this, optFns);
+        }
+    
+        public GroupGetReqCall get(RequestOptFn... optFns) {
+            return new GroupGetReqCall(this, optFns);
+        }
+    
+        public GroupPatchReqCall patch(GroupPatchReqBody body, RequestOptFn... optFns) {
+            return new GroupPatchReqCall(this, body, optFns);
+        }
+    
+    }
+    public static class GroupCreateReqCall extends ReqCaller<GroupCreateReqBody, GroupCreateResult> {
+        private final Groups groups;
+        
+        private final GroupCreateReqBody body;
+        private final List<RequestOptFn> optFns;
+        private GroupCreateResult result;
+        
+        private GroupCreateReqCall(Groups groups, GroupCreateReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new GroupCreateResult();
+            this.groups = groups;
+        }
+        
+
+        @Override
+        public Response<GroupCreateResult> execute() throws Exception {
+            com.larksuite.oapi.core.api.request.Request<GroupCreateReqBody, GroupCreateResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/group", "POST",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.groups.service.config, request);
+        }
+    }
+    public static class GroupSimplelistReqCall extends ReqCaller<Object, GroupSimplelistResult> {
+        private final Groups groups;
+        
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private GroupSimplelistResult result;
+        
+        private GroupSimplelistReqCall(Groups groups, RequestOptFn... optFns) {
+        
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new GroupSimplelistResult();
+            this.groups = groups;
+        }
+        
+        
+        public GroupSimplelistReqCall setPageSize(Integer pageSize){
+            this.queryParams.put("page_size", pageSize);
+            return this;
+        }
+        public GroupSimplelistReqCall setPageToken(String pageToken){
+            this.queryParams.put("page_token", pageToken);
+            return this;
+        }
+        public GroupSimplelistReqCall setType(Integer type){
+            this.queryParams.put("type", type);
+            return this;
+        }
+
+        @Override
+        public Response<GroupSimplelistResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, GroupSimplelistResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/group/simplelist", "GET",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.groups.service.config, request);
+        }
+    }
+    public static class GroupDeleteReqCall extends ReqCaller<Object, EmptyData> {
+        private final Groups groups;
+        
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private GroupDeleteReqCall(Groups groups, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.groups = groups;
+        }
+        
+        public GroupDeleteReqCall setGroupId(String groupId){
+            this.pathParams.put("group_id", groupId);
+            return this;
+        }
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/group/:group_id", "DELETE",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.groups.service.config, request);
+        }
+    }
+    public static class GroupGetReqCall extends ReqCaller<Object, GroupGetResult> {
+        private final Groups groups;
+        
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private GroupGetResult result;
+        
+        private GroupGetReqCall(Groups groups, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new GroupGetResult();
+            this.groups = groups;
+        }
+        
+        public GroupGetReqCall setGroupId(String groupId){
+            this.pathParams.put("group_id", groupId);
+            return this;
+        }
+
+        @Override
+        public Response<GroupGetResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<Object, GroupGetResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/group/:group_id", "GET",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.groups.service.config, request);
+        }
+    }
+    public static class GroupPatchReqCall extends ReqCaller<GroupPatchReqBody, EmptyData> {
+        private final Groups groups;
+        
+        private final GroupPatchReqBody body;
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private GroupPatchReqCall(Groups groups, GroupPatchReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.groups = groups;
+        }
+        
+        public GroupPatchReqCall setGroupId(String groupId){
+            this.pathParams.put("group_id", groupId);
+            return this;
+        }
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<GroupPatchReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/group/:group_id", "PATCH",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.groups.service.config, request);
+        }
+    }
+
+    public GroupMembers getGroupMembers() {
+        return groupMembers;
+    }
+
+    public static class GroupMembers {
+
+        private final ContactService service;
+
+        public GroupMembers(ContactService service) {
+            this.service = service;
+        }
+    
+        public GroupMemberSimplelistReqCall simplelist(RequestOptFn... optFns) {
+            return new GroupMemberSimplelistReqCall(this, optFns);
+        }
+    
+        public GroupMemberAddReqCall add(GroupMemberAddReqBody body, RequestOptFn... optFns) {
+            return new GroupMemberAddReqCall(this, body, optFns);
+        }
+    
+        public GroupMemberRemoveReqCall remove(GroupMemberRemoveReqBody body, RequestOptFn... optFns) {
+            return new GroupMemberRemoveReqCall(this, body, optFns);
+        }
+    
+    }
+    public static class GroupMemberSimplelistReqCall extends ReqCaller<Object, GroupMemberSimplelistResult> {
+        private final GroupMembers groupMembers;
+        
+        private final Map<String, Object> pathParams;
+        private final Map<String, Object> queryParams;
+        private final List<RequestOptFn> optFns;
+        private GroupMemberSimplelistResult result;
+        
+        private GroupMemberSimplelistReqCall(GroupMembers groupMembers, RequestOptFn... optFns) {
+        
+            this.pathParams = new HashMap<>();
+            this.queryParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new GroupMemberSimplelistResult();
+            this.groupMembers = groupMembers;
+        }
+        
+        public GroupMemberSimplelistReqCall setGroupId(String groupId){
+            this.pathParams.put("group_id", groupId);
+            return this;
+        }
+        
+        public GroupMemberSimplelistReqCall setPageSize(Integer pageSize){
+            this.queryParams.put("page_size", pageSize);
+            return this;
+        }
+        public GroupMemberSimplelistReqCall setPageToken(String pageToken){
+            this.queryParams.put("page_token", pageToken);
+            return this;
+        }
+        public GroupMemberSimplelistReqCall setMemberIdType(String memberIdType){
+            this.queryParams.put("member_id_type", memberIdType);
+            return this;
+        }
+        public GroupMemberSimplelistReqCall setMemberType(String memberType){
+            this.queryParams.put("member_type", memberType);
+            return this;
+        }
+
+        @Override
+        public Response<GroupMemberSimplelistResult> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setQueryParams(this.queryParams));
+            com.larksuite.oapi.core.api.request.Request<Object, GroupMemberSimplelistResult> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/group/:group_id/member/simplelist", "GET",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    null, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.groupMembers.service.config, request);
+        }
+    }
+    public static class GroupMemberAddReqCall extends ReqCaller<GroupMemberAddReqBody, EmptyData> {
+        private final GroupMembers groupMembers;
+        
+        private final GroupMemberAddReqBody body;
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private GroupMemberAddReqCall(GroupMembers groupMembers, GroupMemberAddReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.groupMembers = groupMembers;
+        }
+        
+        public GroupMemberAddReqCall setGroupId(String groupId){
+            this.pathParams.put("group_id", groupId);
+            return this;
+        }
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<GroupMemberAddReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/group/:group_id/member/add", "POST",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.groupMembers.service.config, request);
+        }
+    }
+    public static class GroupMemberRemoveReqCall extends ReqCaller<GroupMemberRemoveReqBody, EmptyData> {
+        private final GroupMembers groupMembers;
+        
+        private final GroupMemberRemoveReqBody body;
+        private final Map<String, Object> pathParams;
+        private final List<RequestOptFn> optFns;
+        private EmptyData result;
+        
+        private GroupMemberRemoveReqCall(GroupMembers groupMembers, GroupMemberRemoveReqBody body, RequestOptFn... optFns) {
+        
+            this.body = body;
+            this.pathParams = new HashMap<>();
+            this.optFns = new ArrayList<>();
+            this.optFns.addAll(Arrays.asList(optFns));
+            this.result = new EmptyData();
+            this.groupMembers = groupMembers;
+        }
+        
+        public GroupMemberRemoveReqCall setGroupId(String groupId){
+            this.pathParams.put("group_id", groupId);
+            return this;
+        }
+
+        @Override
+        public Response<EmptyData> execute() throws Exception {
+            this.optFns.add(com.larksuite.oapi.core.api.request.Request.setPathParams(this.pathParams));
+            com.larksuite.oapi.core.api.request.Request<GroupMemberRemoveReqBody, EmptyData> request = com.larksuite.oapi.core.api.request.Request.newRequest("/open-apis/contact/v3/group/:group_id/member/remove", "POST",
+                    new AccessTokenType[]{AccessTokenType.Tenant},
+                    this.body, this.result, this.optFns.toArray(new RequestOptFn[]{}));
+            return Api.send(this.groupMembers.service.config, request);
+        }
     }
     public void setDepartmentCreatedEventHandler(DepartmentCreatedEventHandler handler) {
         Event.setTypeHandler(this.config, "contact.department.created_v3", handler);
@@ -813,96 +1308,6 @@ public class ContactService {
         @Override
         public DepartmentUpdatedEvent getEvent() {
             return new DepartmentUpdatedEvent();
-        }
-    }
-    public void setUserCreatedEventHandler(UserCreatedEventHandler handler) {
-        Event.setTypeHandler(this.config, "contact.user.created_v3", handler);
-    }
-
-    public abstract static class UserCreatedEventHandler implements IHandler<UserCreatedEvent> {
-        @Override
-        public UserCreatedEvent getEvent() {
-            return new UserCreatedEvent();
-        }
-    }
-    public void setUserDeletedEventHandler(UserDeletedEventHandler handler) {
-        Event.setTypeHandler(this.config, "contact.user.deleted_v3", handler);
-    }
-
-    public abstract static class UserDeletedEventHandler implements IHandler<UserDeletedEvent> {
-        @Override
-        public UserDeletedEvent getEvent() {
-            return new UserDeletedEvent();
-        }
-    }
-    public void setUserUpdatedEventHandler(UserUpdatedEventHandler handler) {
-        Event.setTypeHandler(this.config, "contact.user.updated_v3", handler);
-    }
-
-    public abstract static class UserUpdatedEventHandler implements IHandler<UserUpdatedEvent> {
-        @Override
-        public UserUpdatedEvent getEvent() {
-            return new UserUpdatedEvent();
-        }
-    }
-    public void setUserGroupCreatedEventHandler(UserGroupCreatedEventHandler handler) {
-        Event.setTypeHandler(this.config, "contact.user_group.created_v3", handler);
-    }
-
-    public abstract static class UserGroupCreatedEventHandler implements IHandler<UserGroupCreatedEvent> {
-        @Override
-        public UserGroupCreatedEvent getEvent() {
-            return new UserGroupCreatedEvent();
-        }
-    }
-    public void setUserGroupDeletedEventHandler(UserGroupDeletedEventHandler handler) {
-        Event.setTypeHandler(this.config, "contact.user_group.deleted_v3", handler);
-    }
-
-    public abstract static class UserGroupDeletedEventHandler implements IHandler<UserGroupDeletedEvent> {
-        @Override
-        public UserGroupDeletedEvent getEvent() {
-            return new UserGroupDeletedEvent();
-        }
-    }
-    public void setUserGroupUpdatedEventHandler(UserGroupUpdatedEventHandler handler) {
-        Event.setTypeHandler(this.config, "contact.user_group.updated_v3", handler);
-    }
-
-    public abstract static class UserGroupUpdatedEventHandler implements IHandler<UserGroupUpdatedEvent> {
-        @Override
-        public UserGroupUpdatedEvent getEvent() {
-            return new UserGroupUpdatedEvent();
-        }
-    }
-    public void setScopeUpdatedEventHandler(ScopeUpdatedEventHandler handler) {
-        Event.setTypeHandler(this.config, "contact.scope.updated_v3", handler);
-    }
-
-    public abstract static class ScopeUpdatedEventHandler implements IHandler<ScopeUpdatedEvent> {
-        @Override
-        public ScopeUpdatedEvent getEvent() {
-            return new ScopeUpdatedEvent();
-        }
-    }
-    public void setUserGroupMemberChangedEventHandler(UserGroupMemberChangedEventHandler handler) {
-        Event.setTypeHandler(this.config, "contact.user_group.member.changed_v3", handler);
-    }
-
-    public abstract static class UserGroupMemberChangedEventHandler implements IHandler<UserGroupMemberChangedEvent> {
-        @Override
-        public UserGroupMemberChangedEvent getEvent() {
-            return new UserGroupMemberChangedEvent();
-        }
-    }
-    public void setCustomAttrEventUpdatedEventHandler(CustomAttrEventUpdatedEventHandler handler) {
-        Event.setTypeHandler(this.config, "contact.custom_attr_event.updated_v3", handler);
-    }
-
-    public abstract static class CustomAttrEventUpdatedEventHandler implements IHandler<CustomAttrEventUpdatedEvent> {
-        @Override
-        public CustomAttrEventUpdatedEvent getEvent() {
-            return new CustomAttrEventUpdatedEvent();
         }
     }
     public void setEmployeeTypeEnumActivedEventHandler(EmployeeTypeEnumActivedEventHandler handler) {
@@ -953,6 +1358,46 @@ public class ContactService {
         @Override
         public EmployeeTypeEnumUpdatedEvent getEvent() {
             return new EmployeeTypeEnumUpdatedEvent();
+        }
+    }
+    public void setScopeUpdatedEventHandler(ScopeUpdatedEventHandler handler) {
+        Event.setTypeHandler(this.config, "contact.scope.updated_v3", handler);
+    }
+
+    public abstract static class ScopeUpdatedEventHandler implements IHandler<ScopeUpdatedEvent> {
+        @Override
+        public ScopeUpdatedEvent getEvent() {
+            return new ScopeUpdatedEvent();
+        }
+    }
+    public void setUserCreatedEventHandler(UserCreatedEventHandler handler) {
+        Event.setTypeHandler(this.config, "contact.user.created_v3", handler);
+    }
+
+    public abstract static class UserCreatedEventHandler implements IHandler<UserCreatedEvent> {
+        @Override
+        public UserCreatedEvent getEvent() {
+            return new UserCreatedEvent();
+        }
+    }
+    public void setUserDeletedEventHandler(UserDeletedEventHandler handler) {
+        Event.setTypeHandler(this.config, "contact.user.deleted_v3", handler);
+    }
+
+    public abstract static class UserDeletedEventHandler implements IHandler<UserDeletedEvent> {
+        @Override
+        public UserDeletedEvent getEvent() {
+            return new UserDeletedEvent();
+        }
+    }
+    public void setUserUpdatedEventHandler(UserUpdatedEventHandler handler) {
+        Event.setTypeHandler(this.config, "contact.user.updated_v3", handler);
+    }
+
+    public abstract static class UserUpdatedEventHandler implements IHandler<UserUpdatedEvent> {
+        @Override
+        public UserUpdatedEvent getEvent() {
+            return new UserUpdatedEvent();
         }
     }
 

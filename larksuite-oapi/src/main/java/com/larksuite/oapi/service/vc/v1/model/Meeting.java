@@ -9,6 +9,8 @@ public class Meeting {
     private String topic;
     @SerializedName("url")
     private String url;
+    @SerializedName("meeting_no")
+    private String meetingNo;
     @SerializedName("create_time")
     private Long createTime;
     @SerializedName("start_time")
@@ -21,6 +23,8 @@ public class Meeting {
     private Integer status;
     @SerializedName("participant_count")
     private Long participantCount;
+    @SerializedName("participant_count_accumulated")
+    private Long participantCountAccumulated;
     @SerializedName("participants")
     private MeetingParticipant[] participants;
     @SerializedName("ability")
@@ -48,6 +52,14 @@ public class Meeting {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getMeetingNo() {
+        return this.meetingNo;
+    }
+
+    public void setMeetingNo(String meetingNo) {
+        this.meetingNo = meetingNo;
     }
 
     public Long getCreateTime() {
@@ -96,6 +108,14 @@ public class Meeting {
 
     public void setParticipantCount(Long participantCount) {
         this.participantCount = participantCount;
+    }
+
+    public Long getParticipantCountAccumulated() {
+        return this.participantCountAccumulated;
+    }
+
+    public void setParticipantCountAccumulated(Long participantCountAccumulated) {
+        this.participantCountAccumulated = participantCountAccumulated;
     }
 
     public MeetingParticipant[] getParticipants() {

@@ -9,6 +9,8 @@ public class FileTitleUpdatedEventData {
     private String fileToken;
     @SerializedName("operator_id")
     private UserId operatorId;
+    @SerializedName("subscriber_id_list")
+    private UserId[] subscriberIdList;
 
     public String getFileType() {
         return this.fileType;
@@ -32,6 +34,14 @@ public class FileTitleUpdatedEventData {
 
     public void setOperatorId(UserId operatorId) {
         this.operatorId = operatorId;
+    }
+
+    public UserId[] getSubscriberIdList() {
+        return this.subscriberIdList;
+    }
+
+    public void setSubscriberIdList(UserId[] subscriberIdList) {
+        this.subscriberIdList = subscriberIdList;
     }
 
 }

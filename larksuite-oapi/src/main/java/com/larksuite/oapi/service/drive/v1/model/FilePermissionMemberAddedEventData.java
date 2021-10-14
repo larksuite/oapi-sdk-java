@@ -13,6 +13,8 @@ public class FilePermissionMemberAddedEventData {
     private UserId[] userList;
     @SerializedName("chat_list")
     private String[] chatList;
+    @SerializedName("subscriber_id_list")
+    private UserId[] subscriberIdList;
 
     public String getFileType() {
         return this.fileType;
@@ -52,6 +54,14 @@ public class FilePermissionMemberAddedEventData {
 
     public void setChatList(String[] chatList) {
         this.chatList = chatList;
+    }
+
+    public UserId[] getSubscriberIdList() {
+        return this.subscriberIdList;
+    }
+
+    public void setSubscriberIdList(UserId[] subscriberIdList) {
+        this.subscriberIdList = subscriberIdList;
     }
 
 }

@@ -734,6 +734,14 @@ public class CalendarService {
             this.queryParams.put("sync_token", syncToken);
             return this;
         }
+        public CalendarEventListReqCall setStartTime(String startTime){
+            this.queryParams.put("start_time", startTime);
+            return this;
+        }
+        public CalendarEventListReqCall setEndTime(String endTime){
+            this.queryParams.put("end_time", endTime);
+            return this;
+        }
 
         @Override
         public Response<CalendarEventListResult> execute() throws Exception {
