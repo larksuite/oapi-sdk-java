@@ -9,6 +9,10 @@ public class App {
     private String name;
     @SerializedName("revision")
     private Integer revision;
+    @SerializedName("folder_token")
+    private String folderToken;
+    @SerializedName("url")
+    private String url;
 
     public String getAppToken() {
         return this.appToken;
@@ -32,6 +36,22 @@ public class App {
 
     public void setRevision(Integer revision) {
         this.revision = revision;
+    }
+
+    public String getFolderToken() {
+        return this.folderToken;
+    }
+
+    public void setFolderToken(String folderToken) {
+        this.folderToken = folderToken;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
 }

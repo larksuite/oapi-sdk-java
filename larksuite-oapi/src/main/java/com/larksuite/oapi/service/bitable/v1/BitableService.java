@@ -660,6 +660,10 @@ public class BitableService {
             return this;
         }
         
+        public AppTableRecordGetReqCall setTextFieldAsArray(Boolean textFieldAsArray){
+            this.queryParams.put("text_field_as_array", textFieldAsArray);
+            return this;
+        }
         public AppTableRecordGetReqCall setUserIdType(String userIdType){
             this.queryParams.put("user_id_type", userIdType);
             return this;
@@ -802,6 +806,10 @@ public class BitableService {
         }
         public AppTableRecordListReqCall setFieldNames(String fieldNames){
             this.queryParams.put("field_names", fieldNames);
+            return this;
+        }
+        public AppTableRecordListReqCall setTextFieldAsArray(Boolean textFieldAsArray){
+            this.queryParams.put("text_field_as_array", textFieldAsArray);
             return this;
         }
         public AppTableRecordListReqCall setPageToken(String pageToken){

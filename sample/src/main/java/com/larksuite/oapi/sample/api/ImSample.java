@@ -1,19 +1,13 @@
 package com.larksuite.oapi.sample.api;
 
-import com.larksuite.oapi.core.AppSettings;
-import com.larksuite.oapi.core.Config;
-import com.larksuite.oapi.core.DefaultStore;
-import com.larksuite.oapi.core.Domain;
-import com.larksuite.oapi.core.api.request.FormDataFile;
+import com.larksuite.oapi.core.*;
 import com.larksuite.oapi.core.api.response.Response;
 import com.larksuite.oapi.core.utils.Jsons;
 import com.larksuite.oapi.service.im.v1.ImService;
-import com.larksuite.oapi.service.im.v1.model.ImageCreateResult;
 import com.larksuite.oapi.service.im.v1.model.Message;
 import com.larksuite.oapi.service.im.v1.model.MessageCreateReqBody;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.util.concurrent.TimeUnit;
 
 public class ImSample {
     // Configuration of "Custom App", parameter description:
@@ -24,30 +18,13 @@ public class ImSample {
 
     // Currently, you are visiting Feishu, which uses default storage
     // For more information, please see: Github->README.md->Advanced use->How to build overall configuration(Config)
-    private static final Config config = new Config(Domain.FeiShu, appSettings, new DefaultStore());
+
 
     public static void main(String[] args) throws Exception {
+        DefaultStore store = new DefaultStore();
+        Config config = new Config(Domain.FeiShu, appSettings, store);
+
         ImService imService = new ImService(config);
-        ImService.ImageCreateReqCall reqCall = imService.getImages().create();
-        reqCall.setImageType("message");
-        // read files under Resources
-        try (InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.png")) {
-            // method 1: use byte stream
-            reqCall.setImage(new FormDataFile().setContentStream(inputStream));
-            // method 2: use byte array
-            // byte[] bs = IOs.readAll(inputStream);
-            // reqCall.setImage(new FormDataFile().setContent(bs));
-
-            Response<ImageCreateResult> resp = reqCall.execute();
-
-            System.out.println(resp.getRequestID());
-            System.out.println(resp.getHTTPStatusCode());
-            System.out.println(Jsons.DEFAULT_GSON.toJson(resp));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
         // body params
         MessageCreateReqBody body = new MessageCreateReqBody();
         body.setReceiveId("77bbc392");
@@ -62,5 +39,16 @@ public class ImSample {
         System.out.println(resp2.getRequestID());
         System.out.println(resp2.getHTTPStatusCode());
         System.out.println(Jsons.DEFAULT_GSON.toJson(resp2));
+
+
+        // store.put("tenant_access_token-cli_9fe8602eab7f500d-", "", 12, TimeUnit.HOURS);
+        ImService.MessageCreateReqCall reqCall3 = imService.getMessages().create(body);
+        // query params
+        reqCall3.setReceiveIdType("user_id");
+
+        Response<Message> resp3 = reqCall3.execute();
+        System.out.println(resp3.getRequestID());
+        System.out.println(resp3.getHTTPStatusCode());
+        System.out.println(Jsons.DEFAULT_GSON.toJson(resp3));
     }
 }
