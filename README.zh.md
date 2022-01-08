@@ -430,7 +430,7 @@ public class Sample {
     // Request.setPathParams(map[string]object{"user_id": 4})：设置URL Path参数（有:前缀）值，当httpPath="contact/v3/users/:user_id"时，请求的URL="https://{domain}/open-apis/contact/v3/users/4"
     // Request.setQueryParams(map[string]object{"age":4,"types":[1,2]})：设置 URL query，会在url追加?age=4&types=1&types=2
     // Request.setResponseStream()，设置响应的是否是流，例如下载文件，这时：output的类型需要实现 java.io.OutputStream 接口
-    // Request.setNotDataField(),设置响应的是否 没有`data`字段，业务接口都是有`data`字段，所以不需要设置
+    // Request.setNotDataField()，有一些 API 的响应体没有`data`字段，需要设置 
     // Request.setTenantKey("TenantKey")，以`应用商店应用`身份，表示使用`tenant_access_token`访问API，需要设置
     // Request.setUserAccessToken("UserAccessToken")，表示使用`user_access_token`访问API，需要设置
     // Request.setTimeout(int time, TimeUnit timeUnit)，设置请求超时的时间

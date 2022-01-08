@@ -343,7 +343,7 @@ public class Sample {
     // Request.setPathParams(map[string]interface{}{"user_id": 4}): set the URL Path parameter(with: prefix) value, When httpPath="contact/v3/users/:user_id", the requested URL="https://{domain}/open-apis/contact/v3/users/4"
     // Request.setQueryParams(map[string]interface{}{"age":4,"types":[1,2]}): Set the URL query, will append to the url?age=4&types=1&types=2   
     // Request.setResponseStream(), set whether the response is a stream, such as downloading a file, at this time: output type implements java.io.OutputStream interface
-    // Request.setNotDataField(), set whether the response does not have a `data` field, business interfaces all have `data `Field, so you don’t need to set 
+    // Request.setNotDataField(), some apis do not have a 'data' field in the response body and need to be set
     // Request.setTenantKey("TenantKey"), as an `app store application`, it means using `tenant_access_token` to access the API, you need to set 
     // Request.setUserAccessToken("UserAccessToken"), which means using` user_access_token` To access the API, you need to set 
     // Request.setTimeout(int time, TimeUnit timeUnit), Set the time for the request to time out
