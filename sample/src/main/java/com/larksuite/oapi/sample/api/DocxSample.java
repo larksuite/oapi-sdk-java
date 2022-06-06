@@ -13,7 +13,7 @@ import com.larksuite.oapi.service.docx.v1.model.*;
 
 public class DocxSample {
     // for Cutome APP（自建应用）
-    private static final AppSettings appSettings = new AppSettings(AppType.Internal, "cli_a1eccc36c278900d", "0PhrmTxRd7q6cqzVKx25tgvlObXNmbqD", null, null);
+    private static final AppSettings appSettings = Config.getInternalAppSettingsByEnv();
     // config with redis store
     // private static final Config config = Configs.getConfigWithRedisStore("https://open.feishu.cn", appSettings);
     // private static final Config config = Configs.getConfig("https://open.feishu.cn", appSettings);
