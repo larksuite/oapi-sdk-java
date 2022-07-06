@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.larksuite.oapi</groupId>
     <artifactId>larksuite</artifactId>
-    <version>1.0.18-rc4</version>
+    <version>2.0.0</version>
     <name>larksuite</name>
     <packaging>pom</packaging>
     <description>Larksuite open platform facilitates the integration of enterprise applications and larksuite, making
@@ -15,6 +15,6 @@
     <modules>
         <module>larksuite-oapi</module>
         <module>sample</module>
-        <module>spring-boot-examples</module>
+        <module>springboot-example</module>
     </modules>
 </project>

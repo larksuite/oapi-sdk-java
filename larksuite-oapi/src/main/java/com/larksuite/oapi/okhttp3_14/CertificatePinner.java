@@ -15,20 +15,14 @@
  */
 package com.larksuite.oapi.okhttp3_14;
 
-import java.security.cert.Certificate;
-import java.security.cert.X509Certificate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
-import javax.annotation.Nullable;
-import javax.net.ssl.SSLPeerUnverifiedException;
-
 import com.larksuite.oapi.okhttp3_14.internal.tls.CertificateChainCleaner;
 import com.larksuite.oapi.okio1_17.ByteString;
+
+import javax.annotation.Nullable;
+import javax.net.ssl.SSLPeerUnverifiedException;
+import java.security.cert.Certificate;
+import java.security.cert.X509Certificate;
+import java.util.*;
 
 /**
  * Constrains which certificates are trusted. Pinning certificates defends against attacks on
@@ -63,7 +57,7 @@ import com.larksuite.oapi.okio1_17.ByteString;
  *         .build();
  *     client.newCall(request).execute();
  * }</pre>
- *
+ * <p>
  * As expected, this fails with a certificate pinning exception: <pre>   {@code
  *
  * javax.net.ssl.SSLPeerUnverifiedException: Certificate pinning failure!
@@ -79,7 +73,7 @@ import com.larksuite.oapi.okio1_17.ByteString;
  *   at okhttp3.Connection.connect(Connection.java)
  *   at okhttp3.Connection.connectAndSetOwner(Connection.java)
  * }</pre>
- *
+ * <p>
  * Follow up by pasting the public key hashes from the exception into the
  * certificate pinner's configuration: <pre>   {@code
  *
@@ -90,7 +84,7 @@ import com.larksuite.oapi.okio1_17.ByteString;
  *       .add("publicobject.com", "sha256/lCppFqbkrlJ3EcVFAkeip0+44VaoJUymbnOaEUk7tEU=")
  *       .build();
  * }</pre>
- *
+ * <p>
  * Pinning is per-hostname and/or per-wildcard pattern. To pin both {@code publicobject.com} and
  * {@code www.publicobject.com}, you must configure both hostnames.
  *
@@ -105,7 +99,7 @@ import com.larksuite.oapi.okio1_17.ByteString;
  *         {@code sub.test.example.com}.
  *     <li>Wildcard patterns for single-label domain names are not permitted.
  * </ol>
- *
+ * <p>
  * If hostname pinned directly and via wildcard pattern, both direct and wildcard pins will be used.
  * For example: {@code *.example.com} pinned with {@code pin1} and {@code a.example.com} pinned with
  * {@code pin2}, to check {@code a.example.com} both {@code pin1} and {@code pin2} will be used.
@@ -126,221 +120,240 @@ import com.larksuite.oapi.okio1_17.ByteString;
  * Certificate and Public Key Pinning</a>
  */
 public final class CertificatePinner {
-  public static final CertificatePinner DEFAULT = new Builder().build();
+    public static final CertificatePinner DEFAULT = new Builder().build();
 
-  private final Set<Pin> pins;
-  private final @Nullable
-  CertificateChainCleaner certificateChainCleaner;
+    private final Set<Pin> pins;
+    private final @Nullable
+    CertificateChainCleaner certificateChainCleaner;
 
-  CertificatePinner(Set<Pin> pins, @Nullable CertificateChainCleaner certificateChainCleaner) {
-    this.pins = pins;
-    this.certificateChainCleaner = certificateChainCleaner;
-  }
-
-  @Override public boolean equals(@Nullable Object other) {
-    if (other == this) return true;
-    return other instanceof CertificatePinner
-        && (Objects.equals(certificateChainCleaner,
-        ((CertificatePinner) other).certificateChainCleaner)
-        && pins.equals(((CertificatePinner) other).pins));
-  }
-
-  @Override public int hashCode() {
-    int result = Objects.hashCode(certificateChainCleaner);
-    result = 31 * result + pins.hashCode();
-    return result;
-  }
-
-  /**
-   * Confirms that at least one of the certificates pinned for {@code hostname} is in {@code
-   * peerCertificates}. Does nothing if there are no certificates pinned for {@code hostname}.
-   * OkHttp calls this after a successful TLS handshake, but before the connection is used.
-   *
-   * @throws SSLPeerUnverifiedException if {@code peerCertificates} don't match the certificates
-   * pinned for {@code hostname}.
-   */
-  public void check(String hostname, List<Certificate> peerCertificates)
-      throws SSLPeerUnverifiedException {
-    List<Pin> pins = findMatchingPins(hostname);
-    if (pins.isEmpty()) return;
-
-    if (certificateChainCleaner != null) {
-      peerCertificates = certificateChainCleaner.clean(peerCertificates, hostname);
+    CertificatePinner(Set<Pin> pins, @Nullable CertificateChainCleaner certificateChainCleaner) {
+        this.pins = pins;
+        this.certificateChainCleaner = certificateChainCleaner;
     }
-
-    for (int c = 0, certsSize = peerCertificates.size(); c < certsSize; c++) {
-      X509Certificate x509Certificate = (X509Certificate) peerCertificates.get(c);
-
-      // Lazily compute the hashes for each certificate.
-      ByteString sha1 = null;
-      ByteString sha256 = null;
-
-      for (int p = 0, pinsSize = pins.size(); p < pinsSize; p++) {
-        Pin pin = pins.get(p);
-        if (pin.hashAlgorithm.equals("sha256/")) {
-          if (sha256 == null) sha256 = sha256(x509Certificate);
-          if (pin.hash.equals(sha256)) return; // Success!
-        } else if (pin.hashAlgorithm.equals("sha1/")) {
-          if (sha1 == null) sha1 = sha1(x509Certificate);
-          if (pin.hash.equals(sha1)) return; // Success!
-        } else {
-          throw new AssertionError("unsupported hashAlgorithm: " + pin.hashAlgorithm);
-        }
-      }
-    }
-
-    // If we couldn't find a matching pin, format a nice exception.
-    StringBuilder message = new StringBuilder()
-        .append("Certificate pinning failure!")
-        .append("\n  Peer certificate chain:");
-    for (int c = 0, certsSize = peerCertificates.size(); c < certsSize; c++) {
-      X509Certificate x509Certificate = (X509Certificate) peerCertificates.get(c);
-      message.append("\n    ").append(pin(x509Certificate))
-          .append(": ").append(x509Certificate.getSubjectDN().getName());
-    }
-    message.append("\n  Pinned certificates for ").append(hostname).append(":");
-    for (int p = 0, pinsSize = pins.size(); p < pinsSize; p++) {
-      Pin pin = pins.get(p);
-      message.append("\n    ").append(pin);
-    }
-    throw new SSLPeerUnverifiedException(message.toString());
-  }
-
-  /** @deprecated replaced with {@link #check(String, List)}. */
-  public void check(String hostname, Certificate... peerCertificates)
-      throws SSLPeerUnverifiedException {
-    check(hostname, Arrays.asList(peerCertificates));
-  }
-
-  /**
-   * Returns list of matching certificates' pins for the hostname. Returns an empty list if the
-   * hostname does not have pinned certificates.
-   */
-  List<Pin> findMatchingPins(String hostname) {
-    List<Pin> result = Collections.emptyList();
-    for (Pin pin : pins) {
-      if (pin.matches(hostname)) {
-        if (result.isEmpty()) result = new ArrayList<>();
-        result.add(pin);
-      }
-    }
-    return result;
-  }
-
-  /** Returns a certificate pinner that uses {@code certificateChainCleaner}. */
-  CertificatePinner withCertificateChainCleaner(
-      @Nullable CertificateChainCleaner certificateChainCleaner) {
-    return Objects.equals(this.certificateChainCleaner, certificateChainCleaner)
-        ? this
-        : new CertificatePinner(pins, certificateChainCleaner);
-  }
-
-  /**
-   * Returns the SHA-256 of {@code certificate}'s public key.
-   *
-   * <p>In OkHttp 3.1.2 and earlier, this returned a SHA-1 hash of the public key. Both types are
-   * supported, but SHA-256 is preferred.
-   */
-  public static String pin(Certificate certificate) {
-    if (!(certificate instanceof X509Certificate)) {
-      throw new IllegalArgumentException("Certificate pinning requires X509 certificates");
-    }
-    return "sha256/" + sha256((X509Certificate) certificate).base64();
-  }
-
-  static ByteString sha1(X509Certificate x509Certificate) {
-    return ByteString.of(x509Certificate.getPublicKey().getEncoded()).sha1();
-  }
-
-  static ByteString sha256(X509Certificate x509Certificate) {
-    return ByteString.of(x509Certificate.getPublicKey().getEncoded()).sha256();
-  }
-
-  static final class Pin {
-    private static final String WILDCARD = "*.";
-    /** A hostname like {@code example.com} or a pattern like {@code *.example.com}. */
-    final String pattern;
-    /** The canonical hostname, i.e. {@code EXAMPLE.com} becomes {@code example.com}. */
-    final String canonicalHostname;
-    /** Either {@code sha1/} or {@code sha256/}. */
-    final String hashAlgorithm;
-    /** The hash of the pinned certificate using {@link #hashAlgorithm}. */
-    final ByteString hash;
-
-    Pin(String pattern, String pin) {
-      this.pattern = pattern;
-      this.canonicalHostname = pattern.startsWith(WILDCARD)
-          ? HttpUrl.get("http://" + pattern.substring(WILDCARD.length())).host()
-          : HttpUrl.get("http://" + pattern).host();
-      if (pin.startsWith("sha1/")) {
-        this.hashAlgorithm = "sha1/";
-        this.hash = ByteString.decodeBase64(pin.substring("sha1/".length()));
-      } else if (pin.startsWith("sha256/")) {
-        this.hashAlgorithm = "sha256/";
-        this.hash = ByteString.decodeBase64(pin.substring("sha256/".length()));
-      } else {
-        throw new IllegalArgumentException("pins must start with 'sha256/' or 'sha1/': " + pin);
-      }
-
-      if (this.hash == null) {
-        throw new IllegalArgumentException("pins must be base64: " + pin);
-      }
-    }
-
-    boolean matches(String hostname) {
-      if (pattern.startsWith(WILDCARD)) {
-        int firstDot = hostname.indexOf('.');
-        return (hostname.length() - firstDot - 1) == canonicalHostname.length()
-            && hostname.regionMatches(false, firstDot + 1, canonicalHostname, 0,
-            canonicalHostname.length());
-      }
-
-      return hostname.equals(canonicalHostname);
-    }
-
-    @Override public boolean equals(Object other) {
-      return other instanceof Pin
-          && pattern.equals(((Pin) other).pattern)
-          && hashAlgorithm.equals(((Pin) other).hashAlgorithm)
-          && hash.equals(((Pin) other).hash);
-    }
-
-    @Override public int hashCode() {
-      int result = 17;
-      result = 31 * result + pattern.hashCode();
-      result = 31 * result + hashAlgorithm.hashCode();
-      result = 31 * result + hash.hashCode();
-      return result;
-    }
-
-    @Override public String toString() {
-      return hashAlgorithm + hash.base64();
-    }
-  }
-
-  /** Builds a configured certificate pinner. */
-  public static final class Builder {
-    private final List<Pin> pins = new ArrayList<>();
 
     /**
-     * Pins certificates for {@code pattern}.
+     * Returns the SHA-256 of {@code certificate}'s public key.
      *
-     * @param pattern lower-case host name or wildcard pattern such as {@code *.example.com}.
-     * @param pins SHA-256 or SHA-1 hashes. Each pin is a hash of a certificate's Subject Public Key
-     * Info, base64-encoded and prefixed with either {@code sha256/} or {@code sha1/}.
+     * <p>In OkHttp 3.1.2 and earlier, this returned a SHA-1 hash of the public key. Both types are
+     * supported, but SHA-256 is preferred.
      */
-    public Builder add(String pattern, String... pins) {
-      if (pattern == null) throw new NullPointerException("pattern == null");
-
-      for (String pin : pins) {
-        this.pins.add(new Pin(pattern, pin));
-      }
-
-      return this;
+    public static String pin(Certificate certificate) {
+        if (!(certificate instanceof X509Certificate)) {
+            throw new IllegalArgumentException("Certificate pinning requires X509 certificates");
+        }
+        return "sha256/" + sha256((X509Certificate) certificate).base64();
     }
 
-    public CertificatePinner build() {
-      return new CertificatePinner(new LinkedHashSet<>(pins), null);
+    static ByteString sha1(X509Certificate x509Certificate) {
+        return ByteString.of(x509Certificate.getPublicKey().getEncoded()).sha1();
     }
-  }
+
+    static ByteString sha256(X509Certificate x509Certificate) {
+        return ByteString.of(x509Certificate.getPublicKey().getEncoded()).sha256();
+    }
+
+    @Override
+    public boolean equals(@Nullable Object other) {
+        if (other == this) return true;
+        return other instanceof CertificatePinner
+                && (Objects.equals(certificateChainCleaner,
+                ((CertificatePinner) other).certificateChainCleaner)
+                && pins.equals(((CertificatePinner) other).pins));
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hashCode(certificateChainCleaner);
+        result = 31 * result + pins.hashCode();
+        return result;
+    }
+
+    /**
+     * Confirms that at least one of the certificates pinned for {@code hostname} is in {@code
+     * peerCertificates}. Does nothing if there are no certificates pinned for {@code hostname}.
+     * OkHttp calls this after a successful TLS handshake, but before the connection is used.
+     *
+     * @throws SSLPeerUnverifiedException if {@code peerCertificates} don't match the certificates
+     *                                    pinned for {@code hostname}.
+     */
+    public void check(String hostname, List<Certificate> peerCertificates)
+            throws SSLPeerUnverifiedException {
+        List<Pin> pins = findMatchingPins(hostname);
+        if (pins.isEmpty()) return;
+
+        if (certificateChainCleaner != null) {
+            peerCertificates = certificateChainCleaner.clean(peerCertificates, hostname);
+        }
+
+        for (int c = 0, certsSize = peerCertificates.size(); c < certsSize; c++) {
+            X509Certificate x509Certificate = (X509Certificate) peerCertificates.get(c);
+
+            // Lazily compute the hashes for each certificate.
+            ByteString sha1 = null;
+            ByteString sha256 = null;
+
+            for (int p = 0, pinsSize = pins.size(); p < pinsSize; p++) {
+                Pin pin = pins.get(p);
+                if (pin.hashAlgorithm.equals("sha256/")) {
+                    if (sha256 == null) sha256 = sha256(x509Certificate);
+                    if (pin.hash.equals(sha256)) return; // Success!
+                } else if (pin.hashAlgorithm.equals("sha1/")) {
+                    if (sha1 == null) sha1 = sha1(x509Certificate);
+                    if (pin.hash.equals(sha1)) return; // Success!
+                } else {
+                    throw new AssertionError("unsupported hashAlgorithm: " + pin.hashAlgorithm);
+                }
+            }
+        }
+
+        // If we couldn't find a matching pin, format a nice exception.
+        StringBuilder message = new StringBuilder()
+                .append("Certificate pinning failure!")
+                .append("\n  Peer certificate chain:");
+        for (int c = 0, certsSize = peerCertificates.size(); c < certsSize; c++) {
+            X509Certificate x509Certificate = (X509Certificate) peerCertificates.get(c);
+            message.append("\n    ").append(pin(x509Certificate))
+                    .append(": ").append(x509Certificate.getSubjectDN().getName());
+        }
+        message.append("\n  Pinned certificates for ").append(hostname).append(":");
+        for (int p = 0, pinsSize = pins.size(); p < pinsSize; p++) {
+            Pin pin = pins.get(p);
+            message.append("\n    ").append(pin);
+        }
+        throw new SSLPeerUnverifiedException(message.toString());
+    }
+
+    /**
+     * @deprecated replaced with {@link #check(String, List)}.
+     */
+    public void check(String hostname, Certificate... peerCertificates)
+            throws SSLPeerUnverifiedException {
+        check(hostname, Arrays.asList(peerCertificates));
+    }
+
+    /**
+     * Returns list of matching certificates' pins for the hostname. Returns an empty list if the
+     * hostname does not have pinned certificates.
+     */
+    List<Pin> findMatchingPins(String hostname) {
+        List<Pin> result = Collections.emptyList();
+        for (Pin pin : pins) {
+            if (pin.matches(hostname)) {
+                if (result.isEmpty()) result = new ArrayList<>();
+                result.add(pin);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Returns a certificate pinner that uses {@code certificateChainCleaner}.
+     */
+    CertificatePinner withCertificateChainCleaner(
+            @Nullable CertificateChainCleaner certificateChainCleaner) {
+        return Objects.equals(this.certificateChainCleaner, certificateChainCleaner)
+                ? this
+                : new CertificatePinner(pins, certificateChainCleaner);
+    }
+
+    static final class Pin {
+        private static final String WILDCARD = "*.";
+        /**
+         * A hostname like {@code example.com} or a pattern like {@code *.example.com}.
+         */
+        final String pattern;
+        /**
+         * The canonical hostname, i.e. {@code EXAMPLE.com} becomes {@code example.com}.
+         */
+        final String canonicalHostname;
+        /**
+         * Either {@code sha1/} or {@code sha256/}.
+         */
+        final String hashAlgorithm;
+        /**
+         * The hash of the pinned certificate using {@link #hashAlgorithm}.
+         */
+        final ByteString hash;
+
+        Pin(String pattern, String pin) {
+            this.pattern = pattern;
+            this.canonicalHostname = pattern.startsWith(WILDCARD)
+                    ? HttpUrl.get("http://" + pattern.substring(WILDCARD.length())).host()
+                    : HttpUrl.get("http://" + pattern).host();
+            if (pin.startsWith("sha1/")) {
+                this.hashAlgorithm = "sha1/";
+                this.hash = ByteString.decodeBase64(pin.substring("sha1/".length()));
+            } else if (pin.startsWith("sha256/")) {
+                this.hashAlgorithm = "sha256/";
+                this.hash = ByteString.decodeBase64(pin.substring("sha256/".length()));
+            } else {
+                throw new IllegalArgumentException("pins must start with 'sha256/' or 'sha1/': " + pin);
+            }
+
+            if (this.hash == null) {
+                throw new IllegalArgumentException("pins must be base64: " + pin);
+            }
+        }
+
+        boolean matches(String hostname) {
+            if (pattern.startsWith(WILDCARD)) {
+                int firstDot = hostname.indexOf('.');
+                return (hostname.length() - firstDot - 1) == canonicalHostname.length()
+                        && hostname.regionMatches(false, firstDot + 1, canonicalHostname, 0,
+                        canonicalHostname.length());
+            }
+
+            return hostname.equals(canonicalHostname);
+        }
+
+        @Override
+        public boolean equals(Object other) {
+            return other instanceof Pin
+                    && pattern.equals(((Pin) other).pattern)
+                    && hashAlgorithm.equals(((Pin) other).hashAlgorithm)
+                    && hash.equals(((Pin) other).hash);
+        }
+
+        @Override
+        public int hashCode() {
+            int result = 17;
+            result = 31 * result + pattern.hashCode();
+            result = 31 * result + hashAlgorithm.hashCode();
+            result = 31 * result + hash.hashCode();
+            return result;
+        }
+
+        @Override
+        public String toString() {
+            return hashAlgorithm + hash.base64();
+        }
+    }
+
+    /**
+     * Builds a configured certificate pinner.
+     */
+    public static final class Builder {
+        private final List<Pin> pins = new ArrayList<>();
+
+        /**
+         * Pins certificates for {@code pattern}.
+         *
+         * @param pattern lower-case host name or wildcard pattern such as {@code *.example.com}.
+         * @param pins    SHA-256 or SHA-1 hashes. Each pin is a hash of a certificate's Subject Public Key
+         *                Info, base64-encoded and prefixed with either {@code sha256/} or {@code sha1/}.
+         */
+        public Builder add(String pattern, String... pins) {
+            if (pattern == null) throw new NullPointerException("pattern == null");
+
+            for (String pin : pins) {
+                this.pins.add(new Pin(pattern, pin));
+            }
+
+            return this;
+        }
+
+        public CertificatePinner build() {
+            return new CertificatePinner(new LinkedHashSet<>(pins), null);
+        }
+    }
 }

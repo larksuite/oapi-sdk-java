@@ -15,14 +15,14 @@
  */
 package com.larksuite.oapi.okhttp3_14.internal.http;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import javax.annotation.Nullable;
-
 import com.larksuite.oapi.okhttp3_14.*;
 import com.larksuite.oapi.okhttp3_14.internal.connection.Exchange;
 import com.larksuite.oapi.okhttp3_14.internal.connection.Transmitter;
+
+import javax.annotation.Nullable;
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static com.larksuite.oapi.okhttp3_14.internal.Util.checkDuration;
 
@@ -34,128 +34,138 @@ import static com.larksuite.oapi.okhttp3_14.internal.Util.checkDuration;
  * Otherwise it is for a network interceptor and {@link #connection} must be non-null.
  */
 public final class RealInterceptorChain implements Interceptor.Chain {
-  private final List<Interceptor> interceptors;
-  private final Transmitter transmitter;
-  private final @Nullable
-  Exchange exchange;
-  private final int index;
-  private final Request request;
-  private final Call call;
-  private final int connectTimeout;
-  private final int readTimeout;
-  private final int writeTimeout;
-  private int calls;
+    private final List<Interceptor> interceptors;
+    private final Transmitter transmitter;
+    private final @Nullable
+    Exchange exchange;
+    private final int index;
+    private final Request request;
+    private final Call call;
+    private final int connectTimeout;
+    private final int readTimeout;
+    private final int writeTimeout;
+    private int calls;
 
-  public RealInterceptorChain(List<Interceptor> interceptors, Transmitter transmitter,
-                              @Nullable Exchange exchange, int index, Request request, Call call,
-                              int connectTimeout, int readTimeout, int writeTimeout) {
-    this.interceptors = interceptors;
-    this.transmitter = transmitter;
-    this.exchange = exchange;
-    this.index = index;
-    this.request = request;
-    this.call = call;
-    this.connectTimeout = connectTimeout;
-    this.readTimeout = readTimeout;
-    this.writeTimeout = writeTimeout;
-  }
-
-  @Override public @Nullable
-  Connection connection() {
-    return exchange != null ? exchange.connection() : null;
-  }
-
-  @Override public int connectTimeoutMillis() {
-    return connectTimeout;
-  }
-
-  @Override public Interceptor.Chain withConnectTimeout(int timeout, TimeUnit unit) {
-    int millis = checkDuration("timeout", timeout, unit);
-    return new RealInterceptorChain(interceptors, transmitter, exchange, index, request, call,
-        millis, readTimeout, writeTimeout);
-  }
-
-  @Override public int readTimeoutMillis() {
-    return readTimeout;
-  }
-
-  @Override public Interceptor.Chain withReadTimeout(int timeout, TimeUnit unit) {
-    int millis = checkDuration("timeout", timeout, unit);
-    return new RealInterceptorChain(interceptors, transmitter, exchange, index, request, call,
-        connectTimeout, millis, writeTimeout);
-  }
-
-  @Override public int writeTimeoutMillis() {
-    return writeTimeout;
-  }
-
-  @Override public Interceptor.Chain withWriteTimeout(int timeout, TimeUnit unit) {
-    int millis = checkDuration("timeout", timeout, unit);
-    return new RealInterceptorChain(interceptors, transmitter, exchange, index, request, call,
-        connectTimeout, readTimeout, millis);
-  }
-
-  public Transmitter transmitter() {
-    return transmitter;
-  }
-
-  public Exchange exchange() {
-    if (exchange == null) throw new IllegalStateException();
-    return exchange;
-  }
-
-  @Override public Call call() {
-    return call;
-  }
-
-  @Override public Request request() {
-    return request;
-  }
-
-  @Override public Response proceed(Request request) throws IOException {
-    return proceed(request, transmitter, exchange);
-  }
-
-  public Response proceed(Request request, Transmitter transmitter, @Nullable Exchange exchange)
-      throws IOException {
-    if (index >= interceptors.size()) throw new AssertionError();
-
-    calls++;
-
-    // If we already have a stream, confirm that the incoming request will use it.
-    if (this.exchange != null && !this.exchange.connection().supportsUrl(request.url())) {
-      throw new IllegalStateException("network interceptor " + interceptors.get(index - 1)
-          + " must retain the same host and port");
+    public RealInterceptorChain(List<Interceptor> interceptors, Transmitter transmitter,
+                                @Nullable Exchange exchange, int index, Request request, Call call,
+                                int connectTimeout, int readTimeout, int writeTimeout) {
+        this.interceptors = interceptors;
+        this.transmitter = transmitter;
+        this.exchange = exchange;
+        this.index = index;
+        this.request = request;
+        this.call = call;
+        this.connectTimeout = connectTimeout;
+        this.readTimeout = readTimeout;
+        this.writeTimeout = writeTimeout;
     }
 
-    // If we already have a stream, confirm that this is the only call to chain.proceed().
-    if (this.exchange != null && calls > 1) {
-      throw new IllegalStateException("network interceptor " + interceptors.get(index - 1)
-          + " must call proceed() exactly once");
+    @Override
+    public @Nullable
+    Connection connection() {
+        return exchange != null ? exchange.connection() : null;
     }
 
-    // Call the next interceptor in the chain.
-    RealInterceptorChain next = new RealInterceptorChain(interceptors, transmitter, exchange,
-        index + 1, request, call, connectTimeout, readTimeout, writeTimeout);
-    Interceptor interceptor = interceptors.get(index);
-    Response response = interceptor.intercept(next);
-
-    // Confirm that the next interceptor made its required call to chain.proceed().
-    if (exchange != null && index + 1 < interceptors.size() && next.calls != 1) {
-      throw new IllegalStateException("network interceptor " + interceptor
-          + " must call proceed() exactly once");
+    @Override
+    public int connectTimeoutMillis() {
+        return connectTimeout;
     }
 
-    // Confirm that the intercepted response isn't null.
-    if (response == null) {
-      throw new NullPointerException("interceptor " + interceptor + " returned null");
+    @Override
+    public Interceptor.Chain withConnectTimeout(int timeout, TimeUnit unit) {
+        int millis = checkDuration("timeout", timeout, unit);
+        return new RealInterceptorChain(interceptors, transmitter, exchange, index, request, call,
+                millis, readTimeout, writeTimeout);
     }
 
-    if (response.body() == null) {
-      throw new IllegalStateException(
-          "interceptor " + interceptor + " returned a response with no body");
+    @Override
+    public int readTimeoutMillis() {
+        return readTimeout;
     }
 
-    return response;
-  }
+    @Override
+    public Interceptor.Chain withReadTimeout(int timeout, TimeUnit unit) {
+        int millis = checkDuration("timeout", timeout, unit);
+        return new RealInterceptorChain(interceptors, transmitter, exchange, index, request, call,
+                connectTimeout, millis, writeTimeout);
+    }
+
+    @Override
+    public int writeTimeoutMillis() {
+        return writeTimeout;
+    }
+
+    @Override
+    public Interceptor.Chain withWriteTimeout(int timeout, TimeUnit unit) {
+        int millis = checkDuration("timeout", timeout, unit);
+        return new RealInterceptorChain(interceptors, transmitter, exchange, index, request, call,
+                connectTimeout, readTimeout, millis);
+    }
+
+    public Transmitter transmitter() {
+        return transmitter;
+    }
+
+    public Exchange exchange() {
+        if (exchange == null) throw new IllegalStateException();
+        return exchange;
+    }
+
+    @Override
+    public Call call() {
+        return call;
+    }
+
+    @Override
+    public Request request() {
+        return request;
+    }
+
+    @Override
+    public Response proceed(Request request) throws IOException {
+        return proceed(request, transmitter, exchange);
+    }
+
+    public Response proceed(Request request, Transmitter transmitter, @Nullable Exchange exchange)
+            throws IOException {
+        if (index >= interceptors.size()) throw new AssertionError();
+
+        calls++;
+
+        // If we already have a stream, confirm that the incoming request will use it.
+        if (this.exchange != null && !this.exchange.connection().supportsUrl(request.url())) {
+            throw new IllegalStateException("network interceptor " + interceptors.get(index - 1)
+                    + " must retain the same host and port");
+        }
+
+        // If we already have a stream, confirm that this is the only call to chain.proceed().
+        if (this.exchange != null && calls > 1) {
+            throw new IllegalStateException("network interceptor " + interceptors.get(index - 1)
+                    + " must call proceed() exactly once");
+        }
+
+        // Call the next interceptor in the chain.
+        RealInterceptorChain next = new RealInterceptorChain(interceptors, transmitter, exchange,
+                index + 1, request, call, connectTimeout, readTimeout, writeTimeout);
+        Interceptor interceptor = interceptors.get(index);
+        Response response = interceptor.intercept(next);
+
+        // Confirm that the next interceptor made its required call to chain.proceed().
+        if (exchange != null && index + 1 < interceptors.size() && next.calls != 1) {
+            throw new IllegalStateException("network interceptor " + interceptor
+                    + " must call proceed() exactly once");
+        }
+
+        // Confirm that the intercepted response isn't null.
+        if (response == null) {
+            throw new NullPointerException("interceptor " + interceptor + " returned null");
+        }
+
+        if (response.body() == null) {
+            throw new IllegalStateException(
+                    "interceptor " + interceptor + " returned a response with no body");
+        }
+
+        return response;
+    }
 }

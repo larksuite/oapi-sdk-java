@@ -3,4 +3,21 @@ package com.larksuite.oapi.service.contact.v3.model;
 
 public class UserGroupMember {
 
+    // builder 开始
+    public UserGroupMember() {
+    }
+
+    public UserGroupMember(Builder builder) {
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+
+        public UserGroupMember build() {
+            return new UserGroupMember(this);
+        }
+    }
 }

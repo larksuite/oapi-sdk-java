@@ -18,6 +18,8 @@ package com.larksuite.oapi.okhttp3_14.internal.tls;
 import java.security.cert.X509Certificate;
 
 public interface TrustRootIndex {
-  /** Returns the trusted CA certificate that signed {@code cert}. */
-  X509Certificate findByIssuerAndSignature(X509Certificate cert);
+    /**
+     * Returns the trusted CA certificate that signed {@code cert}.
+     */
+    X509Certificate findByIssuerAndSignature(X509Certificate cert);
 }

@@ -24,33 +24,33 @@ import java.util.concurrent.TimeUnit;
  * both timeouts.
  */
 final class PushableTimeout extends Timeout {
-  private Timeout pushed;
-  private boolean originalHasDeadline;
-  private long originalDeadlineNanoTime;
-  private long originalTimeoutNanos;
+    private Timeout pushed;
+    private boolean originalHasDeadline;
+    private long originalDeadlineNanoTime;
+    private long originalTimeoutNanos;
 
-  void push(Timeout pushed) {
-    this.pushed = pushed;
-    this.originalHasDeadline = pushed.hasDeadline();
-    this.originalDeadlineNanoTime = originalHasDeadline ? pushed.deadlineNanoTime() : -1L;
-    this.originalTimeoutNanos = pushed.timeoutNanos();
+    void push(Timeout pushed) {
+        this.pushed = pushed;
+        this.originalHasDeadline = pushed.hasDeadline();
+        this.originalDeadlineNanoTime = originalHasDeadline ? pushed.deadlineNanoTime() : -1L;
+        this.originalTimeoutNanos = pushed.timeoutNanos();
 
-    pushed.timeout(minTimeout(originalTimeoutNanos, timeoutNanos()), TimeUnit.NANOSECONDS);
+        pushed.timeout(minTimeout(originalTimeoutNanos, timeoutNanos()), TimeUnit.NANOSECONDS);
 
-    if (originalHasDeadline && hasDeadline()) {
-      pushed.deadlineNanoTime(Math.min(deadlineNanoTime(), originalDeadlineNanoTime));
-    } else if (hasDeadline()) {
-      pushed.deadlineNanoTime(deadlineNanoTime());
+        if (originalHasDeadline && hasDeadline()) {
+            pushed.deadlineNanoTime(Math.min(deadlineNanoTime(), originalDeadlineNanoTime));
+        } else if (hasDeadline()) {
+            pushed.deadlineNanoTime(deadlineNanoTime());
+        }
     }
-  }
 
-  void pop() {
-    pushed.timeout(originalTimeoutNanos, TimeUnit.NANOSECONDS);
+    void pop() {
+        pushed.timeout(originalTimeoutNanos, TimeUnit.NANOSECONDS);
 
-    if (originalHasDeadline) {
-      pushed.deadlineNanoTime(originalDeadlineNanoTime);
-    } else {
-      pushed.clearDeadline();
+        if (originalHasDeadline) {
+            pushed.deadlineNanoTime(originalDeadlineNanoTime);
+        } else {
+            pushed.clearDeadline();
+        }
     }
-  }
 }

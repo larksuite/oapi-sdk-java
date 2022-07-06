@@ -3,4 +3,21 @@ package com.larksuite.oapi.service.docx.v1.model;
 
 public class Divider {
 
+    // builder 开始
+    public Divider() {
+    }
+
+    public Divider(Builder builder) {
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+
+        public Divider build() {
+            return new Divider(this);
+        }
+    }
 }

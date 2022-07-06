@@ -15,11 +15,12 @@
  */
 package com.larksuite.oapi.okhttp3_14.internal.cache;
 
-import java.io.IOException;
 import com.larksuite.oapi.okio1_17.Sink;
 
-public interface CacheRequest {
-  Sink body() throws IOException;
+import java.io.IOException;
 
-  void abort();
+public interface CacheRequest {
+    Sink body() throws IOException;
+
+    void abort();
 }

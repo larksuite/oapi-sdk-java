@@ -24,25 +24,25 @@ import static com.larksuite.oapi.okhttp3_14.internal.Util.addSuppressedIfPossibl
  * have been made with alternative protocols, none of which were successful.
  */
 public final class RouteException extends RuntimeException {
-  private IOException firstException;
-  private IOException lastException;
+    private IOException firstException;
+    private IOException lastException;
 
-  RouteException(IOException cause) {
-    super(cause);
-    firstException = cause;
-    lastException = cause;
-  }
+    RouteException(IOException cause) {
+        super(cause);
+        firstException = cause;
+        lastException = cause;
+    }
 
-  public IOException getFirstConnectException() {
-    return firstException;
-  }
+    public IOException getFirstConnectException() {
+        return firstException;
+    }
 
-  public IOException getLastConnectException() {
-    return lastException;
-  }
+    public IOException getLastConnectException() {
+        return lastException;
+    }
 
-  void addConnectException(IOException e) {
-    addSuppressedIfPossible(firstException, e);
-    lastException = e;
-  }
+    void addConnectException(IOException e) {
+        addSuppressedIfPossible(firstException, e);
+        lastException = e;
+    }
 }

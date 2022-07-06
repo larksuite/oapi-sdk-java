@@ -86,12 +86,12 @@ package com.larksuite.oapi.sample.api;
 
 import com.larksuite.oapi.core.AppSettings;
 import com.larksuite.oapi.core.Config;
-import com.larksuite.oapi.core.DefaultStore;
-import com.larksuite.oapi.core.Domain;
-import com.larksuite.oapi.core.api.AccessTokenType;
+import com.larksuite.oapi.core.cache.LocalCache;
+import com.larksuite.oapi.core.enums.DomainEnum;
+import com.larksuite.oapi.core.token.AccessTokenType;
 import com.larksuite.oapi.core.api.Api;
 import com.larksuite.oapi.core.api.request.Request;
-import com.larksuite.oapi.core.api.response.Response;
+import com.larksuite.oapi.core.response.BaseResponse;
 import com.larksuite.oapi.core.utils.Jsons;
 
 import java.util.HashMap;
@@ -141,9 +141,9 @@ package com.larksuite.oapi.sample.api;
 
 import com.larksuite.oapi.core.AppSettings;
 import com.larksuite.oapi.core.Config;
-import com.larksuite.oapi.core.DefaultStore;
-import com.larksuite.oapi.core.Domain;
-import com.larksuite.oapi.core.api.response.Response;
+import com.larksuite.oapi.core.cache.LocalCache;
+import com.larksuite.oapi.core.enums.DomainEnum;
+import com.larksuite.oapi.core.response.BaseResponse;
 import com.larksuite.oapi.core.utils.Jsons;
 import com.larksuite.oapi.service.contact.v3.ContactService;
 import com.larksuite.oapi.service.contact.v3.model.User;
@@ -383,8 +383,8 @@ package com.larksuite.oapi.sample.api;
 
 import com.larksuite.oapi.core.AppSettings;
 import com.larksuite.oapi.core.Config;
-import com.larksuite.oapi.core.Domain;
-import com.larksuite.oapi.core.IStore;
+import com.larksuite.oapi.core.enums.DomainEnum;
+import com.larksuite.oapi.core.cache.ICache;
 
 public class Sample {
     AppSettings appSettings = Config.getIsvAppSettingsByEnv();
@@ -414,7 +414,7 @@ public class Sample {
 ```java
 package com.larksuite.oapi.sample.api;
 
-import com.larksuite.oapi.core.api.AccessTokenType;
+import com.larksuite.oapi.core.token.AccessTokenType;
 import com.larksuite.oapi.core.api.request.Request;
 import com.larksuite.oapi.core.api.request.RequestOptFn;
 
@@ -464,7 +464,7 @@ package com.larksuite.oapi.sample.api;
 
 import com.larksuite.oapi.core.Config;
 import com.larksuite.oapi.core.api.Api;
-import com.larksuite.oapi.core.api.response.Response;
+import com.larksuite.oapi.core.response.BaseResponse;
 
 public class Sample {
     // 参数说明：
@@ -482,7 +482,7 @@ public class Sample {
 - 更多使用示例，请看：[sample/tools/FileDownloadSample.java](sample/src/main/java/com/larksuite/oapi/sample/tools/FileDownloadSample.java)
 
 ```java
-import com.larksuite.oapi.core.api.tools.Files;
+import com.larksuite.oapi.core.utils.Files;
 
 /**
 * @param url File net url

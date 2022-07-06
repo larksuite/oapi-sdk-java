@@ -1,129 +1,148 @@
 package com.larksuite.oapi.core;
 
-import com.larksuite.oapi.core.utils.Strings;
+
+import com.larksuite.oapi.core.cache.ICache;
+import com.larksuite.oapi.core.enums.AppType;
+import com.larksuite.oapi.core.enums.DomainEnum;
+import com.larksuite.oapi.okhttp3_14.OkHttpClient;
+
+import java.util.concurrent.TimeUnit;
 
 public class Config {
+    private long requestTimeOut;
+    private TimeUnit timeOutTimeUnit;
+    private String helpDeskID;
+    private ICache cache;
+    private String domain;
+    private boolean disableTokenCache;
+    private AppType appType;
+    private String helpDeskToken;
+    private String helpDeskAuthToken;
+    private String tokenCache;
+    private String appId;
+    private String appSecret;
+    private OkHttpClient httpClient;
+    private boolean logReqRespInfoAtDebugLevel;
 
-    public static final String CTX_KEY_CONFIG = "-----ctxKeyConfig";
-
-    private final String domain;
-    private final AppSettings appSettings;
-    private final IStore store;
-
-    public Config(Domain domain, AppSettings appSettings, IStore store) {
-        this(domain.getUrl(), appSettings, store);
+    public Config() {
+        this.domain = DomainEnum.FeiShu.getUrl();
+        this.appType = AppType.SELF_BUILT;
     }
 
-    public Config(String domain, AppSettings appSettings, IStore store) {
-        this.domain = domain;
-        this.appSettings = appSettings;
-        this.store = store;
+    public boolean isLogReqRespInfoAtDebugLevel() {
+        return logReqRespInfoAtDebugLevel;
     }
 
-    public static Config ByCtx(Context context) {
-        return (Config) context.get(CTX_KEY_CONFIG);
+    public void setLogReqRespInfoAtDebugLevel(boolean logReqRespInfoAtDebugLevel) {
+        this.logReqRespInfoAtDebugLevel = logReqRespInfoAtDebugLevel;
     }
 
-    public static Config NewTestConfig(String domain, AppSettings appSettings) {
-        return new Config(domain, appSettings, new DefaultStore());
+    public long getRequestTimeOut() {
+        return requestTimeOut;
     }
 
-    private static String domainFeiShu(String env) {
-        return System.getenv().get(env + "_FEISHU_DOMAIN");
+    public void setRequestTimeOut(long requestTimeOut) {
+        this.requestTimeOut = requestTimeOut;
     }
 
-    private static AppSettings getISVAppSettings(String env) {
-        String appID = System.getenv().get(env + "_ISV_APP_ID");
-        String appSecret = System.getenv().get(env + "_ISV_APP_SECRET");
-        String verificationToken = System.getenv().get(env + "_ISV_VERIFICATION_TOKEN");
-        String encryptKey = System.getenv().get(env + "_ISV_ENCRYPT_KEY");
-        return new AppSettings(AppType.ISV, appID, appSecret, verificationToken, encryptKey);
+    public TimeUnit getTimeOutTimeUnit() {
+        return timeOutTimeUnit;
     }
 
-    private static AppSettings createInternalAppSettings(String env) {
-        String appID = System.getenv().get(env + "_INTERNAL_APP_ID");
-        String appSecret = System.getenv().get(env + "_INTERNAL_APP_SECRET");
-        String verificationToken = System.getenv().get(env + "_INTERNAL_VERIFICATION_TOKEN");
-        String encryptKey = System.getenv().get(env + "_INTERNAL_ENCRYPT_KEY");
-        return new AppSettings(AppType.Internal, appID, appSecret, verificationToken, encryptKey);
+    public void setTimeOutTimeUnit(TimeUnit timeOutTimeUnit) {
+        this.timeOutTimeUnit = timeOutTimeUnit;
     }
 
-    public static AppSettings createInternalAppSettings(String appID, String appSecret,
-                                                        String verificationToken, String encryptKey) {
-        return new AppSettings(AppType.Internal, appID, appSecret, verificationToken, encryptKey);
+    public ICache getCache() {
+        return cache;
     }
 
-    public static AppSettings createIsvAppSettings(String appID, String appSecret,
-                                                   String verificationToken, String encryptKey) {
-        return new AppSettings(AppType.ISV, appID, appSecret, verificationToken, encryptKey);
-    }
-
-    public static AppSettings getInternalAppSettingsByEnv() {
-        String appID = System.getenv().get("APP_ID");
-        String appSecret = System.getenv().get("APP_SECRET");
-        String verificationToken = System.getenv().get("VERIFICATION_TOKEN");
-        String encryptKey = System.getenv().get("ENCRYPT_KEY");
-        validateAppSettingsParams(appID, appSecret);
-        return new AppSettings(AppType.Internal, appID, appSecret, verificationToken, encryptKey);
-    }
-
-    public static AppSettings getIsvAppSettingsByEnv() {
-        String appID = System.getenv().get("APP_ID");
-        String appSecret = System.getenv().get("APP_SECRET");
-        String verificationToken = System.getenv().get("VERIFICATION_TOKEN");
-        String encryptKey = System.getenv().get("ENCRYPT_KEY");
-        validateAppSettingsParams(appID, appSecret);
-        return new AppSettings(AppType.ISV, appID, appSecret, verificationToken, encryptKey);
-    }
-
-    private static void validateAppSettingsParams(String appID, String appSecret) {
-        if (Strings.isEmpty(appID) || Strings.isEmpty(appSecret)) {
-            throw new IllegalArgumentException("environment variables not exist `APP_ID` or `APP_SECRET`");
-        }
-    }
-
-    public static Config getTestISVConf(String env) {
-        env = env.toUpperCase();
-        return NewTestConfig(getDomain(env), getISVAppSettings(env));
-    }
-
-    public static Config getTestInternalConf(String env) {
-        env = env.toUpperCase();
-        return NewTestConfig(getDomain(env), createInternalAppSettings(env));
-    }
-
-    private static String getDomain(String env) {
-        if (!env.equals("BOE") && !env.equals("PRE") && !env.equals("ONLINE")) {
-            throw new IllegalArgumentException("env must in [boe, pre, online]");
-        }
-        if (env.equals("ONLINE")) {
-            return Domain.FeiShu.getUrl();
-        }
-        return domainFeiShu(env);
-    }
-
-    public void withContext(Context context) {
-        context.set(CTX_KEY_CONFIG, this);
+    public void setCache(ICache cache) {
+        this.cache = cache;
     }
 
     public String getDomain() {
         return domain;
     }
 
-    public AppSettings getAppSettings() {
-        return appSettings;
+    public void setDomain(String domain) {
+        this.domain = domain;
     }
 
-    public IStore getStore() {
-        return store;
+    public void setDomain(DomainEnum domain) {
+        this.domain = domain.getUrl();
     }
 
-    @Override
-    public String toString() {
-        return "Config{" +
-                "domain='" + domain + '\'' +
-                ", appSettings=" + appSettings +
-                ", store=" + store +
-                '}';
+    public boolean isDisableTokenCache() {
+        return disableTokenCache;
     }
+
+    public void setDisableTokenCache(boolean disableTokenCache) {
+        this.disableTokenCache = disableTokenCache;
+    }
+
+    public AppType getAppType() {
+        return appType;
+    }
+
+    public void setAppType(AppType appType) {
+        this.appType = appType;
+    }
+
+    public String getHelpDeskID() {
+        return helpDeskID;
+    }
+
+    public void setHelpDeskID(String helpDeskID) {
+        this.helpDeskID = helpDeskID;
+    }
+
+    public String getHelpDeskToken() {
+        return helpDeskToken;
+    }
+
+    public void setHelpDeskToken(String helpDeskToken) {
+        this.helpDeskToken = helpDeskToken;
+    }
+
+    public String getTokenCache() {
+        return tokenCache;
+    }
+
+    public void setTokenCache(String tokenCache) {
+        this.tokenCache = tokenCache;
+    }
+
+    public OkHttpClient getHttpClient() {
+        return httpClient;
+    }
+
+    public void setHttpClient(OkHttpClient httpClient) {
+        this.httpClient = httpClient;
+    }
+
+    public String getHelpDeskAuthToken() {
+        return helpDeskAuthToken;
+    }
+
+    public void setHelpDeskAuthToken(String helpDeskAuthToken) {
+        this.helpDeskAuthToken = helpDeskAuthToken;
+    }
+
+    public String getAppId() {
+        return appId;
+    }
+
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
+
+    public String getAppSecret() {
+        return appSecret;
+    }
+
+    public void setAppSecret(String appSecret) {
+        this.appSecret = appSecret;
+    }
+
 }

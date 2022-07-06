@@ -3,4 +3,21 @@ package com.larksuite.oapi.service.docx.v1.model;
 
 public class TableCell {
 
+    // builder 开始
+    public TableCell() {
+    }
+
+    public TableCell(Builder builder) {
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+
+        public TableCell build() {
+            return new TableCell(this);
+        }
+    }
 }

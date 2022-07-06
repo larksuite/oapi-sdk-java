@@ -15,15 +15,11 @@
  */
 package com.larksuite.oapi.okhttp3_14.internal.tls;
 
+import javax.net.ssl.SSLPeerUnverifiedException;
 import java.security.GeneralSecurityException;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.Iterator;
-import java.util.List;
-import javax.net.ssl.SSLPeerUnverifiedException;
+import java.util.*;
 
 /**
  * A certificate chain cleaner that uses a set of trusted root certificates to build the trusted
@@ -35,90 +31,97 @@ import javax.net.ssl.SSLPeerUnverifiedException;
  * TrustManagerImpl} and {@code TrustedCertificateIndex}.
  */
 public final class BasicCertificateChainCleaner extends CertificateChainCleaner {
-  /** The maximum number of signers in a chain. We use 9 for consistency with OpenSSL. */
-  private static final int MAX_SIGNERS = 9;
+    /**
+     * The maximum number of signers in a chain. We use 9 for consistency with OpenSSL.
+     */
+    private static final int MAX_SIGNERS = 9;
 
-  private final TrustRootIndex trustRootIndex;
+    private final TrustRootIndex trustRootIndex;
 
-  public BasicCertificateChainCleaner(TrustRootIndex trustRootIndex) {
-    this.trustRootIndex = trustRootIndex;
-  }
-
-  /**
-   * Returns a cleaned chain for {@code chain}.
-   *
-   * <p>This method throws if the complete chain to a trusted CA certificate cannot be constructed.
-   * This is unexpected unless the trust root index in this class has a different trust manager than
-   * what was used to establish {@code chain}.
-   */
-  @Override public List<Certificate> clean(List<Certificate> chain, String hostname)
-      throws SSLPeerUnverifiedException {
-    Deque<Certificate> queue = new ArrayDeque<>(chain);
-    List<Certificate> result = new ArrayList<>();
-    result.add(queue.removeFirst());
-    boolean foundTrustedCertificate = false;
-
-    followIssuerChain:
-    for (int c = 0; c < MAX_SIGNERS; c++) {
-      X509Certificate toVerify = (X509Certificate) result.get(result.size() - 1);
-
-      // If this cert has been signed by a trusted cert, use that. Add the trusted certificate to
-      // the end of the chain unless it's already present. (That would happen if the first
-      // certificate in the chain is itself a self-signed and trusted CA certificate.)
-      X509Certificate trustedCert = trustRootIndex.findByIssuerAndSignature(toVerify);
-      if (trustedCert != null) {
-        if (result.size() > 1 || !toVerify.equals(trustedCert)) {
-          result.add(trustedCert);
-        }
-        if (verifySignature(trustedCert, trustedCert)) {
-          return result; // The self-signed cert is a root CA. We're done.
-        }
-        foundTrustedCertificate = true;
-        continue;
-      }
-
-      // Search for the certificate in the chain that signed this certificate. This is typically
-      // the next element in the chain, but it could be any element.
-      for (Iterator<Certificate> i = queue.iterator(); i.hasNext(); ) {
-        X509Certificate signingCert = (X509Certificate) i.next();
-        if (verifySignature(toVerify, signingCert)) {
-          i.remove();
-          result.add(signingCert);
-          continue followIssuerChain;
-        }
-      }
-
-      // We've reached the end of the chain. If any cert in the chain is trusted, we're done.
-      if (foundTrustedCertificate) {
-        return result;
-      }
-
-      // The last link isn't trusted. Fail.
-      throw new SSLPeerUnverifiedException(
-          "Failed to find a trusted cert that signed " + toVerify);
+    public BasicCertificateChainCleaner(TrustRootIndex trustRootIndex) {
+        this.trustRootIndex = trustRootIndex;
     }
 
-    throw new SSLPeerUnverifiedException("Certificate chain too long: " + result);
-  }
+    /**
+     * Returns a cleaned chain for {@code chain}.
+     *
+     * <p>This method throws if the complete chain to a trusted CA certificate cannot be constructed.
+     * This is unexpected unless the trust root index in this class has a different trust manager than
+     * what was used to establish {@code chain}.
+     */
+    @Override
+    public List<Certificate> clean(List<Certificate> chain, String hostname)
+            throws SSLPeerUnverifiedException {
+        Deque<Certificate> queue = new ArrayDeque<>(chain);
+        List<Certificate> result = new ArrayList<>();
+        result.add(queue.removeFirst());
+        boolean foundTrustedCertificate = false;
 
-  /** Returns true if {@code toVerify} was signed by {@code signingCert}'s public key. */
-  private boolean verifySignature(X509Certificate toVerify, X509Certificate signingCert) {
-    if (!toVerify.getIssuerDN().equals(signingCert.getSubjectDN())) return false;
-    try {
-      toVerify.verify(signingCert.getPublicKey());
-      return true;
-    } catch (GeneralSecurityException verifyFailed) {
-      return false;
+        followIssuerChain:
+        for (int c = 0; c < MAX_SIGNERS; c++) {
+            X509Certificate toVerify = (X509Certificate) result.get(result.size() - 1);
+
+            // If this cert has been signed by a trusted cert, use that. Add the trusted certificate to
+            // the end of the chain unless it's already present. (That would happen if the first
+            // certificate in the chain is itself a self-signed and trusted CA certificate.)
+            X509Certificate trustedCert = trustRootIndex.findByIssuerAndSignature(toVerify);
+            if (trustedCert != null) {
+                if (result.size() > 1 || !toVerify.equals(trustedCert)) {
+                    result.add(trustedCert);
+                }
+                if (verifySignature(trustedCert, trustedCert)) {
+                    return result; // The self-signed cert is a root CA. We're done.
+                }
+                foundTrustedCertificate = true;
+                continue;
+            }
+
+            // Search for the certificate in the chain that signed this certificate. This is typically
+            // the next element in the chain, but it could be any element.
+            for (Iterator<Certificate> i = queue.iterator(); i.hasNext(); ) {
+                X509Certificate signingCert = (X509Certificate) i.next();
+                if (verifySignature(toVerify, signingCert)) {
+                    i.remove();
+                    result.add(signingCert);
+                    continue followIssuerChain;
+                }
+            }
+
+            // We've reached the end of the chain. If any cert in the chain is trusted, we're done.
+            if (foundTrustedCertificate) {
+                return result;
+            }
+
+            // The last link isn't trusted. Fail.
+            throw new SSLPeerUnverifiedException(
+                    "Failed to find a trusted cert that signed " + toVerify);
+        }
+
+        throw new SSLPeerUnverifiedException("Certificate chain too long: " + result);
     }
-  }
 
-  @Override public int hashCode() {
-    return trustRootIndex.hashCode();
-  }
+    /**
+     * Returns true if {@code toVerify} was signed by {@code signingCert}'s public key.
+     */
+    private boolean verifySignature(X509Certificate toVerify, X509Certificate signingCert) {
+        if (!toVerify.getIssuerDN().equals(signingCert.getSubjectDN())) return false;
+        try {
+            toVerify.verify(signingCert.getPublicKey());
+            return true;
+        } catch (GeneralSecurityException verifyFailed) {
+            return false;
+        }
+    }
 
-  @Override public boolean equals(Object other) {
-    if (other == this) return true;
-    return other instanceof BasicCertificateChainCleaner
-        && ((BasicCertificateChainCleaner) other).trustRootIndex.equals(trustRootIndex);
-  }
+    @Override
+    public int hashCode() {
+        return trustRootIndex.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) return true;
+        return other instanceof BasicCertificateChainCleaner
+                && ((BasicCertificateChainCleaner) other).trustRootIndex.equals(trustRootIndex);
+    }
 }

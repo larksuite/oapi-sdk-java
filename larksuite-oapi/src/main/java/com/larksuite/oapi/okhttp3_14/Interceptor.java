@@ -15,9 +15,9 @@
  */
 package com.larksuite.oapi.okhttp3_14;
 
+import javax.annotation.Nullable;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-import javax.annotation.Nullable;
 
 /**
  * Observes, modifies, and potentially short-circuits requests going out and the corresponding
@@ -25,32 +25,32 @@ import javax.annotation.Nullable;
  * or response.
  */
 public interface Interceptor {
-  Response intercept(Chain chain) throws IOException;
+    Response intercept(Chain chain) throws IOException;
 
-  interface Chain {
-    Request request();
+    interface Chain {
+        Request request();
 
-    Response proceed(Request request) throws IOException;
+        Response proceed(Request request) throws IOException;
 
-    /**
-     * Returns the connection the request will be executed on. This is only available in the chains
-     * of network interceptors; for application interceptors this is always null.
-     */
-    @Nullable
-    Connection connection();
+        /**
+         * Returns the connection the request will be executed on. This is only available in the chains
+         * of network interceptors; for application interceptors this is always null.
+         */
+        @Nullable
+        Connection connection();
 
-    Call call();
+        Call call();
 
-    int connectTimeoutMillis();
+        int connectTimeoutMillis();
 
-    Chain withConnectTimeout(int timeout, TimeUnit unit);
+        Chain withConnectTimeout(int timeout, TimeUnit unit);
 
-    int readTimeoutMillis();
+        int readTimeoutMillis();
 
-    Chain withReadTimeout(int timeout, TimeUnit unit);
+        Chain withReadTimeout(int timeout, TimeUnit unit);
 
-    int writeTimeoutMillis();
+        int writeTimeoutMillis();
 
-    Chain withWriteTimeout(int timeout, TimeUnit unit);
-  }
+        Chain withWriteTimeout(int timeout, TimeUnit unit);
+    }
 }

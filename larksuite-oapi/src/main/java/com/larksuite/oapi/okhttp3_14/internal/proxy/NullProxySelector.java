@@ -27,13 +27,15 @@ import java.util.List;
  * A proxy selector that always returns the {@link Proxy#NO_PROXY}.
  */
 public class NullProxySelector extends ProxySelector {
-  @Override public List<Proxy> select(URI uri) {
-    if (uri == null) {
-      throw new IllegalArgumentException("uri must not be null");
+    @Override
+    public List<Proxy> select(URI uri) {
+        if (uri == null) {
+            throw new IllegalArgumentException("uri must not be null");
+        }
+        return Collections.singletonList(Proxy.NO_PROXY);
     }
-    return Collections.singletonList(Proxy.NO_PROXY);
-  }
 
-  @Override public void connectFailed(URI uri, SocketAddress sa, IOException ioe) {
-  }
+    @Override
+    public void connectFailed(URI uri, SocketAddress sa, IOException ioe) {
+    }
 }

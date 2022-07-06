@@ -1,6 +1,11 @@
 package com.larksuite.oapi.core.utils;
 
 public class Strings {
+
+    public static boolean isNotEmpty(String value) {
+        return !isEmpty(value);
+    }
+
     public static boolean isEmpty(String value) {
         int strLen;
         if (value == null || (strLen = value.length()) == 0) {

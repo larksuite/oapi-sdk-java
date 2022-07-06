@@ -3,4 +3,21 @@ package com.larksuite.oapi.service.im.v1.model;
 
 public class MessageResource {
 
+    // builder 开始
+    public MessageResource() {
+    }
+
+    public MessageResource(Builder builder) {
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+
+        public MessageResource build() {
+            return new MessageResource(this);
+        }
+    }
 }

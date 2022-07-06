@@ -15,12 +15,12 @@
  */
 package com.larksuite.oapi.okhttp3_14.internal;
 
-import javax.annotation.Nullable;
-import javax.net.ssl.SSLSocket;
-
 import com.larksuite.oapi.okhttp3_14.*;
 import com.larksuite.oapi.okhttp3_14.internal.connection.Exchange;
 import com.larksuite.oapi.okhttp3_14.internal.connection.RealConnectionPool;
+
+import javax.annotation.Nullable;
+import javax.net.ssl.SSLSocket;
 
 /**
  * Escalate internal APIs in {@code okhttp3} so they can be used from OkHttp's implementation
@@ -28,31 +28,31 @@ import com.larksuite.oapi.okhttp3_14.internal.connection.RealConnectionPool;
  */
 public abstract class Internal {
 
-  public static void initializeInstanceForTests() {
-    // Needed in tests to ensure that the instance is actually pointing to something.
-    new OkHttpClient();
-  }
+    public static Internal instance;
 
-  public static Internal instance;
+    public static void initializeInstanceForTests() {
+        // Needed in tests to ensure that the instance is actually pointing to something.
+        new OkHttpClient();
+    }
 
-  public abstract void addLenient(Headers.Builder builder, String line);
+    public abstract void addLenient(Headers.Builder builder, String line);
 
-  public abstract void addLenient(Headers.Builder builder, String name, String value);
+    public abstract void addLenient(Headers.Builder builder, String name, String value);
 
-  public abstract RealConnectionPool realConnectionPool(ConnectionPool connectionPool);
+    public abstract RealConnectionPool realConnectionPool(ConnectionPool connectionPool);
 
-  public abstract boolean equalsNonHost(Address a, Address b);
+    public abstract boolean equalsNonHost(Address a, Address b);
 
-  public abstract int code(Response.Builder responseBuilder);
+    public abstract int code(Response.Builder responseBuilder);
 
-  public abstract void apply(ConnectionSpec tlsConfiguration, SSLSocket sslSocket,
-                             boolean isFallback);
+    public abstract void apply(ConnectionSpec tlsConfiguration, SSLSocket sslSocket,
+                               boolean isFallback);
 
-  public abstract Call newWebSocketCall(OkHttpClient client, Request request);
+    public abstract Call newWebSocketCall(OkHttpClient client, Request request);
 
-  public abstract void initExchange(
-          Response.Builder responseBuilder, Exchange exchange);
+    public abstract void initExchange(
+            Response.Builder responseBuilder, Exchange exchange);
 
-  public abstract @Nullable
-  Exchange exchange(Response response);
+    public abstract @Nullable
+    Exchange exchange(Response response);
 }

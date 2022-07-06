@@ -16,13 +16,13 @@
  */
 package com.larksuite.oapi.okhttp3_14.internal.tls;
 
+import com.larksuite.oapi.okhttp3_14.internal.platform.Platform;
+
+import javax.net.ssl.SSLPeerUnverifiedException;
+import javax.net.ssl.X509TrustManager;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import java.util.List;
-import javax.net.ssl.SSLPeerUnverifiedException;
-import javax.net.ssl.X509TrustManager;
-
-import com.larksuite.oapi.okhttp3_14.internal.platform.Platform;
 
 /**
  * Computes the effective certificate chain from the raw array returned by Java's built in TLS APIs.
@@ -35,14 +35,14 @@ import com.larksuite.oapi.okhttp3_14.internal.platform.Platform;
  * pinning.
  */
 public abstract class CertificateChainCleaner {
-  public abstract List<Certificate> clean(List<Certificate> chain, String hostname)
-      throws SSLPeerUnverifiedException;
+    public static CertificateChainCleaner get(X509TrustManager trustManager) {
+        return Platform.get().buildCertificateChainCleaner(trustManager);
+    }
 
-  public static CertificateChainCleaner get(X509TrustManager trustManager) {
-    return Platform.get().buildCertificateChainCleaner(trustManager);
-  }
+    public static CertificateChainCleaner get(X509Certificate... caCerts) {
+        return new BasicCertificateChainCleaner(new BasicTrustRootIndex(caCerts));
+    }
 
-  public static CertificateChainCleaner get(X509Certificate... caCerts) {
-    return new BasicCertificateChainCleaner(new BasicTrustRootIndex(caCerts));
-  }
+    public abstract List<Certificate> clean(List<Certificate> chain, String hostname)
+            throws SSLPeerUnverifiedException;
 }

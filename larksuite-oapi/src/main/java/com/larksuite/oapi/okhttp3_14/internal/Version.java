@@ -16,10 +16,10 @@
 package com.larksuite.oapi.okhttp3_14.internal;
 
 public final class Version {
-  public static String userAgent() {
-    return "okhttp/3.14.9";
-  }
+    private Version() {
+    }
 
-  private Version() {
-  }
+    public static String userAgent() {
+        return "okhttp/3.14.9";
+    }
 }

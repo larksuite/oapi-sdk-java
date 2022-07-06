@@ -15,24 +15,29 @@
  */
 package com.larksuite.oapi.okhttp3_14;
 
-import java.nio.charset.Charset;
 import com.larksuite.oapi.okio1_17.ByteString;
+
+import java.nio.charset.Charset;
 
 import static java.nio.charset.StandardCharsets.ISO_8859_1;
 
-/** Factory for HTTP authorization credentials. */
+/**
+ * Factory for HTTP authorization credentials.
+ */
 public final class Credentials {
-  private Credentials() {
-  }
+    private Credentials() {
+    }
 
-  /** Returns an auth credential for the Basic scheme. */
-  public static String basic(String username, String password) {
-    return basic(username, password, ISO_8859_1);
-  }
+    /**
+     * Returns an auth credential for the Basic scheme.
+     */
+    public static String basic(String username, String password) {
+        return basic(username, password, ISO_8859_1);
+    }
 
-  public static String basic(String username, String password, Charset charset) {
-    String usernameAndPassword = username + ":" + password;
-    String encoded = ByteString.encodeString(usernameAndPassword, charset).base64();
-    return "Basic " + encoded;
-  }
+    public static String basic(String username, String password, Charset charset) {
+        String usernameAndPassword = username + ":" + password;
+        String encoded = ByteString.encodeString(usernameAndPassword, charset).base64();
+        return "Basic " + encoded;
+    }
 }
