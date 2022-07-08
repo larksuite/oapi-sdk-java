@@ -20,12 +20,12 @@ public interface Constants {
     public static final String X_LARK_REQUEST_NONCE = "X-Lark-Request-Nonce";
     public static final String X_LARK_SIGNATURE = "X-Lark-Signature";
     public static final String X_REFRESH_TOKEN = "X-Refresh-Token";
-    String VERSION = "2.0.0";
+    String VERSION = "v2.0.0";
 
 
-    String APP_ACCESS_TOKEN_INTERNAL_URL_PATH = "auth/v3/app_access_token/internal";
-    String APP_ACCESS_TOKEN_ISV_URL_PATH = "auth/v3/app_access_token";
-    String TENANT_ACCESS_TOKEN_INTERNAL_URL_PATH = "auth/v3/tenant_access_token/internal";
-    String TENANT_ACCESS_TOKEN_ISV_URL_PATH = "auth/v3/tenant_access_token";
-    String APPLY_APP_TICKET_PATH = "auth/v3/app_ticket/resend";
+    String APP_ACCESS_TOKEN_INTERNAL_URL_PATH = "/open-apis/auth/v3/app_access_token/internal";
+    String APP_ACCESS_TOKEN_ISV_URL_PATH = "/open-apis/auth/v3/app_access_token";
+    String TENANT_ACCESS_TOKEN_INTERNAL_URL_PATH = "/open-apis/auth/v3/tenant_access_token/internal";
+    String TENANT_ACCESS_TOKEN_ISV_URL_PATH = "/open-apis/auth/v3/tenant_access_token";
+    String APPLY_APP_TICKET_PATH = "/open-apis/auth/v3/app_ticket/resend";
 }

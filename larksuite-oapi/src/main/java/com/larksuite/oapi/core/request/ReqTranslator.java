@@ -9,11 +9,8 @@ import com.larksuite.oapi.core.annotation.Query;
 import com.larksuite.oapi.core.exception.AccessTokenTypeInvalidException;
 import com.larksuite.oapi.core.token.AccessTokenType;
 import com.larksuite.oapi.core.token.GlobalTokenManager;
-import com.larksuite.oapi.core.utils.Jsons;
+import com.larksuite.oapi.core.utils.Lists;
 import com.larksuite.oapi.core.utils.Strings;
-import com.larksuite.oapi.okhttp3_14.MediaType;
-import com.larksuite.oapi.okhttp3_14.MultipartBody;
-import com.larksuite.oapi.okhttp3_14.RequestBody;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -34,43 +31,43 @@ public class ReqTranslator {
         return "";
     }
 
-    public com.larksuite.oapi.okhttp3_14.Request translate(Object req
+    public RawRequest translate(Object req
             , AccessTokenType accessTokenType
             , Config config, String httpMethod, String httpPath
             , RequestOptions requestOptions) throws Exception {
+
         // 解析path,query,body 参数
         ParsedReq parsedReq = parseInput(req, requestOptions);
 
-        // 构建http body payload
-        RequestBody body = buildReqBody(parsedReq);
-
         // 拼接URL
-        String reqUrl = getFullReqUrl(config.getDomain(), httpPath, parsedReq.pathMap, parsedReq.queryMap);
+        String reqUrl = getFullReqUrl(config.getBaseUrl(), httpPath, parsedReq.pathMap, parsedReq.queryMap);
 
-        // 构建request
-        com.larksuite.oapi.okhttp3_14.Request.Builder builder = new com.larksuite.oapi.okhttp3_14.Request.Builder().url(reqUrl).method(httpMethod, body);
-
-        // 设置请求header
-        builder.header("User-Agent", "oapi-sdk-java/" + Constants.VERSION);
-        if (requestOptions.getHeaders() != null && requestOptions.getHeaders().size() > 0) {
-            for (Map.Entry<String, List<String>> entry : requestOptions.getHeaders().entrySet()) {
-                for (String value : entry.getValue()) {
-                    builder.header(entry.getKey(), value);
-                }
-            }
+        // headers
+        Map<String, List<String>> headers = requestOptions.getHeaders();
+        if (headers == null) {
+            headers = new HashMap<>();
         }
 
+        headers.put("User-Agent", Lists.newArrayList("oapi-sdk-java/" + Constants.VERSION));
+
         if (Strings.isNotEmpty(requestOptions.getRequestId())) {
-            builder.header(Constants.CUSTOM_REQUEST_ID, requestOptions.getRequestId());
+            headers.put(Constants.CUSTOM_REQUEST_ID, Lists.newArrayList(requestOptions.getRequestId()));
         }
 
         // 获取并缓存token
         if (accessTokenType != AccessTokenType.None) {
             String token = getToken(requestOptions.getTenantKey(), accessTokenType, config, requestOptions);
-            builder.header("Authorization", String.format("Bearer %s", token));
+            headers.put("Authorization", Lists.newArrayList(String.format("Bearer %s", token)));
         }
 
-        return builder.build();
+        RawRequest rawRequest = new RawRequest();
+        rawRequest.setBody(parsedReq.body);
+        rawRequest.setReqUrl(reqUrl);
+        rawRequest.setHeaders(headers);
+        rawRequest.setHttpMethod(httpMethod);
+        rawRequest.setConfig(config);
+        rawRequest.setSupportDownLoad(requestOptions.isSupportUpload());
+        return rawRequest;
     }
 
     private String getToken(String tenantKey, AccessTokenType accessTokenType, Config config, RequestOptions requestOptions) throws Exception {
@@ -119,7 +116,9 @@ public class ReqTranslator {
                 if (path != null) {
                     hasHttpAnnotation = true;
                     SerializedName serializedName = field.getAnnotation(SerializedName.class);
-                    parsedReq.pathMap.put(serializedName.value(), (String) field.get(req));
+                    if (null != field.get(req)) {
+                        parsedReq.pathMap.put(serializedName.value(), (String) field.get(req));
+                    }
                 }
 
                 // 解析Query注解
@@ -127,7 +126,9 @@ public class ReqTranslator {
                 if (query != null) {
                     hasHttpAnnotation = true;
                     SerializedName serializedName = field.getAnnotation(SerializedName.class);
-                    parsedReq.queryMap.put(serializedName.value(), (String) field.get(req));
+                    if (null != field.get(req)) {
+                        parsedReq.queryMap.put(serializedName.value(), (String) field.get(req));
+                    }
                 }
             }
         }
@@ -170,43 +171,10 @@ public class ReqTranslator {
         return formData;
     }
 
-    private RequestBody buildReqBody(ParsedReq parsedReq) {
-        if (parsedReq == null || parsedReq.body == null) {
-            return null;
-        }
-
-        Object body = parsedReq.body;
-        if (body instanceof FormData) {
-            String contentType = "multipart/form-data;charset=" + StandardCharsets.UTF_8;
-            MultipartBody.Builder builder = new MultipartBody.Builder()
-                    .setType(MediaType.parse(contentType));
-
-            for (Map.Entry<String, Object> entry : ((FormData) body).getParams().entrySet()) {
-                builder.addFormDataPart(entry.getKey(), (String) entry.getValue());
-            }
-
-            for (FormDataFile file : ((FormData) body).getFiles()) {
-                final File finalFile = file.getFile();
-                builder.addFormDataPart(file.getFieldName(),
-                        Strings.isEmpty(file.getFileName()) ? "unknown" : file.getFileName()
-                        , RequestBody.create(MediaType.parse("application/octet-stream"), finalFile));
-            }
-
-            return builder.build();
-        }
-
-        return RequestBody.create(MediaType.parse(Constants.DEFAULT_CONTENT_TYPE)
-                , Jsons.LONG_TO_STR_GSON.toJson(body).getBytes(StandardCharsets.UTF_8));
-    }
-
     private String getFullReqUrl(String domain, String httpPath, Map<String, String> pathMap, Map<String, String> queryMap) {
         String reqUrl = joinPathParam(httpPath, pathMap);
         if (!reqUrl.startsWith("http")) {
-            if (reqUrl.startsWith("/open-apis")) {
-                reqUrl = domain + reqUrl;
-            } else {
-                reqUrl = domain + "/open-apis/" + reqUrl;
-            }
+            reqUrl = domain + reqUrl;
         }
 
         if (queryMap.size() > 0) {

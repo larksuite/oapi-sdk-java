@@ -3,24 +3,21 @@ package com.larksuite.oapi.core;
 import com.larksuite.oapi.core.exception.AccessTokenTypeInvalidException;
 import com.larksuite.oapi.core.exception.ClientTimeoutException;
 import com.larksuite.oapi.core.exception.NeedAccessTokenException;
-import com.larksuite.oapi.core.exception.ServerTimeoutException;
+import com.larksuite.oapi.core.httpclient.IHttpTransport;
+import com.larksuite.oapi.core.httpclient.OkHttpTransport;
+import com.larksuite.oapi.core.request.RawRequest;
 import com.larksuite.oapi.core.request.ReqTranslator;
 import com.larksuite.oapi.core.request.RequestOptions;
 import com.larksuite.oapi.core.response.RawResponse;
 import com.larksuite.oapi.core.token.AccessTokenType;
-import com.larksuite.oapi.core.utils.IOs;
+import com.larksuite.oapi.core.utils.Jsons;
 import com.larksuite.oapi.core.utils.OKHttps;
 import com.larksuite.oapi.core.utils.Strings;
-import com.larksuite.oapi.okhttp3_14.OkHttpClient;
-import com.larksuite.oapi.okhttp3_14.Request;
-import com.larksuite.oapi.okhttp3_14.Response;
-import com.larksuite.oapi.okio1_17.Buffer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.InterruptedIOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Objects;
 import java.util.Set;
 
 public class Transport {
@@ -140,19 +137,17 @@ public class Transport {
         }
     }
 
-    private static void logReq(Request req, String httpPath, boolean isUpload) {
+    private static void logReq(RawRequest req, String httpPath, boolean isUpload) {
         try {
             if (null == req) {
                 return;
             }
-            Buffer buffer = new Buffer();
-            if (req.body() != null) {
-                req.body().writeTo(buffer);
-            }
+
             if (!isUpload) {
-                log.debug("req,path:{},header:{},body:{}", httpPath, req.headers().toMultimap(), buffer.readString(StandardCharsets.UTF_8));
+                log.debug("req,path:{},header:{},body:{}", httpPath, req.getHeaders()
+                        , req.getBody() == null ? "" : Jsons.LONG_TO_STR_GSON.toJson(req.getBody()));
             } else {
-                log.debug("req,path:{},header:{}", httpPath, req.headers().toMultimap());
+                log.debug("req,path:{},header:{}", httpPath, req.getHeaders());
             }
         } catch (Throwable e) {
             log.error("logReq error:{}", e);
@@ -164,42 +159,26 @@ public class Transport {
         for (int i = 0; i < 2; i++) {
             try {
                 // 参数转换
-                Request request = REQ_TRANSLATOR.translate(req, accessTokenType, config, httpMethod, httpPath, requestOptions);
+                RawRequest request = REQ_TRANSLATOR.translate(req, accessTokenType, config, httpMethod, httpPath, requestOptions);
 
-                // 发起请求
-                OkHttpClient httpClient = config.getHttpClient();
-                if (httpClient == null) {
-                    httpClient = OKHttps.defaultClient;
-                }
-
-                // 请求日志打印
+                // 打印日志
                 if (config.isLogReqRespInfoAtDebugLevel()) {
-                    logReq(request, httpPath, requestOptions.isSupportDownLoad());
+                    logReq(request, httpMethod, requestOptions.isSupportUpload());
                 }
 
-                // 发起请求
-                Response response = httpClient.newCall(request).execute();
-
-                // 服务端超时
-                if (response.code() == 504) {
-                    throw new ServerTimeoutException();
+                // 执行调用
+                IHttpTransport httpTransport = config.getHttpTransport();
+                if (httpTransport == null) {
+                    httpTransport = new OkHttpTransport(OKHttps.defaultClient);
                 }
+                RawResponse rawResponse = httpTransport.execute(request);
 
-                // 结果设置
-                RawResponse rawResponse = new RawResponse();
-                rawResponse.setStatusCode(response.code());
-                rawResponse.setHeaders(response.headers().toMultimap());
-                if (requestOptions.isSupportDownLoad()) {
-                    rawResponse.setBody(Objects.requireNonNull(IOs.readAll(response.body().byteStream())));
-                } else {
-                    rawResponse.setBody(Objects.requireNonNull(response.body()).bytes());
-                }
-
+                // 打印日志
                 if (config.isLogReqRespInfoAtDebugLevel() || accessTokenType != AccessTokenType.None) {
                     if (requestOptions.isSupportDownLoad()) {
-                        log.debug("resp,path:{},code:{},header:{}", httpPath, response.code(), response.headers().toMultimap());
+                        log.debug("resp,path:{},code:{},header:{}", httpPath, rawResponse.getStatusCode(), rawResponse.getHeaders());
                     } else {
-                        log.debug("resp,path:{},code:{},header:{},body:{}", httpPath, response.code(), response.headers().toMultimap(), new String(rawResponse.getBody(), StandardCharsets.UTF_8));
+                        log.debug("resp,path:{},code:{},header:{},body:{}", httpPath, rawResponse.getStatusCode(), rawResponse.getHeaders(), new String(rawResponse.getBody(), StandardCharsets.UTF_8));
                     }
                 }
 

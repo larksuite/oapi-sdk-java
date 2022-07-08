@@ -25,7 +25,7 @@ public class AppTicketManager {
         return APP_TICKET_PREFIX + "-" + appId;
     }
 
-    public void put(String appId, String value, int expire, TimeUnit timeUnit) throws Exception {
+    public void put(String appId, String value, int expire, TimeUnit timeUnit) {
         cache.set(getKey(appId), value, expire, timeUnit);
     }
 

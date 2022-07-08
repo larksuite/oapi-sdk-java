@@ -3,9 +3,8 @@ package com.larksuite.oapi.example;
 import com.larksuite.oapi.card.CardActionHandler;
 import com.larksuite.oapi.card.enums.MessageCardButtonTypeEnum;
 import com.larksuite.oapi.card.model.*;
-import com.larksuite.oapi.core.request.EventReq;
-import com.larksuite.oapi.core.response.EventResp;
 import com.larksuite.oapi.core.utils.Jsons;
+import com.larksuite.oapi.sdk.servlet.ext.ServletAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +16,8 @@ import java.util.Map;
 
 @RestController
 public class CardActionController {
+    @Autowired
+    private ServletAdapter servletAdapter;
 
     private final CardActionHandler CARD_ACTION_HANDLER = CardActionHandler.newBuilder("v", "e", new CardActionHandler.ICardHandler() {
         @Override
@@ -40,8 +41,6 @@ public class CardActionController {
 //            return customResponse;
         }
     }).build();
-    @Autowired
-    private HttpTranslator httpTranslator;
 
     private MessageCard getCard() {
         // 配置
@@ -195,16 +194,6 @@ public class CardActionController {
 
     @RequestMapping("/webhook/card")
     public void helloWorld(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-        System.out.println(request.getRequestURI());
-
-        // 转换请求对象
-        EventReq req = httpTranslator.translate(request);
-
-        // 处理请求
-        EventResp resp = CARD_ACTION_HANDLER.handle(req);
-
-        // 回写结果
-        httpTranslator.write(response, resp);
-
+        servletAdapter.handleCardAction(request, response, CARD_ACTION_HANDLER);
     }
 }

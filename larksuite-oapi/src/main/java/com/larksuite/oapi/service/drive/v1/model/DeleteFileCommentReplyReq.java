@@ -18,9 +18,11 @@ public class DeleteFileCommentReplyReq {
     @Path
     @SerializedName("reply_id")
     private Long replyId;
+
     // builder 开始
     public DeleteFileCommentReplyReq() {
     }
+
     public DeleteFileCommentReplyReq(Builder builder) {
         this.fileType = builder.fileType;
         this.fileToken = builder.fileToken;

@@ -11,7 +11,7 @@ public class AppTicketEventHandler implements IEventHandler<AppTicketEvent> {
     }
 
     @Override
-    public void handle(AppTicketEvent event) throws Exception {
+    public void handle(AppTicketEvent event) {
         GlobalAppTicketManager.getAppTicketManager().put(event.getEvent().getAppId()
                 , event.getEvent().getAppTicket()
                 , 12

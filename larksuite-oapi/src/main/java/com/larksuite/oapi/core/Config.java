@@ -3,7 +3,8 @@ package com.larksuite.oapi.core;
 
 import com.larksuite.oapi.core.cache.ICache;
 import com.larksuite.oapi.core.enums.AppType;
-import com.larksuite.oapi.core.enums.DomainEnum;
+import com.larksuite.oapi.core.enums.BaseUrlEnum;
+import com.larksuite.oapi.core.httpclient.IHttpTransport;
 import com.larksuite.oapi.okhttp3_14.OkHttpClient;
 
 import java.util.concurrent.TimeUnit;
@@ -13,7 +14,7 @@ public class Config {
     private TimeUnit timeOutTimeUnit;
     private String helpDeskID;
     private ICache cache;
-    private String domain;
+    private String baseUrl;
     private boolean disableTokenCache;
     private AppType appType;
     private String helpDeskToken;
@@ -22,11 +23,20 @@ public class Config {
     private String appId;
     private String appSecret;
     private OkHttpClient httpClient;
+    private IHttpTransport httpTransport;
     private boolean logReqRespInfoAtDebugLevel;
 
     public Config() {
-        this.domain = DomainEnum.FeiShu.getUrl();
+        this.baseUrl = BaseUrlEnum.FeiShu.getUrl();
         this.appType = AppType.SELF_BUILT;
+    }
+
+    public IHttpTransport getHttpTransport() {
+        return httpTransport;
+    }
+
+    public void setHttpTransport(IHttpTransport httpTransport) {
+        this.httpTransport = httpTransport;
     }
 
     public boolean isLogReqRespInfoAtDebugLevel() {
@@ -61,16 +71,16 @@ public class Config {
         this.cache = cache;
     }
 
-    public String getDomain() {
-        return domain;
+    public String getBaseUrl() {
+        return baseUrl;
     }
 
-    public void setDomain(String domain) {
-        this.domain = domain;
+    public void setBaseUrl(String baseUrl) {
+        this.baseUrl = baseUrl;
     }
 
-    public void setDomain(DomainEnum domain) {
-        this.domain = domain.getUrl();
+    public void setDomain(BaseUrlEnum domain) {
+        this.baseUrl = domain.getUrl();
     }
 
     public boolean isDisableTokenCache() {

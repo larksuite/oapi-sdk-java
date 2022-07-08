@@ -1,13 +1,13 @@
 package com.larksuite.oapi.core.enums;
 
-public enum DomainEnum {
+public enum BaseUrlEnum {
     FeiShu("https://open.feishu.cn"),
     LarkSuite("https://open.larksuite.com"),
     ;
 
     private String url;
 
-    DomainEnum(String url) {
+    BaseUrlEnum(String url) {
         this.url = url;
     }
 

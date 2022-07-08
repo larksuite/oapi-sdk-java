@@ -6,7 +6,8 @@ import com.larksuite.oapi.core.Transport;
 import com.larksuite.oapi.core.cache.ICache;
 import com.larksuite.oapi.core.cache.LocalCache;
 import com.larksuite.oapi.core.enums.AppType;
-import com.larksuite.oapi.core.enums.DomainEnum;
+import com.larksuite.oapi.core.enums.BaseUrlEnum;
+import com.larksuite.oapi.core.httpclient.IHttpTransport;
 import com.larksuite.oapi.core.request.RequestOptions;
 import com.larksuite.oapi.core.response.RawResponse;
 import com.larksuite.oapi.core.token.*;
@@ -276,7 +277,7 @@ public class Client {
         public Builder(String appId, String appSecret) {
             config.setAppId(appId);
             config.setAppSecret(appSecret);
-            config.setDomain(DomainEnum.FeiShu.getUrl());
+            config.setBaseUrl(BaseUrlEnum.FeiShu.getUrl());
             config.setAppType(AppType.SELF_BUILT);
             config.setDisableTokenCache(false);
         }
@@ -305,18 +306,22 @@ public class Client {
             return this;
         }
 
-        public Builder domain(String domain) {
-            config.setDomain(domain);
+        public Builder openBaseUrl(String baseUrl) {
             return this;
         }
 
-        public Builder domain(DomainEnum domain) {
-            config.setDomain(domain.getUrl());
+        public Builder openBaseUrl(BaseUrlEnum domain) {
+            config.setBaseUrl(domain.getUrl());
             return this;
         }
 
         public Builder httpClient(OkHttpClient httpClient) {
             config.setHttpClient(httpClient);
+            return this;
+        }
+
+        public Builder httpTransport(IHttpTransport httpTransport) {
+            config.setHttpTransport(httpTransport);
             return this;
         }
 

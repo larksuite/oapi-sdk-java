@@ -91,7 +91,7 @@ package com.larksuite.oapi.sample.api;
 import com.larksuite.oapi.core.AppSettings;
 import com.larksuite.oapi.core.Config;
 import com.larksuite.oapi.core.cache.LocalCache;
-import com.larksuite.oapi.core.enums.DomainEnum;
+import com.larksuite.oapi.core.enums.BaseUrlEnum;
 import com.larksuite.oapi.core.token.AccessTokenType;
 import com.larksuite.oapi.core.api.Api;
 import com.larksuite.oapi.core.api.request.Request;
@@ -295,7 +295,7 @@ package com.larksuite.oapi.sample.api;
 
 import com.larksuite.oapi.core.AppSettings;
 import com.larksuite.oapi.core.Config;
-import com.larksuite.oapi.core.enums.DomainEnum;
+import com.larksuite.oapi.core.enums.BaseUrlEnum;
 import com.larksuite.oapi.core.cache.ICache;
 
 public class Sample {

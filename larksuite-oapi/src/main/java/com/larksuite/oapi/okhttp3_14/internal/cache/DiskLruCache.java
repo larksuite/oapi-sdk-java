@@ -319,6 +319,29 @@ public final class DiskLruCache implements Closeable, Flushable {
         } else {
             throw new IOException("unexpected journal line: " + line);
         }
+    }
+
+    /**
+     * Computes the initial size and collects garbage as a part of opening the cache. Dirty entries
+     * are assumed to be inconsistent and will be deleted.
+     */
+    private void processJournal() throws IOException {
+        fileSystem.delete(journalFileTmp);
+        for (Iterator<Entry> i = lruEntries.values().iterator(); i.hasNext(); ) {
+            Entry entry = i.next();
+            if (entry.currentEditor == null) {
+                for (int t = 0; t < valueCount; t++) {
+                    size += entry.lengths[t];
+                }
+            } else {
+                entry.currentEditor = null;
+                for (int t = 0; t < valueCount; t++) {
+                    fileSystem.delete(entry.cleanFiles[t]);
+                    fileSystem.delete(entry.dirtyFiles[t]);
+                }
+                i.remove();
+            }
+        }
     }    private final Runnable cleanupRunnable = new Runnable() {
         public void run() {
             synchronized (DiskLruCache.this) {
@@ -344,29 +367,6 @@ public final class DiskLruCache implements Closeable, Flushable {
             }
         }
     };
-
-    /**
-     * Computes the initial size and collects garbage as a part of opening the cache. Dirty entries
-     * are assumed to be inconsistent and will be deleted.
-     */
-    private void processJournal() throws IOException {
-        fileSystem.delete(journalFileTmp);
-        for (Iterator<Entry> i = lruEntries.values().iterator(); i.hasNext(); ) {
-            Entry entry = i.next();
-            if (entry.currentEditor == null) {
-                for (int t = 0; t < valueCount; t++) {
-                    size += entry.lengths[t];
-                }
-            } else {
-                entry.currentEditor = null;
-                for (int t = 0; t < valueCount; t++) {
-                    fileSystem.delete(entry.cleanFiles[t]);
-                    fileSystem.delete(entry.dirtyFiles[t]);
-                }
-                i.remove();
-            }
-        }
-    }
 
     /**
      * Creates a new journal that omits redundant information. This replaces the current journal if it

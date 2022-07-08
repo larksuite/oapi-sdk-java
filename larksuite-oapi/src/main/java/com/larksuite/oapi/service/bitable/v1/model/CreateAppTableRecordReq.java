@@ -18,6 +18,7 @@ public class CreateAppTableRecordReq {
     private String tableId;
     @Body
     private AppTableRecord body;
+
     // builder 开始
     public CreateAppTableRecordReq() {
     }

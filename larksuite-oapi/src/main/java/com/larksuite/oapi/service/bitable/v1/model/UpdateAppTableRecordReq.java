@@ -21,6 +21,7 @@ public class UpdateAppTableRecordReq {
     private String recordId;
     @Body
     private AppTableRecord body;
+
     // builder 开始
     public UpdateAppTableRecordReq() {
     }

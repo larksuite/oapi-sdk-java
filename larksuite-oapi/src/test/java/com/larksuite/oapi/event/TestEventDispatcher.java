@@ -22,13 +22,13 @@ public class TestEventDispatcher {
         EventDispatcher eventDispatcher = EventDispatcher.newBuilder("v", "")
                 .onUserCreatedV3(new ContactService.UserCreatedEventHandler() {
                     @Override
-                    public void handle(UserCreatedEvent event) throws Exception {
+                    public void handle(UserCreatedEvent event) {
                         System.out.println(Jsons.LONG_TO_STR_GSON.toJson(event));
                     }
                 })
                 .onMessageReceiveV1(new ImService.MessageReceiveEventHandler() {
                     @Override
-                    public void handle(MessageReceiveEvent event) throws Exception {
+                    public void handle(MessageReceiveEvent event) {
                         System.out.println(Jsons.LONG_TO_STR_GSON.toJson(event));
                     }
                 })
@@ -48,7 +48,6 @@ public class TestEventDispatcher {
 
         EventResp resp = eventDispatcher.handle(req);
         assert resp != null;
-
     }
 
     @Test
@@ -56,13 +55,13 @@ public class TestEventDispatcher {
         EventDispatcher eventDispatcher = EventDispatcher.newBuilder("v", "")
                 .onUserCreatedV3(new ContactService.UserCreatedEventHandler() {
                     @Override
-                    public void handle(UserCreatedEvent event) throws Exception {
+                    public void handle(UserCreatedEvent event) {
                         System.out.println(Jsons.LONG_TO_STR_GSON.toJson(event));
                     }
                 })
                 .onMessageReceiveV1(new ImService.MessageReceiveEventHandler() {
                     @Override
-                    public void handle(MessageReceiveEvent event) throws Exception {
+                    public void handle(MessageReceiveEvent event) {
                         System.out.println(Jsons.LONG_TO_STR_GSON.toJson(event));
                     }
                 })
@@ -85,19 +84,18 @@ public class TestEventDispatcher {
 
     }
 
-
     @Test
     public void testProcessEncyEvent() throws Throwable {
         EventDispatcher eventDispatcher = EventDispatcher.newBuilder("v", "1212121212")
                 .onUserCreatedV3(new ContactService.UserCreatedEventHandler() {
                     @Override
-                    public void handle(UserCreatedEvent event) throws Exception {
+                    public void handle(UserCreatedEvent event) {
                         System.out.println(Jsons.LONG_TO_STR_GSON.toJson(event));
                     }
                 })
                 .onMessageReceiveV1(new ImService.MessageReceiveEventHandler() {
                     @Override
-                    public void handle(MessageReceiveEvent event) throws Exception {
+                    public void handle(MessageReceiveEvent event) {
                         System.out.println(Jsons.LONG_TO_STR_GSON.toJson(event));
                     }
                 })
