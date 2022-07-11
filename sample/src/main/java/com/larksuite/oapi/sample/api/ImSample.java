@@ -69,6 +69,7 @@ public class ImSample {
         List<String> list = new ArrayList<>();
         list.add("ss");
         CreateMessageResp resp = client.im().message().create(req, RequestOptions.newBuilder().headers(headers).build());
+        // TODO 抛出哪些运行时异常，哪些 CheckedException，演示异常如何处理
         if (resp.getCode() != 0) {
             System.out.println(String.format("code:%d,msg:%s,err:%s"
                     , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR_GSON.toJson(resp.getError())));

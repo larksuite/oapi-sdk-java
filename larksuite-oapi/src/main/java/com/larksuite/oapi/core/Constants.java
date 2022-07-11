@@ -5,6 +5,7 @@ public interface Constants {
     String CONTENT_DISPOSITION = "Content-Disposition";
     String CONTENT_TYPE = "Content-Type";
     String APPLICATION_JSON = "application/json";
+    // TODO 命名为 JSON_CONTENT_TYPE 更已读些吧
     String DEFAULT_CONTENT_TYPE = APPLICATION_JSON + "; charset=utf-8";
 
     String HTTP_HEADER = "HTTP_HEADER";

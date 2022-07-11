@@ -9,6 +9,7 @@ public class CreateMessageResp extends BaseResponse {
     @SerializedName("data")
     private CreateMessageDTO body;
 
+    // TODO getBody 是不是更符合 java 风格
     public CreateMessageDTO getCreateMessageDTO() {
         return this.body;
     }

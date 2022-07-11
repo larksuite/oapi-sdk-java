@@ -3,6 +3,7 @@ package com.larksuite.oapi.service.im.v1.model;
 
 import com.google.gson.annotations.SerializedName;
 
+// TODO 可以考虑将该类定义为 CreateMessageReq 类的内部类，并重命名为 Body。
 public class CreateMessageReqBody {
     @SerializedName("receive_id")
     private String receiveId;

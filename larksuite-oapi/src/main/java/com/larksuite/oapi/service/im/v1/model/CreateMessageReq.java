@@ -55,10 +55,12 @@ public class CreateMessageReq {
             return this;
         }
 
+        // TODO 方法名可以跟字段保持一致，写起来简洁些
         public CreateMessageReqBody getCreateMessageReqBody() {
             return this.body;
         }
 
+        // TODO 方法名可以跟字段保持一致，写起来简洁些
         public Builder createMessageReqBody(CreateMessageReqBody body) {
             this.body = body;
             return this;

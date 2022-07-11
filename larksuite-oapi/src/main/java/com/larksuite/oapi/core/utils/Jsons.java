@@ -6,6 +6,7 @@ import com.google.gson.LongSerializationPolicy;
 
 public class Jsons {
 
+    // TODO 使用者需要知道的是风格，不需要知道下层是否是 gson 吧。
     public static final Gson LONG_TO_STR_GSON = createGSON(false, true);
     public static final Gson DEFAULT_GSON = createGSON(false, false);
 

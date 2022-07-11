@@ -2,6 +2,7 @@ package com.larksuite.oapi.card.model;
 
 import com.google.gson.annotations.SerializedName;
 
+// TODO 这部分可以考虑 Builder 模式
 public class CardAction {
     @SerializedName("open_id")
     private String openId;

@@ -56,5 +56,5 @@ public class BaseResponse {
         this.error = error;
     }
 
-
+    // TODO 清理多余的空行
 }
