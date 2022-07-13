@@ -3,15 +3,16 @@ package com.larksuite.oapi.service.ehr.v1.enums;
 
 // 生成枚举值
 public enum ViewEnum {
-     BASIC("basic"),
-     FULL("full"),
-  ;
-   private String value;
+    BASIC("basic"),
+    FULL("full"),
+    ;
+    private String value;
+
     ViewEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

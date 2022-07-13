@@ -3,18 +3,19 @@ package com.larksuite.oapi.service.im.v1.enums;
 
 // 生成枚举值
 public enum ReceiveIdTypeEnum {
-     OPEN_ID("open_id"),
-     USER_ID("user_id"),
-     UNION_ID("union_id"),
-     EMAIL("email"),
-     CHAT_ID("chat_id"),
-  ;
-   private String value;
+    OPEN_ID("open_id"),
+    USER_ID("user_id"),
+    UNION_ID("union_id"),
+    EMAIL("email"),
+    CHAT_ID("chat_id"),
+    ;
+    private String value;
+
     ReceiveIdTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

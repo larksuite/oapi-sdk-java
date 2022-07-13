@@ -3,17 +3,18 @@ package com.larksuite.oapi.service.attendance.v1.enums;
 
 // 生成枚举值
 public enum StatusEnum {
-     PENDING(0),
-     PASS(2),
-     CANCEL(3),
-     WITHDRAW(4),
-  ;
-   private Integer value;
+    PENDING(0),
+    PASS(2),
+    CANCEL(3),
+    WITHDRAW(4),
+    ;
+    private Integer value;
+
     StatusEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

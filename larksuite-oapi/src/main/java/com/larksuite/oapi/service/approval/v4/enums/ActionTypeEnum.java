@@ -3,16 +3,17 @@ package com.larksuite.oapi.service.approval.v4.enums;
 
 // 生成枚举值
 public enum ActionTypeEnum {
-     APPROVE("APPROVE"),
-     REJECT("REJECT"),
-     KEY("{KEY}"),
-  ;
-   private String value;
+    APPROVE("APPROVE"),
+    REJECT("REJECT"),
+    KEY("{KEY}"),
+    ;
+    private String value;
+
     ActionTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

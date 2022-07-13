@@ -3,14 +3,15 @@ package com.larksuite.oapi.service.contact.v3.enums;
 
 // 生成枚举值
 public enum CreateGroupTypeEnum {
-     ASSIGN(1),
-  ;
-   private Integer value;
+    ASSIGN(1),
+    ;
+    private Integer value;
+
     CreateGroupTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

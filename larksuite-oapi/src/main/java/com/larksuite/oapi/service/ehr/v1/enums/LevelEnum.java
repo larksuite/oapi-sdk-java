@@ -3,22 +3,23 @@ package com.larksuite.oapi.service.ehr.v1.enums;
 
 // 生成枚举值
 public enum LevelEnum {
-     ELEMENTARY_SCHOOL(1),
-     MIDDLE_SCHOOL(2),
-     HIGH_SCHOOL(3),
-     VOCATIONAL_SCHOOL(4),
-     SECONDARY_SPECIALIZED_SCHOOL(5),
-     ASSOCIATE_DEGREE(6),
-     BACHELOR(7),
-     MASTER(8),
-     DOCTOR(9),
-  ;
-   private Integer value;
+    ELEMENTARY_SCHOOL(1),
+    MIDDLE_SCHOOL(2),
+    HIGH_SCHOOL(3),
+    VOCATIONAL_SCHOOL(4),
+    SECONDARY_SPECIALIZED_SCHOOL(5),
+    ASSOCIATE_DEGREE(6),
+    BACHELOR(7),
+    MASTER(8),
+    DOCTOR(9),
+    ;
+    private Integer value;
+
     LevelEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

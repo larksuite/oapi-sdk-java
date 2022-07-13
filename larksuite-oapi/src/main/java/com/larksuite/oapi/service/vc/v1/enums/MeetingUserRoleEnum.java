@@ -3,16 +3,17 @@ package com.larksuite.oapi.service.vc.v1.enums;
 
 // 生成枚举值
 public enum MeetingUserRoleEnum {
-     NORMAL(1),
-     HOST(2),
-     CO_HOST(3),
-  ;
-   private Integer value;
+    NORMAL(1),
+    HOST(2),
+    CO_HOST(3),
+    ;
+    private Integer value;
+
     MeetingUserRoleEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -383,6 +383,30 @@ public final class DiskLruCache implements Closeable, Flushable {
         journalWriter = newJournalWriter();
         hasJournalErrors = false;
         mostRecentRebuildFailed = false;
+    }
+
+    /**
+     * Returns a snapshot of the entry named {@code key}, or null if it doesn't exist is not currently
+     * readable. If a value is returned, it is moved to the head of the LRU queue.
+     */
+    public synchronized Snapshot get(String key) throws IOException {
+        initialize();
+
+        checkNotClosed();
+        validateKey(key);
+        Entry entry = lruEntries.get(key);
+        if (entry == null || !entry.readable) return null;
+
+        Snapshot snapshot = entry.snapshot();
+        if (snapshot == null) return null;
+
+        redundantOpCount++;
+        journalWriter.writeUtf8(READ).writeByte(' ').writeUtf8(key).writeByte('\n');
+        if (journalRebuildRequired()) {
+            executor.execute(cleanupRunnable);
+        }
+
+        return snapshot;
     }    private final Runnable cleanupRunnable = new Runnable() {
         public void run() {
             synchronized (DiskLruCache.this) {
@@ -408,30 +432,6 @@ public final class DiskLruCache implements Closeable, Flushable {
             }
         }
     };
-
-    /**
-     * Returns a snapshot of the entry named {@code key}, or null if it doesn't exist is not currently
-     * readable. If a value is returned, it is moved to the head of the LRU queue.
-     */
-    public synchronized Snapshot get(String key) throws IOException {
-        initialize();
-
-        checkNotClosed();
-        validateKey(key);
-        Entry entry = lruEntries.get(key);
-        if (entry == null || !entry.readable) return null;
-
-        Snapshot snapshot = entry.snapshot();
-        if (snapshot == null) return null;
-
-        redundantOpCount++;
-        journalWriter.writeUtf8(READ).writeByte(' ').writeUtf8(key).writeByte('\n');
-        if (journalRebuildRequired()) {
-            executor.execute(cleanupRunnable);
-        }
-
-        return snapshot;
-    }
 
     /**
      * Returns an editor for the entry named {@code key}, or null if another edit is in progress.

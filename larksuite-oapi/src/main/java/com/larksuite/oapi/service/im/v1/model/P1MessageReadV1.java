@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName;
 import com.larksuite.oapi.event.model.BaseEvent;
 
 public class P1MessageReadV1 extends BaseEvent {
+    @SerializedName("event")
+    private P1MessageReadV1Data p1MessageReadV1Data;
+
     public P1MessageReadV1Data getP1MessageReadV1Data() {
         return p1MessageReadV1Data;
     }
@@ -11,7 +14,4 @@ public class P1MessageReadV1 extends BaseEvent {
     public void setP1MessageReadV1Data(P1MessageReadV1Data p1MessageReadV1Data) {
         this.p1MessageReadV1Data = p1MessageReadV1Data;
     }
-
-    @SerializedName("event")
-    private P1MessageReadV1Data p1MessageReadV1Data;
 }

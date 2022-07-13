@@ -3,21 +3,22 @@ package com.larksuite.oapi.service.im.v1.enums;
 
 // 生成枚举值
 public enum TabTypeEnum {
-     MESSAGE("message"),
-     DOCLIST("doc_list"),
-     DOC("doc"),
-     PIN("pin"),
-     MEETINGMINUTE("meeting_minute"),
-     CHATANNOUNCEMENT("chat_announcement"),
-     URL("url"),
-     FILE("file"),
-  ;
-   private String value;
+    MESSAGE("message"),
+    DOCLIST("doc_list"),
+    DOC("doc"),
+    PIN("pin"),
+    MEETINGMINUTE("meeting_minute"),
+    CHATANNOUNCEMENT("chat_announcement"),
+    URL("url"),
+    FILE("file"),
+    ;
+    private String value;
+
     TabTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

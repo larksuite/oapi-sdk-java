@@ -3,15 +3,16 @@ package com.larksuite.oapi.service.contact.v3.enums;
 
 // 生成枚举值
 public enum DepartmentIdTypeEnum {
-     DEPARTMENT_ID("department_id"),
-     OPEN_DEPARTMENT_ID("open_department_id"),
-  ;
-   private String value;
+    DEPARTMENT_ID("department_id"),
+    OPEN_DEPARTMENT_ID("open_department_id"),
+    ;
+    private String value;
+
     DepartmentIdTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

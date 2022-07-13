@@ -3,17 +3,18 @@ package com.larksuite.oapi.service.approval.v4.enums;
 
 // 生成枚举值
 public enum ViewerTypeEnum {
-     TENANT("TENANT"),
-     DEPARTMENT("DEPARTMENT"),
-     USER("USER"),
-     NONE("NONE"),
-  ;
-   private String value;
+    TENANT("TENANT"),
+    DEPARTMENT("DEPARTMENT"),
+    USER("USER"),
+    NONE("NONE"),
+    ;
+    private String value;
+
     ViewerTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

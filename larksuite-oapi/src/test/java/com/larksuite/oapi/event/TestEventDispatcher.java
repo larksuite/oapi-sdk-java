@@ -7,8 +7,8 @@ import com.larksuite.oapi.core.utils.Jsons;
 import com.larksuite.oapi.service.contact.v3.ContactService;
 import com.larksuite.oapi.service.contact.v3.model.P2UserCreatedV3;
 import com.larksuite.oapi.service.im.v1.ImService;
-import com.larksuite.oapi.service.im.v1.model.P2MessageReceiveV1;
 import com.larksuite.oapi.service.im.v1.model.P1MessageReadV1;
+import com.larksuite.oapi.service.im.v1.model.P2MessageReceiveV1;
 import org.junit.Test;
 
 import java.nio.charset.StandardCharsets;

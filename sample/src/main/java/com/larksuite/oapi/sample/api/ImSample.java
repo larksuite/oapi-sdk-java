@@ -1033,7 +1033,7 @@ public class ImSample {
                 .build();
         //replayMsg(client);
         // downLoadImage(client);
-       // uploadFile(client);
+        // uploadFile(client);
         downLoadFile(client);
         //sendTextMsg(client);
         // sendImageMsg(client);

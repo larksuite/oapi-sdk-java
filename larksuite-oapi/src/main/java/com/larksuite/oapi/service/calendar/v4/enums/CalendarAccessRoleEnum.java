@@ -3,18 +3,19 @@ package com.larksuite.oapi.service.calendar.v4.enums;
 
 // 生成枚举值
 public enum CalendarAccessRoleEnum {
-     UNKONWN("unknown"),
-     FREEBUSYREADER("free_busy_reader"),
-     READER("reader"),
-     WRITER("writer"),
-     OWNER("owner"),
-  ;
-   private String value;
+    UNKONWN("unknown"),
+    FREEBUSYREADER("free_busy_reader"),
+    READER("reader"),
+    WRITER("writer"),
+    OWNER("owner"),
+    ;
+    private String value;
+
     CalendarAccessRoleEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

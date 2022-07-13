@@ -3,16 +3,17 @@ package com.larksuite.oapi.service.ehr.v1.enums;
 
 // 生成枚举值
 public enum ApplicationStatusEnum {
-     NO_CONVERSION_REQUIRED(1),
-     PENDING_CONVERSION(2),
-     REGULAR(3),
-  ;
-   private Integer value;
+    NO_CONVERSION_REQUIRED(1),
+    PENDING_CONVERSION(2),
+    REGULAR(3),
+    ;
+    private Integer value;
+
     ApplicationStatusEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

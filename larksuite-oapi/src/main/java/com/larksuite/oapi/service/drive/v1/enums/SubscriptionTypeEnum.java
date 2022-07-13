@@ -3,14 +3,15 @@ package com.larksuite.oapi.service.drive.v1.enums;
 
 // 生成枚举值
 public enum SubscriptionTypeEnum {
-     COMMENT_UPDATE("comment_update"),
-  ;
-   private String value;
+    COMMENT_UPDATE("comment_update"),
+    ;
+    private String value;
+
     SubscriptionTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

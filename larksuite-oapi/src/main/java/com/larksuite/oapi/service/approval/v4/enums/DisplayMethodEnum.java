@@ -3,16 +3,17 @@ package com.larksuite.oapi.service.approval.v4.enums;
 
 // 生成枚举值
 public enum DisplayMethodEnum {
-     BROWSER("BROWSER"),
-     SIDEBAR("SIDEBAR"),
-     NORMAL("NORMAL"),
-  ;
-   private String value;
+    BROWSER("BROWSER"),
+    SIDEBAR("SIDEBAR"),
+    NORMAL("NORMAL"),
+    ;
+    private String value;
+
     DisplayMethodEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

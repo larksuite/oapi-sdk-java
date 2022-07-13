@@ -3,15 +3,16 @@ package com.larksuite.oapi.service.wiki.v2.enums;
 
 // 生成枚举值
 public enum SpaceVisibilityEnum {
-     PUBLIC("public"),
-     PRIVATE("private"),
-  ;
-   private String value;
+    PUBLIC("public"),
+    PRIVATE("private"),
+    ;
+    private String value;
+
     SpaceVisibilityEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

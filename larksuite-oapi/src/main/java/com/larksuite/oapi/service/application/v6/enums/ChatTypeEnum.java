@@ -3,15 +3,16 @@ package com.larksuite.oapi.service.application.v6.enums;
 
 // 生成枚举值
 public enum ChatTypeEnum {
-     PRIVATE("private"),
-     GROUP("group"),
-  ;
-   private String value;
+    PRIVATE("private"),
+    GROUP("group"),
+    ;
+    private String value;
+
     ChatTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

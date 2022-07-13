@@ -3,16 +3,17 @@ package com.larksuite.oapi.service.drive.v1.enums;
 
 // 生成枚举值
 public enum SecurityEntityEnum {
-     ANYONECANVIEW("anyone_can_view"),
-     ANYONECANEDIT("anyone_can_edit"),
-     ONLYFULLACCESS("only_full_access"),
-  ;
-   private String value;
+    ANYONECANVIEW("anyone_can_view"),
+    ANYONECANEDIT("anyone_can_edit"),
+    ONLYFULLACCESS("only_full_access"),
+    ;
+    private String value;
+
     SecurityEntityEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

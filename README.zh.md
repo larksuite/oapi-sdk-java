@@ -30,6 +30,7 @@
 - 如果增加的 larksuite-oapi 依赖，无法发现获取，请在 pom.xml 的 \<project\> 里增加 \<repositories\>
 
 ```xml
+
 <project>
     <repositories>
         <repository>
@@ -73,8 +74,8 @@
 - **必看** [如何调用服务端API](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/guide-to-use-server-api)
   ，了解调用服务端API的过程及注意事项。
     -
-    由于SDK已经封装了app_access_token、tenant_access_token的获取，所以在调业务API的时候，不需要去获取app_access_token、tenant_access_token。如果业务接口需要使用user_access_token，需要进行设置（Request.setUserAccessToken("
-    UserAccessToken")），具体请看 README.zh.md -> 如何构建请求（Request）
+  由于SDK已经封装了app_access_token、tenant_access_token的获取，所以在调业务API的时候，不需要去获取app_access_token、tenant_access_token。如果业务接口需要使用user_access_token，需要进行设置（Request.setUserAccessToken("
+  UserAccessToken")），具体请看 README.zh.md -> 如何构建请求（Request）
 - 更多使用示例，请看[ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)
 
 #### 使用`企业自建应用`访问 发送文本消息API 示例
@@ -419,7 +420,7 @@ import com.larksuite.oapi.core.api.request.Request;
 import com.larksuite.oapi.core.api.request.RequestOptFn;
 
 public class Sample {
-    
+
     // 参数说明：
     // httpPath：API路径（`open-apis/`之后的路径），例如：https://domain/open-apis/contact/v3/users/:user_id，则 httpPath："contact/v3/users/:user_id"
     // httpMethod: GET/POST/PUT/BATCH/DELETE
@@ -458,6 +459,7 @@ public class Sample {
 
 - 更多示例，请看：[ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)（含：文件的上传与下载）
 -
+
 由于SDK已经封装了app_access_token、tenant_access_token的获取，所以在调业务API的时候，不需要去获取app_access_token、tenant_access_token。如果业务接口需要使用user_access_token，需要进行设置（Request.setUserAccessToken("
 UserAccessToken")），具体请看 README.zh.md -> 如何构建请求（Request）
 
@@ -474,7 +476,7 @@ public class Sample {
     // 返回值说明：
     // Response<O>：请求的结果（= http response body）
     // Exception：发送请求出现的异常
-    Response<O> response = Api.send(Config config, Request <I,O> request) throws Exception;
+    Response<O> response = Api.send(Config config, Request < I, O > request) throws Exception;
 }
 ```
 
@@ -482,25 +484,26 @@ public class Sample {
 
 - 通过网络请求下载文件
 -
+
 更多使用示例，请看：[sample/tools/FileDownloadSample.java](sample/src/main/java/com/larksuite/oapi/sample/tools/FileDownloadSample.java)
 
 ```java
 import com.larksuite.oapi.core.utils.Files;
 
 /**
-* @param url File net url
-* @return InputStream must close!!!!
-* @throws IOException IO exception
-*/
-public static InputStream DownloadFileToStream(String url) throws IOException {}
+ * @param url File net url
+ * @return InputStream must close!!!!
+ * @throws IOException IO exception
+ */
+public static InputStream DownloadFileToStream(String url)throws IOException{}
 
 /**
-* @param url File net url
-* @return File bytes
-* @throws IOException IO exception
-*/
-public static byte[] DownloadFile(String url) throws IOException {
-}
+ * @param url File net url
+ * @return File bytes
+ * @throws IOException IO exception
+ */
+public static byte[]DownloadFile(String url)throws IOException{
+        }
 
 ```
 

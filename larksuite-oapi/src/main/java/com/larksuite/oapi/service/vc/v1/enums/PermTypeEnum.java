@@ -3,14 +3,15 @@ package com.larksuite.oapi.service.vc.v1.enums;
 
 // 生成枚举值
 public enum PermTypeEnum {
-     VIEW(1),
-  ;
-   private Integer value;
+    VIEW(1),
+    ;
+    private Integer value;
+
     PermTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

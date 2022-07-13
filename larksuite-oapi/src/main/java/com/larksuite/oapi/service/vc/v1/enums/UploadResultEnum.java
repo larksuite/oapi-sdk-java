@@ -3,17 +3,18 @@ package com.larksuite.oapi.service.vc.v1.enums;
 
 // 生成枚举值
 public enum UploadResultEnum {
-     OK(1),
-     FAILED(2),
-     FILE_SIZE_LIMIT(3),
-     FILE_COUNT_LIMIT(4),
-  ;
-   private Integer value;
+    OK(1),
+    FAILED(2),
+    FILE_SIZE_LIMIT(3),
+    FILE_COUNT_LIMIT(4),
+    ;
+    private Integer value;
+
     UploadResultEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

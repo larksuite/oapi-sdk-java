@@ -3,18 +3,19 @@ package com.larksuite.oapi.service.application.v6.enums;
 
 // 生成枚举值
 public enum MessageTypeEnum {
-     TEXT("text"),
-     IMAGE("image"),
-     INTERACTIVE("interactive"),
-     POST("post"),
-     SHARE_CHAT("share_chat"),
-  ;
-   private String value;
+    TEXT("text"),
+    IMAGE("image"),
+    INTERACTIVE("interactive"),
+    POST("post"),
+    SHARE_CHAT("share_chat"),
+    ;
+    private String value;
+
     MessageTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

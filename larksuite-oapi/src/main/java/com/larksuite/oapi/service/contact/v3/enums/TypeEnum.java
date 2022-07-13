@@ -3,15 +3,16 @@ package com.larksuite.oapi.service.contact.v3.enums;
 
 // 生成枚举值
 public enum TypeEnum {
-     ASSIGN(1),
-     DYNAMIC(2),
-  ;
-   private Integer value;
+    ASSIGN(1),
+    DYNAMIC(2),
+    ;
+    private Integer value;
+
     TypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

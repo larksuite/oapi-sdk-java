@@ -3,16 +3,17 @@ package com.larksuite.oapi.service.calendar.v4.enums;
 
 // 生成枚举值
 public enum IconTypeEnum {
-     VC("vc"),
-     LIVE("live"),
-     DEFAULT("default"),
-  ;
-   private String value;
+    VC("vc"),
+    LIVE("live"),
+    DEFAULT("default"),
+    ;
+    private String value;
+
     IconTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }

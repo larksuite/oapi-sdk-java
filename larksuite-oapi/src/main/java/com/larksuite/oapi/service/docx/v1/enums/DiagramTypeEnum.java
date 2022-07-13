@@ -3,15 +3,16 @@ package com.larksuite.oapi.service.docx.v1.enums;
 
 // 生成枚举值
 public enum DiagramTypeEnum {
-     FLOWCHART(1),
-     UML(2),
-  ;
-   private Integer value;
+    FLOWCHART(1),
+    UML(2),
+    ;
+    private Integer value;
+
     DiagramTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

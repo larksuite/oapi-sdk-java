@@ -3,19 +3,20 @@ package com.larksuite.oapi.service.mail.v1.enums;
 
 // 生成枚举值
 public enum UserTypeEnum {
-     USERMAILBOX(1),
-     USERMAILBOXALIAS(2),
-     PUBLICMAILBOX(3),
-     PUBLICMAILBOXALIAS(4),
-     MAILGROUP(5),
-     MAILGROUPALIAS(6),
-  ;
-   private Integer value;
+    USERMAILBOX(1),
+    USERMAILBOXALIAS(2),
+    PUBLICMAILBOX(3),
+    PUBLICMAILBOXALIAS(4),
+    MAILGROUP(5),
+    MAILGROUPALIAS(6),
+    ;
+    private Integer value;
+
     UserTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

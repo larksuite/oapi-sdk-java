@@ -3,15 +3,16 @@ package com.larksuite.oapi.service.contact.v3.enums;
 
 // 生成枚举值
 public enum EnumStatusEnum {
-     ACTIVE(1),
-     INACTIVE(2),
-  ;
-   private Integer value;
+    ACTIVE(1),
+    INACTIVE(2),
+    ;
+    private Integer value;
+
     EnumStatusEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

@@ -3,18 +3,19 @@ package com.larksuite.oapi.service.ehr.v1.enums;
 
 // 生成枚举值
 public enum EmployeeTypeEnum {
-     REGULAR(1),
-     INTERN(2),
-     CONSULTANT(3),
-     OUTSOURCING(4),
-     CONTRACTOR(5),
-  ;
-   private Integer value;
+    REGULAR(1),
+    INTERN(2),
+    CONSULTANT(3),
+    OUTSOURCING(4),
+    CONTRACTOR(5),
+    ;
+    private Integer value;
+
     EmployeeTypeEnum(Integer value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Integer getValue() {
-      return this.value;
+        return this.value;
     }
 }

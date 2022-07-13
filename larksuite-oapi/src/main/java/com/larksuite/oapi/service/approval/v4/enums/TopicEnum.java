@@ -3,18 +3,19 @@ package com.larksuite.oapi.service.approval.v4.enums;
 
 // 生成枚举值
 public enum TopicEnum {
-     TODOAPPROVAL(1L),
-     DONEAPPROVAL(2L),
-     INITIATEDAPPROVAL(3L),
-     UNREADNOTICE(17L),
-     READNOTICE(18L),
-  ;
-   private Long value;
+    TODOAPPROVAL(1L),
+    DONEAPPROVAL(2L),
+    INITIATEDAPPROVAL(3L),
+    UNREADNOTICE(17L),
+    READNOTICE(18L),
+    ;
+    private Long value;
+
     TopicEnum(Long value) {
-      this.value = value;
+        this.value = value;
     }
 
     public Long getValue() {
-      return this.value;
+        return this.value;
     }
 }

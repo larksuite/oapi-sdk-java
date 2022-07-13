@@ -3,18 +3,19 @@ package com.larksuite.oapi.service.calendar.v4.enums;
 
 // 生成枚举值
 public enum VcTypeEnum {
-     VC("vc"),
-     THIRDPARTY("third_party"),
-     NOMEETING("no_meeting"),
-     LARKLIVE("lark_live"),
-     UNKNOWN("unknown"),
-  ;
-   private String value;
+    VC("vc"),
+    THIRDPARTY("third_party"),
+    NOMEETING("no_meeting"),
+    LARKLIVE("lark_live"),
+    UNKNOWN("unknown"),
+    ;
+    private String value;
+
     VcTypeEnum(String value) {
-      this.value = value;
+        this.value = value;
     }
 
     public String getValue() {
-      return this.value;
+        return this.value;
     }
 }
