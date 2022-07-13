@@ -106,6 +106,7 @@ public class CardActionHandler implements IHandler {
         try {
             // 反序列化
             CardAction cardAction = Jsons.DEFAULT_GSON.fromJson(new String(eventReq.getBody(), StandardCharsets.UTF_8), CardAction.class);
+            cardAction.setEventReq(eventReq);
 
             // auth by challenge
             if (Constants.URL_VERIFICATION.equals(cardAction.getType())) {

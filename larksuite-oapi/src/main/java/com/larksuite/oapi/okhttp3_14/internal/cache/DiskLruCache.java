@@ -342,31 +342,7 @@ public final class DiskLruCache implements Closeable, Flushable {
                 i.remove();
             }
         }
-    }    private final Runnable cleanupRunnable = new Runnable() {
-        public void run() {
-            synchronized (DiskLruCache.this) {
-                if (!initialized | closed) {
-                    return; // Nothing to do
-                }
-
-                try {
-                    trimToSize();
-                } catch (IOException ignored) {
-                    mostRecentTrimFailed = true;
-                }
-
-                try {
-                    if (journalRebuildRequired()) {
-                        rebuildJournal();
-                        redundantOpCount = 0;
-                    }
-                } catch (IOException e) {
-                    mostRecentRebuildFailed = true;
-                    journalWriter = Okio.buffer(Okio.blackhole());
-                }
-            }
-        }
-    };
+    }
 
     /**
      * Creates a new journal that omits redundant information. This replaces the current journal if it
@@ -407,7 +383,31 @@ public final class DiskLruCache implements Closeable, Flushable {
         journalWriter = newJournalWriter();
         hasJournalErrors = false;
         mostRecentRebuildFailed = false;
-    }
+    }    private final Runnable cleanupRunnable = new Runnable() {
+        public void run() {
+            synchronized (DiskLruCache.this) {
+                if (!initialized | closed) {
+                    return; // Nothing to do
+                }
+
+                try {
+                    trimToSize();
+                } catch (IOException ignored) {
+                    mostRecentTrimFailed = true;
+                }
+
+                try {
+                    if (journalRebuildRequired()) {
+                        rebuildJournal();
+                        redundantOpCount = 0;
+                    }
+                } catch (IOException e) {
+                    mostRecentRebuildFailed = true;
+                    journalWriter = Okio.buffer(Okio.blackhole());
+                }
+            }
+        }
+    };
 
     /**
      * Returns a snapshot of the entry named {@code key}, or null if it doesn't exist is not currently

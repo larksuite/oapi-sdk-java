@@ -1,6 +1,5 @@
 [**README of Larksuite(Overseas)**](README.md) | 飞书
 
-
 # 飞书开放接口SDK
 
 ## 概述
@@ -17,7 +16,6 @@
 --- 
 
 - 如有任何SDK使用相关问题，请提交 [Github Issues](https://github.com/larksuite/oapi-sdk-java/issues), 我们会在收到 Issues 的第一时间处理，并尽快给您答复。
-
 
 ## 运行环境
 
@@ -74,8 +72,10 @@
 
 - **必看** [如何调用服务端API](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/guide-to-use-server-api)
   ，了解调用服务端API的过程及注意事项。
-    - 由于SDK已经封装了app_access_token、tenant_access_token的获取，所以在调业务API的时候，不需要去获取app_access_token、tenant_access_token。如果业务接口需要使用user_access_token，需要进行设置（Request.setUserAccessToken("UserAccessToken")），具体请看 README.zh.md -> 如何构建请求（Request）
-- 更多使用示例，请看[ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)  
+    -
+    由于SDK已经封装了app_access_token、tenant_access_token的获取，所以在调业务API的时候，不需要去获取app_access_token、tenant_access_token。如果业务接口需要使用user_access_token，需要进行设置（Request.setUserAccessToken("
+    UserAccessToken")），具体请看 README.zh.md -> 如何构建请求（Request）
+- 更多使用示例，请看[ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)
 
 #### 使用`企业自建应用`访问 发送文本消息API 示例
 
@@ -457,7 +457,9 @@ public class Sample {
 ### 如何发送请求
 
 - 更多示例，请看：[ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)（含：文件的上传与下载）
-- 由于SDK已经封装了app_access_token、tenant_access_token的获取，所以在调业务API的时候，不需要去获取app_access_token、tenant_access_token。如果业务接口需要使用user_access_token，需要进行设置（Request.setUserAccessToken("UserAccessToken")），具体请看 README.zh.md -> 如何构建请求（Request）
+-
+由于SDK已经封装了app_access_token、tenant_access_token的获取，所以在调业务API的时候，不需要去获取app_access_token、tenant_access_token。如果业务接口需要使用user_access_token，需要进行设置（Request.setUserAccessToken("
+UserAccessToken")），具体请看 README.zh.md -> 如何构建请求（Request）
 
 ```java
 package com.larksuite.oapi.sample.api;
@@ -479,7 +481,8 @@ public class Sample {
 ### 下载文件工具
 
 - 通过网络请求下载文件
-- 更多使用示例，请看：[sample/tools/FileDownloadSample.java](sample/src/main/java/com/larksuite/oapi/sample/tools/FileDownloadSample.java)
+-
+更多使用示例，请看：[sample/tools/FileDownloadSample.java](sample/src/main/java/com/larksuite/oapi/sample/tools/FileDownloadSample.java)
 
 ```java
 import com.larksuite.oapi.core.utils.Files;

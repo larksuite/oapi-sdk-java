@@ -14,6 +14,8 @@ import com.larksuite.oapi.core.utils.Decryptor;
 import com.larksuite.oapi.core.utils.Jsons;
 import com.larksuite.oapi.core.utils.Strings;
 import com.larksuite.oapi.event.exception.NotFoundHandlerException;
+import com.larksuite.oapi.event.model.BaseEvent;
+import com.larksuite.oapi.event.model.BaseEventV2;
 import com.larksuite.oapi.event.model.Fuzzy;
 import com.larksuite.oapi.service.acs.v1.AcsService;
 import com.larksuite.oapi.service.application.v6.ApplicationService;
@@ -104,7 +106,8 @@ public class EventDispatcher implements IHandler {
         return sign;
     }
 
-    private EventResp doHandle(String plainEventJsonStr, String eventType, String reqType, String challenge, String token) throws Exception {
+    private EventResp doHandle(String plainEventJsonStr, String eventType, String reqType
+            , String challenge, String token, EventReq eventReq) throws Exception {
         EventResp resp = new EventResp();
         resp.setStatusCode(200);
         resp.setContentType(Constants.APPLICATION_JSON);
@@ -128,7 +131,16 @@ public class EventDispatcher implements IHandler {
 
         Object eventMsg = handler.getEvent();
         eventMsg = Jsons.DEFAULT_GSON.fromJson(plainEventJsonStr, eventMsg.getClass());
+        if (eventMsg instanceof BaseEventV2) {
+            ((BaseEventV2) eventMsg).setEventReq(eventReq);
+        } else if (eventMsg instanceof BaseEvent) {
+            ((BaseEvent) eventMsg).setEventReq(eventReq);
+        }
+
+        // 执行处理器
         handler.handle(eventMsg);
+
+        // 设置响应结果
         resp.setBody(String.format(EventResp.RESPONSE_FORMAT, "success").getBytes(StandardCharsets.UTF_8));
         return resp;
     }
@@ -166,9 +178,10 @@ public class EventDispatcher implements IHandler {
             }
 
             // 处理逻辑
-            return doHandle(plainEventJsonStr, eventType, reqType, challenge, token);
+            return doHandle(plainEventJsonStr, eventType, reqType, challenge, token, eventReq);
         } catch (Throwable e) {
-            log.error("handle event failed,requestId:{},err:{}", eventReq.getRequestID(), e);
+            log.error("handle event failed,httpPath:{},requestId:{},err:"
+                    , eventReq.getHttpPath(), eventReq.getRequestID(), e);
             if (e instanceof NotFoundHandlerException) {
                 eventResp.setBody(String.format(EventResp.RESPONSE_FORMAT,
                         e.getMessage()).getBytes(StandardCharsets.UTF_8));
@@ -218,7 +231,7 @@ public class EventDispatcher implements IHandler {
             }
 
             // 处理逻辑
-            eventResp = doHandle(plainEventJsonStr, eventType, reqType, challenge, token);
+            eventResp = doHandle(plainEventJsonStr, eventType, reqType, challenge, token, eventReq);
         } catch (Throwable e) {
             log.error("handle event failed,requestId:{},err:{}", eventReq == null ? "" : eventReq.getRequestID(), e);
             if (e instanceof NotFoundHandlerException) {

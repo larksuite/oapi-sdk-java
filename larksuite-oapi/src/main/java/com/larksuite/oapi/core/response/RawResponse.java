@@ -53,12 +53,8 @@ public class RawResponse {
         this.body = body;
     }
 
-    private String normalizeKey(String name) {
-        return name != null ? name.toLowerCase() : null;
-    }
-
     private String getHeaderFirstValue(String name) {
-        List<String> values = this.headers.get(normalizeKey(name));
+        List<String> values = this.headers.get(name);
         if (values != null && values.size() > 0) {
             return values.get(0);
         } else {

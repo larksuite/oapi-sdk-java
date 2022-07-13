@@ -1,6 +1,7 @@
 [**飞书，点这里**](README.zh.md) | Larksuite(Overseas)
 
-- 如果使用的是飞书，请看 [**飞书，点这里**](README.zh.md) ，飞书与Larksuite使用的域名不一样，引用的文档地址也是不同的。（If you are using FeiShu, please see [**飞书，点这里**](README.zh.md) , Feishu and larksuite use different domain names and reference different document addresses.)
+- 如果使用的是飞书，请看 [**飞书，点这里**](README.zh.md) ，飞书与Larksuite使用的域名不一样，引用的文档地址也是不同的。（If you are using FeiShu, please see [**
+  飞书，点这里**](README.zh.md) , Feishu and larksuite use different domain names and reference different document addresses.)
 
 # LarkSuite open api SDK
 
@@ -19,8 +20,9 @@
 
 ---
 
-- If you encounter any problems during usage, please let us know by submitting  [Github Issues](https://github.com/larksuite/oapi-sdk-java/issues). We will deal with these Issues and get back to you as soon as possible.
-
+- If you encounter any problems during usage, please let us know by
+  submitting  [Github Issues](https://github.com/larksuite/oapi-sdk-java/issues). We will deal with these Issues and get
+  back to you as soon as possible.
 
 ## Run environment
 
@@ -48,7 +50,8 @@
 </project>
 ```
 
-- The latest release candidate provides more [open services API](/larksuite-oapi/src/main/java/com/larksuite/oapi/service) and bug repair.
+- The latest release candidate provides
+  more [open services API](/larksuite-oapi/src/main/java/com/larksuite/oapi/service) and bug repair.
 
 ```shell
 <dependency>
@@ -81,8 +84,12 @@
 
 #### Example of using "Custom App" to access [send text message](https://open.larksuite.com/document/uMzMyEjLzMjMx4yMzITM/ugDN0EjL4QDNx4CO0QTM) API
 
-- Since the SDK has encapsulated the app_access_token、tenant_access_token So when calling the business API, you don't need to get the app_access_token、tenant_access_token. If the business interface needs to use user_access_token, which needs to be set（Request.setUserAccessToken("UserAccessToken")), Please refer to README.md -> How to build a request(Request)
-- For more use examples, please refer to [ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)
+- Since the SDK has encapsulated the app_access_token、tenant_access_token So when calling the business API, you don't
+  need to get the app_access_token、tenant_access_token. If the business interface needs to use user_access_token, which
+  needs to be set（Request.setUserAccessToken("UserAccessToken")), Please refer to README.md -> How to build a request(
+  Request)
+- For more use examples, please refer
+  to [ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)
 - Some of the old API do not have a direct SDK to use. They can use the `native` mode.
 
 ```java
@@ -140,7 +147,9 @@ public class Sample {
 
 - [Subscribe to events](https://open.larksuite.com/document/uMzMyEjLzMjMx4yMzITM/uETM4QjLxEDO04SMxgDN) , to understand
   the process and precautions of subscribing to events.
-- For more use examples, please refer to [EventController.java](spring-boot-examples/src/main/java/com/larksuite/oapi/example/EventController.java)（including: use in combination with spring-boot）
+- For more use examples, please refer
+  to [EventController.java](spring-boot-examples/src/main/java/com/larksuite/oapi/example/EventController.java)
+  （including: use in combination with spring-boot）
 
 #### Example of using "Custom App" to subscribe [App First Enabled](https://open.larksuite.com/document/uMzMyEjLzMjMx4yMzITM/uYjMyYjL2IjM24iNyIjN) event.
 
@@ -193,7 +202,9 @@ public class EventController extends EventServlet {
 
 - [Message Card Development Process](https://open.larksuite.com/document/uMzMyEjLzMjMx4yMzITM/ukzM3QjL5MzN04SOzcDN) , to
   understand the process and precautions of processing message cards
-- For more use examples, please refer to [CardController.java](spring-boot-examples/src/main/java/com/larksuite/oapi/example/CardController.java)（including: use in combination with gin）
+- For more use examples, please refer
+  to [CardController.java](spring-boot-examples/src/main/java/com/larksuite/oapi/example/CardController.java)（including:
+  use in combination with gin）
 
 #### Example of using "Custom App" to handling message card callback.
 
@@ -241,7 +252,6 @@ public class CardController extends CardServlet {
 }
 
 ```    
- 
 
 ## Advanced use
 
@@ -284,12 +294,13 @@ public class Sample {
 - App settings
 - The implementation of store is used to save the access credentials (app/tenant_access_token), temporary voucher (
   app_ticket）
-    - Redis is recommended. Please see the example code: [RedisStore.java](sample/src/main/java/com/larksuite/oapi/sample/config/RedisStore.java)
+    - Redis is recommended. Please see the example
+      code: [RedisStore.java](sample/src/main/java/com/larksuite/oapi/sample/config/RedisStore.java)
         - It can reduce the times of obtaining access credentials and prevent the frequency limit of calling access
           credentials interface.
         - "Marketplace App", accept open platform distributed `app_ticket` will be saved to the storage, so the
           implementation of the storage interface (store) needs to support distributed storage.
-          
+
 ```java
 package com.larksuite.oapi.sample.api;
 
@@ -322,7 +333,8 @@ public class Sample {
 
 - Some of the old interfaces do not have an SDK that can be used directly. They can use `native` mode. At this time,
   they need to build requests.
-- For more examples, see [ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)(including: file upload and download)
+- For more examples, see [ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)(including:
+  file upload and download)
 
 ```java
 package com.larksuite.oapi.sample.api;
@@ -377,7 +389,10 @@ public class Sample {
 
 ### How to send a request
 
-- Since the SDK has encapsulated the app_access_token、tenant_access_token So when calling the business API, you don't need to get the app_access_token、tenant_access_token. If the business interface needs to use user_access_token, which needs to be set（Request.setUserAccessToken("UserAccessToken")), Please refer to README.md -> How to build a request(Request)
+- Since the SDK has encapsulated the app_access_token、tenant_access_token So when calling the business API, you don't
+  need to get the app_access_token、tenant_access_token. If the business interface needs to use user_access_token, which
+  needs to be set（Request.setUserAccessToken("UserAccessToken")), Please refer to README.md -> How to build a request(
+  Request)
 - For more use examples, please see: [ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)
 
 ```java
@@ -400,7 +415,8 @@ public class Sample {
 ### Download File Tool
 
 - Download files via network request
-- For more use examples, please see:[sample/tools/FileDownloadSample.java](sample/src/main/java/com/larksuite/oapi/sample/tools/FileDownloadSample.java)
+- For more use examples, please
+  see:[sample/tools/FileDownloadSample.java](sample/src/main/java/com/larksuite/oapi/sample/tools/FileDownloadSample.java)
 
 ```java
 import com.larksuite.oapi.core.utils.Files;

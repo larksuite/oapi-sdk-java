@@ -46,6 +46,71 @@ import java.util.concurrent.TimeUnit;
 
 public class ImSample {
 
+    private static IHttpTransport httpTransport = new IHttpTransport() {
+        private CloseableHttpClient httpclient = HttpClients.createDefault();
+
+        @Override
+        public RawResponse execute(RawRequest rawRequest) throws Exception {
+            // 转换request
+            HttpEntityEnclosingRequestBase request = new HttpEntityEnclosingRequestBase() {
+                @Override
+                public String getMethod() {
+                    return rawRequest.getHttpMethod();
+                }
+            };
+
+            request.setURI(URI.create(rawRequest.getReqUrl()));
+            for (Map.Entry<String, List<String>> entry : rawRequest.getHeaders().entrySet()) {
+                String key = entry.getKey();
+                for (String value : entry.getValue()) {
+                    request.addHeader(key, value);
+                }
+            }
+
+            if (rawRequest.getBody() != null) {
+                Object body = rawRequest.getBody();
+                if (body instanceof FormData) {
+                    MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+                    builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
+                    builder.setContentType(ContentType.create(ContentType.MULTIPART_FORM_DATA.getMimeType()));
+                    for (FormDataFile file : ((FormData) rawRequest.getBody()).getFiles()) {
+                        builder.addBinaryBody(file.getFieldName(), file.getFile(), ContentType.APPLICATION_OCTET_STREAM, Strings.isEmpty(file.getFileName()) ? "unknown" : file.getFileName());
+                    }
+                    for (Map.Entry<String, Object> entry : ((FormData) rawRequest.getBody()).getParams().entrySet()) {
+                        builder.addTextBody(entry.getKey(), (String) entry.getValue());
+                    }
+
+                    request.setEntity(builder.build());
+                } else {
+                    StringEntity entity = new StringEntity(Jsons.LONG_TO_STR_GSON.toJson(rawRequest.getBody()));
+                    request.setEntity(entity);
+                }
+            }
+
+            // 发起调用
+            CloseableHttpResponse response = httpclient.execute(request);
+
+            // 转换结果为通用结果
+            byte[] result = EntityUtils.toByteArray(response.getEntity());
+            RawResponse rawResponse = new RawResponse();
+            rawResponse.setStatusCode(response.getStatusLine().getStatusCode());
+            rawResponse.setBody(result);
+            rawResponse.setContentType(rawResponse.getContentType());
+            Map<String, List<String>> headers = new HashMap<>();
+            for (Header header : response.getAllHeaders()) {
+                if (headers.containsKey(header.getName())) {
+                    headers.get(header.getName()).add(header.getValue());
+                } else {
+                    List<String> values = new ArrayList<>();
+                    values.add(header.getValue());
+                    headers.put(header.getName(), values);
+                }
+            }
+            rawResponse.setHeaders(headers);
+            return rawResponse;
+        }
+    };
+
     public static void sendTextMsg(Client client) throws Exception {
         // 使用Builder模式构建请求对象
         CreateMessageReq req = CreateMessageReq.newBuilder()
@@ -278,7 +343,6 @@ public class ImSample {
         System.out.println(resp.getRequestId());
     }
 
-
     public static void sendInteractiveMonitorProcessedMsg(Client client) throws Exception {
         // 配置
         MessageCardConfig config = MessageCardConfig.newBuilder()
@@ -466,7 +530,6 @@ public class ImSample {
         System.out.println(resp.getRequestId());
     }
 
-
     public static void sendAudioMsg(Client client) throws Exception {
         // 使用Builder模式构建请求对象
         CreateMessageReq req = CreateMessageReq.newBuilder()
@@ -498,7 +561,6 @@ public class ImSample {
         // 返回请求ID
         System.out.println(resp.getRequestId());
     }
-
 
     public static void sendStickerMsg(Client client) throws Exception {
         // 使用Builder模式构建请求对象
@@ -532,7 +594,6 @@ public class ImSample {
         System.out.println(resp.getRequestId());
     }
 
-
     public static void sendMediaMsg(Client client) throws Exception {
         // 使用Builder模式构建请求对象
         CreateMessageReq req = CreateMessageReq.newBuilder()
@@ -565,7 +626,6 @@ public class ImSample {
         // 返回请求ID
         System.out.println(resp.getRequestId());
     }
-
 
     public static void sendPostMsg(Client client) throws Exception {
         // 创建a元素
@@ -655,7 +715,6 @@ public class ImSample {
         System.out.println(resp.getRequestId());
     }
 
-
     public static void sendPostMsg2(Client client) throws Exception {
 
         MessagePostA postA1 = MessagePostA.newBuilder().href("http://www.baidu.com").text("text1").build();
@@ -737,7 +796,6 @@ public class ImSample {
         // 返回请求ID
         System.out.println(resp.getRequestId());
     }
-
 
     public static void sendShareChatMsg(Client client) throws Exception {
         // 使用Builder模式构建请求对象
@@ -850,7 +908,6 @@ public class ImSample {
         System.out.println(resp.getRequestId());
     }
 
-
     public static void downLoadFile(Client client) throws Exception {
         // 创建请求对象
         GetFileReq req = GetFileReq.newBuilder().fileKey("file_v2_5b4e3892-2e0b-43cd-a575-292d622b0dbg").build();
@@ -890,7 +947,6 @@ public class ImSample {
         System.out.println(resp.getRequestId());
     }
 
-
     public static void downLoadImage(Client client) throws Exception {
         // 创建请求对象
         GetImageReq req = GetImageReq.newBuilder().imageKey("img_v2_9068cbd5-71d8-4799-b29e-a01650b1328g").build();
@@ -910,7 +966,6 @@ public class ImSample {
         // 返回请求ID
         System.out.println(resp.getRequestId());
     }
-
 
     public static void downloadDriveFile(Client client) throws Exception {
         // 构建请求对象
@@ -964,71 +1019,6 @@ public class ImSample {
         String appId = System.getenv().get("APP_ID");
         String appSecret = System.getenv().get("APP_SECRET");
 
-        IHttpTransport httpTransport = new IHttpTransport() {
-            private CloseableHttpClient httpclient = HttpClients.createDefault();
-
-            @Override
-            public RawResponse execute(RawRequest rawRequest) throws Exception {
-                // 转换request
-                HttpEntityEnclosingRequestBase request = new HttpEntityEnclosingRequestBase() {
-                    @Override
-                    public String getMethod() {
-                        return rawRequest.getHttpMethod();
-                    }
-                };
-
-                request.setURI(URI.create(rawRequest.getReqUrl()));
-                for (Map.Entry<String, List<String>> entry : rawRequest.getHeaders().entrySet()) {
-                    String key = entry.getKey();
-                    for (String value : entry.getValue()) {
-                        request.addHeader(key, value);
-                    }
-                }
-
-                if (rawRequest.getBody() != null) {
-                    Object body = rawRequest.getBody();
-                    if (body instanceof FormData) {
-                        MultipartEntityBuilder builder = MultipartEntityBuilder.create();
-                        builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
-                        builder.setContentType(ContentType.create(ContentType.MULTIPART_FORM_DATA.getMimeType()));
-                        for (FormDataFile file : ((FormData) rawRequest.getBody()).getFiles()) {
-                            builder.addBinaryBody(file.getFieldName(), file.getFile(), ContentType.APPLICATION_OCTET_STREAM, Strings.isEmpty(file.getFileName()) ? "unknown" : file.getFileName());
-                        }
-                        for (Map.Entry<String, Object> entry : ((FormData) rawRequest.getBody()).getParams().entrySet()) {
-                            builder.addTextBody(entry.getKey(), (String) entry.getValue());
-                        }
-
-                        request.setEntity(builder.build());
-
-                    } else {
-                        StringEntity entity = new StringEntity(Jsons.LONG_TO_STR_GSON.toJson(rawRequest.getBody()));
-                        request.setEntity(entity);
-                    }
-                }
-
-                // 发起调用
-                CloseableHttpResponse response = httpclient.execute(request);
-
-                // 转换结果为通用结果
-                byte[] result = EntityUtils.toByteArray(response.getEntity());
-                RawResponse rawResponse = new RawResponse();
-                rawResponse.setStatusCode(response.getStatusLine().getStatusCode());
-                rawResponse.setBody(result);
-                rawResponse.setContentType(rawResponse.getContentType());
-                Map<String, List<String>> headers = new HashMap<>();
-                for (Header header : response.getAllHeaders()) {
-                    if (headers.containsKey(header.getName())) {
-                        headers.get(header.getName()).add(header.getValue());
-                    } else {
-                        List<String> values = new ArrayList<>();
-                        values.add(header.getValue());
-                        headers.put(header.getName(), values);
-                    }
-                }
-                return rawResponse;
-            }
-        };
-
         // 构建client
         Client client = Client.newBuilder(appId, appSecret)
                 .appType(AppType.SELF_BUILT) // 设置app类型，默认为自建
@@ -1039,12 +1029,12 @@ public class ImSample {
                 .requestTimeout(3, TimeUnit.SECONDS) // 设置httpclient 超时时间，默认永不超时
                 //.disableTokenCache() // 禁用token管理，则需要开发者自己传递token
                 .logReqRespInfoAtDebugLevel(true)
-                //.httpTransport(httpTransport)
+                // .httpTransport(httpTransport)
                 .build();
         //replayMsg(client);
         // downLoadImage(client);
-        uploadFile(client);
-        //downLoadFile(client);
+        //uploadFile(client);
+        // downLoadFile(client);
         //sendTextMsg(client);
         // sendImageMsg(client);
         //sendFileMsg(client);
@@ -1057,6 +1047,6 @@ public class ImSample {
         // downloadDriveFile(client);
         //sendInteractiveMonitorMsg(client);
         //delMsg(client);
-        // sendInteractiveMonitorProcessedMsg(client);
+        sendInteractiveMonitorProcessedMsg(client);
     }
 }

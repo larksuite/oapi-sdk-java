@@ -16,13 +16,11 @@ import java.util.Map;
 
 @RestController
 public class CardActionController {
-    @Autowired
-    private ServletAdapter servletAdapter;
-
     private final CardActionHandler CARD_ACTION_HANDLER = CardActionHandler.newBuilder("v", "e", new CardActionHandler.ICardHandler() {
         @Override
         public Object handle(CardAction cardAction) {
             System.out.println(Jsons.DEFAULT_GSON.toJson(cardAction));
+            System.out.println(cardAction.getRequestId());
 
             // 返回卡片
             return getCard();
@@ -41,6 +39,8 @@ public class CardActionController {
 //            return customResponse;
         }
     }).build();
+    @Autowired
+    private ServletAdapter servletAdapter;
 
     private MessageCard getCard() {
         // 配置

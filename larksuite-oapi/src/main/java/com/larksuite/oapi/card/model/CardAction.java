@@ -1,6 +1,7 @@
 package com.larksuite.oapi.card.model;
 
 import com.google.gson.annotations.SerializedName;
+import com.larksuite.oapi.core.request.EventReq;
 
 // TODO 这部分可以考虑 Builder 模式
 public class CardAction {
@@ -22,6 +23,19 @@ public class CardAction {
     private String challenge;
     @SerializedName("type")
     private String type;
+    private EventReq eventReq;
+
+    public EventReq getEventReq() {
+        return eventReq;
+    }
+
+    public void setEventReq(EventReq eventReq) {
+        this.eventReq = eventReq;
+    }
+
+    public String getRequestId() {
+        return eventReq == null ? "" : eventReq.getRequestID();
+    }
 
     public String getChallenge() {
         return challenge;

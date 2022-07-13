@@ -17,22 +17,26 @@ import javax.servlet.http.HttpServletResponse;
 
 @RestController
 public class EventController {
-    private final EventDispatcher EVENT_DISPATCHER = new EventDispatcher.Builder("", "1212121212")
+    // 1212121212
+    private final EventDispatcher EVENT_DISPATCHER = EventDispatcher.newBuilder("", "")
             .onMessageReceiveV1(new ImService.MessageReceiveEventHandler() {
                 @Override
                 public void handle(MessageReceiveEvent event) {
                     System.out.println(Jsons.DEFAULT_GSON.toJson(event));
+                    System.out.println(event.getRequestId());
                 }
             }).onUserCreatedV3(new ContactService.UserCreatedEventHandler() {
                 @Override
                 public void handle(UserCreatedEvent event) {
                     System.out.println(Jsons.DEFAULT_GSON.toJson(event));
+                    System.out.println(event.getRequestId());
                 }
             })
             .onMessageReadV1(new ImService.MessageReadEventHandler() {
                 @Override
                 public void handle(MessageReadEvent event) {
                     System.out.println(Jsons.DEFAULT_GSON.toJson(event));
+                    System.out.println(event.getRequestId());
                 }
             })
             .build();

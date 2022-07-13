@@ -1,6 +1,7 @@
 package com.larksuite.oapi.event.model;
 
 import com.google.gson.annotations.SerializedName;
+import com.larksuite.oapi.core.request.EventReq;
 
 public class BaseEvent {
     @SerializedName("ts")
@@ -11,6 +12,19 @@ public class BaseEvent {
     private String token;
     @SerializedName("type")
     private String type;
+    private EventReq eventReq;
+
+    public EventReq getEventReq() {
+        return eventReq;
+    }
+
+    public void setEventReq(EventReq eventReq) {
+        this.eventReq = eventReq;
+    }
+
+    public String getRequestId() {
+        return eventReq == null ? "" : eventReq.getRequestID();
+    }
 
     public String getTs() {
         return ts;

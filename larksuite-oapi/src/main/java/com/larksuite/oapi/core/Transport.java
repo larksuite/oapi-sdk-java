@@ -3,6 +3,7 @@ package com.larksuite.oapi.core;
 import com.larksuite.oapi.core.exception.AccessTokenTypeInvalidException;
 import com.larksuite.oapi.core.exception.ClientTimeoutException;
 import com.larksuite.oapi.core.exception.NeedAccessTokenException;
+import com.larksuite.oapi.core.exception.ServerTimeoutException;
 import com.larksuite.oapi.core.httpclient.IHttpTransport;
 import com.larksuite.oapi.core.httpclient.OkHttpTransport;
 import com.larksuite.oapi.core.request.RawRequest;
@@ -180,6 +181,12 @@ public class Transport {
                     } else {
                         log.debug("resp,path:{},code:{},header:{},body:{}", httpPath, rawResponse.getStatusCode(), rawResponse.getHeaders(), new String(rawResponse.getBody(), StandardCharsets.UTF_8));
                     }
+                }
+
+                // 服务端超时
+                if (rawResponse.getStatusCode() == 504) {
+                    log.error(String.format("httpMethod:%s,httpPath:%s, server time out,reqId:%s", httpMethod, httpPath, rawResponse.getRequestID()));
+                    throw new ServerTimeoutException();
                 }
 
                 return rawResponse;

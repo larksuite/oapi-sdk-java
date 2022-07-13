@@ -52,6 +52,7 @@ public class MockCardAction {
         map.put(Constants.X_LARK_REQUEST_NONCE.toLowerCase(), Arrays.asList("nonce"));
         String signature = calculateSignature("timestamp", "nonce", "v", bodyStr);
         map.put(Constants.X_LARK_SIGNATURE.toLowerCase(), Arrays.asList(signature));
+        map.put(Constants.HTTP_HEADER_KEY_LOG_ID, Arrays.asList("logidxxxxxxxxxxx"));
         for (Map.Entry<String, List<String>> entry : map.entrySet()) {
             String key = entry.getKey();
             entry.getValue().stream().forEach(v -> {
@@ -94,6 +95,7 @@ public class MockCardAction {
         map.put(Constants.X_LARK_REQUEST_NONCE.toLowerCase(), Arrays.asList("nonce"));
         String signature = calculateSignature("timestamp", "nonce", "v", bodyStr);
         map.put(Constants.X_LARK_SIGNATURE.toLowerCase(), Arrays.asList(signature));
+        map.put(Constants.HTTP_HEADER_KEY_LOG_ID, Arrays.asList("logidxxxxxxxxxxx"));
         for (Map.Entry<String, List<String>> entry : map.entrySet()) {
             String key = entry.getKey();
             entry.getValue().stream().forEach(v -> {

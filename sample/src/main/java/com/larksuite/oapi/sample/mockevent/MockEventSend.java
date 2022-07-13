@@ -25,6 +25,7 @@ public class MockEventSend {
                 , body.getBytes(StandardCharsets.UTF_8));
 
         com.larksuite.oapi.okhttp3_14.Request.Builder builder = new com.larksuite.oapi.okhttp3_14.Request.Builder().url("http://127.0.0.1:9999/webhook/event").method("POST", requestBody);
+        builder.header(Constants.HTTP_HEADER_KEY_LOG_ID, "logidxxxxxxxxx");
 
         Response resp = OKHttps.defaultClient.newCall(builder.build()).execute();
         System.out.println(resp.code());
@@ -32,13 +33,13 @@ public class MockEventSend {
     }
 
     public static void mockChallenge() throws IOException {
-
         String body = "{\"schema\":\"2.0\",\"header\":{\"event_id\":\"f7984f25108f8137722bb63cee927e66\",\"event_type\":\"contact.user.created_v3\",\"app_id\":\"cli_xxxxxxxx\",\"tenant_key\":\"xxxxxxx\",\"create_time\":\"1603977298000000\",\"token\":\"v\"},\"event\":{\"object\":{\"open_id\":\"ou_7dab8a3d3cdcc9da365777c7ad535d62\",\"union_id\":\"on_576833b917gda3d939b9a3c2d53e72c8\",\"user_id\":\"e33ggbyz\",\"name\":\"张三\",\"employee_no\":\"employee_no\"}},\"challenge\":\"1212\",\"type\":\"url_verification\"}";
-
         RequestBody requestBody = RequestBody.create(MediaType.parse(Constants.DEFAULT_CONTENT_TYPE)
                 , body.getBytes(StandardCharsets.UTF_8));
 
         com.larksuite.oapi.okhttp3_14.Request.Builder builder = new com.larksuite.oapi.okhttp3_14.Request.Builder().url("http://127.0.0.1:9999/webhook/event").method("POST", requestBody);
+        builder.header(Constants.HTTP_HEADER_KEY_LOG_ID, "logidxxxxxxxxx");
+
 
         Response resp = OKHttps.defaultClient.newCall(builder.build()).execute();
         System.out.println(resp.code());
@@ -48,17 +49,17 @@ public class MockEventSend {
 
     public static void mockPlainTextEvent() throws IOException {
 
-        String body = "{\"schema\":\"2.0\",\"header\":{\"event_id\":\"f7984f25108f8137722bb63cee927e66\",\"event_type\":\"contact.user.created_v3\",\"app_id\":\"cli_xxxxxxxx\",\"tenant_key\":\"xxxxxxx\",\"create_time\":\"1603977298000000\",\"token\":\"v\"},\"event\":{\"object\":{\"open_id\":\"ou_7dab8a3d3cdcc9da365777c7ad535d62\",\"union_id\":\"on_576833b917gda3d939b9a3c2d53e72c8\",\"user_id\":\"e33ggbyz\",\"name\":\"张三\",\"employee_no\":\"employee_no\"}},\"challenge\":\"1212\",\"type\":\"\"}";
+        String body = "{\"schema\":\"2.0\",\"header\":{\"event_id\":\"f7984f25108f8137722bb63cee927e66\",\"event_type\":\"contact.user.created_v2\",\"app_id\":\"cli_xxxxxxxx\",\"tenant_key\":\"xxxxxxx\",\"create_time\":\"1603977298000000\",\"token\":\"v\"},\"event\":{\"object\":{\"open_id\":\"ou_7dab8a3d3cdcc9da365777c7ad535d62\",\"union_id\":\"on_576833b917gda3d939b9a3c2d53e72c8\",\"user_id\":\"e33ggbyz\",\"name\":\"张三\",\"employee_no\":\"employee_no\"}},\"challenge\":\"1212\",\"type\":\"\"}";
 
         RequestBody requestBody = RequestBody.create(MediaType.parse(Constants.DEFAULT_CONTENT_TYPE)
                 , body.getBytes(StandardCharsets.UTF_8));
 
         com.larksuite.oapi.okhttp3_14.Request.Builder builder = new com.larksuite.oapi.okhttp3_14.Request.Builder().url("http://127.0.0.1:9999/webhook/event").method("POST", requestBody);
+        builder.header(Constants.HTTP_HEADER_KEY_LOG_ID, "logidxxxxxxxxx");
 
         Response resp = OKHttps.defaultClient.newCall(builder.build()).execute();
         System.out.println(resp.code());
         System.out.println(resp.body().string());
-
     }
 
     private static String calculateSignature(String timestamp, String nonce, String encryptKey, String bodyString) throws NoSuchAlgorithmException {
@@ -81,6 +82,7 @@ public class MockEventSend {
         map.put(Constants.X_LARK_REQUEST_NONCE.toLowerCase(), Arrays.asList("nonce"));
         String signature = calculateSignature("timestamp", "nonce", "1212121212", body);
         map.put(Constants.X_LARK_SIGNATURE.toLowerCase(), Arrays.asList(signature));
+        map.put(Constants.HTTP_HEADER_KEY_LOG_ID, Arrays.asList("logidxxxxxxxxxxx"));
 
         // http builder
         com.larksuite.oapi.okhttp3_14.Request.Builder builder = new com.larksuite.oapi.okhttp3_14.Request.Builder().url("http://127.0.0.1:9999/webhook/event").method("POST", requestBody);
@@ -100,8 +102,8 @@ public class MockEventSend {
     public static void main(String ar[]) throws IOException, NoSuchAlgorithmException {
         // mockAppTicketEvent();
         // mockChallenge();
-        // mockPlainTextEvent();
-        mockEncryptEvent();
+        mockPlainTextEvent();
+        //mockEncryptEvent();
 
     }
 }

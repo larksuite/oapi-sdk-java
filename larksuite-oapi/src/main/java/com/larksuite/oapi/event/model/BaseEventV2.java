@@ -1,12 +1,26 @@
 package com.larksuite.oapi.event.model;
 
 import com.google.gson.annotations.SerializedName;
+import com.larksuite.oapi.core.request.EventReq;
 
 public class BaseEventV2 {
     @SerializedName("schema")
     private String schema;
     @SerializedName("header")
     private Header header;
+    private EventReq eventReq;
+
+    public EventReq getEventReq() {
+        return eventReq;
+    }
+
+    public void setEventReq(EventReq eventReq) {
+        this.eventReq = eventReq;
+    }
+
+    public String getRequestId() {
+        return eventReq == null ? "" : eventReq.getRequestID();
+    }
 
     public String getSchema() {
         return schema;

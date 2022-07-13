@@ -9,7 +9,16 @@ import java.util.Map;
 
 public class EventReq {
     private byte[] body;
+    private String httpPath;
     private Map<String, List<String>> headers = new HashMap();
+
+    public String getHttpPath() {
+        return httpPath;
+    }
+
+    public void setHttpPath(String httpPath) {
+        this.httpPath = httpPath;
+    }
 
     public byte[] getBody() {
         return body;
