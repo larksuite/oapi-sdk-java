@@ -3,16 +3,15 @@ package com.larksuite.oapi.service.im.v1.enums;
 
 // 生成枚举值
 public enum ActionTypeEnum {
-    MESSAGE("1"),
-    ANNOUCEMENT("2"),
-    ;
-    private String value;
-
+     MESSAGE("1"),
+     ANNOUCEMENT("2"),
+  ;
+   private String value;
     ActionTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

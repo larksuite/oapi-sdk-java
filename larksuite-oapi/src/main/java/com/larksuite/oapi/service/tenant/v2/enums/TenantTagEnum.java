@@ -3,16 +3,15 @@ package com.larksuite.oapi.service.tenant.v2.enums;
 
 // 生成枚举值
 public enum TenantTagEnum {
-    STANDARD(0),
-    SIMPLE(2),
-    ;
-    private Integer value;
-
+     STANDARD(0),
+     SIMPLE(2),
+  ;
+   private Integer value;
     TenantTagEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

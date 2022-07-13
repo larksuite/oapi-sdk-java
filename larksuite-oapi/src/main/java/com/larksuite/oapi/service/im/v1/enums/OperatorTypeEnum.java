@@ -3,16 +3,15 @@ package com.larksuite.oapi.service.im.v1.enums;
 
 // 生成枚举值
 public enum OperatorTypeEnum {
-    APP("app"),
-    USER("user"),
-    ;
-    private String value;
-
+     APP("app"),
+     USER("user"),
+  ;
+   private String value;
     OperatorTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

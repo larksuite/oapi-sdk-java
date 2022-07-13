@@ -5,9 +5,10 @@ import com.larksuite.oapi.core.request.EventReq;
 import com.larksuite.oapi.core.response.EventResp;
 import com.larksuite.oapi.core.utils.Jsons;
 import com.larksuite.oapi.service.contact.v3.ContactService;
-import com.larksuite.oapi.service.contact.v3.model.UserCreatedEvent;
+import com.larksuite.oapi.service.contact.v3.model.P2UserCreatedV3;
 import com.larksuite.oapi.service.im.v1.ImService;
-import com.larksuite.oapi.service.im.v1.model.MessageReceiveEvent;
+import com.larksuite.oapi.service.im.v1.model.P2MessageReceiveV1;
+import com.larksuite.oapi.service.im.v1.model.P1MessageReadV1;
 import org.junit.Test;
 
 import java.nio.charset.StandardCharsets;
@@ -20,16 +21,17 @@ public class TestEventDispatcher {
     @Test
     public void testVerifyUrlOK() throws Throwable {
         EventDispatcher eventDispatcher = EventDispatcher.newBuilder("v", "")
-                .onUserCreatedV3(new ContactService.UserCreatedEventHandler() {
+                .onP2UserCreatedV3(new ContactService.P2UserCreatedV3Handler() {
                     @Override
-                    public void handle(UserCreatedEvent event) {
+                    public void handle(P2UserCreatedV3 event) {
                         System.out.println(Jsons.LONG_TO_STR_GSON.toJson(event));
                     }
                 })
-                .onMessageReceiveV1(new ImService.MessageReceiveEventHandler() {
+                .onP2MessageReceiveV1(new ImService.P2MessageReceiveV1Handler() {
                     @Override
-                    public void handle(MessageReceiveEvent event) {
+                    public void handle(P2MessageReceiveV1 event) {
                         System.out.println(Jsons.LONG_TO_STR_GSON.toJson(event));
+                        System.out.println(event.getRequestId());
                     }
                 })
                 .build();
@@ -53,31 +55,78 @@ public class TestEventDispatcher {
     @Test
     public void testProcessPlainEvent() throws Throwable {
         EventDispatcher eventDispatcher = EventDispatcher.newBuilder("v", "")
-                .onUserCreatedV3(new ContactService.UserCreatedEventHandler() {
+                .onP2UserCreatedV3(new ContactService.P2UserCreatedV3Handler() {
                     @Override
-                    public void handle(UserCreatedEvent event) {
+                    public void handle(P2UserCreatedV3 event) {
                         System.out.println(Jsons.LONG_TO_STR_GSON.toJson(event));
                     }
                 })
-                .onMessageReceiveV1(new ImService.MessageReceiveEventHandler() {
+                .onP2MessageReceiveV1(new ImService.P2MessageReceiveV1Handler() {
                     @Override
-                    public void handle(MessageReceiveEvent event) {
+                    public void handle(P2MessageReceiveV1 event) {
+                        System.out.println(Jsons.LONG_TO_STR_GSON.toJson(event));
+                    }
+                })
+                .onCustomizedEvent("custom_event_type", new CustomEventHandler() {
+                    @Override
+                    public void handle(EventReq event) {
+                        System.out.println("headers:" + Jsons.LONG_TO_STR_GSON.toJson(event.getHeaders()));
+                        System.out.println("body:" + new String(event.getBody()));
+                        System.out.println("reqId:" + event.getRequestID());
+                        System.out.println("path:" + event.getHttpPath());
+                    }
+                })
+                .onP1MessageReadV1(new ImService.P1MessageReadV1Handler() {
+                    @Override
+                    public void handle(P1MessageReadV1 event) {
                         System.out.println(Jsons.LONG_TO_STR_GSON.toJson(event));
                     }
                 })
                 .build();
 
-        String body = "{\"schema\":\"2.0\",\"header\":{\"event_id\":\"f7984f25108f8137722bb63cee927e66\",\"event_type\":\"contact.user.created_v3\",\"app_id\":\"cli_xxxxxxxx\",\"tenant_key\":\"xxxxxxx\",\"create_time\":\"1603977298000000\",\"token\":\"v\"},\"event\":{\"object\":{\"open_id\":\"ou_7dab8a3d3cdcc9da365777c7ad535d62\",\"union_id\":\"on_576833b917gda3d939b9a3c2d53e72c8\",\"user_id\":\"e33ggbyz\",\"name\":\"张三\",\"employee_no\":\"employee_no\"}},\"challenge\":\"1212\",\"type\":\"\"}";
+        String body = "{\"schema\":\"2.0\",\"header\":{\"event_id\":\"f7984f25108f8137722bb63cee927e66\",\"event_type\":\"custom_event_type\",\"app_id\":\"cli_xxxxxxxx\",\"tenant_key\":\"xxxxxxx\",\"create_time\":\"1603977298000000\",\"token\":\"v\"},\"event\":{\"object\":{\"open_id\":\"ou_7dab8a3d3cdcc9da365777c7ad535d62\",\"union_id\":\"on_576833b917gda3d939b9a3c2d53e72c8\",\"user_id\":\"e33ggbyz\",\"name\":\"张三\",\"employee_no\":\"employee_no\"}},\"challenge\":\"1212\",\"type\":\"\"}";
 
         Map<String, List<String>> map = new HashMap<>();
         map.put(Constants.X_LARK_REQUEST_TIMESTAMP.toLowerCase(), Arrays.asList("timestamp"));
         map.put(Constants.X_LARK_REQUEST_NONCE.toLowerCase(), Arrays.asList("nonce"));
         String signature = eventDispatcher.calculateSignature("timestamp", "nonce", "v", body);
         map.put(Constants.X_LARK_SIGNATURE.toLowerCase(), Arrays.asList(signature));
+        map.put(Constants.HTTP_HEADER_KEY_LOG_ID.toLowerCase(), Arrays.asList("logixsssss"));
 
         EventReq req = new EventReq();
         req.setHeaders(map);
         req.setBody(body.getBytes(StandardCharsets.UTF_8));
+        req.setHttpPath("wehook/event");
+
+        EventResp resp = eventDispatcher.handle(req);
+        assert resp != null;
+
+    }
+
+    @Test
+    public void testPlainV1Event() throws Throwable {
+        EventDispatcher eventDispatcher = EventDispatcher.newBuilder("v", "")
+                .onP1MessageReadV1(new ImService.P1MessageReadV1Handler() {
+                    @Override
+                    public void handle(P1MessageReadV1 event) {
+                        System.out.println(Jsons.LONG_TO_STR_GSON.toJson(event));
+                    }
+                })
+                .build();
+
+        String body = "{\"ts\":\"ts\",\"uuid\":\"uuid\",\"token\":\"v\",\"type\":\"type\",\"event\":{\"message_id_list\":[\"ss\",\"dd\"],\"app_id\":\"appid\",\"open_chat_id\":\"openapiid\",\"open_id\":\"openid\",\"tenant_key\":\"tenkey\",\"type\":\"message_read\"}}";
+
+        Map<String, List<String>> map = new HashMap<>();
+        map.put(Constants.X_LARK_REQUEST_TIMESTAMP.toLowerCase(), Arrays.asList("timestamp"));
+        map.put(Constants.X_LARK_REQUEST_NONCE.toLowerCase(), Arrays.asList("nonce"));
+        String signature = eventDispatcher.calculateSignature("timestamp", "nonce", "v", body);
+        map.put(Constants.X_LARK_SIGNATURE.toLowerCase(), Arrays.asList(signature));
+        map.put(Constants.HTTP_HEADER_KEY_LOG_ID.toLowerCase(), Arrays.asList("logixsssss"));
+
+        EventReq req = new EventReq();
+        req.setHeaders(map);
+        req.setBody(body.getBytes(StandardCharsets.UTF_8));
+        req.setHttpPath("wehook/event");
 
         EventResp resp = eventDispatcher.handle(req);
         assert resp != null;
@@ -87,15 +136,15 @@ public class TestEventDispatcher {
     @Test
     public void testProcessEncyEvent() throws Throwable {
         EventDispatcher eventDispatcher = EventDispatcher.newBuilder("v", "1212121212")
-                .onUserCreatedV3(new ContactService.UserCreatedEventHandler() {
+                .onP2UserCreatedV3(new ContactService.P2UserCreatedV3Handler() {
                     @Override
-                    public void handle(UserCreatedEvent event) {
+                    public void handle(P2UserCreatedV3 event) {
                         System.out.println(Jsons.LONG_TO_STR_GSON.toJson(event));
                     }
                 })
-                .onMessageReceiveV1(new ImService.MessageReceiveEventHandler() {
+                .onP2MessageReceiveV1(new ImService.P2MessageReceiveV1Handler() {
                     @Override
-                    public void handle(MessageReceiveEvent event) {
+                    public void handle(P2MessageReceiveV1 event) {
                         System.out.println(Jsons.LONG_TO_STR_GSON.toJson(event));
                     }
                 })

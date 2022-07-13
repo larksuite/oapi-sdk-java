@@ -3,16 +3,15 @@ package com.larksuite.oapi.service.admin.v1.enums;
 
 // 生成枚举值
 public enum OperatorTypeEnum {
-    USER(0),
-    BOT(1),
-    ;
-    private Integer value;
-
+     USER(0),
+     BOT(1),
+  ;
+   private Integer value;
     OperatorTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

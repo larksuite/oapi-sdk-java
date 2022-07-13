@@ -3,16 +3,15 @@ package com.larksuite.oapi.service.search.v2.enums;
 
 // 生成枚举值
 public enum FormatEnum {
-    HTML("html"),
-    PLAINTEXT("plaintext"),
-    ;
-    private String value;
-
+     HTML("html"),
+     PLAINTEXT("plaintext"),
+  ;
+   private String value;
     FormatEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

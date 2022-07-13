@@ -3,21 +3,20 @@ package com.larksuite.oapi.service.docx.v1.enums;
 
 // 生成枚举值
 public enum CalloutBorderColorEnum {
-    RED(1),
-    ORANGE(2),
-    YELLOW(3),
-    GREEN(4),
-    BLUE(5),
-    PURPLE(6),
-    NEUTRAL(7),
-    ;
-    private Integer value;
-
+     RED(1),
+     ORANGE(2),
+     YELLOW(3),
+     GREEN(4),
+     BLUE(5),
+     PURPLE(6),
+     NEUTRAL(7),
+  ;
+   private Integer value;
     CalloutBorderColorEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

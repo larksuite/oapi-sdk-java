@@ -3,17 +3,16 @@ package com.larksuite.oapi.service.vc.v1.enums;
 
 // 生成枚举值
 public enum MaterialSourceEnum {
-    ISV(1),
-    ISV_FROM_VC(2),
-    ISV_FROM_PRESET(3),
-    ;
-    private Integer value;
-
+     ISV(1),
+     ISV_FROM_VC(2),
+     ISV_FROM_PRESET(3),
+  ;
+   private Integer value;
     MaterialSourceEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

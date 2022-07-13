@@ -3,15 +3,14 @@ package com.larksuite.oapi.service.calendar.v4.enums;
 
 // 生成枚举值
 public enum AclScopeTypeEnum {
-    USER("user"),
-    ;
-    private String value;
-
+     USER("user"),
+  ;
+   private String value;
     AclScopeTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

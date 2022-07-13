@@ -121,7 +121,7 @@ public class ImSample {
                         .content(MessageText.newBuilder()
                                 .atUser("ou_155184d1e73cbfb8973e5a9e698e74f2", "tom")
                                 .text(" test content")
-                                .line()
+                                .newLine()
                                 .textLine("jiaduo")
                                 .atAll()
                                 .text("注意告警")
@@ -1033,8 +1033,8 @@ public class ImSample {
                 .build();
         //replayMsg(client);
         // downLoadImage(client);
-        //uploadFile(client);
-        // downLoadFile(client);
+       // uploadFile(client);
+        downLoadFile(client);
         //sendTextMsg(client);
         // sendImageMsg(client);
         //sendFileMsg(client);
@@ -1047,6 +1047,6 @@ public class ImSample {
         // downloadDriveFile(client);
         //sendInteractiveMonitorMsg(client);
         //delMsg(client);
-        sendInteractiveMonitorProcessedMsg(client);
+        //sendInteractiveMonitorProcessedMsg(client);
     }
 }

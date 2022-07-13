@@ -3,18 +3,17 @@ package com.larksuite.oapi.service.vc.v1.enums;
 
 // 生成枚举值
 public enum AuthTypeEnum {
-    USER(1),
-    GROUP(2),
-    TENANT(3),
-    PUBLIC(4),
-    ;
-    private Integer value;
-
+     USER(1),
+     GROUP(2),
+     TENANT(3),
+     PUBLIC(4),
+  ;
+   private Integer value;
     AuthTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

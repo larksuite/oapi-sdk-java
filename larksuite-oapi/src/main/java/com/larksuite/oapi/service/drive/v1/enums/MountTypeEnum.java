@@ -3,15 +3,14 @@ package com.larksuite.oapi.service.drive.v1.enums;
 
 // 生成枚举值
 public enum MountTypeEnum {
-    SPACE(1),
-    ;
-    private Integer value;
-
+     SPACE(1),
+  ;
+   private Integer value;
     MountTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

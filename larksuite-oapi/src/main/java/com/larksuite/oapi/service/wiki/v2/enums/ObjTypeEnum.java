@@ -3,20 +3,19 @@ package com.larksuite.oapi.service.wiki.v2.enums;
 
 // 生成枚举值
 public enum ObjTypeEnum {
-    OBJTYPEOBJTYPEDOC("doc"),
-    OBJTYPEOBJTYPESHEET("sheet"),
-    OBJTYPEOBJTYPEMINDNOTE("mindnote"),
-    OBJTYPEOBJTYPEBITABLE("bitable"),
-    OBJTYPEOBJTYPEFILE("file"),
-    OBJTYPEOBJTYPEDOCX("docx"),
-    ;
-    private String value;
-
+     OBJTYPEOBJTYPEDOC("doc"),
+     OBJTYPEOBJTYPESHEET("sheet"),
+     OBJTYPEOBJTYPEMINDNOTE("mindnote"),
+     OBJTYPEOBJTYPEBITABLE("bitable"),
+     OBJTYPEOBJTYPEFILE("file"),
+     OBJTYPEOBJTYPEDOCX("docx"),
+  ;
+   private String value;
     ObjTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

@@ -3,19 +3,18 @@ package com.larksuite.oapi.service.bitable.v1.enums;
 
 // 生成枚举值
 public enum ViewTypeEnum {
-    GRID("grid"),
-    KANBAN("kanban"),
-    GALLERY("gallery"),
-    GANTT("gantt"),
-    FORM("form"),
-    ;
-    private String value;
-
+     GRID("grid"),
+     KANBAN("kanban"),
+     GALLERY("gallery"),
+     GANTT("gantt"),
+     FORM("form"),
+  ;
+   private String value;
     ViewTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

@@ -3,21 +3,20 @@ package com.larksuite.oapi.service.admin.v1.enums;
 
 // 生成枚举值
 public enum TypeEnum {
-    DOC("1"),
-    SHEET("2"),
-    SLIDE("3"),
-    MINDNODE("4"),
-    BITABLE("5"),
-    FILE("6"),
-    DOCX("7"),
-    ;
-    private String value;
-
+     DOC("1"),
+     SHEET("2"),
+     SLIDE("3"),
+     MINDNODE("4"),
+     BITABLE("5"),
+     FILE("6"),
+     DOCX("7"),
+  ;
+   private String value;
     TypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

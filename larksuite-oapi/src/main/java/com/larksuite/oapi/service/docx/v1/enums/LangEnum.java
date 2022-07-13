@@ -3,17 +3,16 @@ package com.larksuite.oapi.service.docx.v1.enums;
 
 // 生成枚举值
 public enum LangEnum {
-    ZH(0),
-    EN(1),
-    JP(2),
-    ;
-    private Integer value;
-
+     ZH(0),
+     EN(1),
+     JP(2),
+  ;
+   private Integer value;
     LangEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

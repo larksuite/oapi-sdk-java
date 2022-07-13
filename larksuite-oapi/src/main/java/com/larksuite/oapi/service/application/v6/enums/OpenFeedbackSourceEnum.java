@@ -3,18 +3,17 @@ package com.larksuite.oapi.service.application.v6.enums;
 
 // 生成枚举值
 public enum OpenFeedbackSourceEnum {
-    MP(1),
-    WEBPAGE(2),
-    BOT(3),
-    WEBSDK(4),
-    ;
-    private Integer value;
-
+     MP(1),
+     WEBPAGE(2),
+     BOT(3),
+     WEBSDK(4),
+  ;
+   private Integer value;
     OpenFeedbackSourceEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

@@ -1,6 +1,7 @@
 package com.larksuite.oapi.event;
 
 import com.larksuite.oapi.core.token.GlobalAppTicketManager;
+import com.larksuite.oapi.event.model.AppTicketEvent;
 
 import java.util.concurrent.TimeUnit;
 

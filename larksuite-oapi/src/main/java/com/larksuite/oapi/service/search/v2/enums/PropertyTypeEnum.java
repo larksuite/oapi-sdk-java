@@ -3,19 +3,18 @@ package com.larksuite.oapi.service.search.v2.enums;
 
 // 生成枚举值
 public enum PropertyTypeEnum {
-    INTEGER("1"),
-    DOUBLE("2"),
-    TIMESTAMP("3"),
-    STRING("4"),
-    BOOLEAN("5"),
-    ;
-    private String value;
-
+     INTEGER("1"),
+     DOUBLE("2"),
+     TIMESTAMP("3"),
+     STRING("4"),
+     BOOLEAN("5"),
+  ;
+   private String value;
     PropertyTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

@@ -3,16 +3,15 @@ package com.larksuite.oapi.service.bitable.v1.enums;
 
 // 生成枚举值
 public enum OtherPermEnum {
-    NOPERM(0),
-    READ(1),
-    ;
-    private Integer value;
-
+     NOPERM(0),
+     READ(1),
+  ;
+   private Integer value;
     OtherPermEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

@@ -3,29 +3,28 @@ package com.larksuite.oapi.service.docx.v1.enums;
 
 // 生成枚举值
 public enum FontBackgroundColorEnum {
-    LIGHTPINK(1),
-    LIGHTORANGE(2),
-    LIGHTYELLOW(3),
-    LIGHTGREEN(4),
-    LIGHTBLUE(5),
-    LIGHTPURPLE(6),
-    LIGHTGRAY(7),
-    DARKPINK(8),
-    DARKORANGE(9),
-    DARKYELLOW(10),
-    DARKGREEN(11),
-    DARKBLUE(12),
-    DARKPURPLE(13),
-    DARKGRAY(14),
-    DARKSLIGHTGRAY(15),
-    ;
-    private Integer value;
-
+     LIGHTPINK(1),
+     LIGHTORANGE(2),
+     LIGHTYELLOW(3),
+     LIGHTGREEN(4),
+     LIGHTBLUE(5),
+     LIGHTPURPLE(6),
+     LIGHTGRAY(7),
+     DARKPINK(8),
+     DARKORANGE(9),
+     DARKYELLOW(10),
+     DARKGREEN(11),
+     DARKBLUE(12),
+     DARKPURPLE(13),
+     DARKGRAY(14),
+     DARKSLIGHTGRAY(15),
+  ;
+   private Integer value;
     FontBackgroundColorEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

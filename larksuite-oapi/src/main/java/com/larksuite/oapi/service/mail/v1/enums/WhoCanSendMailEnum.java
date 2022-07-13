@@ -3,18 +3,17 @@ package com.larksuite.oapi.service.mail.v1.enums;
 
 // 生成枚举值
 public enum WhoCanSendMailEnum {
-    ANYONE("ANYONE"),
-    ALL_INTERNAL_USERS("ALL_INTERNAL_USERS"),
-    ALL_GROUP_MEMBERS("ALL_GROUP_MEMBERS"),
-    CUSTOM_MEMBERS("CUSTOM_MEMBERS"),
-    ;
-    private String value;
-
+     ANYONE("ANYONE"),
+     ALL_INTERNAL_USERS("ALL_INTERNAL_USERS"),
+     ALL_GROUP_MEMBERS("ALL_GROUP_MEMBERS"),
+     CUSTOM_MEMBERS("CUSTOM_MEMBERS"),
+  ;
+   private String value;
     WhoCanSendMailEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

@@ -3,20 +3,19 @@ package com.larksuite.oapi.service.passport.v1.enums;
 
 // 生成枚举值
 public enum TerminalTypeEnum {
-    UNKNOW(0),
-    PC(1),
-    WEB(2),
-    ANDROID(3),
-    IOS(4),
-    SERVER(5),
-    ;
-    private Integer value;
-
+     UNKNOW(0),
+     PC(1),
+     WEB(2),
+     ANDROID(3),
+     IOS(4),
+     SERVER(5),
+  ;
+   private Integer value;
     TerminalTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

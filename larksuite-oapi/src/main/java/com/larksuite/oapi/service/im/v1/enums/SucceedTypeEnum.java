@@ -3,17 +3,16 @@ package com.larksuite.oapi.service.im.v1.enums;
 
 // 生成枚举值
 public enum SucceedTypeEnum {
-    SUCCEED_TYPE0(0),
-    SUCCEED_TYPE1(1),
-    SUCCEED_TYPE2(2),
-    ;
-    private Integer value;
-
+     SUCCEED_TYPE0(0),
+     SUCCEED_TYPE1(1),
+     SUCCEED_TYPE2(2),
+  ;
+   private Integer value;
     SucceedTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

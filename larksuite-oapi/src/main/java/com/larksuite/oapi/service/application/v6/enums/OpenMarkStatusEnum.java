@@ -3,18 +3,17 @@ package com.larksuite.oapi.service.application.v6.enums;
 
 // 生成枚举值
 public enum OpenMarkStatusEnum {
-    UNMARKED(0),
-    MARKED(1),
-    PROCESSING(2),
-    CLOSED(3),
-    ;
-    private Integer value;
-
+     UNMARKED(0),
+     MARKED(1),
+     PROCESSING(2),
+     CLOSED(3),
+  ;
+   private Integer value;
     OpenMarkStatusEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

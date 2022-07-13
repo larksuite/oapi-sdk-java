@@ -3,19 +3,18 @@ package com.larksuite.oapi.service.calendar.v4.enums;
 
 // 生成枚举值
 public enum RsvpStatusEnum {
-    NEEDSACTION("needs_action"),
-    ACCEPT("accept"),
-    TENTATIVE("tentative"),
-    DECLINE("decline"),
-    REMOVED("removed"),
-    ;
-    private String value;
-
+     NEEDSACTION("needs_action"),
+     ACCEPT("accept"),
+     TENTATIVE("tentative"),
+     DECLINE("decline"),
+     REMOVED("removed"),
+  ;
+   private String value;
     RsvpStatusEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

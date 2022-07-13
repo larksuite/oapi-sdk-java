@@ -3,15 +3,14 @@ package com.larksuite.oapi.service.contact.v3.enums;
 
 // 生成枚举值
 public enum MemberTypeEnum {
-    USER("user"),
-    ;
-    private String value;
-
+     USER("user"),
+  ;
+   private String value;
     MemberTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

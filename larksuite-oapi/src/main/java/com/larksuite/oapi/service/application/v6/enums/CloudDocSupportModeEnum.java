@@ -3,16 +3,15 @@ package com.larksuite.oapi.service.application.v6.enums;
 
 // 生成枚举值
 public enum CloudDocSupportModeEnum {
-    UNKNOWN(0),
-    MOBILE(1),
-    ;
-    private Integer value;
-
+     UNKNOWN(0),
+     MOBILE(1),
+  ;
+   private Integer value;
     CloudDocSupportModeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

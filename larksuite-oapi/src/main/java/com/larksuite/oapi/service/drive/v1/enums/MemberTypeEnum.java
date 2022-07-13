@@ -3,19 +3,18 @@ package com.larksuite.oapi.service.drive.v1.enums;
 
 // 生成枚举值
 public enum MemberTypeEnum {
-    EMAIL("email"),
-    OPENID("openid"),
-    OPENCHATID("openchat"),
-    OPENDEPARTMENTID("opendepartmentid"),
-    USERID("userid"),
-    ;
-    private String value;
-
+     EMAIL("email"),
+     OPENID("openid"),
+     OPENCHATID("openchat"),
+     OPENDEPARTMENTID("opendepartmentid"),
+     USERID("userid"),
+  ;
+   private String value;
     MemberTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

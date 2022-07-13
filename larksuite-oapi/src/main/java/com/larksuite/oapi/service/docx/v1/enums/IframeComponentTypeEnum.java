@@ -3,30 +3,29 @@ package com.larksuite.oapi.service.docx.v1.enums;
 
 // 生成枚举值
 public enum IframeComponentTypeEnum {
-    BILIBILI(1),
-    XIGUA(2),
-    YOUKU(3),
-    AIRTABLE(4),
-    BAIDUMAP(5),
-    AMAP(6),
-    TIKTOK(7),
-    FIGMA(8),
-    MODAO(9),
-    CANVA(10),
-    CODEPEN(11),
-    FEISHUWENJUAN(12),
-    JINSHUJU(13),
-    GOOGLEMAP(14),
-    YOUTUBE(15),
-    OTHER(99),
-    ;
-    private Integer value;
-
+     BILIBILI(1),
+     XIGUA(2),
+     YOUKU(3),
+     AIRTABLE(4),
+     BAIDUMAP(5),
+     AMAP(6),
+     TIKTOK(7),
+     FIGMA(8),
+     MODAO(9),
+     CANVA(10),
+     CODEPEN(11),
+     FEISHUWENJUAN(12),
+     JINSHUJU(13),
+     GOOGLEMAP(14),
+     YOUTUBE(15),
+     OTHER(99),
+  ;
+   private Integer value;
     IframeComponentTypeEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

@@ -3,18 +3,17 @@ package com.larksuite.oapi.service.calendar.v4.enums;
 
 // 生成枚举值
 public enum EventAttendeeAbilityEnum {
-    NONE("none"),
-    CANSEEOTHERS("can_see_others"),
-    CANINVITEOTHERS("can_invite_others"),
-    CANMODIFYEVENT("can_modify_event"),
-    ;
-    private String value;
-
+     NONE("none"),
+     CANSEEOTHERS("can_see_others"),
+     CANINVITEOTHERS("can_invite_others"),
+     CANMODIFYEVENT("can_modify_event"),
+  ;
+   private String value;
     EventAttendeeAbilityEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

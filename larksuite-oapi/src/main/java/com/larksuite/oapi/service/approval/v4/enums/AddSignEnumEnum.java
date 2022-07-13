@@ -3,17 +3,16 @@ package com.larksuite.oapi.service.approval.v4.enums;
 
 // 生成枚举值
 public enum AddSignEnumEnum {
-    ADD_SIGN_PRE(1),
-    ADD_SIGN_POST(2),
-    ADD_SIGN_PARALLEL(3),
-    ;
-    private Integer value;
-
+     ADD_SIGN_PRE(1),
+     ADD_SIGN_POST(2),
+     ADD_SIGN_PARALLEL(3),
+  ;
+   private Integer value;
     AddSignEnumEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

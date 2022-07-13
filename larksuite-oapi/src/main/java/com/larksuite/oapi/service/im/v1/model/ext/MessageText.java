@@ -23,8 +23,7 @@ public class MessageText {
             return this;
         }
 
-        // TODO name as newLine or lineBreak, better?
-        public Builder line() {
+        public Builder newLine() {
             sb.append("\\n");
             return this;
         }

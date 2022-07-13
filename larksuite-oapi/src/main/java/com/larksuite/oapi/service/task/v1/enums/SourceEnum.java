@@ -3,23 +3,22 @@ package com.larksuite.oapi.service.task.v1.enums;
 
 // 生成枚举值
 public enum SourceEnum {
-    UNKNOWN_SOURCE_TYPE(0),
-    TODO(1),
-    MESSENGER(2),
-    DOC(3),
-    DOC_PRODUCT(4),
-    PANO(5),
-    OAPI(6),
-    OAPI_USER(7),
-    DOCX(8),
-    ;
-    private Integer value;
-
+     UNKNOWN_SOURCE_TYPE(0),
+     TODO(1),
+     MESSENGER(2),
+     DOC(3),
+     DOC_PRODUCT(4),
+     PANO(5),
+     OAPI(6),
+     OAPI_USER(7),
+     DOCX(8),
+  ;
+   private Integer value;
     SourceEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

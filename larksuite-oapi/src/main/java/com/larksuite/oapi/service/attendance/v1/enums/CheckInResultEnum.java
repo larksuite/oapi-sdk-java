@@ -3,20 +3,19 @@ package com.larksuite.oapi.service.attendance.v1.enums;
 
 // 生成枚举值
 public enum CheckInResultEnum {
-    NONEEDCHECK("NoNeedCheck"),
-    SYSTEMCHECK("SystemCheck"),
-    NORMAL("Normal"),
-    EARLY("Early"),
-    LATE("Late"),
-    LACK("Lack"),
-    ;
-    private String value;
-
+     NONEEDCHECK("NoNeedCheck"),
+     SYSTEMCHECK("SystemCheck"),
+     NORMAL("Normal"),
+     EARLY("Early"),
+     LATE("Late"),
+     LACK("Lack"),
+  ;
+   private String value;
     CheckInResultEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

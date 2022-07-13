@@ -3,20 +3,19 @@ package com.larksuite.oapi.service.bitable.v1.enums;
 
 // 生成枚举值
 public enum OperatorEnum {
-    IS("is"),
-    ISNOT("isNot"),
-    CONTAINS("contains"),
-    DOESNOTCONTAIN("doesNotContain"),
-    ISEMPTY("isEmpty"),
-    ISNOTEMPTY("isNotEmpty"),
-    ;
-    private String value;
-
+     IS("is"),
+     ISNOT("isNot"),
+     CONTAINS("contains"),
+     DOESNOTCONTAIN("doesNotContain"),
+     ISEMPTY("isEmpty"),
+     ISNOTEMPTY("isNotEmpty"),
+  ;
+   private String value;
     OperatorEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

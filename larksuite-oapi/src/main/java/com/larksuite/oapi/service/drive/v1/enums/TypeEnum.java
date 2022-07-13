@@ -3,18 +3,17 @@ package com.larksuite.oapi.service.drive.v1.enums;
 
 // 生成枚举值
 public enum TypeEnum {
-    DOC("doc"),
-    SHEET("sheet"),
-    BITABLE("bitable"),
-    DOCX("docx"),
-    ;
-    private String value;
-
+     DOC("doc"),
+     SHEET("sheet"),
+     BITABLE("bitable"),
+     DOCX("docx"),
+  ;
+   private String value;
     TypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

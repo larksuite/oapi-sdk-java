@@ -3,16 +3,15 @@ package com.larksuite.oapi.service.search.v2.enums;
 
 // 生成枚举值
 public enum StateEnum {
-    ONLINE(0),
-    OFFLINE(1),
-    ;
-    private Integer value;
-
+     ONLINE(0),
+     OFFLINE(1),
+  ;
+   private Integer value;
     StateEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }

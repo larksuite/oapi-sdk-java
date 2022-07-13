@@ -3,17 +3,16 @@ package com.larksuite.oapi.service.bitable.v1.enums;
 
 // 生成枚举值
 public enum MemberTypeEnum {
-    USER("user"),
-    CHAT("chat"),
-    DEPARTMENT("department"),
-    ;
-    private String value;
-
+     USER("user"),
+     CHAT("chat"),
+     DEPARTMENT("department"),
+  ;
+   private String value;
     MemberTypeEnum(String value) {
-        this.value = value;
+      this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+      return this.value;
     }
 }

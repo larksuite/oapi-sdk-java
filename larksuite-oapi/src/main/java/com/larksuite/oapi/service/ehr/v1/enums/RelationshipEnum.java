@@ -3,20 +3,19 @@ package com.larksuite.oapi.service.ehr.v1.enums;
 
 // 生成枚举值
 public enum RelationshipEnum {
-    PARENT(1),
-    SPOUSE(2),
-    CHILD(3),
-    SIBLING(4),
-    FRIEND(5),
-    OTHER(6),
-    ;
-    private Integer value;
-
+     PARENT(1),
+     SPOUSE(2),
+     CHILD(3),
+     SIBLING(4),
+     FRIEND(5),
+     OTHER(6),
+  ;
+   private Integer value;
     RelationshipEnum(Integer value) {
-        this.value = value;
+      this.value = value;
     }
 
     public Integer getValue() {
-        return this.value;
+      return this.value;
     }
 }
