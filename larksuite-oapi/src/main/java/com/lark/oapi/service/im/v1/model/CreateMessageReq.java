@@ -47,6 +47,7 @@ public class CreateMessageReq {
     private String receiveIdType;
     private CreateMessageReqBody body;
 
+    // todo 参数使用枚举更好些。生成代码时有困难？
     public Builder receiveIdType(String receiveIdType) {
       this.receiveIdType = receiveIdType;
       return this;
