@@ -8,14 +8,15 @@
 
 - 飞书开放平台，便于企业应用与飞书集成，让协同与管理更加高效，[概述](https://open.feishu.cn/document/uQjL04CN/ucDOz4yN4MjL3gzM)
 
-- 飞书开发接口SDK，便捷调用服务端API与订阅服务端事件，例如：消息&群组、通讯录、日历、视频会议、云文档、 OKR等具体可以访问 [飞书开放平台文档](https://open.feishu.cn/document/) 看看【服务端
-  API】。
+- 飞书开发接口SDK，便捷调用服务端API与订阅服务端事件，例如：消息&群组、通讯录、日历、视频会议、云文档、
+  OKR等具体可以访问 [飞书开放平台文档](https://open.feishu.cn/document/) 看看【服务端 API】。
 
 ## 问题反馈
 
 --- 
 
-- 如有任何SDK使用相关问题，请提交 [Github Issues](https://github.com/larksuite/oapi-sdk-java/issues), 我们会在收到 Issues 的第一时间处理，并尽快给您答复。
+- 如有任何SDK使用相关问题，请提交 [Github Issues](https://github.com/larksuite/oapi-sdk-java/issues), 我们会在收到
+  Issues 的第一时间处理，并尽快给您答复。
 
 ## 运行环境
 
@@ -71,7 +72,8 @@
 
 ### 调用服务端API
 
-- **必看** [如何调用服务端API](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/guide-to-use-server-api)
+- **
+  必看** [如何调用服务端API](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/guide-to-use-server-api)
   ，了解调用服务端API的过程及注意事项。
     -
   由于SDK已经封装了app_access_token、tenant_access_token的获取，所以在调业务API的时候，不需要去获取app_access_token、tenant_access_token。如果业务接口需要使用user_access_token，需要进行设置（Request.setUserAccessToken("
@@ -183,8 +185,9 @@ public class ContactSample {
 ### 订阅服务端事件
 
 - **必看** [订阅事件概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM) ，了解订阅事件的过程及注意事项。
-- 更多使用示例，请看[EventController.java](spring-boot-examples/src/main/java/com/larksuite/oapi/example/EventController.java)
-  （含：结合spring-boot的使用）
+-
+更多使用示例，请看[EventController.java](spring-boot-examples/src/main/java/com/larksuite/oapi/example/EventController.java)
+（含：结合spring-boot的使用）
 
 #### 使用`企业自建应用` 订阅 [首次启用应用事件](https://open.feishu.cn/document/ukTMukTMukTM/uQTNxYjL0UTM24CN1EjN) 示例
 
@@ -284,9 +287,11 @@ public class EventController extends EventServlet {
 
 ### 处理消息卡片回调
 
-- **必看** [消息卡片开发流程](https://open.feishu.cn/document/ukTMukTMukTM/uAzMxEjLwMTMx4CMzETM) ，了解订阅事件的过程及注意事项
-- 更多使用示例，请看：请看[CardController.java](spring-boot-examples/src/main/java/com/larksuite/oapi/example/CardController.java)
-  （含：结合spring-boot的使用）
+- **必看** [消息卡片开发流程](https://open.feishu.cn/document/ukTMukTMukTM/uAzMxEjLwMTMx4CMzETM)
+  ，了解订阅事件的过程及注意事项
+-
+更多使用示例，请看：请看[CardController.java](spring-boot-examples/src/main/java/com/larksuite/oapi/example/CardController.java)
+（含：结合spring-boot的使用）
 
 #### 使用`企业自建应用`处理消息卡片回调示例
 
@@ -375,7 +380,8 @@ public class Sample {
 - 访问 飞书、LarkSuite或者其他
 - 应用的配置
 - 存储接口（Store）的实现，用于保存访问凭证（app/tenant_access_token）、临时凭证(app_ticket）
-    - 推荐使用Redis实现，请看示例代码：[RedisStore.java](sample/src/main/java/com/larksuite/oapi/sample/config/RedisStore.java)
+    -
+    推荐使用Redis实现，请看示例代码：[RedisStore.java](sample/src/main/java/com/larksuite/oapi/sample/config/RedisStore.java)
         - 减少获取 访问凭证 的次数，防止调用访问凭证 接口被限频。
         - 应用商品应用，接受开放平台下发的app_ticket，会保存到存储中，所以存储接口（Store）的实现的实现需要支持分布式存储。
 
@@ -410,7 +416,8 @@ public class Sample {
 ### 如何构建请求（Request）
 
 - 有些老版接口，没有直接可以使用的SDK，可以使用原生模式，这时需要构建请求。
-- 更多示例，请看：[ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)（含：文件的上传与下载）
+- 更多示例，请看：[ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)
+  （含：文件的上传与下载）
 
 ```java
 package com.larksuite.oapi.sample.api;
@@ -457,7 +464,8 @@ public class Sample {
 
 ### 如何发送请求
 
-- 更多示例，请看：[ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)（含：文件的上传与下载）
+- 更多示例，请看：[ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)
+  （含：文件的上传与下载）
 -
 
 由于SDK已经封装了app_access_token、tenant_access_token的获取，所以在调业务API的时候，不需要去获取app_access_token、tenant_access_token。如果业务接口需要使用user_access_token，需要进行设置（Request.setUserAccessToken("
@@ -528,6 +536,7 @@ public static byte[]DownloadFile(String url)throws IOException{
 
 ---
 
-- 飞书：[服务端SDK](https://open.feishu.cn/document/ukTMukTMukTM/uETO1YjLxkTN24SM5UjN) 页面右上角【这篇文档是否对你有帮助？】提交反馈
+- 飞书：[服务端SDK](https://open.feishu.cn/document/ukTMukTMukTM/uETO1YjLxkTN24SM5UjN)
+  页面右上角【这篇文档是否对你有帮助？】提交反馈
 
 

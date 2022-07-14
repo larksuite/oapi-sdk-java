@@ -1,7 +1,9 @@
 [**飞书，点这里**](README.zh.md) | Larksuite(Overseas)
 
-- 如果使用的是飞书，请看 [**飞书，点这里**](README.zh.md) ，飞书与Larksuite使用的域名不一样，引用的文档地址也是不同的。（If you are using FeiShu, please see [**
-  飞书，点这里**](README.zh.md) , Feishu and larksuite use different domain names and reference different document addresses.)
+- 如果使用的是飞书，请看 [**飞书，点这里**](README.zh.md) ，飞书与Larksuite使用的域名不一样，引用的文档地址也是不同的。（If you are using
+  FeiShu, please see [**
+  飞书，点这里**](README.zh.md) , Feishu and larksuite use different domain names and reference different
+  document addresses.)
 
 # LarkSuite open api SDK
 
@@ -9,20 +11,21 @@
 
 ---
 
-- Larksuite open platform facilitates the integration of enterprise applications and larksuite, making collaboration and
-  management more efficient.
+- Larksuite open platform facilitates the integration of enterprise applications and larksuite,
+  making collaboration and management more efficient.
 
-- Larksuite development interface SDK, convenient call server API and subscribe server events, such as: Message & group,
-  address book, calendar, docs and others can
-  visit [larksuite open platform document](https://open.larksuite.cn/document/) ,Take a look at [REFERENCE].
+- Larksuite development interface SDK, convenient call server API and subscribe server events, such
+  as: Message & group, address book, calendar, docs and others can
+  visit [larksuite open platform document](https://open.larksuite.cn/document/) ,Take a look
+  at [REFERENCE].
 
 ## Problem feedback
 
 ---
 
 - If you encounter any problems during usage, please let us know by
-  submitting  [Github Issues](https://github.com/larksuite/oapi-sdk-java/issues). We will deal with these Issues and get
-  back to you as soon as possible.
+  submitting  [Github Issues](https://github.com/larksuite/oapi-sdk-java/issues). We will deal with
+  these Issues and get back to you as soon as possible.
 
 ## Run environment
 
@@ -34,7 +37,8 @@
 
 ---
 
-- If the larksuite-oapi dependency cannot be found and obtained, please add \<repositories\> in \<project\> of pom.xml
+- If the larksuite-oapi dependency cannot be found and obtained, please add \<repositories\> in
+  \<project\> of pom.xml
 
 ```xml
 <project>
@@ -63,16 +67,18 @@
 
 ## Explanation of terms
 
-- Larksuite: the overseas name of lark, which mainly provides services for overseas enterprises and has an
-  independent [domain name address](https://www.larksuite.com/) .
-- Development documents: reference to the open interface of the open platform **developers must see, and can use search
-  to query documents efficiently** . [more information](https://open.feishu.cn/document/) .
+- Larksuite: the overseas name of lark, which mainly provides services for overseas enterprises and
+  has an independent [domain name address](https://www.larksuite.com/) .
+- Development documents: reference to the open interface of the open platform **developers must see,
+  and can use search to query documents efficiently**
+  . [more information](https://open.feishu.cn/document/) .
 - Developer background: the management background for developers to develop
   applications, [more introduction](https://open.larksuite.cn/app/) .
 - Cutome APP: the application can only be installed and used in the
-  enterprise，[more introduction](https://open.larksuite.com/document/ukzMxEjL5MTMx4SOzETM/uEjNwYjLxYDM24SM2AjN) .
-- Marketplace App：The app will be displayed in [App Directory](https://app.larksuite.com/) Display, each enterprise can
-  choose to install.
+  enterprise，[more introduction](https://open.larksuite.com/document/ukzMxEjL5MTMx4SOzETM/uEjNwYjLxYDM24SM2AjN)
+  .
+- Marketplace App：The app will be displayed in [App Directory](https://app.larksuite.com/) Display,
+  each enterprise can choose to install.
 
 ![App type](doc/app_type.en.png)
 
@@ -84,9 +90,10 @@
 
 #### Example of using "Custom App" to access [send text message](https://open.larksuite.com/document/uMzMyEjLzMjMx4yMzITM/ugDN0EjL4QDNx4CO0QTM) API
 
-- Since the SDK has encapsulated the app_access_token、tenant_access_token So when calling the business API, you don't
-  need to get the app_access_token、tenant_access_token. If the business interface needs to use user_access_token, which
-  needs to be set（Request.setUserAccessToken("UserAccessToken")), Please refer to README.md -> How to build a request(
+- Since the SDK has encapsulated the app_access_token、tenant_access_token So when calling the
+  business API, you don't need to get the app_access_token、tenant_access_token. If the business
+  interface needs to use user_access_token, which needs to be set（Request.setUserAccessToken("
+  UserAccessToken")), Please refer to README.md -> How to build a request(
   Request)
 - For more use examples, please refer
   to [ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)
@@ -145,8 +152,8 @@ public class Sample {
 
 ### Subscribe to events
 
-- [Subscribe to events](https://open.larksuite.com/document/uMzMyEjLzMjMx4yMzITM/uETM4QjLxEDO04SMxgDN) , to understand
-  the process and precautions of subscribing to events.
+- [Subscribe to events](https://open.larksuite.com/document/uMzMyEjLzMjMx4yMzITM/uETM4QjLxEDO04SMxgDN)
+  , to understand the process and precautions of subscribing to events.
 - For more use examples, please refer
   to [EventController.java](spring-boot-examples/src/main/java/com/larksuite/oapi/example/EventController.java)
   （including: use in combination with spring-boot）
@@ -200,10 +207,11 @@ public class EventController extends EventServlet {
 
 ### Processing message card callbacks
 
-- [Message Card Development Process](https://open.larksuite.com/document/uMzMyEjLzMjMx4yMzITM/ukzM3QjL5MzN04SOzcDN) , to
-  understand the process and precautions of processing message cards
+- [Message Card Development Process](https://open.larksuite.com/document/uMzMyEjLzMjMx4yMzITM/ukzM3QjL5MzN04SOzcDN)
+  , to understand the process and precautions of processing message cards
 - For more use examples, please refer
-  to [CardController.java](spring-boot-examples/src/main/java/com/larksuite/oapi/example/CardController.java)（including:
+  to [CardController.java](spring-boot-examples/src/main/java/com/larksuite/oapi/example/CardController.java)
+  （including:
   use in combination with gin）
 
 #### Example of using "Custom App" to handling message card callback.
@@ -292,14 +300,16 @@ public class Sample {
 
 - Visit Larksuite, Feishu or others
 - App settings
-- The implementation of store is used to save the access credentials (app/tenant_access_token), temporary voucher (
+- The implementation of store is used to save the access credentials (app/tenant_access_token),
+  temporary voucher (
   app_ticket）
     - Redis is recommended. Please see the example
       code: [RedisStore.java](sample/src/main/java/com/larksuite/oapi/sample/config/RedisStore.java)
-        - It can reduce the times of obtaining access credentials and prevent the frequency limit of calling access
-          credentials interface.
-        - "Marketplace App", accept open platform distributed `app_ticket` will be saved to the storage, so the
-          implementation of the storage interface (store) needs to support distributed storage.
+        - It can reduce the times of obtaining access credentials and prevent the frequency limit of
+          calling access credentials interface.
+        - "Marketplace App", accept open platform distributed `app_ticket` will be saved to the
+          storage, so the implementation of the storage interface (store) needs to support
+          distributed storage.
 
 ```java
 package com.larksuite.oapi.sample.api;
@@ -331,9 +341,10 @@ public class Sample {
 
 ### How to build a request(Request)
 
-- Some of the old interfaces do not have an SDK that can be used directly. They can use `native` mode. At this time,
-  they need to build requests.
-- For more examples, see [ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)(including:
+- Some of the old interfaces do not have an SDK that can be used directly. They can use `native`
+  mode. At this time, they need to build requests.
+- For more examples,
+  see [ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)(including:
   file upload and download)
 
 ```java
@@ -389,11 +400,13 @@ public class Sample {
 
 ### How to send a request
 
-- Since the SDK has encapsulated the app_access_token、tenant_access_token So when calling the business API, you don't
-  need to get the app_access_token、tenant_access_token. If the business interface needs to use user_access_token, which
-  needs to be set（Request.setUserAccessToken("UserAccessToken")), Please refer to README.md -> How to build a request(
+- Since the SDK has encapsulated the app_access_token、tenant_access_token So when calling the
+  business API, you don't need to get the app_access_token、tenant_access_token. If the business
+  interface needs to use user_access_token, which needs to be set（Request.setUserAccessToken("
+  UserAccessToken")), Please refer to README.md -> How to build a request(
   Request)
-- For more use examples, please see: [ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)
+- For more use examples, please
+  see: [ApiSample.java](sample/src/main/java/com/larksuite/oapi/sample/api/ApiSample.java)
 
 ```java
 package com.larksuite.oapi.sample.api;

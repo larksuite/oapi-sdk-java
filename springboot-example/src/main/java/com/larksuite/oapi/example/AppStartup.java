@@ -7,12 +7,13 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class AppStartup {
-    public static void main(String[] args) {
-        SpringApplication.run(AppStartup.class, args);
-    }
 
-    @Bean
-    public ServletAdapter getServletAdapter() {
-        return new ServletAdapter();
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(AppStartup.class, args);
+  }
+
+  @Bean
+  public ServletAdapter getServletAdapter() {
+    return new ServletAdapter();
+  }
 }
