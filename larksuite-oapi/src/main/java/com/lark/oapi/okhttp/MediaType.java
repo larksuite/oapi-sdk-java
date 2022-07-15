@@ -72,9 +72,9 @@ public final class MediaType {
       }
 
       String name = parameter.group(1);
-        if (name == null || !name.equalsIgnoreCase("charset")) {
-            continue;
-        }
+      if (name == null || !name.equalsIgnoreCase("charset")) {
+        continue;
+      }
       String charsetParameter;
       String token = parameter.group(2);
       if (token != null) {

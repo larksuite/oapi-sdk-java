@@ -22,11 +22,12 @@ public class LocalCache implements ICache {
 
   @Override
   public String get(String key) {
-    log.debug("get key:{}", key);
     Value v = this.CACHE.get(key);
     if (v == null || new Date().after(v.end)) {
       return "";
     }
+
+    log.debug("get key:{},time left:{}s", key, (v.end.getTime() - new Date().getTime()) / 1000);
     return v.value;
   }
 
@@ -35,7 +36,7 @@ public class LocalCache implements ICache {
     Calendar calendar = Calendar.getInstance();
     calendar.add(Calendar.SECOND, (int) timeUnit.toSeconds(expire));
     Value v = new Value(value, calendar.getTime());
-    log.debug("put key:{}, value:{}, expire time:{} ", key, value, calendar.getTime());
+    log.debug("put key:{}, expire time:{} ", key, calendar.getTime());
     this.CACHE.put(key, v);
   }
 

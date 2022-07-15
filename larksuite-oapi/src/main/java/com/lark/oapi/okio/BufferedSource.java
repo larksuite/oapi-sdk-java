@@ -408,10 +408,9 @@ public interface BufferedSource extends Source, ReadableByteChannel {
    * either {@code "\n"} or {@code "\r\n"}; these characters are not included in the result.
    *
    * <p><strong>On the end of the stream this method throws.</strong> Every call must consume
-   * either
-   * '\r\n' or '\n'. If these characters are absent in the stream, an {@link java.io.EOFException}
-   * is thrown. Use this for machine-generated data where a missing line break implies truncated
-   * input.
+   * either '\r\n' or '\n'. If these characters are absent in the stream, an {@link
+   * java.io.EOFException} is thrown. Use this for machine-generated data where a missing line break
+   * implies truncated input.
    */
   String readUtf8LineStrict() throws IOException;
 

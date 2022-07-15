@@ -105,15 +105,15 @@ public final class PublicSuffixDatabase {
         int byte1 = bytesToSearch[mid + publicSuffixByteIndex] & 0xff;
 
         compareResult = byte0 - byte1;
-          if (compareResult != 0) {
-              break;
-          }
+        if (compareResult != 0) {
+          break;
+        }
 
         publicSuffixByteIndex++;
         currentLabelByteIndex++;
-          if (publicSuffixByteIndex == publicSuffixLength) {
-              break;
-          }
+        if (publicSuffixByteIndex == publicSuffixLength) {
+          break;
+        }
 
         if (labels[currentLabelIndex].length == currentLabelByteIndex) {
           // We've exhausted our current label. Either there are more labels to compare, in which
@@ -170,9 +170,9 @@ public final class PublicSuffixDatabase {
    *               encoded.
    */
   public String getEffectiveTldPlusOne(String domain) {
-      if (domain == null) {
-          throw new NullPointerException("domain == null");
-      }
+    if (domain == null) {
+      throw new NullPointerException("domain == null");
+    }
 
     // We use UTF-8 in the list so we need to convert to Unicode.
     String unicodeDomain = IDN.toUnicode(domain);
@@ -321,9 +321,9 @@ public final class PublicSuffixDatabase {
     byte[] publicSuffixExceptionListBytes;
 
     InputStream resource = PublicSuffixDatabase.class.getResourceAsStream(PUBLIC_SUFFIX_RESOURCE);
-      if (resource == null) {
-          return;
-      }
+    if (resource == null) {
+      return;
+    }
 
     try (BufferedSource bufferedSource = Okio.buffer(new GzipSource(Okio.source(resource)))) {
       int totalBytes = bufferedSource.readInt();

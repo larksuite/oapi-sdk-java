@@ -154,9 +154,9 @@ public final class Util {
       try {
         socket.close();
       } catch (AssertionError e) {
-          if (!isAndroidGetsocknameError(e)) {
-              throw e;
-          }
+        if (!isAndroidGetsocknameError(e)) {
+          throw e;
+        }
       } catch (RuntimeException rethrown) {
         throw rethrown;
       } catch (Exception ignored) {
@@ -310,9 +310,9 @@ public final class Util {
 
   public static int indexOf(Comparator<String> comparator, String[] array, String value) {
     for (int i = 0, size = array.length; i < size; i++) {
-        if (comparator.compare(array[i], value) == 0) {
-            return i;
-        }
+      if (comparator.compare(array[i], value) == 0) {
+        return i;
+      }
     }
     return -1;
   }
@@ -379,9 +379,9 @@ public final class Util {
    */
   public static int delimiterOffset(String input, int pos, int limit, String delimiters) {
     for (int i = pos; i < limit; i++) {
-        if (delimiters.indexOf(input.charAt(i)) != -1) {
-            return i;
-        }
+      if (delimiters.indexOf(input.charAt(i)) != -1) {
+        return i;
+      }
     }
     return limit;
   }
@@ -392,9 +392,9 @@ public final class Util {
    */
   public static int delimiterOffset(String input, int pos, int limit, char delimiter) {
     for (int i = pos; i < limit; i++) {
-        if (input.charAt(i) == delimiter) {
-            return i;
-        }
+      if (input.charAt(i) == delimiter) {
+        return i;
+      }
     }
     return limit;
   }
@@ -414,24 +414,24 @@ public final class Util {
       InetAddress inetAddress = host.startsWith("[") && host.endsWith("]")
           ? decodeIpv6(host, 1, host.length() - 1)
           : decodeIpv6(host, 0, host.length());
-        if (inetAddress == null) {
-            return null;
-        }
+      if (inetAddress == null) {
+        return null;
+      }
       byte[] address = inetAddress.getAddress();
-        if (address.length == 16) {
-            return inet6AddressToAscii(address);
-        }
-        if (address.length == 4) {
-            return inetAddress.getHostAddress(); // An IPv4-mapped IPv6 address.
-        }
+      if (address.length == 16) {
+        return inet6AddressToAscii(address);
+      }
+      if (address.length == 4) {
+        return inetAddress.getHostAddress(); // An IPv4-mapped IPv6 address.
+      }
       throw new AssertionError("Invalid IPv6 address: '" + host + "'");
     }
 
     try {
       String result = IDN.toASCII(host).toLowerCase(Locale.US);
-        if (result.isEmpty()) {
-            return null;
-        }
+      if (result.isEmpty()) {
+        return null;
+      }
 
       // Confirm that the IDN ToASCII result doesn't contain any illegal characters.
       if (containsInvalidHostnameAsciiCodes(result)) {
@@ -512,32 +512,32 @@ public final class Util {
   }
 
   public static int checkDuration(String name, long duration, TimeUnit unit) {
-      if (duration < 0) {
-          throw new IllegalArgumentException(name + " < 0");
-      }
-      if (unit == null) {
-          throw new NullPointerException("unit == null");
-      }
+    if (duration < 0) {
+      throw new IllegalArgumentException(name + " < 0");
+    }
+    if (unit == null) {
+      throw new NullPointerException("unit == null");
+    }
     long millis = unit.toMillis(duration);
-      if (millis > Integer.MAX_VALUE) {
-          throw new IllegalArgumentException(name + " too large.");
-      }
-      if (millis == 0 && duration > 0) {
-          throw new IllegalArgumentException(name + " too small.");
-      }
+    if (millis > Integer.MAX_VALUE) {
+      throw new IllegalArgumentException(name + " too large.");
+    }
+    if (millis == 0 && duration > 0) {
+      throw new IllegalArgumentException(name + " too small.");
+    }
     return (int) millis;
   }
 
   public static int decodeHexDigit(char c) {
-      if (c >= '0' && c <= '9') {
-          return c - '0';
-      }
-      if (c >= 'a' && c <= 'f') {
-          return c - 'a' + 10;
-      }
-      if (c >= 'A' && c <= 'F') {
-          return c - 'A' + 10;
-      }
+    if (c >= '0' && c <= '9') {
+      return c - '0';
+    }
+    if (c >= 'a' && c <= 'f') {
+      return c - 'a' + 10;
+    }
+    if (c >= 'A' && c <= 'F') {
+      return c - 'A' + 10;
+    }
     return -1;
   }
 
@@ -552,31 +552,31 @@ public final class Util {
     int groupOffset = -1;
 
     for (int i = pos; i < limit; ) {
-        if (b == address.length) {
-            return null; // Too many groups.
-        }
+      if (b == address.length) {
+        return null; // Too many groups.
+      }
 
       // Read a delimiter.
       if (i + 2 <= limit && input.regionMatches(i, "::", 0, 2)) {
         // Compression "::" delimiter, which is anywhere in the input, including its prefix.
-          if (compress != -1) {
-              return null; // Multiple "::" delimiters.
-          }
+        if (compress != -1) {
+          return null; // Multiple "::" delimiters.
+        }
         i += 2;
         b += 2;
         compress = b;
-          if (i == limit) {
-              break;
-          }
+        if (i == limit) {
+          break;
+        }
       } else if (b != 0) {
         // Group separator ":" delimiter.
         if (input.regionMatches(i, ":", 0, 1)) {
           i++;
         } else if (input.regionMatches(i, ".", 0, 1)) {
           // If we see a '.', rewind to the beginning of the previous group and parse as IPv4.
-            if (!decodeIpv4Suffix(input, groupOffset, limit, address, b - 2)) {
-                return null;
-            }
+          if (!decodeIpv4Suffix(input, groupOffset, limit, address, b - 2)) {
+            return null;
+          }
           b += 2; // We rewound two bytes and then added four.
           break;
         } else {
@@ -590,15 +590,15 @@ public final class Util {
       for (; i < limit; i++) {
         char c = input.charAt(i);
         int hexDigit = decodeHexDigit(c);
-          if (hexDigit == -1) {
-              break;
-          }
+        if (hexDigit == -1) {
+          break;
+        }
         value = (value << 4) + hexDigit;
       }
       int groupLength = i - groupOffset;
-        if (groupLength == 0 || groupLength > 4) {
-            return null; // Group is the wrong size.
-        }
+      if (groupLength == 0 || groupLength > 4) {
+        return null; // Group is the wrong size.
+      }
 
       // We've successfully read a group. Assign its value to our byte array.
       address[b++] = (byte) ((value >>> 8) & 0xff);
@@ -615,9 +615,9 @@ public final class Util {
     //      after: { 11, 11, 22, 22, 33, 33, 00, 00, 00, 00, 00, 00, 77, 77, 88, 88 }
     //
     if (b != address.length) {
-        if (compress == -1) {
-            return null; // Address didn't have compression or enough groups.
-        }
+      if (compress == -1) {
+        return null; // Address didn't have compression or enough groups.
+      }
       System.arraycopy(address, compress, address, address.length - (b - compress), b - compress);
       Arrays.fill(address, compress, compress + (address.length - b), (byte) 0);
     }
@@ -637,15 +637,15 @@ public final class Util {
     int b = addressOffset;
 
     for (int i = pos; i < limit; ) {
-        if (b == address.length) {
-            return false; // Too many groups.
-        }
+      if (b == address.length) {
+        return false; // Too many groups.
+      }
 
       // Read a delimiter.
       if (b != addressOffset) {
-          if (input.charAt(i) != '.') {
-              return false; // Wrong delimiter.
-          }
+        if (input.charAt(i) != '.') {
+          return false; // Wrong delimiter.
+        }
         i++;
       }
 
@@ -654,29 +654,29 @@ public final class Util {
       int groupOffset = i;
       for (; i < limit; i++) {
         char c = input.charAt(i);
-          if (c < '0' || c > '9') {
-              break;
-          }
-          if (value == 0 && groupOffset != i) {
-              return false; // Reject unnecessary leading '0's.
-          }
+        if (c < '0' || c > '9') {
+          break;
+        }
+        if (value == 0 && groupOffset != i) {
+          return false; // Reject unnecessary leading '0's.
+        }
         value = (value * 10) + c - '0';
-          if (value > 255) {
-              return false; // Value out of range.
-          }
+        if (value > 255) {
+          return false; // Value out of range.
+        }
       }
       int groupLength = i - groupOffset;
-        if (groupLength == 0) {
-            return false; // No digits.
-        }
+      if (groupLength == 0) {
+        return false; // No digits.
+      }
 
       // We've successfully read a byte.
       address[b++] = (byte) value;
     }
 
-      if (b != addressOffset + 4) {
-          return false; // Too few groups. We wanted exactly four.
-      }
+    if (b != addressOffset + 4) {
+      return false; // Too few groups. We wanted exactly four.
+    }
     return true; // Success.
   }
 
@@ -707,13 +707,13 @@ public final class Util {
       if (i == longestRunOffset) {
         result.writeByte(':');
         i += longestRunLength;
-          if (i == 16) {
-              result.writeByte(':');
-          }
+        if (i == 16) {
+          result.writeByte(':');
+        }
       } else {
-          if (i > 0) {
-              result.writeByte(':');
-          }
+        if (i > 0) {
+          result.writeByte(':');
+        }
         int group = (address[i] & 0xff) << 8 | address[i + 1] & 0xff;
         result.writeHexadecimalUnsignedLong(group);
         i += 2;

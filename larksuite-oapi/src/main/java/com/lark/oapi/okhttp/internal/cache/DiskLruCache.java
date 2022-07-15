@@ -53,10 +53,9 @@ import javax.annotation.Nullable;
  * multiple processes to use the same cache directory at the same time.
  *
  * <p>This cache limits the number of bytes that it will store on the filesystem. When the number
- * of
- * stored bytes exceeds the limit, the cache will remove entries in the background until the limit
- * is satisfied. The limit is not strict: the cache may temporarily exceed it while waiting for
- * files to be deleted. The limit does not include filesystem overhead or the cache journal so
+ * of stored bytes exceeds the limit, the cache will remove entries in the background until the
+ * limit is satisfied. The limit is not strict: the cache may temporarily exceed it while waiting
+ * for files to be deleted. The limit does not include filesystem overhead or the cache journal so
  * space-sensitive applications should set a conservative limit.
  *
  * <p>Clients call {@link #edit} to create or update the values of an entry. An entry may have only
@@ -407,14 +406,14 @@ public final class DiskLruCache implements Closeable, Flushable {
     checkNotClosed();
     validateKey(key);
     Entry entry = lruEntries.get(key);
-      if (entry == null || !entry.readable) {
-          return null;
-      }
+    if (entry == null || !entry.readable) {
+      return null;
+    }
 
     Snapshot snapshot = entry.snapshot();
-      if (snapshot == null) {
-          return null;
-      }
+    if (snapshot == null) {
+      return null;
+    }
 
     redundantOpCount++;
     journalWriter.writeUtf8(READ).writeByte(' ').writeUtf8(key).writeByte('\n');
@@ -505,31 +504,7 @@ public final class DiskLruCache implements Closeable, Flushable {
   public synchronized long size() throws IOException {
     initialize();
     return size;
-  }  private final Runnable cleanupRunnable = new Runnable() {
-    public void run() {
-      synchronized (DiskLruCache.this) {
-        if (!initialized | closed) {
-          return; // Nothing to do
-        }
-
-        try {
-          trimToSize();
-        } catch (IOException ignored) {
-          mostRecentTrimFailed = true;
-        }
-
-        try {
-          if (journalRebuildRequired()) {
-            rebuildJournal();
-            redundantOpCount = 0;
-          }
-        } catch (IOException e) {
-          mostRecentRebuildFailed = true;
-          journalWriter = Okio.buffer(Okio.blackhole());
-        }
-      }
-    }
-  };
+  }
 
   synchronized void completeEdit(Editor editor, boolean success) throws IOException {
     Entry entry = editor.entry;
@@ -613,15 +588,39 @@ public final class DiskLruCache implements Closeable, Flushable {
     checkNotClosed();
     validateKey(key);
     Entry entry = lruEntries.get(key);
-      if (entry == null) {
-          return false;
-      }
+    if (entry == null) {
+      return false;
+    }
     boolean removed = removeEntry(entry);
-      if (removed && size <= maxSize) {
-          mostRecentTrimFailed = false;
-      }
+    if (removed && size <= maxSize) {
+      mostRecentTrimFailed = false;
+    }
     return removed;
-  }
+  }  private final Runnable cleanupRunnable = new Runnable() {
+    public void run() {
+      synchronized (DiskLruCache.this) {
+        if (!initialized | closed) {
+          return; // Nothing to do
+        }
+
+        try {
+          trimToSize();
+        } catch (IOException ignored) {
+          mostRecentTrimFailed = true;
+        }
+
+        try {
+          if (journalRebuildRequired()) {
+            rebuildJournal();
+            redundantOpCount = 0;
+          }
+        } catch (IOException e) {
+          mostRecentRebuildFailed = true;
+          journalWriter = Okio.buffer(Okio.blackhole());
+        }
+      }
+    }
+  };
 
   boolean removeEntry(Entry entry) throws IOException {
     if (entry.currentEditor != null) {
@@ -663,9 +662,9 @@ public final class DiskLruCache implements Closeable, Flushable {
    */
   @Override
   public synchronized void flush() throws IOException {
-      if (!initialized) {
-          return;
-      }
+    if (!initialized) {
+      return;
+    }
 
     checkNotClosed();
     trimToSize();
@@ -760,25 +759,25 @@ public final class DiskLruCache implements Closeable, Flushable {
 
       @Override
       public boolean hasNext() {
-          if (nextSnapshot != null) {
-              return true;
-          }
+        if (nextSnapshot != null) {
+          return true;
+        }
 
         synchronized (DiskLruCache.this) {
           // If the cache is closed, truncate the iterator.
-            if (closed) {
-                return false;
-            }
+          if (closed) {
+            return false;
+          }
 
           while (delegate.hasNext()) {
             Entry entry = delegate.next();
-              if (!entry.readable) {
-                  continue; // Entry during edit.
-              }
+            if (!entry.readable) {
+              continue; // Entry during edit.
+            }
             Snapshot snapshot = entry.snapshot();
-              if (snapshot == null) {
-                  continue; // Evicted since we copied the entries.
-              }
+            if (snapshot == null) {
+              continue; // Evicted since we copied the entries.
+            }
             nextSnapshot = snapshot;
             return true;
           }
@@ -789,9 +788,9 @@ public final class DiskLruCache implements Closeable, Flushable {
 
       @Override
       public Snapshot next() {
-          if (!hasNext()) {
-              throw new NoSuchElementException();
-          }
+        if (!hasNext()) {
+          throw new NoSuchElementException();
+        }
         removeSnapshot = nextSnapshot;
         nextSnapshot = null;
         return removeSnapshot;
@@ -799,9 +798,9 @@ public final class DiskLruCache implements Closeable, Flushable {
 
       @Override
       public void remove() {
-          if (removeSnapshot == null) {
-              throw new IllegalStateException("remove() before next()");
-          }
+        if (removeSnapshot == null) {
+          throw new IllegalStateException("remove() before next()");
+        }
         try {
           DiskLruCache.this.remove(removeSnapshot.key);
         } catch (IOException ignored) {
@@ -1077,9 +1076,9 @@ public final class DiskLruCache implements Closeable, Flushable {
      * different edits.
      */
     Snapshot snapshot() {
-        if (!Thread.holdsLock(DiskLruCache.this)) {
-            throw new AssertionError();
-        }
+      if (!Thread.holdsLock(DiskLruCache.this)) {
+        throw new AssertionError();
+      }
 
       Source[] sources = new Source[valueCount];
       long[] lengths = this.lengths.clone(); // Defensive copy since these can be zeroed out.

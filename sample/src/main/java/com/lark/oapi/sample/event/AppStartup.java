@@ -1,4 +1,4 @@
-package com.larksuite.oapi.example;
+package com.lark.oapi.sample.event;
 
 import com.larksuite.oapi.sdk.servlet.ext.ServletAdapter;
 import org.springframework.boot.SpringApplication;

@@ -24,8 +24,7 @@ import java.io.IOException;
  * possible.
  *
  * <p>This source also maintains a snapshot of the starting location of the upstream buffer which
- * it
- * validates against on every read. If the upstream buffer is read from, this source will become
+ * it validates against on every read. If the upstream buffer is read from, this source will become
  * invalid and throw {@link IllegalStateException} on any future reads.
  */
 final class PeekSource implements Source {

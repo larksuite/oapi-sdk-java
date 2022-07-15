@@ -57,16 +57,16 @@ final class SegmentPool {
   }
 
   static void recycle(Segment segment) {
-      if (segment.next != null || segment.prev != null) {
-          throw new IllegalArgumentException();
-      }
-      if (segment.shared) {
-          return; // This segment cannot be recycled.
-      }
+    if (segment.next != null || segment.prev != null) {
+      throw new IllegalArgumentException();
+    }
+    if (segment.shared) {
+      return; // This segment cannot be recycled.
+    }
     synchronized (SegmentPool.class) {
-        if (byteCount + Segment.SIZE > MAX_SIZE) {
-            return; // Pool is full.
-        }
+      if (byteCount + Segment.SIZE > MAX_SIZE) {
+        return; // Pool is full.
+      }
       byteCount += Segment.SIZE;
       segment.next = next;
       segment.pos = segment.limit = 0;

@@ -706,9 +706,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
      * be used.
      */
     public Builder proxySelector(ProxySelector proxySelector) {
-        if (proxySelector == null) {
-            throw new NullPointerException("proxySelector == null");
-        }
+      if (proxySelector == null) {
+        throw new NullPointerException("proxySelector == null");
+      }
       this.proxySelector = proxySelector;
       return this;
     }
@@ -720,9 +720,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
      * <p>If unset, {@linkplain CookieJar#NO_COOKIES no cookies} will be accepted nor provided.
      */
     public Builder cookieJar(CookieJar cookieJar) {
-        if (cookieJar == null) {
-            throw new NullPointerException("cookieJar == null");
-        }
+      if (cookieJar == null) {
+        throw new NullPointerException("cookieJar == null");
+      }
       this.cookieJar = cookieJar;
       return this;
     }
@@ -742,9 +742,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
      * <p>If unset, the {@link Dns#SYSTEM system-wide default} DNS will be used.
      */
     public Builder dns(Dns dns) {
-        if (dns == null) {
-            throw new NullPointerException("dns == null");
-        }
+      if (dns == null) {
+        throw new NullPointerException("dns == null");
+      }
       this.dns = dns;
       return this;
     }
@@ -758,9 +758,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
      * be used.
      */
     public Builder socketFactory(SocketFactory socketFactory) {
-        if (socketFactory == null) {
-            throw new NullPointerException("socketFactory == null");
-        }
+      if (socketFactory == null) {
+        throw new NullPointerException("socketFactory == null");
+      }
       if (socketFactory instanceof SSLSocketFactory) {
         throw new IllegalArgumentException("socketFactory instanceof SSLSocketFactory");
       }
@@ -778,9 +778,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
      * #sslSocketFactory(SSLSocketFactory, X509TrustManager)}, which avoids such reflection.
      */
     public Builder sslSocketFactory(SSLSocketFactory sslSocketFactory) {
-        if (sslSocketFactory == null) {
-            throw new NullPointerException("sslSocketFactory == null");
-        }
+      if (sslSocketFactory == null) {
+        throw new NullPointerException("sslSocketFactory == null");
+      }
       this.sslSocketFactory = sslSocketFactory;
       this.certificateChainCleaner = Platform.get().buildCertificateChainCleaner(sslSocketFactory);
       return this;
@@ -818,12 +818,12 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
      */
     public Builder sslSocketFactory(
         SSLSocketFactory sslSocketFactory, X509TrustManager trustManager) {
-        if (sslSocketFactory == null) {
-            throw new NullPointerException("sslSocketFactory == null");
-        }
-        if (trustManager == null) {
-            throw new NullPointerException("trustManager == null");
-        }
+      if (sslSocketFactory == null) {
+        throw new NullPointerException("sslSocketFactory == null");
+      }
+      if (trustManager == null) {
+        throw new NullPointerException("trustManager == null");
+      }
       this.sslSocketFactory = sslSocketFactory;
       this.certificateChainCleaner = CertificateChainCleaner.get(trustManager);
       return this;
@@ -836,9 +836,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
      * <p>If unset, a default hostname verifier will be used.
      */
     public Builder hostnameVerifier(HostnameVerifier hostnameVerifier) {
-        if (hostnameVerifier == null) {
-            throw new NullPointerException("hostnameVerifier == null");
-        }
+      if (hostnameVerifier == null) {
+        throw new NullPointerException("hostnameVerifier == null");
+      }
       this.hostnameVerifier = hostnameVerifier;
       return this;
     }
@@ -849,9 +849,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
      * Pinning certificates avoids the need to trust certificate authorities.
      */
     public Builder certificatePinner(CertificatePinner certificatePinner) {
-        if (certificatePinner == null) {
-            throw new NullPointerException("certificatePinner == null");
-        }
+      if (certificatePinner == null) {
+        throw new NullPointerException("certificatePinner == null");
+      }
       this.certificatePinner = certificatePinner;
       return this;
     }
@@ -863,9 +863,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
      * <p>If unset, the {@linkplain Authenticator#NONE no authentication will be attempted}.
      */
     public Builder authenticator(Authenticator authenticator) {
-        if (authenticator == null) {
-            throw new NullPointerException("authenticator == null");
-        }
+      if (authenticator == null) {
+        throw new NullPointerException("authenticator == null");
+      }
       this.authenticator = authenticator;
       return this;
     }
@@ -877,9 +877,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
      * <p>If unset, the {@linkplain Authenticator#NONE no authentication will be attempted}.
      */
     public Builder proxyAuthenticator(Authenticator proxyAuthenticator) {
-        if (proxyAuthenticator == null) {
-            throw new NullPointerException("proxyAuthenticator == null");
-        }
+      if (proxyAuthenticator == null) {
+        throw new NullPointerException("proxyAuthenticator == null");
+      }
       this.proxyAuthenticator = proxyAuthenticator;
       return this;
     }
@@ -890,9 +890,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
      * <p>If unset, a new connection pool will be used.
      */
     public Builder connectionPool(ConnectionPool connectionPool) {
-        if (connectionPool == null) {
-            throw new NullPointerException("connectionPool == null");
-        }
+      if (connectionPool == null) {
+        throw new NullPointerException("connectionPool == null");
+      }
       this.connectionPool = connectionPool;
       return this;
     }
@@ -943,9 +943,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
      * Sets the dispatcher used to set policy and execute asynchronous requests. Must not be null.
      */
     public Builder dispatcher(Dispatcher dispatcher) {
-        if (dispatcher == null) {
-            throw new IllegalArgumentException("dispatcher == null");
-        }
+      if (dispatcher == null) {
+        throw new IllegalArgumentException("dispatcher == null");
+      }
       this.dispatcher = dispatcher;
       return this;
     }
@@ -1026,9 +1026,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
     }
 
     public Builder addInterceptor(Interceptor interceptor) {
-        if (interceptor == null) {
-            throw new IllegalArgumentException("interceptor == null");
-        }
+      if (interceptor == null) {
+        throw new IllegalArgumentException("interceptor == null");
+      }
       interceptors.add(interceptor);
       return this;
     }
@@ -1043,9 +1043,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
     }
 
     public Builder addNetworkInterceptor(Interceptor interceptor) {
-        if (interceptor == null) {
-            throw new IllegalArgumentException("interceptor == null");
-        }
+      if (interceptor == null) {
+        throw new IllegalArgumentException("interceptor == null");
+      }
       networkInterceptors.add(interceptor);
       return this;
     }
@@ -1057,9 +1057,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
      * @see EventListener for semantics and restrictions on listener implementations.
      */
     public Builder eventListener(EventListener eventListener) {
-        if (eventListener == null) {
-            throw new NullPointerException("eventListener == null");
-        }
+      if (eventListener == null) {
+        throw new NullPointerException("eventListener == null");
+      }
       this.eventListenerFactory = EventListener.factory(eventListener);
       return this;
     }

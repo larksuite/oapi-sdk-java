@@ -1,4 +1,4 @@
-package com.larksuite.oapi.sample.mockevent;
+package com.lark.oapi.sample.mockevent;
 
 import com.lark.oapi.core.Constants;
 import com.lark.oapi.core.utils.OKHttps;

@@ -1,4 +1,4 @@
-package com.larksuite.oapi.sample.mockcardaction;
+package com.lark.oapi.sample.mockcardaction;
 
 import com.lark.oapi.card.model.Action;
 import com.lark.oapi.card.model.CardAction;

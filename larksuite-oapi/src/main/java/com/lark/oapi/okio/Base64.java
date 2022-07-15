@@ -113,9 +113,9 @@ final class Base64 {
     }
 
     // If we sized our out array perfectly, we're done.
-      if (outCount == out.length) {
-          return out;
-      }
+    if (outCount == out.length) {
+      return out;
+    }
 
     // Copy the decoded bytes to a new, right-sized array.
     byte[] prefix = new byte[outCount];

@@ -26,6 +26,7 @@ import com.lark.oapi.service.approval.v4.ApprovalService;
 import com.lark.oapi.service.attendance.v1.AttendanceService;
 import com.lark.oapi.service.baike.v1.BaikeService;
 import com.lark.oapi.service.bitable.v1.BitableService;
+import com.lark.oapi.service.block.v2.BlockService;
 import com.lark.oapi.service.calendar.v4.CalendarService;
 import com.lark.oapi.service.contact.v3.ContactService;
 import com.lark.oapi.service.docx.v1.DocxService;
@@ -60,6 +61,7 @@ public class Client {
   private AttendanceService attendance;
   private BaikeService baike;
   private BitableService bitable;
+  private BlockService block;
   private CalendarService calendar;
   private ContactService contact;
   private DocxService docx;
@@ -115,6 +117,10 @@ public class Client {
 
   public BitableService bitable() {
     return bitable;
+  }
+
+  public BlockService block() {
+    return block;
   }
 
   public CalendarService calendar() {
@@ -320,6 +326,7 @@ public class Client {
     }
 
     public Builder openBaseUrl(String baseUrl) {
+      config.setBaseUrl(baseUrl);
       return this;
     }
 
@@ -378,6 +385,7 @@ public class Client {
       client.attendance = new AttendanceService(config);
       client.baike = new BaikeService(config);
       client.bitable = new BitableService(config);
+      client.block = new BlockService(config);
       client.calendar = new CalendarService(config);
       client.contact = new ContactService(config);
       client.docx = new DocxService(config);

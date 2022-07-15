@@ -24,12 +24,11 @@ import javax.annotation.Nullable;
  * data from the source.
  *
  * <p>This class uses a buffer to decouple source and sink. This buffer has a user-specified
- * maximum
- * size. When a producer thread outruns its consumer the buffer fills up and eventually writes to
- * the sink will block until the consumer has caught up. Symmetrically, if a consumer outruns its
- * producer reads block until there is data to be read. Limits on the amount of time spent waiting
- * for the other party can be configured with {@linkplain Timeout timeouts} on the source and the
- * sink.
+ * maximum size. When a producer thread outruns its consumer the buffer fills up and eventually
+ * writes to the sink will block until the consumer has caught up. Symmetrically, if a consumer
+ * outruns its producer reads block until there is data to be read. Limits on the amount of time
+ * spent waiting for the other party can be configured with {@linkplain Timeout timeouts} on the
+ * source and the sink.
  *
  * <p>When the sink is closed, source reads will continue to complete normally until the buffer has
  * been exhausted. At that point reads will return -1, indicating the end of the stream. But if the

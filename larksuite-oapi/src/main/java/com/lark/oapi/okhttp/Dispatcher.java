@@ -83,8 +83,7 @@ public final class Dispatcher {
    * memory, waiting for the running calls to complete.
    *
    * <p>If more than {@code maxRequests} requests are in flight when this is invoked, those
-   * requests
-   * will remain in flight.
+   * requests will remain in flight.
    */
   public void setMaxRequests(int maxRequests) {
     if (maxRequests < 1) {

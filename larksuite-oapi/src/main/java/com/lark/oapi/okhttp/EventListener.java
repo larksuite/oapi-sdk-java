@@ -73,8 +73,7 @@ public abstract class EventListener {
    * Invoked just prior to a DNS lookup. See {@link Dns#lookup(String)}.
    *
    * <p>This can be invoked more than 1 time for a single {@link Call}. For example, if the
-   * response
-   * to the {@link Call#request()} is a redirect to a different host.
+   * response to the {@link Call#request()} is a redirect to a different host.
    *
    * <p>If the {@link Call} is able to reuse an existing pooled connection, this method will not be
    * invoked. See {@link ConnectionPool}.
@@ -97,8 +96,7 @@ public abstract class EventListener {
    * reused.
    *
    * <p>This can be invoked more than 1 time for a single {@link Call}. For example, if the
-   * response
-   * to the {@link Call#request()} is a redirect to a different address, or a connection is
+   * response to the {@link Call#request()} is a redirect to a different address, or a connection is
    * retried.
    */
   public void connectStart(Call call, InetSocketAddress inetSocketAddress, Proxy proxy) {
@@ -154,8 +152,7 @@ public abstract class EventListener {
    * Invoked after a connection has been acquired for the {@code call}.
    *
    * <p>This can be invoked more than 1 time for a single {@link Call}. For example, if the
-   * response
-   * to the {@link Call#request()} is a redirect to a different address.
+   * response to the {@link Call#request()} is a redirect to a different address.
    */
   public void connectionAcquired(Call call, Connection connection) {
   }
@@ -166,8 +163,7 @@ public abstract class EventListener {
    * <p>This method is always invoked after {@link #connectionAcquired(Call, Connection)}.
    *
    * <p>This can be invoked more than 1 time for a single {@link Call}. For example, if the
-   * response
-   * to the {@link Call#request()} is a redirect to a different address.
+   * response to the {@link Call#request()} is a redirect to a different address.
    */
   public void connectionReleased(Call call, Connection connection) {
   }
@@ -179,8 +175,7 @@ public abstract class EventListener {
    * {@link #connectionAcquired(Call, Connection)} event.
    *
    * <p>This can be invoked more than 1 time for a single {@link Call}. For example, if the
-   * response
-   * to the {@link Call#request()} is a redirect to a different address.
+   * response to the {@link Call#request()} is a redirect to a different address.
    */
   public void requestHeadersStart(Call call) {
   }
@@ -204,8 +199,7 @@ public abstract class EventListener {
    * {@link #connectionAcquired(Call, Connection)} event.
    *
    * <p>This can be invoked more than 1 time for a single {@link Call}. For example, if the
-   * response
-   * to the {@link Call#request()} is a redirect to a different address.
+   * response to the {@link Call#request()} is a redirect to a different address.
    */
   public void requestBodyStart(Call call) {
   }
@@ -222,8 +216,7 @@ public abstract class EventListener {
    * Invoked when a request fails to be written.
    *
    * <p>This method is invoked after {@link #requestHeadersStart} or {@link #requestBodyStart}.
-   * Note
-   * that request failures do not necessarily fail the entire call.
+   * Note that request failures do not necessarily fail the entire call.
    */
   public void requestFailed(Call call, IOException ioe) {
   }
@@ -235,8 +228,7 @@ public abstract class EventListener {
    * {@link #connectionAcquired(Call, Connection)} event.
    *
    * <p>This can be invoked more than 1 time for a single {@link Call}. For example, if the
-   * response
-   * to the {@link Call#request()} is a redirect to a different address.
+   * response to the {@link Call#request()} is a redirect to a different address.
    */
   public void responseHeadersStart(Call call) {
   }

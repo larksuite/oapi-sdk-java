@@ -1,4 +1,4 @@
-package com.larksuite.oapi.sample.api;
+package com.lark.oapi.sample.api;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.card.enums.MessageCardButtonTypeEnum;
@@ -24,6 +24,8 @@ import com.lark.oapi.card.model.MessageCardURL;
 import com.lark.oapi.core.cache.LocalCache;
 import com.lark.oapi.core.enums.AppType;
 import com.lark.oapi.core.enums.BaseUrlEnum;
+import com.lark.oapi.core.exception.ClientTimeoutException;
+import com.lark.oapi.core.exception.ServerTimeoutException;
 import com.lark.oapi.core.httpclient.IHttpTransport;
 import com.lark.oapi.core.request.FormData;
 import com.lark.oapi.core.request.FormDataFile;
@@ -161,7 +163,7 @@ public class ImSample {
     }
   };
 
-  public static void sendTextMsg(Client client) throws Exception {
+  public static void sendTextMsg(Client client) {
     // 使用Builder模式构建请求对象
     CreateMessageReq req = CreateMessageReq.newBuilder()
         .receiveIdType(ReceiveIdTypeEnum.OPEN_ID.getValue())
@@ -184,21 +186,38 @@ public class ImSample {
     List<String> list = new ArrayList<>();
     list.add("ss");
 
-    CreateMessageResp resp = client.im().message()
-        .create(req, RequestOptions.newBuilder().headers(headers).build());
-    // TODO 抛出哪些运行时异常，哪些 CheckedException，演示异常如何处理
-    if (resp.getCode() != 0) {
-      System.out.println(String.format("code:%d,msg:%s,err:%s"
-          , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+    try {
+      CreateMessageResp resp = client.im().message()
+          .create(req, RequestOptions.newBuilder().headers(headers).build());
+      if (resp.getCode() != 0) {
+        System.out.println(String.format("code:%d,msg:%s,err:%s"
+            , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+        return;
+      }
+
+      // 业务处理结果
+      System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessageDTO()));
+      // 原生http信息
+      System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
+      // 返回请求ID
+      System.out.println(resp.getRequestId());
+    } catch (ServerTimeoutException e) {
+      // 服务端超时异常处理
+      System.out.println(e.getMessage());
+      return;
+    } catch (ClientTimeoutException e) {
+      // 客户端超时异常处理
+      System.out.println(e.getMessage());
+      return;
+    } catch (IllegalArgumentException e) {
+      // 参数非法异常处理
+      System.out.println(e.getMessage());
+      return;
+    } catch (Exception e) {
+      // 其他异常处理
+      System.out.println(e.getMessage());
       return;
     }
-
-    // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessageDTO()));
-    // 原生http信息
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
-    // 返回请求ID
-    System.out.println(resp.getRequestId());
   }
 
   public static void delMsg(Client client) throws Exception {
@@ -1096,7 +1115,7 @@ public class ImSample {
         .helpDeskCredential("helpDeskId", "helpDeskSecret") // 服务台应用才需要设置
         .tokenCache(LocalCache.getInstance()) // 设置token缓存，默认为内存缓存
         .requestTimeout(3, TimeUnit.SECONDS) // 设置httpclient 超时时间，默认永不超时
-        //.disableTokenCache() // 禁用token管理，则需要开发者自己传递token
+        //.disableTokenCache() // 禁用token管理，禁用后需要开发者自己传递token
         .logReqRespInfoAtDebugLevel(true)
         // .httpTransport(httpTransport)
         .build();
@@ -1104,7 +1123,8 @@ public class ImSample {
     // downLoadImage(client);
     // uploadFile(client);
     // downLoadFile(client);
-    //sendTextMsg(client);
+    sendTextMsg(client);
+    sendTextMsg(client);
     // sendImageMsg(client);
     //sendFileMsg(client);
     //sendShareChatMsg(client);
@@ -1116,6 +1136,6 @@ public class ImSample {
     // downloadDriveFile(client);
     //sendInteractiveMonitorMsg(client);
     //delMsg(client);
-    sendInteractiveMonitorProcessedMsg(client);
+    //sendInteractiveMonitorProcessedMsg(client);
   }
 }

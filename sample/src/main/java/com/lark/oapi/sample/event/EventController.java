@@ -1,4 +1,4 @@
-package com.larksuite.oapi.example;
+package com.lark.oapi.sample.event;
 
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.event.EventDispatcher;

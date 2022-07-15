@@ -39,8 +39,7 @@ import org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement;
  * within the HTTP message.
  *
  * <p>This class tracks header values line-by-line. A field with multiple comma- separated values
- * on
- * the same line will be treated as a field with a single value by this class. It is the caller's
+ * on the same line will be treated as a field with a single value by this class. It is the caller's
  * responsibility to detect and split on commas if their field permits multiple values. This
  * simplifies use of single-valued fields whose values routinely contain commas, such as cookies or
  * dates.

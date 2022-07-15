@@ -59,9 +59,9 @@ public final class HttpHeaders {
   }
 
   private static long stringToLong(String s) {
-      if (s == null) {
-          return -1;
-      }
+    if (s == null) {
+      return -1;
+    }
     try {
       return Long.parseLong(s);
     } catch (NumberFormatException e) {
@@ -76,9 +76,9 @@ public final class HttpHeaders {
   public static boolean varyMatches(
       Response cachedResponse, Headers cachedRequest, Request newRequest) {
     for (String field : varyFields(cachedResponse)) {
-        if (!Objects.equals(cachedRequest.values(field), newRequest.headers(field))) {
-            return false;
-        }
+      if (!Objects.equals(cachedRequest.values(field), newRequest.headers(field))) {
+        return false;
+      }
     }
     return true;
   }
@@ -107,9 +107,9 @@ public final class HttpHeaders {
   public static Set<String> varyFields(Headers responseHeaders) {
     Set<String> result = Collections.emptySet();
     for (int i = 0, size = responseHeaders.size(); i < size; i++) {
-        if (!"Vary".equalsIgnoreCase(responseHeaders.name(i))) {
-            continue;
-        }
+      if (!"Vary".equalsIgnoreCase(responseHeaders.name(i))) {
+        continue;
+      }
 
       String value = responseHeaders.value(i);
       if (result.isEmpty()) {
@@ -141,9 +141,9 @@ public final class HttpHeaders {
    */
   public static Headers varyHeaders(Headers requestHeaders, Headers responseHeaders) {
     Set<String> varyFields = varyFields(responseHeaders);
-      if (varyFields.isEmpty()) {
-          return Util.EMPTY_HEADERS;
-      }
+    if (varyFields.isEmpty()) {
+      return Util.EMPTY_HEADERS;
+    }
 
     Headers.Builder result = new Headers.Builder();
     for (int i = 0, size = requestHeaders.size(); i < size; i++) {
@@ -160,8 +160,7 @@ public final class HttpHeaders {
    * interpret a token.
    *
    * <p>For example, the first line has a parameter name/value pair and the second line has a
-   * single
-   * token68:
+   * single token68:
    *
    * <pre>   {@code
    *
@@ -196,9 +195,9 @@ public final class HttpHeaders {
       if (peek == null) {
         skipWhitespaceAndCommas(header);
         peek = readToken(header);
-          if (peek == null) {
-              return;
-          }
+        if (peek == null) {
+          return;
+        }
       }
 
       String schemeName = peek;
@@ -207,9 +206,9 @@ public final class HttpHeaders {
       boolean commaPrefixed = skipWhitespaceAndCommas(header);
       peek = readToken(header);
       if (peek == null) {
-          if (!header.exhausted()) {
-              return; // Expected a token; got something else.
-          }
+        if (!header.exhausted()) {
+          return; // Expected a token; got something else.
+        }
         result.add(new Challenge(schemeName, Collections.emptyMap()));
         return;
       }
@@ -231,35 +230,35 @@ public final class HttpHeaders {
       while (true) {
         if (peek == null) {
           peek = readToken(header);
-            if (skipWhitespaceAndCommas(header)) {
-                break; // We peeked a scheme name followed by ','.
-            }
+          if (skipWhitespaceAndCommas(header)) {
+            break; // We peeked a scheme name followed by ','.
+          }
           eqCount = skipAll(header, (byte) '=');
         }
-          if (eqCount == 0) {
-              break; // We peeked a scheme name.
-          }
-          if (eqCount > 1) {
-              return; // Unexpected '=' characters.
-          }
-          if (skipWhitespaceAndCommas(header)) {
-              return; // Unexpected ','.
-          }
+        if (eqCount == 0) {
+          break; // We peeked a scheme name.
+        }
+        if (eqCount > 1) {
+          return; // Unexpected '=' characters.
+        }
+        if (skipWhitespaceAndCommas(header)) {
+          return; // Unexpected ','.
+        }
 
         String parameterValue = !header.exhausted() && header.getByte(0) == '"'
             ? readQuotedString(header)
             : readToken(header);
-          if (parameterValue == null) {
-              return; // Expected a value.
-          }
+        if (parameterValue == null) {
+          return; // Expected a value.
+        }
         String replaced = parameters.put(peek, parameterValue);
         peek = null;
-          if (replaced != null) {
-              return; // Unexpected duplicate parameter.
-          }
-          if (!skipWhitespaceAndCommas(header) && !header.exhausted()) {
-              return; // Expected ',' or EOF.
-          }
+        if (replaced != null) {
+          return; // Unexpected duplicate parameter.
+        }
+        if (!skipWhitespaceAndCommas(header) && !header.exhausted()) {
+          return; // Expected ',' or EOF.
+        }
       }
       result.add(new Challenge(schemeName, parameters));
     }
@@ -299,15 +298,15 @@ public final class HttpHeaders {
    * double-quoted string.
    */
   private static String readQuotedString(Buffer buffer) {
-      if (buffer.readByte() != '\"') {
-          throw new IllegalArgumentException();
-      }
+    if (buffer.readByte() != '\"') {
+      throw new IllegalArgumentException();
+    }
     Buffer result = new Buffer();
     while (true) {
       long i = buffer.indexOfElement(QUOTED_STRING_DELIMITERS);
-        if (i == -1L) {
-            return null; // Unterminated quoted string.
-        }
+      if (i == -1L) {
+        return null; // Unterminated quoted string.
+      }
 
       if (buffer.getByte(i) == '"') {
         result.write(buffer, i);
@@ -315,9 +314,9 @@ public final class HttpHeaders {
         return result.readUtf8();
       }
 
-        if (buffer.size() == i + 1L) {
-            return null; // Dangling escape.
-        }
+      if (buffer.size() == i + 1L) {
+        return null; // Dangling escape.
+      }
       result.write(buffer, i);
       buffer.readByte(); // Consume '\'.
       result.write(buffer, 1L); // The escaped character.
@@ -331,9 +330,9 @@ public final class HttpHeaders {
   private static String readToken(Buffer buffer) {
     try {
       long tokenSize = buffer.indexOfElement(TOKEN_DELIMITERS);
-        if (tokenSize == -1L) {
-            tokenSize = buffer.size();
-        }
+      if (tokenSize == -1L) {
+        tokenSize = buffer.size();
+      }
 
       return tokenSize != 0L
           ? buffer.readUtf8(tokenSize)
@@ -350,14 +349,14 @@ public final class HttpHeaders {
   }
 
   public static void receiveHeaders(CookieJar cookieJar, HttpUrl url, Headers headers) {
-      if (cookieJar == CookieJar.NO_COOKIES) {
-          return;
-      }
+    if (cookieJar == CookieJar.NO_COOKIES) {
+      return;
+    }
 
     List<Cookie> cookies = Cookie.parseAll(url, headers);
-      if (cookies.isEmpty()) {
-          return;
-      }
+    if (cookies.isEmpty()) {
+      return;
+    }
 
     cookieJar.saveFromResponse(url, cookies);
   }

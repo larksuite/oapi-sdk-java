@@ -144,8 +144,7 @@ public final class HashingSink extends ForwardingSink {
    * Returns the hash of the bytes accepted thus far and resets the internal state of this sink.
    *
    * <p><strong>Warning:</strong> This method is not idempotent. Each time this method is called
-   * its
-   * internal state is cleared. This starts a new hash with zero bytes accepted.
+   * its internal state is cleared. This starts a new hash with zero bytes accepted.
    */
   public final ByteString hash() {
     byte[] result = messageDigest != null ? messageDigest.digest() : mac.doFinal();

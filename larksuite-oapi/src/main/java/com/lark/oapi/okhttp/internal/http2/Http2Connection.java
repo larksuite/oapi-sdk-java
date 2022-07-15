@@ -550,8 +550,7 @@ public final class Http2Connection implements Closeable {
    * connection is fine the ping will receive a pong; otherwise it won't.
    *
    * <p>The deadline to respond to this ping attempts to limit the cost of being wrong. If it is
-   * too
-   * long, streams created while we await the pong will reuse broken connections and inevitably
+   * too long, streams created while we await the pong will reuse broken connections and inevitably
    * fail. If it is too short, slow connections will be marked as failed and extra TCP and TLS
    * handshakes will be required.
    *

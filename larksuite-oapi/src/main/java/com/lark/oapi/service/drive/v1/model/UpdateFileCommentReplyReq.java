@@ -29,7 +29,6 @@ public class UpdateFileCommentReplyReq {
   // builder 开始
   public UpdateFileCommentReplyReq() {
   }
-
   public UpdateFileCommentReplyReq(Builder builder) {
     this.fileType = builder.fileType;
     this.userIdType = builder.userIdType;

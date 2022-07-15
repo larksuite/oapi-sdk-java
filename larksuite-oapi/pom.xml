@@ -65,28 +65,28 @@
         <groupId>org.apache.maven.plugins</groupId>
         <version>${maven-jar-plugin.version}</version>
       </plugin>
-      <plugin>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <configuration>
-          <charset>UTF-8</charset>
-          <docencoding>UTF-8</docencoding>
-          <encoding>UTF-8</encoding>
-          <links>
-            <link>http://docs.oracle.com/javase/8/docs/api</link>
-          </links>
-          <show>public</show>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-            <id>attach-javadoc</id>
-          </execution>
-        </executions>
-        <groupId>org.apache.maven.plugins</groupId>
-        <version>${maven-javadoc-plugin.version}</version>
-      </plugin>
+      <!--      <plugin>-->
+      <!--        <artifactId>maven-javadoc-plugin</artifactId>-->
+      <!--        <configuration>-->
+      <!--          <charset>UTF-8</charset>-->
+      <!--          <docencoding>UTF-8</docencoding>-->
+      <!--          <encoding>UTF-8</encoding>-->
+      <!--          <links>-->
+      <!--            <link>http://docs.oracle.com/javase/8/docs/api</link>-->
+      <!--          </links>-->
+      <!--          <show>public</show>-->
+      <!--        </configuration>-->
+      <!--        <executions>-->
+      <!--          <execution>-->
+      <!--            <goals>-->
+      <!--              <goal>jar</goal>-->
+      <!--            </goals>-->
+      <!--            <id>attach-javadoc</id>-->
+      <!--          </execution>-->
+      <!--        </executions>-->
+      <!--        <groupId>org.apache.maven.plugins</groupId>-->
+      <!--        <version>${maven-javadoc-plugin.version}</version>-->
+      <!--      </plugin>-->
       <!-- GPG -->
       <!--            <plugin>-->
       <!--                <groupId>org.apache.maven.plugins</groupId>-->
@@ -111,14 +111,6 @@
     </plugins>
   </build>
   <dependencies>
-    <!-- https://mvnrepository.com/artifact/com.squareup.okhttp/logging-interceptor -->
-    <!--        <dependency>-->
-    <!--            <groupId>com.squareup.okhttp</groupId>-->
-    <!--            <artifactId>logging-interceptor</artifactId>-->
-    <!--            <version>2.7.5</version>-->
-    <!--        </dependency>-->
-
-    <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
     <dependency>
       <artifactId>commons-codec</artifactId>
       <groupId>commons-codec</groupId>
@@ -133,11 +125,6 @@
       <artifactId>slf4j-api</artifactId>
       <groupId>org.slf4j</groupId>
       <version>${slf4j.version}</version>
-    </dependency>
-    <dependency>
-      <artifactId>javax.servlet-api</artifactId>
-      <groupId>javax.servlet</groupId>
-      <version>${javax.servlet-api.version}</version>
     </dependency>
     <dependency>
       <artifactId>junit</artifactId>
@@ -233,5 +220,5 @@
 
   <url>https://github.com/larksuite/oapi-sdk-java</url>
 
-  <version>2.0.0</version>
+  <version>2.0.0-snapshot</version>
 </project>

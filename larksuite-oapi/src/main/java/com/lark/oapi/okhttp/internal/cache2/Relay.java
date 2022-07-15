@@ -33,8 +33,7 @@ import java.io.RandomAccessFile;
  * from this file as necessary.
  *
  * <p>This class also keeps a small buffer of bytes recently read from upstream. This is intended
- * to
- * save a small amount of file I/O and data copying.
+ * to save a small amount of file I/O and data copying.
  */
 // TODO(jwilson): what to do about timeouts? They could be different and unfortunately when any
 //     timeout is hit we like to tear down the whole stream.
@@ -118,8 +117,7 @@ final class Relay {
    * that data with other sources.
    *
    * <p><strong>Warning:</strong> callers to this method must immediately call {@link #newSource}
-   * to
-   * create a source and close that when they're done. Otherwise a handle to {@code file} will be
+   * to create a source and close that when they're done. Otherwise a handle to {@code file} will be
    * leaked.
    */
   public static Relay edit(
@@ -138,8 +136,7 @@ final class Relay {
    * Creates a relay that reads a recorded stream from {@code file}.
    *
    * <p><strong>Warning:</strong> callers to this method must immediately call {@link #newSource}
-   * to
-   * create a source and close that when they're done. Otherwise a handle to {@code file} will be
+   * to create a source and close that when they're done. Otherwise a handle to {@code file} will be
    * leaked.
    */
   public static Relay read(File file) throws IOException {
@@ -150,9 +147,9 @@ final class Relay {
     Buffer header = new Buffer();
     fileOperator.read(0, header, FILE_HEADER_SIZE);
     ByteString prefix = header.readByteString(PREFIX_CLEAN.size());
-      if (!prefix.equals(PREFIX_CLEAN)) {
-          throw new IOException("unreadable cache file");
-      }
+    if (!prefix.equals(PREFIX_CLEAN)) {
+      throw new IOException("unreadable cache file");
+    }
     long upstreamSize = header.readLong();
     long metadataSize = header.readLong();
 
@@ -171,9 +168,9 @@ final class Relay {
     header.write(prefix);
     header.writeLong(upstreamSize);
     header.writeLong(metadataSize);
-      if (header.size() != FILE_HEADER_SIZE) {
-          throw new IllegalArgumentException();
-      }
+    if (header.size() != FILE_HEADER_SIZE) {
+      throw new IllegalArgumentException();
+    }
 
     FileOperator fileOperator = new FileOperator(file.getChannel());
     fileOperator.write(0, header, FILE_HEADER_SIZE);
@@ -220,9 +217,9 @@ final class Relay {
    */
   public Source newSource() {
     synchronized (Relay.this) {
-        if (file == null) {
-            return null;
-        }
+      if (file == null) {
+        return null;
+      }
       sourceCount++;
     }
 
@@ -263,9 +260,9 @@ final class Relay {
      */
     @Override
     public long read(Buffer sink, long byteCount) throws IOException {
-        if (fileOperator == null) {
-            throw new IllegalStateException("closed");
-        }
+      if (fileOperator == null) {
+        throw new IllegalStateException("closed");
+      }
 
       long upstreamPos;
       int source;
@@ -275,9 +272,9 @@ final class Relay {
         // We need new data from upstream.
         while (sourcePos == (upstreamPos = Relay.this.upstreamPos)) {
           // No more data upstream. We're done.
-            if (complete) {
-                return -1L;
-            }
+          if (complete) {
+            return -1L;
+          }
 
           // Another thread is already reading. Wait for that.
           if (upstreamReader != null) {
@@ -361,9 +358,9 @@ final class Relay {
 
     @Override
     public void close() throws IOException {
-        if (fileOperator == null) {
-            return; // Already closed.
-        }
+      if (fileOperator == null) {
+        return; // Already closed.
+      }
       fileOperator = null;
 
       RandomAccessFile fileToClose = null;

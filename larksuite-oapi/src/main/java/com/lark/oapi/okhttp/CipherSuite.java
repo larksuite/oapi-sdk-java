@@ -32,12 +32,10 @@ import java.util.Map;
  * 24) or Java (through JDK 9) are omitted for brevity.
  *
  * <p>See <a href="https://developer.android.com/reference/javax/net/ssl/SSLEngine.html">Android
- * SSLEngine</a>
- * which lists the cipher suites supported by Android.
+ * SSLEngine</a> which lists the cipher suites supported by Android.
  *
  * <p>See <a href="https://docs.oracle.com/javase/10/security/oracle-providers.htm">JDK 10
- * Providers</a>
- * which lists the cipher suites supported by Oracle.
+ * Providers</a> which lists the cipher suites supported by Oracle.
  *
  * <p>See <a href="https://github.com/google/conscrypt/blob/master/common/src/main/java/org/conscrypt/NativeCrypto.java">NativeCrypto.java</a>
  * from conscrypt, which lists the cipher suites supported by Conscrypt.

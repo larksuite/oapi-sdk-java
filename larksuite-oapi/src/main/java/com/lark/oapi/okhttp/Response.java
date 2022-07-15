@@ -255,10 +255,9 @@ public final class Response implements Closeable {
    * Otherwise this returns an empty list of challenges.
    *
    * <p>If a challenge uses the {@code token68} variant instead of auth params, there is exactly
-   * one
-   * auth param in the challenge at key {@code null}. Invalid headers and challenges are ignored. No
-   * semantic validation is done, for example that {@code Basic} auth must have a {@code realm} auth
-   * param, this is up to the caller that interprets these challenges.
+   * one auth param in the challenge at key {@code null}. Invalid headers and challenges are
+   * ignored. No semantic validation is done, for example that {@code Basic} auth must have a {@code
+   * realm} auth param, this is up to the caller that interprets these challenges.
    */
   public List<Challenge> challenges() {
     String responseField;

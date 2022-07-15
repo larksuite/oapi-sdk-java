@@ -19,7 +19,6 @@ public class BatchCreateAppTableRecordReq {
   private String tableId;
   @Body
   private BatchCreateAppTableRecordReqBody body;
-
   // builder 开始
   public BatchCreateAppTableRecordReq() {
   }

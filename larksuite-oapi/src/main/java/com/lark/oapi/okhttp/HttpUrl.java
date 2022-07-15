@@ -95,17 +95,15 @@ import javax.annotation.Nullable;
  * <h4>Username and Password</h4>
  *
  * <p>Username and password are either present, or the empty string {@code ""} if absent. This
- * class
- * offers no mechanism to differentiate empty from absent. Neither of these components are popular
- * in practice. Typically HTTP applications use other mechanisms for user identification and
+ * class offers no mechanism to differentiate empty from absent. Neither of these components are
+ * popular in practice. Typically HTTP applications use other mechanisms for user identification and
  * authentication.
  *
  * <h4>Host</h4>
  *
  * <p>The host identifies the webserver that serves the URL's resource. It is either a hostname
- * like
- * {@code square.com} or {@code localhost}, an IPv4 address like {@code 192.168.0.1}, or an IPv6
- * address like {@code ::1}.
+ * like {@code square.com} or {@code localhost}, an IPv4 address like {@code 192.168.0.1}, or an
+ * IPv6 address like {@code ::1}.
  *
  * <p>Usually a webserver is reachable with multiple identifiers: its IP addresses, registered
  * domain names, and even {@code localhost} when connecting from the server itself. Each of a
@@ -148,8 +146,7 @@ import javax.annotation.Nullable;
  * <h3>Encoding</h3>
  *
  * <p>Each component must be encoded before it is embedded in the complete URL. As we saw above,
- * the
- * string {@code cute #puppies} is encoded as {@code cute%20%23puppies} when used as a query
+ * the string {@code cute #puppies} is encoded as {@code cute%20%23puppies} when used as a query
  * parameter value.
  *
  * <h4>Percent encoding</h4>
@@ -183,8 +180,7 @@ import javax.annotation.Nullable;
  * <h4>IDNA Mapping and Punycode encoding</h4>
  *
  * <p>Hostnames have different requirements and use a different encoding scheme. It consists of
- * IDNA
- * mapping and Punycode encoding.
+ * IDNA mapping and Punycode encoding.
  *
  * <p>In order to avoid confusion and discourage phishing attacks, <a
  * href="http://www.unicode.org/reports/tr46/#ToASCII">IDNA Mapping</a> transforms names to avoid
@@ -387,9 +383,9 @@ public final class HttpUrl {
     for (int i = 0, size = namesAndValues.size(); i < size; i += 2) {
       String name = namesAndValues.get(i);
       String value = namesAndValues.get(i + 1);
-        if (i > 0) {
-            out.append('&');
-        }
+      if (i > 0) {
+        out.append('&');
+      }
       out.append(name);
       if (value != null) {
         out.append('=');
@@ -408,9 +404,9 @@ public final class HttpUrl {
     List<String> result = new ArrayList<>();
     for (int pos = 0; pos <= encodedQuery.length(); ) {
       int ampersandOffset = encodedQuery.indexOf('&', pos);
-        if (ampersandOffset == -1) {
-            ampersandOffset = encodedQuery.length();
-        }
+      if (ampersandOffset == -1) {
+        ampersandOffset = encodedQuery.length();
+      }
 
       int equalsOffset = encodedQuery.indexOf('=', pos);
       if (equalsOffset == -1 || equalsOffset > ampersandOffset) {
@@ -666,9 +662,9 @@ public final class HttpUrl {
    * </table>
    */
   public String encodedUsername() {
-      if (username.isEmpty()) {
-          return "";
-      }
+    if (username.isEmpty()) {
+      return "";
+    }
     int usernameStart = scheme.length() + 3; // "://".length() == 3.
     int usernameEnd = Util.delimiterOffset(url, usernameStart, url.length(), ":@");
     return url.substring(usernameStart, usernameEnd);
@@ -701,9 +697,9 @@ public final class HttpUrl {
    * </table>
    */
   public String encodedPassword() {
-      if (password.isEmpty()) {
-          return "";
-      }
+    if (password.isEmpty()) {
+      return "";
+    }
     int passwordStart = url.indexOf(':', scheme.length() + 3) + 1;
     int passwordEnd = url.indexOf('@');
     return url.substring(passwordStart, passwordEnd);
@@ -851,9 +847,9 @@ public final class HttpUrl {
    */
   public @Nullable
   String encodedQuery() {
-      if (queryNamesAndValues == null) {
-          return null; // No query.
-      }
+    if (queryNamesAndValues == null) {
+      return null; // No query.
+    }
     int queryStart = url.indexOf('?') + 1;
     int queryEnd = Util.delimiterOffset(url, queryStart, url.length(), '#');
     return url.substring(queryStart, queryEnd);
@@ -876,9 +872,9 @@ public final class HttpUrl {
    */
   public @Nullable
   String query() {
-      if (queryNamesAndValues == null) {
-          return null; // No query.
-      }
+    if (queryNamesAndValues == null) {
+      return null; // No query.
+    }
     StringBuilder result = new StringBuilder();
     namesAndValuesToQueryString(result, queryNamesAndValues);
     return result.toString();
@@ -917,9 +913,9 @@ public final class HttpUrl {
    */
   public @Nullable
   String queryParameter(String name) {
-      if (queryNamesAndValues == null) {
-          return null;
-      }
+    if (queryNamesAndValues == null) {
+      return null;
+    }
     for (int i = 0, size = queryNamesAndValues.size(); i < size; i += 2) {
       if (name.equals(queryNamesAndValues.get(i))) {
         return queryNamesAndValues.get(i + 1);
@@ -942,9 +938,9 @@ public final class HttpUrl {
    * </table>
    */
   public Set<String> queryParameterNames() {
-      if (queryNamesAndValues == null) {
-          return Collections.emptySet();
-      }
+    if (queryNamesAndValues == null) {
+      return Collections.emptySet();
+    }
     Set<String> result = new LinkedHashSet<>();
     for (int i = 0, size = queryNamesAndValues.size(); i < size; i += 2) {
       result.add(queryNamesAndValues.get(i));
@@ -971,9 +967,9 @@ public final class HttpUrl {
    * </table>
    */
   public List<String> queryParameterValues(String name) {
-      if (queryNamesAndValues == null) {
-          return Collections.emptyList();
-      }
+    if (queryNamesAndValues == null) {
+      return Collections.emptyList();
+    }
     List<String> result = new ArrayList<>();
     for (int i = 0, size = queryNamesAndValues.size(); i < size; i += 2) {
       if (name.equals(queryNamesAndValues.get(i))) {
@@ -1001,9 +997,9 @@ public final class HttpUrl {
    * </table>
    */
   public String queryParameterName(int index) {
-      if (queryNamesAndValues == null) {
-          throw new IndexOutOfBoundsException();
-      }
+    if (queryNamesAndValues == null) {
+      throw new IndexOutOfBoundsException();
+    }
     return queryNamesAndValues.get(index * 2);
   }
 
@@ -1025,9 +1021,9 @@ public final class HttpUrl {
    * </table>
    */
   public String queryParameterValue(int index) {
-      if (queryNamesAndValues == null) {
-          throw new IndexOutOfBoundsException();
-      }
+    if (queryNamesAndValues == null) {
+      throw new IndexOutOfBoundsException();
+    }
     return queryNamesAndValues.get(index * 2 + 1);
   }
 
@@ -1045,9 +1041,9 @@ public final class HttpUrl {
    */
   public @Nullable
   String encodedFragment() {
-      if (fragment == null) {
-          return null;
-      }
+    if (fragment == null) {
+      return null;
+    }
     int fragmentStart = url.indexOf('#') + 1;
     return url.substring(fragmentStart);
   }
@@ -1142,8 +1138,7 @@ public final class HttpUrl {
    * public suffix list.
    *
    * <p>In general this method <strong>should not</strong> be used to test whether a domain is
-   * valid
-   * or routable. Instead, DNS is the recommended source for that information.
+   * valid or routable. Instead, DNS is the recommended source for that information.
    *
    * <p><table summary="">
    * <tr><th>URL</th><th>{@code topPrivateDomain()}</th></tr>
@@ -1157,9 +1152,9 @@ public final class HttpUrl {
    */
   public @Nullable
   String topPrivateDomain() {
-      if (Util.verifyAsIpAddress(host)) {
-          return null;
-      }
+    if (Util.verifyAsIpAddress(host)) {
+      return null;
+    }
     return PublicSuffixDatabase.get().getEffectiveTldPlusOne(host);
   }
 
@@ -1198,14 +1193,14 @@ public final class HttpUrl {
      * {@code input} does not have a scheme that starts at {@code pos}.
      */
     private static int schemeDelimiterOffset(String input, int pos, int limit) {
-        if (limit - pos < 2) {
-            return -1;
-        }
+      if (limit - pos < 2) {
+        return -1;
+      }
 
       char c0 = input.charAt(pos);
-        if ((c0 < 'a' || c0 > 'z') && (c0 < 'A' || c0 > 'Z')) {
-            return -1; // Not a scheme start char.
-        }
+      if ((c0 < 'a' || c0 > 'z') && (c0 < 'A' || c0 > 'Z')) {
+        return -1; // Not a scheme start char.
+      }
 
       for (int i = pos + 1; i < limit; i++) {
         char c = input.charAt(i);
@@ -1252,9 +1247,9 @@ public final class HttpUrl {
         switch (input.charAt(i)) {
           case '[':
             while (++i < limit) {
-                if (input.charAt(i) == ']') {
-                    break;
-                }
+              if (input.charAt(i) == ']') {
+                break;
+              }
             }
             break;
           case ':':
@@ -1277,9 +1272,9 @@ public final class HttpUrl {
         // Canonicalize the port string to skip '\n' etc.
         String portString = canonicalize(input, pos, limit, "", false, false, false, true, null);
         int i = Integer.parseInt(portString);
-          if (i > 0 && i <= 65535) {
-              return i;
-          }
+        if (i > 0 && i <= 65535) {
+          return i;
+        }
         return -1;
       } catch (NumberFormatException e) {
         return -1; // Invalid port.
@@ -1300,34 +1295,34 @@ public final class HttpUrl {
     }
 
     public Builder username(String username) {
-        if (username == null) {
-            throw new NullPointerException("username == null");
-        }
+      if (username == null) {
+        throw new NullPointerException("username == null");
+      }
       this.encodedUsername = canonicalize(username, USERNAME_ENCODE_SET, false, false, false, true);
       return this;
     }
 
     public Builder encodedUsername(String encodedUsername) {
-        if (encodedUsername == null) {
-            throw new NullPointerException("encodedUsername == null");
-        }
+      if (encodedUsername == null) {
+        throw new NullPointerException("encodedUsername == null");
+      }
       this.encodedUsername = canonicalize(
           encodedUsername, USERNAME_ENCODE_SET, true, false, false, true);
       return this;
     }
 
     public Builder password(String password) {
-        if (password == null) {
-            throw new NullPointerException("password == null");
-        }
+      if (password == null) {
+        throw new NullPointerException("password == null");
+      }
       this.encodedPassword = canonicalize(password, PASSWORD_ENCODE_SET, false, false, false, true);
       return this;
     }
 
     public Builder encodedPassword(String encodedPassword) {
-        if (encodedPassword == null) {
-            throw new NullPointerException("encodedPassword == null");
-        }
+      if (encodedPassword == null) {
+        throw new NullPointerException("encodedPassword == null");
+      }
       this.encodedPassword = canonicalize(
           encodedPassword, PASSWORD_ENCODE_SET, true, false, false, true);
       return this;
@@ -1338,21 +1333,21 @@ public final class HttpUrl {
      *             address.
      */
     public Builder host(String host) {
-        if (host == null) {
-            throw new NullPointerException("host == null");
-        }
+      if (host == null) {
+        throw new NullPointerException("host == null");
+      }
       String encoded = canonicalizeHost(host, 0, host.length());
-        if (encoded == null) {
-            throw new IllegalArgumentException("unexpected host: " + host);
-        }
+      if (encoded == null) {
+        throw new IllegalArgumentException("unexpected host: " + host);
+      }
       this.host = encoded;
       return this;
     }
 
     public Builder port(int port) {
-        if (port <= 0 || port > 65535) {
-            throw new IllegalArgumentException("unexpected port: " + port);
-        }
+      if (port <= 0 || port > 65535) {
+        throw new IllegalArgumentException("unexpected port: " + port);
+      }
       this.port = port;
       return this;
     }
@@ -1362,9 +1357,9 @@ public final class HttpUrl {
     }
 
     public Builder addPathSegment(String pathSegment) {
-        if (pathSegment == null) {
-            throw new NullPointerException("pathSegment == null");
-        }
+      if (pathSegment == null) {
+        throw new NullPointerException("pathSegment == null");
+      }
       push(pathSegment, 0, pathSegment.length(), false, false);
       return this;
     }
@@ -1374,9 +1369,9 @@ public final class HttpUrl {
      * pathSegments} starts with a slash, the resulting URL will have empty path segment.
      */
     public Builder addPathSegments(String pathSegments) {
-        if (pathSegments == null) {
-            throw new NullPointerException("pathSegments == null");
-        }
+      if (pathSegments == null) {
+        throw new NullPointerException("pathSegments == null");
+      }
       return addPathSegments(pathSegments, false);
     }
 
@@ -1412,9 +1407,9 @@ public final class HttpUrl {
     }
 
     public Builder setPathSegment(int index, String pathSegment) {
-        if (pathSegment == null) {
-            throw new NullPointerException("pathSegment == null");
-        }
+      if (pathSegment == null) {
+        throw new NullPointerException("pathSegment == null");
+      }
       String canonicalPathSegment = canonicalize(pathSegment, 0, pathSegment.length(),
           PATH_SEGMENT_ENCODE_SET, false, false, false, true, null);
       if (isDot(canonicalPathSegment) || isDotDot(canonicalPathSegment)) {
@@ -1446,9 +1441,9 @@ public final class HttpUrl {
     }
 
     public Builder encodedPath(String encodedPath) {
-        if (encodedPath == null) {
-            throw new NullPointerException("encodedPath == null");
-        }
+      if (encodedPath == null) {
+        throw new NullPointerException("encodedPath == null");
+      }
       if (!encodedPath.startsWith("/")) {
         throw new IllegalArgumentException("unexpected encodedPath: " + encodedPath);
       }
@@ -1476,12 +1471,12 @@ public final class HttpUrl {
      * Encodes the query parameter using UTF-8 and adds it to this URL's query string.
      */
     public Builder addQueryParameter(String name, @Nullable String value) {
-        if (name == null) {
-            throw new NullPointerException("name == null");
-        }
-        if (encodedQueryNamesAndValues == null) {
-            encodedQueryNamesAndValues = new ArrayList<>();
-        }
+      if (name == null) {
+        throw new NullPointerException("name == null");
+      }
+      if (encodedQueryNamesAndValues == null) {
+        encodedQueryNamesAndValues = new ArrayList<>();
+      }
       encodedQueryNamesAndValues.add(
           canonicalize(name, QUERY_COMPONENT_ENCODE_SET, false, false, true, true));
       encodedQueryNamesAndValues.add(value != null
@@ -1494,12 +1489,12 @@ public final class HttpUrl {
      * Adds the pre-encoded query parameter to this URL's query string.
      */
     public Builder addEncodedQueryParameter(String encodedName, @Nullable String encodedValue) {
-        if (encodedName == null) {
-            throw new NullPointerException("encodedName == null");
-        }
-        if (encodedQueryNamesAndValues == null) {
-            encodedQueryNamesAndValues = new ArrayList<>();
-        }
+      if (encodedName == null) {
+        throw new NullPointerException("encodedName == null");
+      }
+      if (encodedQueryNamesAndValues == null) {
+        encodedQueryNamesAndValues = new ArrayList<>();
+      }
       encodedQueryNamesAndValues.add(
           canonicalize(encodedName, QUERY_COMPONENT_REENCODE_SET, true, false, true, true));
       encodedQueryNamesAndValues.add(encodedValue != null
@@ -1521,12 +1516,12 @@ public final class HttpUrl {
     }
 
     public Builder removeAllQueryParameters(String name) {
-        if (name == null) {
-            throw new NullPointerException("name == null");
-        }
-        if (encodedQueryNamesAndValues == null) {
-            return this;
-        }
+      if (name == null) {
+        throw new NullPointerException("name == null");
+      }
+      if (encodedQueryNamesAndValues == null) {
+        return this;
+      }
       String nameToRemove = canonicalize(
           name, QUERY_COMPONENT_ENCODE_SET, false, false, true, true);
       removeAllCanonicalQueryParameters(nameToRemove);
@@ -1534,12 +1529,12 @@ public final class HttpUrl {
     }
 
     public Builder removeAllEncodedQueryParameters(String encodedName) {
-        if (encodedName == null) {
-            throw new NullPointerException("encodedName == null");
-        }
-        if (encodedQueryNamesAndValues == null) {
-            return this;
-        }
+      if (encodedName == null) {
+        throw new NullPointerException("encodedName == null");
+      }
+      if (encodedQueryNamesAndValues == null) {
+        return this;
+      }
       removeAllCanonicalQueryParameters(
           canonicalize(encodedName, QUERY_COMPONENT_REENCODE_SET, true, false, true, true));
       return this;
@@ -1599,12 +1594,12 @@ public final class HttpUrl {
     }
 
     public HttpUrl build() {
-        if (scheme == null) {
-            throw new IllegalStateException("scheme == null");
-        }
-        if (host == null) {
-            throw new IllegalStateException("host == null");
-        }
+      if (scheme == null) {
+        throw new IllegalStateException("scheme == null");
+      }
+      if (host == null) {
+        throw new IllegalStateException("host == null");
+      }
       return new HttpUrl(this);
     }
 
@@ -1815,9 +1810,9 @@ public final class HttpUrl {
         boolean segmentHasTrailingSlash = pathSegmentDelimiterOffset < limit;
         push(input, i, pathSegmentDelimiterOffset, segmentHasTrailingSlash, true);
         i = pathSegmentDelimiterOffset;
-          if (segmentHasTrailingSlash) {
-              i++;
-          }
+        if (segmentHasTrailingSlash) {
+          i++;
+        }
       }
     }
 

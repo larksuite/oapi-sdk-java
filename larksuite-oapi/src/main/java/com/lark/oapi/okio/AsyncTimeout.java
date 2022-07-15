@@ -28,9 +28,8 @@ import javax.annotation.Nullable;
  * writing.
  *
  * <p>Subclasses should override {@link #timedOut} to take action when a timeout occurs. This
- * method
- * will be invoked by the shared watchdog thread so it should not do any long-running operations.
- * Otherwise we risk starving other timeouts from being triggered.
+ * method will be invoked by the shared watchdog thread so it should not do any long-running
+ * operations. Otherwise we risk starving other timeouts from being triggered.
  *
  * <p>Use {@link #sink} and {@link #source} to apply this timeout to a stream. The returned value
  * will apply the timeout to each operation on the wrapped stream.
@@ -173,9 +172,9 @@ public class AsyncTimeout extends Timeout {
   }
 
   public final void enter() {
-      if (inQueue) {
-          throw new IllegalStateException("Unbalanced enter/exit");
-      }
+    if (inQueue) {
+      throw new IllegalStateException("Unbalanced enter/exit");
+    }
     long timeoutNanos = timeoutNanos();
     boolean hasDeadline = hasDeadline();
     if (timeoutNanos == 0 && !hasDeadline) {
@@ -189,9 +188,9 @@ public class AsyncTimeout extends Timeout {
    * Returns true if the timeout occurred.
    */
   public final boolean exit() {
-      if (!inQueue) {
-          return false;
-      }
+    if (!inQueue) {
+      return false;
+    }
     inQueue = false;
     return cancelScheduledTimeout(this);
   }
@@ -341,9 +340,9 @@ public class AsyncTimeout extends Timeout {
    */
   final void exit(boolean throwOnTimeout) throws IOException {
     boolean timedOut = exit();
-      if (timedOut && throwOnTimeout) {
-          throw newTimeoutException(null);
-      }
+    if (timedOut && throwOnTimeout) {
+      throw newTimeoutException(null);
+    }
   }
 
   /**
@@ -351,9 +350,9 @@ public class AsyncTimeout extends Timeout {
    * occurred. See {@link #newTimeoutException(IOException)} for the type of exception returned.
    */
   final IOException exit(IOException cause) throws IOException {
-      if (!exit()) {
-          return cause;
-      }
+    if (!exit()) {
+      return cause;
+    }
     return newTimeoutException(cause);
   }
 
@@ -385,9 +384,9 @@ public class AsyncTimeout extends Timeout {
             timedOut = awaitTimeout();
 
             // Didn't find a node to interrupt. Try again.
-              if (timedOut == null) {
-                  continue;
-              }
+            if (timedOut == null) {
+              continue;
+            }
 
             // The queue is completely empty. Let this thread exit and let another watchdog thread
             // get created on the next call to scheduleTimeout().

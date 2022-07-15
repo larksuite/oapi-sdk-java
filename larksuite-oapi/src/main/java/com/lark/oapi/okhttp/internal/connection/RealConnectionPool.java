@@ -169,8 +169,7 @@ public final class RealConnectionPool {
    * either it has exceeded the keep alive limit or the idle connections limit.
    *
    * <p>Returns the duration in nanos to sleep until the next scheduled call to this method.
-   * Returns
-   * -1 if no further cleanups are required.
+   * Returns -1 if no further cleanups are required.
    */
   long cleanup(long now) {
     int inUseConnectionCount = 0;

@@ -1,4 +1,4 @@
-package com.larksuite.oapi.sample.rawapi;
+package com.lark.oapi.sample.rawapi;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.enums.AppType;

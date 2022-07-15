@@ -1,4 +1,4 @@
-package com.larksuite.oapi.example;
+package com.lark.oapi.sample.event;
 
 import com.lark.oapi.card.CardActionHandler;
 import com.lark.oapi.card.enums.MessageCardButtonTypeEnum;

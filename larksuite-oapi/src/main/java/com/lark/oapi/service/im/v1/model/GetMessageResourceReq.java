@@ -20,7 +20,6 @@ public class GetMessageResourceReq {
   // builder 开始
   public GetMessageResourceReq() {
   }
-
   public GetMessageResourceReq(Builder builder) {
     this.type = builder.type;
     this.messageId = builder.messageId;

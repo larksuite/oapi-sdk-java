@@ -7,61 +7,17 @@
   <build>
     <plugins>
       <plugin>
-        <artifactId>maven-deploy-plugin</artifactId>
-        <version>${maven-deploy-plugin.version}</version>
-      </plugin>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <encoding>UTF-8</encoding>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
-        <version>${maven-compiler-plugin.version}</version>
-      </plugin>
-      <plugin>
-        <artifactId>maven-resources-plugin</artifactId>
-        <configuration>
-          <encoding>UTF-8</encoding>
-        </configuration>
-        <version>${maven-resources-plugin.version}</version>
-      </plugin>
-
-      <plugin>
-        <artifactId>maven-source-plugin</artifactId>
-        <executions>
-          <execution>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-            <id>attach-sources</id>
-          </execution>
-        </executions>
-        <version>${maven-source-plugin.version}</version>
-      </plugin>
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <skipTests>true</skipTests>
-        </configuration>
-        <groupId>org.apache.maven.plugins</groupId>
-        <version>${maven-surefire-plugin.version}</version>
-      </plugin>
-      <plugin>
-        <artifactId>maven-jar-plugin</artifactId>
-        <configuration>
-          <archive>
-            <manifest>
-              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-            </manifest>
-          </archive>
-        </configuration>
-        <groupId>org.apache.maven.plugins</groupId>
-        <version>${maven-jar-plugin.version}</version>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <groupId>org.springframework.boot</groupId>
       </plugin>
     </plugins>
   </build>
   <dependencies>
+    <dependency>
+      <artifactId>oapi-sdk-servlet-ext</artifactId>
+      <groupId>com.larksuite.oapi</groupId>
+      <version>1.0-snapshot</version>
+    </dependency>
     <dependency>
       <artifactId>oapi-sdk</artifactId>
       <groupId>com.larksuite.oapi</groupId>
@@ -78,11 +34,6 @@
       <version>4.5.13</version>
     </dependency>
     <dependency>
-      <artifactId>jedis</artifactId>
-      <groupId>redis.clients</groupId>
-      <version>3.3.0</version>
-    </dependency>
-    <dependency>
       <artifactId>logback-classic</artifactId>
       <groupId>ch.qos.logback</groupId>
       <version>${logback.version}</version>
@@ -93,8 +44,17 @@
       <scope>test</scope>
       <version>4.11</version>
     </dependency>
+    <!--    <dependency>-->
+    <!--      <artifactId>gson</artifactId>-->
+    <!--      <groupId>com.google.code.gson</groupId>-->
+    <!--      <version>2.8.6</version>-->
+    <!--    </dependency>-->
+    <dependency>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
   </dependencies>
-  <groupId>com.larksuite.oapi</groupId>
+  <groupId>com.lark.oapi</groupId>
   <licenses>
     <license>
       <distribution>repo</distribution>
@@ -104,22 +64,16 @@
   </licenses>
   <modelVersion>4.0.0</modelVersion>
   <name>sample</name>
+  <parent>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <relativePath/>
+    <version>2.6.7</version> <!-- lookup parent from repository -->
+  </parent>
   <properties>
-    <gson.version>2.8.6</gson.version>
-    <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
-    <logback.version>1.2.3</logback.version>
-    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-    <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
-    <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
-    <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
-    <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
-    <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
-    <maven-surefire-plugin.version>2.12.4</maven-surefire-plugin.version>
-    <maven-versions-plugin.version>2.7</maven-versions-plugin.version>
-    <okhttp.version>4.8.1</okhttp.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <slf4j.version>1.7.30</slf4j.version>
+    <java.version>8</java.version>
   </properties>
   <url>https://github.com/larksuite/oapi-sdk-java</url>
+
   <version>1.0.0</version>
 </project>

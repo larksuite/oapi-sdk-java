@@ -505,13 +505,11 @@ public final class RealWebSocket implements WebSocket, WebSocketReader.FrameCall
    * written in the order they were enqueued.
    *
    * <p>If a frame cannot be sent - because there are none enqueued or because the web socket is
-   * not
-   * connected - this does nothing and returns false. Otherwise this returns true and the caller
+   * not connected - this does nothing and returns false. Otherwise this returns true and the caller
    * should immediately invoke this method again until it returns false.
    *
    * <p>This method may only be invoked by the writer thread. There may be only thread invoking
-   * this
-   * method at a time.
+   * this method at a time.
    */
   boolean writeOneFrame() throws IOException {
     WebSocketWriter writer;

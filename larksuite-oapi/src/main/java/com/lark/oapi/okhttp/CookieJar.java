@@ -26,8 +26,7 @@ import java.util.List;
  * interfere with session-based authentication schemes that require cookies.
  *
  * <p>As persistence, implementations of this interface must also provide storage of cookies.
- * Simple
- * implementations may store cookies in memory; sophisticated ones may use the file system or
+ * Simple implementations may store cookies in memory; sophisticated ones may use the file system or
  * database to hold accepted cookies. The <a href="https://tools.ietf.org/html/rfc6265#section-5.3">cookie
  * storage model</a> specifies policies for updating and expiring cookies.
  */
@@ -51,9 +50,8 @@ public interface CookieJar {
    * Saves {@code cookies} from an HTTP response to this store according to this jar's policy.
    *
    * <p>Note that this method may be called a second time for a single HTTP response if the
-   * response
-   * includes a trailer. For this obscure HTTP feature, {@code cookies} contains only the trailer's
-   * cookies.
+   * response includes a trailer. For this obscure HTTP feature, {@code cookies} contains only the
+   * trailer's cookies.
    */
   void saveFromResponse(HttpUrl url, List<Cookie> cookies);
 

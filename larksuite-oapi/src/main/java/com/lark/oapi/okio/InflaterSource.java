@@ -45,12 +45,12 @@ public final class InflaterSource implements Source {
    * share a BufferedSource because the inflater holds input bytes until they are inflated.
    */
   InflaterSource(BufferedSource source, Inflater inflater) {
-      if (source == null) {
-          throw new IllegalArgumentException("source == null");
-      }
-      if (inflater == null) {
-          throw new IllegalArgumentException("inflater == null");
-      }
+    if (source == null) {
+      throw new IllegalArgumentException("source == null");
+    }
+    if (inflater == null) {
+      throw new IllegalArgumentException("inflater == null");
+    }
     this.source = source;
     this.inflater = inflater;
   }
@@ -58,15 +58,15 @@ public final class InflaterSource implements Source {
   @Override
   public long read(
       Buffer sink, long byteCount) throws IOException {
-      if (byteCount < 0) {
-          throw new IllegalArgumentException("byteCount < 0: " + byteCount);
-      }
-      if (closed) {
-          throw new IllegalStateException("closed");
-      }
-      if (byteCount == 0) {
-          return 0;
-      }
+    if (byteCount < 0) {
+      throw new IllegalArgumentException("byteCount < 0: " + byteCount);
+    }
+    if (closed) {
+      throw new IllegalStateException("closed");
+    }
+    if (byteCount == 0) {
+      return 0;
+    }
 
     while (true) {
       boolean sourceExhausted = refill();
@@ -90,9 +90,9 @@ public final class InflaterSource implements Source {
           }
           return -1;
         }
-          if (sourceExhausted) {
-              throw new EOFException("source exhausted prematurely");
-          }
+        if (sourceExhausted) {
+          throw new EOFException("source exhausted prematurely");
+        }
       } catch (DataFormatException e) {
         throw new IOException(e);
       }
@@ -104,19 +104,19 @@ public final class InflaterSource implements Source {
    * Returns true if the inflater required input but the source was exhausted.
    */
   public final boolean refill() throws IOException {
-      if (!inflater.needsInput()) {
-          return false;
-      }
+    if (!inflater.needsInput()) {
+      return false;
+    }
 
     releaseInflatedBytes();
-      if (inflater.getRemaining() != 0) {
-          throw new IllegalStateException("?"); // TODO: possible?
-      }
+    if (inflater.getRemaining() != 0) {
+      throw new IllegalStateException("?"); // TODO: possible?
+    }
 
     // If there are compressed bytes in the source, assign them to the inflater.
-      if (source.exhausted()) {
-          return true;
-      }
+    if (source.exhausted()) {
+      return true;
+    }
 
     // Assign buffer bytes to the inflater.
     Segment head = source.buffer().head;
@@ -129,9 +129,9 @@ public final class InflaterSource implements Source {
    * When the inflater has processed compressed data, remove it from the buffer.
    */
   private void releaseInflatedBytes() throws IOException {
-      if (bufferBytesHeldByInflater == 0) {
-          return;
-      }
+    if (bufferBytesHeldByInflater == 0) {
+      return;
+    }
     int toRelease = bufferBytesHeldByInflater - inflater.getRemaining();
     bufferBytesHeldByInflater -= toRelease;
     source.skip(toRelease);
@@ -144,9 +144,9 @@ public final class InflaterSource implements Source {
 
   @Override
   public void close() throws IOException {
-      if (closed) {
-          return;
-      }
+    if (closed) {
+      return;
+    }
     inflater.end();
     closed = true;
     source.close();
