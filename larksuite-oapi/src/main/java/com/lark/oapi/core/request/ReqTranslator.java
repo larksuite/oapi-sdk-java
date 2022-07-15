@@ -124,7 +124,7 @@ public class ReqTranslator {
           hasHttpAnnotation = true;
           SerializedName serializedName = field.getAnnotation(SerializedName.class);
           if (null != field.get(req)) {
-            parsedReq.pathMap.put(serializedName.value(), (String) field.get(req));
+            parsedReq.pathMap.put(serializedName.value(),  field.get(req));
           }
         }
 
@@ -134,7 +134,7 @@ public class ReqTranslator {
           hasHttpAnnotation = true;
           SerializedName serializedName = field.getAnnotation(SerializedName.class);
           if (null != field.get(req)) {
-            parsedReq.queryMap.put(serializedName.value(), (String) field.get(req));
+            parsedReq.queryMap.put(serializedName.value(),  field.get(req));
           }
         }
       }
@@ -178,8 +178,8 @@ public class ReqTranslator {
     return formData;
   }
 
-  private String getFullReqUrl(String domain, String httpPath, Map<String, String> pathMap,
-      Map<String, String> queryMap) {
+  private String getFullReqUrl(String domain, String httpPath, Map<String, Object> pathMap,
+      Map<String, Object> queryMap) {
     String reqUrl = joinPathParam(httpPath, pathMap);
     if (!reqUrl.startsWith("http")) {
       reqUrl = domain + reqUrl;
@@ -192,8 +192,7 @@ public class ReqTranslator {
     return reqUrl;
   }
 
-
-  private String joinPathParam(String path, Map<String, String> pathMap) {
+  private String joinPathParam(String path, Map<String, Object> pathMap) {
     if (pathMap.size() == 0) {
       return path;
     }
@@ -230,13 +229,13 @@ public class ReqTranslator {
     return newPath.toString();
   }
 
-  private String buildQuery(Map<String, String> params) {
+  private String buildQuery(Map<String, Object> params) {
     if (params == null || params.isEmpty()) {
       return "";
     }
-    Set<Map.Entry<String, String>> entries = params.entrySet();
+    Set<Map.Entry<String, Object>> entries = params.entrySet();
     List<String> list = new ArrayList<>();
-    for (Map.Entry<String, String> entry : entries) {
+    for (Map.Entry<String, Object> entry : entries) {
       String name = entry.getKey();
       Object value = entry.getValue();
       if (value == null) {
@@ -267,8 +266,8 @@ public class ReqTranslator {
 
   private class ParsedReq {
 
-    private HashMap<String, String> pathMap = new HashMap<>();
-    private HashMap<String, String> queryMap = new HashMap<>();
+    private HashMap<String, Object> pathMap = new HashMap<>();
+    private HashMap<String, Object> queryMap = new HashMap<>();
     private Object body;
   }
 

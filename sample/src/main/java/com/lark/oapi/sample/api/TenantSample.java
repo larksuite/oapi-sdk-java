@@ -5,6 +5,10 @@ import com.lark.oapi.core.cache.LocalCache;
 import com.lark.oapi.core.enums.AppType;
 import com.lark.oapi.core.enums.BaseUrlEnum;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.contact.v3.enums.DepartmentIdTypeEnum;
+import com.lark.oapi.service.contact.v3.enums.UserIdTypeEnum;
+import com.lark.oapi.service.contact.v3.model.FindByDepartmentUserReq;
+import com.lark.oapi.service.contact.v3.model.FindByDepartmentUserResp;
 import com.lark.oapi.service.tenant.v2.model.QueryTenantResp;
 import java.util.concurrent.TimeUnit;
 
@@ -29,6 +33,17 @@ public class TenantSample {
         //.disableTokenCache() // 禁用token管理，则需要开发者自己传递token
         .logReqRespInfoAtDebugLevel(true)
         .build();
+
+//    FindByDepartmentUserResp resp = client.contact().user()
+//        .findByDepartment(FindByDepartmentUserReq.newBuilder()
+//            .departmentId("iddd")
+//            .pageSize(123)
+//            .departmentIdType(DepartmentIdTypeEnum.DEPARTMENT_ID)
+//            .userIdType(UserIdTypeEnum.USER_ID)
+//            .build());
+//
+//    System.out.println(Jsons.LONG_TO_STR.toJson(resp));
+
 
     getTenant(client);
   }
