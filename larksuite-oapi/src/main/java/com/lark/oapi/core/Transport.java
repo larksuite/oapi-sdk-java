@@ -31,6 +31,8 @@ public class Transport {
       return AccessTokenType.None;
     }
 
+    validateTokenType(accessTokenTypeSet, requestOptions);
+
     if (disableTokenCache) {
       if (Strings.isNotEmpty(requestOptions.getUserAccessToken())) {
         return AccessTokenType.User;
@@ -66,6 +68,25 @@ public class Transport {
     throw new IllegalAccessTokenTypeException();
   }
 
+  public static void validateTokenType(Set<AccessTokenType> accessTokenTypeSet,
+      RequestOptions requestOptions) {
+    if (requestOptions == null || accessTokenTypeSet == null
+        || accessTokenTypeSet.size() == 0 || accessTokenTypeSet.size() > 1) {
+      return;
+    }
+
+    AccessTokenType accessTokenType = accessTokenTypeSet.iterator().next();
+    if (accessTokenType == AccessTokenType.Tenant
+        && Strings.isNotEmpty(requestOptions.getUserAccessToken())) {
+      throw new IllegalArgumentException("tenant token type not match user access token");
+    }
+
+    if (accessTokenType == AccessTokenType.User
+        && Strings.isNotEmpty(requestOptions.getTenantAccessToken())) {
+      throw new IllegalArgumentException("user token type not match tenant access token");
+    }
+  }
+
   private static void validate(Config config, RequestOptions requestOptions,
       AccessTokenType accessTokenType) {
     if (Strings.isEmpty(config.getAppId())) {
@@ -83,26 +104,38 @@ public class Transport {
       throw new IllegalArgumentException("access token is blank");
     }
 
+    if (accessTokenType == AccessTokenType.Tenant
+        && Strings.isNotEmpty(requestOptions.getUserAccessToken())) {
+      throw new IllegalArgumentException("tenant token type not match user access token");
+    }
+
+    if (accessTokenType == AccessTokenType.User
+        && Strings.isNotEmpty(requestOptions.getTenantAccessToken())) {
+      throw new IllegalArgumentException("user token type not match tenant access token");
+    }
+
     if (accessTokenType == AccessTokenType.User
         && Strings.isEmpty(requestOptions.getUserAccessToken())) {
       throw new IllegalArgumentException("user access token is blank");
     }
 
     if (requestOptions.getHeaders() != null && requestOptions.getHeaders().size() > 0) {
-      if (requestOptions.getHeaders().containsKey(Constants.HTTP_HEADER_KEY_REQUEST_ID)) {
-        throw new IllegalArgumentException(String.format("pass %s as header key is not allowed"
-            , Constants.HTTP_HEADER_KEY_REQUEST_ID));
-      }
+      requestOptions.getHeaders().entrySet().stream().forEach(entry -> {
+        if (entry.getKey().equalsIgnoreCase(Constants.HTTP_HEADER_KEY_REQUEST_ID)) {
+          throw new IllegalArgumentException(String.format("pass %s as header key is not allowed"
+              , entry.getKey()));
+        }
 
-      if (requestOptions.getHeaders().containsKey(Constants.HTTP_HEADER_KEY_LOG_ID)) {
-        throw new IllegalArgumentException(String.format("pass %s as header key is not allowed"
-            , Constants.HTTP_HEADER_KEY_LOG_ID));
-      }
+        if (entry.getKey().equalsIgnoreCase(Constants.HTTP_HEADER_KEY_LOG_ID)) {
+          throw new IllegalArgumentException(String.format("pass %s as header key is not allowed"
+              , entry.getKey()));
+        }
 
-      if (requestOptions.getHeaders().containsKey(Constants.HTTP_HEADER_REQUEST_ID)) {
-        throw new IllegalArgumentException(String.format("pass %s as header key is not allowed"
-            , Constants.HTTP_HEADER_REQUEST_ID));
-      }
+        if (entry.getKey().equalsIgnoreCase(Constants.HTTP_HEADER_REQUEST_ID)) {
+          throw new IllegalArgumentException(String.format("pass %s as header key is not allowed"
+              , entry.getKey()));
+        }
+      });
     }
   }
 

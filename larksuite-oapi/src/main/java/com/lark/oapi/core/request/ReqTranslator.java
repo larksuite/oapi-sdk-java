@@ -124,7 +124,7 @@ public class ReqTranslator {
           hasHttpAnnotation = true;
           SerializedName serializedName = field.getAnnotation(SerializedName.class);
           if (null != field.get(req)) {
-            parsedReq.pathMap.put(serializedName.value(),  field.get(req));
+            parsedReq.pathMap.put(serializedName.value(), field.get(req));
           }
         }
 
@@ -134,7 +134,7 @@ public class ReqTranslator {
           hasHttpAnnotation = true;
           SerializedName serializedName = field.getAnnotation(SerializedName.class);
           if (null != field.get(req)) {
-            parsedReq.queryMap.put(serializedName.value(),  field.get(req));
+            parsedReq.queryMap.put(serializedName.value(), field.get(req));
           }
         }
       }

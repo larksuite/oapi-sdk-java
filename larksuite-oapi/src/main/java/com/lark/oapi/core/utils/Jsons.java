@@ -17,6 +17,7 @@ public class Jsons {
     if (isPretty) {
       gsonBuilder.setPrettyPrinting();
     }
+    gsonBuilder.disableHtmlEscaping();
     return gsonBuilder.create();
   }
 }

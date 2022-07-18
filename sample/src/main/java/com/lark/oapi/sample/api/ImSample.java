@@ -1117,7 +1117,6 @@ public class ImSample {
         .requestTimeout(3, TimeUnit.SECONDS) // 设置httpclient 超时时间，默认永不超时
         //.disableTokenCache() // 禁用token管理，禁用后需要开发者自己传递token
         .logReqRespInfoAtDebugLevel(true)
-        // .httpTransport(httpTransport)
         .build();
     //replayMsg(client);
     // downLoadImage(client);

@@ -596,6 +596,28 @@ public final class DiskLruCache implements Closeable, Flushable {
       mostRecentTrimFailed = false;
     }
     return removed;
+  }
+
+  boolean removeEntry(Entry entry) throws IOException {
+    if (entry.currentEditor != null) {
+      entry.currentEditor.detach(); // Prevent the edit from completing normally.
+    }
+
+    for (int i = 0; i < valueCount; i++) {
+      fileSystem.delete(entry.cleanFiles[i]);
+      size -= entry.lengths[i];
+      entry.lengths[i] = 0;
+    }
+
+    redundantOpCount++;
+    journalWriter.writeUtf8(REMOVE).writeByte(' ').writeUtf8(entry.key).writeByte('\n');
+    lruEntries.remove(entry.key);
+
+    if (journalRebuildRequired()) {
+      executor.execute(cleanupRunnable);
+    }
+
+    return true;
   }  private final Runnable cleanupRunnable = new Runnable() {
     public void run() {
       synchronized (DiskLruCache.this) {
@@ -621,28 +643,6 @@ public final class DiskLruCache implements Closeable, Flushable {
       }
     }
   };
-
-  boolean removeEntry(Entry entry) throws IOException {
-    if (entry.currentEditor != null) {
-      entry.currentEditor.detach(); // Prevent the edit from completing normally.
-    }
-
-    for (int i = 0; i < valueCount; i++) {
-      fileSystem.delete(entry.cleanFiles[i]);
-      size -= entry.lengths[i];
-      entry.lengths[i] = 0;
-    }
-
-    redundantOpCount++;
-    journalWriter.writeUtf8(REMOVE).writeByte(' ').writeUtf8(entry.key).writeByte('\n');
-    lruEntries.remove(entry.key);
-
-    if (journalRebuildRequired()) {
-      executor.execute(cleanupRunnable);
-    }
-
-    return true;
-  }
 
   /**
    * Returns true if this cache has been closed.
