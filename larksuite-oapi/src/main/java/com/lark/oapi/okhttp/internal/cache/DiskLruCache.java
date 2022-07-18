@@ -618,6 +618,13 @@ public final class DiskLruCache implements Closeable, Flushable {
     }
 
     return true;
+  }
+
+  /**
+   * Returns true if this cache has been closed.
+   */
+  public synchronized boolean isClosed() {
+    return closed;
   }  private final Runnable cleanupRunnable = new Runnable() {
     public void run() {
       synchronized (DiskLruCache.this) {
@@ -643,13 +650,6 @@ public final class DiskLruCache implements Closeable, Flushable {
       }
     }
   };
-
-  /**
-   * Returns true if this cache has been closed.
-   */
-  public synchronized boolean isClosed() {
-    return closed;
-  }
 
   private synchronized void checkNotClosed() {
     if (isClosed()) {

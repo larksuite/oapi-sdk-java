@@ -180,7 +180,8 @@ public class Transport {
       }
 
       if (!isUpload) {
-        log.debug("req,path:{},header:{},body:{}", httpPath, req.getHeaders()
+        log.debug("req,path:{},header:{},body:{}", httpPath
+            , Jsons.LONG_TO_STR.toJson(req.getHeaders())
             , req.getBody() == null ? "" : Jsons.LONG_TO_STR.toJson(req.getBody()));
       } else {
         log.debug("req,path:{},header:{}", httpPath, req.getHeaders());
