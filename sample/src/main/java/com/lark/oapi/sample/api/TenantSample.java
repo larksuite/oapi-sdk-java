@@ -27,7 +27,7 @@ public class TenantSample {
         .tokenCache(LocalCache.getInstance()) // 设置token缓存，默认为内存缓存
         .requestTimeout(3, TimeUnit.SECONDS) // 设置httpclient 超时时间，默认永不超时
         //.disableTokenCache() // 禁用token管理，则需要开发者自己传递token
-        .logReqRespInfoAtDebugLevel(true)
+        .logReqAtDebug(true)
         .build();
 
 //    FindByDepartmentUserResp resp = client.contact().user()

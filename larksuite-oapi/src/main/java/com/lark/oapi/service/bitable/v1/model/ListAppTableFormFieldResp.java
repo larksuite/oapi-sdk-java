@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListAppTableFormFieldResp extends BaseResponse {
 
   @SerializedName("data")
-  private ListAppTableFormFieldDTO body;
+  private ListAppTableFormField body;
 
-  public ListAppTableFormFieldDTO getListAppTableFormFieldDTO() {
+  public ListAppTableFormField getListAppTableFormField() {
     return this.body;
   }
 
-  public void setListAppTableFormFieldDTO(ListAppTableFormFieldDTO body) {
+  public void setListAppTableFormField(ListAppTableFormField body) {
     this.body = body;
   }
 }

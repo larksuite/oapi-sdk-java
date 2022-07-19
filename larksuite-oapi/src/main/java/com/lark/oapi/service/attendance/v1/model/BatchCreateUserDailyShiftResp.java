@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class BatchCreateUserDailyShiftResp extends BaseResponse {
 
   @SerializedName("data")
-  private BatchCreateUserDailyShiftDTO body;
+  private BatchCreateUserDailyShift body;
 
-  public BatchCreateUserDailyShiftDTO getBatchCreateUserDailyShiftDTO() {
+  public BatchCreateUserDailyShift getBatchCreateUserDailyShift() {
     return this.body;
   }
 
-  public void setBatchCreateUserDailyShiftDTO(BatchCreateUserDailyShiftDTO body) {
+  public void setBatchCreateUserDailyShift(BatchCreateUserDailyShift body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListCustomAttrResp extends BaseResponse {
 
   @SerializedName("data")
-  private ListCustomAttrDTO body;
+  private ListCustomAttr body;
 
-  public ListCustomAttrDTO getListCustomAttrDTO() {
+  public ListCustomAttr getListCustomAttr() {
     return this.body;
   }
 
-  public void setListCustomAttrDTO(ListCustomAttrDTO body) {
+  public void setListCustomAttr(ListCustomAttr body) {
     this.body = body;
   }
 }

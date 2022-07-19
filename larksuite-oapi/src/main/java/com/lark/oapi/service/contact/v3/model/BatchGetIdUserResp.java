@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class BatchGetIdUserResp extends BaseResponse {
 
   @SerializedName("data")
-  private BatchGetIdUserDTO body;
+  private BatchGetIdUser body;
 
-  public BatchGetIdUserDTO getBatchGetIdUserDTO() {
+  public BatchGetIdUser getBatchGetIdUser() {
     return this.body;
   }
 
-  public void setBatchGetIdUserDTO(BatchGetIdUserDTO body) {
+  public void setBatchGetIdUser(BatchGetIdUser body) {
     this.body = body;
   }
 }

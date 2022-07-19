@@ -1,5 +1,5 @@
 package com.lark.oapi.core.enums;
 
 public enum AppType {
-  Marketplace, SELF_BUILT
+  MARKETPLACE, SELF_BUILT
 }

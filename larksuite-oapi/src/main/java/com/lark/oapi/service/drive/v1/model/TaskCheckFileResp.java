@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class TaskCheckFileResp extends BaseResponse {
 
   @SerializedName("data")
-  private TaskCheckFileDTO body;
+  private TaskCheckFile body;
 
-  public TaskCheckFileDTO getTaskCheckFileDTO() {
+  public TaskCheckFile getTaskCheckFile() {
     return this.body;
   }
 
-  public void setTaskCheckFileDTO(TaskCheckFileDTO body) {
+  public void setTaskCheckFile(TaskCheckFile body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class SetHostMeetingResp extends BaseResponse {
 
   @SerializedName("data")
-  private SetHostMeetingDTO body;
+  private SetHostMeeting body;
 
-  public SetHostMeetingDTO getSetHostMeetingDTO() {
+  public SetHostMeeting getSetHostMeeting() {
     return this.body;
   }
 
-  public void setSetHostMeetingDTO(SetHostMeetingDTO body) {
+  public void setSetHostMeeting(SetHostMeeting body) {
     this.body = body;
   }
 }

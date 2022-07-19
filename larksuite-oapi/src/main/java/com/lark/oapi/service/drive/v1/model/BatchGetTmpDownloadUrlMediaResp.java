@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class BatchGetTmpDownloadUrlMediaResp extends BaseResponse {
 
   @SerializedName("data")
-  private BatchGetTmpDownloadUrlMediaDTO body;
+  private BatchGetTmpDownloadUrlMedia body;
 
-  public BatchGetTmpDownloadUrlMediaDTO getBatchGetTmpDownloadUrlMediaDTO() {
+  public BatchGetTmpDownloadUrlMedia getBatchGetTmpDownloadUrlMedia() {
     return this.body;
   }
 
-  public void setBatchGetTmpDownloadUrlMediaDTO(BatchGetTmpDownloadUrlMediaDTO body) {
+  public void setBatchGetTmpDownloadUrlMedia(BatchGetTmpDownloadUrlMedia body) {
     this.body = body;
   }
 }

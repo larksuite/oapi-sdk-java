@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GenerateCaldavConfSettingResp extends BaseResponse {
 
   @SerializedName("data")
-  private GenerateCaldavConfSettingDTO body;
+  private GenerateCaldavConfSetting body;
 
-  public GenerateCaldavConfSettingDTO getGenerateCaldavConfSettingDTO() {
+  public GenerateCaldavConfSetting getGenerateCaldavConfSetting() {
     return this.body;
   }
 
-  public void setGenerateCaldavConfSettingDTO(GenerateCaldavConfSettingDTO body) {
+  public void setGenerateCaldavConfSetting(GenerateCaldavConfSetting body) {
     this.body = body;
   }
 }

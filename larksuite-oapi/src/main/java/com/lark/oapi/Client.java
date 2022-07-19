@@ -315,13 +315,18 @@ public class Client {
       return this;
     }
 
+    public Builder marketplaceApp() {
+      config.setAppType(AppType.MARKETPLACE);
+      return this;
+    }
+
     public Builder disableTokenCache() {
       config.setDisableTokenCache(true);
       return this;
     }
 
-    public Builder logReqRespInfoAtDebugLevel(boolean logReqRespInfoAtDebugLevel) {
-      config.setLogReqRespInfoAtDebugLevel(logReqRespInfoAtDebugLevel);
+    public Builder logReqAtDebug(boolean logReqRespInfoAtDebugLevel) {
+      config.setLogReqAtDebug(logReqRespInfoAtDebugLevel);
       return this;
     }
 

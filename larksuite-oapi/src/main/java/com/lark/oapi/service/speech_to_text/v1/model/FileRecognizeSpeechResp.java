@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class FileRecognizeSpeechResp extends BaseResponse {
 
   @SerializedName("data")
-  private FileRecognizeSpeechDTO body;
+  private FileRecognizeSpeech body;
 
-  public FileRecognizeSpeechDTO getFileRecognizeSpeechDTO() {
+  public FileRecognizeSpeech getFileRecognizeSpeech() {
     return this.body;
   }
 
-  public void setFileRecognizeSpeechDTO(FileRecognizeSpeechDTO body) {
+  public void setFileRecognizeSpeech(FileRecognizeSpeech body) {
     this.body = body;
   }
 }

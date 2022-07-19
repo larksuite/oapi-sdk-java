@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GetApprovalResp extends BaseResponse {
 
   @SerializedName("data")
-  private GetApprovalDTO body;
+  private GetApproval body;
 
-  public GetApprovalDTO getGetApprovalDTO() {
+  public GetApproval getGetApproval() {
     return this.body;
   }
 
-  public void setGetApprovalDTO(GetApprovalDTO body) {
+  public void setGetApproval(GetApproval body) {
     this.body = body;
   }
 }

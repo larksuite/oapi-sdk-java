@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class UploadAllFileResp extends BaseResponse {
 
   @SerializedName("data")
-  private UploadAllFileDTO body;
+  private UploadAllFile body;
 
-  public UploadAllFileDTO getUploadAllFileDTO() {
+  public UploadAllFile getUploadAllFile() {
     return this.body;
   }
 
-  public void setUploadAllFileDTO(UploadAllFileDTO body) {
+  public void setUploadAllFile(UploadAllFile body) {
     this.body = body;
   }
 }

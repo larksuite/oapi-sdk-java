@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class AddManagersChatManagersResp extends BaseResponse {
 
   @SerializedName("data")
-  private AddManagersChatManagersDTO body;
+  private AddManagersChatManagers body;
 
-  public AddManagersChatManagersDTO getAddManagersChatManagersDTO() {
+  public AddManagersChatManagers getAddManagersChatManagers() {
     return this.body;
   }
 
-  public void setAddManagersChatManagersDTO(AddManagersChatManagersDTO body) {
+  public void setAddManagersChatManagers(AddManagersChatManagers body) {
     this.body = body;
   }
 }

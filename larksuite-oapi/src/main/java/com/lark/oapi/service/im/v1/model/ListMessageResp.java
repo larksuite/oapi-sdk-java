@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListMessageResp extends BaseResponse {
 
   @SerializedName("data")
-  private ListMessageDTO body;
+  private ListMessage body;
 
-  public ListMessageDTO getListMessageDTO() {
+  public ListMessage getListMessage() {
     return this.body;
   }
 
-  public void setListMessageDTO(ListMessageDTO body) {
+  public void setListMessage(ListMessage body) {
     this.body = body;
   }
 }

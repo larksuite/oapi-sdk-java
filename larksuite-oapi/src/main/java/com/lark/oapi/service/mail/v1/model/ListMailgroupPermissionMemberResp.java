@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListMailgroupPermissionMemberResp extends BaseResponse {
 
   @SerializedName("data")
-  private ListMailgroupPermissionMemberDTO body;
+  private ListMailgroupPermissionMember body;
 
-  public ListMailgroupPermissionMemberDTO getListMailgroupPermissionMemberDTO() {
+  public ListMailgroupPermissionMember getListMailgroupPermissionMember() {
     return this.body;
   }
 
-  public void setListMailgroupPermissionMemberDTO(ListMailgroupPermissionMemberDTO body) {
+  public void setListMailgroupPermissionMember(ListMailgroupPermissionMember body) {
     this.body = body;
   }
 }

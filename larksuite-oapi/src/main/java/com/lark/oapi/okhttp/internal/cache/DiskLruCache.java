@@ -625,6 +625,12 @@ public final class DiskLruCache implements Closeable, Flushable {
    */
   public synchronized boolean isClosed() {
     return closed;
+  }
+
+  private synchronized void checkNotClosed() {
+    if (isClosed()) {
+      throw new IllegalStateException("cache is closed");
+    }
   }  private final Runnable cleanupRunnable = new Runnable() {
     public void run() {
       synchronized (DiskLruCache.this) {
@@ -650,12 +656,6 @@ public final class DiskLruCache implements Closeable, Flushable {
       }
     }
   };
-
-  private synchronized void checkNotClosed() {
-    if (isClosed()) {
-      throw new IllegalStateException("cache is closed");
-    }
-  }
 
   /**
    * Force buffered operations to the filesystem.

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CreateDraftResp extends BaseResponse {
 
   @SerializedName("data")
-  private CreateDraftDTO body;
+  private CreateDraft body;
 
-  public CreateDraftDTO getCreateDraftDTO() {
+  public CreateDraft getCreateDraft() {
     return this.body;
   }
 
-  public void setCreateDraftDTO(CreateDraftDTO body) {
+  public void setCreateDraft(CreateDraft body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListSpaceResp extends BaseResponse {
 
   @SerializedName("data")
-  private ListSpaceDTO body;
+  private ListSpace body;
 
-  public ListSpaceDTO getListSpaceDTO() {
+  public ListSpace getListSpace() {
     return this.body;
   }
 
-  public void setListSpaceDTO(ListSpaceDTO body) {
+  public void setListSpace(ListSpace body) {
     this.body = body;
   }
 }

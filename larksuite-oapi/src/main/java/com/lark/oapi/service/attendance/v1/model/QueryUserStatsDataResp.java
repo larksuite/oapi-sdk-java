@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class QueryUserStatsDataResp extends BaseResponse {
 
   @SerializedName("data")
-  private QueryUserStatsDataDTO body;
+  private QueryUserStatsData body;
 
-  public QueryUserStatsDataDTO getQueryUserStatsDataDTO() {
+  public QueryUserStatsData getQueryUserStatsData() {
     return this.body;
   }
 
-  public void setQueryUserStatsDataDTO(QueryUserStatsDataDTO body) {
+  public void setQueryUserStatsData(QueryUserStatsData body) {
     this.body = body;
   }
 }

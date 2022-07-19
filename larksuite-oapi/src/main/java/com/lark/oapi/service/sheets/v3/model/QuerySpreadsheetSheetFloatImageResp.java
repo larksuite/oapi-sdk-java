@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class QuerySpreadsheetSheetFloatImageResp extends BaseResponse {
 
   @SerializedName("data")
-  private QuerySpreadsheetSheetFloatImageDTO body;
+  private QuerySpreadsheetSheetFloatImage body;
 
-  public QuerySpreadsheetSheetFloatImageDTO getQuerySpreadsheetSheetFloatImageDTO() {
+  public QuerySpreadsheetSheetFloatImage getQuerySpreadsheetSheetFloatImage() {
     return this.body;
   }
 
-  public void setQuerySpreadsheetSheetFloatImageDTO(QuerySpreadsheetSheetFloatImageDTO body) {
+  public void setQuerySpreadsheetSheetFloatImage(QuerySpreadsheetSheetFloatImage body) {
     this.body = body;
   }
 }

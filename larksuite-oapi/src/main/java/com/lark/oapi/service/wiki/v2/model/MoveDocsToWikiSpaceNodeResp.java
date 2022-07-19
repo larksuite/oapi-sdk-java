@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class MoveDocsToWikiSpaceNodeResp extends BaseResponse {
 
   @SerializedName("data")
-  private MoveDocsToWikiSpaceNodeDTO body;
+  private MoveDocsToWikiSpaceNode body;
 
-  public MoveDocsToWikiSpaceNodeDTO getMoveDocsToWikiSpaceNodeDTO() {
+  public MoveDocsToWikiSpaceNode getMoveDocsToWikiSpaceNode() {
     return this.body;
   }
 
-  public void setMoveDocsToWikiSpaceNodeDTO(MoveDocsToWikiSpaceNodeDTO body) {
+  public void setMoveDocsToWikiSpaceNode(MoveDocsToWikiSpaceNode body) {
     this.body = body;
   }
 }

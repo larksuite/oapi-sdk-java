@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class DeleteMessageReactionResp extends BaseResponse {
 
   @SerializedName("data")
-  private DeleteMessageReactionDTO body;
+  private DeleteMessageReaction body;
 
-  public DeleteMessageReactionDTO getDeleteMessageReactionDTO() {
+  public DeleteMessageReaction getDeleteMessageReaction() {
     return this.body;
   }
 
-  public void setDeleteMessageReactionDTO(DeleteMessageReactionDTO body) {
+  public void setDeleteMessageReaction(DeleteMessageReaction body) {
     this.body = body;
   }
 }

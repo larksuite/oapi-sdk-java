@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CreateSpaceNodeResp extends BaseResponse {
 
   @SerializedName("data")
-  private CreateSpaceNodeDTO body;
+  private CreateSpaceNode body;
 
-  public CreateSpaceNodeDTO getCreateSpaceNodeDTO() {
+  public CreateSpaceNode getCreateSpaceNode() {
     return this.body;
   }
 
-  public void setCreateSpaceNodeDTO(CreateSpaceNodeDTO body) {
+  public void setCreateSpaceNode(CreateSpaceNode body) {
     this.body = body;
   }
 }

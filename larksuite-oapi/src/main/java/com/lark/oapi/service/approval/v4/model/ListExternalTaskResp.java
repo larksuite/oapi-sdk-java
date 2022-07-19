@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListExternalTaskResp extends BaseResponse {
 
   @SerializedName("data")
-  private ListExternalTaskDTO body;
+  private ListExternalTask body;
 
-  public ListExternalTaskDTO getListExternalTaskDTO() {
+  public ListExternalTask getListExternalTask() {
     return this.body;
   }
 
-  public void setListExternalTaskDTO(ListExternalTaskDTO body) {
+  public void setListExternalTask(ListExternalTask body) {
     this.body = body;
   }
 }

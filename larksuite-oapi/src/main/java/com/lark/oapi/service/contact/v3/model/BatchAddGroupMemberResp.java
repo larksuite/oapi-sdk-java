@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class BatchAddGroupMemberResp extends BaseResponse {
 
   @SerializedName("data")
-  private BatchAddGroupMemberDTO body;
+  private BatchAddGroupMember body;
 
-  public BatchAddGroupMemberDTO getBatchAddGroupMemberDTO() {
+  public BatchAddGroupMember getBatchAddGroupMember() {
     return this.body;
   }
 
-  public void setBatchAddGroupMemberDTO(BatchAddGroupMemberDTO body) {
+  public void setBatchAddGroupMember(BatchAddGroupMember body) {
     this.body = body;
   }
 }

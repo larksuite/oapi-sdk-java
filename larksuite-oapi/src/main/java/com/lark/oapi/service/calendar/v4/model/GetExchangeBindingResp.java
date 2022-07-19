@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GetExchangeBindingResp extends BaseResponse {
 
   @SerializedName("data")
-  private GetExchangeBindingDTO body;
+  private GetExchangeBinding body;
 
-  public GetExchangeBindingDTO getGetExchangeBindingDTO() {
+  public GetExchangeBinding getGetExchangeBinding() {
     return this.body;
   }
 
-  public void setGetExchangeBindingDTO(GetExchangeBindingDTO body) {
+  public void setGetExchangeBinding(GetExchangeBinding body) {
     this.body = body;
   }
 }

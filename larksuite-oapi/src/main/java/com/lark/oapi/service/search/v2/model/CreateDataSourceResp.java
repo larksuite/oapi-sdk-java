@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CreateDataSourceResp extends BaseResponse {
 
   @SerializedName("data")
-  private CreateDataSourceDTO body;
+  private CreateDataSource body;
 
-  public CreateDataSourceDTO getCreateDataSourceDTO() {
+  public CreateDataSource getCreateDataSource() {
     return this.body;
   }
 
-  public void setCreateDataSourceDTO(CreateDataSourceDTO body) {
+  public void setCreateDataSource(CreateDataSource body) {
     this.body = body;
   }
 }

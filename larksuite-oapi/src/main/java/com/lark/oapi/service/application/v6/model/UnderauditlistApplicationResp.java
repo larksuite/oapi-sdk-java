@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class UnderauditlistApplicationResp extends BaseResponse {
 
   @SerializedName("data")
-  private UnderauditlistApplicationDTO body;
+  private UnderauditlistApplication body;
 
-  public UnderauditlistApplicationDTO getUnderauditlistApplicationDTO() {
+  public UnderauditlistApplication getUnderauditlistApplication() {
     return this.body;
   }
 
-  public void setUnderauditlistApplicationDTO(UnderauditlistApplicationDTO body) {
+  public void setUnderauditlistApplication(UnderauditlistApplication body) {
     this.body = body;
   }
 }

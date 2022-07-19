@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GetDocumentResp extends BaseResponse {
 
   @SerializedName("data")
-  private GetDocumentDTO body;
+  private GetDocument body;
 
-  public GetDocumentDTO getGetDocumentDTO() {
+  public GetDocument getGetDocument() {
     return this.body;
   }
 
-  public void setGetDocumentDTO(GetDocumentDTO body) {
+  public void setGetDocument(GetDocument body) {
     this.body = body;
   }
 }

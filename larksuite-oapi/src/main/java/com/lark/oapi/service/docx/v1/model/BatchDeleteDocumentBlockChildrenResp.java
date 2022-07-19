@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class BatchDeleteDocumentBlockChildrenResp extends BaseResponse {
 
   @SerializedName("data")
-  private BatchDeleteDocumentBlockChildrenDTO body;
+  private BatchDeleteDocumentBlockChildren body;
 
-  public BatchDeleteDocumentBlockChildrenDTO getBatchDeleteDocumentBlockChildrenDTO() {
+  public BatchDeleteDocumentBlockChildren getBatchDeleteDocumentBlockChildren() {
     return this.body;
   }
 
-  public void setBatchDeleteDocumentBlockChildrenDTO(BatchDeleteDocumentBlockChildrenDTO body) {
+  public void setBatchDeleteDocumentBlockChildren(BatchDeleteDocumentBlockChildren body) {
     this.body = body;
   }
 }

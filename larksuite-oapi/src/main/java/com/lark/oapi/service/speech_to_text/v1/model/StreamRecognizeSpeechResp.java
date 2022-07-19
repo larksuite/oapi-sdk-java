@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class StreamRecognizeSpeechResp extends BaseResponse {
 
   @SerializedName("data")
-  private StreamRecognizeSpeechDTO body;
+  private StreamRecognizeSpeech body;
 
-  public StreamRecognizeSpeechDTO getStreamRecognizeSpeechDTO() {
+  public StreamRecognizeSpeech getStreamRecognizeSpeech() {
     return this.body;
   }
 
-  public void setStreamRecognizeSpeechDTO(StreamRecognizeSpeechDTO body) {
+  public void setStreamRecognizeSpeech(StreamRecognizeSpeech body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class DeleteSpaceMemberResp extends BaseResponse {
 
   @SerializedName("data")
-  private DeleteSpaceMemberDTO body;
+  private DeleteSpaceMember body;
 
-  public DeleteSpaceMemberDTO getDeleteSpaceMemberDTO() {
+  public DeleteSpaceMember getDeleteSpaceMember() {
     return this.body;
   }
 
-  public void setDeleteSpaceMemberDTO(DeleteSpaceMemberDTO body) {
+  public void setDeleteSpaceMember(DeleteSpaceMember body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class QueryTenantResp extends BaseResponse {
 
   @SerializedName("data")
-  private QueryTenantDTO body;
+  private QueryTenant body;
 
-  public QueryTenantDTO getQueryTenantDTO() {
+  public QueryTenant getQueryTenant() {
     return this.body;
   }
 
-  public void setQueryTenantDTO(QueryTenantDTO body) {
+  public void setQueryTenant(QueryTenant body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class DeleteAppTableRecordResp extends BaseResponse {
 
   @SerializedName("data")
-  private DeleteAppTableRecordDTO body;
+  private DeleteAppTableRecord body;
 
-  public DeleteAppTableRecordDTO getDeleteAppTableRecordDTO() {
+  public DeleteAppTableRecord getDeleteAppTableRecord() {
     return this.body;
   }
 
-  public void setDeleteAppTableRecordDTO(DeleteAppTableRecordDTO body) {
+  public void setDeleteAppTableRecord(DeleteAppTableRecord body) {
     this.body = body;
   }
 }

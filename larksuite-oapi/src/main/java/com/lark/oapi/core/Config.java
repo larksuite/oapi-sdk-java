@@ -22,7 +22,7 @@ public class Config {
   private String appId;
   private String appSecret;
   private IHttpTransport httpTransport;
-  private boolean logReqRespInfoAtDebugLevel;
+  private boolean logReqAtDebug;
 
   public Config() {
     this.baseUrl = BaseUrlEnum.FeiShu.getUrl();
@@ -37,12 +37,12 @@ public class Config {
     this.httpTransport = httpTransport;
   }
 
-  public boolean isLogReqRespInfoAtDebugLevel() {
-    return logReqRespInfoAtDebugLevel;
+  public boolean isLogReqAtDebug() {
+    return logReqAtDebug;
   }
 
-  public void setLogReqRespInfoAtDebugLevel(boolean logReqRespInfoAtDebugLevel) {
-    this.logReqRespInfoAtDebugLevel = logReqRespInfoAtDebugLevel;
+  public void setLogReqAtDebug(boolean logReqAtDebug) {
+    this.logReqAtDebug = logReqAtDebug;
   }
 
   public long getRequestTimeOut() {

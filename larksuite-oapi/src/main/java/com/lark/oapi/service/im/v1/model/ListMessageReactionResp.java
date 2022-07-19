@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListMessageReactionResp extends BaseResponse {
 
   @SerializedName("data")
-  private ListMessageReactionDTO body;
+  private ListMessageReaction body;
 
-  public ListMessageReactionDTO getListMessageReactionDTO() {
+  public ListMessageReaction getListMessageReaction() {
     return this.body;
   }
 
-  public void setListMessageReactionDTO(ListMessageReactionDTO body) {
+  public void setListMessageReaction(ListMessageReaction body) {
     this.body = body;
   }
 }

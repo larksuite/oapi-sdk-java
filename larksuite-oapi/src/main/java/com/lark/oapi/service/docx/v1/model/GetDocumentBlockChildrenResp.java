@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GetDocumentBlockChildrenResp extends BaseResponse {
 
   @SerializedName("data")
-  private GetDocumentBlockChildrenDTO body;
+  private GetDocumentBlockChildren body;
 
-  public GetDocumentBlockChildrenDTO getGetDocumentBlockChildrenDTO() {
+  public GetDocumentBlockChildren getGetDocumentBlockChildren() {
     return this.body;
   }
 
-  public void setGetDocumentBlockChildrenDTO(GetDocumentBlockChildrenDTO body) {
+  public void setGetDocumentBlockChildren(GetDocumentBlockChildren body) {
     this.body = body;
   }
 }

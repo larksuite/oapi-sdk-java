@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CreateAppTableFieldResp extends BaseResponse {
 
   @SerializedName("data")
-  private CreateAppTableFieldDTO body;
+  private CreateAppTableField body;
 
-  public CreateAppTableFieldDTO getCreateAppTableFieldDTO() {
+  public CreateAppTableField getCreateAppTableField() {
     return this.body;
   }
 
-  public void setCreateAppTableFieldDTO(CreateAppTableFieldDTO body) {
+  public void setCreateAppTableField(CreateAppTableField body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class KickoutMeetingResp extends BaseResponse {
 
   @SerializedName("data")
-  private KickoutMeetingDTO body;
+  private KickoutMeeting body;
 
-  public KickoutMeetingDTO getKickoutMeetingDTO() {
+  public KickoutMeeting getKickoutMeeting() {
     return this.body;
   }
 
-  public void setKickoutMeetingDTO(KickoutMeetingDTO body) {
+  public void setKickoutMeeting(KickoutMeeting body) {
     this.body = body;
   }
 }

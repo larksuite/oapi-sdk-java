@@ -65,49 +65,49 @@
         <groupId>org.apache.maven.plugins</groupId>
         <version>${maven-jar-plugin.version}</version>
       </plugin>
-      <!--      <plugin>-->
-      <!--        <artifactId>maven-javadoc-plugin</artifactId>-->
-      <!--        <configuration>-->
-      <!--          <charset>UTF-8</charset>-->
-      <!--          <docencoding>UTF-8</docencoding>-->
-      <!--          <encoding>UTF-8</encoding>-->
-      <!--          <links>-->
-      <!--            <link>http://docs.oracle.com/javase/8/docs/api</link>-->
-      <!--          </links>-->
-      <!--          <show>public</show>-->
-      <!--        </configuration>-->
-      <!--        <executions>-->
-      <!--          <execution>-->
-      <!--            <goals>-->
-      <!--              <goal>jar</goal>-->
-      <!--            </goals>-->
-      <!--            <id>attach-javadoc</id>-->
-      <!--          </execution>-->
-      <!--        </executions>-->
-      <!--        <groupId>org.apache.maven.plugins</groupId>-->
-      <!--        <version>${maven-javadoc-plugin.version}</version>-->
-      <!--      </plugin>-->
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <charset>UTF-8</charset>
+          <docencoding>UTF-8</docencoding>
+          <encoding>UTF-8</encoding>
+          <links>
+            <link>http://docs.oracle.com/javase/8/docs/api</link>
+          </links>
+          <show>public</show>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <id>attach-javadoc</id>
+          </execution>
+        </executions>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>${maven-javadoc-plugin.version}</version>
+      </plugin>
       <!-- GPG -->
-      <!--            <plugin>-->
-      <!--                <groupId>org.apache.maven.plugins</groupId>-->
-      <!--                <artifactId>maven-gpg-plugin</artifactId>-->
-      <!--                <version>${maven-gpg-plugin.version}</version>-->
-      <!--                <executions>-->
-      <!--                    <execution>-->
-      <!--                        <id>sign-artifacts</id>-->
-      <!--                        <phase>verify</phase>-->
-      <!--                        <goals>-->
-      <!--                            <goal>sign</goal>-->
-      <!--                        </goals>-->
-      <!--                        <configuration>-->
-      <!--                            <gpgArguments>-->
-      <!--                                <arg>&#45;&#45;pinentry-mode</arg>-->
-      <!--                                <arg>loopback</arg>-->
-      <!--                            </gpgArguments>-->
-      <!--                        </configuration>-->
-      <!--                    </execution>-->
-      <!--                </executions>-->
-      <!--            </plugin>-->
+      <plugin>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <executions>
+          <execution>
+            <configuration>
+              <gpgArguments>
+                <arg>--pinentry-mode</arg>
+                <arg>loopback</arg>
+              </gpgArguments>
+            </configuration>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+          </execution>
+        </executions>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>${maven-gpg-plugin.version}</version>
+      </plugin>
     </plugins>
   </build>
   <dependencies>

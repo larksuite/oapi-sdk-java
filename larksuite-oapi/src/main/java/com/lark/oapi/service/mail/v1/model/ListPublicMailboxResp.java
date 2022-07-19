@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListPublicMailboxResp extends BaseResponse {
 
   @SerializedName("data")
-  private ListPublicMailboxDTO body;
+  private ListPublicMailbox body;
 
-  public ListPublicMailboxDTO getListPublicMailboxDTO() {
+  public ListPublicMailbox getListPublicMailbox() {
     return this.body;
   }
 
-  public void setListPublicMailboxDTO(ListPublicMailboxDTO body) {
+  public void setListPublicMailbox(ListPublicMailbox body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GetMotoResp extends BaseResponse {
 
   @SerializedName("data")
-  private GetMotoDTO body;
+  private GetMoto body;
 
-  public GetMotoDTO getGetMotoDTO() {
+  public GetMoto getGetMoto() {
     return this.body;
   }
 
-  public void setGetMotoDTO(GetMotoDTO body) {
+  public void setGetMoto(GetMoto body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class DeleteFileResp extends BaseResponse {
 
   @SerializedName("data")
-  private DeleteFileDTO body;
+  private DeleteFile body;
 
-  public DeleteFileDTO getDeleteFileDTO() {
+  public DeleteFile getDeleteFile() {
     return this.body;
   }
 
-  public void setDeleteFileDTO(DeleteFileDTO body) {
+  public void setDeleteFile(DeleteFile body) {
     this.body = body;
   }
 }

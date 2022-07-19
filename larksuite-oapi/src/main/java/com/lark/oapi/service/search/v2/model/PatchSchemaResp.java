@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class PatchSchemaResp extends BaseResponse {
 
   @SerializedName("data")
-  private PatchSchemaDTO body;
+  private PatchSchema body;
 
-  public PatchSchemaDTO getPatchSchemaDTO() {
+  public PatchSchema getPatchSchema() {
     return this.body;
   }
 
-  public void setPatchSchemaDTO(PatchSchemaDTO body) {
+  public void setPatchSchema(PatchSchema body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CreateTimeoffEventResp extends BaseResponse {
 
   @SerializedName("data")
-  private CreateTimeoffEventDTO body;
+  private CreateTimeoffEvent body;
 
-  public CreateTimeoffEventDTO getCreateTimeoffEventDTO() {
+  public CreateTimeoffEvent getCreateTimeoffEvent() {
     return this.body;
   }
 
-  public void setCreateTimeoffEventDTO(CreateTimeoffEventDTO body) {
+  public void setCreateTimeoffEvent(CreateTimeoffEvent body) {
     this.body = body;
   }
 }

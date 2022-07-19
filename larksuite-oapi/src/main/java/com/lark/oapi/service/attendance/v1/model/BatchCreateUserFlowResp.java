@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class BatchCreateUserFlowResp extends BaseResponse {
 
   @SerializedName("data")
-  private BatchCreateUserFlowDTO body;
+  private BatchCreateUserFlow body;
 
-  public BatchCreateUserFlowDTO getBatchCreateUserFlowDTO() {
+  public BatchCreateUserFlow getBatchCreateUserFlow() {
     return this.body;
   }
 
-  public void setBatchCreateUserFlowDTO(BatchCreateUserFlowDTO body) {
+  public void setBatchCreateUserFlow(BatchCreateUserFlow body) {
     this.body = body;
   }
 }

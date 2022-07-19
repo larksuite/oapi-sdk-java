@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ApplyReserveResp extends BaseResponse {
 
   @SerializedName("data")
-  private ApplyReserveDTO body;
+  private ApplyReserve body;
 
-  public ApplyReserveDTO getApplyReserveDTO() {
+  public ApplyReserve getApplyReserve() {
     return this.body;
   }
 
-  public void setApplyReserveDTO(ApplyReserveDTO body) {
+  public void setApplyReserve(ApplyReserve body) {
     this.body = body;
   }
 }

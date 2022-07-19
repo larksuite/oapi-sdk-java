@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class PatchDocumentBlockResp extends BaseResponse {
 
   @SerializedName("data")
-  private PatchDocumentBlockDTO body;
+  private PatchDocumentBlock body;
 
-  public PatchDocumentBlockDTO getPatchDocumentBlockDTO() {
+  public PatchDocumentBlock getPatchDocumentBlock() {
     return this.body;
   }
 
-  public void setPatchDocumentBlockDTO(PatchDocumentBlockDTO body) {
+  public void setPatchDocumentBlock(PatchDocumentBlock body) {
     this.body = body;
   }
 }

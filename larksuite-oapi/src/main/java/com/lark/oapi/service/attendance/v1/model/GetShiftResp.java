@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GetShiftResp extends BaseResponse {
 
   @SerializedName("data")
-  private GetShiftDTO body;
+  private GetShift body;
 
-  public GetShiftDTO getGetShiftDTO() {
+  public GetShift getGetShift() {
     return this.body;
   }
 
-  public void setGetShiftDTO(GetShiftDTO body) {
+  public void setGetShift(GetShift body) {
     this.body = body;
   }
 }

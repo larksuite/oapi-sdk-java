@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class PatchFileSubscriptionResp extends BaseResponse {
 
   @SerializedName("data")
-  private PatchFileSubscriptionDTO body;
+  private PatchFileSubscription body;
 
-  public PatchFileSubscriptionDTO getPatchFileSubscriptionDTO() {
+  public PatchFileSubscription getPatchFileSubscription() {
     return this.body;
   }
 
-  public void setPatchFileSubscriptionDTO(PatchFileSubscriptionDTO body) {
+  public void setPatchFileSubscription(PatchFileSubscription body) {
     this.body = body;
   }
 }

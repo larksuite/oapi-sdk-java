@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class SortTabsChatTabResp extends BaseResponse {
 
   @SerializedName("data")
-  private SortTabsChatTabDTO body;
+  private SortTabsChatTab body;
 
-  public SortTabsChatTabDTO getSortTabsChatTabDTO() {
+  public SortTabsChatTab getSortTabsChatTab() {
     return this.body;
   }
 
-  public void setSortTabsChatTabDTO(SortTabsChatTabDTO body) {
+  public void setSortTabsChatTab(SortTabsChatTab body) {
     this.body = body;
   }
 }

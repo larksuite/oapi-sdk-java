@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class DeleteInstanceCommentResp extends BaseResponse {
 
   @SerializedName("data")
-  private DeleteInstanceCommentDTO body;
+  private DeleteInstanceComment body;
 
-  public DeleteInstanceCommentDTO getDeleteInstanceCommentDTO() {
+  public DeleteInstanceComment getDeleteInstanceComment() {
     return this.body;
   }
 
-  public void setDeleteInstanceCommentDTO(DeleteInstanceCommentDTO body) {
+  public void setDeleteInstanceComment(DeleteInstanceComment body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CreateExternalInstanceResp extends BaseResponse {
 
   @SerializedName("data")
-  private CreateExternalInstanceDTO body;
+  private CreateExternalInstance body;
 
-  public CreateExternalInstanceDTO getCreateExternalInstanceDTO() {
+  public CreateExternalInstance getCreateExternalInstance() {
     return this.body;
   }
 
-  public void setCreateExternalInstanceDTO(CreateExternalInstanceDTO body) {
+  public void setCreateExternalInstance(CreateExternalInstance body) {
     this.body = body;
   }
 }

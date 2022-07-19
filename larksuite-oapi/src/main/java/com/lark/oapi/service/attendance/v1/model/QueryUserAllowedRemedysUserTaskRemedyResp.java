@@ -7,14 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class QueryUserAllowedRemedysUserTaskRemedyResp extends BaseResponse {
 
   @SerializedName("data")
-  private QueryUserAllowedRemedysUserTaskRemedyDTO body;
+  private QueryUserAllowedRemedysUserTaskRemedy body;
 
-  public QueryUserAllowedRemedysUserTaskRemedyDTO getQueryUserAllowedRemedysUserTaskRemedyDTO() {
+  public QueryUserAllowedRemedysUserTaskRemedy getQueryUserAllowedRemedysUserTaskRemedy() {
     return this.body;
   }
 
-  public void setQueryUserAllowedRemedysUserTaskRemedyDTO(
-      QueryUserAllowedRemedysUserTaskRemedyDTO body) {
+  public void setQueryUserAllowedRemedysUserTaskRemedy(QueryUserAllowedRemedysUserTaskRemedy body) {
     this.body = body;
   }
 }

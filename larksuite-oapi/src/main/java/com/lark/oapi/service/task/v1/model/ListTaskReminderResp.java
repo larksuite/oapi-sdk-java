@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListTaskReminderResp extends BaseResponse {
 
   @SerializedName("data")
-  private ListTaskReminderDTO body;
+  private ListTaskReminder body;
 
-  public ListTaskReminderDTO getListTaskReminderDTO() {
+  public ListTaskReminder getListTaskReminder() {
     return this.body;
   }
 
-  public void setListTaskReminderDTO(ListTaskReminderDTO body) {
+  public void setListTaskReminder(ListTaskReminder body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class UpdateUserStatsViewResp extends BaseResponse {
 
   @SerializedName("data")
-  private UpdateUserStatsViewDTO body;
+  private UpdateUserStatsView body;
 
-  public UpdateUserStatsViewDTO getUpdateUserStatsViewDTO() {
+  public UpdateUserStatsView getUpdateUserStatsView() {
     return this.body;
   }
 
-  public void setUpdateUserStatsViewDTO(UpdateUserStatsViewDTO body) {
+  public void setUpdateUserStatsView(UpdateUserStatsView body) {
     this.body = body;
   }
 }

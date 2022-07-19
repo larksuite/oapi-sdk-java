@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class IsInChatChatMembersResp extends BaseResponse {
 
   @SerializedName("data")
-  private IsInChatChatMembersDTO body;
+  private IsInChatChatMembers body;
 
-  public IsInChatChatMembersDTO getIsInChatChatMembersDTO() {
+  public IsInChatChatMembers getIsInChatChatMembers() {
     return this.body;
   }
 
-  public void setIsInChatChatMembersDTO(IsInChatChatMembersDTO body) {
+  public void setIsInChatChatMembers(IsInChatChatMembers body) {
     this.body = body;
   }
 }

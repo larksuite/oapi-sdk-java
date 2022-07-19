@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CreateExportTaskResp extends BaseResponse {
 
   @SerializedName("data")
-  private CreateExportTaskDTO body;
+  private CreateExportTask body;
 
-  public CreateExportTaskDTO getCreateExportTaskDTO() {
+  public CreateExportTask getCreateExportTask() {
     return this.body;
   }
 
-  public void setCreateExportTaskDTO(CreateExportTaskDTO body) {
+  public void setCreateExportTask(CreateExportTask body) {
     this.body = body;
   }
 }

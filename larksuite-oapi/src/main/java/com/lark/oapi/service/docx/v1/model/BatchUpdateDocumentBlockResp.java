@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class BatchUpdateDocumentBlockResp extends BaseResponse {
 
   @SerializedName("data")
-  private BatchUpdateDocumentBlockDTO body;
+  private BatchUpdateDocumentBlock body;
 
-  public BatchUpdateDocumentBlockDTO getBatchUpdateDocumentBlockDTO() {
+  public BatchUpdateDocumentBlock getBatchUpdateDocumentBlock() {
     return this.body;
   }
 
-  public void setBatchUpdateDocumentBlockDTO(BatchUpdateDocumentBlockDTO body) {
+  public void setBatchUpdateDocumentBlock(BatchUpdateDocumentBlock body) {
     this.body = body;
   }
 }

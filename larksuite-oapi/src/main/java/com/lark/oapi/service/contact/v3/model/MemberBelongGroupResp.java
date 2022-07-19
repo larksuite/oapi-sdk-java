@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class MemberBelongGroupResp extends BaseResponse {
 
   @SerializedName("data")
-  private MemberBelongGroupDTO body;
+  private MemberBelongGroup body;
 
-  public MemberBelongGroupDTO getMemberBelongGroupDTO() {
+  public MemberBelongGroup getMemberBelongGroup() {
     return this.body;
   }
 
-  public void setMemberBelongGroupDTO(MemberBelongGroupDTO body) {
+  public void setMemberBelongGroup(MemberBelongGroup body) {
     this.body = body;
   }
 }

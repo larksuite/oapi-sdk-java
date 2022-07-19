@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CreateFolderFileResp extends BaseResponse {
 
   @SerializedName("data")
-  private CreateFolderFileDTO body;
+  private CreateFolderFile body;
 
-  public CreateFolderFileDTO getCreateFolderFileDTO() {
+  public CreateFolderFile getCreateFolderFile() {
     return this.body;
   }
 
-  public void setCreateFolderFileDTO(CreateFolderFileDTO body) {
+  public void setCreateFolderFile(CreateFolderFile body) {
     this.body = body;
   }
 }

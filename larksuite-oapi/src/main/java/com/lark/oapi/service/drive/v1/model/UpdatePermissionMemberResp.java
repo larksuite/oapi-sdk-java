@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class UpdatePermissionMemberResp extends BaseResponse {
 
   @SerializedName("data")
-  private UpdatePermissionMemberDTO body;
+  private UpdatePermissionMember body;
 
-  public UpdatePermissionMemberDTO getUpdatePermissionMemberDTO() {
+  public UpdatePermissionMember getUpdatePermissionMember() {
     return this.body;
   }
 
-  public void setUpdatePermissionMemberDTO(UpdatePermissionMemberDTO body) {
+  public void setUpdatePermissionMember(UpdatePermissionMember body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class UrgentPhoneMessageResp extends BaseResponse {
 
   @SerializedName("data")
-  private UrgentPhoneMessageDTO body;
+  private UrgentPhoneMessage body;
 
-  public UrgentPhoneMessageDTO getUrgentPhoneMessageDTO() {
+  public UrgentPhoneMessage getUrgentPhoneMessage() {
     return this.body;
   }
 
-  public void setUrgentPhoneMessageDTO(UrgentPhoneMessageDTO body) {
+  public void setUrgentPhoneMessage(UrgentPhoneMessage body) {
     this.body = body;
   }
 }

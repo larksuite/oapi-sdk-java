@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListAppRoleResp extends BaseResponse {
 
   @SerializedName("data")
-  private ListAppRoleDTO body;
+  private ListAppRole body;
 
-  public ListAppRoleDTO getListAppRoleDTO() {
+  public ListAppRole getListAppRole() {
     return this.body;
   }
 
-  public void setListAppRoleDTO(ListAppRoleDTO body) {
+  public void setListAppRole(ListAppRole body) {
     this.body = body;
   }
 }

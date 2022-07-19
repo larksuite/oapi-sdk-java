@@ -23,6 +23,11 @@ public class BaseEventV2 {
     return eventReq == null ? "" : eventReq.getRequestID();
   }
 
+
+  public String getTenantKey() {
+    return header == null ? "" : header.getTenantKey();
+  }
+
   public String getSchema() {
     return schema;
   }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ReadUserBatchMessageResp extends BaseResponse {
 
   @SerializedName("data")
-  private ReadUserBatchMessageDTO body;
+  private ReadUserBatchMessage body;
 
-  public ReadUserBatchMessageDTO getReadUserBatchMessageDTO() {
+  public ReadUserBatchMessage getReadUserBatchMessage() {
     return this.body;
   }
 
-  public void setReadUserBatchMessageDTO(ReadUserBatchMessageDTO body) {
+  public void setReadUserBatchMessage(ReadUserBatchMessage body) {
     this.body = body;
   }
 }

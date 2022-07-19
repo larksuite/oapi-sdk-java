@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GetDailyReportResp extends BaseResponse {
 
   @SerializedName("data")
-  private GetDailyReportDTO body;
+  private GetDailyReport body;
 
-  public GetDailyReportDTO getGetDailyReportDTO() {
+  public GetDailyReport getGetDailyReport() {
     return this.body;
   }
 
-  public void setGetDailyReportDTO(GetDailyReportDTO body) {
+  public void setGetDailyReport(GetDailyReport body) {
     this.body = body;
   }
 }

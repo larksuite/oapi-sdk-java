@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ReplaceSpreadsheetSheetResp extends BaseResponse {
 
   @SerializedName("data")
-  private ReplaceSpreadsheetSheetDTO body;
+  private ReplaceSpreadsheetSheet body;
 
-  public ReplaceSpreadsheetSheetDTO getReplaceSpreadsheetSheetDTO() {
+  public ReplaceSpreadsheetSheet getReplaceSpreadsheetSheet() {
     return this.body;
   }
 
-  public void setReplaceSpreadsheetSheetDTO(ReplaceSpreadsheetSheetDTO body) {
+  public void setReplaceSpreadsheetSheet(ReplaceSpreadsheetSheet body) {
     this.body = body;
   }
 }

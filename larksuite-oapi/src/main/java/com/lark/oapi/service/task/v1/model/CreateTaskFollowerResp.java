@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CreateTaskFollowerResp extends BaseResponse {
 
   @SerializedName("data")
-  private CreateTaskFollowerDTO body;
+  private CreateTaskFollower body;
 
-  public CreateTaskFollowerDTO getCreateTaskFollowerDTO() {
+  public CreateTaskFollower getCreateTaskFollower() {
     return this.body;
   }
 
-  public void setCreateTaskFollowerDTO(CreateTaskFollowerDTO body) {
+  public void setCreateTaskFollower(CreateTaskFollower body) {
     this.body = body;
   }
 }

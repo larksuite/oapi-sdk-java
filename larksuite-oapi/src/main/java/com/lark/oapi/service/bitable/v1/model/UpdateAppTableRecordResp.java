@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class UpdateAppTableRecordResp extends BaseResponse {
 
   @SerializedName("data")
-  private UpdateAppTableRecordDTO body;
+  private UpdateAppTableRecord body;
 
-  public UpdateAppTableRecordDTO getUpdateAppTableRecordDTO() {
+  public UpdateAppTableRecord getUpdateAppTableRecord() {
     return this.body;
   }
 
-  public void setUpdateAppTableRecordDTO(UpdateAppTableRecordDTO body) {
+  public void setUpdateAppTableRecord(UpdateAppTableRecord body) {
     this.body = body;
   }
 }

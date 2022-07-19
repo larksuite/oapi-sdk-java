@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class QueryRoomConfigResp extends BaseResponse {
 
   @SerializedName("data")
-  private QueryRoomConfigDTO body;
+  private QueryRoomConfig body;
 
-  public QueryRoomConfigDTO getQueryRoomConfigDTO() {
+  public QueryRoomConfig getQueryRoomConfig() {
     return this.body;
   }
 
-  public void setQueryRoomConfigDTO(QueryRoomConfigDTO body) {
+  public void setQueryRoomConfig(QueryRoomConfig body) {
     this.body = body;
   }
 }

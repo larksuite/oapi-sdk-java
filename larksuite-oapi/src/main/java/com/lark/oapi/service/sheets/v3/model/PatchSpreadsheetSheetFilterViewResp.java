@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class PatchSpreadsheetSheetFilterViewResp extends BaseResponse {
 
   @SerializedName("data")
-  private PatchSpreadsheetSheetFilterViewDTO body;
+  private PatchSpreadsheetSheetFilterView body;
 
-  public PatchSpreadsheetSheetFilterViewDTO getPatchSpreadsheetSheetFilterViewDTO() {
+  public PatchSpreadsheetSheetFilterView getPatchSpreadsheetSheetFilterView() {
     return this.body;
   }
 
-  public void setPatchSpreadsheetSheetFilterViewDTO(PatchSpreadsheetSheetFilterViewDTO body) {
+  public void setPatchSpreadsheetSheetFilterView(PatchSpreadsheetSheetFilterView body) {
     this.body = body;
   }
 }

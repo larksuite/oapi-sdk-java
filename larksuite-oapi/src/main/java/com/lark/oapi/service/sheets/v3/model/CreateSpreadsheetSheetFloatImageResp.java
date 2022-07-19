@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CreateSpreadsheetSheetFloatImageResp extends BaseResponse {
 
   @SerializedName("data")
-  private CreateSpreadsheetSheetFloatImageDTO body;
+  private CreateSpreadsheetSheetFloatImage body;
 
-  public CreateSpreadsheetSheetFloatImageDTO getCreateSpreadsheetSheetFloatImageDTO() {
+  public CreateSpreadsheetSheetFloatImage getCreateSpreadsheetSheetFloatImage() {
     return this.body;
   }
 
-  public void setCreateSpreadsheetSheetFloatImageDTO(CreateSpreadsheetSheetFloatImageDTO body) {
+  public void setCreateSpreadsheetSheetFloatImage(CreateSpreadsheetSheetFloatImage body) {
     this.body = body;
   }
 }

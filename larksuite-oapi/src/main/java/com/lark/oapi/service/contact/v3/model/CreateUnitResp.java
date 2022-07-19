@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CreateUnitResp extends BaseResponse {
 
   @SerializedName("data")
-  private CreateUnitDTO body;
+  private CreateUnit body;
 
-  public CreateUnitDTO getCreateUnitDTO() {
+  public CreateUnit getCreateUnit() {
     return this.body;
   }
 
-  public void setCreateUnitDTO(CreateUnitDTO body) {
+  public void setCreateUnit(CreateUnit body) {
     this.body = body;
   }
 }

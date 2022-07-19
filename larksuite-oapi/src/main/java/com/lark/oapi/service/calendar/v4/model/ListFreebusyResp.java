@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListFreebusyResp extends BaseResponse {
 
   @SerializedName("data")
-  private ListFreebusyDTO body;
+  private ListFreebusy body;
 
-  public ListFreebusyDTO getListFreebusyDTO() {
+  public ListFreebusy getListFreebusy() {
     return this.body;
   }
 
-  public void setListFreebusyDTO(ListFreebusyDTO body) {
+  public void setListFreebusy(ListFreebusy body) {
     this.body = body;
   }
 }

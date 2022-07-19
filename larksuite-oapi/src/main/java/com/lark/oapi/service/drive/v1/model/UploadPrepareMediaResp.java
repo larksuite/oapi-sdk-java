@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class UploadPrepareMediaResp extends BaseResponse {
 
   @SerializedName("data")
-  private UploadPrepareMediaDTO body;
+  private UploadPrepareMedia body;
 
-  public UploadPrepareMediaDTO getUploadPrepareMediaDTO() {
+  public UploadPrepareMedia getUploadPrepareMedia() {
     return this.body;
   }
 
-  public void setUploadPrepareMediaDTO(UploadPrepareMediaDTO body) {
+  public void setUploadPrepareMedia(UploadPrepareMedia body) {
     this.body = body;
   }
 }

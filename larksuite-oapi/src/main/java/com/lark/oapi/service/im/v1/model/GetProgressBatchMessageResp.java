@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GetProgressBatchMessageResp extends BaseResponse {
 
   @SerializedName("data")
-  private GetProgressBatchMessageDTO body;
+  private GetProgressBatchMessage body;
 
-  public GetProgressBatchMessageDTO getGetProgressBatchMessageDTO() {
+  public GetProgressBatchMessage getGetProgressBatchMessage() {
     return this.body;
   }
 
-  public void setGetProgressBatchMessageDTO(GetProgressBatchMessageDTO body) {
+  public void setGetProgressBatchMessage(GetProgressBatchMessage body) {
     this.body = body;
   }
 }

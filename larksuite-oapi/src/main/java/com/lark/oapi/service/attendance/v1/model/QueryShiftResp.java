@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class QueryShiftResp extends BaseResponse {
 
   @SerializedName("data")
-  private QueryShiftDTO body;
+  private QueryShift body;
 
-  public QueryShiftDTO getQueryShiftDTO() {
+  public QueryShift getQueryShift() {
     return this.body;
   }
 
-  public void setQueryShiftDTO(QueryShiftDTO body) {
+  public void setQueryShift(QueryShift body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class FindSpreadsheetSheetResp extends BaseResponse {
 
   @SerializedName("data")
-  private FindSpreadsheetSheetDTO body;
+  private FindSpreadsheetSheet body;
 
-  public FindSpreadsheetSheetDTO getFindSpreadsheetSheetDTO() {
+  public FindSpreadsheetSheet getFindSpreadsheetSheet() {
     return this.body;
   }
 
-  public void setFindSpreadsheetSheetDTO(FindSpreadsheetSheetDTO body) {
+  public void setFindSpreadsheetSheet(FindSpreadsheetSheet body) {
     this.body = body;
   }
 }

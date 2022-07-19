@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GetAppResp extends BaseResponse {
 
   @SerializedName("data")
-  private GetAppDTO body;
+  private GetApp body;
 
-  public GetAppDTO getGetAppDTO() {
+  public GetApp getGetApp() {
     return this.body;
   }
 
-  public void setGetAppDTO(GetAppDTO body) {
+  public void setGetApp(GetApp body) {
     this.body = body;
   }
 }

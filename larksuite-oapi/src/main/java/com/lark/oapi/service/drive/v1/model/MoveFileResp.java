@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class MoveFileResp extends BaseResponse {
 
   @SerializedName("data")
-  private MoveFileDTO body;
+  private MoveFile body;
 
-  public MoveFileDTO getMoveFileDTO() {
+  public MoveFile getMoveFile() {
     return this.body;
   }
 
-  public void setMoveFileDTO(MoveFileDTO body) {
+  public void setMoveFile(MoveFile body) {
     this.body = body;
   }
 }

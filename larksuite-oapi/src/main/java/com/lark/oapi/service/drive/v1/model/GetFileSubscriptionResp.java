@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GetFileSubscriptionResp extends BaseResponse {
 
   @SerializedName("data")
-  private GetFileSubscriptionDTO body;
+  private GetFileSubscription body;
 
-  public GetFileSubscriptionDTO getGetFileSubscriptionDTO() {
+  public GetFileSubscription getGetFileSubscription() {
     return this.body;
   }
 
-  public void setGetFileSubscriptionDTO(GetFileSubscriptionDTO body) {
+  public void setGetFileSubscription(GetFileSubscription body) {
     this.body = body;
   }
 }

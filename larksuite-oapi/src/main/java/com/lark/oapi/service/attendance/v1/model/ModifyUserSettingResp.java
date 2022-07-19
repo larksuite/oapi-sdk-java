@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ModifyUserSettingResp extends BaseResponse {
 
   @SerializedName("data")
-  private ModifyUserSettingDTO body;
+  private ModifyUserSetting body;
 
-  public ModifyUserSettingDTO getModifyUserSettingDTO() {
+  public ModifyUserSetting getModifyUserSetting() {
     return this.body;
   }
 
-  public void setModifyUserSettingDTO(ModifyUserSettingDTO body) {
+  public void setModifyUserSetting(ModifyUserSetting body) {
     this.body = body;
   }
 }

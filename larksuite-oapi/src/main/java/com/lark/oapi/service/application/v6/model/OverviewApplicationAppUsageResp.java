@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class OverviewApplicationAppUsageResp extends BaseResponse {
 
   @SerializedName("data")
-  private OverviewApplicationAppUsageDTO body;
+  private OverviewApplicationAppUsage body;
 
-  public OverviewApplicationAppUsageDTO getOverviewApplicationAppUsageDTO() {
+  public OverviewApplicationAppUsage getOverviewApplicationAppUsage() {
     return this.body;
   }
 
-  public void setOverviewApplicationAppUsageDTO(OverviewApplicationAppUsageDTO body) {
+  public void setOverviewApplicationAppUsage(OverviewApplicationAppUsage body) {
     this.body = body;
   }
 }

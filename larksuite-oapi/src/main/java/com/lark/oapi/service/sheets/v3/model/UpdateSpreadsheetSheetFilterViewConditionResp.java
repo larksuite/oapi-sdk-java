@@ -7,14 +7,14 @@ import com.lark.oapi.core.response.BaseResponse;
 public class UpdateSpreadsheetSheetFilterViewConditionResp extends BaseResponse {
 
   @SerializedName("data")
-  private UpdateSpreadsheetSheetFilterViewConditionDTO body;
+  private UpdateSpreadsheetSheetFilterViewCondition body;
 
-  public UpdateSpreadsheetSheetFilterViewConditionDTO getUpdateSpreadsheetSheetFilterViewConditionDTO() {
+  public UpdateSpreadsheetSheetFilterViewCondition getUpdateSpreadsheetSheetFilterViewCondition() {
     return this.body;
   }
 
-  public void setUpdateSpreadsheetSheetFilterViewConditionDTO(
-      UpdateSpreadsheetSheetFilterViewConditionDTO body) {
+  public void setUpdateSpreadsheetSheetFilterViewCondition(
+      UpdateSpreadsheetSheetFilterViewCondition body) {
     this.body = body;
   }
 }

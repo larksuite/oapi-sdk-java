@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GetFileStatisticsResp extends BaseResponse {
 
   @SerializedName("data")
-  private GetFileStatisticsDTO body;
+  private GetFileStatistics body;
 
-  public GetFileStatisticsDTO getGetFileStatisticsDTO() {
+  public GetFileStatistics getGetFileStatistics() {
     return this.body;
   }
 
-  public void setGetFileStatisticsDTO(GetFileStatisticsDTO body) {
+  public void setGetFileStatistics(GetFileStatistics body) {
     this.body = body;
   }
 }

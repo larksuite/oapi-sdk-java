@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class PatchAppTableFormFieldResp extends BaseResponse {
 
   @SerializedName("data")
-  private PatchAppTableFormFieldDTO body;
+  private PatchAppTableFormField body;
 
-  public PatchAppTableFormFieldDTO getPatchAppTableFormFieldDTO() {
+  public PatchAppTableFormField getPatchAppTableFormField() {
     return this.body;
   }
 
-  public void setPatchAppTableFormFieldDTO(PatchAppTableFormFieldDTO body) {
+  public void setPatchAppTableFormField(PatchAppTableFormField body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListEmployeeTypeEnumResp extends BaseResponse {
 
   @SerializedName("data")
-  private ListEmployeeTypeEnumDTO body;
+  private ListEmployeeTypeEnum body;
 
-  public ListEmployeeTypeEnumDTO getListEmployeeTypeEnumDTO() {
+  public ListEmployeeTypeEnum getListEmployeeTypeEnum() {
     return this.body;
   }
 
-  public void setListEmployeeTypeEnumDTO(ListEmployeeTypeEnumDTO body) {
+  public void setListEmployeeTypeEnum(ListEmployeeTypeEnum body) {
     this.body = body;
   }
 }

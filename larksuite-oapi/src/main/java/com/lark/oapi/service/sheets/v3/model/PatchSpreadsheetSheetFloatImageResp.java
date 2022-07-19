@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class PatchSpreadsheetSheetFloatImageResp extends BaseResponse {
 
   @SerializedName("data")
-  private PatchSpreadsheetSheetFloatImageDTO body;
+  private PatchSpreadsheetSheetFloatImage body;
 
-  public PatchSpreadsheetSheetFloatImageDTO getPatchSpreadsheetSheetFloatImageDTO() {
+  public PatchSpreadsheetSheetFloatImage getPatchSpreadsheetSheetFloatImage() {
     return this.body;
   }
 
-  public void setPatchSpreadsheetSheetFloatImageDTO(PatchSpreadsheetSheetFloatImageDTO body) {
+  public void setPatchSpreadsheetSheetFloatImage(PatchSpreadsheetSheetFloatImage body) {
     this.body = body;
   }
 }

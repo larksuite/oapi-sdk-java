@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GetActiveMeetingReserveResp extends BaseResponse {
 
   @SerializedName("data")
-  private GetActiveMeetingReserveDTO body;
+  private GetActiveMeetingReserve body;
 
-  public GetActiveMeetingReserveDTO getGetActiveMeetingReserveDTO() {
+  public GetActiveMeetingReserve getGetActiveMeetingReserve() {
     return this.body;
   }
 
-  public void setGetActiveMeetingReserveDTO(GetActiveMeetingReserveDTO body) {
+  public void setGetActiveMeetingReserve(GetActiveMeetingReserve body) {
     this.body = body;
   }
 }

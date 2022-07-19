@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListByNoMeetingResp extends BaseResponse {
 
   @SerializedName("data")
-  private ListByNoMeetingDTO body;
+  private ListByNoMeeting body;
 
-  public ListByNoMeetingDTO getListByNoMeetingDTO() {
+  public ListByNoMeeting getListByNoMeeting() {
     return this.body;
   }
 
-  public void setListByNoMeetingDTO(ListByNoMeetingDTO body) {
+  public void setListByNoMeeting(ListByNoMeeting body) {
     this.body = body;
   }
 }

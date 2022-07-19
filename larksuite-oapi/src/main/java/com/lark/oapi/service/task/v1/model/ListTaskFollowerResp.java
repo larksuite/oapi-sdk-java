@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListTaskFollowerResp extends BaseResponse {
 
   @SerializedName("data")
-  private ListTaskFollowerDTO body;
+  private ListTaskFollower body;
 
-  public ListTaskFollowerDTO getListTaskFollowerDTO() {
+  public ListTaskFollower getListTaskFollower() {
     return this.body;
   }
 
-  public void setListTaskFollowerDTO(ListTaskFollowerDTO body) {
+  public void setListTaskFollower(ListTaskFollower body) {
     this.body = body;
   }
 }

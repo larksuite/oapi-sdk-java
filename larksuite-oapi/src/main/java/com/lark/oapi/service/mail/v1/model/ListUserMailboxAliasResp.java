@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListUserMailboxAliasResp extends BaseResponse {
 
   @SerializedName("data")
-  private ListUserMailboxAliasDTO body;
+  private ListUserMailboxAlias body;
 
-  public ListUserMailboxAliasDTO getListUserMailboxAliasDTO() {
+  public ListUserMailboxAlias getListUserMailboxAlias() {
     return this.body;
   }
 
-  public void setListUserMailboxAliasDTO(ListUserMailboxAliasDTO body) {
+  public void setListUserMailboxAlias(ListUserMailboxAlias body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListCalendarResp extends BaseResponse {
 
   @SerializedName("data")
-  private ListCalendarDTO body;
+  private ListCalendar body;
 
-  public ListCalendarDTO getListCalendarDTO() {
+  public ListCalendar getListCalendar() {
     return this.body;
   }
 
-  public void setListCalendarDTO(ListCalendarDTO body) {
+  public void setListCalendar(ListCalendar body) {
     this.body = body;
   }
 }

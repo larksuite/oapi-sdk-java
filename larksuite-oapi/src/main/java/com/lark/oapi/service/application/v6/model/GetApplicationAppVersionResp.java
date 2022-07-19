@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GetApplicationAppVersionResp extends BaseResponse {
 
   @SerializedName("data")
-  private GetApplicationAppVersionDTO body;
+  private GetApplicationAppVersion body;
 
-  public GetApplicationAppVersionDTO getGetApplicationAppVersionDTO() {
+  public GetApplicationAppVersion getGetApplicationAppVersion() {
     return this.body;
   }
 
-  public void setGetApplicationAppVersionDTO(GetApplicationAppVersionDTO body) {
+  public void setGetApplicationAppVersion(GetApplicationAppVersion body) {
     this.body = body;
   }
 }

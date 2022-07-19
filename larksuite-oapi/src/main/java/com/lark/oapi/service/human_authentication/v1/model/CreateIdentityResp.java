@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CreateIdentityResp extends BaseResponse {
 
   @SerializedName("data")
-  private CreateIdentityDTO body;
+  private CreateIdentity body;
 
-  public CreateIdentityDTO getCreateIdentityDTO() {
+  public CreateIdentity getCreateIdentity() {
     return this.body;
   }
 
-  public void setCreateIdentityDTO(CreateIdentityDTO body) {
+  public void setCreateIdentity(CreateIdentity body) {
     this.body = body;
   }
 }

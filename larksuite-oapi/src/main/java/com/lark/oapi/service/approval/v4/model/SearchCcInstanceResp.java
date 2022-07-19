@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class SearchCcInstanceResp extends BaseResponse {
 
   @SerializedName("data")
-  private SearchCcInstanceDTO body;
+  private SearchCcInstance body;
 
-  public SearchCcInstanceDTO getSearchCcInstanceDTO() {
+  public SearchCcInstance getSearchCcInstance() {
     return this.body;
   }
 
-  public void setSearchCcInstanceDTO(SearchCcInstanceDTO body) {
+  public void setSearchCcInstance(SearchCcInstance body) {
     this.body = body;
   }
 }

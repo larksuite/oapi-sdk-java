@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class DeleteTabsChatTabResp extends BaseResponse {
 
   @SerializedName("data")
-  private DeleteTabsChatTabDTO body;
+  private DeleteTabsChatTab body;
 
-  public DeleteTabsChatTabDTO getDeleteTabsChatTabDTO() {
+  public DeleteTabsChatTab getDeleteTabsChatTab() {
     return this.body;
   }
 
-  public void setDeleteTabsChatTabDTO(DeleteTabsChatTabDTO body) {
+  public void setDeleteTabsChatTab(DeleteTabsChatTab body) {
     this.body = body;
   }
 }

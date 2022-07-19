@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CopySpaceNodeResp extends BaseResponse {
 
   @SerializedName("data")
-  private CopySpaceNodeDTO body;
+  private CopySpaceNode body;
 
-  public CopySpaceNodeDTO getCopySpaceNodeDTO() {
+  public CopySpaceNode getCopySpaceNode() {
     return this.body;
   }
 
-  public void setCopySpaceNodeDTO(CopySpaceNodeDTO body) {
+  public void setCopySpaceNode(CopySpaceNode body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class UploadFinishMediaResp extends BaseResponse {
 
   @SerializedName("data")
-  private UploadFinishMediaDTO body;
+  private UploadFinishMedia body;
 
-  public UploadFinishMediaDTO getUploadFinishMediaDTO() {
+  public UploadFinishMedia getUploadFinishMedia() {
     return this.body;
   }
 
-  public void setUploadFinishMediaDTO(UploadFinishMediaDTO body) {
+  public void setUploadFinishMedia(UploadFinishMedia body) {
     this.body = body;
   }
 }

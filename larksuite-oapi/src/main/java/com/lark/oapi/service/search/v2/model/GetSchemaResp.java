@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GetSchemaResp extends BaseResponse {
 
   @SerializedName("data")
-  private GetSchemaDTO body;
+  private GetSchema body;
 
-  public GetSchemaDTO getGetSchemaDTO() {
+  public GetSchema getGetSchema() {
     return this.body;
   }
 
-  public void setGetSchemaDTO(GetSchemaDTO body) {
+  public void setGetSchema(GetSchema body) {
     this.body = body;
   }
 }

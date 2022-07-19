@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class SearchGroupResp extends BaseResponse {
 
   @SerializedName("data")
-  private SearchGroupDTO body;
+  private SearchGroup body;
 
-  public SearchGroupDTO getSearchGroupDTO() {
+  public SearchGroup getSearchGroup() {
     return this.body;
   }
 
-  public void setSearchGroupDTO(SearchGroupDTO body) {
+  public void setSearchGroup(SearchGroup body) {
     this.body = body;
   }
 }

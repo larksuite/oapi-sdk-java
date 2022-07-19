@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CreateImageResp extends BaseResponse {
 
   @SerializedName("data")
-  private CreateImageDTO body;
+  private CreateImage body;
 
-  public CreateImageDTO getCreateImageDTO() {
+  public CreateImage getCreateImage() {
     return this.body;
   }
 
-  public void setCreateImageDTO(CreateImageDTO body) {
+  public void setCreateImage(CreateImage body) {
     this.body = body;
   }
 }

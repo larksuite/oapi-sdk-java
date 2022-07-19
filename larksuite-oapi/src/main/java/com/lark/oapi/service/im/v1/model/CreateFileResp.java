@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CreateFileResp extends BaseResponse {
 
   @SerializedName("data")
-  private CreateFileDTO body;
+  private CreateFile body;
 
-  public CreateFileDTO getCreateFileDTO() {
+  public CreateFile getCreateFile() {
     return this.body;
   }
 
-  public void setCreateFileDTO(CreateFileDTO body) {
+  public void setCreateFile(CreateFile body) {
     this.body = body;
   }
 }

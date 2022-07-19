@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class PatchDepartmentResp extends BaseResponse {
 
   @SerializedName("data")
-  private PatchDepartmentDTO body;
+  private PatchDepartment body;
 
-  public PatchDepartmentDTO getPatchDepartmentDTO() {
+  public PatchDepartment getPatchDepartment() {
     return this.body;
   }
 
-  public void setPatchDepartmentDTO(PatchDepartmentDTO body) {
+  public void setPatchDepartment(PatchDepartment body) {
     this.body = body;
   }
 }

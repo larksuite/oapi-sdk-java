@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CreatePermissionMemberResp extends BaseResponse {
 
   @SerializedName("data")
-  private CreatePermissionMemberDTO body;
+  private CreatePermissionMember body;
 
-  public CreatePermissionMemberDTO getCreatePermissionMemberDTO() {
+  public CreatePermissionMember getCreatePermissionMember() {
     return this.body;
   }
 
-  public void setCreatePermissionMemberDTO(CreatePermissionMemberDTO body) {
+  public void setCreatePermissionMember(CreatePermissionMember body) {
     this.body = body;
   }
 }

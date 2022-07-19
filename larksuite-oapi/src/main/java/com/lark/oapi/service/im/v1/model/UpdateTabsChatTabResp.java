@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class UpdateTabsChatTabResp extends BaseResponse {
 
   @SerializedName("data")
-  private UpdateTabsChatTabDTO body;
+  private UpdateTabsChatTab body;
 
-  public UpdateTabsChatTabDTO getUpdateTabsChatTabDTO() {
+  public UpdateTabsChatTab getUpdateTabsChatTab() {
     return this.body;
   }
 
-  public void setUpdateTabsChatTabDTO(UpdateTabsChatTabDTO body) {
+  public void setUpdateTabsChatTab(UpdateTabsChatTab body) {
     this.body = body;
   }
 }

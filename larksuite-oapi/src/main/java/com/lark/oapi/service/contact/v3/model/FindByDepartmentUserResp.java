@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class FindByDepartmentUserResp extends BaseResponse {
 
   @SerializedName("data")
-  private FindByDepartmentUserDTO body;
+  private FindByDepartmentUser body;
 
-  public FindByDepartmentUserDTO getFindByDepartmentUserDTO() {
+  public FindByDepartmentUser getFindByDepartmentUser() {
     return this.body;
   }
 
-  public void setFindByDepartmentUserDTO(FindByDepartmentUserDTO body) {
+  public void setFindByDepartmentUser(FindByDepartmentUser body) {
     this.body = body;
   }
 }

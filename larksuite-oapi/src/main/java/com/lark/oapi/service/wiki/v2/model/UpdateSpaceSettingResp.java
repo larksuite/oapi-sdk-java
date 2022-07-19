@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class UpdateSpaceSettingResp extends BaseResponse {
 
   @SerializedName("data")
-  private UpdateSpaceSettingDTO body;
+  private UpdateSpaceSetting body;
 
-  public UpdateSpaceSettingDTO getUpdateSpaceSettingDTO() {
+  public UpdateSpaceSetting getUpdateSpaceSetting() {
     return this.body;
   }
 
-  public void setUpdateSpaceSettingDTO(UpdateSpaceSettingDTO body) {
+  public void setUpdateSpaceSetting(UpdateSpaceSetting body) {
     this.body = body;
   }
 }

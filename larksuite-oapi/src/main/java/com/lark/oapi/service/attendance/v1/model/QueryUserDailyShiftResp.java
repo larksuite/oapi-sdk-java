@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class QueryUserDailyShiftResp extends BaseResponse {
 
   @SerializedName("data")
-  private QueryUserDailyShiftDTO body;
+  private QueryUserDailyShift body;
 
-  public QueryUserDailyShiftDTO getQueryUserDailyShiftDTO() {
+  public QueryUserDailyShift getQueryUserDailyShift() {
     return this.body;
   }
 
-  public void setQueryUserDailyShiftDTO(QueryUserDailyShiftDTO body) {
+  public void setQueryUserDailyShift(QueryUserDailyShift body) {
     this.body = body;
   }
 }

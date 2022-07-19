@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CreateInstanceCommentResp extends BaseResponse {
 
   @SerializedName("data")
-  private CreateInstanceCommentDTO body;
+  private CreateInstanceComment body;
 
-  public CreateInstanceCommentDTO getCreateInstanceCommentDTO() {
+  public CreateInstanceComment getCreateInstanceComment() {
     return this.body;
   }
 
-  public void setCreateInstanceCommentDTO(CreateInstanceCommentDTO body) {
+  public void setCreateInstanceComment(CreateInstanceComment body) {
     this.body = body;
   }
 }

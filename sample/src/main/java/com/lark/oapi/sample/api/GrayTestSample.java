@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class grayTestSample {
+public class GrayTestSample {
 
   public static void main(String arg[]) throws Exception {
     String appId = System.getenv().get("APP_ID");
@@ -30,7 +30,7 @@ public class grayTestSample {
         .tokenCache(LocalCache.getInstance()) // 设置token缓存，默认为内存缓存
         .requestTimeout(3, TimeUnit.SECONDS) // 设置httpclient 超时时间，默认永不超时
         //.disableTokenCache() // 禁用token管理，则需要开发者自己传递token
-        .logReqRespInfoAtDebugLevel(true)
+        .logReqAtDebug(true)
         .httpTransport(new OkHttpTransport(new OkHttpClient.Builder().build())) // 自定义传输层
         .build();
 

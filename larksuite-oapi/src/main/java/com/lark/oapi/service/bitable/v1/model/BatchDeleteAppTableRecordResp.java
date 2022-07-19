@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class BatchDeleteAppTableRecordResp extends BaseResponse {
 
   @SerializedName("data")
-  private BatchDeleteAppTableRecordDTO body;
+  private BatchDeleteAppTableRecord body;
 
-  public BatchDeleteAppTableRecordDTO getBatchDeleteAppTableRecordDTO() {
+  public BatchDeleteAppTableRecord getBatchDeleteAppTableRecord() {
     return this.body;
   }
 
-  public void setBatchDeleteAppTableRecordDTO(BatchDeleteAppTableRecordDTO body) {
+  public void setBatchDeleteAppTableRecord(BatchDeleteAppTableRecord body) {
     this.body = body;
   }
 }

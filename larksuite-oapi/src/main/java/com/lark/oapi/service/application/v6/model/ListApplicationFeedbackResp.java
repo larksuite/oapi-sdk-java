@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListApplicationFeedbackResp extends BaseResponse {
 
   @SerializedName("data")
-  private ListApplicationFeedbackDTO body;
+  private ListApplicationFeedback body;
 
-  public ListApplicationFeedbackDTO getListApplicationFeedbackDTO() {
+  public ListApplicationFeedback getListApplicationFeedback() {
     return this.body;
   }
 
-  public void setListApplicationFeedbackDTO(ListApplicationFeedbackDTO body) {
+  public void setListApplicationFeedback(ListApplicationFeedback body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class BasicRecognizeImageResp extends BaseResponse {
 
   @SerializedName("data")
-  private BasicRecognizeImageDTO body;
+  private BasicRecognizeImage body;
 
-  public BasicRecognizeImageDTO getBasicRecognizeImageDTO() {
+  public BasicRecognizeImage getBasicRecognizeImage() {
     return this.body;
   }
 
-  public void setBasicRecognizeImageDTO(BasicRecognizeImageDTO body) {
+  public void setBasicRecognizeImage(BasicRecognizeImage body) {
     this.body = body;
   }
 }

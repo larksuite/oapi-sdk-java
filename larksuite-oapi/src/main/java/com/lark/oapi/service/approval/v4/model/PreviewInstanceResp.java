@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class PreviewInstanceResp extends BaseResponse {
 
   @SerializedName("data")
-  private PreviewInstanceDTO body;
+  private PreviewInstance body;
 
-  public PreviewInstanceDTO getPreviewInstanceDTO() {
+  public PreviewInstance getPreviewInstance() {
     return this.body;
   }
 
-  public void setPreviewInstanceDTO(PreviewInstanceDTO body) {
+  public void setPreviewInstance(PreviewInstance body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CreateChatMembersResp extends BaseResponse {
 
   @SerializedName("data")
-  private CreateChatMembersDTO body;
+  private CreateChatMembers body;
 
-  public CreateChatMembersDTO getCreateChatMembersDTO() {
+  public CreateChatMembers getCreateChatMembers() {
     return this.body;
   }
 
-  public void setCreateChatMembersDTO(CreateChatMembersDTO body) {
+  public void setCreateChatMembers(CreateChatMembers body) {
     this.body = body;
   }
 }

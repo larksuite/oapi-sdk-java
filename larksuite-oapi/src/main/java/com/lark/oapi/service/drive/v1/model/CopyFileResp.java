@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CopyFileResp extends BaseResponse {
 
   @SerializedName("data")
-  private CopyFileDTO body;
+  private CopyFile body;
 
-  public CopyFileDTO getCopyFileDTO() {
+  public CopyFile getCopyFile() {
     return this.body;
   }
 
-  public void setCopyFileDTO(CopyFileDTO body) {
+  public void setCopyFile(CopyFile body) {
     this.body = body;
   }
 }

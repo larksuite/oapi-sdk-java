@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class TranslateTextResp extends BaseResponse {
 
   @SerializedName("data")
-  private TranslateTextDTO body;
+  private TranslateText body;
 
-  public TranslateTextDTO getTranslateTextDTO() {
+  public TranslateText getTranslateText() {
     return this.body;
   }
 
-  public void setTranslateTextDTO(TranslateTextDTO body) {
+  public void setTranslateText(TranslateText body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class SearchCalendarEventResp extends BaseResponse {
 
   @SerializedName("data")
-  private SearchCalendarEventDTO body;
+  private SearchCalendarEvent body;
 
-  public SearchCalendarEventDTO getSearchCalendarEventDTO() {
+  public SearchCalendarEvent getSearchCalendarEvent() {
     return this.body;
   }
 
-  public void setSearchCalendarEventDTO(SearchCalendarEventDTO body) {
+  public void setSearchCalendarEvent(SearchCalendarEvent body) {
     this.body = body;
   }
 }

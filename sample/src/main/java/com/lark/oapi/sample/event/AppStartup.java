@@ -12,6 +12,7 @@ public class AppStartup {
     SpringApplication.run(AppStartup.class, args);
   }
 
+  // 注入扩展实例到 IOC 容器
   @Bean
   public ServletAdapter getServletAdapter() {
     return new ServletAdapter();

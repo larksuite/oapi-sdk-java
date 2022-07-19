@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class DetectTextResp extends BaseResponse {
 
   @SerializedName("data")
-  private DetectTextDTO body;
+  private DetectText body;
 
-  public DetectTextDTO getDetectTextDTO() {
+  public DetectText getDetectText() {
     return this.body;
   }
 
-  public void setDetectTextDTO(DetectTextDTO body) {
+  public void setDetectText(DetectText body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class PatchPermissionPublicResp extends BaseResponse {
 
   @SerializedName("data")
-  private PatchPermissionPublicDTO body;
+  private PatchPermissionPublic body;
 
-  public PatchPermissionPublicDTO getPatchPermissionPublicDTO() {
+  public PatchPermissionPublic getPatchPermissionPublic() {
     return this.body;
   }
 
-  public void setPatchPermissionPublicDTO(PatchPermissionPublicDTO body) {
+  public void setPatchPermissionPublic(PatchPermissionPublic body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class QuerySessionResp extends BaseResponse {
 
   @SerializedName("data")
-  private QuerySessionDTO body;
+  private QuerySession body;
 
-  public QuerySessionDTO getQuerySessionDTO() {
+  public QuerySession getQuerySession() {
     return this.body;
   }
 
-  public void setQuerySessionDTO(QuerySessionDTO body) {
+  public void setQuerySession(QuerySession body) {
     this.body = body;
   }
 }

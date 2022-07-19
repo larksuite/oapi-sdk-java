@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class CreateUserTaskRemedyResp extends BaseResponse {
 
   @SerializedName("data")
-  private CreateUserTaskRemedyDTO body;
+  private CreateUserTaskRemedy body;
 
-  public CreateUserTaskRemedyDTO getCreateUserTaskRemedyDTO() {
+  public CreateUserTaskRemedy getCreateUserTaskRemedy() {
     return this.body;
   }
 
-  public void setCreateUserTaskRemedyDTO(CreateUserTaskRemedyDTO body) {
+  public void setCreateUserTaskRemedy(CreateUserTaskRemedy body) {
     this.body = body;
   }
 }

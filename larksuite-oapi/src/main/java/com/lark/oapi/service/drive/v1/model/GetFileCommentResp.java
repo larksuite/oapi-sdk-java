@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GetFileCommentResp extends BaseResponse {
 
   @SerializedName("data")
-  private GetFileCommentDTO body;
+  private GetFileComment body;
 
-  public GetFileCommentDTO getGetFileCommentDTO() {
+  public GetFileComment getGetFileComment() {
     return this.body;
   }
 
-  public void setGetFileCommentDTO(GetFileCommentDTO body) {
+  public void setGetFileComment(GetFileComment body) {
     this.body = body;
   }
 }

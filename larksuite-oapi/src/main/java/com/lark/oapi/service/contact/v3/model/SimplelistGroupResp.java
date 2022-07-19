@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class SimplelistGroupResp extends BaseResponse {
 
   @SerializedName("data")
-  private SimplelistGroupDTO body;
+  private SimplelistGroup body;
 
-  public SimplelistGroupDTO getSimplelistGroupDTO() {
+  public SimplelistGroup getSimplelistGroup() {
     return this.body;
   }
 
-  public void setSimplelistGroupDTO(SimplelistGroupDTO body) {
+  public void setSimplelistGroup(SimplelistGroup body) {
     this.body = body;
   }
 }

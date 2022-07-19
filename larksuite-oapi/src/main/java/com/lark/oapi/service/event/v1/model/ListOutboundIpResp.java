@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListOutboundIpResp extends BaseResponse {
 
   @SerializedName("data")
-  private ListOutboundIpDTO body;
+  private ListOutboundIp body;
 
-  public ListOutboundIpDTO getListOutboundIpDTO() {
+  public ListOutboundIp getListOutboundIp() {
     return this.body;
   }
 
-  public void setListOutboundIpDTO(ListOutboundIpDTO body) {
+  public void setListOutboundIp(ListOutboundIp body) {
     this.body = body;
   }
 }

@@ -20,7 +20,7 @@ public class RawApiCall {
     // 构建client
     Client client = Client.newBuilder(appId, appSecret)
         .appType(AppType.SELF_BUILT) // 设置app类型，默认为自建
-        .logReqRespInfoAtDebugLevel(true)
+        .logReqAtDebug(true)
         .build();
 
     // 构建http body
@@ -37,6 +37,8 @@ public class RawApiCall {
         , AccessTokenType.Tenant);
 
     // 处理结果
+    System.out.println(resp.getStatusCode());
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getHeaders()));
     System.out.println(Jsons.LONG_TO_STR.toJson(resp));
     System.out.println(resp.getRequestID());
   }

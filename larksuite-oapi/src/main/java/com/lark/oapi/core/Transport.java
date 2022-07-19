@@ -201,7 +201,7 @@ public class Transport {
             httpPath, requestOptions);
 
         // 打印日志
-        if (config.isLogReqRespInfoAtDebugLevel()) {
+        if (config.isLogReqAtDebug()) {
           logReq(request, httpMethod, requestOptions.isSupportUpload());
         }
 
@@ -213,7 +213,7 @@ public class Transport {
         RawResponse rawResponse = httpTransport.execute(request);
 
         // 打印日志
-        if (config.isLogReqRespInfoAtDebugLevel() || accessTokenType != AccessTokenType.None) {
+        if (config.isLogReqAtDebug() || accessTokenType != AccessTokenType.None) {
           if (requestOptions.isSupportDownLoad()) {
             log.debug("resp,path:{},code:{},header:{}", httpPath, rawResponse.getStatusCode(),
                 rawResponse.getHeaders());

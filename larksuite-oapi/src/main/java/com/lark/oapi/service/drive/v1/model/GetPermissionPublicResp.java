@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class GetPermissionPublicResp extends BaseResponse {
 
   @SerializedName("data")
-  private GetPermissionPublicDTO body;
+  private GetPermissionPublic body;
 
-  public GetPermissionPublicDTO getGetPermissionPublicDTO() {
+  public GetPermissionPublic getGetPermissionPublic() {
     return this.body;
   }
 
-  public void setGetPermissionPublicDTO(GetPermissionPublicDTO body) {
+  public void setGetPermissionPublic(GetPermissionPublic body) {
     this.body = body;
   }
 }

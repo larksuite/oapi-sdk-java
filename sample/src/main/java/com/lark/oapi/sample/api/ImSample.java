@@ -196,7 +196,7 @@ public class ImSample {
       }
 
       // 业务处理结果
-      System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessageDTO()));
+      System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
       // 原生http信息
       System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
       // 返回请求ID
@@ -408,7 +408,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessageDTO()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -532,7 +532,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessageDTO()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -565,7 +565,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessageDTO()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -598,7 +598,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessageDTO()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -631,7 +631,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessageDTO()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -664,7 +664,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessageDTO()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -698,7 +698,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessageDTO()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -788,7 +788,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessageDTO()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -871,7 +871,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessageDTO()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -903,7 +903,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessageDTO()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -935,7 +935,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessageDTO()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -1116,7 +1116,7 @@ public class ImSample {
         .tokenCache(LocalCache.getInstance()) // 设置token缓存，默认为内存缓存
         .requestTimeout(3, TimeUnit.SECONDS) // 设置httpclient 超时时间，默认永不超时
         //.disableTokenCache() // 禁用token管理，禁用后需要开发者自己传递token
-        .logReqRespInfoAtDebugLevel(true)
+        .logReqAtDebug(true)
         .build();
     //replayMsg(client);
     // downLoadImage(client);

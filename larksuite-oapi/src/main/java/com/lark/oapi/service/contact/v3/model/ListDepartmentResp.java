@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListDepartmentResp extends BaseResponse {
 
   @SerializedName("data")
-  private ListDepartmentDTO body;
+  private ListDepartment body;
 
-  public ListDepartmentDTO getListDepartmentDTO() {
+  public ListDepartment getListDepartment() {
     return this.body;
   }
 
-  public void setListDepartmentDTO(ListDepartmentDTO body) {
+  public void setListDepartment(ListDepartment body) {
     this.body = body;
   }
 }

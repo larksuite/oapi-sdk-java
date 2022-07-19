@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class MoveSpaceNodeResp extends BaseResponse {
 
   @SerializedName("data")
-  private MoveSpaceNodeDTO body;
+  private MoveSpaceNode body;
 
-  public MoveSpaceNodeDTO getMoveSpaceNodeDTO() {
+  public MoveSpaceNode getMoveSpaceNode() {
     return this.body;
   }
 
-  public void setMoveSpaceNodeDTO(MoveSpaceNodeDTO body) {
+  public void setMoveSpaceNode(MoveSpaceNode body) {
     this.body = body;
   }
 }

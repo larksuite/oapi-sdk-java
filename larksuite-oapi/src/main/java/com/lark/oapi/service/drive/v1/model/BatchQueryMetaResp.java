@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class BatchQueryMetaResp extends BaseResponse {
 
   @SerializedName("data")
-  private BatchQueryMetaDTO body;
+  private BatchQueryMeta body;
 
-  public BatchQueryMetaDTO getBatchQueryMetaDTO() {
+  public BatchQueryMeta getBatchQueryMeta() {
     return this.body;
   }
 
-  public void setBatchQueryMetaDTO(BatchQueryMetaDTO body) {
+  public void setBatchQueryMeta(BatchQueryMeta body) {
     this.body = body;
   }
 }

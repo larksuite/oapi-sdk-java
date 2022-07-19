@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class BatchCreateAppTableRecordResp extends BaseResponse {
 
   @SerializedName("data")
-  private BatchCreateAppTableRecordDTO body;
+  private BatchCreateAppTableRecord body;
 
-  public BatchCreateAppTableRecordDTO getBatchCreateAppTableRecordDTO() {
+  public BatchCreateAppTableRecord getBatchCreateAppTableRecord() {
     return this.body;
   }
 
-  public void setBatchCreateAppTableRecordDTO(BatchCreateAppTableRecordDTO body) {
+  public void setBatchCreateAppTableRecord(BatchCreateAppTableRecord body) {
     this.body = body;
   }
 }

@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class ListClassificationResp extends BaseResponse {
 
   @SerializedName("data")
-  private ListClassificationDTO body;
+  private ListClassification body;
 
-  public ListClassificationDTO getListClassificationDTO() {
+  public ListClassification getListClassification() {
     return this.body;
   }
 
-  public void setListClassificationDTO(ListClassificationDTO body) {
+  public void setListClassification(ListClassification body) {
     this.body = body;
   }
 }

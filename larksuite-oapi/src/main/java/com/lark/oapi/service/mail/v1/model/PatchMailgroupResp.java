@@ -7,13 +7,13 @@ import com.lark.oapi.core.response.BaseResponse;
 public class PatchMailgroupResp extends BaseResponse {
 
   @SerializedName("data")
-  private PatchMailgroupDTO body;
+  private PatchMailgroup body;
 
-  public PatchMailgroupDTO getPatchMailgroupDTO() {
+  public PatchMailgroup getPatchMailgroup() {
     return this.body;
   }
 
-  public void setPatchMailgroupDTO(PatchMailgroupDTO body) {
+  public void setPatchMailgroup(PatchMailgroup body) {
     this.body = body;
   }
 }
