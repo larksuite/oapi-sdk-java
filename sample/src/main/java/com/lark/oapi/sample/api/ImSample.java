@@ -1129,23 +1129,11 @@ public class ImSample {
         .requestTimeout(3, TimeUnit.SECONDS) // 设置httpclient 超时时间，默认永不超时
         //.disableTokenCache() // 禁用token管理，禁用后需要开发者自己传递token
         .logReqAtDebug(true)
+//        .httpTransport(ApacheHttpClientTransport.newBuilder()
+//            .httpclient(HttpClients.createDefault())
+//            .build())
         .build();
-    //replayMsg(client);
-    // downLoadImage(client);
-    // uploadFile(client);
-    // downLoadFile(client);
-    sendTextMsg(client);
-    // sendImageMsg(client);
-    //sendFileMsg(client);
-    //sendShareChatMsg(client);
-    // sendShareChatUser(client);
-    // sendPostMsg(client);
-    // uploadImage(client);
-    // sendMsgNoBuilder(client);
-    // downLoadFile2(client);
-    // downloadDriveFile(client);
-    //sendInteractiveMonitorMsg(client);
-    //delMsg(client);
-    //sendInteractiveMonitorProcessedMsg(client);
+
+    sendInteractiveMonitorProcessedMsg(client);
   }
 }

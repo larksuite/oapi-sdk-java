@@ -136,8 +136,8 @@ public class MockEventSend {
     // mockAppTicketEvent();
     // mockChallenge();
     // mockPlainTextEvent();
-    //mockEncryptEvent();
-    mockP1MessageReadV1Event();
+    mockEncryptEvent();
+   // mockChallenge();
 
   }
 }

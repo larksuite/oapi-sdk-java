@@ -22,7 +22,7 @@ import com.lark.oapi.service.im.v1.ImService.P2MessageReceiveV1Handler;
 import com.lark.oapi.service.im.v1.model.P1MessageReadV1;
 import com.lark.oapi.service.im.v1.model.P2MessageReadV1;
 import com.lark.oapi.service.im.v1.model.P2MessageReceiveV1;
-import com.larksuite.oapi.sdk.servlet.ext.ServletAdapter;
+import com.lark.oapi.sdk.servlet.ext.ServletAdapter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;

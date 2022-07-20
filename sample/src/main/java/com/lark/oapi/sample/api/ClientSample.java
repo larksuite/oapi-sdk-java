@@ -16,7 +16,9 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.enums.BaseUrlEnum;
 import com.lark.oapi.core.httpclient.OkHttpTransport;
 import com.lark.oapi.okhttp.OkHttpClient;
+import com.lark.oapi.sdk.apache.httpclient.ApacheHttpClientTransport;
 import java.util.concurrent.TimeUnit;
+import org.apache.http.impl.client.HttpClients;
 
 public class ClientSample {
 
@@ -30,9 +32,9 @@ public class ClientSample {
 
   public static void useCustomApacheHttpClient() {
     Client client = Client.newBuilder("appId", "appSecret")
-        .httpTransport(new OkHttpTransport(new OkHttpClient().newBuilder()
-            .callTimeout(3L, TimeUnit.SECONDS)
-            .build())) // 自定义传输层
+        .httpTransport(ApacheHttpClientTransport.newBuilder()
+            .httpclient(HttpClients.createDefault())
+            .build()) // 自定义传输层
         .marketplaceApp() // 设置 app 类型为商店应用
         .openBaseUrl(BaseUrlEnum.FeiShu) // 设置域名，默认为飞书
         .helpDeskCredential("helpDeskId", "helpDeskSecret") // 服务台应用才需要设置

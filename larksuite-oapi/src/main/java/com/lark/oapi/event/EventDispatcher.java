@@ -165,6 +165,9 @@ public class EventDispatcher implements IHandler {
 
       // 解析关键字段
       Fuzzy fuzzy = Jsons.DEFAULT.fromJson(plainEventJsonStr, Fuzzy.class);
+      if (Strings.isNotEmpty(fuzzy.getEncrypt())) {
+        throw new IllegalArgumentException("parser cipher event msg, need config encryptKey");
+      }
       String token = fuzzy.getToken();
       String eventType = "";
       if (fuzzy.getEvent() != null) {

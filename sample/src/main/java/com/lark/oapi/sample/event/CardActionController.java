@@ -35,7 +35,7 @@ import com.lark.oapi.card.model.MessageCardNote;
 import com.lark.oapi.card.model.MessageCardPlainText;
 import com.lark.oapi.card.model.MessageCardURL;
 import com.lark.oapi.core.utils.Jsons;
-import com.larksuite.oapi.sdk.servlet.ext.ServletAdapter;
+import com.lark.oapi.sdk.servlet.ext.ServletAdapter;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
