@@ -1,3 +1,15 @@
+/*
+ * MIT License
+ *
+ * Copyright (c) 2022 Lark Technologies Pte. Ltd.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice, shall be included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
 package com.lark.oapi.core.token;
 
 import com.lark.oapi.core.Config;
@@ -7,10 +19,10 @@ import com.lark.oapi.core.cache.ICache;
 import com.lark.oapi.core.enums.AppType;
 import com.lark.oapi.core.exception.AppTicketIsEmptyException;
 import com.lark.oapi.core.exception.ObtainAccessTokenException;
-import com.lark.oapi.core.request.ISVAppAccessTokenReq;
-import com.lark.oapi.core.request.ISVTenantAccessTokenReq;
-import com.lark.oapi.core.request.InternalAccessTokenReq;
+import com.lark.oapi.core.request.MarketplaceAppAccessTokenReq;
+import com.lark.oapi.core.request.MarketplaceTenantAccessTokenReq;
 import com.lark.oapi.core.request.RequestOptions;
+import com.lark.oapi.core.request.SelfBuiltAppAccessTokenReq;
 import com.lark.oapi.core.response.AppAccessTokenResp;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.response.TenantAccessTokenResp;
@@ -67,7 +79,7 @@ public class TokenManager {
 
   // 自建应用获取 access token
   private AppAccessTokenResp getInternalAppAccessToken(Config config) throws Exception {
-    InternalAccessTokenReq internalAccessTokenReq = new InternalAccessTokenReq();
+    SelfBuiltAppAccessTokenReq internalAccessTokenReq = new SelfBuiltAppAccessTokenReq();
     internalAccessTokenReq.setAppId(config.getAppId());
     internalAccessTokenReq.setAppSecret(config.getAppSecret());
     RawResponse resp = Transport.send(config
@@ -94,7 +106,7 @@ public class TokenManager {
     }
 
     // 发起请求，获取token
-    ISVAppAccessTokenReq isvAppAccessTokenReq = new ISVAppAccessTokenReq();
+    MarketplaceAppAccessTokenReq isvAppAccessTokenReq = new MarketplaceAppAccessTokenReq();
     isvAppAccessTokenReq.setAppId(config.getAppId());
     isvAppAccessTokenReq.setAppSecret(config.getAppSecret());
     isvAppAccessTokenReq.setAppTicket(appTicket);
@@ -146,7 +158,7 @@ public class TokenManager {
 
   // get internal tenant access token
   private TenantAccessTokenResp getInternalTenantAccessToken(Config config) throws Exception {
-    InternalAccessTokenReq internalAccessTokenReq = new InternalAccessTokenReq();
+    SelfBuiltAppAccessTokenReq internalAccessTokenReq = new SelfBuiltAppAccessTokenReq();
     internalAccessTokenReq.setAppId(config.getAppId());
     internalAccessTokenReq.setAppSecret(config.getAppSecret());
 
@@ -171,7 +183,7 @@ public class TokenManager {
       throws Exception {
     AppAccessTokenResp appAccessToken = getIsvAppAccessToken(config);
 
-    ISVTenantAccessTokenReq isvTenantAccessTokenReq = new ISVTenantAccessTokenReq();
+    MarketplaceTenantAccessTokenReq isvTenantAccessTokenReq = new MarketplaceTenantAccessTokenReq();
     isvTenantAccessTokenReq.setAppAccessToken(appAccessToken.getAppAccessToken());
     isvTenantAccessTokenReq.setTenantKey(tenantKey);
 

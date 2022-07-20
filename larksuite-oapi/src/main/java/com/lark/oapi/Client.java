@@ -34,6 +34,7 @@ import com.lark.oapi.service.drive.v1.DriveService;
 import com.lark.oapi.service.ehr.v1.EhrService;
 import com.lark.oapi.service.event.v1.EventService;
 import com.lark.oapi.service.gray_test_open_sg.v1.GrayTestOpenSgService;
+import com.lark.oapi.service.helpdesk.v1.HelpdeskService;
 import com.lark.oapi.service.human_authentication.v1.HumanAuthenticationService;
 import com.lark.oapi.service.im.v1.ImService;
 import com.lark.oapi.service.mail.v1.MailService;
@@ -69,6 +70,7 @@ public class Client {
   private EhrService ehr;
   private EventService event;
   private GrayTestOpenSgService grayTestOpenSg;
+  private HelpdeskService helpdesk;
   private HumanAuthenticationService humanAuthentication;
   private ImService im;
   private MailService mail;
@@ -149,6 +151,10 @@ public class Client {
 
   public GrayTestOpenSgService grayTestOpenSg() {
     return grayTestOpenSg;
+  }
+
+  public HelpdeskService helpdesk() {
+    return helpdesk;
   }
 
   public HumanAuthenticationService humanAuthentication() {
@@ -398,6 +404,7 @@ public class Client {
       client.ehr = new EhrService(config);
       client.event = new EventService(config);
       client.grayTestOpenSg = new GrayTestOpenSgService(config);
+      client.helpdesk = new HelpdeskService(config);
       client.humanAuthentication = new HumanAuthenticationService(config);
       client.im = new ImService(config);
       client.mail = new MailService(config);

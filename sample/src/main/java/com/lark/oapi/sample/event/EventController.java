@@ -1,10 +1,19 @@
+/*
+ * MIT License
+ *
+ * Copyright (c) 2022 Lark Technologies Pte. Ltd.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice, shall be included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
 package com.lark.oapi.sample.event;
 
-import com.lark.oapi.Client;
-import com.lark.oapi.core.httpclient.OkHttpTransport;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.event.EventDispatcher;
-import com.lark.oapi.okhttp.OkHttpClient;
 import com.lark.oapi.service.contact.v3.ContactService.P2UserCreatedV3Handler;
 import com.lark.oapi.service.contact.v3.model.P2UserCreatedV3;
 import com.lark.oapi.service.im.v1.ImService.P1MessageReadV1Handler;
@@ -14,7 +23,6 @@ import com.lark.oapi.service.im.v1.model.P1MessageReadV1;
 import com.lark.oapi.service.im.v1.model.P2MessageReadV1;
 import com.lark.oapi.service.im.v1.model.P2MessageReceiveV1;
 import com.larksuite.oapi.sdk.servlet.ext.ServletAdapter;
-import java.util.concurrent.TimeUnit;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,11 +62,7 @@ public class EventController {
         }
       })
       .build();
-  Client client = Client.newBuilder("appId", "appSecret")
-      .httpTransport(new OkHttpTransport(new OkHttpClient().newBuilder()
-          .callTimeout(3L, TimeUnit.SECONDS)
-          .build())) // 自定义传输层
-      .build();
+
   //2. 注入 ServletAdapter 实例
   @Autowired
   private ServletAdapter servletAdapter;

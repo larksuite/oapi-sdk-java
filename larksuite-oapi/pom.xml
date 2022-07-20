@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2022 Lark Technologies Pte. Ltd.
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice, shall be included in all copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  -->
+
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -88,26 +100,26 @@
         <version>${maven-javadoc-plugin.version}</version>
       </plugin>
       <!-- GPG -->
-      <plugin>
-        <artifactId>maven-gpg-plugin</artifactId>
-        <executions>
-          <execution>
-            <configuration>
-              <gpgArguments>
-                <arg>--pinentry-mode</arg>
-                <arg>loopback</arg>
-              </gpgArguments>
-            </configuration>
-            <goals>
-              <goal>sign</goal>
-            </goals>
-            <id>sign-artifacts</id>
-            <phase>verify</phase>
-          </execution>
-        </executions>
-        <groupId>org.apache.maven.plugins</groupId>
-        <version>${maven-gpg-plugin.version}</version>
-      </plugin>
+      <!--      <plugin>-->
+      <!--        <artifactId>maven-gpg-plugin</artifactId>-->
+      <!--        <executions>-->
+      <!--          <execution>-->
+      <!--            <configuration>-->
+      <!--              <gpgArguments>-->
+      <!--                <arg>&#45;&#45;pinentry-mode</arg>-->
+      <!--                <arg>loopback</arg>-->
+      <!--              </gpgArguments>-->
+      <!--            </configuration>-->
+      <!--            <goals>-->
+      <!--              <goal>sign</goal>-->
+      <!--            </goals>-->
+      <!--            <id>sign-artifacts</id>-->
+      <!--            <phase>verify</phase>-->
+      <!--          </execution>-->
+      <!--        </executions>-->
+      <!--        <groupId>org.apache.maven.plugins</groupId>-->
+      <!--        <version>${maven-gpg-plugin.version}</version>-->
+      <!--      </plugin>-->
     </plugins>
   </build>
   <dependencies>

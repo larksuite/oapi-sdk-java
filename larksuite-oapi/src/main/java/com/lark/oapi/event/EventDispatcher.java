@@ -22,6 +22,7 @@ import com.lark.oapi.service.approval.v4.ApprovalService;
 import com.lark.oapi.service.calendar.v4.CalendarService;
 import com.lark.oapi.service.contact.v3.ContactService;
 import com.lark.oapi.service.drive.v1.DriveService;
+import com.lark.oapi.service.helpdesk.v1.HelpdeskService;
 import com.lark.oapi.service.im.v1.ImService;
 import com.lark.oapi.service.task.v1.TaskService;
 import com.lark.oapi.service.vc.v1.VcService;
@@ -513,6 +514,32 @@ public class EventDispatcher implements IHandler {
         throw new EventTypeAlreadyHasHandlerException("drive.file.trashed_v1");
       }
       eventType2EventHandler.put("drive.file.trashed_v1", handler);
+      return this;
+    }
+
+
+    public Builder onP2NotificationApproveV1(
+        HelpdeskService.P2NotificationApproveV1Handler handler) {
+      if (eventType2EventHandler.containsKey("helpdesk.notification.approve_v1")) {
+        throw new EventTypeAlreadyHasHandlerException("helpdesk.notification.approve_v1");
+      }
+      eventType2EventHandler.put("helpdesk.notification.approve_v1", handler);
+      return this;
+    }
+
+    public Builder onP2TicketCreatedV1(HelpdeskService.P2TicketCreatedV1Handler handler) {
+      if (eventType2EventHandler.containsKey("helpdesk.ticket.created_v1")) {
+        throw new EventTypeAlreadyHasHandlerException("helpdesk.ticket.created_v1");
+      }
+      eventType2EventHandler.put("helpdesk.ticket.created_v1", handler);
+      return this;
+    }
+
+    public Builder onP2TicketUpdatedV1(HelpdeskService.P2TicketUpdatedV1Handler handler) {
+      if (eventType2EventHandler.containsKey("helpdesk.ticket.updated_v1")) {
+        throw new EventTypeAlreadyHasHandlerException("helpdesk.ticket.updated_v1");
+      }
+      eventType2EventHandler.put("helpdesk.ticket.updated_v1", handler);
       return this;
     }
 
