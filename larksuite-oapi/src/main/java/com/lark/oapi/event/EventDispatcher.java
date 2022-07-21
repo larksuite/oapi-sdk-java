@@ -24,6 +24,7 @@ import com.lark.oapi.service.contact.v3.ContactService;
 import com.lark.oapi.service.drive.v1.DriveService;
 import com.lark.oapi.service.helpdesk.v1.HelpdeskService;
 import com.lark.oapi.service.im.v1.ImService;
+import com.lark.oapi.service.meeting_room.v1.MeetingRoomService;
 import com.lark.oapi.service.task.v1.TaskService;
 import com.lark.oapi.service.vc.v1.VcService;
 import java.io.UnsupportedEncodingException;
@@ -112,7 +113,7 @@ public class EventDispatcher implements IHandler {
       String challenge, String token, EventReq req) throws Exception {
     EventResp resp = new EventResp();
     resp.setStatusCode(200);
-    resp.setContentType(Constants.APPLICATION_JSON);
+    resp.setContentType(Constants.JSON_CONTENT_TYPE);
 
     // 使用challenge进行鉴权
     if (Constants.URL_VERIFICATION.equals(reqType)) {
@@ -165,9 +166,6 @@ public class EventDispatcher implements IHandler {
 
       // 解析关键字段
       Fuzzy fuzzy = Jsons.DEFAULT.fromJson(plainEventJsonStr, Fuzzy.class);
-      if (Strings.isNotEmpty(fuzzy.getEncrypt())) {
-        throw new IllegalArgumentException("parser cipher event msg, need config encryptKey");
-      }
       String token = fuzzy.getToken();
       String eventType = "";
       if (fuzzy.getEvent() != null) {
@@ -639,6 +637,44 @@ public class EventDispatcher implements IHandler {
     }
 
 
+    public Builder onP2MeetingRoomCreatedV1(
+        MeetingRoomService.P2MeetingRoomCreatedV1Handler handler) {
+      if (eventType2EventHandler.containsKey("meeting_room.meeting_room.created_v1")) {
+        throw new EventTypeAlreadyHasHandlerException("meeting_room.meeting_room.created_v1");
+      }
+      eventType2EventHandler.put("meeting_room.meeting_room.created_v1", handler);
+      return this;
+    }
+
+    public Builder onP2MeetingRoomDeletedV1(
+        MeetingRoomService.P2MeetingRoomDeletedV1Handler handler) {
+      if (eventType2EventHandler.containsKey("meeting_room.meeting_room.deleted_v1")) {
+        throw new EventTypeAlreadyHasHandlerException("meeting_room.meeting_room.deleted_v1");
+      }
+      eventType2EventHandler.put("meeting_room.meeting_room.deleted_v1", handler);
+      return this;
+    }
+
+    public Builder onP2MeetingRoomStatusChangedV1(
+        MeetingRoomService.P2MeetingRoomStatusChangedV1Handler handler) {
+      if (eventType2EventHandler.containsKey("meeting_room.meeting_room.status_changed_v1")) {
+        throw new EventTypeAlreadyHasHandlerException(
+            "meeting_room.meeting_room.status_changed_v1");
+      }
+      eventType2EventHandler.put("meeting_room.meeting_room.status_changed_v1", handler);
+      return this;
+    }
+
+    public Builder onP2MeetingRoomUpdatedV1(
+        MeetingRoomService.P2MeetingRoomUpdatedV1Handler handler) {
+      if (eventType2EventHandler.containsKey("meeting_room.meeting_room.updated_v1")) {
+        throw new EventTypeAlreadyHasHandlerException("meeting_room.meeting_room.updated_v1");
+      }
+      eventType2EventHandler.put("meeting_room.meeting_room.updated_v1", handler);
+      return this;
+    }
+
+
     public Builder onP2TaskUpdateTenantV1(TaskService.P2TaskUpdateTenantV1Handler handler) {
       if (eventType2EventHandler.containsKey("task.task.update_tenant_v1")) {
         throw new EventTypeAlreadyHasHandlerException("task.task.update_tenant_v1");
@@ -753,6 +789,177 @@ public class EventDispatcher implements IHandler {
       eventType2EventHandler.put("message_read", handler);
       return this;
     }
+
+    public Builder onP1MessageReceivedV1(ImService.P1MessageReceivedV1Handler handler) {
+      if (eventType2EventHandler.containsKey("message")) {
+        throw new EventTypeAlreadyHasHandlerException("message");
+      }
+      eventType2EventHandler.put("message", handler);
+      return this;
+    }
+
+    public Builder onP1UserChangedV3(ContactService.P1UserChangedV3Handler handler) {
+      if (eventType2EventHandler.containsKey("user_add")) {
+        throw new EventTypeAlreadyHasHandlerException("user_add");
+      }
+      eventType2EventHandler.put("user_add", handler);
+
+      if (eventType2EventHandler.containsKey("user_leave")) {
+        throw new EventTypeAlreadyHasHandlerException("user_leave");
+      }
+      eventType2EventHandler.put("user_leave", handler);
+
+      if (eventType2EventHandler.containsKey("user_update")) {
+        throw new EventTypeAlreadyHasHandlerException("user_update");
+      }
+      eventType2EventHandler.put("user_update", handler);
+      return this;
+    }
+
+    public Builder onP1UserStatusChangedV3(ContactService.P1UserStatusChangedV3Handler handler) {
+      if (eventType2EventHandler.containsKey("user_status_change")) {
+        throw new EventTypeAlreadyHasHandlerException("user_status_change");
+      }
+      eventType2EventHandler.put("user_status_change", handler);
+      return this;
+    }
+
+    public Builder onP1ContactScopeChangedV3(
+        ContactService.P1ContactScopeChangedV3Handler handler) {
+      if (eventType2EventHandler.containsKey("contact_scope_change")) {
+        throw new EventTypeAlreadyHasHandlerException("contact_scope_change");
+      }
+      eventType2EventHandler.put("contact_scope_change", handler);
+      return this;
+    }
+
+    public Builder onP1DepartmentChangedV3(ContactService.P1DepartmentChangedV3Handler handler) {
+      if (eventType2EventHandler.containsKey("dept_add")) {
+        throw new EventTypeAlreadyHasHandlerException("dept_add");
+      }
+      eventType2EventHandler.put("dept_add", handler);
+
+      if (eventType2EventHandler.containsKey("dept_update")) {
+        throw new EventTypeAlreadyHasHandlerException("dept_update");
+      }
+      eventType2EventHandler.put("dept_update", handler);
+
+      if (eventType2EventHandler.containsKey("dept_delete")) {
+        throw new EventTypeAlreadyHasHandlerException("dept_delete");
+      }
+      eventType2EventHandler.put("dept_delete", handler);
+      return this;
+    }
+
+    public Builder onP1P2PChatCreatedV1(ImService.P1P2PChatCreatedV1Handler handler) {
+      if (eventType2EventHandler.containsKey("p2p_chat_create")) {
+        throw new EventTypeAlreadyHasHandlerException("p2p_chat_create");
+      }
+      eventType2EventHandler.put("p2p_chat_create", handler);
+      return this;
+    }
+
+    public Builder onP1ThirdPartyMeetingRoomChangedV1(
+        MeetingRoomService.P1ThirdPartyMeetingRoomChangedV1Handler handler) {
+      if (eventType2EventHandler.containsKey("third_party_meeting_room_event_created")) {
+        throw new EventTypeAlreadyHasHandlerException("third_party_meeting_room_event_created");
+      }
+      eventType2EventHandler.put("third_party_meeting_room_event_created", handler);
+
+      if (eventType2EventHandler.containsKey("third_party_meeting_room_event_updated")) {
+        throw new EventTypeAlreadyHasHandlerException("third_party_meeting_room_event_updated");
+      }
+      eventType2EventHandler.put("third_party_meeting_room_event_updated", handler);
+
+      if (eventType2EventHandler.containsKey("third_party_meeting_room_event_deleted")) {
+        throw new EventTypeAlreadyHasHandlerException("third_party_meeting_room_event_deleted");
+      }
+      eventType2EventHandler.put("third_party_meeting_room_event_deleted", handler);
+
+      return this;
+    }
+
+
+    public Builder onP1LeaveApprovalV4(ApprovalService.P1LeaveApprovalV4Handler handler) {
+      if (eventType2EventHandler.containsKey("leave_approvalV2")) {
+        throw new EventTypeAlreadyHasHandlerException("leave_approvalV2");
+      }
+      eventType2EventHandler.put("leave_approvalV2", handler);
+      return this;
+    }
+
+    public Builder onP1WorkApprovalV4(ApprovalService.P1WorkApprovalV4Handler handler) {
+      if (eventType2EventHandler.containsKey("work_approval")) {
+        throw new EventTypeAlreadyHasHandlerException("work_approval");
+      }
+      eventType2EventHandler.put("work_approval", handler);
+      return this;
+    }
+
+    public Builder onP1ShiftApprovalV4(ApprovalService.P1ShiftApprovalV4Handler handler) {
+      if (eventType2EventHandler.containsKey("shift_approval")) {
+        throw new EventTypeAlreadyHasHandlerException("shift_approval");
+      }
+      eventType2EventHandler.put("shift_approval", handler);
+      return this;
+    }
+
+    public Builder onP1RemedyApprovalV4(ApprovalService.P1RemedyApprovalV4Handler handler) {
+      if (eventType2EventHandler.containsKey("remedy_approval")) {
+        throw new EventTypeAlreadyHasHandlerException("remedy_approval");
+      }
+      eventType2EventHandler.put("remedy_approval", handler);
+      return this;
+    }
+
+    public Builder onP1TripApprovalV4(ApprovalService.P1TripApprovalV4Handler handler) {
+      if (eventType2EventHandler.containsKey("trip_approval")) {
+        throw new EventTypeAlreadyHasHandlerException("trip_approval");
+      }
+      eventType2EventHandler.put("trip_approval", handler);
+      return this;
+    }
+
+    public Builder onP1OutApprovalV4(ApprovalService.P1OutApprovalV4Handler handler) {
+      if (eventType2EventHandler.containsKey("out_approval")) {
+        throw new EventTypeAlreadyHasHandlerException("out_approval");
+      }
+      eventType2EventHandler.put("out_approval", handler);
+      return this;
+    }
+
+    public Builder onP1AppOpenV6(ApplicationService.P1AppOpenV6Handler handler) {
+      if (eventType2EventHandler.containsKey("app_open")) {
+        throw new EventTypeAlreadyHasHandlerException("app_open");
+      }
+      eventType2EventHandler.put("app_open", handler);
+      return this;
+    }
+
+    public Builder onP1AppStatusChangedV6(ApplicationService.P1AppStatusChangedV6Handler handler) {
+      if (eventType2EventHandler.containsKey("app_status_change")) {
+        throw new EventTypeAlreadyHasHandlerException("app_status_change");
+      }
+      eventType2EventHandler.put("app_status_change", handler);
+      return this;
+    }
+
+    public Builder onP1OrderPaidV6(ApplicationService.P1OrderPaidV6Handler handler) {
+      if (eventType2EventHandler.containsKey("order_paid")) {
+        throw new EventTypeAlreadyHasHandlerException("order_paid");
+      }
+      eventType2EventHandler.put("order_paid", handler);
+      return this;
+    }
+
+    public Builder onP1AppUninstalledV6(ApplicationService.P1AppUninstalledV6Handler handler) {
+      if (eventType2EventHandler.containsKey("app_uninstalled")) {
+        throw new EventTypeAlreadyHasHandlerException("app_uninstalled");
+      }
+      eventType2EventHandler.put("app_uninstalled", handler);
+      return this;
+    }
+
   }
 
 }

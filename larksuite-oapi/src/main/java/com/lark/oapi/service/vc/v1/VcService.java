@@ -909,5 +909,4 @@ public class VcService {
       return new P2MeetingShareStartedV1();
     }
   }
-
 }

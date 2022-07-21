@@ -31,6 +31,8 @@
     - [返回自定义消息](#返回自定义消息)
     - [卡片行为处理器内给对应租户发消息](#卡片行为处理器内给对应租户发消息)
 
+- [License](#License)
+
 <!-- tocstop -->
 
 ## 安装
@@ -496,14 +498,11 @@ public class RawApiCall {
 
 要处理消息事件，开发者需要启动一个 Web 服务，然后把 Web 服务的 URL 注册到飞书开放平台。飞书开放平台则把事件推送到开发者配置的 URL地址。
 
-在 Java 中提供了 Servlet 和 反应式 两种常见的 Web 技术栈。比如基于常见的 Tomcat 容器、Jboss 容器是基于 Servlet技术栈实现的；而 Spring 5
-提供的反应式 Web 容器 则是基于反应式的 WebFlux 技术栈实现的。
-
-为方便开发者集成这两种常用的 Web 技术栈实现的 Web 服务，飞书开放平台分别提供了两个扩展包。
+在 Java 中，比如常见的 Tomcat 容器、Jboss 容器是基于 Servlet 技术栈实现的； 为方便开发者集成这两种常用的 Web 技术栈实现的 Web 服务，飞书开放平台提供了集成方案。
 
 ### 集成 Servlet 容器
 
-本节我们介绍，如何集成基于 Servlet 技术栈实现的 SpringBoot Web框架。
+本节我们介绍，如何集成基于 Servlet 技术栈实现的 SpringBoot Web 框架。
 
 #### 安装集成包
 

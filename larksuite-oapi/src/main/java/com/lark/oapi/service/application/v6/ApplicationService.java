@@ -17,6 +17,10 @@ import com.lark.oapi.service.application.v6.model.ListApplicationFeedbackReq;
 import com.lark.oapi.service.application.v6.model.ListApplicationFeedbackResp;
 import com.lark.oapi.service.application.v6.model.OverviewApplicationAppUsageReq;
 import com.lark.oapi.service.application.v6.model.OverviewApplicationAppUsageResp;
+import com.lark.oapi.service.application.v6.model.P1AppOpenV6;
+import com.lark.oapi.service.application.v6.model.P1AppStatusChangedV6;
+import com.lark.oapi.service.application.v6.model.P1AppUninstalledV6;
+import com.lark.oapi.service.application.v6.model.P1OrderPaidV6;
 import com.lark.oapi.service.application.v6.model.P2ApplicationAppVersionAuditV6;
 import com.lark.oapi.service.application.v6.model.P2ApplicationAppVersionPublishApplyV6;
 import com.lark.oapi.service.application.v6.model.P2ApplicationAppVersionPublishRevokeV6;
@@ -476,4 +480,37 @@ public class ApplicationService {
     }
   }
 
+  public abstract static class P1AppOpenV6Handler implements IEventHandler<P1AppOpenV6> {
+
+    @Override
+    public P1AppOpenV6 getEvent() {
+      return new P1AppOpenV6();
+    }
+  }
+
+  public abstract static class P1AppStatusChangedV6Handler implements
+      IEventHandler<P1AppStatusChangedV6> {
+
+    @Override
+    public P1AppStatusChangedV6 getEvent() {
+      return new P1AppStatusChangedV6();
+    }
+  }
+
+  public abstract static class P1OrderPaidV6Handler implements IEventHandler<P1OrderPaidV6> {
+
+    @Override
+    public P1OrderPaidV6 getEvent() {
+      return new P1OrderPaidV6();
+    }
+  }
+
+  public abstract static class P1AppUninstalledV6Handler implements
+      IEventHandler<P1AppUninstalledV6> {
+
+    @Override
+    public P1AppUninstalledV6 getEvent() {
+      return new P1AppUninstalledV6();
+    }
+  }
 }

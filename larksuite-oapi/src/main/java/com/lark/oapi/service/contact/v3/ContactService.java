@@ -67,6 +67,10 @@ import com.lark.oapi.service.contact.v3.model.ListUserReq;
 import com.lark.oapi.service.contact.v3.model.ListUserResp;
 import com.lark.oapi.service.contact.v3.model.MemberBelongGroupReq;
 import com.lark.oapi.service.contact.v3.model.MemberBelongGroupResp;
+import com.lark.oapi.service.contact.v3.model.P1ContactScopeChangedV3;
+import com.lark.oapi.service.contact.v3.model.P1DepartmentChangedV3;
+import com.lark.oapi.service.contact.v3.model.P1UserChangedV3;
+import com.lark.oapi.service.contact.v3.model.P1UserStatusChangedV3;
 import com.lark.oapi.service.contact.v3.model.P2CustomAttrEventUpdatedV3;
 import com.lark.oapi.service.contact.v3.model.P2DepartmentCreatedV3;
 import com.lark.oapi.service.contact.v3.model.P2DepartmentDeletedV3;
@@ -1906,4 +1910,38 @@ public class ContactService {
     }
   }
 
+  public abstract static class P1UserChangedV3Handler implements IEventHandler<P1UserChangedV3> {
+
+    @Override
+    public P1UserChangedV3 getEvent() {
+      return new P1UserChangedV3();
+    }
+  }
+
+  public abstract static class P1UserStatusChangedV3Handler implements
+      IEventHandler<P1UserStatusChangedV3> {
+
+    @Override
+    public P1UserStatusChangedV3 getEvent() {
+      return new P1UserStatusChangedV3();
+    }
+  }
+
+  public abstract static class P1DepartmentChangedV3Handler implements
+      IEventHandler<P1DepartmentChangedV3> {
+
+    @Override
+    public P1DepartmentChangedV3 getEvent() {
+      return new P1DepartmentChangedV3();
+    }
+  }
+
+  public abstract static class P1ContactScopeChangedV3Handler implements
+      IEventHandler<P1ContactScopeChangedV3> {
+
+    @Override
+    public P1ContactScopeChangedV3 getEvent() {
+      return new P1ContactScopeChangedV3();
+    }
+  }
 }

@@ -26,8 +26,8 @@
   </build>
   <dependencies>
     <dependency>
-      <groupId>com.larksuite.oapi</groupId>
       <artifactId>oapi-sdk-apache-httpclient</artifactId>
+      <groupId>com.larksuite.oapi</groupId>
       <version>1.0.1-SNAPSHOT</version>
     </dependency>
     <dependency>

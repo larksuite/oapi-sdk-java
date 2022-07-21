@@ -1435,5 +1435,4 @@ public class CalendarService {
       return new P2CalendarEventChangedV4();
     }
   }
-
 }

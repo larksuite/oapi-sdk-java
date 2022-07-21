@@ -2197,5 +2197,4 @@ public class HelpdeskService {
       return new P2TicketUpdatedV1();
     }
   }
-
 }

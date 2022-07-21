@@ -662,6 +662,23 @@ public final class DiskLruCache implements Closeable, Flushable {
     journalWriter.close();
     journalWriter = null;
     closed = true;
+  }
+
+  void trimToSize() throws IOException {
+    while (size > maxSize) {
+      Entry toEvict = lruEntries.values().iterator().next();
+      removeEntry(toEvict);
+    }
+    mostRecentTrimFailed = false;
+  }
+
+  /**
+   * Closes the cache and deletes all of its stored values. This will delete all files in the cache
+   * directory including files that weren't created by the cache.
+   */
+  public void delete() throws IOException {
+    close();
+    fileSystem.deleteContents(directory);
   }  private final Runnable cleanupRunnable = new Runnable() {
     public void run() {
       synchronized (DiskLruCache.this) {
@@ -687,23 +704,6 @@ public final class DiskLruCache implements Closeable, Flushable {
       }
     }
   };
-
-  void trimToSize() throws IOException {
-    while (size > maxSize) {
-      Entry toEvict = lruEntries.values().iterator().next();
-      removeEntry(toEvict);
-    }
-    mostRecentTrimFailed = false;
-  }
-
-  /**
-   * Closes the cache and deletes all of its stored values. This will delete all files in the cache
-   * directory including files that weren't created by the cache.
-   */
-  public void delete() throws IOException {
-    close();
-    fileSystem.deleteContents(directory);
-  }
 
   /**
    * Deletes all stored values from the cache. In-flight edits will complete normally but their

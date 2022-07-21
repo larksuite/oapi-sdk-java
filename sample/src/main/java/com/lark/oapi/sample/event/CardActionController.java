@@ -58,7 +58,7 @@ public class CardActionController {
           System.out.println(Jsons.DEFAULT.toJson(cardAction));
           System.out.println(cardAction.getRequestId());
 
-          return null;
+          return getCard();
         }
       }).build();
 

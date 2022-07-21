@@ -38,6 +38,7 @@ import com.lark.oapi.service.helpdesk.v1.HelpdeskService;
 import com.lark.oapi.service.human_authentication.v1.HumanAuthenticationService;
 import com.lark.oapi.service.im.v1.ImService;
 import com.lark.oapi.service.mail.v1.MailService;
+import com.lark.oapi.service.meeting_room.v1.MeetingRoomService;
 import com.lark.oapi.service.optical_char_recognition.v1.OpticalCharRecognitionService;
 import com.lark.oapi.service.passport.v1.PassportService;
 import com.lark.oapi.service.search.v2.SearchService;
@@ -74,6 +75,7 @@ public class Client {
   private HumanAuthenticationService humanAuthentication;
   private ImService im;
   private MailService mail;
+  private MeetingRoomService meetingRoom;
   private OpticalCharRecognitionService opticalCharRecognition;
   private PassportService passport;
   private SearchService search;
@@ -167,6 +169,10 @@ public class Client {
 
   public MailService mail() {
     return mail;
+  }
+
+  public MeetingRoomService meetingRoom() {
+    return meetingRoom;
   }
 
   public OpticalCharRecognitionService opticalCharRecognition() {
@@ -408,6 +414,7 @@ public class Client {
       client.humanAuthentication = new HumanAuthenticationService(config);
       client.im = new ImService(config);
       client.mail = new MailService(config);
+      client.meetingRoom = new MeetingRoomService(config);
       client.opticalCharRecognition = new OpticalCharRecognitionService(config);
       client.passport = new PassportService(config);
       client.search = new SearchService(config);

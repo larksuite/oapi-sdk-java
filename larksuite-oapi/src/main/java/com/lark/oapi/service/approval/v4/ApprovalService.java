@@ -41,6 +41,12 @@ import com.lark.oapi.service.approval.v4.model.ListInstanceCommentReq;
 import com.lark.oapi.service.approval.v4.model.ListInstanceCommentResp;
 import com.lark.oapi.service.approval.v4.model.ListInstanceReq;
 import com.lark.oapi.service.approval.v4.model.ListInstanceResp;
+import com.lark.oapi.service.approval.v4.model.P1LeaveApprovalV4;
+import com.lark.oapi.service.approval.v4.model.P1OutApprovalV4;
+import com.lark.oapi.service.approval.v4.model.P1RemedyApprovalV4;
+import com.lark.oapi.service.approval.v4.model.P1ShiftApprovalV4;
+import com.lark.oapi.service.approval.v4.model.P1TripApprovalV4;
+import com.lark.oapi.service.approval.v4.model.P1WorkApprovalV4;
 import com.lark.oapi.service.approval.v4.model.P2ApprovalUpdatedV4;
 import com.lark.oapi.service.approval.v4.model.PreviewInstanceReq;
 import com.lark.oapi.service.approval.v4.model.PreviewInstanceResp;
@@ -1159,4 +1165,55 @@ public class ApprovalService {
     }
   }
 
+  public abstract static class P1LeaveApprovalV4Handler implements
+      IEventHandler<P1LeaveApprovalV4> {
+
+    @Override
+    public P1LeaveApprovalV4 getEvent() {
+      return new P1LeaveApprovalV4();
+    }
+  }
+
+  public abstract static class P1WorkApprovalV4Handler implements IEventHandler<P1WorkApprovalV4> {
+
+    @Override
+    public P1WorkApprovalV4 getEvent() {
+      return new P1WorkApprovalV4();
+    }
+  }
+
+  public abstract static class P1ShiftApprovalV4Handler implements
+      IEventHandler<P1ShiftApprovalV4> {
+
+    @Override
+    public P1ShiftApprovalV4 getEvent() {
+      return new P1ShiftApprovalV4();
+    }
+  }
+
+  public abstract static class P1RemedyApprovalV4Handler implements
+      IEventHandler<P1RemedyApprovalV4> {
+
+    @Override
+    public P1RemedyApprovalV4 getEvent() {
+      return new P1RemedyApprovalV4();
+    }
+  }
+
+  public abstract static class P1TripApprovalV4Handler implements IEventHandler<P1TripApprovalV4> {
+
+    @Override
+    public P1TripApprovalV4 getEvent() {
+      return new P1TripApprovalV4();
+    }
+  }
+
+
+  public abstract static class P1OutApprovalV4Handler implements IEventHandler<P1OutApprovalV4> {
+
+    @Override
+    public P1OutApprovalV4 getEvent() {
+      return new P1OutApprovalV4();
+    }
+  }
 }

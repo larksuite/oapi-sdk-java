@@ -20,6 +20,7 @@ public class DeleteCalendarEventReq {
   // builder 开始
   public DeleteCalendarEventReq() {
   }
+
   public DeleteCalendarEventReq(Builder builder) {
     this.needNotification = builder.needNotification;
     this.calendarId = builder.calendarId;

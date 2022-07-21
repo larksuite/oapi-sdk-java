@@ -126,7 +126,7 @@ public class MockCardAction {
   }
 
   public static void main(String arg[]) throws NoSuchAlgorithmException, IOException {
-    //mockChallenge();
+    // mockChallenge();
     mockCallBack();
   }
 }

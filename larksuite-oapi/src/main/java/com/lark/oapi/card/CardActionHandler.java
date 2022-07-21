@@ -80,17 +80,12 @@ public class CardActionHandler implements IHandler {
   private EventResp buildResult(Object result) {
     EventResp eventResp = new EventResp();
     eventResp.setStatusCode(200);
-    eventResp.setContentType(Constants.CONTENT_TYPE);
+    eventResp.setContentType(Constants.JSON_CONTENT_TYPE);
 
     // 返回值设置
     if (result == null) {
       eventResp.setBody(
           String.format(EventResp.RESPONSE_FORMAT, "success").getBytes(StandardCharsets.UTF_8));
-      return eventResp;
-    }
-
-    if (result instanceof String) {
-      eventResp.setBody(((String) result).getBytes(StandardCharsets.UTF_8));
       return eventResp;
     }
 

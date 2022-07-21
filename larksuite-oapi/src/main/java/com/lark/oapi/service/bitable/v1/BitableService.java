@@ -1415,5 +1415,4 @@ public class BitableService {
     }
   }
 
-
 }

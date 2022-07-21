@@ -72,6 +72,8 @@ import com.lark.oapi.service.im.v1.model.ListTabsChatTabResp;
 import com.lark.oapi.service.im.v1.model.MeJoinChatMembersReq;
 import com.lark.oapi.service.im.v1.model.MeJoinChatMembersResp;
 import com.lark.oapi.service.im.v1.model.P1MessageReadV1;
+import com.lark.oapi.service.im.v1.model.P1MessageReceivedV1;
+import com.lark.oapi.service.im.v1.model.P1P2PChatCreatedV1;
 import com.lark.oapi.service.im.v1.model.P2ChatDisbandedV1;
 import com.lark.oapi.service.im.v1.model.P2ChatMemberBotAddedV1;
 import com.lark.oapi.service.im.v1.model.P2ChatMemberBotDeletedV1;
@@ -2144,4 +2146,22 @@ public class ImService {
     }
   }
 
+
+  public abstract static class P1MessageReceivedV1Handler implements
+      IEventHandler<P1MessageReceivedV1> {
+
+    @Override
+    public P1MessageReceivedV1 getEvent() {
+      return new P1MessageReceivedV1();
+    }
+  }
+
+  public abstract static class P1P2PChatCreatedV1Handler implements
+      IEventHandler<P1P2PChatCreatedV1> {
+
+    @Override
+    public P1P2PChatCreatedV1 getEvent() {
+      return new P1P2PChatCreatedV1();
+    }
+  }
 }
