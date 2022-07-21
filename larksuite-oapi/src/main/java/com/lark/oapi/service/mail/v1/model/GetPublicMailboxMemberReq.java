@@ -20,6 +20,7 @@ public class GetPublicMailboxMemberReq {
   // builder 开始
   public GetPublicMailboxMemberReq() {
   }
+
   public GetPublicMailboxMemberReq(Builder builder) {
     this.userIdType = builder.userIdType;
     this.publicMailboxId = builder.publicMailboxId;

@@ -2,7 +2,6 @@
 package com.lark.oapi;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.core.Constants;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.cache.ICache;
 import com.lark.oapi.core.cache.LocalCache;
@@ -11,8 +10,6 @@ import com.lark.oapi.core.enums.BaseUrlEnum;
 import com.lark.oapi.core.httpclient.IHttpTransport;
 import com.lark.oapi.core.httpclient.OkHttpTransport;
 import com.lark.oapi.core.request.RequestOptions;
-import com.lark.oapi.core.request.SelfBuiltAppAccessTokenReq;
-import com.lark.oapi.core.response.AppAccessTokenResp;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.token.AppTicketManager;
@@ -22,7 +19,6 @@ import com.lark.oapi.core.token.TokenManager;
 import com.lark.oapi.core.utils.OKHttps;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
 import com.lark.oapi.service.acs.v1.AcsService;
 import com.lark.oapi.service.admin.v1.AdminService;
 import com.lark.oapi.service.application.v6.ApplicationService;
@@ -303,18 +299,6 @@ public class Client {
         body);
   }
 
-  public AppAccessTokenResp getAppAccessTokenByMarketplaceApp(
-      SelfBuiltAppAccessTokenReq internalAccessTokenReq)
-      throws Exception {
-    RawResponse resp = Transport.send(config
-        , new RequestOptions(), "POST"
-        , Constants.APP_ACCESS_TOKEN_INTERNAL_URL_PATH
-        , Sets.newHashSet(AccessTokenType.None), internalAccessTokenReq);
-    AppAccessTokenResp appAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-        AppAccessTokenResp.class);
-    return appAccessTokenResp;
-  }
-
   public static final class Builder {
 
     private Config config = new Config();
@@ -441,14 +425,7 @@ public class Client {
       client.vc = new VcService(config);
       client.wiki = new WikiService(config);
 
-      // 如果是 isv 则触发 appTicket 重推
-      resendAppTicket(client);
       return client;
-    }
-
-    private void resendAppTicket(Client client) {
-      if (client.config.getAppType() == AppType.MARKETPLACE) {
-      }
     }
   }
 }

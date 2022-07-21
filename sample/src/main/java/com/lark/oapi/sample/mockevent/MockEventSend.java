@@ -62,7 +62,7 @@ public class MockEventSend {
 
   public static void mockPlainTextEvent() throws IOException {
 
-    String body = "{\"schema\":\"2.0\",\"header\":{\"event_id\":\"f7984f25108f8137722bb63cee927e66\",\"event_type\":\"contact.user.created_v3\",\"app_id\":\"cli_xxxxxxxx\",\"tenant_key\":\"xxxxxxx\",\"create_time\":\"1603977298000000\",\"token\":\"v\"},\"event\":{\"object\":{\"open_id\":\"ou_7dab8a3d3cdcc9da365777c7ad535d62\",\"union_id\":\"on_576833b917gda3d939b9a3c2d53e72c8\",\"user_id\":\"e33ggbyz\",\"name\":\"张三\",\"employee_no\":\"employee_no\"}},\"challenge\":\"1212\",\"type\":\"\"}";
+    String body = "{\"schema\":\"2.0\",\"header\":{\"event_id\":\"f7984f25108f8137722bb63cee927e66\",\"event_type\":\"contact.user.created_v3\",\"app_id\":\"cli_xxxxxxxx\",\"tenant_key\":\"xxxxxxx\",\"create_time\":\"1603977298000000\",\"token\":\"v\"},\"event\":{\"object\":{\"open_id\":\"ou_7dab8a3d3cdcc9da365777c7ad535d62\",\"union_id\":\"on_576833b917gda3d939b9a3c2d53e72c8\",\"user_id\":\"e33ggbyz\",\"name\":\"张三\",\"employee_no\":\"employee_no\"}},\"challenge\":\"1212\",\"type\":\"call_back\"}";
 
     RequestBody requestBody = RequestBody.create(MediaType.parse(Constants.JSON_CONTENT_TYPE)
         , body.getBytes(StandardCharsets.UTF_8));
@@ -406,10 +406,10 @@ public class MockEventSend {
   public static void main(String ar[]) throws IOException, NoSuchAlgorithmException {
     // mockAppTicketEvent();
     // mockChallenge();
-    // mockPlainTextEvent();
-    // mockEncryptEvent();
+    mockPlainTextEvent();
+    //  mockEncryptEvent();
     // mockChallenge();
-    mockAppUninstalledEventV1();
+    // mockAppUninstalledEventV1();
 
   }
 }

@@ -64,7 +64,8 @@ public class EventDispatcher implements IHandler {
   }
 
   private String parseReq(EventReq eventReq) throws UnsupportedEncodingException {
-    log.debug("event req: {}", eventReq);
+    log.info("event req,header:{},body:{}", Jsons.LONG_TO_STR.toJson(eventReq.getHeaders()),
+        new String(eventReq.getBody(), StandardCharsets.UTF_8));
     if (!Strings.isEmpty(encryptKey)) {
       Fuzzy fuzzy = Jsons.DEFAULT.fromJson(new String(eventReq.getBody(), StandardCharsets.UTF_8),
           Fuzzy.class);
@@ -166,6 +167,9 @@ public class EventDispatcher implements IHandler {
 
       // 解析关键字段
       Fuzzy fuzzy = Jsons.DEFAULT.fromJson(plainEventJsonStr, Fuzzy.class);
+      if (Strings.isNotEmpty(fuzzy.getEncrypt())) {
+        throw new IllegalArgumentException("process encrypted msg event, need config encryptKey");
+      }
       String token = fuzzy.getToken();
       String eventType = "";
       if (fuzzy.getEvent() != null) {

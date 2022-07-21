@@ -14,8 +14,6 @@ package com.lark.oapi.sample.api;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.enums.AppType;
-import com.lark.oapi.core.request.SelfBuiltAppAccessTokenReq;
-import com.lark.oapi.core.response.AppAccessTokenResp;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
@@ -69,14 +67,23 @@ public class GetToken {
         .build();
 
     // 发起请求
-    AppAccessTokenResp resp = client.getAppAccessTokenByMarketplaceApp(
-        SelfBuiltAppAccessTokenReq.newBuilder()
-            .appId(appId)
-            .appSecret(appSecret)
-            .build());
+    // 构建http body
+    Map<String, Object> body = new HashMap<>();
+    body.put("app_id", appId);
+    body.put("app_secret", appSecret);
+
+    // 发起请求
+    RawResponse resp = client.post(
+        "https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=open_id"
+        , body
+        , AccessTokenType.None);
 
     // 处理结果
+    System.out.println(resp.getStatusCode());
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getHeaders()));
     System.out.println(Jsons.LONG_TO_STR.toJson(resp));
+    System.out.println(resp.getRequestID());
+
   }
 
   public static void main(String arg[]) throws Exception {
