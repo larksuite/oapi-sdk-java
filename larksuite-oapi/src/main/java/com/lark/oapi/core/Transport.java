@@ -109,11 +109,16 @@ public class Transport {
       throw new IllegalArgumentException("appSecret is blank");
     }
 
-    if (config.isDisableTokenCache()
-        && Strings.isEmpty(requestOptions.getUserAccessToken())
-        && Strings.isEmpty(requestOptions.getTenantAccessToken())
-        && Strings.isEmpty(requestOptions.getAppAccessToken())) {
-      throw new IllegalArgumentException("access token is blank");
+    if (config.isDisableTokenCache()) {
+      if (accessTokenType == AccessTokenType.None) {
+        return;
+      }
+
+      if (Strings.isEmpty(requestOptions.getUserAccessToken())
+          && Strings.isEmpty(requestOptions.getTenantAccessToken())
+          && Strings.isEmpty(requestOptions.getAppAccessToken())) {
+        throw new IllegalArgumentException("access token is blank");
+      }
     }
 
     if (accessTokenType == AccessTokenType.Tenant

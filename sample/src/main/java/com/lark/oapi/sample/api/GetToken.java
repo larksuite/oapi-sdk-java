@@ -10,10 +10,12 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.sample.rawapi;
+package com.lark.oapi.sample.api;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.enums.AppType;
+import com.lark.oapi.core.request.SelfBuiltAppAccessTokenReq;
+import com.lark.oapi.core.response.AppAccessTokenResp;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
@@ -23,7 +25,7 @@ import java.util.Map;
 /**
  * 原生http 调用方式
  */
-public class RawApiCall {
+public class GetToken {
 
   public static void sendMsg() throws Exception {
     String appId = System.getenv().get("APP_ID");
@@ -66,18 +68,15 @@ public class RawApiCall {
         .logReqAtDebug(true)
         .build();
 
-    // 构建http body
     // 发起请求
-    RawResponse resp = client.post(
-        "https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=open_id"
-        , null
-        , AccessTokenType.None);
+    AppAccessTokenResp resp = client.getAppAccessTokenByMarketplaceApp(
+        SelfBuiltAppAccessTokenReq.newBuilder()
+            .appId(appId)
+            .appSecret(appSecret)
+            .build());
 
     // 处理结果
-    System.out.println(resp.getStatusCode());
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getHeaders()));
     System.out.println(Jsons.LONG_TO_STR.toJson(resp));
-    System.out.println(resp.getRequestID());
   }
 
   public static void main(String arg[]) throws Exception {

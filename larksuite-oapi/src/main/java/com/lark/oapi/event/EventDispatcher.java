@@ -113,7 +113,7 @@ public class EventDispatcher implements IHandler {
       String challenge, String token, EventReq req) throws Exception {
     EventResp resp = new EventResp();
     resp.setStatusCode(200);
-    resp.setContentType(Constants.JSON_CONTENT_TYPE);
+    resp.setContentType(Constants.APPLICATION_JSON);
 
     // 使用challenge进行鉴权
     if (Constants.URL_VERIFICATION.equals(reqType)) {
@@ -957,6 +957,12 @@ public class EventDispatcher implements IHandler {
         throw new EventTypeAlreadyHasHandlerException("app_uninstalled");
       }
       eventType2EventHandler.put("app_uninstalled", handler);
+      return this;
+    }
+
+    // 当 ISV 想要自己管理 token 和 appTicket 时，需要注册该处理器来获取 appTicket。这时 SDK内 将不在管理token
+    public Builder onAppTicketEvent(CustomAppTicketEventHandler handler) {
+      eventType2EventHandler.put("app_ticket", handler);
       return this;
     }
 

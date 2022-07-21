@@ -679,6 +679,19 @@ public final class DiskLruCache implements Closeable, Flushable {
   public void delete() throws IOException {
     close();
     fileSystem.deleteContents(directory);
+  }
+
+  /**
+   * Deletes all stored values from the cache. In-flight edits will complete normally but their
+   * values will not be stored.
+   */
+  public synchronized void evictAll() throws IOException {
+    initialize();
+    // Copying for safe iteration.
+    for (Entry entry : lruEntries.values().toArray(new Entry[lruEntries.size()])) {
+      removeEntry(entry);
+    }
+    mostRecentTrimFailed = false;
   }  private final Runnable cleanupRunnable = new Runnable() {
     public void run() {
       synchronized (DiskLruCache.this) {
@@ -704,19 +717,6 @@ public final class DiskLruCache implements Closeable, Flushable {
       }
     }
   };
-
-  /**
-   * Deletes all stored values from the cache. In-flight edits will complete normally but their
-   * values will not be stored.
-   */
-  public synchronized void evictAll() throws IOException {
-    initialize();
-    // Copying for safe iteration.
-    for (Entry entry : lruEntries.values().toArray(new Entry[lruEntries.size()])) {
-      removeEntry(entry);
-    }
-    mostRecentTrimFailed = false;
-  }
 
   private void validateKey(String key) {
     Matcher matcher = LEGAL_KEY_PATTERN.matcher(key);
