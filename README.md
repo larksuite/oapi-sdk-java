@@ -524,7 +524,7 @@ public class RawApiCall {
 - 注入 ServletAdapter 实例到 IOC 容器
 
 ```Java
-import com.larksuite.oapi.sdk.servlet.ext.ServletAdapter;
+import com.lark.oapi.sdk.servlet.ext.ServletAdapter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
