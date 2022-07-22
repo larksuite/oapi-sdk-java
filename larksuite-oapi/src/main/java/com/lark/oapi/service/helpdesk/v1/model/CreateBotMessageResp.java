@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateBotMessageResp extends BaseResponse {
+public class CreateBotMessageResp extends BaseResponse<CreateBotMessage> {
 
-  @SerializedName("data")
-  private CreateBotMessage body;
-
-  public CreateBotMessage getCreateBotMessage() {
-    return this.body;
-  }
-
-  public void setCreateBotMessage(CreateBotMessage body) {
-    this.body = body;
-  }
 }

@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class MoveFileResp extends BaseResponse {
+public class MoveFileResp extends BaseResponse<MoveFile> {
 
-  @SerializedName("data")
-  private MoveFile body;
-
-  public MoveFile getMoveFile() {
-    return this.body;
-  }
-
-  public void setMoveFile(MoveFile body) {
-    this.body = body;
-  }
 }

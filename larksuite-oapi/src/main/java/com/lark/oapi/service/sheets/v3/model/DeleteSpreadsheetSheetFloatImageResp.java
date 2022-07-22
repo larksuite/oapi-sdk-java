@@ -14,7 +14,8 @@
 package com.lark.oapi.service.sheets.v3.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class DeleteSpreadsheetSheetFloatImageResp extends BaseResponse {
+public class DeleteSpreadsheetSheetFloatImageResp extends BaseResponse<EmptyData> {
 
 }

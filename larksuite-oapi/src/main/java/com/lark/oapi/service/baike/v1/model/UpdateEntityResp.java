@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.baike.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class UpdateEntityResp extends BaseResponse {
+public class UpdateEntityResp extends BaseResponse<UpdateEntity> {
 
-  @SerializedName("data")
-  private UpdateEntity body;
-
-  public UpdateEntity getUpdateEntity() {
-    return this.body;
-  }
-
-  public void setUpdateEntity(UpdateEntity body) {
-    this.body = body;
-  }
 }

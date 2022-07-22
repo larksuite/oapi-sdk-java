@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetExportTaskResp extends BaseResponse {
+public class GetExportTaskResp extends BaseResponse<GetExportTask> {
 
-  @SerializedName("data")
-  private GetExportTask body;
-
-  public GetExportTask getGetExportTask() {
-    return this.body;
-  }
-
-  public void setGetExportTask(GetExportTask body) {
-    this.body = body;
-  }
 }

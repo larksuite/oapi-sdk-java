@@ -43,6 +43,7 @@ import com.lark.oapi.core.request.FormData;
 import com.lark.oapi.core.request.FormDataFile;
 import com.lark.oapi.core.request.RawRequest;
 import com.lark.oapi.core.request.RequestOptions;
+import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Strings;
@@ -208,7 +209,7 @@ public class ImSample {
       }
 
       // 业务处理结果
-      System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
+      System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
       // 原生http信息
       System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
       // 返回请求ID
@@ -235,7 +236,7 @@ public class ImSample {
   public static void delMsg(Client client) throws Exception {
     // 使用Builder模式构建请求对象
     DeleteMessageReq req = DeleteMessageReq.newBuilder()
-        .messageId("om_414f72348620e84980d90cc1c682c30d")
+        .messageId("om_b5fe878cb07f5f0167cd0f4bf4cfe978")
         .build();
 
     // 发起请求，并处理结果
@@ -247,7 +248,8 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp));
+    EmptyData data = resp.getData();
+    System.out.println(data);
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -420,7 +422,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -544,7 +546,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -577,7 +579,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -610,7 +612,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -643,7 +645,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -676,7 +678,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -710,7 +712,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -800,7 +802,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -883,7 +885,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -915,7 +917,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -947,7 +949,7 @@ public class ImSample {
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getCreateMessage()));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -998,7 +1000,7 @@ public class ImSample {
       return;
     }
 
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp));
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData().getFileKey()));
     // 原生http信息
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
     // 返回请求ID
@@ -1020,7 +1022,7 @@ public class ImSample {
 
     // 写入文件到本地磁盘
     FileOutputStream file = new FileOutputStream("rocket-jiaduo.pdf");
-    file.write(resp.getFileStream().toByteArray());
+    file.write(resp.getData().toByteArray());
     file.close();
     // 返回请求ID
     System.out.println(resp.getRequestId());
@@ -1028,7 +1030,8 @@ public class ImSample {
 
   public static void downLoadFile2(Client client) throws Exception {
     // 创建请求对象
-    GetFileReq req = GetFileReq.newBuilder().fileKey("ss").build();
+    GetFileReq req = GetFileReq.newBuilder().fileKey("file_v2_5b4e3892-2e0b-43cd-a575-292d622b0dbg")
+        .build();
 
     // 发起请求
     GetFileResp resp = client.im().file().get(req);
@@ -1060,7 +1063,7 @@ public class ImSample {
 
     // 保持图片到本地磁盘
     FileOutputStream file = new FileOutputStream("gh.jpg");
-    file.write(resp.getFileStream().toByteArray());
+    file.write(resp.getData().toByteArray());
     file.close();
     // 返回请求ID
     System.out.println(resp.getRequestId());
@@ -1083,7 +1086,7 @@ public class ImSample {
 
     // 保存文件到磁盘
     FileOutputStream file = new FileOutputStream("ruoran.pdf");
-    file.write(resp.getFileStream().toByteArray());
+    file.write(resp.getData().toByteArray());
     file.close();
     // 返回请求ID
     System.out.println(resp.getRequestId());
@@ -1134,6 +1137,6 @@ public class ImSample {
 //            .build())
         .build();
 
-    sendInteractiveMonitorProcessedMsg(client);
+    delMsg(client);
   }
 }

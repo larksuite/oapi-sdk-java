@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class OverviewApplicationAppUsageResp extends BaseResponse {
+public class OverviewApplicationAppUsageResp extends BaseResponse<OverviewApplicationAppUsage> {
 
-  @SerializedName("data")
-  private OverviewApplicationAppUsage body;
-
-  public OverviewApplicationAppUsage getOverviewApplicationAppUsage() {
-    return this.body;
-  }
-
-  public void setOverviewApplicationAppUsage(OverviewApplicationAppUsage body) {
-    this.body = body;
-  }
 }

@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.passport.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class QuerySessionResp extends BaseResponse {
+public class QuerySessionResp extends BaseResponse<QuerySession> {
 
-  @SerializedName("data")
-  private QuerySession body;
-
-  public QuerySession getQuerySession() {
-    return this.body;
-  }
-
-  public void setQuerySession(QuerySession body) {
-    this.body = body;
-  }
 }

@@ -14,7 +14,8 @@
 package com.lark.oapi.service.contact.v3.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class DeleteUserResp extends BaseResponse {
+public class DeleteUserResp extends BaseResponse<EmptyData> {
 
 }

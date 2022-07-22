@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetTopUserReportResp extends BaseResponse {
+public class GetTopUserReportResp extends BaseResponse<GetTopUserReport> {
 
-  @SerializedName("data")
-  private GetTopUserReport body;
-
-  public GetTopUserReport getGetTopUserReport() {
-    return this.body;
-  }
-
-  public void setGetTopUserReport(GetTopUserReport body) {
-    this.body = body;
-  }
 }

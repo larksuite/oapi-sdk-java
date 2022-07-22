@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.wiki.v2.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListSpaceResp extends BaseResponse {
+public class ListSpaceResp extends BaseResponse<ListSpace> {
 
-  @SerializedName("data")
-  private ListSpace body;
-
-  public ListSpace getListSpace() {
-    return this.body;
-  }
-
-  public void setListSpace(ListSpace body) {
-    this.body = body;
-  }
 }

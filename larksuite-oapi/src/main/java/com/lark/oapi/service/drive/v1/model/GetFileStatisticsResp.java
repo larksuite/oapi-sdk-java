@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetFileStatisticsResp extends BaseResponse {
+public class GetFileStatisticsResp extends BaseResponse<GetFileStatistics> {
 
-  @SerializedName("data")
-  private GetFileStatistics body;
-
-  public GetFileStatistics getGetFileStatistics() {
-    return this.body;
-  }
-
-  public void setGetFileStatistics(GetFileStatistics body) {
-    this.body = body;
-  }
 }

@@ -13,16 +13,27 @@
 package com.lark.oapi.core.response;
 
 
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.error.Error;
 
-public class BaseResponse {
+public class BaseResponse<T> {
 
   private RawResponse rawResponse;
   private int code;
   private String msg;
   private Error error;
+  @SerializedName("data")
+  private T data;
 
   public BaseResponse() {
+  }
+
+  public T getData() {
+    return data;
+  }
+
+  public void setData(T data) {
+    this.data = data;
   }
 
   public RawResponse getRawResponse() {

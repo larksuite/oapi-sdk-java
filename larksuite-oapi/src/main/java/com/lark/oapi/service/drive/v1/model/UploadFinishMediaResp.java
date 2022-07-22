@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class UploadFinishMediaResp extends BaseResponse {
+public class UploadFinishMediaResp extends BaseResponse<UploadFinishMedia> {
 
-  @SerializedName("data")
-  private UploadFinishMedia body;
-
-  public UploadFinishMedia getUploadFinishMedia() {
-    return this.body;
-  }
-
-  public void setUploadFinishMedia(UploadFinishMedia body) {
-    this.body = body;
-  }
 }

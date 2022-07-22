@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.task.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListTaskResp extends BaseResponse {
+public class ListTaskResp extends BaseResponse<ListTask> {
 
-  @SerializedName("data")
-  private ListTask body;
-
-  public ListTask getListTask() {
-    return this.body;
-  }
-
-  public void setListTask(ListTask body) {
-    this.body = body;
-  }
 }

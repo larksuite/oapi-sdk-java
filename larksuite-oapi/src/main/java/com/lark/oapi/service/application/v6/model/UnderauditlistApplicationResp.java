@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class UnderauditlistApplicationResp extends BaseResponse {
+public class UnderauditlistApplicationResp extends BaseResponse<UnderauditlistApplication> {
 
-  @SerializedName("data")
-  private UnderauditlistApplication body;
-
-  public UnderauditlistApplication getUnderauditlistApplication() {
-    return this.body;
-  }
-
-  public void setUnderauditlistApplication(UnderauditlistApplication body) {
-    this.body = body;
-  }
 }

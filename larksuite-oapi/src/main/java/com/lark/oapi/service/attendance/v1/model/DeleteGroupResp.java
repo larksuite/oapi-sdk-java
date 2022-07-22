@@ -14,7 +14,8 @@
 package com.lark.oapi.service.attendance.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class DeleteGroupResp extends BaseResponse {
+public class DeleteGroupResp extends BaseResponse<EmptyData> {
 
 }

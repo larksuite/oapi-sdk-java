@@ -14,7 +14,8 @@
 package com.lark.oapi.service.search.v2.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class DeleteDataSourceResp extends BaseResponse {
+public class DeleteDataSourceResp extends BaseResponse<EmptyData> {
 
 }

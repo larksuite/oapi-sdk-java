@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ProcessApprovalInfoResp extends BaseResponse {
+public class ProcessApprovalInfoResp extends BaseResponse<ProcessApprovalInfo> {
 
-  @SerializedName("data")
-  private ProcessApprovalInfo body;
-
-  public ProcessApprovalInfo getProcessApprovalInfo() {
-    return this.body;
-  }
-
-  public void setProcessApprovalInfo(ProcessApprovalInfo body) {
-    this.body = body;
-  }
 }

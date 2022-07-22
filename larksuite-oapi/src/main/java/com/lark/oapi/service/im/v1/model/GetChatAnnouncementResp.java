@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetChatAnnouncementResp extends BaseResponse {
+public class GetChatAnnouncementResp extends BaseResponse<GetChatAnnouncement> {
 
-  @SerializedName("data")
-  private GetChatAnnouncement body;
-
-  public GetChatAnnouncement getGetChatAnnouncement() {
-    return this.body;
-  }
-
-  public void setGetChatAnnouncement(GetChatAnnouncement body) {
-    this.body = body;
-  }
 }

@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetProgressBatchMessageResp extends BaseResponse {
+public class GetProgressBatchMessageResp extends BaseResponse<GetProgressBatchMessage> {
 
-  @SerializedName("data")
-  private GetProgressBatchMessage body;
-
-  public GetProgressBatchMessage getGetProgressBatchMessage() {
-    return this.body;
-  }
-
-  public void setGetProgressBatchMessage(GetProgressBatchMessage body) {
-    this.body = body;
-  }
 }

@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetApplicationAppVersionResp extends BaseResponse {
+public class GetApplicationAppVersionResp extends BaseResponse<GetApplicationAppVersion> {
 
-  @SerializedName("data")
-  private GetApplicationAppVersion body;
-
-  public GetApplicationAppVersion getGetApplicationAppVersion() {
-    return this.body;
-  }
-
-  public void setGetApplicationAppVersion(GetApplicationAppVersion body) {
-    this.body = body;
-  }
 }

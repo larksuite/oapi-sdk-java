@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ReadUserBatchMessageResp extends BaseResponse {
+public class ReadUserBatchMessageResp extends BaseResponse<ReadUserBatchMessage> {
 
-  @SerializedName("data")
-  private ReadUserBatchMessage body;
-
-  public ReadUserBatchMessage getReadUserBatchMessage() {
-    return this.body;
-  }
-
-  public void setReadUserBatchMessage(ReadUserBatchMessage body) {
-    this.body = body;
-  }
 }

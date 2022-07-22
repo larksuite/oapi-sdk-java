@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class DeleteMessageReactionResp extends BaseResponse {
+public class DeleteMessageReactionResp extends BaseResponse<DeleteMessageReaction> {
 
-  @SerializedName("data")
-  private DeleteMessageReaction body;
-
-  public DeleteMessageReaction getDeleteMessageReaction() {
-    return this.body;
-  }
-
-  public void setDeleteMessageReaction(DeleteMessageReaction body) {
-    this.body = body;
-  }
 }

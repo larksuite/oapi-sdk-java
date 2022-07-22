@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetSpreadsheetSheetFilterResp extends BaseResponse {
+public class GetSpreadsheetSheetFilterResp extends BaseResponse<GetSpreadsheetSheetFilter> {
 
-  @SerializedName("data")
-  private GetSpreadsheetSheetFilter body;
-
-  public GetSpreadsheetSheetFilter getGetSpreadsheetSheetFilter() {
-    return this.body;
-  }
-
-  public void setGetSpreadsheetSheetFilter(GetSpreadsheetSheetFilter body) {
-    this.body = body;
-  }
 }

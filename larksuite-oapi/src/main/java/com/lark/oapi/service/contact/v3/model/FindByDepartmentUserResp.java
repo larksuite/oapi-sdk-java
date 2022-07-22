@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class FindByDepartmentUserResp extends BaseResponse {
+public class FindByDepartmentUserResp extends BaseResponse<FindByDepartmentUser> {
 
-  @SerializedName("data")
-  private FindByDepartmentUser body;
-
-  public FindByDepartmentUser getFindByDepartmentUser() {
-    return this.body;
-  }
-
-  public void setFindByDepartmentUser(FindByDepartmentUser body) {
-    this.body = body;
-  }
 }

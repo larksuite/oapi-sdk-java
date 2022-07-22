@@ -31,11 +31,9 @@ public class DeleteAppRoleMemberReq {
   @Path
   @SerializedName("member_id")
   private String memberId;
-
   // builder 开始
   public DeleteAppRoleMemberReq() {
   }
-
   public DeleteAppRoleMemberReq(Builder builder) {
     this.memberIdType = builder.memberIdType;
     this.appToken = builder.appToken;

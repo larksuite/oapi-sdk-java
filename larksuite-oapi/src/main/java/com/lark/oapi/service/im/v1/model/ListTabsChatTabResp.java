@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListTabsChatTabResp extends BaseResponse {
+public class ListTabsChatTabResp extends BaseResponse<ListTabsChatTab> {
 
-  @SerializedName("data")
-  private ListTabsChatTab body;
-
-  public ListTabsChatTab getListTabsChatTab() {
-    return this.body;
-  }
-
-  public void setListTabsChatTab(ListTabsChatTab body) {
-    this.body = body;
-  }
 }

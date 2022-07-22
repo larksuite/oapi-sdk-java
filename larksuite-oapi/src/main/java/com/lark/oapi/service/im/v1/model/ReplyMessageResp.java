@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ReplyMessageResp extends BaseResponse {
+public class ReplyMessageResp extends BaseResponse<ReplyMessage> {
 
-  @SerializedName("data")
-  private ReplyMessage body;
-
-  public ReplyMessage getReplyMessage() {
-    return this.body;
-  }
-
-  public void setReplyMessage(ReplyMessage body) {
-    this.body = body;
-  }
 }

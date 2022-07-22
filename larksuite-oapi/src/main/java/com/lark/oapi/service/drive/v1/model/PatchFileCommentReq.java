@@ -31,7 +31,6 @@ public class PatchFileCommentReq {
   private Long commentId;
   @Body
   private PatchFileCommentReqBody body;
-
   // builder 开始
   public PatchFileCommentReq() {
   }

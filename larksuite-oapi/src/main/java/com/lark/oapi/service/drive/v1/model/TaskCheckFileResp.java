@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class TaskCheckFileResp extends BaseResponse {
+public class TaskCheckFileResp extends BaseResponse<TaskCheckFile> {
 
-  @SerializedName("data")
-  private TaskCheckFile body;
-
-  public TaskCheckFile getTaskCheckFile() {
-    return this.body;
-  }
-
-  public void setTaskCheckFile(TaskCheckFile body) {
-    this.body = body;
-  }
 }

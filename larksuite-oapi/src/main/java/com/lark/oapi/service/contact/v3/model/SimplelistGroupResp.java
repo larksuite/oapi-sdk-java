@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class SimplelistGroupResp extends BaseResponse {
+public class SimplelistGroupResp extends BaseResponse<SimplelistGroup> {
 
-  @SerializedName("data")
-  private SimplelistGroup body;
-
-  public SimplelistGroup getSimplelistGroup() {
-    return this.body;
-  }
-
-  public void setSimplelistGroup(SimplelistGroup body) {
-    this.body = body;
-  }
 }

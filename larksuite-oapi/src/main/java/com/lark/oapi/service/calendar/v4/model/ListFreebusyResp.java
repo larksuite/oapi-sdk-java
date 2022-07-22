@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListFreebusyResp extends BaseResponse {
+public class ListFreebusyResp extends BaseResponse<ListFreebusy> {
 
-  @SerializedName("data")
-  private ListFreebusy body;
-
-  public ListFreebusy getListFreebusy() {
-    return this.body;
-  }
-
-  public void setListFreebusy(ListFreebusy body) {
-    this.body = body;
-  }
 }

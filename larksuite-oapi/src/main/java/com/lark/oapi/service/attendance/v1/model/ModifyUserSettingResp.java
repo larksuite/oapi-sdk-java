@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ModifyUserSettingResp extends BaseResponse {
+public class ModifyUserSettingResp extends BaseResponse<ModifyUserSetting> {
 
-  @SerializedName("data")
-  private ModifyUserSetting body;
-
-  public ModifyUserSetting getModifyUserSetting() {
-    return this.body;
-  }
-
-  public void setModifyUserSetting(ModifyUserSetting body) {
-    this.body = body;
-  }
 }

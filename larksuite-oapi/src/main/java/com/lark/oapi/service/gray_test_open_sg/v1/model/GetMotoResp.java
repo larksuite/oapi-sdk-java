@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.gray_test_open_sg.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetMotoResp extends BaseResponse {
+public class GetMotoResp extends BaseResponse<GetMoto> {
 
-  @SerializedName("data")
-  private GetMoto body;
-
-  public GetMoto getGetMoto() {
-    return this.body;
-  }
-
-  public void setGetMoto(GetMoto body) {
-    this.body = body;
-  }
 }

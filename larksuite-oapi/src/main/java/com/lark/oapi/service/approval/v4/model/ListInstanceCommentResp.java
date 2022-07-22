@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListInstanceCommentResp extends BaseResponse {
+public class ListInstanceCommentResp extends BaseResponse<ListInstanceComment> {
 
-  @SerializedName("data")
-  private ListInstanceComment body;
-
-  public ListInstanceComment getListInstanceComment() {
-    return this.body;
-  }
-
-  public void setListInstanceComment(ListInstanceComment body) {
-    this.body = body;
-  }
 }

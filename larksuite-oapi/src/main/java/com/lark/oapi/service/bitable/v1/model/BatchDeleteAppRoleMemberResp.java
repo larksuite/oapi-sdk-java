@@ -14,7 +14,8 @@
 package com.lark.oapi.service.bitable.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class BatchDeleteAppRoleMemberResp extends BaseResponse {
+public class BatchDeleteAppRoleMemberResp extends BaseResponse<EmptyData> {
 
 }

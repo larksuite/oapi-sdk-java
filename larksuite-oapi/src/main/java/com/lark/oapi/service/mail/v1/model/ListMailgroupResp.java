@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListMailgroupResp extends BaseResponse {
+public class ListMailgroupResp extends BaseResponse<ListMailgroup> {
 
-  @SerializedName("data")
-  private ListMailgroup body;
-
-  public ListMailgroup getListMailgroup() {
-    return this.body;
-  }
-
-  public void setListMailgroup(ListMailgroup body) {
-    this.body = body;
-  }
 }

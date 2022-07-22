@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.tenant.v2.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class QueryTenantResp extends BaseResponse {
+public class QueryTenantResp extends BaseResponse<QueryTenant> {
 
-  @SerializedName("data")
-  private QueryTenant body;
-
-  public QueryTenant getQueryTenant() {
-    return this.body;
-  }
-
-  public void setQueryTenant(QueryTenant body) {
-    this.body = body;
-  }
 }

@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateUserTaskRemedyResp extends BaseResponse {
+public class CreateUserTaskRemedyResp extends BaseResponse<CreateUserTaskRemedy> {
 
-  @SerializedName("data")
-  private CreateUserTaskRemedy body;
-
-  public CreateUserTaskRemedy getCreateUserTaskRemedy() {
-    return this.body;
-  }
-
-  public void setCreateUserTaskRemedy(CreateUserTaskRemedy body) {
-    this.body = body;
-  }
 }

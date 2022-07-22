@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class BatchCreateAppTableResp extends BaseResponse {
+public class BatchCreateAppTableResp extends BaseResponse<BatchCreateAppTable> {
 
-  @SerializedName("data")
-  private BatchCreateAppTable body;
-
-  public BatchCreateAppTable getBatchCreateAppTable() {
-    return this.body;
-  }
-
-  public void setBatchCreateAppTable(BatchCreateAppTable body) {
-    this.body = body;
-  }
 }

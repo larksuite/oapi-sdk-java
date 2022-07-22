@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.optical_char_recognition.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class BasicRecognizeImageResp extends BaseResponse {
+public class BasicRecognizeImageResp extends BaseResponse<BasicRecognizeImage> {
 
-  @SerializedName("data")
-  private BasicRecognizeImage body;
-
-  public BasicRecognizeImage getBasicRecognizeImage() {
-    return this.body;
-  }
-
-  public void setBasicRecognizeImage(BasicRecognizeImage body) {
-    this.body = body;
-  }
 }

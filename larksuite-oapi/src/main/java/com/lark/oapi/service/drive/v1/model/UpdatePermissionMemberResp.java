@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class UpdatePermissionMemberResp extends BaseResponse {
+public class UpdatePermissionMemberResp extends BaseResponse<UpdatePermissionMember> {
 
-  @SerializedName("data")
-  private UpdatePermissionMember body;
-
-  public UpdatePermissionMember getUpdatePermissionMember() {
-    return this.body;
-  }
-
-  public void setUpdatePermissionMember(UpdatePermissionMember body) {
-    this.body = body;
-  }
 }

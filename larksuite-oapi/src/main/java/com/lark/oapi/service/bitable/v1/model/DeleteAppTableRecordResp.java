@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class DeleteAppTableRecordResp extends BaseResponse {
+public class DeleteAppTableRecordResp extends BaseResponse<DeleteAppTableRecord> {
 
-  @SerializedName("data")
-  private DeleteAppTableRecord body;
-
-  public DeleteAppTableRecord getDeleteAppTableRecord() {
-    return this.body;
-  }
-
-  public void setDeleteAppTableRecord(DeleteAppTableRecord body) {
-    this.body = body;
-  }
 }

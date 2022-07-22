@@ -13,19 +13,9 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class BatchDeleteDocumentBlockChildrenResp extends BaseResponse {
+public class BatchDeleteDocumentBlockChildrenResp extends
+    BaseResponse<BatchDeleteDocumentBlockChildren> {
 
-  @SerializedName("data")
-  private BatchDeleteDocumentBlockChildren body;
-
-  public BatchDeleteDocumentBlockChildren getBatchDeleteDocumentBlockChildren() {
-    return this.body;
-  }
-
-  public void setBatchDeleteDocumentBlockChildren(BatchDeleteDocumentBlockChildren body) {
-    this.body = body;
-  }
 }

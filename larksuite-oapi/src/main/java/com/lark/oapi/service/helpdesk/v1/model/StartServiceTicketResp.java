@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class StartServiceTicketResp extends BaseResponse {
+public class StartServiceTicketResp extends BaseResponse<StartServiceTicket> {
 
-  @SerializedName("data")
-  private StartServiceTicket body;
-
-  public StartServiceTicket getStartServiceTicket() {
-    return this.body;
-  }
-
-  public void setStartServiceTicket(StartServiceTicket body) {
-    this.body = body;
-  }
 }

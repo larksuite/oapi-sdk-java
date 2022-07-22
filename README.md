@@ -293,7 +293,7 @@ public class DocxSample {
     }
 
     // 业务数据处理
-    System.out.println(Jsons.DEFAULT.toJson(resp.getCreateDocument()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getData()));
   }
 }
 ```
@@ -348,7 +348,7 @@ public class DocxSample {
     }
 
     // 业务数据处理
-    System.out.println(Jsons.DEFAULT.toJson(resp.getCreateDocument()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getData()));
   }
 }
 ```

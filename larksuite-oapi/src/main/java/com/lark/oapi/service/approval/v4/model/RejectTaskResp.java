@@ -14,7 +14,8 @@
 package com.lark.oapi.service.approval.v4.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class RejectTaskResp extends BaseResponse {
+public class RejectTaskResp extends BaseResponse<EmptyData> {
 
 }

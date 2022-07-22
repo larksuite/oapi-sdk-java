@@ -13,20 +13,9 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class QuerySpreadsheetSheetFilterViewConditionResp extends BaseResponse {
+public class QuerySpreadsheetSheetFilterViewConditionResp extends
+    BaseResponse<QuerySpreadsheetSheetFilterViewCondition> {
 
-  @SerializedName("data")
-  private QuerySpreadsheetSheetFilterViewCondition body;
-
-  public QuerySpreadsheetSheetFilterViewCondition getQuerySpreadsheetSheetFilterViewCondition() {
-    return this.body;
-  }
-
-  public void setQuerySpreadsheetSheetFilterViewCondition(
-      QuerySpreadsheetSheetFilterViewCondition body) {
-    this.body = body;
-  }
 }

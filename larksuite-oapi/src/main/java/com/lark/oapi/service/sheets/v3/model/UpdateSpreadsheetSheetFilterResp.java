@@ -14,7 +14,8 @@
 package com.lark.oapi.service.sheets.v3.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class UpdateSpreadsheetSheetFilterResp extends BaseResponse {
+public class UpdateSpreadsheetSheetFilterResp extends BaseResponse<EmptyData> {
 
 }

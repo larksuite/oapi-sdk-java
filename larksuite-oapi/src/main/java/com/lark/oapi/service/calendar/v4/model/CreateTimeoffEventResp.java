@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateTimeoffEventResp extends BaseResponse {
+public class CreateTimeoffEventResp extends BaseResponse<CreateTimeoffEvent> {
 
-  @SerializedName("data")
-  private CreateTimeoffEvent body;
-
-  public CreateTimeoffEvent getCreateTimeoffEvent() {
-    return this.body;
-  }
-
-  public void setCreateTimeoffEvent(CreateTimeoffEvent body) {
-    this.body = body;
-  }
 }

@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetCategoryResp extends BaseResponse {
+public class GetCategoryResp extends BaseResponse<GetCategory> {
 
-  @SerializedName("data")
-  private GetCategory body;
-
-  public GetCategory getGetCategory() {
-    return this.body;
-  }
-
-  public void setGetCategory(GetCategory body) {
-    this.body = body;
-  }
 }

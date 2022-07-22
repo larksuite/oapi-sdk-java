@@ -14,7 +14,8 @@
 package com.lark.oapi.service.wiki.v2.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class UpdateTitleSpaceNodeResp extends BaseResponse {
+public class UpdateTitleSpaceNodeResp extends BaseResponse<EmptyData> {
 
 }

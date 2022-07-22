@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class DeleteInstanceCommentResp extends BaseResponse {
+public class DeleteInstanceCommentResp extends BaseResponse<DeleteInstanceComment> {
 
-  @SerializedName("data")
-  private DeleteInstanceComment body;
-
-  public DeleteInstanceComment getDeleteInstanceComment() {
-    return this.body;
-  }
-
-  public void setDeleteInstanceComment(DeleteInstanceComment body) {
-    this.body = body;
-  }
 }

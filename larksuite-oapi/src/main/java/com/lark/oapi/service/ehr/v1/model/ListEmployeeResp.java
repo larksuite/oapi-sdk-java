@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.ehr.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListEmployeeResp extends BaseResponse {
+public class ListEmployeeResp extends BaseResponse<ListEmployee> {
 
-  @SerializedName("data")
-  private ListEmployee body;
-
-  public ListEmployee getListEmployee() {
-    return this.body;
-  }
-
-  public void setListEmployee(ListEmployee body) {
-    this.body = body;
-  }
 }

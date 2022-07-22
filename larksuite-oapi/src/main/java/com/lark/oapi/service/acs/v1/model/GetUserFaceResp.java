@@ -19,9 +19,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class GetUserFaceResp extends BaseResponse {
+public class GetUserFaceResp extends BaseResponse<ByteArrayOutputStream> {
 
-  private ByteArrayOutputStream fileStream;
   private String fileName;
 
   public String getFileName() {
@@ -32,20 +31,13 @@ public class GetUserFaceResp extends BaseResponse {
     this.fileName = fileName;
   }
 
-  public ByteArrayOutputStream getFileStream() {
-    return fileStream;
-  }
-
-  public void setFileStream(ByteArrayOutputStream fileStream) {
-    this.fileStream = fileStream;
-  }
 
   public void writeFile(String path) throws IOException {
     if (Strings.isEmpty(path)) {
       throw new RuntimeException("path is blank");
     }
     FileOutputStream file = new FileOutputStream(path);
-    file.write(getFileStream().toByteArray());
+    file.write(getData().toByteArray());
     file.close();
   }
 }

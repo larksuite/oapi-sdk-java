@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateSchemaResp extends BaseResponse {
+public class CreateSchemaResp extends BaseResponse<CreateSchema> {
 
-  @SerializedName("data")
-  private CreateSchema body;
-
-  public CreateSchema getCreateSchema() {
-    return this.body;
-  }
-
-  public void setCreateSchema(CreateSchema body) {
-    this.body = body;
-  }
 }

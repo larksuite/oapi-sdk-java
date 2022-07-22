@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ReplaceSpreadsheetSheetResp extends BaseResponse {
+public class ReplaceSpreadsheetSheetResp extends BaseResponse<ReplaceSpreadsheetSheet> {
 
-  @SerializedName("data")
-  private ReplaceSpreadsheetSheet body;
-
-  public ReplaceSpreadsheetSheet getReplaceSpreadsheetSheet() {
-    return this.body;
-  }
-
-  public void setReplaceSpreadsheetSheet(ReplaceSpreadsheetSheet body) {
-    this.body = body;
-  }
 }

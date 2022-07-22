@@ -14,7 +14,8 @@
 package com.lark.oapi.service.calendar.v4.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class SubscriptionCalendarAclResp extends BaseResponse {
+public class SubscriptionCalendarAclResp extends BaseResponse<EmptyData> {
 
 }

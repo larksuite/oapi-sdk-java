@@ -14,7 +14,8 @@
 package com.lark.oapi.service.contact.v3.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class RemoveGroupMemberResp extends BaseResponse {
+public class RemoveGroupMemberResp extends BaseResponse<EmptyData> {
 
 }

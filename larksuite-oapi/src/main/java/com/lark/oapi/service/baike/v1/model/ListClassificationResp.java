@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.baike.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListClassificationResp extends BaseResponse {
+public class ListClassificationResp extends BaseResponse<ListClassification> {
 
-  @SerializedName("data")
-  private ListClassification body;
-
-  public ListClassification getListClassification() {
-    return this.body;
-  }
-
-  public void setListClassification(ListClassification body) {
-    this.body = body;
-  }
 }

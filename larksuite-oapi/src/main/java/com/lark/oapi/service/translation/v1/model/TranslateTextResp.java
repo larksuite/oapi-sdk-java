@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.translation.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class TranslateTextResp extends BaseResponse {
+public class TranslateTextResp extends BaseResponse<TranslateText> {
 
-  @SerializedName("data")
-  private TranslateText body;
-
-  public TranslateText getTranslateText() {
-    return this.body;
-  }
-
-  public void setTranslateText(TranslateText body) {
-    this.body = body;
-  }
 }

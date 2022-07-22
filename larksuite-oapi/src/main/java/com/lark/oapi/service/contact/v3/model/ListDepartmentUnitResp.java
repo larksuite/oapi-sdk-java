@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListDepartmentUnitResp extends BaseResponse {
+public class ListDepartmentUnitResp extends BaseResponse<ListDepartmentUnit> {
 
-  @SerializedName("data")
-  private ListDepartmentUnit body;
-
-  public ListDepartmentUnit getListDepartmentUnit() {
-    return this.body;
-  }
-
-  public void setListDepartmentUnit(ListDepartmentUnit body) {
-    this.body = body;
-  }
 }

@@ -14,7 +14,8 @@
 package com.lark.oapi.service.im.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class DeleteMessageResp extends BaseResponse {
+public class DeleteMessageResp extends BaseResponse<EmptyData> {
 
 }

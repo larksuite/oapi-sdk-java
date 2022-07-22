@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateExchangeBindingResp extends BaseResponse {
+public class CreateExchangeBindingResp extends BaseResponse<CreateExchangeBinding> {
 
-  @SerializedName("data")
-  private CreateExchangeBinding body;
-
-  public CreateExchangeBinding getCreateExchangeBinding() {
-    return this.body;
-  }
-
-  public void setCreateExchangeBinding(CreateExchangeBinding body) {
-    this.body = body;
-  }
 }

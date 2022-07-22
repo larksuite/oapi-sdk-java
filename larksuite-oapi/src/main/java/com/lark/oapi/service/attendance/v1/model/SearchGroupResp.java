@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class SearchGroupResp extends BaseResponse {
+public class SearchGroupResp extends BaseResponse<SearchGroup> {
 
-  @SerializedName("data")
-  private SearchGroup body;
-
-  public SearchGroup getSearchGroup() {
-    return this.body;
-  }
-
-  public void setSearchGroup(SearchGroup body) {
-    this.body = body;
-  }
 }

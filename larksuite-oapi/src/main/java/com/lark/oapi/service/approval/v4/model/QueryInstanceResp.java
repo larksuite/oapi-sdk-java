@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class QueryInstanceResp extends BaseResponse {
+public class QueryInstanceResp extends BaseResponse<QueryInstance> {
 
-  @SerializedName("data")
-  private QueryInstance body;
-
-  public QueryInstance getQueryInstance() {
-    return this.body;
-  }
-
-  public void setQueryInstance(QueryInstance body) {
-    this.body = body;
-  }
 }

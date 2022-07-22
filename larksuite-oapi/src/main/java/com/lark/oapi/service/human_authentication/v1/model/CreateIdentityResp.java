@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.human_authentication.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateIdentityResp extends BaseResponse {
+public class CreateIdentityResp extends BaseResponse<CreateIdentity> {
 
-  @SerializedName("data")
-  private CreateIdentity body;
-
-  public CreateIdentity getCreateIdentity() {
-    return this.body;
-  }
-
-  public void setCreateIdentity(CreateIdentity body) {
-    this.body = body;
-  }
 }

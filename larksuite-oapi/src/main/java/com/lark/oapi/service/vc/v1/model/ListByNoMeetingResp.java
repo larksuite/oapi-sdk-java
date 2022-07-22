@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListByNoMeetingResp extends BaseResponse {
+public class ListByNoMeetingResp extends BaseResponse<ListByNoMeeting> {
 
-  @SerializedName("data")
-  private ListByNoMeeting body;
-
-  public ListByNoMeeting getListByNoMeeting() {
-    return this.body;
-  }
-
-  public void setListByNoMeeting(ListByNoMeeting body) {
-    this.body = body;
-  }
 }

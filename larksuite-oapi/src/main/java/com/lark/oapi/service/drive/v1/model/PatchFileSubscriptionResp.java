@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class PatchFileSubscriptionResp extends BaseResponse {
+public class PatchFileSubscriptionResp extends BaseResponse<PatchFileSubscription> {
 
-  @SerializedName("data")
-  private PatchFileSubscription body;
-
-  public PatchFileSubscription getPatchFileSubscription() {
-    return this.body;
-  }
-
-  public void setPatchFileSubscription(PatchFileSubscription body) {
-    this.body = body;
-  }
 }

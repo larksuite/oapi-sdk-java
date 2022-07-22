@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class UpdateUserResp extends BaseResponse {
+public class UpdateUserResp extends BaseResponse<UpdateUser> {
 
-  @SerializedName("data")
-  private UpdateUser body;
-
-  public UpdateUser getUpdateUser() {
-    return this.body;
-  }
-
-  public void setUpdateUser(UpdateUser body) {
-    this.body = body;
-  }
 }

@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.acs.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListDeviceResp extends BaseResponse {
+public class ListDeviceResp extends BaseResponse<ListDevice> {
 
-  @SerializedName("data")
-  private ListDevice body;
-
-  public ListDevice getListDevice() {
-    return this.body;
-  }
-
-  public void setListDevice(ListDevice body) {
-    this.body = body;
-  }
 }

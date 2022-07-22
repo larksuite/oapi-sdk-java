@@ -13,19 +13,9 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class PatchSpreadsheetSheetFilterViewResp extends BaseResponse {
+public class PatchSpreadsheetSheetFilterViewResp extends
+    BaseResponse<PatchSpreadsheetSheetFilterView> {
 
-  @SerializedName("data")
-  private PatchSpreadsheetSheetFilterView body;
-
-  public PatchSpreadsheetSheetFilterView getPatchSpreadsheetSheetFilterView() {
-    return this.body;
-  }
-
-  public void setPatchSpreadsheetSheetFilterView(PatchSpreadsheetSheetFilterView body) {
-    this.body = body;
-  }
 }

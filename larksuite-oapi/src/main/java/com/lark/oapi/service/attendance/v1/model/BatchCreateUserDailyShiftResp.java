@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class BatchCreateUserDailyShiftResp extends BaseResponse {
+public class BatchCreateUserDailyShiftResp extends BaseResponse<BatchCreateUserDailyShift> {
 
-  @SerializedName("data")
-  private BatchCreateUserDailyShift body;
-
-  public BatchCreateUserDailyShift getBatchCreateUserDailyShift() {
-    return this.body;
-  }
-
-  public void setBatchCreateUserDailyShift(BatchCreateUserDailyShift body) {
-    this.body = body;
-  }
 }

@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateImportTaskResp extends BaseResponse {
+public class CreateImportTaskResp extends BaseResponse<CreateImportTask> {
 
-  @SerializedName("data")
-  private CreateImportTask body;
-
-  public CreateImportTask getCreateImportTask() {
-    return this.body;
-  }
-
-  public void setCreateImportTask(CreateImportTask body) {
-    this.body = body;
-  }
 }

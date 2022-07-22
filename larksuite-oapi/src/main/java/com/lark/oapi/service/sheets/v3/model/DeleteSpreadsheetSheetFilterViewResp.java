@@ -14,7 +14,8 @@
 package com.lark.oapi.service.sheets.v3.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class DeleteSpreadsheetSheetFilterViewResp extends BaseResponse {
+public class DeleteSpreadsheetSheetFilterViewResp extends BaseResponse<EmptyData> {
 
 }

@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.event.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListOutboundIpResp extends BaseResponse {
+public class ListOutboundIpResp extends BaseResponse<ListOutboundIp> {
 
-  @SerializedName("data")
-  private ListOutboundIp body;
-
-  public ListOutboundIp getListOutboundIp() {
-    return this.body;
-  }
-
-  public void setListOutboundIp(ListOutboundIp body) {
-    this.body = body;
-  }
 }

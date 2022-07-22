@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class QueryShiftResp extends BaseResponse {
+public class QueryShiftResp extends BaseResponse<QueryShift> {
 
-  @SerializedName("data")
-  private QueryShift body;
-
-  public QueryShift getQueryShift() {
-    return this.body;
-  }
-
-  public void setQueryShift(QueryShift body) {
-    this.body = body;
-  }
 }

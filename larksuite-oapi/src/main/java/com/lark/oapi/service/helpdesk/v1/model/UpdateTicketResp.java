@@ -14,7 +14,8 @@
 package com.lark.oapi.service.helpdesk.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class UpdateTicketResp extends BaseResponse {
+public class UpdateTicketResp extends BaseResponse<EmptyData> {
 
 }

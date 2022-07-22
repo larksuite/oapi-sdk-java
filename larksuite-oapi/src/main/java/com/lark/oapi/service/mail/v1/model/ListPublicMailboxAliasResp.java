@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListPublicMailboxAliasResp extends BaseResponse {
+public class ListPublicMailboxAliasResp extends BaseResponse<ListPublicMailboxAlias> {
 
-  @SerializedName("data")
-  private ListPublicMailboxAlias body;
-
-  public ListPublicMailboxAlias getListPublicMailboxAlias() {
-    return this.body;
-  }
-
-  public void setListPublicMailboxAlias(ListPublicMailboxAlias body) {
-    this.body = body;
-  }
 }

@@ -14,7 +14,8 @@
 package com.lark.oapi.service.drive.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class PatchFileCommentResp extends BaseResponse {
+public class PatchFileCommentResp extends BaseResponse<EmptyData> {
 
 }

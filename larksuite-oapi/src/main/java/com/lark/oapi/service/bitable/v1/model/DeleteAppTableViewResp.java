@@ -14,7 +14,8 @@
 package com.lark.oapi.service.bitable.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class DeleteAppTableViewResp extends BaseResponse {
+public class DeleteAppTableViewResp extends BaseResponse<EmptyData> {
 
 }

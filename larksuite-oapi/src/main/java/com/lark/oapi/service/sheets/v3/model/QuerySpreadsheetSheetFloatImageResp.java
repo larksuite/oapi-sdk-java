@@ -13,19 +13,9 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class QuerySpreadsheetSheetFloatImageResp extends BaseResponse {
+public class QuerySpreadsheetSheetFloatImageResp extends
+    BaseResponse<QuerySpreadsheetSheetFloatImage> {
 
-  @SerializedName("data")
-  private QuerySpreadsheetSheetFloatImage body;
-
-  public QuerySpreadsheetSheetFloatImage getQuerySpreadsheetSheetFloatImage() {
-    return this.body;
-  }
-
-  public void setQuerySpreadsheetSheetFloatImage(QuerySpreadsheetSheetFloatImage body) {
-    this.body = body;
-  }
 }

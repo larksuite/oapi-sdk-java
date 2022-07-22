@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetAgentSkillResp extends BaseResponse {
+public class GetAgentSkillResp extends BaseResponse<GetAgentSkill> {
 
-  @SerializedName("data")
-  private GetAgentSkill body;
-
-  public GetAgentSkill getGetAgentSkill() {
-    return this.body;
-  }
-
-  public void setGetAgentSkill(GetAgentSkill body) {
-    this.body = body;
-  }
 }

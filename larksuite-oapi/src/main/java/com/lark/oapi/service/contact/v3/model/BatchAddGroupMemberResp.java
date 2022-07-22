@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class BatchAddGroupMemberResp extends BaseResponse {
+public class BatchAddGroupMemberResp extends BaseResponse<BatchAddGroupMember> {
 
-  @SerializedName("data")
-  private BatchAddGroupMember body;
-
-  public BatchAddGroupMember getBatchAddGroupMember() {
-    return this.body;
-  }
-
-  public void setBatchAddGroupMember(BatchAddGroupMember body) {
-    this.body = body;
-  }
 }

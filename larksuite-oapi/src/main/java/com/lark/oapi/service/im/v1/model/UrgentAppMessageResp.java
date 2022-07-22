@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class UrgentAppMessageResp extends BaseResponse {
+public class UrgentAppMessageResp extends BaseResponse<UrgentAppMessage> {
 
-  @SerializedName("data")
-  private UrgentAppMessage body;
-
-  public UrgentAppMessage getUrgentAppMessage() {
-    return this.body;
-  }
-
-  public void setUrgentAppMessage(UrgentAppMessage body) {
-    this.body = body;
-  }
 }

@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class QueryUserApprovalResp extends BaseResponse {
+public class QueryUserApprovalResp extends BaseResponse<QueryUserApproval> {
 
-  @SerializedName("data")
-  private QueryUserApproval body;
-
-  public QueryUserApproval getQueryUserApproval() {
-    return this.body;
-  }
-
-  public void setQueryUserApproval(QueryUserApproval body) {
-    this.body = body;
-  }
 }

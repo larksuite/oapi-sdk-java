@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.speech_to_text.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class FileRecognizeSpeechResp extends BaseResponse {
+public class FileRecognizeSpeechResp extends BaseResponse<FileRecognizeSpeech> {
 
-  @SerializedName("data")
-  private FileRecognizeSpeech body;
-
-  public FileRecognizeSpeech getFileRecognizeSpeech() {
-    return this.body;
-  }
-
-  public void setFileRecognizeSpeech(FileRecognizeSpeech body) {
-    this.body = body;
-  }
 }

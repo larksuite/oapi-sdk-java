@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateFileCommentResp extends BaseResponse {
+public class CreateFileCommentResp extends BaseResponse<CreateFileComment> {
 
-  @SerializedName("data")
-  private CreateFileComment body;
-
-  public CreateFileComment getCreateFileComment() {
-    return this.body;
-  }
-
-  public void setCreateFileComment(CreateFileComment body) {
-    this.body = body;
-  }
 }

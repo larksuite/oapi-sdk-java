@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ApplyReserveResp extends BaseResponse {
+public class ApplyReserveResp extends BaseResponse<ApplyReserve> {
 
-  @SerializedName("data")
-  private ApplyReserve body;
-
-  public ApplyReserve getApplyReserve() {
-    return this.body;
-  }
-
-  public void setApplyReserve(ApplyReserve body) {
-    this.body = body;
-  }
 }

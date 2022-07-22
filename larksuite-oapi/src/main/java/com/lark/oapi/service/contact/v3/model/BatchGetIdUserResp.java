@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class BatchGetIdUserResp extends BaseResponse {
+public class BatchGetIdUserResp extends BaseResponse<BatchGetIdUser> {
 
-  @SerializedName("data")
-  private BatchGetIdUser body;
-
-  public BatchGetIdUser getBatchGetIdUser() {
-    return this.body;
-  }
-
-  public void setBatchGetIdUser(BatchGetIdUser body) {
-    this.body = body;
-  }
 }

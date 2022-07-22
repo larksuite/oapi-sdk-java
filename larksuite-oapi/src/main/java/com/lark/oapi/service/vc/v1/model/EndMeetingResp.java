@@ -14,7 +14,8 @@
 package com.lark.oapi.service.vc.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class EndMeetingResp extends BaseResponse {
+public class EndMeetingResp extends BaseResponse<EmptyData> {
 
 }

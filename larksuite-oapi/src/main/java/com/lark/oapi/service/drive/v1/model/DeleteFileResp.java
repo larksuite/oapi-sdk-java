@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class DeleteFileResp extends BaseResponse {
+public class DeleteFileResp extends BaseResponse<DeleteFile> {
 
-  @SerializedName("data")
-  private DeleteFile body;
-
-  public DeleteFile getDeleteFile() {
-    return this.body;
-  }
-
-  public void setDeleteFile(DeleteFile body) {
-    this.body = body;
-  }
 }

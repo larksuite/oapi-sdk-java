@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class BatchQueryMetaResp extends BaseResponse {
+public class BatchQueryMetaResp extends BaseResponse<BatchQueryMeta> {
 
-  @SerializedName("data")
-  private BatchQueryMeta body;
-
-  public BatchQueryMeta getBatchQueryMeta() {
-    return this.body;
-  }
-
-  public void setBatchQueryMeta(BatchQueryMeta body) {
-    this.body = body;
-  }
 }

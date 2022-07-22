@@ -244,7 +244,7 @@ public class DriveService {
         resp.setRawResponse(httpResponse);
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         outputStream.write(httpResponse.getBody());
-        resp.setFileStream(outputStream);
+        resp.setData(outputStream);
         resp.setFileName(httpResponse.getFileName());
         return resp;
       }
@@ -272,7 +272,7 @@ public class DriveService {
         resp.setRawResponse(httpResponse);
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         outputStream.write(httpResponse.getBody());
-        resp.setFileStream(outputStream);
+        resp.setData(outputStream);
         resp.setFileName(httpResponse.getFileName());
         return resp;
       }
@@ -452,7 +452,7 @@ public class DriveService {
         resp.setRawResponse(httpResponse);
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         outputStream.write(httpResponse.getBody());
-        resp.setFileStream(outputStream);
+        resp.setData(outputStream);
         resp.setFileName(httpResponse.getFileName());
         return resp;
       }
@@ -479,7 +479,7 @@ public class DriveService {
         resp.setRawResponse(httpResponse);
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         outputStream.write(httpResponse.getBody());
-        resp.setFileStream(outputStream);
+        resp.setData(outputStream);
         resp.setFileName(httpResponse.getFileName());
         return resp;
       }
@@ -1337,7 +1337,7 @@ public class DriveService {
         resp.setRawResponse(httpResponse);
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         outputStream.write(httpResponse.getBody());
-        resp.setFileStream(outputStream);
+        resp.setData(outputStream);
         resp.setFileName(httpResponse.getFileName());
         return resp;
       }
@@ -1365,7 +1365,7 @@ public class DriveService {
         resp.setRawResponse(httpResponse);
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         outputStream.write(httpResponse.getBody());
-        resp.setFileStream(outputStream);
+        resp.setData(outputStream);
         resp.setFileName(httpResponse.getFileName());
         return resp;
       }

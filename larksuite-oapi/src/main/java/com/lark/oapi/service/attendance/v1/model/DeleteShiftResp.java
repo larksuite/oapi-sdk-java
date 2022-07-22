@@ -14,7 +14,8 @@
 package com.lark.oapi.service.attendance.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class DeleteShiftResp extends BaseResponse {
+public class DeleteShiftResp extends BaseResponse<EmptyData> {
 
 }

@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class DeleteManagersChatManagersResp extends BaseResponse {
+public class DeleteManagersChatManagersResp extends BaseResponse<DeleteManagersChatManagers> {
 
-  @SerializedName("data")
-  private DeleteManagersChatManagers body;
-
-  public DeleteManagersChatManagers getDeleteManagersChatManagers() {
-    return this.body;
-  }
-
-  public void setDeleteManagersChatManagers(DeleteManagersChatManagers body) {
-    this.body = body;
-  }
 }

@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class QueryRoomConfigResp extends BaseResponse {
+public class QueryRoomConfigResp extends BaseResponse<QueryRoomConfig> {
 
-  @SerializedName("data")
-  private QueryRoomConfig body;
-
-  public QueryRoomConfig getQueryRoomConfig() {
-    return this.body;
-  }
-
-  public void setQueryRoomConfig(QueryRoomConfig body) {
-    this.body = body;
-  }
 }

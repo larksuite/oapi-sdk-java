@@ -14,7 +14,8 @@
 package com.lark.oapi.service.block.v2.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class CreateMessageResp extends BaseResponse {
+public class CreateMessageResp extends BaseResponse<EmptyData> {
 
 }

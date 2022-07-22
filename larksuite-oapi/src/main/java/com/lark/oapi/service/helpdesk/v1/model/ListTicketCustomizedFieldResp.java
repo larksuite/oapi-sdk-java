@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListTicketCustomizedFieldResp extends BaseResponse {
+public class ListTicketCustomizedFieldResp extends BaseResponse<ListTicketCustomizedField> {
 
-  @SerializedName("data")
-  private ListTicketCustomizedField body;
-
-  public ListTicketCustomizedField getListTicketCustomizedField() {
-    return this.body;
-  }
-
-  public void setListTicketCustomizedField(ListTicketCustomizedField body) {
-    this.body = body;
-  }
 }

@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class BatchGetTmpDownloadUrlMediaResp extends BaseResponse {
+public class BatchGetTmpDownloadUrlMediaResp extends BaseResponse<BatchGetTmpDownloadUrlMedia> {
 
-  @SerializedName("data")
-  private BatchGetTmpDownloadUrlMedia body;
-
-  public BatchGetTmpDownloadUrlMedia getBatchGetTmpDownloadUrlMedia() {
-    return this.body;
-  }
-
-  public void setBatchGetTmpDownloadUrlMedia(BatchGetTmpDownloadUrlMedia body) {
-    this.body = body;
-  }
 }

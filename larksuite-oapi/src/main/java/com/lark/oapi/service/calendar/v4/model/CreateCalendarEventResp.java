@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateCalendarEventResp extends BaseResponse {
+public class CreateCalendarEventResp extends BaseResponse<CreateCalendarEvent> {
 
-  @SerializedName("data")
-  private CreateCalendarEvent body;
-
-  public CreateCalendarEvent getCreateCalendarEvent() {
-    return this.body;
-  }
-
-  public void setCreateCalendarEvent(CreateCalendarEvent body) {
-    this.body = body;
-  }
 }

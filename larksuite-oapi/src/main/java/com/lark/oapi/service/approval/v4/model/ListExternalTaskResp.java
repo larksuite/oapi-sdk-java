@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListExternalTaskResp extends BaseResponse {
+public class ListExternalTaskResp extends BaseResponse<ListExternalTask> {
 
-  @SerializedName("data")
-  private ListExternalTask body;
-
-  public ListExternalTask getListExternalTask() {
-    return this.body;
-  }
-
-  public void setListExternalTask(ListExternalTask body) {
-    this.body = body;
-  }
 }

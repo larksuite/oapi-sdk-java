@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateImageResp extends BaseResponse {
+public class CreateImageResp extends BaseResponse<CreateImage> {
 
-  @SerializedName("data")
-  private CreateImage body;
-
-  public CreateImage getCreateImage() {
-    return this.body;
-  }
-
-  public void setCreateImage(CreateImage body) {
-    this.body = body;
-  }
 }

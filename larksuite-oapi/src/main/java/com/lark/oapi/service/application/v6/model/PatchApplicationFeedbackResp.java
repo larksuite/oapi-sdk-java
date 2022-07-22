@@ -14,7 +14,8 @@
 package com.lark.oapi.service.application.v6.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class PatchApplicationFeedbackResp extends BaseResponse {
+public class PatchApplicationFeedbackResp extends BaseResponse<EmptyData> {
 
 }

@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetMeetingRecordingResp extends BaseResponse {
+public class GetMeetingRecordingResp extends BaseResponse<GetMeetingRecording> {
 
-  @SerializedName("data")
-  private GetMeetingRecording body;
-
-  public GetMeetingRecording getGetMeetingRecording() {
-    return this.body;
-  }
-
-  public void setGetMeetingRecording(GetMeetingRecording body) {
-    this.body = body;
-  }
 }

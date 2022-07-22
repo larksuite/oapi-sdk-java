@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetDocumentBlockResp extends BaseResponse {
+public class GetDocumentBlockResp extends BaseResponse<GetDocumentBlock> {
 
-  @SerializedName("data")
-  private GetDocumentBlock body;
-
-  public GetDocumentBlock getGetDocumentBlock() {
-    return this.body;
-  }
-
-  public void setGetDocumentBlock(GetDocumentBlock body) {
-    this.body = body;
-  }
 }

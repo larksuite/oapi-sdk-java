@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateApprovalResp extends BaseResponse {
+public class CreateApprovalResp extends BaseResponse<CreateApproval> {
 
-  @SerializedName("data")
-  private CreateApproval body;
-
-  public CreateApproval getCreateApproval() {
-    return this.body;
-  }
-
-  public void setCreateApproval(CreateApproval body) {
-    this.body = body;
-  }
 }

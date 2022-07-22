@@ -14,7 +14,8 @@
 package com.lark.oapi.service.task.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class DeleteTaskResp extends BaseResponse {
+public class DeleteTaskResp extends BaseResponse<EmptyData> {
 
 }

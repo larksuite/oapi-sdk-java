@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class QueryUserDailyShiftResp extends BaseResponse {
+public class QueryUserDailyShiftResp extends BaseResponse<QueryUserDailyShift> {
 
-  @SerializedName("data")
-  private QueryUserDailyShift body;
-
-  public QueryUserDailyShift getQueryUserDailyShift() {
-    return this.body;
-  }
-
-  public void setQueryUserDailyShift(QueryUserDailyShift body) {
-    this.body = body;
-  }
 }

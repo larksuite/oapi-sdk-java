@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListApplicationFeedbackResp extends BaseResponse {
+public class ListApplicationFeedbackResp extends BaseResponse<ListApplicationFeedback> {
 
-  @SerializedName("data")
-  private ListApplicationFeedback body;
-
-  public ListApplicationFeedback getListApplicationFeedback() {
-    return this.body;
-  }
-
-  public void setListApplicationFeedback(ListApplicationFeedback body) {
-    this.body = body;
-  }
 }

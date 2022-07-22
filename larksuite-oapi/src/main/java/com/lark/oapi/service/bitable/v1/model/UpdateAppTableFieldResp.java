@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class UpdateAppTableFieldResp extends BaseResponse {
+public class UpdateAppTableFieldResp extends BaseResponse<UpdateAppTableField> {
 
-  @SerializedName("data")
-  private UpdateAppTableField body;
-
-  public UpdateAppTableField getUpdateAppTableField() {
-    return this.body;
-  }
-
-  public void setUpdateAppTableField(UpdateAppTableField body) {
-    this.body = body;
-  }
 }

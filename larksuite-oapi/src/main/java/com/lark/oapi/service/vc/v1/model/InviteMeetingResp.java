@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class InviteMeetingResp extends BaseResponse {
+public class InviteMeetingResp extends BaseResponse<InviteMeeting> {
 
-  @SerializedName("data")
-  private InviteMeeting body;
-
-  public InviteMeeting getInviteMeeting() {
-    return this.body;
-  }
-
-  public void setInviteMeeting(InviteMeeting body) {
-    this.body = body;
-  }
 }

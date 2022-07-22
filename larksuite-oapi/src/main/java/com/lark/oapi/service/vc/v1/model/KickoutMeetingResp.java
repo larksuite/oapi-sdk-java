@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class KickoutMeetingResp extends BaseResponse {
+public class KickoutMeetingResp extends BaseResponse<KickoutMeeting> {
 
-  @SerializedName("data")
-  private KickoutMeeting body;
-
-  public KickoutMeeting getKickoutMeeting() {
-    return this.body;
-  }
-
-  public void setKickoutMeeting(KickoutMeeting body) {
-    this.body = body;
-  }
 }

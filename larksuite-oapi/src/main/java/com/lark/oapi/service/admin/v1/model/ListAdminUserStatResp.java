@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.admin.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListAdminUserStatResp extends BaseResponse {
+public class ListAdminUserStatResp extends BaseResponse<ListAdminUserStat> {
 
-  @SerializedName("data")
-  private ListAdminUserStat body;
-
-  public ListAdminUserStat getListAdminUserStat() {
-    return this.body;
-  }
-
-  public void setListAdminUserStat(ListAdminUserStat body) {
-    this.body = body;
-  }
 }

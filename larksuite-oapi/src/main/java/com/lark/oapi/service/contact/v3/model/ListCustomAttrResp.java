@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListCustomAttrResp extends BaseResponse {
+public class ListCustomAttrResp extends BaseResponse<ListCustomAttr> {
 
-  @SerializedName("data")
-  private ListCustomAttr body;
-
-  public ListCustomAttr getListCustomAttr() {
-    return this.body;
-  }
-
-  public void setListCustomAttr(ListCustomAttr body) {
-    this.body = body;
-  }
 }

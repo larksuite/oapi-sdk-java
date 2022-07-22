@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateNotificationResp extends BaseResponse {
+public class CreateNotificationResp extends BaseResponse<CreateNotification> {
 
-  @SerializedName("data")
-  private CreateNotification body;
-
-  public CreateNotification getCreateNotification() {
-    return this.body;
-  }
-
-  public void setCreateNotification(CreateNotification body) {
-    this.body = body;
-  }
 }

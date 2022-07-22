@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class BatchCreateUserFlowResp extends BaseResponse {
+public class BatchCreateUserFlowResp extends BaseResponse<BatchCreateUserFlow> {
 
-  @SerializedName("data")
-  private BatchCreateUserFlow body;
-
-  public BatchCreateUserFlow getBatchCreateUserFlow() {
-    return this.body;
-  }
-
-  public void setBatchCreateUserFlow(BatchCreateUserFlow body) {
-    this.body = body;
-  }
 }

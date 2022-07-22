@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreatePublicMailboxResp extends BaseResponse {
+public class CreatePublicMailboxResp extends BaseResponse<CreatePublicMailbox> {
 
-  @SerializedName("data")
-  private CreatePublicMailbox body;
-
-  public CreatePublicMailbox getCreatePublicMailbox() {
-    return this.body;
-  }
-
-  public void setCreatePublicMailbox(CreatePublicMailbox body) {
-    this.body = body;
-  }
 }

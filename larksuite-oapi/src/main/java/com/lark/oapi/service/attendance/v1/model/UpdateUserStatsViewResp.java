@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class UpdateUserStatsViewResp extends BaseResponse {
+public class UpdateUserStatsViewResp extends BaseResponse<UpdateUserStatsView> {
 
-  @SerializedName("data")
-  private UpdateUserStatsView body;
-
-  public UpdateUserStatsView getUpdateUserStatsView() {
-    return this.body;
-  }
-
-  public void setUpdateUserStatsView(UpdateUserStatsView body) {
-    this.body = body;
-  }
 }

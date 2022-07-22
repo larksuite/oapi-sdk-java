@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetDailyReportResp extends BaseResponse {
+public class GetDailyReportResp extends BaseResponse<GetDailyReport> {
 
-  @SerializedName("data")
-  private GetDailyReport body;
-
-  public GetDailyReport getGetDailyReport() {
-    return this.body;
-  }
-
-  public void setGetDailyReport(GetDailyReport body) {
-    this.body = body;
-  }
 }

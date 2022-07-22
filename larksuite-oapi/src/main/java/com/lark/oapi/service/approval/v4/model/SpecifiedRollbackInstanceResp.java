@@ -14,7 +14,8 @@
 package com.lark.oapi.service.approval.v4.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class SpecifiedRollbackInstanceResp extends BaseResponse {
+public class SpecifiedRollbackInstanceResp extends BaseResponse<EmptyData> {
 
 }

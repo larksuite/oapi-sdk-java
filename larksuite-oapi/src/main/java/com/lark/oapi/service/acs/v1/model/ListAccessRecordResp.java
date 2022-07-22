@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.acs.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListAccessRecordResp extends BaseResponse {
+public class ListAccessRecordResp extends BaseResponse<ListAccessRecord> {
 
-  @SerializedName("data")
-  private ListAccessRecord body;
-
-  public ListAccessRecord getListAccessRecord() {
-    return this.body;
-  }
-
-  public void setListAccessRecord(ListAccessRecord body) {
-    this.body = body;
-  }
 }

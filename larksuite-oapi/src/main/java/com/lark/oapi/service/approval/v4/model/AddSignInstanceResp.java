@@ -14,7 +14,8 @@
 package com.lark.oapi.service.approval.v4.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class AddSignInstanceResp extends BaseResponse {
+public class AddSignInstanceResp extends BaseResponse<EmptyData> {
 
 }

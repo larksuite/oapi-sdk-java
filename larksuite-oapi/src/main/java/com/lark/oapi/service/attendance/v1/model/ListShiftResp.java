@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListShiftResp extends BaseResponse {
+public class ListShiftResp extends BaseResponse<ListShift> {
 
-  @SerializedName("data")
-  private ListShift body;
-
-  public ListShift getListShift() {
-    return this.body;
-  }
-
-  public void setListShift(ListShift body) {
-    this.body = body;
-  }
 }

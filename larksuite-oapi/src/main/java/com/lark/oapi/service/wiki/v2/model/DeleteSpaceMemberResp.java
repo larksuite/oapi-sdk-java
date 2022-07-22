@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.wiki.v2.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class DeleteSpaceMemberResp extends BaseResponse {
+public class DeleteSpaceMemberResp extends BaseResponse<DeleteSpaceMember> {
 
-  @SerializedName("data")
-  private DeleteSpaceMember body;
-
-  public DeleteSpaceMember getDeleteSpaceMember() {
-    return this.body;
-  }
-
-  public void setDeleteSpaceMember(DeleteSpaceMember body) {
-    this.body = body;
-  }
 }

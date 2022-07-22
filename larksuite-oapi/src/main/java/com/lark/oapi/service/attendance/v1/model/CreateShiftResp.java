@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateShiftResp extends BaseResponse {
+public class CreateShiftResp extends BaseResponse<CreateShift> {
 
-  @SerializedName("data")
-  private CreateShift body;
-
-  public CreateShift getCreateShift() {
-    return this.body;
-  }
-
-  public void setCreateShift(CreateShift body) {
-    this.body = body;
-  }
 }

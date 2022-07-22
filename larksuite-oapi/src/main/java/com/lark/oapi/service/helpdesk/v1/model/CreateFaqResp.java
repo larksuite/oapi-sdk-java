@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateFaqResp extends BaseResponse {
+public class CreateFaqResp extends BaseResponse<CreateFaq> {
 
-  @SerializedName("data")
-  private CreateFaq body;
-
-  public CreateFaq getCreateFaq() {
-    return this.body;
-  }
-
-  public void setCreateFaq(CreateFaq body) {
-    this.body = body;
-  }
 }

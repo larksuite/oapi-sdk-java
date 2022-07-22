@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GenerateCaldavConfSettingResp extends BaseResponse {
+public class GenerateCaldavConfSettingResp extends BaseResponse<GenerateCaldavConfSetting> {
 
-  @SerializedName("data")
-  private GenerateCaldavConfSetting body;
-
-  public GenerateCaldavConfSetting getGenerateCaldavConfSetting() {
-    return this.body;
-  }
-
-  public void setGenerateCaldavConfSetting(GenerateCaldavConfSetting body) {
-    this.body = body;
-  }
 }

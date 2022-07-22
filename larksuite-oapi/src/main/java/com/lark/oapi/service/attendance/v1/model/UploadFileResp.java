@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class UploadFileResp extends BaseResponse {
+public class UploadFileResp extends BaseResponse<UploadFile> {
 
-  @SerializedName("data")
-  private UploadFile body;
-
-  public UploadFile getUploadFile() {
-    return this.body;
-  }
-
-  public void setUploadFile(UploadFile body) {
-    this.body = body;
-  }
 }

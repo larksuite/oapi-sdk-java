@@ -14,7 +14,8 @@
 package com.lark.oapi.service.admin.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class ResetPasswordResp extends BaseResponse {
+public class ResetPasswordResp extends BaseResponse<EmptyData> {
 
 }

@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateFolderFileResp extends BaseResponse {
+public class CreateFolderFileResp extends BaseResponse<CreateFolderFile> {
 
-  @SerializedName("data")
-  private CreateFolderFile body;
-
-  public CreateFolderFile getCreateFolderFile() {
-    return this.body;
-  }
-
-  public void setCreateFolderFile(CreateFolderFile body) {
-    this.body = body;
-  }
 }

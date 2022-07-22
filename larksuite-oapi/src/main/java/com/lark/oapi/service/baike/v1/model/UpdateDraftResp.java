@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.baike.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class UpdateDraftResp extends BaseResponse {
+public class UpdateDraftResp extends BaseResponse<UpdateDraft> {
 
-  @SerializedName("data")
-  private UpdateDraft body;
-
-  public UpdateDraft getUpdateDraft() {
-    return this.body;
-  }
-
-  public void setUpdateDraft(UpdateDraft body) {
-    this.body = body;
-  }
 }

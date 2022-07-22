@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetAppResp extends BaseResponse {
+public class GetAppResp extends BaseResponse<GetApp> {
 
-  @SerializedName("data")
-  private GetApp body;
-
-  public GetApp getGetApp() {
-    return this.body;
-  }
-
-  public void setGetApp(GetApp body) {
-    this.body = body;
-  }
 }

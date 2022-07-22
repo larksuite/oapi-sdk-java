@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListAgentScheduleResp extends BaseResponse {
+public class ListAgentScheduleResp extends BaseResponse<ListAgentSchedule> {
 
-  @SerializedName("data")
-  private ListAgentSchedule body;
-
-  public ListAgentSchedule getListAgentSchedule() {
-    return this.body;
-  }
-
-  public void setListAgentSchedule(ListAgentSchedule body) {
-    this.body = body;
-  }
 }

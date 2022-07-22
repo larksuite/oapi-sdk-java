@@ -14,7 +14,8 @@
 package com.lark.oapi.service.acs.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class UpdateUserFaceResp extends BaseResponse {
+public class UpdateUserFaceResp extends BaseResponse<EmptyData> {
 
 }

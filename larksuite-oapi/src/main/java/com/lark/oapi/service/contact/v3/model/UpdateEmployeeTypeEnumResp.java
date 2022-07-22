@@ -13,19 +13,8 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.response.BaseResponse;
 
-public class UpdateEmployeeTypeEnumResp extends BaseResponse {
+public class UpdateEmployeeTypeEnumResp extends BaseResponse<UpdateEmployeeTypeEnum> {
 
-  @SerializedName("data")
-  private UpdateEmployeeTypeEnum body;
-
-  public UpdateEmployeeTypeEnum getUpdateEmployeeTypeEnum() {
-    return this.body;
-  }
-
-  public void setUpdateEmployeeTypeEnum(UpdateEmployeeTypeEnum body) {
-    this.body = body;
-  }
 }

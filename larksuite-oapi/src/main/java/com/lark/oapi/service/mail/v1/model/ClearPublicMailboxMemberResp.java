@@ -14,7 +14,8 @@
 package com.lark.oapi.service.mail.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.core.response.EmptyData;
 
-public class ClearPublicMailboxMemberResp extends BaseResponse {
+public class ClearPublicMailboxMemberResp extends BaseResponse<EmptyData> {
 
 }
