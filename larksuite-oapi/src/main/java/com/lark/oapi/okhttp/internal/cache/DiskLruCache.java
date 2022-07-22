@@ -783,31 +783,7 @@ public final class DiskLruCache implements Closeable, Flushable {
         }
       }
     };
-  }  private final Runnable cleanupRunnable = new Runnable() {
-    public void run() {
-      synchronized (DiskLruCache.this) {
-        if (!initialized | closed) {
-          return; // Nothing to do
-        }
-
-        try {
-          trimToSize();
-        } catch (IOException ignored) {
-          mostRecentTrimFailed = true;
-        }
-
-        try {
-          if (journalRebuildRequired()) {
-            rebuildJournal();
-            redundantOpCount = 0;
-          }
-        } catch (IOException e) {
-          mostRecentRebuildFailed = true;
-          journalWriter = Okio.buffer(Okio.blackhole());
-        }
-      }
-    }
-  };
+  }
 
   /**
    * A snapshot of the values for an entry.
@@ -989,7 +965,31 @@ public final class DiskLruCache implements Closeable, Flushable {
         }
       }
     }
-  }
+  }  private final Runnable cleanupRunnable = new Runnable() {
+    public void run() {
+      synchronized (DiskLruCache.this) {
+        if (!initialized | closed) {
+          return; // Nothing to do
+        }
+
+        try {
+          trimToSize();
+        } catch (IOException ignored) {
+          mostRecentTrimFailed = true;
+        }
+
+        try {
+          if (journalRebuildRequired()) {
+            rebuildJournal();
+            redundantOpCount = 0;
+          }
+        } catch (IOException e) {
+          mostRecentRebuildFailed = true;
+          journalWriter = Okio.buffer(Okio.blackhole());
+        }
+      }
+    }
+  };
 
   private final class Entry {
 

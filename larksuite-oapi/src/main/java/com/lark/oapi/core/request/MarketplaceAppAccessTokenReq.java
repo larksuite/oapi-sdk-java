@@ -23,6 +23,19 @@ public class MarketplaceAppAccessTokenReq {
   @SerializedName("app_ticket")
   private String appTicket;
 
+  public MarketplaceAppAccessTokenReq(Builder builder) {
+    setAppId(builder.appId);
+    setAppSecret(builder.appSecret);
+    setAppTicket(builder.appTicket);
+  }
+
+  public MarketplaceAppAccessTokenReq() {
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
+
   public String getAppId() {
     return appId;
   }
@@ -45,5 +58,34 @@ public class MarketplaceAppAccessTokenReq {
 
   public void setAppTicket(String appTicket) {
     this.appTicket = appTicket;
+  }
+
+  public static final class Builder {
+
+    private String appId;
+    private String appSecret;
+    private String appTicket;
+
+    private Builder() {
+    }
+
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
+    }
+
+    public Builder appSecret(String appSecret) {
+      this.appSecret = appSecret;
+      return this;
+    }
+
+    public Builder appTicket(String appTicket) {
+      this.appTicket = appTicket;
+      return this;
+    }
+
+    public MarketplaceAppAccessTokenReq build() {
+      return new MarketplaceAppAccessTokenReq(this);
+    }
   }
 }

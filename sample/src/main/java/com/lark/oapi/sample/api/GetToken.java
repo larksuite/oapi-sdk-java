@@ -14,18 +14,20 @@ package com.lark.oapi.sample.api;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.enums.AppType;
-import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.request.MarketplaceAppAccessTokenReq;
+import com.lark.oapi.core.request.MarketplaceTenantAccessTokenReq;
+import com.lark.oapi.core.request.SelfBuiltAppAccessTokenReq;
+import com.lark.oapi.core.request.SelfBuiltTenantAccessTokenReq;
+import com.lark.oapi.core.response.AppAccessTokenResp;
+import com.lark.oapi.core.response.TenantAccessTokenResp;
 import com.lark.oapi.core.utils.Jsons;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 原生http 调用方式
  */
 public class GetToken {
 
-  public static void sendMsg() throws Exception {
+  public static void getAppAccessTokenBySelfBuiltApp() throws Exception {
     String appId = System.getenv().get("APP_ID");
     String appSecret = System.getenv().get("APP_SECRET");
 
@@ -35,28 +37,42 @@ public class GetToken {
         .logReqAtDebug(true)
         .build();
 
-    // 构建http body
-    Map<String, Object> body = new HashMap<>();
-    body.put("receive_id", "ou_c245b0a7dff2725cfa2fb104f8b48b9d");
-    body.put("content",
-        "{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom</at> test content\"}");
-    body.put("msg_type", "text");
-
     // 发起请求
-    RawResponse resp = client.post(
-        "https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=open_id"
-        , body
-        , AccessTokenType.Tenant);
+    AppAccessTokenResp resp = client.getAppAccessTokenBySelfBuiltApp(
+        SelfBuiltAppAccessTokenReq.newBuilder()
+            .appSecret(appSecret)
+            .appId(appId)
+            .build());
 
     // 处理结果
-    System.out.println(resp.getStatusCode());
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getHeaders()));
     System.out.println(Jsons.LONG_TO_STR.toJson(resp));
-    System.out.println(resp.getRequestID());
+    System.out.println(resp.getRequestId());
+  }
+
+  public static void getTenantAccessTokenBySelfBuiltApp() throws Exception {
+    String appId = System.getenv().get("APP_ID");
+    String appSecret = System.getenv().get("APP_SECRET");
+
+    // 构建client
+    Client client = Client.newBuilder(appId, appSecret)
+        .appType(AppType.SELF_BUILT) // 设置app类型，默认为自建
+        .logReqAtDebug(true)
+        .build();
+
+    // 发起请求
+    TenantAccessTokenResp resp = client.getTenantAccessTokenBySelfBuiltApp(
+        SelfBuiltTenantAccessTokenReq.newBuilder()
+            .appSecret(appSecret)
+            .appId(appId)
+            .build());
+
+    // 处理结果
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp));
+    System.out.println(resp.getRequestId());
   }
 
 
-  public static void getAppToken() throws Exception {
+  public static void getAppAccessTokenByMarketplaceApp() throws Exception {
     String appId = System.getenv().get("APP_ID");
     String appSecret = System.getenv().get("APP_SECRET");
 
@@ -67,26 +83,42 @@ public class GetToken {
         .build();
 
     // 发起请求
-    // 构建http body
-    Map<String, Object> body = new HashMap<>();
-    body.put("app_id", appId);
-    body.put("app_secret", appSecret);
-
-    // 发起请求
-    RawResponse resp = client.post(
-        "https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=open_id"
-        , body
-        , AccessTokenType.None);
+    AppAccessTokenResp resp = client.getAppAccessTokenByMarketplaceApp(
+        MarketplaceAppAccessTokenReq.newBuilder()
+            .appSecret(appSecret)
+            .appId(appId)
+            .appTicket("appticket")
+            .build());
 
     // 处理结果
-    System.out.println(resp.getStatusCode());
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getHeaders()));
     System.out.println(Jsons.LONG_TO_STR.toJson(resp));
-    System.out.println(resp.getRequestID());
+    System.out.println(resp.getRequestId());
+  }
 
+
+  public static void getTenantAccessTokenByMarketplaceApp() throws Exception {
+    String appId = System.getenv().get("APP_ID");
+    String appSecret = System.getenv().get("APP_SECRET");
+
+    // 构建client
+    Client client = Client.newBuilder(appId, appSecret)
+        .appType(AppType.SELF_BUILT) // 设置app类型，默认为自建
+        .logReqAtDebug(true)
+        .build();
+
+    // 发起请求
+    TenantAccessTokenResp resp = client.getTenantAccessTokenByMarketplaceApp(
+        MarketplaceTenantAccessTokenReq.newBuilder()
+            .appAccessToken("appaccesstoken")
+            .tenantKey("tenantkey")
+            .build());
+
+    // 处理结果
+    System.out.println(Jsons.LONG_TO_STR.toJson(resp));
+    System.out.println(resp.getRequestId());
   }
 
   public static void main(String arg[]) throws Exception {
-    getAppToken();
+    getTenantAccessTokenBySelfBuiltApp();
   }
 }

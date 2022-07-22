@@ -28,7 +28,7 @@
     <dependency>
       <artifactId>oapi-sdk-apache-httpclient</artifactId>
       <groupId>com.larksuite.oapi</groupId>
-      <version>1.0.1-SNAPSHOT</version>
+      <version>1.0.1-snapshot</version>
     </dependency>
     <dependency>
       <artifactId>oapi-sdk-servlet-ext</artifactId>

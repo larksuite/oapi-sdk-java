@@ -21,6 +21,19 @@ public class SelfBuiltTenantAccessTokenReq {
   @SerializedName("app_secret")
   private String appSecret;
 
+  public SelfBuiltTenantAccessTokenReq(Builder builder) {
+    setAppId(builder.appId);
+    setAppSecret(builder.appSecret);
+  }
+
+  public SelfBuiltTenantAccessTokenReq() {
+  }
+
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
+
   public String getAppId() {
     return appId;
   }
@@ -35,5 +48,28 @@ public class SelfBuiltTenantAccessTokenReq {
 
   public void setAppSecret(String appSecret) {
     this.appSecret = appSecret;
+  }
+
+  public static final class Builder {
+
+    private String appId;
+    private String appSecret;
+
+    private Builder() {
+    }
+
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
+    }
+
+    public Builder appSecret(String appSecret) {
+      this.appSecret = appSecret;
+      return this;
+    }
+
+    public SelfBuiltTenantAccessTokenReq build() {
+      return new SelfBuiltTenantAccessTokenReq(this);
+    }
   }
 }

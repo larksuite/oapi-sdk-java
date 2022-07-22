@@ -21,6 +21,18 @@ public class MarketplaceTenantAccessTokenReq {
   @SerializedName("tenant_key")
   private String tenantKey;
 
+  public MarketplaceTenantAccessTokenReq(Builder builder) {
+    setAppAccessToken(builder.appAccessToken);
+    setTenantKey(builder.tenantKey);
+  }
+
+  public MarketplaceTenantAccessTokenReq() {
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
+
   public String getAppAccessToken() {
     return appAccessToken;
   }
@@ -35,5 +47,28 @@ public class MarketplaceTenantAccessTokenReq {
 
   public void setTenantKey(String tenantKey) {
     this.tenantKey = tenantKey;
+  }
+
+  public static final class Builder {
+
+    private String appAccessToken;
+    private String tenantKey;
+
+    private Builder() {
+    }
+
+    public Builder appAccessToken(String appAccessToken) {
+      this.appAccessToken = appAccessToken;
+      return this;
+    }
+
+    public Builder tenantKey(String tenantKey) {
+      this.tenantKey = tenantKey;
+      return this;
+    }
+
+    public MarketplaceTenantAccessTokenReq build() {
+      return new MarketplaceTenantAccessTokenReq(this);
+    }
   }
 }

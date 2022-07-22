@@ -51,12 +51,12 @@ public class RawApiCall {
     // 处理结果
     System.out.println(resp.getStatusCode());
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getHeaders()));
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp));
+    System.out.println(new String(resp.getBody()));
     System.out.println(resp.getRequestID());
   }
 
 
-  public static void getAppToken() throws Exception {
+  public static void getTenantToken() throws Exception {
     String appId = System.getenv().get("APP_ID");
     String appSecret = System.getenv().get("APP_SECRET");
 
@@ -66,21 +66,23 @@ public class RawApiCall {
         .logReqAtDebug(true)
         .build();
 
-    // 构建http body
     // 发起请求
+    Map<String, Object> body = new HashMap<>();
+    body.put("app_id", appId);
+    body.put("app_secret", appSecret);
     RawResponse resp = client.post(
-        "https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type=open_id"
-        , null
+        "https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal"
+        , body
         , AccessTokenType.None);
 
     // 处理结果
     System.out.println(resp.getStatusCode());
     System.out.println(Jsons.LONG_TO_STR.toJson(resp.getHeaders()));
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp));
+    System.out.println(new String(resp.getBody()));
     System.out.println(resp.getRequestID());
   }
 
   public static void main(String arg[]) throws Exception {
-    getAppToken();
+    getTenantToken();
   }
 }
