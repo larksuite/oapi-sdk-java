@@ -52,7 +52,7 @@ public class MockCardAction {
     cardAction.setToken("v");
     cardAction.setChallenge("1221");
     cardAction.setType(Constants.URL_VERIFICATION);
-    String bodyStr = Jsons.LONG_TO_STR.toJson(cardAction);
+    String bodyStr = Jsons.DEFAULT.toJson(cardAction);
 
     RequestBody requestBody = RequestBody.create(MediaType.parse(Constants.JSON_CONTENT_TYPE)
         , bodyStr.getBytes(StandardCharsets.UTF_8));
@@ -96,7 +96,7 @@ public class MockCardAction {
     value.put("key3", "vaue3");
     action.setValue(value);
     cardAction.setAction(action);
-    String bodyStr = Jsons.LONG_TO_STR.toJson(cardAction);
+    String bodyStr = Jsons.DEFAULT.toJson(cardAction);
 
     RequestBody requestBody = RequestBody.create(MediaType.parse(Constants.JSON_CONTENT_TYPE)
         , bodyStr.getBytes(StandardCharsets.UTF_8));

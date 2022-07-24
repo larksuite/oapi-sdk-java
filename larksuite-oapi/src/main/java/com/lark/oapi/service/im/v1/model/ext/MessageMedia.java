@@ -40,7 +40,7 @@ public class MessageMedia {
 
 
     public String build() {
-      return Jsons.LONG_TO_STR.toJson(this);
+      return Jsons.DEFAULT.toJson(this);
     }
   }
 }

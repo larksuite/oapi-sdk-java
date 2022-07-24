@@ -38,14 +38,14 @@ public class GetToken {
         .build();
 
     // 发起请求
-    AppAccessTokenResp resp = client.getAppAccessTokenBySelfBuiltApp(
+    AppAccessTokenResp resp = client.ext().getAppAccessTokenBySelfBuiltApp(
         SelfBuiltAppAccessTokenReq.newBuilder()
             .appSecret(appSecret)
             .appId(appId)
             .build());
 
     // 处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp));
+    System.out.println(Jsons.DEFAULT.toJson(resp));
     System.out.println(resp.getRequestId());
   }
 
@@ -60,14 +60,14 @@ public class GetToken {
         .build();
 
     // 发起请求
-    TenantAccessTokenResp resp = client.getTenantAccessTokenBySelfBuiltApp(
+    TenantAccessTokenResp resp = client.ext().getTenantAccessTokenBySelfBuiltApp(
         SelfBuiltTenantAccessTokenReq.newBuilder()
             .appSecret(appSecret)
             .appId(appId)
             .build());
 
     // 处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp));
+    System.out.println(Jsons.DEFAULT.toJson(resp));
     System.out.println(resp.getRequestId());
   }
 
@@ -83,7 +83,7 @@ public class GetToken {
         .build();
 
     // 发起请求
-    AppAccessTokenResp resp = client.getAppAccessTokenByMarketplaceApp(
+    AppAccessTokenResp resp = client.ext().getAppAccessTokenByMarketplaceApp(
         MarketplaceAppAccessTokenReq.newBuilder()
             .appSecret(appSecret)
             .appId(appId)
@@ -91,7 +91,7 @@ public class GetToken {
             .build());
 
     // 处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp));
+    System.out.println(Jsons.DEFAULT.toJson(resp));
     System.out.println(resp.getRequestId());
   }
 
@@ -107,14 +107,14 @@ public class GetToken {
         .build();
 
     // 发起请求
-    TenantAccessTokenResp resp = client.getTenantAccessTokenByMarketplaceApp(
+    TenantAccessTokenResp resp = client.ext().getTenantAccessTokenByMarketplaceApp(
         MarketplaceTenantAccessTokenReq.newBuilder()
             .appAccessToken("appaccesstoken")
             .tenantKey("tenantkey")
             .build());
 
     // 处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp));
+    System.out.println(Jsons.DEFAULT.toJson(resp));
     System.out.println(resp.getRequestId());
   }
 

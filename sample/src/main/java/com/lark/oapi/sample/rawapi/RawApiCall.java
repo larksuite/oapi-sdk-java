@@ -14,9 +14,14 @@ package com.lark.oapi.sample.rawapi;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.enums.AppType;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.ext.enums.FileTypeEnum;
+import com.lark.oapi.service.ext.model.CreateFileReq;
+import com.lark.oapi.service.ext.model.CreateFileReqBody;
+import com.lark.oapi.service.ext.model.CreateFileResp;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,7 +55,7 @@ public class RawApiCall {
 
     // 处理结果
     System.out.println(resp.getStatusCode());
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getHeaders()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getHeaders()));
     System.out.println(new String(resp.getBody()));
     System.out.println(resp.getRequestID());
   }
@@ -77,12 +82,41 @@ public class RawApiCall {
 
     // 处理结果
     System.out.println(resp.getStatusCode());
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getHeaders()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getHeaders()));
     System.out.println(new String(resp.getBody()));
     System.out.println(resp.getRequestID());
   }
 
+  public static void createFile() throws Exception {
+    String appId = System.getenv().get("APP_ID");
+    String appSecret = System.getenv().get("APP_SECRET");
+
+    // 构建client
+    Client client = Client.newBuilder(appId, appSecret)
+        .logReqAtDebug(true)
+        .build();
+
+    CreateFileResp resp = client.ext()
+        .createFile(CreateFileReq.newBuilder()
+            .folderToken("fldcniHf40Vcv1DoEc8SXeuA0Zd")
+            .body(CreateFileReqBody.newBuilder()
+                .title("测试哎")
+                .type(FileTypeEnum.DOC)
+                .build())
+            .build(), RequestOptions.newBuilder()
+            .userAccessToken("u-3hVKsQTwR5H9j_tQbO2GoElg0Rggl543io00glM0277v")
+            .build());
+    // 处理结果
+    if (!resp.success()) {
+      System.out.println(
+          String.format("%s,%s,%s", resp.getRequestId(), resp.getMsg(), resp.getCode()));
+      return;
+    }
+    System.out.println(Jsons.DEFAULT.toJson(resp.getData()));
+    System.out.println(resp.getRequestId());
+  }
+
   public static void main(String arg[]) throws Exception {
-    getTenantToken();
+    createFile();
   }
 }

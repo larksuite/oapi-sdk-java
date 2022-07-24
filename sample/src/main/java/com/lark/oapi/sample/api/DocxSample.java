@@ -46,7 +46,7 @@ public class DocxSample {
                     .build())
                 .build()
             , RequestOptions.newBuilder()
-                .userAccessToken("u-2GxFH7ysh8E9lj9UJp8XAG0k0gh1h5KzM800khEw2G6e") // 传递用户token
+                .userAccessToken("u-2gHbW2oF98iGGk._a6fhrvgg15rx55AHMMw0k0o80CFM") // 传递用户token
                 .headers(headers) // 传递自定义 Headers
                 .requestId("xxxx")
                 .build());

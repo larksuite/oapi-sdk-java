@@ -36,13 +36,13 @@ public class TestEventDispatcher {
         .onP2UserCreatedV3(new ContactService.P2UserCreatedV3Handler() {
           @Override
           public void handle(P2UserCreatedV3 event) {
-            System.out.println(Jsons.LONG_TO_STR.toJson(event));
+            System.out.println(Jsons.DEFAULT.toJson(event));
           }
         })
         .onP2MessageReceiveV1(new ImService.P2MessageReceiveV1Handler() {
           @Override
           public void handle(P2MessageReceiveV1 event) {
-            System.out.println(Jsons.LONG_TO_STR.toJson(event));
+            System.out.println(Jsons.DEFAULT.toJson(event));
             System.out.println(event.getRequestId());
           }
         })
@@ -70,19 +70,19 @@ public class TestEventDispatcher {
         .onP2UserCreatedV3(new ContactService.P2UserCreatedV3Handler() {
           @Override
           public void handle(P2UserCreatedV3 event) {
-            System.out.println(Jsons.LONG_TO_STR.toJson(event));
+            System.out.println(Jsons.DEFAULT.toJson(event));
           }
         })
         .onP2MessageReceiveV1(new ImService.P2MessageReceiveV1Handler() {
           @Override
           public void handle(P2MessageReceiveV1 event) {
-            System.out.println(Jsons.LONG_TO_STR.toJson(event));
+            System.out.println(Jsons.DEFAULT.toJson(event));
           }
         })
         .onCustomizedEvent("custom_event_type", new CustomEventHandler() {
           @Override
           public void handle(EventReq event) {
-            System.out.println("headers:" + Jsons.LONG_TO_STR.toJson(event.getHeaders()));
+            System.out.println("headers:" + Jsons.DEFAULT.toJson(event.getHeaders()));
             System.out.println("body:" + new String(event.getBody()));
             System.out.println("reqId:" + event.getRequestID());
             System.out.println("path:" + event.getHttpPath());
@@ -91,7 +91,7 @@ public class TestEventDispatcher {
         .onP1MessageReadV1(new ImService.P1MessageReadV1Handler() {
           @Override
           public void handle(P1MessageReadV1 event) {
-            System.out.println(Jsons.LONG_TO_STR.toJson(event));
+            System.out.println(Jsons.DEFAULT.toJson(event));
           }
         })
         .build();
@@ -121,7 +121,7 @@ public class TestEventDispatcher {
         .onP1MessageReadV1(new ImService.P1MessageReadV1Handler() {
           @Override
           public void handle(P1MessageReadV1 event) {
-            System.out.println(Jsons.LONG_TO_STR.toJson(event));
+            System.out.println(Jsons.DEFAULT.toJson(event));
           }
         })
         .build();
@@ -151,13 +151,13 @@ public class TestEventDispatcher {
         .onP2UserCreatedV3(new ContactService.P2UserCreatedV3Handler() {
           @Override
           public void handle(P2UserCreatedV3 event) {
-            System.out.println(Jsons.LONG_TO_STR.toJson(event));
+            System.out.println(Jsons.DEFAULT.toJson(event));
           }
         })
         .onP2MessageReceiveV1(new ImService.P2MessageReceiveV1Handler() {
           @Override
           public void handle(P2MessageReceiveV1 event) {
-            System.out.println(Jsons.LONG_TO_STR.toJson(event));
+            System.out.println(Jsons.DEFAULT.toJson(event));
           }
         })
         .build();

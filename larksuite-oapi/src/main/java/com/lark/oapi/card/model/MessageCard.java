@@ -41,7 +41,7 @@ public class MessageCard {
   }
 
   public String String() {
-    return Jsons.LONG_TO_STR.toJson(this);
+    return Jsons.DEFAULT.toJson(this);
   }
 
   public static class Builder {

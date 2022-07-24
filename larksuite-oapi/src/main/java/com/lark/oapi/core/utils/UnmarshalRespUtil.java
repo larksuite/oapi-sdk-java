@@ -18,7 +18,7 @@ import java.nio.charset.StandardCharsets;
 public class UnmarshalRespUtil {
 
   public static <T> T unmarshalResp(RawResponse resp, Class<T> respClass) {
-    return Jsons.LONG_TO_STR.fromJson(new String(resp.getBody(), StandardCharsets.UTF_8),
+    return Jsons.DEFAULT.fromJson(new String(resp.getBody(), StandardCharsets.UTF_8),
         respClass);
   }
 }

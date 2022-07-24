@@ -84,6 +84,7 @@ public class ReqTranslator {
     rawRequest.setHttpMethod(httpMethod);
     rawRequest.setConfig(config);
     rawRequest.setSupportDownLoad(requestOptions.isSupportUpload());
+    rawRequest.setSupportLong2String(requestOptions.isSupportLong2String());
     return rawRequest;
   }
 

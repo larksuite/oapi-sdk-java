@@ -14,23 +14,15 @@
 package com.lark.oapi;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.core.Constants;
 import com.lark.oapi.core.Transport;
 import com.lark.oapi.core.cache.ICache;
 import com.lark.oapi.core.cache.LocalCache;
 import com.lark.oapi.core.enums.AppType;
 import com.lark.oapi.core.enums.BaseUrlEnum;
-import com.lark.oapi.core.exception.ObtainAccessTokenException;
 import com.lark.oapi.core.httpclient.IHttpTransport;
 import com.lark.oapi.core.httpclient.OkHttpTransport;
-import com.lark.oapi.core.request.MarketplaceAppAccessTokenReq;
-import com.lark.oapi.core.request.MarketplaceTenantAccessTokenReq;
 import com.lark.oapi.core.request.RequestOptions;
-import com.lark.oapi.core.request.SelfBuiltAppAccessTokenReq;
-import com.lark.oapi.core.request.SelfBuiltTenantAccessTokenReq;
-import com.lark.oapi.core.response.AppAccessTokenResp;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.response.TenantAccessTokenResp;
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.token.AppTicketManager;
 import com.lark.oapi.core.token.GlobalAppTicketManager;
@@ -39,7 +31,6 @@ import com.lark.oapi.core.token.TokenManager;
 import com.lark.oapi.core.utils.OKHttps;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
 import com.lark.oapi.service.acs.v1.AcsService;
 import com.lark.oapi.service.admin.v1.AdminService;
 import com.lark.oapi.service.application.v6.ApplicationService;
@@ -54,6 +45,7 @@ import com.lark.oapi.service.docx.v1.DocxService;
 import com.lark.oapi.service.drive.v1.DriveService;
 import com.lark.oapi.service.ehr.v1.EhrService;
 import com.lark.oapi.service.event.v1.EventService;
+import com.lark.oapi.service.ext.ExtService;
 import com.lark.oapi.service.gray_test_open_sg.v1.GrayTestOpenSgService;
 import com.lark.oapi.service.helpdesk.v1.HelpdeskService;
 import com.lark.oapi.service.human_authentication.v1.HumanAuthenticationService;
@@ -108,8 +100,14 @@ public class Client {
   private VcService vc;
   private WikiService wiki;
 
+  private ExtService extService;
+
   public static Builder newBuilder(String appId, String appSecret) {
     return new Builder(appId, appSecret);
+  }
+
+  public ExtService ext() {
+    return extService;
   }
 
   public void setConfig(Config config) {
@@ -234,81 +232,6 @@ public class Client {
 
   public WikiService wiki() {
     return wiki;
-  }
-
-  public AppAccessTokenResp getAppAccessTokenBySelfBuiltApp(SelfBuiltAppAccessTokenReq req)
-      throws Exception {
-    RawResponse resp = Transport.send(config
-        , new RequestOptions(), "POST"
-        , Constants.APP_ACCESS_TOKEN_INTERNAL_URL_PATH
-        , Sets.newHashSet(AccessTokenType.None), req);
-
-    AppAccessTokenResp appAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-        AppAccessTokenResp.class);
-    appAccessTokenResp.setRawResponse(resp);
-    if (appAccessTokenResp.getCode() != 0) {
-      throw new ObtainAccessTokenException("obtain selfBuilt app,app access token failure: "
-          , String.format("code:%d,msg:%s", appAccessTokenResp.getCode(),
-          appAccessTokenResp.getMsg()));
-    }
-    return appAccessTokenResp;
-  }
-
-  public AppAccessTokenResp getAppAccessTokenByMarketplaceApp(MarketplaceAppAccessTokenReq req)
-      throws Exception {
-    RawResponse resp = Transport.send(config
-        , new RequestOptions(), "POST"
-        , Constants.APP_ACCESS_TOKEN_ISV_URL_PATH
-        , Sets.newHashSet(AccessTokenType.None), req);
-
-    // 结果处理
-    AppAccessTokenResp appAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-        AppAccessTokenResp.class);
-    appAccessTokenResp.setRawResponse(resp);
-    if (appAccessTokenResp.getCode() != 0) {
-      throw new ObtainAccessTokenException("obtain isv app,app access token failure: "
-          , String.format("code:%d,msg:%s", appAccessTokenResp.getCode(),
-          appAccessTokenResp.getMsg()));
-    }
-    return appAccessTokenResp;
-  }
-
-  public TenantAccessTokenResp getTenantAccessTokenBySelfBuiltApp(SelfBuiltTenantAccessTokenReq req)
-      throws Exception {
-    RawResponse resp = Transport.send(config
-        , new RequestOptions(), "POST"
-        , Constants.TENANT_ACCESS_TOKEN_INTERNAL_URL_PATH
-        , Sets.newHashSet(AccessTokenType.None), req);
-
-    TenantAccessTokenResp tenantAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-        TenantAccessTokenResp.class);
-    tenantAccessTokenResp.setRawResponse(resp);
-    if (tenantAccessTokenResp.getCode() != 0) {
-      throw new ObtainAccessTokenException("obtain selfBuilt app, tenant access token failure: "
-          , String.format("code:%d,msg:%s", tenantAccessTokenResp.getCode(),
-          tenantAccessTokenResp.getMsg()));
-    }
-    return tenantAccessTokenResp;
-  }
-
-  public TenantAccessTokenResp getTenantAccessTokenByMarketplaceApp(
-      MarketplaceTenantAccessTokenReq req)
-      throws Exception {
-
-    RawResponse resp = Transport.send(config
-        , new RequestOptions(), "POST"
-        , Constants.TENANT_ACCESS_TOKEN_ISV_URL_PATH
-        , Sets.newHashSet(AccessTokenType.None), req);
-
-    TenantAccessTokenResp tenantAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
-        TenantAccessTokenResp.class);
-    tenantAccessTokenResp.setRawResponse(resp);
-    if (tenantAccessTokenResp.getCode() != 0) {
-      throw new ObtainAccessTokenException("obtain isv app, tenant access token failure: "
-          , String.format("code:%d,msg:%s", tenantAccessTokenResp.getCode(),
-          tenantAccessTokenResp.getMsg()));
-    }
-    return tenantAccessTokenResp;
   }
 
   public RawResponse post(String httpPath
@@ -491,6 +414,7 @@ public class Client {
       client.setConfig(config);
       initCache(config);
       initHttpTransport(config);
+      client.extService = new ExtService(config);
       client.acs = new AcsService(config);
       client.admin = new AdminService(config);
       client.application = new ApplicationService(config);

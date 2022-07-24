@@ -28,6 +28,16 @@ public class RawRequest {
   private Config config;
   private boolean supportDownLoad;
 
+  public boolean isSupportLong2String() {
+    return supportLong2String;
+  }
+
+  public void setSupportLong2String(boolean supportLong2String) {
+    this.supportLong2String = supportLong2String;
+  }
+
+  private boolean supportLong2String;
+
   public int getStatusCode() {
     return statusCode;
   }

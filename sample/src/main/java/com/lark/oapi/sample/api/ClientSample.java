@@ -12,9 +12,11 @@
 
 package com.lark.oapi.sample.api;
 
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.Client;
 import com.lark.oapi.core.enums.BaseUrlEnum;
 import com.lark.oapi.core.httpclient.OkHttpTransport;
+import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.okhttp.OkHttpClient;
 import com.lark.oapi.sdk.apache.httpclient.ApacheHttpClientTransport;
 import java.util.concurrent.TimeUnit;
@@ -46,5 +48,25 @@ public class ClientSample {
 
   public static void main(String arg[]) {
 
+    Data data = new Data();
+    data.setPrice(123L);
+
+    System.out.println(Jsons.DEFAULT.toJson(data));
+    System.out.println(Jsons.DEFAULT.toJson(data));
+
+  }
+
+  static class Data {
+
+    @SerializedName("price")
+    private long price;
+
+    public long getPrice() {
+      return price;
+    }
+
+    public void setPrice(long price) {
+      this.price = price;
+    }
   }
 }

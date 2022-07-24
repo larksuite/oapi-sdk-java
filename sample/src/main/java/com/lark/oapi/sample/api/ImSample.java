@@ -147,7 +147,7 @@ public class ImSample {
 
           request.setEntity(builder.build());
         } else {
-          StringEntity entity = new StringEntity(Jsons.LONG_TO_STR.toJson(rawRequest.getBody()));
+          StringEntity entity = new StringEntity(Jsons.DEFAULT.toJson(rawRequest.getBody()));
           request.setEntity(entity);
         }
       }
@@ -204,14 +204,14 @@ public class ImSample {
           .create(req, RequestOptions.newBuilder().headers(headers).build());
       if (resp.getCode() != 0) {
         System.out.println(String.format("code:%d,msg:%s,err:%s"
-            , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+            , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
         return;
       }
 
       // 业务处理结果
-      System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
+      System.out.println(Jsons.DEFAULT.toJson(resp.getData()));
       // 原生http信息
-      System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
+      System.out.println(Jsons.DEFAULT.toJson(resp.getRawResponse()));
       // 返回请求ID
       System.out.println(resp.getRequestId());
     } catch (ServerTimeoutException e) {
@@ -243,7 +243,7 @@ public class ImSample {
     DeleteMessageResp resp = client.im().message().delete(req);
     if (resp.getCode() != 0) {
       System.out.println(String.format("code:%d,msg:%s,err:%s"
-          , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+          , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
       return;
     }
 
@@ -251,7 +251,7 @@ public class ImSample {
     EmptyData data = resp.getData();
     System.out.println(data);
     // 原生http信息
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getRawResponse()));
     // 返回请求ID
     System.out.println(resp.getRequestId());
   }
@@ -417,14 +417,14 @@ public class ImSample {
     CreateMessageResp resp = client.im().message().create(req);
     if (!resp.success()) {
       System.out.println(String.format("code:%d,msg:%s,err:%s"
-          , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+          , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
       return;
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getData()));
     // 原生http信息
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getRawResponse()));
     // 返回请求ID
     System.out.println(resp.getRequestId());
   }
@@ -541,14 +541,14 @@ public class ImSample {
     CreateMessageResp resp = client.im().message().create(req);
     if (!resp.success()) {
       System.out.println(String.format("code:%d,msg:%s,err:%s"
-          , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+          , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
       return;
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getData()));
     // 原生http信息
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getRawResponse()));
     // 返回请求ID
     System.out.println(resp.getRequestId());
   }
@@ -574,14 +574,14 @@ public class ImSample {
         .create(req, RequestOptions.newBuilder().headers(headers).build());
     if (resp.getCode() != 0) {
       System.out.println(String.format("code:%d,msg:%s,err:%s"
-          , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+          , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
       return;
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getData()));
     // 原生http信息
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getRawResponse()));
     // 返回请求ID
     System.out.println(resp.getRequestId());
   }
@@ -607,14 +607,14 @@ public class ImSample {
         .create(req, RequestOptions.newBuilder().headers(headers).build());
     if (resp.getCode() != 0) {
       System.out.println(String.format("code:%d,msg:%s,err:%s"
-          , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+          , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
       return;
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getData()));
     // 原生http信息
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getRawResponse()));
     // 返回请求ID
     System.out.println(resp.getRequestId());
   }
@@ -640,14 +640,14 @@ public class ImSample {
         .create(req, RequestOptions.newBuilder().headers(headers).build());
     if (resp.getCode() != 0) {
       System.out.println(String.format("code:%d,msg:%s,err:%s"
-          , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+          , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
       return;
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getData()));
     // 原生http信息
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getRawResponse()));
     // 返回请求ID
     System.out.println(resp.getRequestId());
   }
@@ -673,14 +673,14 @@ public class ImSample {
         .create(req, RequestOptions.newBuilder().headers(headers).build());
     if (resp.getCode() != 0) {
       System.out.println(String.format("code:%d,msg:%s,err:%s"
-          , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+          , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
       return;
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getData()));
     // 原生http信息
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getRawResponse()));
     // 返回请求ID
     System.out.println(resp.getRequestId());
   }
@@ -707,14 +707,14 @@ public class ImSample {
         .create(req, RequestOptions.newBuilder().headers(headers).build());
     if (resp.getCode() != 0) {
       System.out.println(String.format("code:%d,msg:%s,err:%s"
-          , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+          , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
       return;
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getData()));
     // 原生http信息
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getRawResponse()));
     // 返回请求ID
     System.out.println(resp.getRequestId());
   }
@@ -797,14 +797,14 @@ public class ImSample {
     CreateMessageResp resp = client.im().message().create(req);
     if (!resp.success()) {
       System.out.println(String.format("code:%d,msg:%s,err:%s"
-          , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+          , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
       return;
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getData()));
     // 原生http信息
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getRawResponse()));
     // 返回请求ID
     System.out.println(resp.getRequestId());
   }
@@ -880,14 +880,14 @@ public class ImSample {
     CreateMessageResp resp = client.im().message().create(req);
     if (resp.getCode() != 0) {
       System.out.println(String.format("code:%d,msg:%s,err:%s"
-          , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+          , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
       return;
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getData()));
     // 原生http信息
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getRawResponse()));
     // 返回请求ID
     System.out.println(resp.getRequestId());
   }
@@ -912,14 +912,14 @@ public class ImSample {
         .create(req, RequestOptions.newBuilder().headers(headers).build());
     if (resp.getCode() != 0) {
       System.out.println(String.format("code:%d,msg:%s,err:%s"
-          , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+          , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
       return;
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getData()));
     // 原生http信息
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getRawResponse()));
     // 返回请求ID
     System.out.println(resp.getRequestId());
   }
@@ -944,14 +944,14 @@ public class ImSample {
         .create(req, RequestOptions.newBuilder().headers(headers).build());
     if (resp.getCode() != 0) {
       System.out.println(String.format("code:%d,msg:%s,err:%s"
-          , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+          , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
       return;
     }
 
     // 业务处理结果
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getData()));
     // 原生http信息
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getRawResponse()));
     // 返回请求ID
     System.out.println(resp.getRequestId());
   }
@@ -971,13 +971,13 @@ public class ImSample {
         .build());
     if (resp.getCode() != 0) {
       System.out.println(String.format("code:%d,msg:%s,err:%s"
-          , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+          , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
       return;
     }
 
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp));
+    System.out.println(Jsons.DEFAULT.toJson(resp));
     // 原生http信息
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getRawResponse()));
     // 返回请求ID
     System.out.println(resp.getRequestId());
   }
@@ -996,13 +996,13 @@ public class ImSample {
     CreateFileResp resp = client.im().file().create(req);
     if (resp.getCode() != 0) {
       System.out.println(String.format("code:%d,msg:%s,err:%s"
-          , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+          , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
       return;
     }
 
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getData().getFileKey()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getData().getFileKey()));
     // 原生http信息
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getRawResponse()));
     // 返回请求ID
     System.out.println(resp.getRequestId());
   }
@@ -1016,7 +1016,7 @@ public class ImSample {
     GetFileResp resp = client.im().file().get(req);
     if (resp.getCode() != 0) {
       System.out.println(String.format("code:%d,msg:%s,err:%s"
-          , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+          , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
       return;
     }
 
@@ -1037,7 +1037,7 @@ public class ImSample {
     GetFileResp resp = client.im().file().get(req);
     if (resp.getCode() != 0) {
       System.out.println(String.format("code:%d,msg:%s,err:%s"
-          , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+          , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
       return;
     }
 
@@ -1057,7 +1057,7 @@ public class ImSample {
     GetImageResp resp = client.im().image().get(req);
     if (resp.getCode() != 0) {
       System.out.println(String.format("code:%d,msg:%s,err:%s"
-          , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+          , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
       return;
     }
 
@@ -1080,7 +1080,7 @@ public class ImSample {
         .build());
     if (resp.getCode() != 0) {
       System.out.println(String.format("code:%d,msg:%s,err:%s"
-          , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+          , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
       return;
     }
 
@@ -1108,13 +1108,13 @@ public class ImSample {
     ReplyMessageResp resp = client.im().message().reply(req);
     if (resp.getCode() != 0) {
       System.out.println(String.format("code:%d,msg:%s,err:%s"
-          , resp.getCode(), resp.getMsg(), Jsons.LONG_TO_STR.toJson(resp.getError())));
+          , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
       return;
     }
 
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp));
+    System.out.println(Jsons.DEFAULT.toJson(resp));
     // 原生http信息
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp.getRawResponse()));
+    System.out.println(Jsons.DEFAULT.toJson(resp.getRawResponse()));
     // 返回请求ID
     System.out.println(resp.getRequestId());
   }
@@ -1137,6 +1137,6 @@ public class ImSample {
 //            .build())
         .build();
 
-    delMsg(client);
+    sendTextMsg(client);
   }
 }

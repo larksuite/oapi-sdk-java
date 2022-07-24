@@ -24,7 +24,7 @@ public class TenantSample {
 
   public static void getTenant(Client client) throws Exception {
     QueryTenantResp resp = client.tenant().tenant().query();
-    System.out.println(Jsons.LONG_TO_STR.toJson(resp));
+    System.out.println(Jsons.DEFAULT.toJson(resp));
   }
 
   public static void main(String arg[]) throws Exception {
@@ -50,7 +50,7 @@ public class TenantSample {
 //            .userIdType(UserIdTypeEnum.USER_ID)
 //            .build());
 //
-//    System.out.println(Jsons.LONG_TO_STR.toJson(resp));
+//    System.out.println(Jsons.DEFAULT.toJson(resp));
 
     getTenant(client);
   }

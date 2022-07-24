@@ -56,7 +56,7 @@ public class GrayTestSample {
             .headers(headers)
             .build());
     if (resp.success()) {
-      System.out.println(Jsons.LONG_TO_STR.toJson(resp));
+      System.out.println(Jsons.DEFAULT.toJson(resp));
     } else {
       System.out.println(
           String.format("%d,%s,%s", resp.getCode(), resp.getMsg(), resp.getRequestId()));

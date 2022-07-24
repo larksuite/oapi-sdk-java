@@ -198,8 +198,8 @@ public class Transport {
 
       if (!isUpload) {
         log.debug("req,path:{},header:{},body:{}", httpPath
-            , Jsons.LONG_TO_STR.toJson(req.getHeaders())
-            , req.getBody() == null ? "" : Jsons.LONG_TO_STR.toJson(req.getBody()));
+            , Jsons.DEFAULT.toJson(req.getHeaders())
+            , req.getBody() == null ? "" : Jsons.DEFAULT.toJson(req.getBody()));
       } else {
         log.debug("req,path:{},header:{}", httpPath, req.getHeaders());
       }

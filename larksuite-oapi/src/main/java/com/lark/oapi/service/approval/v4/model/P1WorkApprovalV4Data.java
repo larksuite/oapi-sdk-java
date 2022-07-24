@@ -45,4 +45,107 @@ public class P1WorkApprovalV4Data {
   @SerializedName("work_reason")
   private String workReason;
 
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getAppId() {
+    return appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  public String getTenantKey() {
+    return tenantKey;
+  }
+
+  public void setTenantKey(String tenantKey) {
+    this.tenantKey = tenantKey;
+  }
+
+  public String getInstanceCode() {
+    return instanceCode;
+  }
+
+  public void setInstanceCode(String instanceCode) {
+    this.instanceCode = instanceCode;
+  }
+
+  public String getOpenId() {
+    return openId;
+  }
+
+  public void setOpenId(String openId) {
+    this.openId = openId;
+  }
+
+  public String getEmployeeId() {
+    return employeeId;
+  }
+
+  public void setEmployeeId(String employeeId) {
+    this.employeeId = employeeId;
+  }
+
+  public long getStartTime() {
+    return startTime;
+  }
+
+  public void setStartTime(long startTime) {
+    this.startTime = startTime;
+  }
+
+  public long getEndTime() {
+    return endTime;
+  }
+
+  public void setEndTime(long endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getWorkType() {
+    return workType;
+  }
+
+  public void setWorkType(String workType) {
+    this.workType = workType;
+  }
+
+  public String getWorkStartTime() {
+    return workStartTime;
+  }
+
+  public void setWorkStartTime(String workStartTime) {
+    this.workStartTime = workStartTime;
+  }
+
+  public String getWorkEndTime() {
+    return workEndTime;
+  }
+
+  public void setWorkEndTime(String workEndTime) {
+    this.workEndTime = workEndTime;
+  }
+
+  public long getWorkInterval() {
+    return workInterval;
+  }
+
+  public void setWorkInterval(long workInterval) {
+    this.workInterval = workInterval;
+  }
+
+  public String getWorkReason() {
+    return workReason;
+  }
+
+  public void setWorkReason(String workReason) {
+    this.workReason = workReason;
+  }
 }
