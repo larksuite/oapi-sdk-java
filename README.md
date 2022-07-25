@@ -45,7 +45,7 @@
 <dependency>
   <groupId>com.larksuite.oapi</groupId>
   <artifactId>oapi-sdk</artifactId>
-  <version>2.0.0-snapshot</version>
+  <version>2.0.0-rc1</version>
 </dependency>
 ```
 
@@ -515,7 +515,7 @@ public class RawApiCall {
   <dependency>
     <groupId>com.larksuite.oapi</groupId>
     <artifactId>oapi-sdk-servlet-ext</artifactId>
-    <version>1.0.1-snapshot</version>
+    <version>1.0.0-rc1</version>
   </dependency>
 ```
 
@@ -712,7 +712,8 @@ public class EventController {
   <dependency>
     <groupId>com.larksuite.oapi</groupId>
     <artifactId>oapi-sdk-servlet-ext</artifactId>
-    <version>1.0.1-snapshot</version>
+    <version>1.0.0-rc1</ver
+    sion>
   </dependency>
 ```
 
