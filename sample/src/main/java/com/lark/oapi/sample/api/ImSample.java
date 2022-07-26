@@ -1137,6 +1137,6 @@ public class ImSample {
 //            .build())
         .build();
 
-    sendTextMsg(client);
+    sendInteractiveMonitorMsg(client);
   }
 }
