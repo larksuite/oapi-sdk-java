@@ -27,7 +27,7 @@ public class MessageCardEmbedButton extends MessageCardElement implements IMessa
   @SerializedName("multi_url")
   private MessageCardURL multiUrl;
   @SerializedName("type")
-  private MessageCardButtonTypeEnum buttonType;
+  private String buttonType;
   @SerializedName("value")
   private Map<String, Object> value = new HashMap<>();
   @SerializedName("confirm")
@@ -41,7 +41,7 @@ public class MessageCardEmbedButton extends MessageCardElement implements IMessa
     text = builder.text;
     url = builder.url;
     multiUrl = builder.multiUrl;
-    buttonType = builder.buttonType;
+    buttonType = builder.buttonType.getValue();
     value = builder.value;
     confirm = builder.confirm;
     tag = "button";

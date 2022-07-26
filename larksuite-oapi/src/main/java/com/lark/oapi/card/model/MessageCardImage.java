@@ -28,7 +28,7 @@ public class MessageCardImage extends MessageCardElement implements IMessageCard
   @SerializedName("compact_width")
   private Boolean compactWidth;
   @SerializedName("mode")
-  private MessageCardImageModelEnum mode;
+  private String mode;
   @SerializedName("preview")
   private Boolean preview;
 
@@ -43,7 +43,7 @@ public class MessageCardImage extends MessageCardElement implements IMessageCard
     this.title = builder.title;
     this.imgKey = builder.imgKey;
     this.customWidth = builder.customWidth;
-    this.mode = builder.mode;
+    this.mode = builder.mode.getValue();
     this.preview = builder.preview;
   }
 

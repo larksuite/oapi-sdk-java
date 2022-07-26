@@ -20,11 +20,11 @@ public class MessageCardAction extends MessageCardElement implements IMessageCar
   @SerializedName("actions")
   private IMessageCardActionElement[] actions;
   @SerializedName("layout")
-  private MessageCardActionLayoutEnum layout;
+  private String layout;
 
   private MessageCardAction(Builder builder) {
     actions = builder.actions;
-    layout = builder.layout;
+    layout = builder.layout.getValue();
     tag = "action";
   }
 

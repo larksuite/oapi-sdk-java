@@ -14,6 +14,11 @@ package com.lark.oapi.card.enums;
 
 public enum MessageCardImageModelEnum {
   FIT_HORIZONTAL("fit_horizontal"), CROP_CENTER("crop_center");
+
+  public String getValue() {
+    return value;
+  }
+
   private String value;
 
   MessageCardImageModelEnum(String value) {
