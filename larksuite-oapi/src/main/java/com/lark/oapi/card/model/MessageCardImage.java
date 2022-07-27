@@ -43,7 +43,9 @@ public class MessageCardImage extends MessageCardElement implements IMessageCard
     this.title = builder.title;
     this.imgKey = builder.imgKey;
     this.customWidth = builder.customWidth;
-    this.mode = builder.mode.getValue();
+    if (builder.mode != null) {
+      this.mode = builder.mode.getValue();
+    }
     this.preview = builder.preview;
   }
 

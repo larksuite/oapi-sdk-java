@@ -101,6 +101,8 @@ public class AcsService {
       ListAccessRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListAccessRecordResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -118,6 +120,8 @@ public class AcsService {
       ListAccessRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListAccessRecordResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -157,6 +161,8 @@ public class AcsService {
       GetAccessRecordAccessPhotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetAccessRecordAccessPhotoResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -185,6 +191,8 @@ public class AcsService {
       GetAccessRecordAccessPhotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetAccessRecordAccessPhotoResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -255,6 +263,8 @@ public class AcsService {
       // 反序列化
       GetUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -271,6 +281,8 @@ public class AcsService {
       // 反序列化
       GetUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -289,6 +301,8 @@ public class AcsService {
       // 反序列化
       ListUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -305,6 +319,8 @@ public class AcsService {
       // 反序列化
       ListUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -323,6 +339,8 @@ public class AcsService {
       // 反序列化
       PatchUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -339,6 +357,8 @@ public class AcsService {
       // 反序列化
       PatchUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -376,6 +396,8 @@ public class AcsService {
       // 反序列化
       GetUserFaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUserFaceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -403,6 +425,8 @@ public class AcsService {
       // 反序列化
       GetUserFaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUserFaceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -424,6 +448,8 @@ public class AcsService {
       UpdateUserFaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateUserFaceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -442,6 +468,8 @@ public class AcsService {
       UpdateUserFaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateUserFaceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

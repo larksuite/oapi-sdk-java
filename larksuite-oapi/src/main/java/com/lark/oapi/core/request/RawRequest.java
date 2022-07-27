@@ -27,6 +27,7 @@ public class RawRequest {
   private String httpMethod;
   private Config config;
   private boolean supportDownLoad;
+  private boolean supportLong2String;
 
   public boolean isSupportLong2String() {
     return supportLong2String;
@@ -35,8 +36,6 @@ public class RawRequest {
   public void setSupportLong2String(boolean supportLong2String) {
     this.supportLong2String = supportLong2String;
   }
-
-  private boolean supportLong2String;
 
   public int getStatusCode() {
     return statusCode;

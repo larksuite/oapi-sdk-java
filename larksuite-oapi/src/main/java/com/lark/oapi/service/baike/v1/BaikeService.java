@@ -90,6 +90,8 @@ public class BaikeService {
       ListClassificationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListClassificationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -107,6 +109,8 @@ public class BaikeService {
       ListClassificationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListClassificationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -134,6 +138,8 @@ public class BaikeService {
       // 反序列化
       CreateDraftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateDraftResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -150,6 +156,8 @@ public class BaikeService {
       // 反序列化
       CreateDraftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateDraftResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -168,6 +176,8 @@ public class BaikeService {
       // 反序列化
       UpdateDraftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateDraftResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -184,6 +194,8 @@ public class BaikeService {
       // 反序列化
       UpdateDraftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateDraftResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -212,6 +224,8 @@ public class BaikeService {
       // 反序列化
       CreateEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEntityResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -228,6 +242,8 @@ public class BaikeService {
       // 反序列化
       CreateEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEntityResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -246,6 +262,8 @@ public class BaikeService {
       // 反序列化
       GetEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetEntityResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -262,6 +280,8 @@ public class BaikeService {
       // 反序列化
       GetEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetEntityResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -282,6 +302,8 @@ public class BaikeService {
       HighlightEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           HighlightEntityResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -299,6 +321,8 @@ public class BaikeService {
       HighlightEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           HighlightEntityResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -317,6 +341,8 @@ public class BaikeService {
       // 反序列化
       ListEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListEntityResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -333,6 +359,8 @@ public class BaikeService {
       // 反序列化
       ListEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListEntityResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -351,6 +379,8 @@ public class BaikeService {
       // 反序列化
       MatchEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, MatchEntityResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -367,6 +397,8 @@ public class BaikeService {
       // 反序列化
       MatchEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, MatchEntityResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -386,6 +418,8 @@ public class BaikeService {
       // 反序列化
       SearchEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchEntityResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -402,6 +436,8 @@ public class BaikeService {
       // 反序列化
       SearchEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchEntityResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -421,6 +457,8 @@ public class BaikeService {
       // 反序列化
       UpdateEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateEntityResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -437,6 +475,8 @@ public class BaikeService {
       // 反序列化
       UpdateEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateEntityResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

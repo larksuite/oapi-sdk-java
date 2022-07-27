@@ -94,6 +94,8 @@ public class SearchService {
       CreateDataSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateDataSourceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -111,6 +113,8 @@ public class SearchService {
       CreateDataSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateDataSourceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -131,6 +135,8 @@ public class SearchService {
       DeleteDataSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteDataSourceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -148,6 +154,8 @@ public class SearchService {
       DeleteDataSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteDataSourceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -167,6 +175,8 @@ public class SearchService {
       GetDataSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetDataSourceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -184,6 +194,8 @@ public class SearchService {
       GetDataSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetDataSourceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -204,6 +216,8 @@ public class SearchService {
       ListDataSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListDataSourceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -221,6 +235,8 @@ public class SearchService {
       ListDataSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListDataSourceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -241,6 +257,8 @@ public class SearchService {
       PatchDataSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchDataSourceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -258,6 +276,8 @@ public class SearchService {
       PatchDataSourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchDataSourceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -287,6 +307,8 @@ public class SearchService {
       CreateDataSourceItemResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateDataSourceItemResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -304,6 +326,8 @@ public class SearchService {
       CreateDataSourceItemResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateDataSourceItemResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -324,6 +348,8 @@ public class SearchService {
       DeleteDataSourceItemResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteDataSourceItemResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -341,6 +367,8 @@ public class SearchService {
       DeleteDataSourceItemResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteDataSourceItemResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -361,6 +389,8 @@ public class SearchService {
       GetDataSourceItemResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetDataSourceItemResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -378,6 +408,8 @@ public class SearchService {
       GetDataSourceItemResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetDataSourceItemResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -406,6 +438,8 @@ public class SearchService {
       // 反序列化
       CreateSchemaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateSchemaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -422,6 +456,8 @@ public class SearchService {
       // 反序列化
       CreateSchemaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateSchemaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -441,6 +477,8 @@ public class SearchService {
       // 反序列化
       DeleteSchemaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteSchemaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -457,6 +495,8 @@ public class SearchService {
       // 反序列化
       DeleteSchemaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteSchemaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -475,6 +515,8 @@ public class SearchService {
       // 反序列化
       GetSchemaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetSchemaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -491,6 +533,8 @@ public class SearchService {
       // 反序列化
       GetSchemaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetSchemaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -509,6 +553,8 @@ public class SearchService {
       // 反序列化
       PatchSchemaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchSchemaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -525,6 +571,8 @@ public class SearchService {
       // 反序列化
       PatchSchemaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchSchemaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

@@ -16,11 +16,11 @@ public enum MessageCardButtonTypeEnum {
   DEFAULT("default"), PRIMARY("primary"), DANGER("danger");
   private String value;
 
-  public String getValue() {
-    return value;
-  }
-
   MessageCardButtonTypeEnum(String value) {
     this.value = value;
+  }
+
+  public String getValue() {
+    return value;
   }
 }

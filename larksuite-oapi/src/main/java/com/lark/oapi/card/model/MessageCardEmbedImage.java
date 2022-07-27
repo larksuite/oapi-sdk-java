@@ -23,7 +23,7 @@ public class MessageCardEmbedImage extends MessageCardElement implements IMessag
   @SerializedName("img_key")
   private String imgKey;
   @SerializedName("mode")
-  private MessageCardImageModelEnum mode;
+  private String mode;
   @SerializedName("preview")
   private Boolean preview;
 
@@ -35,7 +35,9 @@ public class MessageCardEmbedImage extends MessageCardElement implements IMessag
     this.tag = "img";
     this.alt = builder.alt;
     this.imgKey = builder.imgKey;
-    this.mode = builder.mode;
+    if (builder.mode != null) {
+      this.mode = builder.mode.getValue();
+    }
     this.preview = builder.preview;
   }
 

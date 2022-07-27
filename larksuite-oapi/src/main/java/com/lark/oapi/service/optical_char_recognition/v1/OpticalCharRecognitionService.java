@@ -60,6 +60,8 @@ public class OpticalCharRecognitionService {
       BasicRecognizeImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BasicRecognizeImageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -77,6 +79,8 @@ public class OpticalCharRecognitionService {
       BasicRecognizeImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BasicRecognizeImageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

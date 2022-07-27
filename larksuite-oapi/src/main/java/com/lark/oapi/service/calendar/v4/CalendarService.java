@@ -174,6 +174,8 @@ public class CalendarService {
       CreateCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateCalendarResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -191,6 +193,8 @@ public class CalendarService {
       CreateCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateCalendarResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -211,6 +215,8 @@ public class CalendarService {
       DeleteCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteCalendarResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -228,6 +234,8 @@ public class CalendarService {
       DeleteCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteCalendarResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -246,6 +254,8 @@ public class CalendarService {
       // 反序列化
       GetCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetCalendarResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -262,6 +272,8 @@ public class CalendarService {
       // 反序列化
       GetCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetCalendarResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -280,6 +292,8 @@ public class CalendarService {
       // 反序列化
       ListCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListCalendarResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -296,6 +310,8 @@ public class CalendarService {
       // 反序列化
       ListCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListCalendarResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -316,6 +332,8 @@ public class CalendarService {
       PatchCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchCalendarResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -333,6 +351,8 @@ public class CalendarService {
       PatchCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchCalendarResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -353,6 +373,8 @@ public class CalendarService {
       PrimaryCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PrimaryCalendarResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -370,6 +392,8 @@ public class CalendarService {
       PrimaryCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PrimaryCalendarResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -390,6 +414,8 @@ public class CalendarService {
       SearchCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SearchCalendarResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -407,6 +433,8 @@ public class CalendarService {
       SearchCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SearchCalendarResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -427,6 +455,8 @@ public class CalendarService {
       SubscribeCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SubscribeCalendarResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -444,6 +474,8 @@ public class CalendarService {
       SubscribeCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SubscribeCalendarResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -500,6 +532,8 @@ public class CalendarService {
       UnsubscribeCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UnsubscribeCalendarResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -517,6 +551,8 @@ public class CalendarService {
       UnsubscribeCalendarResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UnsubscribeCalendarResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -546,6 +582,8 @@ public class CalendarService {
       CreateCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateCalendarAclResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -563,6 +601,8 @@ public class CalendarService {
       CreateCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateCalendarAclResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -583,6 +623,8 @@ public class CalendarService {
       DeleteCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteCalendarAclResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -600,6 +642,8 @@ public class CalendarService {
       DeleteCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteCalendarAclResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -620,6 +664,8 @@ public class CalendarService {
       ListCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListCalendarAclResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -637,6 +683,8 @@ public class CalendarService {
       ListCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListCalendarAclResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -657,6 +705,8 @@ public class CalendarService {
       SubscriptionCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SubscriptionCalendarAclResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -675,6 +725,8 @@ public class CalendarService {
       SubscriptionCalendarAclResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SubscriptionCalendarAclResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -704,6 +756,8 @@ public class CalendarService {
       CreateCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateCalendarEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -721,6 +775,8 @@ public class CalendarService {
       CreateCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateCalendarEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -741,6 +797,8 @@ public class CalendarService {
       DeleteCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteCalendarEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -758,6 +816,8 @@ public class CalendarService {
       DeleteCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteCalendarEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -778,6 +838,8 @@ public class CalendarService {
       GetCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetCalendarEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -795,6 +857,8 @@ public class CalendarService {
       GetCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetCalendarEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -815,6 +879,8 @@ public class CalendarService {
       ListCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListCalendarEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -832,6 +898,8 @@ public class CalendarService {
       ListCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListCalendarEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -852,6 +920,8 @@ public class CalendarService {
       PatchCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchCalendarEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -869,6 +939,8 @@ public class CalendarService {
       PatchCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchCalendarEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -889,6 +961,8 @@ public class CalendarService {
       SearchCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SearchCalendarEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -906,6 +980,8 @@ public class CalendarService {
       SearchCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SearchCalendarEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -926,6 +1002,8 @@ public class CalendarService {
       SubscriptionCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SubscriptionCalendarEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -944,6 +1022,8 @@ public class CalendarService {
       SubscriptionCalendarEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SubscriptionCalendarEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -973,6 +1053,8 @@ public class CalendarService {
       BatchDeleteCalendarEventAttendeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchDeleteCalendarEventAttendeeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -991,6 +1073,8 @@ public class CalendarService {
       BatchDeleteCalendarEventAttendeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchDeleteCalendarEventAttendeeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1011,6 +1095,8 @@ public class CalendarService {
       CreateCalendarEventAttendeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateCalendarEventAttendeeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1029,6 +1115,8 @@ public class CalendarService {
       CreateCalendarEventAttendeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateCalendarEventAttendeeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1049,6 +1137,8 @@ public class CalendarService {
       ListCalendarEventAttendeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListCalendarEventAttendeeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1066,6 +1156,8 @@ public class CalendarService {
       ListCalendarEventAttendeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListCalendarEventAttendeeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1096,6 +1188,8 @@ public class CalendarService {
       ListCalendarEventAttendeeChatMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListCalendarEventAttendeeChatMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1115,6 +1209,8 @@ public class CalendarService {
       ListCalendarEventAttendeeChatMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListCalendarEventAttendeeChatMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1144,6 +1240,8 @@ public class CalendarService {
       CreateExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateExchangeBindingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1161,6 +1259,8 @@ public class CalendarService {
       CreateExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateExchangeBindingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1181,6 +1281,8 @@ public class CalendarService {
       DeleteExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteExchangeBindingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1198,6 +1300,8 @@ public class CalendarService {
       DeleteExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteExchangeBindingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1218,6 +1322,8 @@ public class CalendarService {
       GetExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetExchangeBindingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1235,6 +1341,8 @@ public class CalendarService {
       GetExchangeBindingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetExchangeBindingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1262,6 +1370,8 @@ public class CalendarService {
       // 反序列化
       ListFreebusyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFreebusyResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1278,6 +1388,8 @@ public class CalendarService {
       // 反序列化
       ListFreebusyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFreebusyResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1307,6 +1419,8 @@ public class CalendarService {
       GenerateCaldavConfSettingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GenerateCaldavConfSettingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1325,6 +1439,8 @@ public class CalendarService {
       GenerateCaldavConfSettingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GenerateCaldavConfSettingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1354,6 +1470,8 @@ public class CalendarService {
       CreateTimeoffEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateTimeoffEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1371,6 +1489,8 @@ public class CalendarService {
       CreateTimeoffEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateTimeoffEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1391,6 +1511,8 @@ public class CalendarService {
       DeleteTimeoffEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteTimeoffEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1408,6 +1530,8 @@ public class CalendarService {
       DeleteTimeoffEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteTimeoffEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

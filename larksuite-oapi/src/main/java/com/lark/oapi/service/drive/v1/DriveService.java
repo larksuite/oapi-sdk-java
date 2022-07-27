@@ -205,6 +205,8 @@ public class DriveService {
       CreateExportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateExportTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -222,6 +224,8 @@ public class DriveService {
       CreateExportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateExportTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -252,6 +256,8 @@ public class DriveService {
       DownloadExportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DownloadExportTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -280,6 +286,8 @@ public class DriveService {
       DownloadExportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DownloadExportTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -299,6 +307,8 @@ public class DriveService {
       GetExportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetExportTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -316,6 +326,8 @@ public class DriveService {
       GetExportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetExportTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -343,6 +355,8 @@ public class DriveService {
       // 反序列化
       CopyFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CopyFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -359,6 +373,8 @@ public class DriveService {
       // 反序列化
       CopyFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CopyFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -379,6 +395,8 @@ public class DriveService {
       CreateFolderFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateFolderFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -396,6 +414,8 @@ public class DriveService {
       CreateFolderFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateFolderFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -414,6 +434,8 @@ public class DriveService {
       // 反序列化
       DeleteFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -430,6 +452,8 @@ public class DriveService {
       // 反序列化
       DeleteFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -459,6 +483,8 @@ public class DriveService {
       // 反序列化
       DownloadFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DownloadFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -486,6 +512,8 @@ public class DriveService {
       // 反序列化
       DownloadFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DownloadFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -504,6 +532,8 @@ public class DriveService {
       // 反序列化
       ListFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -520,6 +550,8 @@ public class DriveService {
       // 反序列化
       ListFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -538,6 +570,8 @@ public class DriveService {
       // 反序列化
       MoveFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, MoveFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -554,6 +588,8 @@ public class DriveService {
       // 反序列化
       MoveFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, MoveFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -574,6 +610,8 @@ public class DriveService {
       SubscribeFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SubscribeFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -591,6 +629,8 @@ public class DriveService {
       SubscribeFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SubscribeFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -611,6 +651,8 @@ public class DriveService {
       TaskCheckFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           TaskCheckFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -628,6 +670,8 @@ public class DriveService {
       TaskCheckFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           TaskCheckFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -649,6 +693,8 @@ public class DriveService {
       UploadAllFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UploadAllFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -667,6 +713,8 @@ public class DriveService {
       UploadAllFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UploadAllFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -687,6 +735,8 @@ public class DriveService {
       UploadFinishFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UploadFinishFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -704,6 +754,8 @@ public class DriveService {
       UploadFinishFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UploadFinishFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -725,6 +777,8 @@ public class DriveService {
       UploadPartFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UploadPartFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -743,6 +797,8 @@ public class DriveService {
       UploadPartFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UploadPartFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -763,6 +819,8 @@ public class DriveService {
       UploadPrepareFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UploadPrepareFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -780,6 +838,8 @@ public class DriveService {
       UploadPrepareFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UploadPrepareFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -809,6 +869,8 @@ public class DriveService {
       CreateFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateFileCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -826,6 +888,8 @@ public class DriveService {
       CreateFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateFileCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -846,6 +910,8 @@ public class DriveService {
       GetFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetFileCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -863,6 +929,8 @@ public class DriveService {
       GetFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetFileCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -883,6 +951,8 @@ public class DriveService {
       ListFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListFileCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -900,6 +970,8 @@ public class DriveService {
       ListFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListFileCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -920,6 +992,8 @@ public class DriveService {
       PatchFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchFileCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -937,6 +1011,8 @@ public class DriveService {
       PatchFileCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchFileCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -966,6 +1042,8 @@ public class DriveService {
       DeleteFileCommentReplyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteFileCommentReplyResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -983,6 +1061,8 @@ public class DriveService {
       DeleteFileCommentReplyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteFileCommentReplyResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1003,6 +1083,8 @@ public class DriveService {
       UpdateFileCommentReplyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateFileCommentReplyResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1020,6 +1102,8 @@ public class DriveService {
       UpdateFileCommentReplyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateFileCommentReplyResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1049,6 +1133,8 @@ public class DriveService {
       GetFileStatisticsResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetFileStatisticsResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1066,6 +1152,8 @@ public class DriveService {
       GetFileStatisticsResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetFileStatisticsResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1095,6 +1183,8 @@ public class DriveService {
       CreateFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateFileSubscriptionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1112,6 +1202,8 @@ public class DriveService {
       CreateFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateFileSubscriptionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1132,6 +1224,8 @@ public class DriveService {
       GetFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetFileSubscriptionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1149,6 +1243,8 @@ public class DriveService {
       GetFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetFileSubscriptionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1169,6 +1265,8 @@ public class DriveService {
       PatchFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchFileSubscriptionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1186,6 +1284,8 @@ public class DriveService {
       PatchFileSubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchFileSubscriptionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1215,6 +1315,8 @@ public class DriveService {
       CreateImportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateImportTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1232,6 +1334,8 @@ public class DriveService {
       CreateImportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateImportTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1251,6 +1355,8 @@ public class DriveService {
       GetImportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetImportTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1268,6 +1374,8 @@ public class DriveService {
       GetImportTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetImportTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1297,6 +1405,8 @@ public class DriveService {
       BatchGetTmpDownloadUrlMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchGetTmpDownloadUrlMediaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1315,6 +1425,8 @@ public class DriveService {
       BatchGetTmpDownloadUrlMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchGetTmpDownloadUrlMediaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1345,6 +1457,8 @@ public class DriveService {
       DownloadMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DownloadMediaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1373,6 +1487,8 @@ public class DriveService {
       DownloadMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DownloadMediaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1394,6 +1510,8 @@ public class DriveService {
       UploadAllMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UploadAllMediaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1412,6 +1530,8 @@ public class DriveService {
       UploadAllMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UploadAllMediaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1432,6 +1552,8 @@ public class DriveService {
       UploadFinishMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UploadFinishMediaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1449,6 +1571,8 @@ public class DriveService {
       UploadFinishMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UploadFinishMediaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1470,6 +1594,8 @@ public class DriveService {
       UploadPartMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UploadPartMediaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1488,6 +1614,8 @@ public class DriveService {
       UploadPartMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UploadPartMediaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1508,6 +1636,8 @@ public class DriveService {
       UploadPrepareMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UploadPrepareMediaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1525,6 +1655,8 @@ public class DriveService {
       UploadPrepareMediaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UploadPrepareMediaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1554,6 +1686,8 @@ public class DriveService {
       BatchQueryMetaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchQueryMetaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1571,6 +1705,8 @@ public class DriveService {
       BatchQueryMetaResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchQueryMetaResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1600,6 +1736,8 @@ public class DriveService {
       CreatePermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreatePermissionMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1617,6 +1755,8 @@ public class DriveService {
       CreatePermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreatePermissionMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1637,6 +1777,8 @@ public class DriveService {
       DeletePermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeletePermissionMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1654,6 +1796,8 @@ public class DriveService {
       DeletePermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeletePermissionMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1674,6 +1818,8 @@ public class DriveService {
       UpdatePermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdatePermissionMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1691,6 +1837,8 @@ public class DriveService {
       UpdatePermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdatePermissionMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1720,6 +1868,8 @@ public class DriveService {
       GetPermissionPublicResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetPermissionPublicResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1737,6 +1887,8 @@ public class DriveService {
       GetPermissionPublicResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetPermissionPublicResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1757,6 +1909,8 @@ public class DriveService {
       PatchPermissionPublicResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchPermissionPublicResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1774,6 +1928,8 @@ public class DriveService {
       PatchPermissionPublicResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchPermissionPublicResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

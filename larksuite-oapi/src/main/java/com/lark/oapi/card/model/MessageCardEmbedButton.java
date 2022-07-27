@@ -41,7 +41,9 @@ public class MessageCardEmbedButton extends MessageCardElement implements IMessa
     text = builder.text;
     url = builder.url;
     multiUrl = builder.multiUrl;
-    buttonType = builder.buttonType.getValue();
+    if (builder.buttonType != null) {
+      buttonType = builder.buttonType.getValue();
+    }
     value = builder.value;
     confirm = builder.confirm;
     tag = "button";

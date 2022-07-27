@@ -25,11 +25,6 @@ public class RequestOptions {
   private String requestId;
   private boolean supportUpload;
   private boolean supportDownLoad;
-
-  public boolean isSupportLong2String() {
-    return supportLong2String;
-  }
-
   private boolean supportLong2String;
   private Map<String, List<String>> headers;
 
@@ -51,6 +46,10 @@ public class RequestOptions {
 
   public static Builder newBuilder() {
     return new Builder();
+  }
+
+  public boolean isSupportLong2String() {
+    return supportLong2String;
   }
 
   public boolean isSupportUpload() {

@@ -248,6 +248,8 @@ public class ImService {
       DeleteBatchMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteBatchMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -265,6 +267,8 @@ public class ImService {
       DeleteBatchMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteBatchMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -285,6 +289,8 @@ public class ImService {
       GetProgressBatchMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetProgressBatchMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -303,6 +309,8 @@ public class ImService {
       GetProgressBatchMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetProgressBatchMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -323,6 +331,8 @@ public class ImService {
       ReadUserBatchMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ReadUserBatchMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -340,6 +350,8 @@ public class ImService {
       ReadUserBatchMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ReadUserBatchMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -367,6 +379,8 @@ public class ImService {
       // 反序列化
       CreateChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateChatResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -383,6 +397,8 @@ public class ImService {
       // 反序列化
       CreateChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateChatResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -401,6 +417,8 @@ public class ImService {
       // 反序列化
       DeleteChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteChatResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -417,6 +435,8 @@ public class ImService {
       // 反序列化
       DeleteChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteChatResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -435,6 +455,8 @@ public class ImService {
       // 反序列化
       GetChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetChatResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -451,6 +473,8 @@ public class ImService {
       // 反序列化
       GetChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetChatResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -469,6 +493,8 @@ public class ImService {
       // 反序列化
       ListChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListChatResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -485,6 +511,8 @@ public class ImService {
       // 反序列化
       ListChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListChatResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -503,6 +531,8 @@ public class ImService {
       // 反序列化
       SearchChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchChatResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -519,6 +549,8 @@ public class ImService {
       // 反序列化
       SearchChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchChatResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -537,6 +569,8 @@ public class ImService {
       // 反序列化
       UpdateChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateChatResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -553,6 +587,8 @@ public class ImService {
       // 反序列化
       UpdateChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateChatResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -582,6 +618,8 @@ public class ImService {
       GetChatAnnouncementResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetChatAnnouncementResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -599,6 +637,8 @@ public class ImService {
       GetChatAnnouncementResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetChatAnnouncementResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -619,6 +659,8 @@ public class ImService {
       PatchChatAnnouncementResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchChatAnnouncementResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -636,6 +678,8 @@ public class ImService {
       PatchChatAnnouncementResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchChatAnnouncementResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -665,6 +709,8 @@ public class ImService {
       AddManagersChatManagersResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           AddManagersChatManagersResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -683,6 +729,8 @@ public class ImService {
       AddManagersChatManagersResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           AddManagersChatManagersResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -703,6 +751,8 @@ public class ImService {
       DeleteManagersChatManagersResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteManagersChatManagersResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -721,6 +771,8 @@ public class ImService {
       DeleteManagersChatManagersResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteManagersChatManagersResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -768,6 +820,8 @@ public class ImService {
       CreateChatMembersResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateChatMembersResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -785,6 +839,8 @@ public class ImService {
       CreateChatMembersResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateChatMembersResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -805,6 +861,8 @@ public class ImService {
       DeleteChatMembersResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteChatMembersResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -822,6 +880,8 @@ public class ImService {
       DeleteChatMembersResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteChatMembersResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -842,6 +902,8 @@ public class ImService {
       GetChatMembersResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetChatMembersResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -859,6 +921,8 @@ public class ImService {
       GetChatMembersResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetChatMembersResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -879,6 +943,8 @@ public class ImService {
       IsInChatChatMembersResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           IsInChatChatMembersResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -896,6 +962,8 @@ public class ImService {
       IsInChatChatMembersResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           IsInChatChatMembersResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -916,6 +984,8 @@ public class ImService {
       MeJoinChatMembersResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           MeJoinChatMembersResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -933,6 +1003,8 @@ public class ImService {
       MeJoinChatMembersResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           MeJoinChatMembersResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -962,6 +1034,8 @@ public class ImService {
       GetChatModerationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetChatModerationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -979,6 +1053,8 @@ public class ImService {
       GetChatModerationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetChatModerationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -999,6 +1075,8 @@ public class ImService {
       UpdateChatModerationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateChatModerationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1016,6 +1094,8 @@ public class ImService {
       UpdateChatModerationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateChatModerationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1045,6 +1125,8 @@ public class ImService {
       CreateChatTabResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateChatTabResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1062,6 +1144,8 @@ public class ImService {
       CreateChatTabResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateChatTabResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1082,6 +1166,8 @@ public class ImService {
       DeleteTabsChatTabResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteTabsChatTabResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1099,6 +1185,8 @@ public class ImService {
       DeleteTabsChatTabResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteTabsChatTabResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1119,6 +1207,8 @@ public class ImService {
       ListTabsChatTabResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListTabsChatTabResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1136,6 +1226,8 @@ public class ImService {
       ListTabsChatTabResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListTabsChatTabResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1156,6 +1248,8 @@ public class ImService {
       SortTabsChatTabResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SortTabsChatTabResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1173,6 +1267,8 @@ public class ImService {
       SortTabsChatTabResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SortTabsChatTabResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1193,6 +1289,8 @@ public class ImService {
       UpdateTabsChatTabResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateTabsChatTabResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1210,6 +1308,8 @@ public class ImService {
       UpdateTabsChatTabResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateTabsChatTabResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1239,6 +1339,8 @@ public class ImService {
       DeleteTopNoticeChatTopNoticeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteTopNoticeChatTopNoticeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1257,6 +1359,8 @@ public class ImService {
       DeleteTopNoticeChatTopNoticeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteTopNoticeChatTopNoticeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1277,6 +1381,8 @@ public class ImService {
       PutTopNoticeChatTopNoticeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PutTopNoticeChatTopNoticeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1295,6 +1401,8 @@ public class ImService {
       PutTopNoticeChatTopNoticeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PutTopNoticeChatTopNoticeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1323,6 +1431,8 @@ public class ImService {
       // 反序列化
       CreateFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1340,6 +1450,8 @@ public class ImService {
       // 反序列化
       CreateFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1368,6 +1480,8 @@ public class ImService {
       // 反序列化
       GetFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1395,6 +1509,8 @@ public class ImService {
       // 反序列化
       GetFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1423,6 +1539,8 @@ public class ImService {
       // 反序列化
       CreateImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateImageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1440,6 +1558,8 @@ public class ImService {
       // 反序列化
       CreateImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateImageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1468,6 +1588,8 @@ public class ImService {
       // 反序列化
       GetImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetImageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1495,6 +1617,8 @@ public class ImService {
       // 反序列化
       GetImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetImageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1524,6 +1648,8 @@ public class ImService {
       CreateMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1541,6 +1667,8 @@ public class ImService {
       CreateMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1561,6 +1689,8 @@ public class ImService {
       DeleteMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1578,6 +1708,8 @@ public class ImService {
       DeleteMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1596,6 +1728,8 @@ public class ImService {
       // 反序列化
       GetMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1612,6 +1746,8 @@ public class ImService {
       // 反序列化
       GetMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1630,6 +1766,8 @@ public class ImService {
       // 反序列化
       ListMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1646,6 +1784,8 @@ public class ImService {
       // 反序列化
       ListMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1664,6 +1804,8 @@ public class ImService {
       // 反序列化
       PatchMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1680,6 +1822,8 @@ public class ImService {
       // 反序列化
       PatchMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1700,6 +1844,8 @@ public class ImService {
       ReadUsersMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ReadUsersMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1717,6 +1863,8 @@ public class ImService {
       ReadUsersMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ReadUsersMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1735,6 +1883,8 @@ public class ImService {
       // 反序列化
       ReplyMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ReplyMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1751,6 +1901,8 @@ public class ImService {
       // 反序列化
       ReplyMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ReplyMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1771,6 +1923,8 @@ public class ImService {
       UrgentAppMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UrgentAppMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1788,6 +1942,8 @@ public class ImService {
       UrgentAppMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UrgentAppMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1808,6 +1964,8 @@ public class ImService {
       UrgentPhoneMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UrgentPhoneMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1825,6 +1983,8 @@ public class ImService {
       UrgentPhoneMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UrgentPhoneMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1845,6 +2005,8 @@ public class ImService {
       UrgentSmsMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UrgentSmsMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1862,6 +2024,8 @@ public class ImService {
       UrgentSmsMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UrgentSmsMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1891,6 +2055,8 @@ public class ImService {
       CreateMessageReactionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateMessageReactionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1908,6 +2074,8 @@ public class ImService {
       CreateMessageReactionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateMessageReactionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1928,6 +2096,8 @@ public class ImService {
       DeleteMessageReactionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteMessageReactionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1945,6 +2115,8 @@ public class ImService {
       DeleteMessageReactionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteMessageReactionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1965,6 +2137,8 @@ public class ImService {
       ListMessageReactionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListMessageReactionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1982,6 +2156,8 @@ public class ImService {
       ListMessageReactionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListMessageReactionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -2021,6 +2197,8 @@ public class ImService {
       GetMessageResourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetMessageResourceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -2049,6 +2227,8 @@ public class ImService {
       GetMessageResourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetMessageResourceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

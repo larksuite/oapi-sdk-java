@@ -110,6 +110,8 @@ public class ApplicationService {
       GetApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetApplicationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -127,6 +129,8 @@ public class ApplicationService {
       GetApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetApplicationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -147,6 +151,8 @@ public class ApplicationService {
       PatchApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchApplicationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -164,6 +170,8 @@ public class ApplicationService {
       PatchApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchApplicationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -184,6 +192,8 @@ public class ApplicationService {
       UnderauditlistApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UnderauditlistApplicationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -202,6 +212,8 @@ public class ApplicationService {
       UnderauditlistApplicationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UnderauditlistApplicationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -231,6 +243,8 @@ public class ApplicationService {
       OverviewApplicationAppUsageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           OverviewApplicationAppUsageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -249,6 +263,8 @@ public class ApplicationService {
       OverviewApplicationAppUsageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           OverviewApplicationAppUsageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -278,6 +294,8 @@ public class ApplicationService {
       GetApplicationAppVersionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetApplicationAppVersionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -295,6 +313,8 @@ public class ApplicationService {
       GetApplicationAppVersionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetApplicationAppVersionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -315,6 +335,8 @@ public class ApplicationService {
       PatchApplicationAppVersionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchApplicationAppVersionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -333,6 +355,8 @@ public class ApplicationService {
       PatchApplicationAppVersionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchApplicationAppVersionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -362,6 +386,8 @@ public class ApplicationService {
       ListApplicationFeedbackResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListApplicationFeedbackResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -379,6 +405,8 @@ public class ApplicationService {
       ListApplicationFeedbackResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListApplicationFeedbackResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -399,6 +427,8 @@ public class ApplicationService {
       PatchApplicationFeedbackResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchApplicationFeedbackResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -416,6 +446,8 @@ public class ApplicationService {
       PatchApplicationFeedbackResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchApplicationFeedbackResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

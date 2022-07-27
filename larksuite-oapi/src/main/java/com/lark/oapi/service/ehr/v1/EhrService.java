@@ -78,6 +78,8 @@ public class EhrService {
       GetAttachmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetAttachmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -106,6 +108,8 @@ public class EhrService {
       GetAttachmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetAttachmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -133,6 +137,8 @@ public class EhrService {
       // 反序列化
       ListEmployeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListEmployeeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -149,6 +155,8 @@ public class EhrService {
       // 反序列化
       ListEmployeeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListEmployeeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

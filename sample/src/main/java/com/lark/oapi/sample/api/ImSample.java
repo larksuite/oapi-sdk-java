@@ -427,6 +427,7 @@ public class ImSample {
     System.out.println(Jsons.DEFAULT.toJson(resp.getRawResponse()));
     // 返回请求ID
     System.out.println(resp.getRequestId());
+    System.out.println(Jsons.DEFAULT.toJson(resp.getRequest()));
   }
 
   public static void sendInteractiveMonitorProcessedMsg(Client client) throws Exception {

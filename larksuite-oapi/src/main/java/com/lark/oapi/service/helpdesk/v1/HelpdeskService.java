@@ -266,6 +266,8 @@ public class HelpdeskService {
       // 反序列化
       PatchAgentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchAgentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -282,6 +284,8 @@ public class HelpdeskService {
       // 反序列化
       PatchAgentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchAgentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -311,6 +315,8 @@ public class HelpdeskService {
       DeleteAgentSchedulesResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteAgentSchedulesResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -328,6 +334,8 @@ public class HelpdeskService {
       DeleteAgentSchedulesResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteAgentSchedulesResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -348,6 +356,8 @@ public class HelpdeskService {
       GetAgentSchedulesResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetAgentSchedulesResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -365,6 +375,8 @@ public class HelpdeskService {
       GetAgentSchedulesResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetAgentSchedulesResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -385,6 +397,8 @@ public class HelpdeskService {
       PatchAgentSchedulesResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchAgentSchedulesResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -402,6 +416,8 @@ public class HelpdeskService {
       PatchAgentSchedulesResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchAgentSchedulesResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -431,6 +447,8 @@ public class HelpdeskService {
       CreateAgentScheduleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateAgentScheduleResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -448,6 +466,8 @@ public class HelpdeskService {
       CreateAgentScheduleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateAgentScheduleResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -468,6 +488,8 @@ public class HelpdeskService {
       ListAgentScheduleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListAgentScheduleResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -485,6 +507,8 @@ public class HelpdeskService {
       ListAgentScheduleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListAgentScheduleResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -514,6 +538,8 @@ public class HelpdeskService {
       CreateAgentSkillResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateAgentSkillResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -531,6 +557,8 @@ public class HelpdeskService {
       CreateAgentSkillResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateAgentSkillResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -551,6 +579,8 @@ public class HelpdeskService {
       DeleteAgentSkillResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteAgentSkillResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -568,6 +598,8 @@ public class HelpdeskService {
       DeleteAgentSkillResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteAgentSkillResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -587,6 +619,8 @@ public class HelpdeskService {
       GetAgentSkillResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetAgentSkillResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -604,6 +638,8 @@ public class HelpdeskService {
       GetAgentSkillResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetAgentSkillResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -660,6 +696,8 @@ public class HelpdeskService {
       PatchAgentSkillResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchAgentSkillResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -677,6 +715,8 @@ public class HelpdeskService {
       PatchAgentSkillResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchAgentSkillResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -751,6 +791,8 @@ public class HelpdeskService {
       CreateBotMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateBotMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -768,6 +810,8 @@ public class HelpdeskService {
       CreateBotMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateBotMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -797,6 +841,8 @@ public class HelpdeskService {
       CreateCategoryResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateCategoryResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -814,6 +860,8 @@ public class HelpdeskService {
       CreateCategoryResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateCategoryResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -834,6 +882,8 @@ public class HelpdeskService {
       DeleteCategoryResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteCategoryResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -851,6 +901,8 @@ public class HelpdeskService {
       DeleteCategoryResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteCategoryResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -869,6 +921,8 @@ public class HelpdeskService {
       // 反序列化
       GetCategoryResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetCategoryResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -885,6 +939,8 @@ public class HelpdeskService {
       // 反序列化
       GetCategoryResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetCategoryResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -903,6 +959,8 @@ public class HelpdeskService {
       // 反序列化
       ListCategoryResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListCategoryResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -919,6 +977,8 @@ public class HelpdeskService {
       // 反序列化
       ListCategoryResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListCategoryResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -939,6 +999,8 @@ public class HelpdeskService {
       PatchCategoryResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchCategoryResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -956,6 +1018,8 @@ public class HelpdeskService {
       PatchCategoryResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchCategoryResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -985,6 +1049,8 @@ public class HelpdeskService {
       SubscribeEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SubscribeEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1002,6 +1068,8 @@ public class HelpdeskService {
       SubscribeEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SubscribeEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1022,6 +1090,8 @@ public class HelpdeskService {
       UnsubscribeEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UnsubscribeEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1039,6 +1109,8 @@ public class HelpdeskService {
       UnsubscribeEventResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UnsubscribeEventResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1066,6 +1138,8 @@ public class HelpdeskService {
       // 反序列化
       CreateFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateFaqResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1082,6 +1156,8 @@ public class HelpdeskService {
       // 反序列化
       CreateFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateFaqResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1100,6 +1176,8 @@ public class HelpdeskService {
       // 反序列化
       DeleteFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteFaqResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1116,6 +1194,8 @@ public class HelpdeskService {
       // 反序列化
       DeleteFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteFaqResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1145,6 +1225,8 @@ public class HelpdeskService {
       // 反序列化
       FaqImageFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, FaqImageFaqResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1172,6 +1254,8 @@ public class HelpdeskService {
       // 反序列化
       FaqImageFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, FaqImageFaqResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1190,6 +1274,8 @@ public class HelpdeskService {
       // 反序列化
       GetFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetFaqResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1206,6 +1292,8 @@ public class HelpdeskService {
       // 反序列化
       GetFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetFaqResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1224,6 +1312,8 @@ public class HelpdeskService {
       // 反序列化
       ListFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFaqResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1240,6 +1330,8 @@ public class HelpdeskService {
       // 反序列化
       ListFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListFaqResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1258,6 +1350,8 @@ public class HelpdeskService {
       // 反序列化
       PatchFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchFaqResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1274,6 +1368,8 @@ public class HelpdeskService {
       // 反序列化
       PatchFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchFaqResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1292,6 +1388,8 @@ public class HelpdeskService {
       // 反序列化
       SearchFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchFaqResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1308,6 +1406,8 @@ public class HelpdeskService {
       // 反序列化
       SearchFaqResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchFaqResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1337,6 +1437,8 @@ public class HelpdeskService {
       CancelApproveNotificationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CancelApproveNotificationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1355,6 +1457,8 @@ public class HelpdeskService {
       CancelApproveNotificationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CancelApproveNotificationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1375,6 +1479,8 @@ public class HelpdeskService {
       CancelSendNotificationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CancelSendNotificationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1392,6 +1498,8 @@ public class HelpdeskService {
       CancelSendNotificationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CancelSendNotificationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1412,6 +1520,8 @@ public class HelpdeskService {
       CreateNotificationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateNotificationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1429,6 +1539,8 @@ public class HelpdeskService {
       CreateNotificationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateNotificationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1449,6 +1561,8 @@ public class HelpdeskService {
       ExecuteSendNotificationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ExecuteSendNotificationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1467,6 +1581,8 @@ public class HelpdeskService {
       ExecuteSendNotificationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ExecuteSendNotificationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1487,6 +1603,8 @@ public class HelpdeskService {
       GetNotificationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetNotificationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1504,6 +1622,8 @@ public class HelpdeskService {
       GetNotificationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetNotificationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1524,6 +1644,8 @@ public class HelpdeskService {
       PatchNotificationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchNotificationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1541,6 +1663,8 @@ public class HelpdeskService {
       PatchNotificationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchNotificationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1561,6 +1685,8 @@ public class HelpdeskService {
       PreviewNotificationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PreviewNotificationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1578,6 +1704,8 @@ public class HelpdeskService {
       PreviewNotificationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PreviewNotificationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1598,6 +1726,8 @@ public class HelpdeskService {
       SubmitApproveNotificationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SubmitApproveNotificationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1616,6 +1746,8 @@ public class HelpdeskService {
       SubmitApproveNotificationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SubmitApproveNotificationResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1645,6 +1777,8 @@ public class HelpdeskService {
       AnswerUserQueryTicketResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           AnswerUserQueryTicketResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1663,6 +1797,8 @@ public class HelpdeskService {
       AnswerUserQueryTicketResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           AnswerUserQueryTicketResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1683,6 +1819,8 @@ public class HelpdeskService {
       CustomizedFieldsTicketResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CustomizedFieldsTicketResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1701,6 +1839,8 @@ public class HelpdeskService {
       CustomizedFieldsTicketResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CustomizedFieldsTicketResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1719,6 +1859,8 @@ public class HelpdeskService {
       // 反序列化
       GetTicketResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTicketResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1735,6 +1877,8 @@ public class HelpdeskService {
       // 反序列化
       GetTicketResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTicketResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1753,6 +1897,8 @@ public class HelpdeskService {
       // 反序列化
       ListTicketResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTicketResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1769,6 +1915,8 @@ public class HelpdeskService {
       // 反序列化
       ListTicketResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTicketResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1789,6 +1937,8 @@ public class HelpdeskService {
       StartServiceTicketResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           StartServiceTicketResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1806,6 +1956,8 @@ public class HelpdeskService {
       StartServiceTicketResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           StartServiceTicketResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1836,6 +1988,8 @@ public class HelpdeskService {
       TicketImageTicketResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           TicketImageTicketResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1864,6 +2018,8 @@ public class HelpdeskService {
       TicketImageTicketResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           TicketImageTicketResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1883,6 +2039,8 @@ public class HelpdeskService {
       // 反序列化
       UpdateTicketResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateTicketResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1899,6 +2057,8 @@ public class HelpdeskService {
       // 反序列化
       UpdateTicketResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateTicketResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1928,6 +2088,8 @@ public class HelpdeskService {
       CreateTicketMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateTicketMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1945,6 +2107,8 @@ public class HelpdeskService {
       CreateTicketMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateTicketMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1965,6 +2129,8 @@ public class HelpdeskService {
       ListTicketMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListTicketMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1982,6 +2148,8 @@ public class HelpdeskService {
       ListTicketMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListTicketMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -2011,6 +2179,8 @@ public class HelpdeskService {
       CreateTicketCustomizedFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateTicketCustomizedFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -2029,6 +2199,8 @@ public class HelpdeskService {
       CreateTicketCustomizedFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateTicketCustomizedFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -2049,6 +2221,8 @@ public class HelpdeskService {
       DeleteTicketCustomizedFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteTicketCustomizedFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -2067,6 +2241,8 @@ public class HelpdeskService {
       DeleteTicketCustomizedFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteTicketCustomizedFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -2087,6 +2263,8 @@ public class HelpdeskService {
       GetTicketCustomizedFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetTicketCustomizedFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -2104,6 +2282,8 @@ public class HelpdeskService {
       GetTicketCustomizedFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetTicketCustomizedFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -2124,6 +2304,8 @@ public class HelpdeskService {
       ListTicketCustomizedFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListTicketCustomizedFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -2141,6 +2323,8 @@ public class HelpdeskService {
       ListTicketCustomizedFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListTicketCustomizedFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -2161,6 +2345,8 @@ public class HelpdeskService {
       PatchTicketCustomizedFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchTicketCustomizedFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -2179,6 +2365,8 @@ public class HelpdeskService {
       PatchTicketCustomizedFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchTicketCustomizedFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

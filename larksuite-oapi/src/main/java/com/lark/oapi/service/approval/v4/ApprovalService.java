@@ -156,6 +156,8 @@ public class ApprovalService {
       CreateApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateApprovalResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -173,6 +175,8 @@ public class ApprovalService {
       CreateApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateApprovalResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -191,6 +195,8 @@ public class ApprovalService {
       // 反序列化
       GetApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetApprovalResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -207,6 +213,8 @@ public class ApprovalService {
       // 反序列化
       GetApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetApprovalResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -227,6 +235,8 @@ public class ApprovalService {
       SubscribeApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SubscribeApprovalResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -244,6 +254,8 @@ public class ApprovalService {
       SubscribeApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SubscribeApprovalResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -264,6 +276,8 @@ public class ApprovalService {
       UnsubscribeApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UnsubscribeApprovalResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -281,6 +295,8 @@ public class ApprovalService {
       UnsubscribeApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UnsubscribeApprovalResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -310,6 +326,8 @@ public class ApprovalService {
       CreateExternalApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateExternalApprovalResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -327,6 +345,8 @@ public class ApprovalService {
       CreateExternalApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateExternalApprovalResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -356,6 +376,8 @@ public class ApprovalService {
       CheckExternalInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CheckExternalInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -373,6 +395,8 @@ public class ApprovalService {
       CheckExternalInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CheckExternalInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -393,6 +417,8 @@ public class ApprovalService {
       CreateExternalInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateExternalInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -410,6 +436,8 @@ public class ApprovalService {
       CreateExternalInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateExternalInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -439,6 +467,8 @@ public class ApprovalService {
       ListExternalTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListExternalTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -456,6 +486,8 @@ public class ApprovalService {
       ListExternalTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListExternalTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -485,6 +517,8 @@ public class ApprovalService {
       AddSignInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           AddSignInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -502,6 +536,8 @@ public class ApprovalService {
       AddSignInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           AddSignInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -522,6 +558,8 @@ public class ApprovalService {
       CancelInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CancelInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -539,6 +577,8 @@ public class ApprovalService {
       CancelInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CancelInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -557,6 +597,8 @@ public class ApprovalService {
       // 反序列化
       CcInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CcInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -573,6 +615,8 @@ public class ApprovalService {
       // 反序列化
       CcInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CcInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -593,6 +637,8 @@ public class ApprovalService {
       CreateInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -610,6 +656,8 @@ public class ApprovalService {
       CreateInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -628,6 +676,8 @@ public class ApprovalService {
       // 反序列化
       GetInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -644,6 +694,8 @@ public class ApprovalService {
       // 反序列化
       GetInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -662,6 +714,8 @@ public class ApprovalService {
       // 反序列化
       ListInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -678,6 +732,8 @@ public class ApprovalService {
       // 反序列化
       ListInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -698,6 +754,8 @@ public class ApprovalService {
       PreviewInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PreviewInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -715,6 +773,8 @@ public class ApprovalService {
       PreviewInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PreviewInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -735,6 +795,8 @@ public class ApprovalService {
       QueryInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -752,6 +814,8 @@ public class ApprovalService {
       QueryInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -772,6 +836,8 @@ public class ApprovalService {
       SearchCcInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SearchCcInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -789,6 +855,8 @@ public class ApprovalService {
       SearchCcInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SearchCcInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -809,6 +877,8 @@ public class ApprovalService {
       SpecifiedRollbackInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SpecifiedRollbackInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -827,6 +897,8 @@ public class ApprovalService {
       SpecifiedRollbackInstanceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SpecifiedRollbackInstanceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -856,6 +928,8 @@ public class ApprovalService {
       CreateInstanceCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateInstanceCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -873,6 +947,8 @@ public class ApprovalService {
       CreateInstanceCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateInstanceCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -893,6 +969,8 @@ public class ApprovalService {
       DeleteInstanceCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteInstanceCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -910,6 +988,8 @@ public class ApprovalService {
       DeleteInstanceCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteInstanceCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -930,6 +1010,8 @@ public class ApprovalService {
       ListInstanceCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListInstanceCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -947,6 +1029,8 @@ public class ApprovalService {
       ListInstanceCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListInstanceCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -967,6 +1051,8 @@ public class ApprovalService {
       RemoveInstanceCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           RemoveInstanceCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -984,6 +1070,8 @@ public class ApprovalService {
       RemoveInstanceCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           RemoveInstanceCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1011,6 +1099,8 @@ public class ApprovalService {
       // 反序列化
       ApproveTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ApproveTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1027,6 +1117,8 @@ public class ApprovalService {
       // 反序列化
       ApproveTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ApproveTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1045,6 +1137,8 @@ public class ApprovalService {
       // 反序列化
       QueryTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1061,6 +1155,8 @@ public class ApprovalService {
       // 反序列化
       QueryTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1079,6 +1175,8 @@ public class ApprovalService {
       // 反序列化
       RejectTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, RejectTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1095,6 +1193,8 @@ public class ApprovalService {
       // 反序列化
       RejectTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, RejectTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1113,6 +1213,8 @@ public class ApprovalService {
       // 反序列化
       SearchTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1129,6 +1231,8 @@ public class ApprovalService {
       // 反序列化
       SearchTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1148,6 +1252,8 @@ public class ApprovalService {
       // 反序列化
       TransferTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, TransferTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1164,6 +1270,8 @@ public class ApprovalService {
       // 反序列化
       TransferTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, TransferTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

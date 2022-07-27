@@ -60,6 +60,8 @@ public class TranslationService {
       // 反序列化
       DetectTextResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DetectTextResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -76,6 +78,8 @@ public class TranslationService {
       // 反序列化
       DetectTextResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DetectTextResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -96,6 +100,8 @@ public class TranslationService {
       TranslateTextResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           TranslateTextResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -113,6 +119,8 @@ public class TranslationService {
       TranslateTextResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           TranslateTextResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

@@ -184,6 +184,8 @@ public class MailService {
       CreateMailgroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateMailgroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -201,6 +203,8 @@ public class MailService {
       CreateMailgroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateMailgroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -221,6 +225,8 @@ public class MailService {
       DeleteMailgroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteMailgroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -238,6 +244,8 @@ public class MailService {
       DeleteMailgroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteMailgroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -256,6 +264,8 @@ public class MailService {
       // 反序列化
       GetMailgroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMailgroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -272,6 +282,8 @@ public class MailService {
       // 反序列化
       GetMailgroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMailgroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -292,6 +304,8 @@ public class MailService {
       ListMailgroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListMailgroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -309,6 +323,8 @@ public class MailService {
       ListMailgroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListMailgroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -329,6 +345,8 @@ public class MailService {
       PatchMailgroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchMailgroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -346,6 +364,8 @@ public class MailService {
       PatchMailgroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchMailgroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -366,6 +386,8 @@ public class MailService {
       UpdateMailgroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateMailgroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -383,6 +405,8 @@ public class MailService {
       UpdateMailgroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateMailgroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -412,6 +436,8 @@ public class MailService {
       CreateMailgroupAliasResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateMailgroupAliasResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -429,6 +455,8 @@ public class MailService {
       CreateMailgroupAliasResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateMailgroupAliasResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -449,6 +477,8 @@ public class MailService {
       DeleteMailgroupAliasResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteMailgroupAliasResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -466,6 +496,8 @@ public class MailService {
       DeleteMailgroupAliasResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteMailgroupAliasResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -486,6 +518,8 @@ public class MailService {
       ListMailgroupAliasResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListMailgroupAliasResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -503,6 +537,8 @@ public class MailService {
       ListMailgroupAliasResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListMailgroupAliasResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -532,6 +568,8 @@ public class MailService {
       CreateMailgroupMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateMailgroupMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -549,6 +587,8 @@ public class MailService {
       CreateMailgroupMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateMailgroupMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -569,6 +609,8 @@ public class MailService {
       DeleteMailgroupMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteMailgroupMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -586,6 +628,8 @@ public class MailService {
       DeleteMailgroupMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteMailgroupMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -606,6 +650,8 @@ public class MailService {
       GetMailgroupMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetMailgroupMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -623,6 +669,8 @@ public class MailService {
       GetMailgroupMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetMailgroupMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -643,6 +691,8 @@ public class MailService {
       ListMailgroupMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListMailgroupMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -660,6 +710,8 @@ public class MailService {
       ListMailgroupMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListMailgroupMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -689,6 +741,8 @@ public class MailService {
       CreateMailgroupPermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateMailgroupPermissionMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -707,6 +761,8 @@ public class MailService {
       CreateMailgroupPermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateMailgroupPermissionMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -727,6 +783,8 @@ public class MailService {
       DeleteMailgroupPermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteMailgroupPermissionMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -745,6 +803,8 @@ public class MailService {
       DeleteMailgroupPermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteMailgroupPermissionMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -765,6 +825,8 @@ public class MailService {
       GetMailgroupPermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetMailgroupPermissionMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -783,6 +845,8 @@ public class MailService {
       GetMailgroupPermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetMailgroupPermissionMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -803,6 +867,8 @@ public class MailService {
       ListMailgroupPermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListMailgroupPermissionMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -821,6 +887,8 @@ public class MailService {
       ListMailgroupPermissionMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListMailgroupPermissionMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -850,6 +918,8 @@ public class MailService {
       CreatePublicMailboxResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreatePublicMailboxResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -867,6 +937,8 @@ public class MailService {
       CreatePublicMailboxResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreatePublicMailboxResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -887,6 +959,8 @@ public class MailService {
       DeletePublicMailboxResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeletePublicMailboxResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -904,6 +978,8 @@ public class MailService {
       DeletePublicMailboxResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeletePublicMailboxResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -924,6 +1000,8 @@ public class MailService {
       GetPublicMailboxResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetPublicMailboxResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -941,6 +1019,8 @@ public class MailService {
       GetPublicMailboxResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetPublicMailboxResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -961,6 +1041,8 @@ public class MailService {
       ListPublicMailboxResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListPublicMailboxResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -978,6 +1060,8 @@ public class MailService {
       ListPublicMailboxResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListPublicMailboxResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -998,6 +1082,8 @@ public class MailService {
       PatchPublicMailboxResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchPublicMailboxResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1015,6 +1101,8 @@ public class MailService {
       PatchPublicMailboxResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchPublicMailboxResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1035,6 +1123,8 @@ public class MailService {
       UpdatePublicMailboxResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdatePublicMailboxResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1052,6 +1142,8 @@ public class MailService {
       UpdatePublicMailboxResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdatePublicMailboxResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1081,6 +1173,8 @@ public class MailService {
       CreatePublicMailboxAliasResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreatePublicMailboxAliasResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1098,6 +1192,8 @@ public class MailService {
       CreatePublicMailboxAliasResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreatePublicMailboxAliasResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1118,6 +1214,8 @@ public class MailService {
       DeletePublicMailboxAliasResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeletePublicMailboxAliasResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1135,6 +1233,8 @@ public class MailService {
       DeletePublicMailboxAliasResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeletePublicMailboxAliasResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1155,6 +1255,8 @@ public class MailService {
       ListPublicMailboxAliasResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListPublicMailboxAliasResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1172,6 +1274,8 @@ public class MailService {
       ListPublicMailboxAliasResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListPublicMailboxAliasResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1201,6 +1305,8 @@ public class MailService {
       ClearPublicMailboxMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ClearPublicMailboxMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1218,6 +1324,8 @@ public class MailService {
       ClearPublicMailboxMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ClearPublicMailboxMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1238,6 +1346,8 @@ public class MailService {
       CreatePublicMailboxMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreatePublicMailboxMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1255,6 +1365,8 @@ public class MailService {
       CreatePublicMailboxMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreatePublicMailboxMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1275,6 +1387,8 @@ public class MailService {
       DeletePublicMailboxMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeletePublicMailboxMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1292,6 +1406,8 @@ public class MailService {
       DeletePublicMailboxMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeletePublicMailboxMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1312,6 +1428,8 @@ public class MailService {
       GetPublicMailboxMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetPublicMailboxMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1329,6 +1447,8 @@ public class MailService {
       GetPublicMailboxMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetPublicMailboxMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1349,6 +1469,8 @@ public class MailService {
       ListPublicMailboxMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListPublicMailboxMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1366,6 +1488,8 @@ public class MailService {
       ListPublicMailboxMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListPublicMailboxMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1393,6 +1517,8 @@ public class MailService {
       // 反序列化
       QueryUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1409,6 +1535,8 @@ public class MailService {
       // 反序列化
       QueryUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1438,6 +1566,8 @@ public class MailService {
       DeleteUserMailboxResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteUserMailboxResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1455,6 +1585,8 @@ public class MailService {
       DeleteUserMailboxResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteUserMailboxResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1484,6 +1616,8 @@ public class MailService {
       CreateUserMailboxAliasResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateUserMailboxAliasResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1501,6 +1635,8 @@ public class MailService {
       CreateUserMailboxAliasResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateUserMailboxAliasResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1521,6 +1657,8 @@ public class MailService {
       DeleteUserMailboxAliasResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteUserMailboxAliasResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1538,6 +1676,8 @@ public class MailService {
       DeleteUserMailboxAliasResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteUserMailboxAliasResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1558,6 +1698,8 @@ public class MailService {
       ListUserMailboxAliasResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListUserMailboxAliasResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1575,6 +1717,8 @@ public class MailService {
       ListUserMailboxAliasResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListUserMailboxAliasResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

@@ -19,6 +19,7 @@ import com.lark.oapi.core.response.error.Error;
 public class BaseResponse<T> {
 
   private RawResponse rawResponse;
+  private Object request;
   private int code;
   private String msg;
   private Error error;
@@ -26,6 +27,14 @@ public class BaseResponse<T> {
   private T data;
 
   public BaseResponse() {
+  }
+
+  public Object getRequest() {
+    return request;
+  }
+
+  public void setRequest(Object request) {
+    this.request = request;
   }
 
   public T getData() {

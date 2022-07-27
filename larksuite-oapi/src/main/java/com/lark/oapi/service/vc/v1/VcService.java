@@ -128,6 +128,8 @@ public class VcService {
       // 反序列化
       EndMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, EndMeetingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -144,6 +146,8 @@ public class VcService {
       // 反序列化
       EndMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, EndMeetingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -162,6 +166,8 @@ public class VcService {
       // 反序列化
       GetMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMeetingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -178,6 +184,8 @@ public class VcService {
       // 反序列化
       GetMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMeetingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -198,6 +206,8 @@ public class VcService {
       InviteMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           InviteMeetingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -215,6 +225,8 @@ public class VcService {
       InviteMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           InviteMeetingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -235,6 +247,8 @@ public class VcService {
       KickoutMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           KickoutMeetingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -252,6 +266,8 @@ public class VcService {
       KickoutMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           KickoutMeetingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -272,6 +288,8 @@ public class VcService {
       ListByNoMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListByNoMeetingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -289,6 +307,8 @@ public class VcService {
       ListByNoMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListByNoMeetingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -309,6 +329,8 @@ public class VcService {
       SetHostMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SetHostMeetingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -326,6 +348,8 @@ public class VcService {
       SetHostMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SetHostMeetingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -355,6 +379,8 @@ public class VcService {
       GetMeetingRecordingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetMeetingRecordingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -372,6 +398,8 @@ public class VcService {
       GetMeetingRecordingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetMeetingRecordingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -392,6 +420,8 @@ public class VcService {
       SetPermissionMeetingRecordingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SetPermissionMeetingRecordingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -410,6 +440,8 @@ public class VcService {
       SetPermissionMeetingRecordingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SetPermissionMeetingRecordingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -430,6 +462,8 @@ public class VcService {
       StartMeetingRecordingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           StartMeetingRecordingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -447,6 +481,8 @@ public class VcService {
       StartMeetingRecordingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           StartMeetingRecordingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -467,6 +503,8 @@ public class VcService {
       StopMeetingRecordingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           StopMeetingRecordingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -484,6 +522,8 @@ public class VcService {
       StopMeetingRecordingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           StopMeetingRecordingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -513,6 +553,8 @@ public class VcService {
       GetDailyReportResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetDailyReportResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -530,6 +572,8 @@ public class VcService {
       GetDailyReportResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetDailyReportResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -550,6 +594,8 @@ public class VcService {
       GetTopUserReportResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetTopUserReportResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -567,6 +613,8 @@ public class VcService {
       GetTopUserReportResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetTopUserReportResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -594,6 +642,8 @@ public class VcService {
       // 反序列化
       ApplyReserveResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ApplyReserveResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -610,6 +660,8 @@ public class VcService {
       // 反序列化
       ApplyReserveResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ApplyReserveResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -630,6 +682,8 @@ public class VcService {
       DeleteReserveResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteReserveResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -647,6 +701,8 @@ public class VcService {
       DeleteReserveResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteReserveResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -665,6 +721,8 @@ public class VcService {
       // 反序列化
       GetReserveResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetReserveResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -681,6 +739,8 @@ public class VcService {
       // 反序列化
       GetReserveResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetReserveResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -701,6 +761,8 @@ public class VcService {
       GetActiveMeetingReserveResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetActiveMeetingReserveResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -719,6 +781,8 @@ public class VcService {
       GetActiveMeetingReserveResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetActiveMeetingReserveResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -739,6 +803,8 @@ public class VcService {
       UpdateReserveResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateReserveResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -756,6 +822,8 @@ public class VcService {
       UpdateReserveResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateReserveResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -785,6 +853,8 @@ public class VcService {
       QueryRoomConfigResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryRoomConfigResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -802,6 +872,8 @@ public class VcService {
       QueryRoomConfigResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryRoomConfigResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -821,6 +893,8 @@ public class VcService {
       SetRoomConfigResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SetRoomConfigResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -838,6 +912,8 @@ public class VcService {
       SetRoomConfigResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SetRoomConfigResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

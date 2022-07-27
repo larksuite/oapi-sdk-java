@@ -134,6 +134,8 @@ public class SheetsService {
       CreateSpreadsheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateSpreadsheetResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -151,6 +153,8 @@ public class SheetsService {
       CreateSpreadsheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateSpreadsheetResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -180,6 +184,8 @@ public class SheetsService {
       FindSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           FindSpreadsheetSheetResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -197,6 +203,8 @@ public class SheetsService {
       FindSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           FindSpreadsheetSheetResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -217,6 +225,8 @@ public class SheetsService {
       MoveDimensionSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           MoveDimensionSpreadsheetSheetResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -235,6 +245,8 @@ public class SheetsService {
       MoveDimensionSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           MoveDimensionSpreadsheetSheetResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -255,6 +267,8 @@ public class SheetsService {
       ReplaceSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ReplaceSpreadsheetSheetResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -272,6 +286,8 @@ public class SheetsService {
       ReplaceSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ReplaceSpreadsheetSheetResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -301,6 +317,8 @@ public class SheetsService {
       CreateSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateSpreadsheetSheetFilterResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -319,6 +337,8 @@ public class SheetsService {
       CreateSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateSpreadsheetSheetFilterResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -339,6 +359,8 @@ public class SheetsService {
       DeleteSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteSpreadsheetSheetFilterResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -357,6 +379,8 @@ public class SheetsService {
       DeleteSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteSpreadsheetSheetFilterResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -377,6 +401,8 @@ public class SheetsService {
       GetSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetSpreadsheetSheetFilterResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -394,6 +420,8 @@ public class SheetsService {
       GetSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetSpreadsheetSheetFilterResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -414,6 +442,8 @@ public class SheetsService {
       UpdateSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateSpreadsheetSheetFilterResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -432,6 +462,8 @@ public class SheetsService {
       UpdateSpreadsheetSheetFilterResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateSpreadsheetSheetFilterResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -461,6 +493,8 @@ public class SheetsService {
       CreateSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateSpreadsheetSheetFilterViewResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -479,6 +513,8 @@ public class SheetsService {
       CreateSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateSpreadsheetSheetFilterViewResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -500,6 +536,8 @@ public class SheetsService {
       DeleteSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteSpreadsheetSheetFilterViewResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -519,6 +557,8 @@ public class SheetsService {
       DeleteSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteSpreadsheetSheetFilterViewResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -540,6 +580,8 @@ public class SheetsService {
       GetSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetSpreadsheetSheetFilterViewResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -559,6 +601,8 @@ public class SheetsService {
       GetSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetSpreadsheetSheetFilterViewResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -580,6 +624,8 @@ public class SheetsService {
       PatchSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchSpreadsheetSheetFilterViewResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -599,6 +645,8 @@ public class SheetsService {
       PatchSpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchSpreadsheetSheetFilterViewResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -620,6 +668,8 @@ public class SheetsService {
       QuerySpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QuerySpreadsheetSheetFilterViewResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -639,6 +689,8 @@ public class SheetsService {
       QuerySpreadsheetSheetFilterViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QuerySpreadsheetSheetFilterViewResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -670,6 +722,8 @@ public class SheetsService {
       CreateSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(
           httpResponse, CreateSpreadsheetSheetFilterViewConditionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -689,6 +743,8 @@ public class SheetsService {
       CreateSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(
           httpResponse, CreateSpreadsheetSheetFilterViewConditionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -711,6 +767,8 @@ public class SheetsService {
       DeleteSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(
           httpResponse, DeleteSpreadsheetSheetFilterViewConditionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -730,6 +788,8 @@ public class SheetsService {
       DeleteSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(
           httpResponse, DeleteSpreadsheetSheetFilterViewConditionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -751,6 +811,8 @@ public class SheetsService {
       GetSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(
           httpResponse, GetSpreadsheetSheetFilterViewConditionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -770,6 +832,8 @@ public class SheetsService {
       GetSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(
           httpResponse, GetSpreadsheetSheetFilterViewConditionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -792,6 +856,8 @@ public class SheetsService {
       QuerySpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(
           httpResponse, QuerySpreadsheetSheetFilterViewConditionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -811,6 +877,8 @@ public class SheetsService {
       QuerySpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(
           httpResponse, QuerySpreadsheetSheetFilterViewConditionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -833,6 +901,8 @@ public class SheetsService {
       UpdateSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(
           httpResponse, UpdateSpreadsheetSheetFilterViewConditionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -852,6 +922,8 @@ public class SheetsService {
       UpdateSpreadsheetSheetFilterViewConditionResp resp = UnmarshalRespUtil.unmarshalResp(
           httpResponse, UpdateSpreadsheetSheetFilterViewConditionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -881,6 +953,8 @@ public class SheetsService {
       CreateSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateSpreadsheetSheetFloatImageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -899,6 +973,8 @@ public class SheetsService {
       CreateSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateSpreadsheetSheetFloatImageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -920,6 +996,8 @@ public class SheetsService {
       DeleteSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteSpreadsheetSheetFloatImageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -939,6 +1017,8 @@ public class SheetsService {
       DeleteSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteSpreadsheetSheetFloatImageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -960,6 +1040,8 @@ public class SheetsService {
       GetSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetSpreadsheetSheetFloatImageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -979,6 +1061,8 @@ public class SheetsService {
       GetSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetSpreadsheetSheetFloatImageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1000,6 +1084,8 @@ public class SheetsService {
       PatchSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchSpreadsheetSheetFloatImageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1019,6 +1105,8 @@ public class SheetsService {
       PatchSpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchSpreadsheetSheetFloatImageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1040,6 +1128,8 @@ public class SheetsService {
       QuerySpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QuerySpreadsheetSheetFloatImageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1059,6 +1149,8 @@ public class SheetsService {
       QuerySpreadsheetSheetFloatImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QuerySpreadsheetSheetFloatImageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

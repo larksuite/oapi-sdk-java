@@ -58,6 +58,8 @@ public class PassportService {
       // 反序列化
       QuerySessionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QuerySessionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -74,6 +76,8 @@ public class PassportService {
       // 反序列化
       QuerySessionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QuerySessionResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

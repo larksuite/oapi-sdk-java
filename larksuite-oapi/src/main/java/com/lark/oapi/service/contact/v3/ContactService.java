@@ -210,6 +210,8 @@ public class ContactService {
       ListCustomAttrResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListCustomAttrResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -227,6 +229,8 @@ public class ContactService {
       ListCustomAttrResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListCustomAttrResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -265,6 +269,8 @@ public class ContactService {
       ChildrenDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ChildrenDepartmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -282,6 +288,8 @@ public class ContactService {
       ChildrenDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ChildrenDepartmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -302,6 +310,8 @@ public class ContactService {
       CreateDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateDepartmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -319,6 +329,8 @@ public class ContactService {
       CreateDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateDepartmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -339,6 +351,8 @@ public class ContactService {
       DeleteDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteDepartmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -356,6 +370,8 @@ public class ContactService {
       DeleteDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteDepartmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -375,6 +391,8 @@ public class ContactService {
       GetDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetDepartmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -392,6 +410,8 @@ public class ContactService {
       GetDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetDepartmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -412,6 +432,8 @@ public class ContactService {
       ListDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListDepartmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -429,6 +451,8 @@ public class ContactService {
       ListDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListDepartmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -449,6 +473,8 @@ public class ContactService {
       ParentDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ParentDepartmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -466,6 +492,8 @@ public class ContactService {
       ParentDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ParentDepartmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -486,6 +514,8 @@ public class ContactService {
       PatchDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchDepartmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -503,6 +533,8 @@ public class ContactService {
       PatchDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchDepartmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -523,6 +555,8 @@ public class ContactService {
       SearchDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SearchDepartmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -540,6 +574,8 @@ public class ContactService {
       SearchDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SearchDepartmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -560,6 +596,8 @@ public class ContactService {
       UnbindDepartmentChatDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UnbindDepartmentChatDepartmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -578,6 +616,8 @@ public class ContactService {
       UnbindDepartmentChatDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UnbindDepartmentChatDepartmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -598,6 +638,8 @@ public class ContactService {
       UpdateDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateDepartmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -615,6 +657,8 @@ public class ContactService {
       UpdateDepartmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateDepartmentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -644,6 +688,8 @@ public class ContactService {
       CreateEmployeeTypeEnumResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateEmployeeTypeEnumResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -661,6 +707,8 @@ public class ContactService {
       CreateEmployeeTypeEnumResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateEmployeeTypeEnumResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -681,6 +729,8 @@ public class ContactService {
       DeleteEmployeeTypeEnumResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteEmployeeTypeEnumResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -698,6 +748,8 @@ public class ContactService {
       DeleteEmployeeTypeEnumResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteEmployeeTypeEnumResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -718,6 +770,8 @@ public class ContactService {
       ListEmployeeTypeEnumResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListEmployeeTypeEnumResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -735,6 +789,8 @@ public class ContactService {
       ListEmployeeTypeEnumResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListEmployeeTypeEnumResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -755,6 +811,8 @@ public class ContactService {
       UpdateEmployeeTypeEnumResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateEmployeeTypeEnumResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -772,6 +830,8 @@ public class ContactService {
       UpdateEmployeeTypeEnumResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateEmployeeTypeEnumResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -799,6 +859,8 @@ public class ContactService {
       // 反序列化
       CreateGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -815,6 +877,8 @@ public class ContactService {
       // 反序列化
       CreateGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -833,6 +897,8 @@ public class ContactService {
       // 反序列化
       DeleteGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -849,6 +915,8 @@ public class ContactService {
       // 反序列化
       DeleteGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -867,6 +935,8 @@ public class ContactService {
       // 反序列化
       GetGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -883,6 +953,8 @@ public class ContactService {
       // 反序列化
       GetGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -903,6 +975,8 @@ public class ContactService {
       MemberBelongGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           MemberBelongGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -920,6 +994,8 @@ public class ContactService {
       MemberBelongGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           MemberBelongGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -938,6 +1014,8 @@ public class ContactService {
       // 反序列化
       PatchGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -954,6 +1032,8 @@ public class ContactService {
       // 反序列化
       PatchGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -974,6 +1054,8 @@ public class ContactService {
       SimplelistGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SimplelistGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -991,6 +1073,8 @@ public class ContactService {
       SimplelistGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SimplelistGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1020,6 +1104,8 @@ public class ContactService {
       AddGroupMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           AddGroupMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1037,6 +1123,8 @@ public class ContactService {
       AddGroupMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           AddGroupMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1057,6 +1145,8 @@ public class ContactService {
       BatchAddGroupMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchAddGroupMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1074,6 +1164,8 @@ public class ContactService {
       BatchAddGroupMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchAddGroupMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1094,6 +1186,8 @@ public class ContactService {
       BatchRemoveGroupMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchRemoveGroupMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1111,6 +1205,8 @@ public class ContactService {
       BatchRemoveGroupMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchRemoveGroupMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1131,6 +1227,8 @@ public class ContactService {
       RemoveGroupMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           RemoveGroupMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1148,6 +1246,8 @@ public class ContactService {
       RemoveGroupMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           RemoveGroupMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1168,6 +1268,8 @@ public class ContactService {
       SimplelistGroupMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SimplelistGroupMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1185,6 +1287,8 @@ public class ContactService {
       SimplelistGroupMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           SimplelistGroupMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1212,6 +1316,8 @@ public class ContactService {
       // 反序列化
       ListScopeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListScopeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1228,6 +1334,8 @@ public class ContactService {
       // 反序列化
       ListScopeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListScopeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1257,6 +1365,8 @@ public class ContactService {
       BindDepartmentUnitResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BindDepartmentUnitResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1274,6 +1384,8 @@ public class ContactService {
       BindDepartmentUnitResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BindDepartmentUnitResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1292,6 +1404,8 @@ public class ContactService {
       // 反序列化
       CreateUnitResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateUnitResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1308,6 +1422,8 @@ public class ContactService {
       // 反序列化
       CreateUnitResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateUnitResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1326,6 +1442,8 @@ public class ContactService {
       // 反序列化
       DeleteUnitResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteUnitResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1342,6 +1460,8 @@ public class ContactService {
       // 反序列化
       DeleteUnitResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteUnitResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1360,6 +1480,8 @@ public class ContactService {
       // 反序列化
       GetUnitResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUnitResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1376,6 +1498,8 @@ public class ContactService {
       // 反序列化
       GetUnitResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUnitResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1394,6 +1518,8 @@ public class ContactService {
       // 反序列化
       ListUnitResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListUnitResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1410,6 +1536,8 @@ public class ContactService {
       // 反序列化
       ListUnitResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListUnitResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1430,6 +1558,8 @@ public class ContactService {
       ListDepartmentUnitResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListDepartmentUnitResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1447,6 +1577,8 @@ public class ContactService {
       ListDepartmentUnitResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListDepartmentUnitResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1465,6 +1597,8 @@ public class ContactService {
       // 反序列化
       PatchUnitResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchUnitResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1481,6 +1615,8 @@ public class ContactService {
       // 反序列化
       PatchUnitResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchUnitResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1501,6 +1637,8 @@ public class ContactService {
       UnbindDepartmentUnitResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UnbindDepartmentUnitResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1518,6 +1656,8 @@ public class ContactService {
       UnbindDepartmentUnitResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UnbindDepartmentUnitResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1547,6 +1687,8 @@ public class ContactService {
       BatchGetIdUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchGetIdUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1564,6 +1706,8 @@ public class ContactService {
       BatchGetIdUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchGetIdUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1582,6 +1726,8 @@ public class ContactService {
       // 反序列化
       CreateUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1598,6 +1744,8 @@ public class ContactService {
       // 反序列化
       CreateUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1616,6 +1764,8 @@ public class ContactService {
       // 反序列化
       DeleteUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1632,6 +1782,8 @@ public class ContactService {
       // 反序列化
       DeleteUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1652,6 +1804,8 @@ public class ContactService {
       FindByDepartmentUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           FindByDepartmentUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1669,6 +1823,8 @@ public class ContactService {
       FindByDepartmentUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           FindByDepartmentUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1687,6 +1843,8 @@ public class ContactService {
       // 反序列化
       GetUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1703,6 +1861,8 @@ public class ContactService {
       // 反序列化
       GetUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1721,6 +1881,8 @@ public class ContactService {
       // 反序列化
       ListUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1737,6 +1899,8 @@ public class ContactService {
       // 反序列化
       ListUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1755,6 +1919,8 @@ public class ContactService {
       // 反序列化
       PatchUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1771,6 +1937,8 @@ public class ContactService {
       // 反序列化
       PatchUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1789,6 +1957,8 @@ public class ContactService {
       // 反序列化
       UpdateUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1805,6 +1975,8 @@ public class ContactService {
       // 反序列化
       UpdateUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateUserResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

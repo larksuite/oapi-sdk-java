@@ -46,6 +46,7 @@ import com.lark.oapi.service.drive.v1.DriveService;
 import com.lark.oapi.service.ehr.v1.EhrService;
 import com.lark.oapi.service.event.v1.EventService;
 import com.lark.oapi.service.ext.ExtService;
+import com.lark.oapi.service.face_detection.v1.FaceDetectionService;
 import com.lark.oapi.service.gray_test_open_sg.v1.GrayTestOpenSgService;
 import com.lark.oapi.service.helpdesk.v1.HelpdeskService;
 import com.lark.oapi.service.human_authentication.v1.HumanAuthenticationService;
@@ -83,6 +84,7 @@ public class Client {
   private DriveService drive;
   private EhrService ehr;
   private EventService event;
+  private FaceDetectionService faceDetection;
   private GrayTestOpenSgService grayTestOpenSg;
   private HelpdeskService helpdesk;
   private HumanAuthenticationService humanAuthentication;
@@ -168,6 +170,10 @@ public class Client {
 
   public EventService event() {
     return event;
+  }
+
+  public FaceDetectionService faceDetection() {
+    return faceDetection;
   }
 
   public GrayTestOpenSgService grayTestOpenSg() {
@@ -429,6 +435,7 @@ public class Client {
       client.drive = new DriveService(config);
       client.ehr = new EhrService(config);
       client.event = new EventService(config);
+      client.faceDetection = new FaceDetectionService(config);
       client.grayTestOpenSg = new GrayTestOpenSgService(config);
       client.helpdesk = new HelpdeskService(config);
       client.humanAuthentication = new HumanAuthenticationService(config);

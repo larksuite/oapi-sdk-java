@@ -76,6 +76,8 @@ public class AdminService {
       ListAdminDeptStatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListAdminDeptStatResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -93,6 +95,8 @@ public class AdminService {
       ListAdminDeptStatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListAdminDeptStatResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -122,6 +126,8 @@ public class AdminService {
       ListAdminUserStatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListAdminUserStatResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -139,6 +145,8 @@ public class AdminService {
       ListAdminUserStatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListAdminUserStatResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -168,6 +176,8 @@ public class AdminService {
       ResetPasswordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ResetPasswordResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -185,6 +195,8 @@ public class AdminService {
       ResetPasswordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ResetPasswordResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

@@ -69,6 +69,8 @@ public class BlockService {
       // 反序列化
       CreateEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEntityResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -85,6 +87,8 @@ public class BlockService {
       // 反序列化
       CreateEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEntityResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -104,6 +108,8 @@ public class BlockService {
       // 反序列化
       UpdateEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateEntityResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -120,6 +126,8 @@ public class BlockService {
       // 反序列化
       UpdateEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateEntityResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -149,6 +157,8 @@ public class BlockService {
       CreateMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -166,6 +176,8 @@ public class BlockService {
       CreateMessageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateMessageResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

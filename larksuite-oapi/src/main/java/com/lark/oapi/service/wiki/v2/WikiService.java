@@ -108,6 +108,8 @@ public class WikiService {
       // 反序列化
       CreateSpaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateSpaceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -124,6 +126,8 @@ public class WikiService {
       // 反序列化
       CreateSpaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateSpaceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -142,6 +146,8 @@ public class WikiService {
       // 反序列化
       GetSpaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetSpaceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -158,6 +164,8 @@ public class WikiService {
       // 反序列化
       GetSpaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetSpaceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -177,6 +185,8 @@ public class WikiService {
       // 反序列化
       GetNodeSpaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetNodeSpaceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -193,6 +203,8 @@ public class WikiService {
       // 反序列化
       GetNodeSpaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetNodeSpaceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -211,6 +223,8 @@ public class WikiService {
       // 反序列化
       ListSpaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListSpaceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -227,6 +241,8 @@ public class WikiService {
       // 反序列化
       ListSpaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListSpaceResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -256,6 +272,8 @@ public class WikiService {
       CreateSpaceMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateSpaceMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -273,6 +291,8 @@ public class WikiService {
       CreateSpaceMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateSpaceMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -293,6 +313,8 @@ public class WikiService {
       DeleteSpaceMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteSpaceMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -310,6 +332,8 @@ public class WikiService {
       DeleteSpaceMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteSpaceMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -339,6 +363,8 @@ public class WikiService {
       CopySpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CopySpaceNodeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -356,6 +382,8 @@ public class WikiService {
       CopySpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CopySpaceNodeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -376,6 +404,8 @@ public class WikiService {
       CreateSpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateSpaceNodeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -393,6 +423,8 @@ public class WikiService {
       CreateSpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateSpaceNodeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -413,6 +445,8 @@ public class WikiService {
       ListSpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListSpaceNodeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -430,6 +464,8 @@ public class WikiService {
       ListSpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListSpaceNodeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -450,6 +486,8 @@ public class WikiService {
       MoveSpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           MoveSpaceNodeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -467,6 +505,8 @@ public class WikiService {
       MoveSpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           MoveSpaceNodeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -487,6 +527,8 @@ public class WikiService {
       MoveDocsToWikiSpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           MoveDocsToWikiSpaceNodeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -505,6 +547,8 @@ public class WikiService {
       MoveDocsToWikiSpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           MoveDocsToWikiSpaceNodeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -525,6 +569,8 @@ public class WikiService {
       UpdateTitleSpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateTitleSpaceNodeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -542,6 +588,8 @@ public class WikiService {
       UpdateTitleSpaceNodeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateTitleSpaceNodeResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -571,6 +619,8 @@ public class WikiService {
       UpdateSpaceSettingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateSpaceSettingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -588,6 +638,8 @@ public class WikiService {
       UpdateSpaceSettingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateSpaceSettingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -615,6 +667,8 @@ public class WikiService {
       // 反序列化
       GetTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -631,6 +685,8 @@ public class WikiService {
       // 反序列化
       GetTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

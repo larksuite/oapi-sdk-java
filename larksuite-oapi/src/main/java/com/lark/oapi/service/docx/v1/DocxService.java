@@ -90,6 +90,8 @@ public class DocxService {
       CreateDocumentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateDocumentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -107,6 +109,8 @@ public class DocxService {
       CreateDocumentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateDocumentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -125,6 +129,8 @@ public class DocxService {
       // 反序列化
       GetDocumentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetDocumentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -141,6 +147,8 @@ public class DocxService {
       // 反序列化
       GetDocumentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetDocumentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -161,6 +169,8 @@ public class DocxService {
       RawContentDocumentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           RawContentDocumentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -178,6 +188,8 @@ public class DocxService {
       RawContentDocumentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           RawContentDocumentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -207,6 +219,8 @@ public class DocxService {
       BatchUpdateDocumentBlockResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchUpdateDocumentBlockResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -225,6 +239,8 @@ public class DocxService {
       BatchUpdateDocumentBlockResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchUpdateDocumentBlockResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -245,6 +261,8 @@ public class DocxService {
       GetDocumentBlockResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetDocumentBlockResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -262,6 +280,8 @@ public class DocxService {
       GetDocumentBlockResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetDocumentBlockResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -282,6 +302,8 @@ public class DocxService {
       ListDocumentBlockResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListDocumentBlockResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -299,6 +321,8 @@ public class DocxService {
       ListDocumentBlockResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListDocumentBlockResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -319,6 +343,8 @@ public class DocxService {
       PatchDocumentBlockResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchDocumentBlockResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -336,6 +362,8 @@ public class DocxService {
       PatchDocumentBlockResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchDocumentBlockResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -365,6 +393,8 @@ public class DocxService {
       BatchDeleteDocumentBlockChildrenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchDeleteDocumentBlockChildrenResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -383,6 +413,8 @@ public class DocxService {
       BatchDeleteDocumentBlockChildrenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchDeleteDocumentBlockChildrenResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -403,6 +435,8 @@ public class DocxService {
       CreateDocumentBlockChildrenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateDocumentBlockChildrenResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -421,6 +455,8 @@ public class DocxService {
       CreateDocumentBlockChildrenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateDocumentBlockChildrenResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -441,6 +477,8 @@ public class DocxService {
       GetDocumentBlockChildrenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetDocumentBlockChildrenResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -458,6 +496,8 @@ public class DocxService {
       GetDocumentBlockChildrenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetDocumentBlockChildrenResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

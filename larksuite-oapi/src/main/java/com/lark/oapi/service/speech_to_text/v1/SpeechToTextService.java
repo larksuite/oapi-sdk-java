@@ -62,6 +62,8 @@ public class SpeechToTextService {
       FileRecognizeSpeechResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           FileRecognizeSpeechResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -79,6 +81,8 @@ public class SpeechToTextService {
       FileRecognizeSpeechResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           FileRecognizeSpeechResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -99,6 +103,8 @@ public class SpeechToTextService {
       StreamRecognizeSpeechResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           StreamRecognizeSpeechResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -117,6 +123,8 @@ public class SpeechToTextService {
       StreamRecognizeSpeechResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           StreamRecognizeSpeechResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

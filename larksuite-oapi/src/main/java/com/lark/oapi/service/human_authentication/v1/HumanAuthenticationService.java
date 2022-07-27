@@ -60,6 +60,8 @@ public class HumanAuthenticationService {
       CreateIdentityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateIdentityResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -77,6 +79,8 @@ public class HumanAuthenticationService {
       CreateIdentityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateIdentityResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

@@ -62,6 +62,8 @@ public class GrayTestOpenSgService {
       // 反序列化
       CreateMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateMotoResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -78,6 +80,8 @@ public class GrayTestOpenSgService {
       // 反序列化
       CreateMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateMotoResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -96,6 +100,8 @@ public class GrayTestOpenSgService {
       // 反序列化
       GetMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMotoResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -112,6 +118,8 @@ public class GrayTestOpenSgService {
       // 反序列化
       GetMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMotoResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -130,6 +138,8 @@ public class GrayTestOpenSgService {
       // 反序列化
       ListMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListMotoResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -146,6 +156,8 @@ public class GrayTestOpenSgService {
       // 反序列化
       ListMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListMotoResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

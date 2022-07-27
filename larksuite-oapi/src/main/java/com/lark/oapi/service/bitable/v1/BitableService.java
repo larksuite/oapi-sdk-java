@@ -164,6 +164,8 @@ public class BitableService {
       // 反序列化
       GetAppResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAppResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -180,6 +182,8 @@ public class BitableService {
       // 反序列化
       GetAppResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetAppResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -198,6 +202,8 @@ public class BitableService {
       // 反序列化
       UpdateAppResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateAppResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -214,6 +220,8 @@ public class BitableService {
       // 反序列化
       UpdateAppResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateAppResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -243,6 +251,8 @@ public class BitableService {
       CreateAppRoleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateAppRoleResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -260,6 +270,8 @@ public class BitableService {
       CreateAppRoleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateAppRoleResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -280,6 +292,8 @@ public class BitableService {
       DeleteAppRoleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteAppRoleResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -297,6 +311,8 @@ public class BitableService {
       DeleteAppRoleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteAppRoleResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -315,6 +331,8 @@ public class BitableService {
       // 反序列化
       ListAppRoleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAppRoleResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -331,6 +349,8 @@ public class BitableService {
       // 反序列化
       ListAppRoleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAppRoleResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -351,6 +371,8 @@ public class BitableService {
       UpdateAppRoleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateAppRoleResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -368,6 +390,8 @@ public class BitableService {
       UpdateAppRoleResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateAppRoleResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -397,6 +421,8 @@ public class BitableService {
       BatchCreateAppRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchCreateAppRoleMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -415,6 +441,8 @@ public class BitableService {
       BatchCreateAppRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchCreateAppRoleMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -435,6 +463,8 @@ public class BitableService {
       BatchDeleteAppRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchDeleteAppRoleMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -453,6 +483,8 @@ public class BitableService {
       BatchDeleteAppRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchDeleteAppRoleMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -473,6 +505,8 @@ public class BitableService {
       CreateAppRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateAppRoleMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -490,6 +524,8 @@ public class BitableService {
       CreateAppRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateAppRoleMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -510,6 +546,8 @@ public class BitableService {
       DeleteAppRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteAppRoleMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -527,6 +565,8 @@ public class BitableService {
       DeleteAppRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteAppRoleMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -547,6 +587,8 @@ public class BitableService {
       ListAppRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListAppRoleMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -564,6 +606,8 @@ public class BitableService {
       ListAppRoleMemberResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListAppRoleMemberResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -593,6 +637,8 @@ public class BitableService {
       BatchCreateAppTableResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchCreateAppTableResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -610,6 +656,8 @@ public class BitableService {
       BatchCreateAppTableResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchCreateAppTableResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -630,6 +678,8 @@ public class BitableService {
       BatchDeleteAppTableResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchDeleteAppTableResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -647,6 +697,8 @@ public class BitableService {
       BatchDeleteAppTableResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchDeleteAppTableResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -667,6 +719,8 @@ public class BitableService {
       CreateAppTableResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateAppTableResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -684,6 +738,8 @@ public class BitableService {
       CreateAppTableResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateAppTableResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -704,6 +760,8 @@ public class BitableService {
       DeleteAppTableResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteAppTableResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -721,6 +779,8 @@ public class BitableService {
       DeleteAppTableResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteAppTableResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -739,6 +799,8 @@ public class BitableService {
       // 反序列化
       ListAppTableResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAppTableResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -755,6 +817,8 @@ public class BitableService {
       // 反序列化
       ListAppTableResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAppTableResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -784,6 +848,8 @@ public class BitableService {
       CreateAppTableFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateAppTableFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -801,6 +867,8 @@ public class BitableService {
       CreateAppTableFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateAppTableFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -821,6 +889,8 @@ public class BitableService {
       DeleteAppTableFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteAppTableFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -838,6 +908,8 @@ public class BitableService {
       DeleteAppTableFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteAppTableFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -858,6 +930,8 @@ public class BitableService {
       ListAppTableFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListAppTableFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -875,6 +949,8 @@ public class BitableService {
       ListAppTableFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListAppTableFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -895,6 +971,8 @@ public class BitableService {
       UpdateAppTableFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateAppTableFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -912,6 +990,8 @@ public class BitableService {
       UpdateAppTableFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateAppTableFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -941,6 +1021,8 @@ public class BitableService {
       ListAppTableFormFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListAppTableFormFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -958,6 +1040,8 @@ public class BitableService {
       ListAppTableFormFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListAppTableFormFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -978,6 +1062,8 @@ public class BitableService {
       PatchAppTableFormFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchAppTableFormFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -995,6 +1081,8 @@ public class BitableService {
       PatchAppTableFormFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           PatchAppTableFormFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1024,6 +1112,8 @@ public class BitableService {
       BatchCreateAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchCreateAppTableRecordResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1042,6 +1132,8 @@ public class BitableService {
       BatchCreateAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchCreateAppTableRecordResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1062,6 +1154,8 @@ public class BitableService {
       BatchDeleteAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchDeleteAppTableRecordResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1080,6 +1174,8 @@ public class BitableService {
       BatchDeleteAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchDeleteAppTableRecordResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1100,6 +1196,8 @@ public class BitableService {
       BatchUpdateAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchUpdateAppTableRecordResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1118,6 +1216,8 @@ public class BitableService {
       BatchUpdateAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchUpdateAppTableRecordResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1138,6 +1238,8 @@ public class BitableService {
       CreateAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateAppTableRecordResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1155,6 +1257,8 @@ public class BitableService {
       CreateAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateAppTableRecordResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1175,6 +1279,8 @@ public class BitableService {
       DeleteAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteAppTableRecordResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1192,6 +1298,8 @@ public class BitableService {
       DeleteAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteAppTableRecordResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1212,6 +1320,8 @@ public class BitableService {
       GetAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetAppTableRecordResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1229,6 +1339,8 @@ public class BitableService {
       GetAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetAppTableRecordResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1249,6 +1361,8 @@ public class BitableService {
       ListAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListAppTableRecordResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1266,6 +1380,8 @@ public class BitableService {
       ListAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListAppTableRecordResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1286,6 +1402,8 @@ public class BitableService {
       UpdateAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateAppTableRecordResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1303,6 +1421,8 @@ public class BitableService {
       UpdateAppTableRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateAppTableRecordResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1332,6 +1452,8 @@ public class BitableService {
       CreateAppTableViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateAppTableViewResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1349,6 +1471,8 @@ public class BitableService {
       CreateAppTableViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateAppTableViewResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1369,6 +1493,8 @@ public class BitableService {
       DeleteAppTableViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteAppTableViewResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1386,6 +1512,8 @@ public class BitableService {
       DeleteAppTableViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteAppTableViewResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1406,6 +1534,8 @@ public class BitableService {
       ListAppTableViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListAppTableViewResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1423,6 +1553,8 @@ public class BitableService {
       ListAppTableViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListAppTableViewResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

@@ -26,14 +26,16 @@ public class MessageCardEmbedSelectOption {
   @SerializedName("multi_url")
   private MessageCardURL multiUrl;
   @SerializedName("type")
-  private MessageCardButtonTypeEnum buttonType;
+  private String buttonType;
 
   private MessageCardEmbedSelectOption(Builder builder) {
     text = builder.text;
     value = builder.value;
     url = builder.url;
     multiUrl = builder.multiUrl;
-    buttonType = builder.buttonType;
+    if (builder.buttonType != null) {
+      buttonType = builder.buttonType.getValue();
+    }
   }
 
   public static Builder newBuilder() {

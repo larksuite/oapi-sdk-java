@@ -11,7 +11,7 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.event.v1;
+package com.lark.oapi.service.face_detection.v1;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
@@ -20,64 +20,65 @@ import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
-import com.lark.oapi.service.event.v1.model.ListOutboundIpReq;
-import com.lark.oapi.service.event.v1.model.ListOutboundIpResp;
+import com.lark.oapi.service.face_detection.v1.model.DetectFaceAttributesImageReq;
+import com.lark.oapi.service.face_detection.v1.model.DetectFaceAttributesImageResp;
 
-public class EventService {
+public class FaceDetectionService {
 
-  private final OutboundIp outboundIp;
+  private final Image image;
 
-  public EventService(Config config) {
-    this.outboundIp = new OutboundIp(config);
+  public FaceDetectionService(Config config) {
+    this.image = new Image(config);
   }
 
-  public OutboundIp outboundIp() {
-    return outboundIp;
+  public Image image() {
+    return image;
   }
 
-  public static class OutboundIp {
+  public static class Image {
 
     private final Config config;
 
-    public OutboundIp(Config config) {
+    public Image(Config config) {
       this.config = config;
     }
 
-    public ListOutboundIpResp list(ListOutboundIpReq req, RequestOptions reqOptions)
-        throws Exception {
+    public DetectFaceAttributesImageResp detectFaceAttributes(DetectFaceAttributesImageReq req,
+        RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
         reqOptions = new RequestOptions();
       }
 
       // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/event/v1/outbound_ip"
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/face_detection/v1/image/detect_face_attributes"
           , Sets.newHashSet(AccessTokenType.Tenant)
           , req);
 
       // 反序列化
-      ListOutboundIpResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListOutboundIpResp.class);
+      DetectFaceAttributesImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          DetectFaceAttributesImageResp.class);
       resp.setRawResponse(httpResponse);
       resp.setRequest(req);
 
       return resp;
     }
 
-    public ListOutboundIpResp list(ListOutboundIpReq req) throws Exception {
+    public DetectFaceAttributesImageResp detectFaceAttributes(DetectFaceAttributesImageReq req)
+        throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
 
       // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/event/v1/outbound_ip"
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/face_detection/v1/image/detect_face_attributes"
           , Sets.newHashSet(AccessTokenType.Tenant)
           , req);
 
       // 反序列化
-      ListOutboundIpResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListOutboundIpResp.class);
+      DetectFaceAttributesImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          DetectFaceAttributesImageResp.class);
       resp.setRawResponse(httpResponse);
       resp.setRequest(req);
 

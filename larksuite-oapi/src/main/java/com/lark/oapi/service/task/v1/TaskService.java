@@ -127,6 +127,8 @@ public class TaskService {
       // 反序列化
       CompleteTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CompleteTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -143,6 +145,8 @@ public class TaskService {
       // 反序列化
       CompleteTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CompleteTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -161,6 +165,8 @@ public class TaskService {
       // 反序列化
       CreateTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -177,6 +183,8 @@ public class TaskService {
       // 反序列化
       CreateTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -195,6 +203,8 @@ public class TaskService {
       // 反序列化
       DeleteTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -211,6 +221,8 @@ public class TaskService {
       // 反序列化
       DeleteTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -229,6 +241,8 @@ public class TaskService {
       // 反序列化
       GetTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -245,6 +259,8 @@ public class TaskService {
       // 反序列化
       GetTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -263,6 +279,8 @@ public class TaskService {
       // 反序列化
       ListTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -279,6 +297,8 @@ public class TaskService {
       // 反序列化
       ListTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -297,6 +317,8 @@ public class TaskService {
       // 反序列化
       PatchTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -313,6 +335,8 @@ public class TaskService {
       // 反序列化
       PatchTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -333,6 +357,8 @@ public class TaskService {
       UncompleteTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UncompleteTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -350,6 +376,8 @@ public class TaskService {
       UncompleteTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UncompleteTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -379,6 +407,8 @@ public class TaskService {
       CreateTaskCollaboratorResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateTaskCollaboratorResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -396,6 +426,8 @@ public class TaskService {
       CreateTaskCollaboratorResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateTaskCollaboratorResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -416,6 +448,8 @@ public class TaskService {
       DeleteTaskCollaboratorResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteTaskCollaboratorResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -433,6 +467,8 @@ public class TaskService {
       DeleteTaskCollaboratorResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteTaskCollaboratorResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -453,6 +489,8 @@ public class TaskService {
       ListTaskCollaboratorResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListTaskCollaboratorResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -470,6 +508,8 @@ public class TaskService {
       ListTaskCollaboratorResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListTaskCollaboratorResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -499,6 +539,8 @@ public class TaskService {
       CreateTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateTaskCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -516,6 +558,8 @@ public class TaskService {
       CreateTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateTaskCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -536,6 +580,8 @@ public class TaskService {
       DeleteTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteTaskCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -553,6 +599,8 @@ public class TaskService {
       DeleteTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteTaskCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -573,6 +621,8 @@ public class TaskService {
       GetTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetTaskCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -590,6 +640,8 @@ public class TaskService {
       GetTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetTaskCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -610,6 +662,8 @@ public class TaskService {
       ListTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListTaskCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -627,6 +681,8 @@ public class TaskService {
       ListTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListTaskCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -647,6 +703,8 @@ public class TaskService {
       UpdateTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateTaskCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -664,6 +722,8 @@ public class TaskService {
       UpdateTaskCommentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateTaskCommentResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -693,6 +753,8 @@ public class TaskService {
       CreateTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateTaskFollowerResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -710,6 +772,8 @@ public class TaskService {
       CreateTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateTaskFollowerResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -730,6 +794,8 @@ public class TaskService {
       DeleteTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteTaskFollowerResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -747,6 +813,8 @@ public class TaskService {
       DeleteTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteTaskFollowerResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -767,6 +835,8 @@ public class TaskService {
       ListTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListTaskFollowerResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -784,6 +854,8 @@ public class TaskService {
       ListTaskFollowerResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListTaskFollowerResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -813,6 +885,8 @@ public class TaskService {
       CreateTaskReminderResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateTaskReminderResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -830,6 +904,8 @@ public class TaskService {
       CreateTaskReminderResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateTaskReminderResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -850,6 +926,8 @@ public class TaskService {
       DeleteTaskReminderResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteTaskReminderResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -867,6 +945,8 @@ public class TaskService {
       DeleteTaskReminderResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           DeleteTaskReminderResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -887,6 +967,8 @@ public class TaskService {
       ListTaskReminderResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListTaskReminderResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -904,6 +986,8 @@ public class TaskService {
       ListTaskReminderResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListTaskReminderResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }

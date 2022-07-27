@@ -191,6 +191,8 @@ public class AttendanceService {
       ProcessApprovalInfoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ProcessApprovalInfoResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -208,6 +210,8 @@ public class AttendanceService {
       ProcessApprovalInfoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ProcessApprovalInfoResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -246,6 +250,8 @@ public class AttendanceService {
       // 反序列化
       DownloadFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DownloadFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -273,6 +279,8 @@ public class AttendanceService {
       // 反序列化
       DownloadFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DownloadFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -292,6 +300,8 @@ public class AttendanceService {
       // 反序列化
       UploadFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -309,6 +319,8 @@ public class AttendanceService {
       // 反序列化
       UploadFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadFileResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -336,6 +348,8 @@ public class AttendanceService {
       // 反序列化
       CreateGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -352,6 +366,8 @@ public class AttendanceService {
       // 反序列化
       CreateGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -370,6 +386,8 @@ public class AttendanceService {
       // 反序列化
       DeleteGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -386,6 +404,8 @@ public class AttendanceService {
       // 反序列化
       DeleteGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -404,6 +424,8 @@ public class AttendanceService {
       // 反序列化
       GetGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -420,6 +442,8 @@ public class AttendanceService {
       // 反序列化
       GetGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -438,6 +462,8 @@ public class AttendanceService {
       // 反序列化
       ListGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -454,6 +480,8 @@ public class AttendanceService {
       // 反序列化
       ListGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -472,6 +500,8 @@ public class AttendanceService {
       // 反序列化
       SearchGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -488,6 +518,8 @@ public class AttendanceService {
       // 反序列化
       SearchGroupResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchGroupResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -515,6 +547,8 @@ public class AttendanceService {
       // 反序列化
       CreateShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateShiftResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -531,6 +565,8 @@ public class AttendanceService {
       // 反序列化
       CreateShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateShiftResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -549,6 +585,8 @@ public class AttendanceService {
       // 反序列化
       DeleteShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteShiftResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -565,6 +603,8 @@ public class AttendanceService {
       // 反序列化
       DeleteShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteShiftResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -583,6 +623,8 @@ public class AttendanceService {
       // 反序列化
       GetShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetShiftResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -599,6 +641,8 @@ public class AttendanceService {
       // 反序列化
       GetShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetShiftResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -617,6 +661,8 @@ public class AttendanceService {
       // 反序列化
       ListShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListShiftResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -633,6 +679,8 @@ public class AttendanceService {
       // 反序列化
       ListShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListShiftResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -651,6 +699,8 @@ public class AttendanceService {
       // 反序列化
       QueryShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryShiftResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -667,6 +717,8 @@ public class AttendanceService {
       // 反序列化
       QueryShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryShiftResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -696,6 +748,8 @@ public class AttendanceService {
       CreateUserApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateUserApprovalResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -713,6 +767,8 @@ public class AttendanceService {
       CreateUserApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateUserApprovalResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -733,6 +789,8 @@ public class AttendanceService {
       QueryUserApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryUserApprovalResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -750,6 +808,8 @@ public class AttendanceService {
       QueryUserApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryUserApprovalResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -779,6 +839,8 @@ public class AttendanceService {
       BatchCreateUserDailyShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchCreateUserDailyShiftResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -797,6 +859,8 @@ public class AttendanceService {
       BatchCreateUserDailyShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchCreateUserDailyShiftResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -817,6 +881,8 @@ public class AttendanceService {
       QueryUserDailyShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryUserDailyShiftResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -834,6 +900,8 @@ public class AttendanceService {
       QueryUserDailyShiftResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryUserDailyShiftResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -863,6 +931,8 @@ public class AttendanceService {
       BatchCreateUserFlowResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchCreateUserFlowResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -880,6 +950,8 @@ public class AttendanceService {
       BatchCreateUserFlowResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           BatchCreateUserFlowResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -898,6 +970,8 @@ public class AttendanceService {
       // 反序列化
       GetUserFlowResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUserFlowResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -914,6 +988,8 @@ public class AttendanceService {
       // 反序列化
       GetUserFlowResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUserFlowResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -934,6 +1010,8 @@ public class AttendanceService {
       QueryUserFlowResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryUserFlowResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -951,6 +1029,8 @@ public class AttendanceService {
       QueryUserFlowResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryUserFlowResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -980,6 +1060,8 @@ public class AttendanceService {
       ModifyUserSettingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ModifyUserSettingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -997,6 +1079,8 @@ public class AttendanceService {
       ModifyUserSettingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ModifyUserSettingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1017,6 +1101,8 @@ public class AttendanceService {
       QueryUserSettingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryUserSettingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1034,6 +1120,8 @@ public class AttendanceService {
       QueryUserSettingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryUserSettingResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1063,6 +1151,8 @@ public class AttendanceService {
       QueryUserStatsDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryUserStatsDataResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1080,6 +1170,8 @@ public class AttendanceService {
       QueryUserStatsDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryUserStatsDataResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1109,6 +1201,8 @@ public class AttendanceService {
       QueryUserStatsFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryUserStatsFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1126,6 +1220,8 @@ public class AttendanceService {
       QueryUserStatsFieldResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryUserStatsFieldResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1155,6 +1251,8 @@ public class AttendanceService {
       QueryUserStatsViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryUserStatsViewResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1172,6 +1270,8 @@ public class AttendanceService {
       QueryUserStatsViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryUserStatsViewResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1192,6 +1292,8 @@ public class AttendanceService {
       UpdateUserStatsViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateUserStatsViewResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1209,6 +1311,8 @@ public class AttendanceService {
       UpdateUserStatsViewResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           UpdateUserStatsViewResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1238,6 +1342,8 @@ public class AttendanceService {
       QueryUserTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryUserTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1255,6 +1361,8 @@ public class AttendanceService {
       QueryUserTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryUserTaskResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
@@ -1284,6 +1392,8 @@ public class AttendanceService {
       CreateUserTaskRemedyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateUserTaskRemedyResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1301,6 +1411,8 @@ public class AttendanceService {
       CreateUserTaskRemedyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           CreateUserTaskRemedyResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1321,6 +1433,8 @@ public class AttendanceService {
       QueryUserTaskRemedyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryUserTaskRemedyResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1338,6 +1452,8 @@ public class AttendanceService {
       QueryUserTaskRemedyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryUserTaskRemedyResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1358,6 +1474,8 @@ public class AttendanceService {
       QueryUserAllowedRemedysUserTaskRemedyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryUserAllowedRemedysUserTaskRemedyResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
 
@@ -1376,6 +1494,8 @@ public class AttendanceService {
       QueryUserAllowedRemedysUserTaskRemedyResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           QueryUserAllowedRemedysUserTaskRemedyResp.class);
       resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
       return resp;
     }
   }
