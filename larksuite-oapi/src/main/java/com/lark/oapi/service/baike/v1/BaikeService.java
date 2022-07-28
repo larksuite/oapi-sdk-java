@@ -80,6 +80,12 @@ public class BaikeService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/baike/v1/classifications"
@@ -98,6 +104,7 @@ public class BaikeService {
     public ListClassificationResp list(ListClassificationReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -129,6 +136,12 @@ public class BaikeService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/baike/v1/drafts"
@@ -146,6 +159,7 @@ public class BaikeService {
     public CreateDraftResp create(CreateDraftReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -167,6 +181,12 @@ public class BaikeService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
           , "/open-apis/baike/v1/drafts/:draft_id"
@@ -184,6 +204,7 @@ public class BaikeService {
     public UpdateDraftResp update(UpdateDraftReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
@@ -215,6 +236,12 @@ public class BaikeService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/baike/v1/entities"
@@ -232,6 +259,7 @@ public class BaikeService {
     public CreateEntityResp create(CreateEntityReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -253,6 +281,12 @@ public class BaikeService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/baike/v1/entities/:entity_id"
@@ -270,6 +304,7 @@ public class BaikeService {
     public GetEntityResp get(GetEntityReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -292,6 +327,12 @@ public class BaikeService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/baike/v1/entities/highlight"
@@ -310,6 +351,7 @@ public class BaikeService {
     public HighlightEntityResp highlight(HighlightEntityReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -332,6 +374,12 @@ public class BaikeService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/baike/v1/entities"
@@ -349,6 +397,7 @@ public class BaikeService {
     public ListEntityResp list(ListEntityReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -370,6 +419,12 @@ public class BaikeService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/baike/v1/entities/match"
@@ -387,6 +442,7 @@ public class BaikeService {
     public MatchEntityResp match(MatchEntityReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -409,6 +465,12 @@ public class BaikeService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/baike/v1/entities/search"
@@ -426,6 +488,7 @@ public class BaikeService {
     public SearchEntityResp search(SearchEntityReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -448,6 +511,12 @@ public class BaikeService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
           , "/open-apis/baike/v1/entities/:entity_id"
@@ -465,6 +534,7 @@ public class BaikeService {
     public UpdateEntityResp update(UpdateEntityReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"

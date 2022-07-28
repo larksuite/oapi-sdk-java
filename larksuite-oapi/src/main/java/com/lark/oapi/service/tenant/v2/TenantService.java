@@ -48,6 +48,12 @@ public class TenantService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/tenant/v2/tenant/query"
@@ -63,6 +69,7 @@ public class TenantService {
     public QueryTenantResp query() throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"

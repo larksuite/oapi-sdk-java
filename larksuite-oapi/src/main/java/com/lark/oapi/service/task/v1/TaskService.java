@@ -118,6 +118,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/task/v1/tasks/:task_id/complete"
@@ -135,6 +141,7 @@ public class TaskService {
     public CompleteTaskResp complete(CompleteTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -156,6 +163,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/task/v1/tasks"
@@ -173,6 +186,7 @@ public class TaskService {
     public CreateTaskResp create(CreateTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -194,6 +208,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/task/v1/tasks/:task_id"
@@ -211,6 +231,7 @@ public class TaskService {
     public DeleteTaskResp delete(DeleteTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -232,6 +253,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/task/v1/tasks/:task_id"
@@ -249,6 +276,7 @@ public class TaskService {
     public GetTaskResp get(GetTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -270,6 +298,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/task/v1/tasks"
@@ -287,6 +321,7 @@ public class TaskService {
     public ListTaskResp list(ListTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -308,6 +343,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
           , "/open-apis/task/v1/tasks/:task_id"
@@ -325,6 +366,7 @@ public class TaskService {
     public PatchTaskResp patch(PatchTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
@@ -347,6 +389,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/task/v1/tasks/:task_id/uncomplete"
@@ -365,6 +413,7 @@ public class TaskService {
     public UncompleteTaskResp uncomplete(UncompleteTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -397,6 +446,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/task/v1/tasks/:task_id/collaborators"
@@ -415,6 +470,7 @@ public class TaskService {
     public CreateTaskCollaboratorResp create(CreateTaskCollaboratorReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -438,6 +494,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/task/v1/tasks/:task_id/collaborators/:collaborator_id"
@@ -456,6 +518,7 @@ public class TaskService {
     public DeleteTaskCollaboratorResp delete(DeleteTaskCollaboratorReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -479,6 +542,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/task/v1/tasks/:task_id/collaborators"
@@ -497,6 +566,7 @@ public class TaskService {
     public ListTaskCollaboratorResp list(ListTaskCollaboratorReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -529,6 +599,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/task/v1/tasks/:task_id/comments"
@@ -547,6 +623,7 @@ public class TaskService {
     public CreateTaskCommentResp create(CreateTaskCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -570,6 +647,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
@@ -588,6 +671,7 @@ public class TaskService {
     public DeleteTaskCommentResp delete(DeleteTaskCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -611,6 +695,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
@@ -629,6 +719,7 @@ public class TaskService {
     public GetTaskCommentResp get(GetTaskCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -652,6 +743,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/task/v1/tasks/:task_id/comments"
@@ -670,6 +767,7 @@ public class TaskService {
     public ListTaskCommentResp list(ListTaskCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -693,6 +791,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
           , "/open-apis/task/v1/tasks/:task_id/comments/:comment_id"
@@ -711,6 +815,7 @@ public class TaskService {
     public UpdateTaskCommentResp update(UpdateTaskCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
@@ -743,6 +848,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/task/v1/tasks/:task_id/followers"
@@ -761,6 +872,7 @@ public class TaskService {
     public CreateTaskFollowerResp create(CreateTaskFollowerReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -784,6 +896,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/task/v1/tasks/:task_id/followers/:follower_id"
@@ -802,6 +920,7 @@ public class TaskService {
     public DeleteTaskFollowerResp delete(DeleteTaskFollowerReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -825,6 +944,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/task/v1/tasks/:task_id/followers"
@@ -843,6 +968,7 @@ public class TaskService {
     public ListTaskFollowerResp list(ListTaskFollowerReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -875,6 +1001,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/task/v1/tasks/:task_id/reminders"
@@ -893,6 +1025,7 @@ public class TaskService {
     public CreateTaskReminderResp create(CreateTaskReminderReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -916,6 +1049,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/task/v1/tasks/:task_id/reminders/:reminder_id"
@@ -934,6 +1073,7 @@ public class TaskService {
     public DeleteTaskReminderResp delete(DeleteTaskReminderReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -957,6 +1097,12 @@ public class TaskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/task/v1/tasks/:task_id/reminders"
@@ -975,6 +1121,7 @@ public class TaskService {
     public ListTaskReminderResp list(ListTaskReminderReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"

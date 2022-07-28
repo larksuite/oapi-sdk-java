@@ -99,6 +99,12 @@ public class WikiService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/wiki/v2/spaces"
@@ -116,6 +122,7 @@ public class WikiService {
     public CreateSpaceResp create(CreateSpaceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -137,6 +144,12 @@ public class WikiService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/wiki/v2/spaces/:space_id"
@@ -154,6 +167,7 @@ public class WikiService {
     public GetSpaceResp get(GetSpaceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -176,6 +190,12 @@ public class WikiService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/wiki/v2/spaces/get_node"
@@ -193,6 +213,7 @@ public class WikiService {
     public GetNodeSpaceResp getNode(GetNodeSpaceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -214,6 +235,12 @@ public class WikiService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/wiki/v2/spaces"
@@ -231,6 +258,7 @@ public class WikiService {
     public ListSpaceResp list(ListSpaceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -262,6 +290,12 @@ public class WikiService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/wiki/v2/spaces/:space_id/members"
@@ -280,6 +314,7 @@ public class WikiService {
     public CreateSpaceMemberResp create(CreateSpaceMemberReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -303,6 +338,12 @@ public class WikiService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/wiki/v2/spaces/:space_id/members/:member_id"
@@ -321,6 +362,7 @@ public class WikiService {
     public DeleteSpaceMemberResp delete(DeleteSpaceMemberReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -353,6 +395,12 @@ public class WikiService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/copy"
@@ -371,6 +419,7 @@ public class WikiService {
     public CopySpaceNodeResp copy(CopySpaceNodeReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -394,6 +443,12 @@ public class WikiService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/wiki/v2/spaces/:space_id/nodes"
@@ -412,6 +467,7 @@ public class WikiService {
     public CreateSpaceNodeResp create(CreateSpaceNodeReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -435,6 +491,12 @@ public class WikiService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/wiki/v2/spaces/:space_id/nodes"
@@ -453,6 +515,7 @@ public class WikiService {
     public ListSpaceNodeResp list(ListSpaceNodeReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -476,6 +539,12 @@ public class WikiService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/move"
@@ -494,6 +563,7 @@ public class WikiService {
     public MoveSpaceNodeResp move(MoveSpaceNodeReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -517,6 +587,12 @@ public class WikiService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/wiki/v2/spaces/:space_id/nodes/move_docs_to_wiki"
@@ -536,6 +612,7 @@ public class WikiService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -559,6 +636,12 @@ public class WikiService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/update_title"
@@ -577,6 +660,7 @@ public class WikiService {
     public UpdateTitleSpaceNodeResp updateTitle(UpdateTitleSpaceNodeReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -609,6 +693,12 @@ public class WikiService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
           , "/open-apis/wiki/v2/spaces/:space_id/setting"
@@ -627,6 +717,7 @@ public class WikiService {
     public UpdateSpaceSettingResp update(UpdateSpaceSettingReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
@@ -658,6 +749,12 @@ public class WikiService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/wiki/v2/tasks/:task_id"
@@ -675,6 +772,7 @@ public class WikiService {
     public GetTaskResp get(GetTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"

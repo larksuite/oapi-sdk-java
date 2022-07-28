@@ -50,6 +50,12 @@ public class FaceDetectionService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/face_detection/v1/image/detect_face_attributes"
@@ -69,6 +75,7 @@ public class FaceDetectionService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"

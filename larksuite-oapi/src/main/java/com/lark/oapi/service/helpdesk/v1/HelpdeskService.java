@@ -221,6 +221,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/helpdesk/v1/agent_emails"
@@ -237,6 +243,7 @@ public class HelpdeskService {
     public AgentEmailAgentResp agentEmail() throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -257,6 +264,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
           , "/open-apis/helpdesk/v1/agents/:agent_id"
@@ -274,6 +287,7 @@ public class HelpdeskService {
     public PatchAgentResp patch(PatchAgentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
@@ -305,6 +319,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/helpdesk/v1/agents/:agent_id/schedules"
@@ -323,6 +343,7 @@ public class HelpdeskService {
     public DeleteAgentSchedulesResp delete(DeleteAgentSchedulesReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -346,6 +367,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/helpdesk/v1/agents/:agent_id/schedules"
@@ -364,6 +391,7 @@ public class HelpdeskService {
     public GetAgentSchedulesResp get(GetAgentSchedulesReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -387,6 +415,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
           , "/open-apis/helpdesk/v1/agents/:agent_id/schedules"
@@ -405,6 +439,7 @@ public class HelpdeskService {
     public PatchAgentSchedulesResp patch(PatchAgentSchedulesReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
@@ -437,6 +472,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/helpdesk/v1/agent_schedules"
@@ -455,6 +496,7 @@ public class HelpdeskService {
     public CreateAgentScheduleResp create(CreateAgentScheduleReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -478,6 +520,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/helpdesk/v1/agent_schedules"
@@ -496,6 +544,7 @@ public class HelpdeskService {
     public ListAgentScheduleResp list(ListAgentScheduleReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -528,6 +577,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/helpdesk/v1/agent_skills"
@@ -546,6 +601,7 @@ public class HelpdeskService {
     public CreateAgentSkillResp create(CreateAgentSkillReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -569,6 +625,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/helpdesk/v1/agent_skills/:agent_skill_id"
@@ -587,6 +649,7 @@ public class HelpdeskService {
     public DeleteAgentSkillResp delete(DeleteAgentSkillReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -609,6 +672,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/helpdesk/v1/agent_skills/:agent_skill_id"
@@ -627,6 +696,7 @@ public class HelpdeskService {
     public GetAgentSkillResp get(GetAgentSkillReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -649,6 +719,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/helpdesk/v1/agent_skills"
@@ -665,6 +741,7 @@ public class HelpdeskService {
     public ListAgentSkillResp list() throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -686,6 +763,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
           , "/open-apis/helpdesk/v1/agent_skills/:agent_skill_id"
@@ -704,6 +787,7 @@ public class HelpdeskService {
     public PatchAgentSkillResp patch(PatchAgentSkillReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
@@ -735,6 +819,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/helpdesk/v1/agent_skill_rules"
@@ -751,6 +841,7 @@ public class HelpdeskService {
     public ListAgentSkillRuleResp list() throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -781,6 +872,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/helpdesk/v1/message"
@@ -799,6 +896,7 @@ public class HelpdeskService {
     public CreateBotMessageResp create(CreateBotMessageReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -831,6 +929,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/helpdesk/v1/categories"
@@ -849,6 +953,7 @@ public class HelpdeskService {
     public CreateCategoryResp create(CreateCategoryReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -872,6 +977,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/helpdesk/v1/categories/:id"
@@ -890,6 +1001,7 @@ public class HelpdeskService {
     public DeleteCategoryResp delete(DeleteCategoryReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -912,6 +1024,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/helpdesk/v1/categories/:id"
@@ -929,6 +1047,7 @@ public class HelpdeskService {
     public GetCategoryResp get(GetCategoryReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -950,6 +1069,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/helpdesk/v1/categories"
@@ -967,6 +1092,7 @@ public class HelpdeskService {
     public ListCategoryResp list(ListCategoryReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -989,6 +1115,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
           , "/open-apis/helpdesk/v1/categories/:id"
@@ -1007,6 +1139,7 @@ public class HelpdeskService {
     public PatchCategoryResp patch(PatchCategoryReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
@@ -1039,6 +1172,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/helpdesk/v1/events/subscribe"
@@ -1057,6 +1196,7 @@ public class HelpdeskService {
     public SubscribeEventResp subscribe(SubscribeEventReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1080,6 +1220,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/helpdesk/v1/events/unsubscribe"
@@ -1098,6 +1244,7 @@ public class HelpdeskService {
     public UnsubscribeEventResp unsubscribe(UnsubscribeEventReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1129,6 +1276,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/helpdesk/v1/faqs"
@@ -1146,6 +1299,7 @@ public class HelpdeskService {
     public CreateFaqResp create(CreateFaqReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1167,6 +1321,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/helpdesk/v1/faqs/:id"
@@ -1184,6 +1344,7 @@ public class HelpdeskService {
     public DeleteFaqResp delete(DeleteFaqReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -1204,6 +1365,12 @@ public class HelpdeskService {
       // 请求参数选项
       if (reqOptions == null) {
         reqOptions = new RequestOptions();
+      }
+
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
       }
       reqOptions.setSupportDownLoad(true);
 
@@ -1233,6 +1400,7 @@ public class HelpdeskService {
     public FaqImageFaqResp faqImage(FaqImageFaqReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
       reqOptions.setSupportDownLoad(true);
 
       // 发起请求
@@ -1265,6 +1433,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/helpdesk/v1/faqs/:id"
@@ -1282,6 +1456,7 @@ public class HelpdeskService {
     public GetFaqResp get(GetFaqReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -1303,6 +1478,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/helpdesk/v1/faqs"
@@ -1320,6 +1501,7 @@ public class HelpdeskService {
     public ListFaqResp list(ListFaqReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -1341,6 +1523,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
           , "/open-apis/helpdesk/v1/faqs/:id"
@@ -1358,6 +1546,7 @@ public class HelpdeskService {
     public PatchFaqResp patch(PatchFaqReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
@@ -1379,6 +1568,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/helpdesk/v1/faqs/search"
@@ -1396,6 +1591,7 @@ public class HelpdeskService {
     public SearchFaqResp search(SearchFaqReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -1427,6 +1623,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/helpdesk/v1/notifications/:notification_id/cancel_approve"
@@ -1446,6 +1648,7 @@ public class HelpdeskService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1469,6 +1672,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/helpdesk/v1/notifications/:notification_id/cancel_send"
@@ -1487,6 +1696,7 @@ public class HelpdeskService {
     public CancelSendNotificationResp cancelSend(CancelSendNotificationReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1510,6 +1720,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/helpdesk/v1/notifications"
@@ -1528,6 +1744,7 @@ public class HelpdeskService {
     public CreateNotificationResp create(CreateNotificationReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1551,6 +1768,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/helpdesk/v1/notifications/:notification_id/execute_send"
@@ -1570,6 +1793,7 @@ public class HelpdeskService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1593,6 +1817,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/helpdesk/v1/notifications/:notification_id"
@@ -1611,6 +1841,7 @@ public class HelpdeskService {
     public GetNotificationResp get(GetNotificationReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -1634,6 +1865,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
           , "/open-apis/helpdesk/v1/notifications/:notification_id"
@@ -1652,6 +1889,7 @@ public class HelpdeskService {
     public PatchNotificationResp patch(PatchNotificationReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
@@ -1675,6 +1913,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/helpdesk/v1/notifications/:notification_id/preview"
@@ -1693,6 +1937,7 @@ public class HelpdeskService {
     public PreviewNotificationResp preview(PreviewNotificationReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1716,6 +1961,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/helpdesk/v1/notifications/:notification_id/submit_approve"
@@ -1735,6 +1986,7 @@ public class HelpdeskService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1767,6 +2019,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/helpdesk/v1/tickets/:ticket_id/answer_user_query"
@@ -1786,6 +2044,7 @@ public class HelpdeskService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1809,6 +2068,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/helpdesk/v1/customized_fields"
@@ -1828,6 +2093,7 @@ public class HelpdeskService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -1850,6 +2116,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/helpdesk/v1/tickets/:ticket_id"
@@ -1867,6 +2139,7 @@ public class HelpdeskService {
     public GetTicketResp get(GetTicketReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -1888,6 +2161,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/helpdesk/v1/tickets"
@@ -1905,6 +2184,7 @@ public class HelpdeskService {
     public ListTicketResp list(ListTicketReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -1927,6 +2207,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/helpdesk/v1/start_service"
@@ -1945,6 +2231,7 @@ public class HelpdeskService {
     public StartServiceTicketResp startService(StartServiceTicketReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1966,6 +2253,12 @@ public class HelpdeskService {
       // 请求参数选项
       if (reqOptions == null) {
         reqOptions = new RequestOptions();
+      }
+
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
       }
       reqOptions.setSupportDownLoad(true);
 
@@ -1996,6 +2289,7 @@ public class HelpdeskService {
     public TicketImageTicketResp ticketImage(TicketImageTicketReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
       reqOptions.setSupportDownLoad(true);
 
       // 发起请求
@@ -2030,6 +2324,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
           , "/open-apis/helpdesk/v1/tickets/:ticket_id"
@@ -2047,6 +2347,7 @@ public class HelpdeskService {
     public UpdateTicketResp update(UpdateTicketReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
@@ -2078,6 +2379,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/helpdesk/v1/tickets/:ticket_id/messages"
@@ -2096,6 +2403,7 @@ public class HelpdeskService {
     public CreateTicketMessageResp create(CreateTicketMessageReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -2119,6 +2427,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/helpdesk/v1/tickets/:ticket_id/messages"
@@ -2137,6 +2451,7 @@ public class HelpdeskService {
     public ListTicketMessageResp list(ListTicketMessageReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -2169,6 +2484,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/helpdesk/v1/ticket_customized_fields"
@@ -2188,6 +2509,7 @@ public class HelpdeskService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -2211,6 +2533,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
@@ -2230,6 +2558,7 @@ public class HelpdeskService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -2253,6 +2582,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
@@ -2271,6 +2606,7 @@ public class HelpdeskService {
     public GetTicketCustomizedFieldResp get(GetTicketCustomizedFieldReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -2294,6 +2630,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/helpdesk/v1/ticket_customized_fields"
@@ -2312,6 +2654,7 @@ public class HelpdeskService {
     public ListTicketCustomizedFieldResp list(ListTicketCustomizedFieldReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -2335,6 +2678,12 @@ public class HelpdeskService {
         reqOptions = new RequestOptions();
       }
 
+      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
+      reqOptions.setSupportLong2String(true);
+      if (customSupportLong2Str != null) {
+        reqOptions.setSupportLong2String(customSupportLong2Str);
+      }
+
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
           , "/open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
@@ -2354,6 +2703,7 @@ public class HelpdeskService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"

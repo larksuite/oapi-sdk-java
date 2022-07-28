@@ -25,9 +25,8 @@ public class RequestOptions {
   private String requestId;
   private boolean supportUpload;
   private boolean supportDownLoad;
-  private boolean supportLong2String;
+  private Boolean supportLong2String;
   private Map<String, List<String>> headers;
-
   public RequestOptions() {
   }
 
@@ -48,7 +47,11 @@ public class RequestOptions {
     return new Builder();
   }
 
-  public boolean isSupportLong2String() {
+  public void setSupportLong2String(boolean supportLong2String) {
+    this.supportLong2String = supportLong2String;
+  }
+
+  public Boolean isSupportLong2String() {
     return supportLong2String;
   }
 
@@ -134,7 +137,7 @@ public class RequestOptions {
     private String requestId;
     private boolean supportUpload;
     private boolean supportDownLoad;
-    private boolean supportLong2String;
+    private Boolean supportLong2String;
     private Map<String, List<String>> headers;
 
 
@@ -148,8 +151,8 @@ public class RequestOptions {
       return this;
     }
 
-    public Builder supportLong2String() {
-      this.supportLong2String = true;
+    public Builder supportLong2String(Boolean supportLong2String) {
+      this.supportLong2String = supportLong2String;
       return this;
     }
 

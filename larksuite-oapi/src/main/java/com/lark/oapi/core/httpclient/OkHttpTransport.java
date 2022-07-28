@@ -65,12 +65,12 @@ public class OkHttpTransport implements IHttpTransport {
       return builder.build();
     }
 
-    if (!request.isSupportLong2String()) {
-      return RequestBody.create(MediaType.parse(Constants.JSON_CONTENT_TYPE)
-          , Jsons.DEFAULT.toJson(body).getBytes(StandardCharsets.UTF_8));
-    } else {
+    if (request.isSupportLong2String()) {
       return RequestBody.create(MediaType.parse(Constants.JSON_CONTENT_TYPE)
           , Jsons.LONG_TO_STR.toJson(body).getBytes(StandardCharsets.UTF_8));
+    } else {
+      return RequestBody.create(MediaType.parse(Constants.JSON_CONTENT_TYPE)
+          , Jsons.DEFAULT.toJson(body).getBytes(StandardCharsets.UTF_8));
     }
 
   }
