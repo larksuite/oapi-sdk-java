@@ -480,7 +480,7 @@ public class RawApiCall {
     // 处理结果
     System.out.println(resp.getStatusCode());
     System.out.println(Jsons.DEFAULT.toJson(resp.getHeaders()));
-    System.out.println(Jsons.DEFAULT.toJson(resp));
+    System.out.println(new String(resp.getBody()));
     System.out.println(resp.getRequestID());
   }
 }
