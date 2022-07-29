@@ -23,6 +23,7 @@ import com.lark.oapi.card.model.MessageCardConfig;
 import com.lark.oapi.card.model.MessageCardDiv;
 import com.lark.oapi.card.model.MessageCardElement;
 import com.lark.oapi.card.model.MessageCardEmbedButton;
+import com.lark.oapi.card.model.MessageCardEmbedOverflow;
 import com.lark.oapi.card.model.MessageCardEmbedSelectMenuStatic;
 import com.lark.oapi.card.model.MessageCardEmbedSelectOption;
 import com.lark.oapi.card.model.MessageCardField;
@@ -394,6 +395,13 @@ public class ImSample {
         .text(MessageCardLarkMd.newBuilder()
             .content(
                 "🙋🏼 [我要反馈误报](https://open.feishu.cn/) | 📝 [录入报警处理过程](https://open.feishu.cn/)")
+            .build())
+        .extra(MessageCardEmbedOverflow.newBuilder()
+            .options(new MessageCardEmbedSelectOption[]{MessageCardEmbedSelectOption.newBuilder()
+                .text(MessageCardPlainText.newBuilder()
+                    .content("text")
+                    .build())
+                .build()})
             .build())
         .build();
 

@@ -20,7 +20,7 @@ public class MessageCardEmbedOverflow extends MessageCardElement implements
     IMessageCardActionElement, IMessageCardExtraElement {
 
   @SerializedName("options")
-  private MessageCardEmbedSelectOption options;
+  private MessageCardEmbedSelectOption[] options;
   @SerializedName("value")
   private Map<String, Object> value = new HashMap<>();
   @SerializedName("confirm")
@@ -43,14 +43,14 @@ public class MessageCardEmbedOverflow extends MessageCardElement implements
 
   public static final class Builder {
 
-    private MessageCardEmbedSelectOption options;
+    private MessageCardEmbedSelectOption[] options;
     private Map<String, Object> value;
     private MessageCardActionConfirm confirm;
 
     private Builder() {
     }
 
-    public Builder options(MessageCardEmbedSelectOption options) {
+    public Builder options(MessageCardEmbedSelectOption[] options) {
       this.options = options;
       return this;
     }

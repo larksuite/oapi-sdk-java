@@ -465,9 +465,11 @@ public class RawApiCall {
     // 构建http body
     Map<String, Object> body = new HashMap<>();
     body.put("receive_id", "ou_c245b0a7dff2725cfa2fb104f8b48b9d");
-    body.put("content",
-        "{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom</at> test content\"}");
-    body.put("msg_type", "text");
+    body.put("content", MessageText.newBuilder()
+        .atUser("ou_155184d1e73cbfb8973e5a9e698e74f2", "Tom")
+        .text("test content")
+        .build());
+    body.put("msg_type", MsgTypeEnum.MSG_TYPE_TEXT);
 
     // 发起请求
     RawResponse resp = client.post(
