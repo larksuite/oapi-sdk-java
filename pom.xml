@@ -1,20 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.larksuite.oapi</groupId>
-    <artifactId>larksuite</artifactId>
-    <version>1.0.18-rc4</version>
-    <name>larksuite</name>
-    <packaging>pom</packaging>
-    <description>Larksuite open platform facilitates the integration of enterprise applications and larksuite, making
-        collaboration and management more efficient
-    </description>
-    <url>https://github.com/larksuite/oapi-sdk-java</url>
-    <modules>
-        <module>larksuite-oapi</module>
-        <module>sample</module>
-        <module>spring-boot-examples</module>
-    </modules>
+<!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2022 Lark Technologies Pte. Ltd.
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice, shall be included in all copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  -->
+
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>larksuite</artifactId>
+  <description>Larksuite open platform facilitates the integration of enterprise applications and
+    larksuite, making collaboration and management more efficient
+  </description>
+  <groupId>com.larksuite.oapi</groupId>
+  <modelVersion>4.0.0</modelVersion>
+  <modules>
+    <module>larksuite-oapi</module>
+    <module>sample</module>
+  </modules>
+  <name>larksuite</name>
+  <packaging>pom</packaging>
+  <url>https://github.com/larksuite/oapi-sdk-java</url>
+  <version>2.0.0</version>
 </project>
