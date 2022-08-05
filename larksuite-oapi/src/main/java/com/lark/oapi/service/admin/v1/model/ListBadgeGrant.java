@@ -11,47 +11,41 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.attendance.v1.model;
+package com.lark.oapi.service.admin.v1.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class UploadFileReqBody {
+public class ListBadgeGrant {
 
-  @SerializedName("file")
-  private java.io.File file;
+  @SerializedName("grants")
+  private Grant[] grants;
+  @SerializedName("page_token")
+  private String pageToken;
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-  // builder 开始
-  public UploadFileReqBody() {
+  public Grant[] getGrants() {
+    return this.grants;
   }
 
-  public UploadFileReqBody(Builder builder) {
-    this.file = builder.file;
+  public void setGrants(Grant[] grants) {
+    this.grants = grants;
   }
 
-  public static Builder newBuilder() {
-    return new Builder();
+  public String getPageToken() {
+    return this.pageToken;
   }
 
-  public java.io.File getFile() {
-    return this.file;
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
   }
 
-  public void setFile(java.io.File file) {
-    this.file = file;
+  public Boolean getHasMore() {
+    return this.hasMore;
   }
 
-  public static class Builder {
-
-    private java.io.File file;
-
-    public Builder file(java.io.File file) {
-      this.file = file;
-      return this;
-    }
-
-
-    public UploadFileReqBody build() {
-      return new UploadFileReqBody(this);
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
   }
+
 }

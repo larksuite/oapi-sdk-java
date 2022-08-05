@@ -14,7 +14,6 @@
 package com.lark.oapi.service.im.v1.model;
 
 import com.google.gson.annotations.SerializedName;
-import java.io.File;
 
 public class CreateFileReqBody {
 
@@ -25,7 +24,7 @@ public class CreateFileReqBody {
   @SerializedName("duration")
   private Integer duration;
   @SerializedName("file")
-  private File file;
+  private java.io.File file;
 
   // builder 开始
   public CreateFileReqBody() {
@@ -66,11 +65,11 @@ public class CreateFileReqBody {
     this.duration = duration;
   }
 
-  public File getFile() {
+  public java.io.File getFile() {
     return this.file;
   }
 
-  public void setFile(File file) {
+  public void setFile(java.io.File file) {
     this.file = file;
   }
 
@@ -79,7 +78,7 @@ public class CreateFileReqBody {
     private String fileType;
     private String fileName;
     private Integer duration;
-    private File file;
+    private java.io.File file;
 
     public Builder fileType(String fileType) {
       this.fileType = fileType;
@@ -101,7 +100,7 @@ public class CreateFileReqBody {
       return this;
     }
 
-    public Builder file(File file) {
+    public Builder file(java.io.File file) {
       this.file = file;
       return this;
     }

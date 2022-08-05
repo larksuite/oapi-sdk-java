@@ -11,47 +11,84 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.attendance.v1.model;
+package com.lark.oapi.service.admin.v1.model;
 
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Query;
 
-public class UploadFileReqBody {
+public class ListBadgeReq {
 
-  @SerializedName("file")
-  private java.io.File file;
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+  @Query
+  @SerializedName("name")
+  private String name;
 
   // builder 开始
-  public UploadFileReqBody() {
+  public ListBadgeReq() {
   }
 
-  public UploadFileReqBody(Builder builder) {
-    this.file = builder.file;
+  public ListBadgeReq(Builder builder) {
+    this.pageSize = builder.pageSize;
+    this.pageToken = builder.pageToken;
+    this.name = builder.name;
   }
 
   public static Builder newBuilder() {
     return new Builder();
   }
 
-  public java.io.File getFile() {
-    return this.file;
+  public Integer getPageSize() {
+    return this.pageSize;
   }
 
-  public void setFile(java.io.File file) {
-    this.file = file;
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public static class Builder {
 
-    private java.io.File file;
+    private Integer pageSize;
+    private String pageToken;
+    private String name;
 
-    public Builder file(java.io.File file) {
-      this.file = file;
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
       return this;
     }
 
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
+    }
 
-    public UploadFileReqBody build() {
-      return new UploadFileReqBody(this);
+    public Builder name(String name) {
+      this.name = name;
+      return this;
+    }
+
+    public ListBadgeReq build() {
+      return new ListBadgeReq(this);
     }
   }
 }

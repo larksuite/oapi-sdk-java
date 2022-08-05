@@ -11,47 +11,69 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.attendance.v1.model;
+package com.lark.oapi.service.admin.v1.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class UploadFileReqBody {
+public class CreateBadgeImageReqBody {
 
-  @SerializedName("file")
-  private java.io.File file;
+  @SerializedName("image_file")
+  private java.io.File imageFile;
+  @SerializedName("image_type")
+  private Integer imageType;
 
   // builder 开始
-  public UploadFileReqBody() {
+  public CreateBadgeImageReqBody() {
   }
 
-  public UploadFileReqBody(Builder builder) {
-    this.file = builder.file;
+  public CreateBadgeImageReqBody(Builder builder) {
+    this.imageFile = builder.imageFile;
+    this.imageType = builder.imageType;
   }
 
   public static Builder newBuilder() {
     return new Builder();
   }
 
-  public java.io.File getFile() {
-    return this.file;
+  public java.io.File getImageFile() {
+    return this.imageFile;
   }
 
-  public void setFile(java.io.File file) {
-    this.file = file;
+  public void setImageFile(java.io.File imageFile) {
+    this.imageFile = imageFile;
+  }
+
+  public Integer getImageType() {
+    return this.imageType;
+  }
+
+  public void setImageType(Integer imageType) {
+    this.imageType = imageType;
   }
 
   public static class Builder {
 
-    private java.io.File file;
+    private java.io.File imageFile;
+    private Integer imageType;
 
-    public Builder file(java.io.File file) {
-      this.file = file;
+    public Builder imageFile(java.io.File imageFile) {
+      this.imageFile = imageFile;
+      return this;
+    }
+
+    public Builder imageType(Integer imageType) {
+      this.imageType = imageType;
+      return this;
+    }
+
+    public Builder imageType(com.lark.oapi.service.admin.v1.enums.ImageTypeEnum imageType) {
+      this.imageType = imageType.getValue();
       return this;
     }
 
 
-    public UploadFileReqBody build() {
-      return new UploadFileReqBody(this);
+    public CreateBadgeImageReqBody build() {
+      return new CreateBadgeImageReqBody(this);
     }
   }
 }

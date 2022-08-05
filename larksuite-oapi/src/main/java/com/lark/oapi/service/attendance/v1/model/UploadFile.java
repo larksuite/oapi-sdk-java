@@ -14,7 +14,6 @@
 package com.lark.oapi.service.attendance.v1.model;
 
 import com.google.gson.annotations.SerializedName;
-import java.io.File;
 
 public class UploadFile {
 

@@ -14,7 +14,6 @@
 package com.lark.oapi.service.drive.v1.model;
 
 import com.google.gson.annotations.SerializedName;
-import java.io.File;
 
 public class UploadAllMediaReqBody {
 
@@ -31,7 +30,7 @@ public class UploadAllMediaReqBody {
   @SerializedName("extra")
   private String extra;
   @SerializedName("file")
-  private File file;
+  private java.io.File file;
 
   // builder 开始
   public UploadAllMediaReqBody() {
@@ -99,11 +98,11 @@ public class UploadAllMediaReqBody {
     this.extra = extra;
   }
 
-  public File getFile() {
+  public java.io.File getFile() {
     return this.file;
   }
 
-  public void setFile(File file) {
+  public void setFile(java.io.File file) {
     this.file = file;
   }
 
@@ -115,7 +114,7 @@ public class UploadAllMediaReqBody {
     private Integer size;
     private String checksum;
     private String extra;
-    private File file;
+    private java.io.File file;
 
     public Builder fileName(String fileName) {
       this.fileName = fileName;
@@ -152,7 +151,7 @@ public class UploadAllMediaReqBody {
       return this;
     }
 
-    public Builder file(File file) {
+    public Builder file(java.io.File file) {
       this.file = file;
       return this;
     }

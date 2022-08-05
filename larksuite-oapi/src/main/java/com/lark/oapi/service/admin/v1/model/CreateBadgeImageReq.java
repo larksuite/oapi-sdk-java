@@ -11,47 +11,50 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.attendance.v1.model;
+package com.lark.oapi.service.admin.v1.model;
 
-import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 
-public class UploadFileReqBody {
+public class CreateBadgeImageReq {
 
-  @SerializedName("file")
-  private java.io.File file;
+  @Body
+  private CreateBadgeImageReqBody body;
 
   // builder 开始
-  public UploadFileReqBody() {
+  public CreateBadgeImageReq() {
   }
 
-  public UploadFileReqBody(Builder builder) {
-    this.file = builder.file;
+  public CreateBadgeImageReq(Builder builder) {
+    this.body = builder.body;
   }
 
   public static Builder newBuilder() {
     return new Builder();
   }
 
-  public java.io.File getFile() {
-    return this.file;
+  public CreateBadgeImageReqBody getCreateBadgeImageReqBody() {
+    return this.body;
   }
 
-  public void setFile(java.io.File file) {
-    this.file = file;
+  public void setCreateBadgeImageReqBody(CreateBadgeImageReqBody body) {
+    this.body = body;
   }
 
   public static class Builder {
 
-    private java.io.File file;
+    private CreateBadgeImageReqBody body;
 
-    public Builder file(java.io.File file) {
-      this.file = file;
+    public CreateBadgeImageReqBody getCreateBadgeImageReqBody() {
+      return this.body;
+    }
+
+    public Builder createBadgeImageReqBody(CreateBadgeImageReqBody body) {
+      this.body = body;
       return this;
     }
 
-
-    public UploadFileReqBody build() {
-      return new UploadFileReqBody(this);
+    public CreateBadgeImageReq build() {
+      return new CreateBadgeImageReq(this);
     }
   }
 }

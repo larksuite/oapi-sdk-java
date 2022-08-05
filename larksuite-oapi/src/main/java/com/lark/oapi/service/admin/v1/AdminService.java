@@ -20,22 +20,48 @@ import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.admin.v1.model.CreateBadgeGrantReq;
+import com.lark.oapi.service.admin.v1.model.CreateBadgeGrantResp;
+import com.lark.oapi.service.admin.v1.model.CreateBadgeImageReq;
+import com.lark.oapi.service.admin.v1.model.CreateBadgeImageResp;
+import com.lark.oapi.service.admin.v1.model.CreateBadgeReq;
+import com.lark.oapi.service.admin.v1.model.CreateBadgeResp;
+import com.lark.oapi.service.admin.v1.model.DeleteBadgeGrantReq;
+import com.lark.oapi.service.admin.v1.model.DeleteBadgeGrantResp;
+import com.lark.oapi.service.admin.v1.model.GetBadgeGrantReq;
+import com.lark.oapi.service.admin.v1.model.GetBadgeGrantResp;
+import com.lark.oapi.service.admin.v1.model.GetBadgeReq;
+import com.lark.oapi.service.admin.v1.model.GetBadgeResp;
 import com.lark.oapi.service.admin.v1.model.ListAdminDeptStatReq;
 import com.lark.oapi.service.admin.v1.model.ListAdminDeptStatResp;
 import com.lark.oapi.service.admin.v1.model.ListAdminUserStatReq;
 import com.lark.oapi.service.admin.v1.model.ListAdminUserStatResp;
+import com.lark.oapi.service.admin.v1.model.ListBadgeGrantReq;
+import com.lark.oapi.service.admin.v1.model.ListBadgeGrantResp;
+import com.lark.oapi.service.admin.v1.model.ListBadgeReq;
+import com.lark.oapi.service.admin.v1.model.ListBadgeResp;
 import com.lark.oapi.service.admin.v1.model.ResetPasswordReq;
 import com.lark.oapi.service.admin.v1.model.ResetPasswordResp;
+import com.lark.oapi.service.admin.v1.model.UpdateBadgeGrantReq;
+import com.lark.oapi.service.admin.v1.model.UpdateBadgeGrantResp;
+import com.lark.oapi.service.admin.v1.model.UpdateBadgeReq;
+import com.lark.oapi.service.admin.v1.model.UpdateBadgeResp;
 
 public class AdminService {
 
   private final AdminDeptStat adminDeptStat;
   private final AdminUserStat adminUserStat;
+  private final Badge badge;
+  private final BadgeGrant badgeGrant;
+  private final BadgeImage badgeImage;
   private final Password password;
 
   public AdminService(Config config) {
     this.adminDeptStat = new AdminDeptStat(config);
     this.adminUserStat = new AdminUserStat(config);
+    this.badge = new Badge(config);
+    this.badgeGrant = new BadgeGrant(config);
+    this.badgeImage = new BadgeImage(config);
     this.password = new Password(config);
   }
 
@@ -45,6 +71,18 @@ public class AdminService {
 
   public AdminUserStat adminUserStat() {
     return adminUserStat;
+  }
+
+  public Badge badge() {
+    return badge;
+  }
+
+  public BadgeGrant badgeGrant() {
+    return badgeGrant;
+  }
+
+  public BadgeImage badgeImage() {
+    return badgeImage;
   }
 
   public Password password() {
@@ -144,6 +182,432 @@ public class AdminService {
       // 反序列化
       ListAdminUserStatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           ListAdminUserStatResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+  }
+
+  public static class Badge {
+
+    private final Config config;
+
+    public Badge(Config config) {
+      this.config = config;
+    }
+
+    public CreateBadgeResp create(CreateBadgeReq req, RequestOptions reqOptions) throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/admin/v1/badges"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      CreateBadgeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateBadgeResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    public CreateBadgeResp create(CreateBadgeReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/admin/v1/badges"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      CreateBadgeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateBadgeResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    public GetBadgeResp get(GetBadgeReq req, RequestOptions reqOptions) throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/admin/v1/badges/:badge_id"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      GetBadgeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetBadgeResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    public GetBadgeResp get(GetBadgeReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/admin/v1/badges/:badge_id"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      GetBadgeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetBadgeResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    public ListBadgeResp list(ListBadgeReq req, RequestOptions reqOptions) throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/admin/v1/badges"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      ListBadgeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListBadgeResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    public ListBadgeResp list(ListBadgeReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/admin/v1/badges"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      ListBadgeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListBadgeResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    public UpdateBadgeResp update(UpdateBadgeReq req, RequestOptions reqOptions) throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+          , "/open-apis/admin/v1/badges/:badge_id"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      UpdateBadgeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateBadgeResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    public UpdateBadgeResp update(UpdateBadgeReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+          , "/open-apis/admin/v1/badges/:badge_id"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      UpdateBadgeResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateBadgeResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+  }
+
+  public static class BadgeGrant {
+
+    private final Config config;
+
+    public BadgeGrant(Config config) {
+      this.config = config;
+    }
+
+    public CreateBadgeGrantResp create(CreateBadgeGrantReq req, RequestOptions reqOptions)
+        throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/admin/v1/badges/:badge_id/grants"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      CreateBadgeGrantResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          CreateBadgeGrantResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    public CreateBadgeGrantResp create(CreateBadgeGrantReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/admin/v1/badges/:badge_id/grants"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      CreateBadgeGrantResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          CreateBadgeGrantResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    public DeleteBadgeGrantResp delete(DeleteBadgeGrantReq req, RequestOptions reqOptions)
+        throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+          , "/open-apis/admin/v1/badges/:badge_id/grants/:grant_id"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      DeleteBadgeGrantResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          DeleteBadgeGrantResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    public DeleteBadgeGrantResp delete(DeleteBadgeGrantReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+          , "/open-apis/admin/v1/badges/:badge_id/grants/:grant_id"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      DeleteBadgeGrantResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          DeleteBadgeGrantResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    public GetBadgeGrantResp get(GetBadgeGrantReq req, RequestOptions reqOptions) throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/admin/v1/badges/:badge_id/grants/:grant_id"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      GetBadgeGrantResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          GetBadgeGrantResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    public GetBadgeGrantResp get(GetBadgeGrantReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/admin/v1/badges/:badge_id/grants/:grant_id"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      GetBadgeGrantResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          GetBadgeGrantResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    public ListBadgeGrantResp list(ListBadgeGrantReq req, RequestOptions reqOptions)
+        throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/admin/v1/badges/:badge_id/grants"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      ListBadgeGrantResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          ListBadgeGrantResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    public ListBadgeGrantResp list(ListBadgeGrantReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/admin/v1/badges/:badge_id/grants"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      ListBadgeGrantResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          ListBadgeGrantResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    public UpdateBadgeGrantResp update(UpdateBadgeGrantReq req, RequestOptions reqOptions)
+        throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+          , "/open-apis/admin/v1/badges/:badge_id/grants/:grant_id"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      UpdateBadgeGrantResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          UpdateBadgeGrantResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    public UpdateBadgeGrantResp update(UpdateBadgeGrantReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
+          , "/open-apis/admin/v1/badges/:badge_id/grants/:grant_id"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      UpdateBadgeGrantResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          UpdateBadgeGrantResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+  }
+
+  public static class BadgeImage {
+
+    private final Config config;
+
+    public BadgeImage(Config config) {
+      this.config = config;
+    }
+
+    public CreateBadgeImageResp create(CreateBadgeImageReq req, RequestOptions reqOptions)
+        throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+      reqOptions.setSupportUpload(true);
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/admin/v1/badge_images"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      CreateBadgeImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          CreateBadgeImageResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    public CreateBadgeImageResp create(CreateBadgeImageReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportUpload(true);
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/admin/v1/badge_images"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      CreateBadgeImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          CreateBadgeImageResp.class);
       resp.setRawResponse(httpResponse);
       resp.setRequest(req);
 

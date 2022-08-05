@@ -11,47 +11,48 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.attendance.v1.model;
+package com.lark.oapi.service.admin.v1.model;
 
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Path;
 
-public class UploadFileReqBody {
+public class GetBadgeReq {
 
-  @SerializedName("file")
-  private java.io.File file;
+  @Path
+  @SerializedName("badge_id")
+  private String badgeId;
 
   // builder 开始
-  public UploadFileReqBody() {
+  public GetBadgeReq() {
   }
 
-  public UploadFileReqBody(Builder builder) {
-    this.file = builder.file;
+  public GetBadgeReq(Builder builder) {
+    this.badgeId = builder.badgeId;
   }
 
   public static Builder newBuilder() {
     return new Builder();
   }
 
-  public java.io.File getFile() {
-    return this.file;
+  public String getBadgeId() {
+    return this.badgeId;
   }
 
-  public void setFile(java.io.File file) {
-    this.file = file;
+  public void setBadgeId(String badgeId) {
+    this.badgeId = badgeId;
   }
 
   public static class Builder {
 
-    private java.io.File file;
+    private String badgeId;
 
-    public Builder file(java.io.File file) {
-      this.file = file;
+    public Builder badgeId(String badgeId) {
+      this.badgeId = badgeId;
       return this;
     }
 
-
-    public UploadFileReqBody build() {
-      return new UploadFileReqBody(this);
+    public GetBadgeReq build() {
+      return new GetBadgeReq(this);
     }
   }
 }

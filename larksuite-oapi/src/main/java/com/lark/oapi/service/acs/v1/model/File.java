@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class File {
 
   @SerializedName("files")
-  private File files;
+  private java.io.File files;
   @SerializedName("file_type")
   private String fileType;
   @SerializedName("file_name")
@@ -38,11 +38,11 @@ public class File {
     return new Builder();
   }
 
-  public File getFiles() {
+  public java.io.File getFiles() {
     return this.files;
   }
 
-  public void setFiles(File files) {
+  public void setFiles(java.io.File files) {
     this.files = files;
   }
 
@@ -64,11 +64,11 @@ public class File {
 
   public static class Builder {
 
-    private File files;
+    private java.io.File files;
     private String fileType;
     private String fileName;
 
-    public Builder files(File files) {
+    public Builder files(java.io.File files) {
       this.files = files;
       return this;
     }

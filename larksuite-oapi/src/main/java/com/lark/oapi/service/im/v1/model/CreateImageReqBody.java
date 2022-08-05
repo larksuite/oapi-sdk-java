@@ -14,14 +14,13 @@
 package com.lark.oapi.service.im.v1.model;
 
 import com.google.gson.annotations.SerializedName;
-import java.io.File;
 
 public class CreateImageReqBody {
 
   @SerializedName("image_type")
   private String imageType;
   @SerializedName("image")
-  private File image;
+  private java.io.File image;
 
   // builder 开始
   public CreateImageReqBody() {
@@ -44,18 +43,18 @@ public class CreateImageReqBody {
     this.imageType = imageType;
   }
 
-  public File getImage() {
+  public java.io.File getImage() {
     return this.image;
   }
 
-  public void setImage(File image) {
+  public void setImage(java.io.File image) {
     this.image = image;
   }
 
   public static class Builder {
 
     private String imageType;
-    private File image;
+    private java.io.File image;
 
     public Builder imageType(String imageType) {
       this.imageType = imageType;
@@ -67,7 +66,7 @@ public class CreateImageReqBody {
       return this;
     }
 
-    public Builder image(File image) {
+    public Builder image(java.io.File image) {
       this.image = image;
       return this;
     }

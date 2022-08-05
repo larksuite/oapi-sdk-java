@@ -11,47 +11,50 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.attendance.v1.model;
+package com.lark.oapi.service.admin.v1.model;
 
-import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 
-public class UploadFileReqBody {
+public class CreateBadgeReq {
 
-  @SerializedName("file")
-  private java.io.File file;
+  @Body
+  private Badge body;
 
   // builder 开始
-  public UploadFileReqBody() {
+  public CreateBadgeReq() {
   }
 
-  public UploadFileReqBody(Builder builder) {
-    this.file = builder.file;
+  public CreateBadgeReq(Builder builder) {
+    this.body = builder.body;
   }
 
   public static Builder newBuilder() {
     return new Builder();
   }
 
-  public java.io.File getFile() {
-    return this.file;
+  public Badge getBadge() {
+    return this.body;
   }
 
-  public void setFile(java.io.File file) {
-    this.file = file;
+  public void setBadge(Badge body) {
+    this.body = body;
   }
 
   public static class Builder {
 
-    private java.io.File file;
+    private Badge body;
 
-    public Builder file(java.io.File file) {
-      this.file = file;
+    public Badge getBadge() {
+      return this.body;
+    }
+
+    public Builder badge(Badge body) {
+      this.body = body;
       return this;
     }
 
-
-    public UploadFileReqBody build() {
-      return new UploadFileReqBody(this);
+    public CreateBadgeReq build() {
+      return new CreateBadgeReq(this);
     }
   }
 }

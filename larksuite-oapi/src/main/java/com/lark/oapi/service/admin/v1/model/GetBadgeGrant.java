@@ -11,47 +11,21 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.attendance.v1.model;
+package com.lark.oapi.service.admin.v1.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class UploadFileReqBody {
+public class GetBadgeGrant {
 
-  @SerializedName("file")
-  private java.io.File file;
+  @SerializedName("grant")
+  private Grant grant;
 
-  // builder 开始
-  public UploadFileReqBody() {
+  public Grant getGrant() {
+    return this.grant;
   }
 
-  public UploadFileReqBody(Builder builder) {
-    this.file = builder.file;
+  public void setGrant(Grant grant) {
+    this.grant = grant;
   }
 
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public java.io.File getFile() {
-    return this.file;
-  }
-
-  public void setFile(java.io.File file) {
-    this.file = file;
-  }
-
-  public static class Builder {
-
-    private java.io.File file;
-
-    public Builder file(java.io.File file) {
-      this.file = file;
-      return this;
-    }
-
-
-    public UploadFileReqBody build() {
-      return new UploadFileReqBody(this);
-    }
-  }
 }

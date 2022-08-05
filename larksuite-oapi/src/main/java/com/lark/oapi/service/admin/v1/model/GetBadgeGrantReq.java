@@ -11,32 +11,36 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.acs.v1.model;
+package com.lark.oapi.service.admin.v1.model;
 
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-public class UpdateUserFaceReq {
+public class GetBadgeGrantReq {
 
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
   @Path
-  @SerializedName("user_id")
-  private String userId;
-  @Body
-  private File body;
+  @SerializedName("badge_id")
+  private String badgeId;
+  @Path
+  @SerializedName("grant_id")
+  private String grantId;
 
   // builder 开始
-  public UpdateUserFaceReq() {
+  public GetBadgeGrantReq() {
   }
 
-  public UpdateUserFaceReq(Builder builder) {
+  public GetBadgeGrantReq(Builder builder) {
     this.userIdType = builder.userIdType;
-    this.userId = builder.userId;
-    this.body = builder.body;
+    this.departmentIdType = builder.departmentIdType;
+    this.badgeId = builder.badgeId;
+    this.grantId = builder.grantId;
   }
 
   public static Builder newBuilder() {
@@ -51,54 +55,70 @@ public class UpdateUserFaceReq {
     this.userIdType = userIdType;
   }
 
-  public String getUserId() {
-    return this.userId;
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
   }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
   }
 
-  public File getFile() {
-    return this.body;
+  public String getBadgeId() {
+    return this.badgeId;
   }
 
-  public void setFile(File body) {
-    this.body = body;
+  public void setBadgeId(String badgeId) {
+    this.badgeId = badgeId;
+  }
+
+  public String getGrantId() {
+    return this.grantId;
+  }
+
+  public void setGrantId(String grantId) {
+    this.grantId = grantId;
   }
 
   public static class Builder {
 
     private String userIdType;
-    private String userId;
-    private File body;
+    private String departmentIdType;
+    private String badgeId;
+    private String grantId;
 
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.acs.v1.enums.UserIdTypeEnum userIdType) {
+    public Builder userIdType(com.lark.oapi.service.admin.v1.enums.UserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
       return this;
     }
 
-    public File getFile() {
-      return this.body;
-    }
-
-    public Builder file(File body) {
-      this.body = body;
+    public Builder departmentIdType(
+        com.lark.oapi.service.admin.v1.enums.DepartmentIdTypeEnum departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
       return this;
     }
 
-    public UpdateUserFaceReq build() {
-      return new UpdateUserFaceReq(this);
+    public Builder badgeId(String badgeId) {
+      this.badgeId = badgeId;
+      return this;
+    }
+
+    public Builder grantId(String grantId) {
+      this.grantId = grantId;
+      return this;
+    }
+
+    public GetBadgeGrantReq build() {
+      return new GetBadgeGrantReq(this);
     }
   }
 }

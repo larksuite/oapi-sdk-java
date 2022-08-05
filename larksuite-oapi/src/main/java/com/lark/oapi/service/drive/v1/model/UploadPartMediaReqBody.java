@@ -14,7 +14,6 @@
 package com.lark.oapi.service.drive.v1.model;
 
 import com.google.gson.annotations.SerializedName;
-import java.io.File;
 
 public class UploadPartMediaReqBody {
 
@@ -27,7 +26,7 @@ public class UploadPartMediaReqBody {
   @SerializedName("checksum")
   private String checksum;
   @SerializedName("file")
-  private File file;
+  private java.io.File file;
 
   // builder 开始
   public UploadPartMediaReqBody() {
@@ -77,11 +76,11 @@ public class UploadPartMediaReqBody {
     this.checksum = checksum;
   }
 
-  public File getFile() {
+  public java.io.File getFile() {
     return this.file;
   }
 
-  public void setFile(File file) {
+  public void setFile(java.io.File file) {
     this.file = file;
   }
 
@@ -91,7 +90,7 @@ public class UploadPartMediaReqBody {
     private Integer seq;
     private Integer size;
     private String checksum;
-    private File file;
+    private java.io.File file;
 
     public Builder uploadId(String uploadId) {
       this.uploadId = uploadId;
@@ -113,7 +112,7 @@ public class UploadPartMediaReqBody {
       return this;
     }
 
-    public Builder file(File file) {
+    public Builder file(java.io.File file) {
       this.file = file;
       return this;
     }

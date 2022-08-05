@@ -14,7 +14,6 @@
 package com.lark.oapi.service.approval.v4.model;
 
 import com.google.gson.annotations.SerializedName;
-import java.io.File;
 
 public class Reason {
 
