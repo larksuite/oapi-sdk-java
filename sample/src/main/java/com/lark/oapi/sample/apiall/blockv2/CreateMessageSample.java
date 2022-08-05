@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.block.v2.model.CreateMessageReq;
 import com.lark.oapi.service.block.v2.model.CreateMessageResp;
+import com.lark.oapi.service.block.v2.model.Message;
 
 // HTTP PATH: /open-apis/block/v2/message"
 public class CreateMessageSample {
@@ -14,6 +15,13 @@ public class CreateMessageSample {
 
     // 创建请求对象
     CreateMessageReq req = CreateMessageReq.newBuilder()
+        .message(Message.newBuilder()
+            .body("")
+            .version("1637565292196")
+            .blockId("8116040162664047375")
+            .resource("read_block")
+            .openIds(new String[]{})
+            .build())
         .build();
 
     // 发起请求

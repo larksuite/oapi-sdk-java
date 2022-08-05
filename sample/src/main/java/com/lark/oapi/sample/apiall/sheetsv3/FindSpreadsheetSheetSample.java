@@ -2,6 +2,8 @@ package com.lark.oapi.sample.apiall.sheetsv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.sheets.v3.model.Find;
+import com.lark.oapi.service.sheets.v3.model.FindCondition;
 import com.lark.oapi.service.sheets.v3.model.FindSpreadsheetSheetReq;
 import com.lark.oapi.service.sheets.v3.model.FindSpreadsheetSheetResp;
 
@@ -16,6 +18,10 @@ public class FindSpreadsheetSheetSample {
     FindSpreadsheetSheetReq req = FindSpreadsheetSheetReq.newBuilder()
         .spreadsheetToken("")
         .sheetId("")
+        .find(Find.newBuilder()
+            .findCondition(FindCondition.newBuilder().build())
+            .find("")
+            .build())
         .build();
 
     // 发起请求

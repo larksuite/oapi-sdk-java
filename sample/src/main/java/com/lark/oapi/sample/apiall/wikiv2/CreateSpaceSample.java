@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.wiki.v2.model.CreateSpaceReq;
 import com.lark.oapi.service.wiki.v2.model.CreateSpaceResp;
+import com.lark.oapi.service.wiki.v2.model.Space;
 
 // HTTP PATH: /open-apis/wiki/v2/spaces"
 public class CreateSpaceSample {
@@ -14,6 +15,10 @@ public class CreateSpaceSample {
 
     // 创建请求对象
     CreateSpaceReq req = CreateSpaceReq.newBuilder()
+        .space(Space.newBuilder()
+            .name("")
+            .description("")
+            .build())
         .build();
 
     // 发起请求

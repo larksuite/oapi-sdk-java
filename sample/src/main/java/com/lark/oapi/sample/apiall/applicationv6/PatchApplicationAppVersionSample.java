@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.applicationv6;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.application.v6.model.ApplicationAppVersion;
 import com.lark.oapi.service.application.v6.model.PatchApplicationAppVersionReq;
 import com.lark.oapi.service.application.v6.model.PatchApplicationAppVersionResp;
 
@@ -19,6 +20,9 @@ public class PatchApplicationAppVersionSample {
         .userIdType("user_id")
         .operatorId("ou_4065981088f8ef67a504ba8bd6b24d85")
         .rejectReason("拒绝理由")
+        .applicationAppVersion(ApplicationAppVersion.newBuilder()
+            .status(1)
+            .build())
         .build();
 
     // 发起请求

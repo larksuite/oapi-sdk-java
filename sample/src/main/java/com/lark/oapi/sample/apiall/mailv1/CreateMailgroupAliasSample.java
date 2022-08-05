@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.mail.v1.model.CreateMailgroupAliasReq;
 import com.lark.oapi.service.mail.v1.model.CreateMailgroupAliasResp;
+import com.lark.oapi.service.mail.v1.model.EmailAlias;
 
 // HTTP PATH: /open-apis/mail/v1/mailgroups/:mailgroup_id/aliases"
 public class CreateMailgroupAliasSample {
@@ -15,6 +16,9 @@ public class CreateMailgroupAliasSample {
     // 创建请求对象
     CreateMailgroupAliasReq req = CreateMailgroupAliasReq.newBuilder()
         .mailgroupId("")
+        .emailAlias(EmailAlias.newBuilder()
+            .emailAlias("email_alias@xxx.xx")
+            .build())
         .build();
 
     // 发起请求

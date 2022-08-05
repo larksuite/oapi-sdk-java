@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.sheetsv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.sheets.v3.model.FloatImage;
 import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetSheetFloatImageReq;
 import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetSheetFloatImageResp;
 
@@ -17,6 +18,14 @@ public class PatchSpreadsheetSheetFloatImageSample {
         .spreadsheetToken("")
         .sheetId("")
         .floatImageId("")
+        .floatImage(FloatImage.newBuilder()
+            .floatImageToken("")
+            .range("")
+            .width(0.0)
+            .height(0.0)
+            .offsetX(0.0)
+            .offsetY(0.0)
+            .build())
         .build();
 
     // 发起请求

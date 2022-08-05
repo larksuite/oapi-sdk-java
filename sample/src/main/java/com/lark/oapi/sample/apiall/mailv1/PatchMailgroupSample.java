@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.mailv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.mail.v1.model.Mailgroup;
 import com.lark.oapi.service.mail.v1.model.PatchMailgroupReq;
 import com.lark.oapi.service.mail.v1.model.PatchMailgroupResp;
 
@@ -15,6 +16,11 @@ public class PatchMailgroupSample {
     // 创建请求对象
     PatchMailgroupReq req = PatchMailgroupReq.newBuilder()
         .mailgroupId("xxxxxxxxxxxxxxx or test_mail_group@xxx.xx")
+        .mailgroup(Mailgroup.newBuilder()
+            .name("test mail group")
+            .description("mail group for testing")
+            .whoCanSendMail("ALL_INTERNAL_USERS")
+            .build())
         .build();
 
     // 发起请求

@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.calendarv4;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.calendar.v4.model.Calendar;
 import com.lark.oapi.service.calendar.v4.model.CreateCalendarReq;
 import com.lark.oapi.service.calendar.v4.model.CreateCalendarResp;
 
@@ -14,6 +15,13 @@ public class CreateCalendarSample {
 
     // 创建请求对象
     CreateCalendarReq req = CreateCalendarReq.newBuilder()
+        .calendar(Calendar.newBuilder()
+            .summary("")
+            .description("")
+            .permissions("private")
+            .color(0)
+            .summaryAlias("")
+            .build())
         .build();
 
     // 发起请求

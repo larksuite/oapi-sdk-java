@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.mail.v1.model.PatchPublicMailboxReq;
 import com.lark.oapi.service.mail.v1.model.PatchPublicMailboxResp;
+import com.lark.oapi.service.mail.v1.model.PublicMailbox;
 
 // HTTP PATH: /open-apis/mail/v1/public_mailboxes/:public_mailbox_id"
 public class PatchPublicMailboxSample {
@@ -15,6 +16,9 @@ public class PatchPublicMailboxSample {
     // 创建请求对象
     PatchPublicMailboxReq req = PatchPublicMailboxReq.newBuilder()
         .publicMailboxId("xxxxxxxxxxxxxxx or test_public_mailbox@xxx.xx")
+        .publicMailbox(PublicMailbox.newBuilder()
+            .name("test public mailbox")
+            .build())
         .build();
 
     // 发起请求

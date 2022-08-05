@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.approval.v4.model.ApproveTaskReq;
 import com.lark.oapi.service.approval.v4.model.ApproveTaskResp;
+import com.lark.oapi.service.approval.v4.model.TaskApprove;
 
 // HTTP PATH: /open-apis/approval/v4/tasks/approve"
 public class ApproveTaskSample {
@@ -15,6 +16,13 @@ public class ApproveTaskSample {
     // 创建请求对象
     ApproveTaskReq req = ApproveTaskReq.newBuilder()
         .userIdType("user_id")
+        .taskApprove(TaskApprove.newBuilder()
+            .approvalCode("7C468A54-8745-2245-9675-08B7C63E7A85")
+            .instanceCode("81D31358-93AF-92D6-7425-01A5D67C4E71")
+            .userId("f7cb567e")
+            .comment("OK")
+            .taskId("12345")
+            .build())
         .build();
 
     // 发起请求

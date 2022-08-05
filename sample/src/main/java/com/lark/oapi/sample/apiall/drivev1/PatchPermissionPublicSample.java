@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.drive.v1.model.PatchPermissionPublicReq;
 import com.lark.oapi.service.drive.v1.model.PatchPermissionPublicResp;
+import com.lark.oapi.service.drive.v1.model.PermissionPublicRequest;
 
 // HTTP PATH: /open-apis/drive/v1/permissions/:token/public"
 public class PatchPermissionPublicSample {
@@ -16,6 +17,14 @@ public class PatchPermissionPublicSample {
     PatchPermissionPublicReq req = PatchPermissionPublicReq.newBuilder()
         .token("")
         .type("doc")
+        .permissionPublicRequest(PermissionPublicRequest.newBuilder()
+            .externalAccess(true)
+            .securityEntity("anyone_can_view")
+            .commentEntity("anyone_can_view")
+            .shareEntity("anyone")
+            .linkShareEntity("tenant_readable")
+            .inviteExternal(true)
+            .build())
         .build();
 
     // 发起请求

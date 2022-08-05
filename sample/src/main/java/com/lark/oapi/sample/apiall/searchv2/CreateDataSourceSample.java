@@ -4,6 +4,8 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.search.v2.model.CreateDataSourceReq;
 import com.lark.oapi.service.search.v2.model.CreateDataSourceResp;
+import com.lark.oapi.service.search.v2.model.DataSource;
+import com.lark.oapi.service.search.v2.model.I18nMeta;
 
 // HTTP PATH: /open-apis/search/v2/data_sources"
 public class CreateDataSourceSample {
@@ -14,6 +16,17 @@ public class CreateDataSourceSample {
 
     // 创建请求对象
     CreateDataSourceReq req = CreateDataSourceReq.newBuilder()
+        .dataSource(DataSource.newBuilder()
+            .name("")
+            .state(0)
+            .description("")
+            .iconUrl("")
+            .template("search_common_card")
+            .searchableFields(new String[]{})
+            .i18nName(I18nMeta.newBuilder().build())
+            .i18nDescription(I18nMeta.newBuilder().build())
+            .schemaId("")
+            .build())
         .build();
 
     // 发起请求

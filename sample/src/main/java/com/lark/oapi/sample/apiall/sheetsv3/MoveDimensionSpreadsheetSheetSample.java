@@ -2,6 +2,8 @@ package com.lark.oapi.sample.apiall.sheetsv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.sheets.v3.model.Dimension;
+import com.lark.oapi.service.sheets.v3.model.MoveDimension;
 import com.lark.oapi.service.sheets.v3.model.MoveDimensionSpreadsheetSheetReq;
 import com.lark.oapi.service.sheets.v3.model.MoveDimensionSpreadsheetSheetResp;
 
@@ -16,6 +18,10 @@ public class MoveDimensionSpreadsheetSheetSample {
     MoveDimensionSpreadsheetSheetReq req = MoveDimensionSpreadsheetSheetReq.newBuilder()
         .spreadsheetToken("")
         .sheetId("")
+        .moveDimension(MoveDimension.newBuilder()
+            .source(Dimension.newBuilder().build())
+            .destinationIndex(0)
+            .build())
         .build();
 
     // 发起请求

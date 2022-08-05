@@ -4,6 +4,9 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.contact.v3.model.PatchUserReq;
 import com.lark.oapi.service.contact.v3.model.PatchUserResp;
+import com.lark.oapi.service.contact.v3.model.User;
+import com.lark.oapi.service.contact.v3.model.UserCustomAttr;
+import com.lark.oapi.service.contact.v3.model.UserOrder;
 
 // HTTP PATH: /open-apis/contact/v3/users/:user_id"
 public class PatchUserSample {
@@ -17,6 +20,30 @@ public class PatchUserSample {
         .userId("")
         .userIdType("open_id")
         .departmentIdType("open_department_id")
+        .user(User.newBuilder()
+            .name("")
+            .enName("")
+            .nickname("")
+            .email("")
+            .mobile("")
+            .mobileVisible(false)
+            .gender(0)
+            .avatarKey("")
+            .departmentIds(new String[]{})
+            .leaderUserId("")
+            .city("")
+            .country("")
+            .workStation("")
+            .joinTime(0)
+            .employeeNo("")
+            .employeeType(0)
+            .orders(new UserOrder[]{})
+            .customAttrs(new UserCustomAttr[]{})
+            .enterpriseEmail("")
+            .jobTitle("")
+            .isFrozen(false)
+            .entEmailPassword("")
+            .build())
         .build();
 
     // 发起请求

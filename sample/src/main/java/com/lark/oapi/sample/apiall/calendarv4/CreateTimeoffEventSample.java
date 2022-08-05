@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.calendar.v4.model.CreateTimeoffEventReq;
 import com.lark.oapi.service.calendar.v4.model.CreateTimeoffEventResp;
+import com.lark.oapi.service.calendar.v4.model.TimeoffEvent;
 
 // HTTP PATH: /open-apis/calendar/v4/timeoff_events"
 public class CreateTimeoffEventSample {
@@ -15,6 +16,14 @@ public class CreateTimeoffEventSample {
     // 创建请求对象
     CreateTimeoffEventReq req = CreateTimeoffEventReq.newBuilder()
         .userIdType("user_id")
+        .timeoffEvent(TimeoffEvent.newBuilder()
+            .userId("")
+            .timezone("")
+            .startTime("")
+            .endTime("")
+            .title("")
+            .description("")
+            .build())
         .build();
 
     // 发起请求

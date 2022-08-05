@@ -4,6 +4,10 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.CreateNotificationReq;
 import com.lark.oapi.service.helpdesk.v1.model.CreateNotificationResp;
+import com.lark.oapi.service.helpdesk.v1.model.Notification;
+import com.lark.oapi.service.helpdesk.v1.model.NotificationChat;
+import com.lark.oapi.service.helpdesk.v1.model.NotificationDepartment;
+import com.lark.oapi.service.helpdesk.v1.model.NotificationUser;
 
 // HTTP PATH: /open-apis/helpdesk/v1/notifications"
 public class CreateNotificationSample {
@@ -15,6 +19,28 @@ public class CreateNotificationSample {
     // 创建请求对象
     CreateNotificationReq req = CreateNotificationReq.newBuilder()
         .userIdType("user_id")
+        .notification(Notification.newBuilder()
+            .id("6981801914270744596")
+            .jobName("测试推送任务")
+            .status(0)
+            .createUser(NotificationUser.newBuilder().build())
+            .createdAt("1626332244719")
+            .updateUser(NotificationUser.newBuilder().build())
+            .updatedAt("1626332244719")
+            .targetUserCount(1)
+            .sentUserCount(1)
+            .readUserCount(1)
+            .sendAt("1626332244719")
+            .pushContent("")
+            .pushType(0)
+            .pushScopeType(0)
+            .newStaffScopeType(0)
+            .newStaffScopeDepartmentList(new NotificationDepartment[]{})
+            .userList(new NotificationUser[]{})
+            .departmentList(new NotificationDepartment[]{})
+            .chatList(new NotificationChat[]{})
+            .ext("{}")
+            .build())
         .build();
 
     // 发起请求

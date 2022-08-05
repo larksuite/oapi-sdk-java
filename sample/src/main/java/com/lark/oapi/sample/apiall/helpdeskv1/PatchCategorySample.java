@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.helpdeskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.helpdesk.v1.model.Category;
 import com.lark.oapi.service.helpdesk.v1.model.PatchCategoryReq;
 import com.lark.oapi.service.helpdesk.v1.model.PatchCategoryResp;
 
@@ -15,6 +16,10 @@ public class PatchCategorySample {
     // 创建请求对象
     PatchCategoryReq req = PatchCategoryReq.newBuilder()
         .id("")
+        .category(Category.newBuilder()
+            .name("")
+            .parentId("")
+            .build())
         .build();
 
     // 发起请求

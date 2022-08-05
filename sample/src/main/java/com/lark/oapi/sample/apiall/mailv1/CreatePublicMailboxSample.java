@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.mail.v1.model.CreatePublicMailboxReq;
 import com.lark.oapi.service.mail.v1.model.CreatePublicMailboxResp;
+import com.lark.oapi.service.mail.v1.model.PublicMailbox;
 
 // HTTP PATH: /open-apis/mail/v1/public_mailboxes"
 public class CreatePublicMailboxSample {
@@ -14,6 +15,10 @@ public class CreatePublicMailboxSample {
 
     // 创建请求对象
     CreatePublicMailboxReq req = CreatePublicMailboxReq.newBuilder()
+        .publicMailbox(PublicMailbox.newBuilder()
+            .email("test_public_mailbox@xxx.xx")
+            .name("test public mailbox")
+            .build())
         .build();
 
     // 发起请求

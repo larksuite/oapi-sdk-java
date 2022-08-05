@@ -2,8 +2,14 @@ package com.lark.oapi.sample.apiall.calendarv4;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.calendar.v4.model.CalendarEvent;
 import com.lark.oapi.service.calendar.v4.model.CreateCalendarEventReq;
 import com.lark.oapi.service.calendar.v4.model.CreateCalendarEventResp;
+import com.lark.oapi.service.calendar.v4.model.EventLocation;
+import com.lark.oapi.service.calendar.v4.model.Reminder;
+import com.lark.oapi.service.calendar.v4.model.Schema;
+import com.lark.oapi.service.calendar.v4.model.TimeInfo;
+import com.lark.oapi.service.calendar.v4.model.Vchat;
 
 // HTTP PATH: /open-apis/calendar/v4/calendars/:calendar_id/events"
 public class CreateCalendarEventSample {
@@ -15,6 +21,22 @@ public class CreateCalendarEventSample {
     // 创建请求对象
     CreateCalendarEventReq req = CreateCalendarEventReq.newBuilder()
         .calendarId("")
+        .calendarEvent(CalendarEvent.newBuilder()
+            .summary("")
+            .description("")
+            .needNotification(false)
+            .startTime(TimeInfo.newBuilder().build())
+            .endTime(TimeInfo.newBuilder().build())
+            .vchat(Vchat.newBuilder().build())
+            .visibility("default")
+            .attendeeAbility("none")
+            .freeBusyStatus("busy")
+            .location(EventLocation.newBuilder().build())
+            .color(0)
+            .reminders(new Reminder[]{})
+            .recurrence("")
+            .schemas(new Schema[]{})
+            .build())
         .build();
 
     // 发起请求

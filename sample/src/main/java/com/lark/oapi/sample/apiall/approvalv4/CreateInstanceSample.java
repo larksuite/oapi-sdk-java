@@ -4,6 +4,9 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.approval.v4.model.CreateInstanceReq;
 import com.lark.oapi.service.approval.v4.model.CreateInstanceResp;
+import com.lark.oapi.service.approval.v4.model.InstanceCreate;
+import com.lark.oapi.service.approval.v4.model.NodeApprover;
+import com.lark.oapi.service.approval.v4.model.NodeCc;
 
 // HTTP PATH: /open-apis/approval/v4/instances"
 public class CreateInstanceSample {
@@ -14,6 +17,18 @@ public class CreateInstanceSample {
 
     // 创建请求对象
     CreateInstanceReq req = CreateInstanceReq.newBuilder()
+        .instanceCreate(InstanceCreate.newBuilder()
+            .approvalCode("7C468A54-8745-2245-9675-08B7C63E7A85")
+            .userId("f7cb567e")
+            .openId("ou_123456")
+            .departmentId("123456")
+            .form("")
+            .nodeApproverUserIdList(new NodeApprover[]{})
+            .nodeApproverOpenIdList(new NodeApprover[]{})
+            .nodeCcUserIdList(new NodeCc[]{})
+            .nodeCcOpenIdList(new NodeCc[]{})
+            .uuid("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX")
+            .build())
         .build();
 
     // 发起请求

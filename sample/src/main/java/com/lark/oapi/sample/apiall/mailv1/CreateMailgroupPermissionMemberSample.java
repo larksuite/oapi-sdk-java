@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.mail.v1.model.CreateMailgroupPermissionMemberReq;
 import com.lark.oapi.service.mail.v1.model.CreateMailgroupPermissionMemberResp;
+import com.lark.oapi.service.mail.v1.model.MailgroupPermissionMember;
 
 // HTTP PATH: /open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members"
 public class CreateMailgroupPermissionMemberSample {
@@ -17,6 +18,11 @@ public class CreateMailgroupPermissionMemberSample {
         .mailgroupId("xxxxxxxxxxxxxxx or test_mail_group@xxx.xx")
         .userIdType("user_id")
         .departmentIdType("department_id")
+        .mailgroupPermissionMember(MailgroupPermissionMember.newBuilder()
+            .userId("xxxxxxxxxx")
+            .departmentId("xxxxxxxxxx")
+            .type("USER")
+            .build())
         .build();
 
     // 发起请求

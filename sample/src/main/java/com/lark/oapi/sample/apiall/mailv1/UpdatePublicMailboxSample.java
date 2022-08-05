@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.mailv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.mail.v1.model.PublicMailbox;
 import com.lark.oapi.service.mail.v1.model.UpdatePublicMailboxReq;
 import com.lark.oapi.service.mail.v1.model.UpdatePublicMailboxResp;
 
@@ -15,6 +16,9 @@ public class UpdatePublicMailboxSample {
     // 创建请求对象
     UpdatePublicMailboxReq req = UpdatePublicMailboxReq.newBuilder()
         .publicMailboxId("xxxxxxxxxxxxxxx or test_public_mailbox@xxx.xx")
+        .publicMailbox(PublicMailbox.newBuilder()
+            .name("test public mailbox")
+            .build())
         .build();
 
     // 发起请求

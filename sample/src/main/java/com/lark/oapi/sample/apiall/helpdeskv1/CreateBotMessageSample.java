@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.helpdeskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.helpdesk.v1.model.BotMessage;
 import com.lark.oapi.service.helpdesk.v1.model.CreateBotMessageReq;
 import com.lark.oapi.service.helpdesk.v1.model.CreateBotMessageResp;
 
@@ -15,6 +16,12 @@ public class CreateBotMessageSample {
     // 创建请求对象
     CreateBotMessageReq req = CreateBotMessageReq.newBuilder()
         .userIdType("user_id")
+        .botMessage(BotMessage.newBuilder()
+            .msgType("post")
+            .content("")
+            .receiverId("ou_7346484524")
+            .receiveType("chat")
+            .build())
         .build();
 
     // 发起请求

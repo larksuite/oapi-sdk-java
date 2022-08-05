@@ -4,6 +4,8 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.drive.v1.model.CreateFileCommentReq;
 import com.lark.oapi.service.drive.v1.model.CreateFileCommentResp;
+import com.lark.oapi.service.drive.v1.model.FileComment;
+import com.lark.oapi.service.drive.v1.model.ReplyList;
 
 // HTTP PATH: /open-apis/drive/v1/files/:file_token/comments"
 public class CreateFileCommentSample {
@@ -17,6 +19,16 @@ public class CreateFileCommentSample {
         .fileToken("")
         .fileType("doc")
         .userIdType("user_id")
+        .fileComment(FileComment.newBuilder()
+            .commentId("")
+            .userId("")
+            .createTime(0)
+            .updateTime(0)
+            .isSolved(false)
+            .solvedTime(0)
+            .solverUserId("")
+            .replyList(ReplyList.newBuilder().build())
+            .build())
         .build();
 
     // 发起请求

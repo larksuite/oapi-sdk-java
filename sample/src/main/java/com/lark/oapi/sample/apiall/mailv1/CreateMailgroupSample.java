@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.mail.v1.model.CreateMailgroupReq;
 import com.lark.oapi.service.mail.v1.model.CreateMailgroupResp;
+import com.lark.oapi.service.mail.v1.model.Mailgroup;
 
 // HTTP PATH: /open-apis/mail/v1/mailgroups"
 public class CreateMailgroupSample {
@@ -14,6 +15,12 @@ public class CreateMailgroupSample {
 
     // 创建请求对象
     CreateMailgroupReq req = CreateMailgroupReq.newBuilder()
+        .mailgroup(Mailgroup.newBuilder()
+            .email("test_mail_group@xxx.xx")
+            .name("test mail group")
+            .description("mail group for testing")
+            .whoCanSendMail("ALL_INTERNAL_USERS")
+            .build())
         .build();
 
     // 发起请求

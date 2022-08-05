@@ -2,8 +2,13 @@ package com.lark.oapi.sample.apiall.taskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.task.v1.model.Collaborator;
 import com.lark.oapi.service.task.v1.model.CreateTaskReq;
 import com.lark.oapi.service.task.v1.model.CreateTaskResp;
+import com.lark.oapi.service.task.v1.model.Due;
+import com.lark.oapi.service.task.v1.model.Follower;
+import com.lark.oapi.service.task.v1.model.Origin;
+import com.lark.oapi.service.task.v1.model.Task;
 
 // HTTP PATH: /open-apis/task/v1/tasks"
 public class CreateTaskSample {
@@ -15,6 +20,17 @@ public class CreateTaskSample {
     // 创建请求对象
     CreateTaskReq req = CreateTaskReq.newBuilder()
         .userIdType("user_id")
+        .task(Task.newBuilder()
+            .summary("每天喝八杯水，保持身心愉悦")
+            .description("多吃水果，多运动，健康生活，快乐工作。")
+            .extra("dGVzdA==")
+            .due(Due.newBuilder().build())
+            .origin(Origin.newBuilder().build())
+            .canEdit(false)
+            .custom("")
+            .followers(new Follower[]{})
+            .collaborators(new Collaborator[]{})
+            .build())
         .build();
 
     // 发起请求

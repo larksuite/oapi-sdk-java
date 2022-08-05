@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.calendar.v4.model.CreateExchangeBindingReq;
 import com.lark.oapi.service.calendar.v4.model.CreateExchangeBindingResp;
+import com.lark.oapi.service.calendar.v4.model.ExchangeBinding;
 
 // HTTP PATH: /open-apis/calendar/v4/exchange_bindings"
 public class CreateExchangeBindingSample {
@@ -15,6 +16,11 @@ public class CreateExchangeBindingSample {
     // 创建请求对象
     CreateExchangeBindingReq req = CreateExchangeBindingReq.newBuilder()
         .userIdType("user_id")
+        .exchangeBinding(ExchangeBinding.newBuilder()
+            .adminAccount("")
+            .exchangeAccount("")
+            .userId("")
+            .build())
         .build();
 
     // 发起请求

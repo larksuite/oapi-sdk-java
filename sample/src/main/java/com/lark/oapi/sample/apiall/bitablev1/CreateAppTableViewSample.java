@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.bitable.v1.model.CreateAppTableViewReq;
 import com.lark.oapi.service.bitable.v1.model.CreateAppTableViewResp;
+import com.lark.oapi.service.bitable.v1.model.ReqView;
 
 // HTTP PATH: /open-apis/bitable/v1/apps/:app_token/tables/:table_id/views"
 public class CreateAppTableViewSample {
@@ -16,6 +17,10 @@ public class CreateAppTableViewSample {
     CreateAppTableViewReq req = CreateAppTableViewReq.newBuilder()
         .appToken("")
         .tableId("")
+        .reqView(ReqView.newBuilder()
+            .viewName("表格视图1")
+            .viewType("grid")
+            .build())
         .build();
 
     // 发起请求

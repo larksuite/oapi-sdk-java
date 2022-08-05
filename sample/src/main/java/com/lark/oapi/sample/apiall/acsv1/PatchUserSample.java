@@ -2,8 +2,10 @@ package com.lark.oapi.sample.apiall.acsv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.acs.v1.model.Feature;
 import com.lark.oapi.service.acs.v1.model.PatchUserReq;
 import com.lark.oapi.service.acs.v1.model.PatchUserResp;
+import com.lark.oapi.service.acs.v1.model.User;
 
 // HTTP PATH: /open-apis/acs/v1/users/:user_id"
 public class PatchUserSample {
@@ -16,6 +18,9 @@ public class PatchUserSample {
     PatchUserReq req = PatchUserReq.newBuilder()
         .userId("ou_7dab8a3d3cdcc9da365777c7ad535d62")
         .userIdType("user_id")
+        .user(User.newBuilder()
+            .feature(Feature.newBuilder().build())
+            .build())
         .build();
 
     // 发起请求

@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.taskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.task.v1.model.Comment;
 import com.lark.oapi.service.task.v1.model.CreateTaskCommentReq;
 import com.lark.oapi.service.task.v1.model.CreateTaskCommentResp;
 
@@ -15,6 +16,11 @@ public class CreateTaskCommentSample {
     // 创建请求对象
     CreateTaskCommentReq req = CreateTaskCommentReq.newBuilder()
         .taskId("83912691-2e43-47fc-94a4-d512e03984fa")
+        .comment(Comment.newBuilder()
+            .content("举杯邀明月，对影成三人")
+            .parentId("6937231762296684564")
+            .id("6937231762296684564")
+            .build())
         .build();
 
     // 发起请求

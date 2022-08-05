@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.helpdeskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.helpdesk.v1.model.Category;
 import com.lark.oapi.service.helpdesk.v1.model.CreateCategoryReq;
 import com.lark.oapi.service.helpdesk.v1.model.CreateCategoryResp;
 
@@ -14,6 +15,11 @@ public class CreateCategorySample {
 
     // 创建请求对象
     CreateCategoryReq req = CreateCategoryReq.newBuilder()
+        .category(Category.newBuilder()
+            .name("")
+            .parentId("")
+            .language("")
+            .build())
         .build();
 
     // 发起请求

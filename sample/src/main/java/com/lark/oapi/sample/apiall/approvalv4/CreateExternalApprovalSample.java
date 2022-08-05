@@ -2,8 +2,12 @@ package com.lark.oapi.sample.apiall.approvalv4;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.approval.v4.model.ApprovalCreateExternal;
+import com.lark.oapi.service.approval.v4.model.ApprovalCreateViewers;
 import com.lark.oapi.service.approval.v4.model.CreateExternalApprovalReq;
 import com.lark.oapi.service.approval.v4.model.CreateExternalApprovalResp;
+import com.lark.oapi.service.approval.v4.model.ExternalApproval;
+import com.lark.oapi.service.approval.v4.model.I18nResource;
 
 // HTTP PATH: /open-apis/approval/v4/external_approvals"
 public class CreateExternalApprovalSample {
@@ -16,6 +20,16 @@ public class CreateExternalApprovalSample {
     CreateExternalApprovalReq req = CreateExternalApprovalReq.newBuilder()
         .departmentIdType("open_department_id")
         .userIdType("user_id")
+        .externalApproval(ExternalApproval.newBuilder()
+            .approvalName("E78F1022-A166-447C-8320-E151DA90D70F")
+            .approvalCode("permission_test")
+            .groupCode("work_group")
+            .groupName("@i18n@2")
+            .description("@i18n@2")
+            .external(ApprovalCreateExternal.newBuilder().build())
+            .viewers(new ApprovalCreateViewers[]{})
+            .i18nResources(new I18nResource[]{})
+            .build())
         .build();
 
     // 发起请求

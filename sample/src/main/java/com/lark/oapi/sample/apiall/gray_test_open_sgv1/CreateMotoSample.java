@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.gray_test_open_sg.v1.model.CreateMotoReq;
 import com.lark.oapi.service.gray_test_open_sg.v1.model.CreateMotoResp;
+import com.lark.oapi.service.gray_test_open_sg.v1.model.Level;
 
 // HTTP PATH: /open-apis/gray_test_open_sg/v1/motos"
 public class CreateMotoSample {
@@ -15,6 +16,11 @@ public class CreateMotoSample {
     // 创建请求对象
     CreateMotoReq req = CreateMotoReq.newBuilder()
         .departmentIdType("")
+        .level(Level.newBuilder()
+            .level("")
+            .body("")
+            .type("")
+            .build())
         .build();
 
     // 发起请求

@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.approvalv4;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.approval.v4.model.SpecifiedRollback;
 import com.lark.oapi.service.approval.v4.model.SpecifiedRollbackInstanceReq;
 import com.lark.oapi.service.approval.v4.model.SpecifiedRollbackInstanceResp;
 
@@ -15,6 +16,13 @@ public class SpecifiedRollbackInstanceSample {
     // 创建请求对象
     SpecifiedRollbackInstanceReq req = SpecifiedRollbackInstanceReq.newBuilder()
         .userIdType("user_id")
+        .specifiedRollback(SpecifiedRollback.newBuilder()
+            .userId("893g4c45")
+            .taskId("7026591166355210260")
+            .reason("申请事项填写不具体，请重新填写")
+            .extra("暂不填写")
+            .taskDefKeyList(new String[]{})
+            .build())
         .build();
 
     // 发起请求

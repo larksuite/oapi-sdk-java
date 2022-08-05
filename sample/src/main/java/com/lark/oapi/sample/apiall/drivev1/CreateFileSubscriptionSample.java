@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.drive.v1.model.CreateFileSubscriptionReq;
 import com.lark.oapi.service.drive.v1.model.CreateFileSubscriptionResp;
+import com.lark.oapi.service.drive.v1.model.FileSubscription;
 
 // HTTP PATH: /open-apis/drive/v1/files/:file_token/subscriptions"
 public class CreateFileSubscriptionSample {
@@ -15,6 +16,12 @@ public class CreateFileSubscriptionSample {
     // 创建请求对象
     CreateFileSubscriptionReq req = CreateFileSubscriptionReq.newBuilder()
         .fileToken("doxcnxxxxxxxxxxxxxxxxxxxxxx")
+        .fileSubscription(FileSubscription.newBuilder()
+            .subscriptionId("1234567890987654321")
+            .subscriptionType("comment_update")
+            .isSubcribe(true)
+            .fileType("doc")
+            .build())
         .build();
 
     // 发起请求

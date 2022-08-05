@@ -2,6 +2,8 @@ package com.lark.oapi.sample.apiall.bitablev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.bitable.v1.model.AppRole;
+import com.lark.oapi.service.bitable.v1.model.AppRoleTableRole;
 import com.lark.oapi.service.bitable.v1.model.CreateAppRoleReq;
 import com.lark.oapi.service.bitable.v1.model.CreateAppRoleResp;
 
@@ -15,6 +17,10 @@ public class CreateAppRoleSample {
     // 创建请求对象
     CreateAppRoleReq req = CreateAppRoleReq.newBuilder()
         .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
+        .appRole(AppRole.newBuilder()
+            .roleName("自定义权限1")
+            .tableRoles(new AppRoleTableRole[]{})
+            .build())
         .build();
 
     // 发起请求

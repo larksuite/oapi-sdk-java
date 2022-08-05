@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.wiki.v2.model.CreateSpaceMemberReq;
 import com.lark.oapi.service.wiki.v2.model.CreateSpaceMemberResp;
+import com.lark.oapi.service.wiki.v2.model.Member;
 
 // HTTP PATH: /open-apis/wiki/v2/spaces/:space_id/members"
 public class CreateSpaceMemberSample {
@@ -16,6 +17,11 @@ public class CreateSpaceMemberSample {
     CreateSpaceMemberReq req = CreateSpaceMemberReq.newBuilder()
         .spaceId("7008061636015554580")
         .needNotification(false)
+        .member(Member.newBuilder()
+            .memberType("")
+            .memberId("")
+            .memberRole("")
+            .build())
         .build();
 
     // 发起请求

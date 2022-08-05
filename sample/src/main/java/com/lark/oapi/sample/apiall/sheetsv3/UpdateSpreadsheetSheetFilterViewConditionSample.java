@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.sheetsv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.sheets.v3.model.FilterViewCondition;
 import com.lark.oapi.service.sheets.v3.model.UpdateSpreadsheetSheetFilterViewConditionReq;
 import com.lark.oapi.service.sheets.v3.model.UpdateSpreadsheetSheetFilterViewConditionResp;
 
@@ -18,6 +19,11 @@ public class UpdateSpreadsheetSheetFilterViewConditionSample {
         .sheetId("")
         .filterViewId("")
         .conditionId("")
+        .filterViewCondition(FilterViewCondition.newBuilder()
+            .filterType("")
+            .compareType("")
+            .expected(new String[]{})
+            .build())
         .build();
 
     // 发起请求

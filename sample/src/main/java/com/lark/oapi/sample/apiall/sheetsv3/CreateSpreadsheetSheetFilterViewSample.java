@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFilterViewReq;
 import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFilterViewResp;
+import com.lark.oapi.service.sheets.v3.model.FilterView;
 
 // HTTP PATH: /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views"
 public class CreateSpreadsheetSheetFilterViewSample {
@@ -16,6 +17,11 @@ public class CreateSpreadsheetSheetFilterViewSample {
     CreateSpreadsheetSheetFilterViewReq req = CreateSpreadsheetSheetFilterViewReq.newBuilder()
         .spreadsheetToken("")
         .sheetId("")
+        .filterView(FilterView.newBuilder()
+            .filterViewId("")
+            .filterViewName("")
+            .range("")
+            .build())
         .build();
 
     // 发起请求

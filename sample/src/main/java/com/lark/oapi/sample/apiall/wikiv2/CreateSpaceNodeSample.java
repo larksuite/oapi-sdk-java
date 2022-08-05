@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.wiki.v2.model.CreateSpaceNodeReq;
 import com.lark.oapi.service.wiki.v2.model.CreateSpaceNodeResp;
+import com.lark.oapi.service.wiki.v2.model.Node;
 
 // HTTP PATH: /open-apis/wiki/v2/spaces/:space_id/nodes"
 public class CreateSpaceNodeSample {
@@ -15,6 +16,15 @@ public class CreateSpaceNodeSample {
     // 创建请求对象
     CreateSpaceNodeReq req = CreateSpaceNodeReq.newBuilder()
         .spaceId("")
+        .node(Node.newBuilder()
+            .objType("doc")
+            .parentNodeToken("")
+            .nodeType("origin")
+            .originNodeToken("")
+            .title("")
+            .creator("")
+            .owner("")
+            .build())
         .build();
 
     // 发起请求

@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.applicationv6;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.application.v6.model.Application;
 import com.lark.oapi.service.application.v6.model.PatchApplicationReq;
 import com.lark.oapi.service.application.v6.model.PatchApplicationResp;
 
@@ -16,6 +17,9 @@ public class PatchApplicationSample {
     PatchApplicationReq req = PatchApplicationReq.newBuilder()
         .appId("cli_9b445f5258795107")
         .lang("zh_cn")
+        .application(Application.newBuilder()
+            .commonCategories(new String[]{})
+            .build())
         .build();
 
     // 发起请求

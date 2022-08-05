@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.imv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.im.v1.model.UrgentReceivers;
 import com.lark.oapi.service.im.v1.model.UrgentSmsMessageReq;
 import com.lark.oapi.service.im.v1.model.UrgentSmsMessageResp;
 
@@ -16,6 +17,9 @@ public class UrgentSmsMessageSample {
     UrgentSmsMessageReq req = UrgentSmsMessageReq.newBuilder()
         .messageId("om_dc13264520392913993dd051dba21dcf")
         .userIdType("user_id")
+        .urgentReceivers(UrgentReceivers.newBuilder()
+            .userIdList(new String[]{})
+            .build())
         .build();
 
     // 发起请求

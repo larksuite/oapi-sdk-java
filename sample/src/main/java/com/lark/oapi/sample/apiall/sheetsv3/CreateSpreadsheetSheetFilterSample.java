@@ -2,6 +2,8 @@ package com.lark.oapi.sample.apiall.sheetsv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.sheets.v3.model.Condition;
+import com.lark.oapi.service.sheets.v3.model.CreateSheetFilter;
 import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFilterReq;
 import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFilterResp;
 
@@ -16,6 +18,11 @@ public class CreateSpreadsheetSheetFilterSample {
     CreateSpreadsheetSheetFilterReq req = CreateSpreadsheetSheetFilterReq.newBuilder()
         .spreadsheetToken("")
         .sheetId("")
+        .createSheetFilter(CreateSheetFilter.newBuilder()
+            .range("")
+            .col("")
+            .condition(Condition.newBuilder().build())
+            .build())
         .build();
 
     // 发起请求

@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.drive.v1.model.CreateExportTaskReq;
 import com.lark.oapi.service.drive.v1.model.CreateExportTaskResp;
+import com.lark.oapi.service.drive.v1.model.ExportTask;
 
 // HTTP PATH: /open-apis/drive/v1/export_tasks"
 public class CreateExportTaskSample {
@@ -14,6 +15,11 @@ public class CreateExportTaskSample {
 
     // 创建请求对象
     CreateExportTaskReq req = CreateExportTaskReq.newBuilder()
+        .exportTask(ExportTask.newBuilder()
+            .fileExtension("pdf")
+            .token("doccnxe5OxxxxxxxSNdsJviENsk")
+            .type("doc")
+            .build())
         .build();
 
     // 发起请求

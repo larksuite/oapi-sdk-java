@@ -2,6 +2,8 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.contact.v3.model.Department;
+import com.lark.oapi.service.contact.v3.model.DepartmentI18nName;
 import com.lark.oapi.service.contact.v3.model.PatchDepartmentReq;
 import com.lark.oapi.service.contact.v3.model.PatchDepartmentResp;
 
@@ -17,6 +19,15 @@ public class PatchDepartmentSample {
         .departmentId("")
         .userIdType("open_id")
         .departmentIdType("open_department_id")
+        .department(Department.newBuilder()
+            .name("")
+            .i18nName(DepartmentI18nName.newBuilder().build())
+            .parentDepartmentId("")
+            .leaderUserId("")
+            .order("")
+            .unitIds(new String[]{})
+            .createGroupChat(false)
+            .build())
         .build();
 
     // 发起请求

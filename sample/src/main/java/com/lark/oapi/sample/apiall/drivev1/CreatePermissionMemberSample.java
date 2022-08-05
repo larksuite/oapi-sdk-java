@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.drive.v1.model.CreatePermissionMemberReq;
 import com.lark.oapi.service.drive.v1.model.CreatePermissionMemberResp;
+import com.lark.oapi.service.drive.v1.model.Member;
 
 // HTTP PATH: /open-apis/drive/v1/permissions/:token/members"
 public class CreatePermissionMemberSample {
@@ -17,6 +18,11 @@ public class CreatePermissionMemberSample {
         .token("")
         .type("doc")
         .needNotification(false)
+        .member(Member.newBuilder()
+            .memberType("openid")
+            .memberId("string")
+            .perm("view")
+            .build())
         .build();
 
     // 发起请求

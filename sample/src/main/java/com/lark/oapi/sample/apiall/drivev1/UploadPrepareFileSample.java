@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.drivev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.drive.v1.model.FileUploadInfo;
 import com.lark.oapi.service.drive.v1.model.UploadPrepareFileReq;
 import com.lark.oapi.service.drive.v1.model.UploadPrepareFileResp;
 
@@ -14,6 +15,12 @@ public class UploadPrepareFileSample {
 
     // 创建请求对象
     UploadPrepareFileReq req = UploadPrepareFileReq.newBuilder()
+        .fileUploadInfo(FileUploadInfo.newBuilder()
+            .fileName("")
+            .parentType("explorer")
+            .parentNode("")
+            .size(0)
+            .build())
         .build();
 
     // 发起请求

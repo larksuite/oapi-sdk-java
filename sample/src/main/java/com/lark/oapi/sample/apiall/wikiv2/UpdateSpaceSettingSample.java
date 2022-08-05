@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.wikiv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.wiki.v2.model.Setting;
 import com.lark.oapi.service.wiki.v2.model.UpdateSpaceSettingReq;
 import com.lark.oapi.service.wiki.v2.model.UpdateSpaceSettingResp;
 
@@ -15,6 +16,11 @@ public class UpdateSpaceSettingSample {
     // 创建请求对象
     UpdateSpaceSettingReq req = UpdateSpaceSettingReq.newBuilder()
         .spaceId("")
+        .setting(Setting.newBuilder()
+            .createSetting("")
+            .securitySetting("")
+            .commentSetting("")
+            .build())
         .build();
 
     // 发起请求

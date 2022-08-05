@@ -2,6 +2,8 @@ package com.lark.oapi.sample.apiall.approvalv4;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.approval.v4.model.CommentAtInfo;
+import com.lark.oapi.service.approval.v4.model.CommentRequest;
 import com.lark.oapi.service.approval.v4.model.CreateInstanceCommentReq;
 import com.lark.oapi.service.approval.v4.model.CreateInstanceCommentResp;
 
@@ -17,6 +19,14 @@ public class CreateInstanceCommentSample {
         .instanceId("")
         .userIdType("open_id")
         .userId("")
+        .commentRequest(CommentRequest.newBuilder()
+            .content("")
+            .atInfoList(new CommentAtInfo[]{})
+            .parentCommentId("")
+            .commentId("")
+            .disableBot(false)
+            .extra("")
+            .build())
         .build();
 
     // 发起请求

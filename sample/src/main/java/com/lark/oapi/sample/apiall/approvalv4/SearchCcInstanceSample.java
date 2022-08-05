@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.approvalv4;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.approval.v4.model.CcSearch;
 import com.lark.oapi.service.approval.v4.model.SearchCcInstanceReq;
 import com.lark.oapi.service.approval.v4.model.SearchCcInstanceResp;
 
@@ -17,6 +18,18 @@ public class SearchCcInstanceSample {
         .pageSize(100)
         .pageToken("nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU")
         .userIdType("user_id")
+        .ccSearch(CcSearch.newBuilder()
+            .userId("lwiu098wj")
+            .approvalCode("EB828003-9FFE-4B3F-AA50-2E199E2ED942")
+            .instanceCode("EB828003-9FFE-4B3F-AA50-2E199E2ED943")
+            .instanceExternalId("EB828003-9FFE-4B3F-AA50-2E199E2ED976")
+            .groupExternalId("1234567")
+            .ccTitle("test")
+            .readStatus("READ")
+            .ccCreateTimeFrom("1547654251506")
+            .ccCreateTimeTo("1547654251506")
+            .locale("zh-CN")
+            .build())
         .build();
 
     // 发起请求

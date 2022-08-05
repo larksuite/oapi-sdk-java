@@ -4,6 +4,8 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.contact.v3.model.CreateEmployeeTypeEnumReq;
 import com.lark.oapi.service.contact.v3.model.CreateEmployeeTypeEnumResp;
+import com.lark.oapi.service.contact.v3.model.EmployeeTypeEnum;
+import com.lark.oapi.service.contact.v3.model.I18nContent;
 
 // HTTP PATH: /open-apis/contact/v3/employee_type_enums"
 public class CreateEmployeeTypeEnumSample {
@@ -14,6 +16,12 @@ public class CreateEmployeeTypeEnumSample {
 
     // 创建请求对象
     CreateEmployeeTypeEnumReq req = CreateEmployeeTypeEnumReq.newBuilder()
+        .employeeTypeEnum(EmployeeTypeEnum.newBuilder()
+            .content("")
+            .enumType(1)
+            .enumStatus(1)
+            .i18nContent(new I18nContent[]{})
+            .build())
         .build();
 
     // 发起请求

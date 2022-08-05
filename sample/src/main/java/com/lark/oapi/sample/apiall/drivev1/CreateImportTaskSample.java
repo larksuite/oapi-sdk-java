@@ -4,6 +4,8 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.drive.v1.model.CreateImportTaskReq;
 import com.lark.oapi.service.drive.v1.model.CreateImportTaskResp;
+import com.lark.oapi.service.drive.v1.model.ImportTask;
+import com.lark.oapi.service.drive.v1.model.ImportTaskMountPoint;
 
 // HTTP PATH: /open-apis/drive/v1/import_tasks"
 public class CreateImportTaskSample {
@@ -14,6 +16,13 @@ public class CreateImportTaskSample {
 
     // 创建请求对象
     CreateImportTaskReq req = CreateImportTaskReq.newBuilder()
+        .importTask(ImportTask.newBuilder()
+            .fileExtension("")
+            .fileToken("")
+            .type("")
+            .fileName("")
+            .point(ImportTaskMountPoint.newBuilder().build())
+            .build())
         .build();
 
     // 发起请求

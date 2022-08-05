@@ -2,6 +2,8 @@ package com.lark.oapi.sample.apiall.bitablev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.bitable.v1.model.AppTableField;
+import com.lark.oapi.service.bitable.v1.model.AppTableFieldProperty;
 import com.lark.oapi.service.bitable.v1.model.CreateAppTableFieldReq;
 import com.lark.oapi.service.bitable.v1.model.CreateAppTableFieldResp;
 
@@ -16,6 +18,11 @@ public class CreateAppTableFieldSample {
     CreateAppTableFieldReq req = CreateAppTableFieldReq.newBuilder()
         .appToken("")
         .tableId("")
+        .appTableField(AppTableField.newBuilder()
+            .fieldName("")
+            .type(1)
+            .property(AppTableFieldProperty.newBuilder().build())
+            .build())
         .build();
 
     // 发起请求

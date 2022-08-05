@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.bitablev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.bitable.v1.model.AppRoleMember;
 import com.lark.oapi.service.bitable.v1.model.CreateAppRoleMemberReq;
 import com.lark.oapi.service.bitable.v1.model.CreateAppRoleMemberResp;
 
@@ -17,6 +18,9 @@ public class CreateAppRoleMemberSample {
         .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
         .roleId("roljRpwIUt")
         .memberIdType("open_id")
+        .appRoleMember(AppRoleMember.newBuilder()
+            .memberId("ou_7dab8a3d3cdcc9da365777c7ad535d62")
+            .build())
         .build();
 
     // 发起请求

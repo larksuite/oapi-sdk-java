@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.taskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.task.v1.model.Collaborator;
 import com.lark.oapi.service.task.v1.model.CreateTaskCollaboratorReq;
 import com.lark.oapi.service.task.v1.model.CreateTaskCollaboratorResp;
 
@@ -16,6 +17,9 @@ public class CreateTaskCollaboratorSample {
     CreateTaskCollaboratorReq req = CreateTaskCollaboratorReq.newBuilder()
         .taskId("83912691-2e43-47fc-94a4-d512e03984fa")
         .userIdType("user_id")
+        .collaborator(Collaborator.newBuilder()
+            .id("ou_99e1a581b36ecc4862cbfbce473f1234")
+            .build())
         .build();
 
     // 发起请求

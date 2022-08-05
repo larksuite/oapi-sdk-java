@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.sheetsv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.sheets.v3.model.FilterView;
 import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetSheetFilterViewReq;
 import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetSheetFilterViewResp;
 
@@ -17,6 +18,10 @@ public class PatchSpreadsheetSheetFilterViewSample {
         .spreadsheetToken("")
         .sheetId("")
         .filterViewId("")
+        .filterView(FilterView.newBuilder()
+            .filterViewName("")
+            .range("")
+            .build())
         .build();
 
     // 发起请求

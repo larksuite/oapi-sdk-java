@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.bitablev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.bitable.v1.model.AppTableFormPatchedField;
 import com.lark.oapi.service.bitable.v1.model.PatchAppTableFormFieldReq;
 import com.lark.oapi.service.bitable.v1.model.PatchAppTableFormFieldResp;
 
@@ -18,6 +19,13 @@ public class PatchAppTableFormFieldSample {
         .tableId("")
         .formId("")
         .fieldId("")
+        .appTableFormPatchedField(AppTableFormPatchedField.newBuilder()
+            .preFieldId("")
+            .title("")
+            .description("")
+            .required(false)
+            .visible(false)
+            .build())
         .build();
 
     // 发起请求

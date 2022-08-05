@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.PatchTicketCustomizedFieldReq;
 import com.lark.oapi.service.helpdesk.v1.model.PatchTicketCustomizedFieldResp;
+import com.lark.oapi.service.helpdesk.v1.model.TicketCustomizedField;
 
 // HTTP PATH: /open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
 public class PatchTicketCustomizedFieldSample {
@@ -15,6 +16,13 @@ public class PatchTicketCustomizedFieldSample {
     // 创建请求对象
     PatchTicketCustomizedFieldReq req = PatchTicketCustomizedFieldReq.newBuilder()
         .ticketCustomizedFieldId("")
+        .ticketCustomizedField(TicketCustomizedField.newBuilder()
+            .displayName("")
+            .position("")
+            .description("")
+            .visible(false)
+            .required(false)
+            .build())
         .build();
 
     // 发起请求

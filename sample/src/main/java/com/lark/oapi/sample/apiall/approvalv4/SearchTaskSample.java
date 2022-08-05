@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.approval.v4.model.SearchTaskReq;
 import com.lark.oapi.service.approval.v4.model.SearchTaskResp;
+import com.lark.oapi.service.approval.v4.model.TaskSearch;
 
 // HTTP PATH: /open-apis/approval/v4/tasks/search"
 public class SearchTaskSample {
@@ -17,6 +18,18 @@ public class SearchTaskSample {
         .pageSize(100)
         .pageToken("nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU")
         .userIdType("user_id")
+        .taskSearch(TaskSearch.newBuilder()
+            .userId("lwiu098wj")
+            .approvalCode("EB828003-9FFE-4B3F-AA50-2E199E2ED942")
+            .instanceCode("EB828003-9FFE-4B3F-AA50-2E199E2ED943")
+            .instanceExternalId("EB828003-9FFE-4B3F-AA50-2E199E2ED976")
+            .groupExternalId("1234567")
+            .taskTitle("test")
+            .taskStatus("PENDING")
+            .instanceStartTimeFrom("1547654251506")
+            .instanceStartTimeTo("1547654251506")
+            .locale("zh-CN")
+            .build())
         .build();
 
     // 发起请求

@@ -4,6 +4,8 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.contact.v3.model.CreateDepartmentReq;
 import com.lark.oapi.service.contact.v3.model.CreateDepartmentResp;
+import com.lark.oapi.service.contact.v3.model.Department;
+import com.lark.oapi.service.contact.v3.model.DepartmentI18nName;
 
 // HTTP PATH: /open-apis/contact/v3/departments"
 public class CreateDepartmentSample {
@@ -17,6 +19,16 @@ public class CreateDepartmentSample {
         .userIdType("user_id")
         .departmentIdType("department_id")
         .clientToken("")
+        .department(Department.newBuilder()
+            .name("")
+            .i18nName(DepartmentI18nName.newBuilder().build())
+            .parentDepartmentId("")
+            .departmentId("")
+            .leaderUserId("")
+            .order("")
+            .unitIds(new String[]{})
+            .createGroupChat(false)
+            .build())
         .build();
 
     // 发起请求

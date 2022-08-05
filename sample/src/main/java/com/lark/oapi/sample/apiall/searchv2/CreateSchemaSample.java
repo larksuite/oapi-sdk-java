@@ -4,6 +4,9 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.search.v2.model.CreateSchemaReq;
 import com.lark.oapi.service.search.v2.model.CreateSchemaResp;
+import com.lark.oapi.service.search.v2.model.Schema;
+import com.lark.oapi.service.search.v2.model.SchemaDisplay;
+import com.lark.oapi.service.search.v2.model.SchemaProperty;
 
 // HTTP PATH: /open-apis/search/v2/schemas"
 public class CreateSchemaSample {
@@ -15,6 +18,11 @@ public class CreateSchemaSample {
     // 创建请求对象
     CreateSchemaReq req = CreateSchemaReq.newBuilder()
         .validateOnly(false)
+        .schema(Schema.newBuilder()
+            .properties(new SchemaProperty[]{})
+            .display(SchemaDisplay.newBuilder().build())
+            .schemaId("jira_schema")
+            .build())
         .build();
 
     // 发起请求

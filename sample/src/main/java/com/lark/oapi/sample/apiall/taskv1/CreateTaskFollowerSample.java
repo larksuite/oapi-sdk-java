@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.task.v1.model.CreateTaskFollowerReq;
 import com.lark.oapi.service.task.v1.model.CreateTaskFollowerResp;
+import com.lark.oapi.service.task.v1.model.Follower;
 
 // HTTP PATH: /open-apis/task/v1/tasks/:task_id/followers"
 public class CreateTaskFollowerSample {
@@ -16,6 +17,9 @@ public class CreateTaskFollowerSample {
     CreateTaskFollowerReq req = CreateTaskFollowerReq.newBuilder()
         .taskId("83912691-2e43-47fc-94a4-d512e03984fa")
         .userIdType("user_id")
+        .follower(Follower.newBuilder()
+            .id("ou_99e1a581b36ecc4862cbfbce473f3123")
+            .build())
         .build();
 
     // 发起请求

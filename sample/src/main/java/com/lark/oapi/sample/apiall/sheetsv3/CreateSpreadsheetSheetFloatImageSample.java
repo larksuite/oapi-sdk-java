@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFloatImageReq;
 import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFloatImageResp;
+import com.lark.oapi.service.sheets.v3.model.FloatImage;
 
 // HTTP PATH: /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images"
 public class CreateSpreadsheetSheetFloatImageSample {
@@ -16,6 +17,15 @@ public class CreateSpreadsheetSheetFloatImageSample {
     CreateSpreadsheetSheetFloatImageReq req = CreateSpreadsheetSheetFloatImageReq.newBuilder()
         .spreadsheetToken("")
         .sheetId("")
+        .floatImage(FloatImage.newBuilder()
+            .floatImageId("")
+            .floatImageToken("")
+            .range("")
+            .width(0.0)
+            .height(0.0)
+            .offsetX(0.0)
+            .offsetY(0.0)
+            .build())
         .build();
 
     // 发起请求

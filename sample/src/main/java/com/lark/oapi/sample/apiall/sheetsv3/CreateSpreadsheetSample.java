@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetReq;
 import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetResp;
+import com.lark.oapi.service.sheets.v3.model.Spreadsheet;
 
 // HTTP PATH: /open-apis/sheets/v3/spreadsheets"
 public class CreateSpreadsheetSample {
@@ -14,6 +15,10 @@ public class CreateSpreadsheetSample {
 
     // 创建请求对象
     CreateSpreadsheetReq req = CreateSpreadsheetReq.newBuilder()
+        .spreadsheet(Spreadsheet.newBuilder()
+            .title("title")
+            .folderToken("fldxxxxxxxxxxxx")
+            .build())
         .build();
 
     // 发起请求

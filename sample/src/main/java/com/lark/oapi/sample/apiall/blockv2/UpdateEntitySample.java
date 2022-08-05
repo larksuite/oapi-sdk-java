@@ -2,6 +2,7 @@ package com.lark.oapi.sample.apiall.blockv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.block.v2.model.Entity;
 import com.lark.oapi.service.block.v2.model.UpdateEntityReq;
 import com.lark.oapi.service.block.v2.model.UpdateEntityResp;
 
@@ -15,6 +16,20 @@ public class UpdateEntitySample {
     // 创建请求对象
     UpdateEntityReq req = UpdateEntityReq.newBuilder()
         .blockId("7794641623571830467")
+        .entity(Entity.newBuilder()
+            .title("已阅block")
+            .blockTypeId("blk_6204893fee000013739f5359")
+            .sourceData("")
+            .sourceMeta("")
+            .version("1651716489253602")
+            .sourceLink("")
+            .summary("")
+            .preview("")
+            .i18nSummay("")
+            .i18nPreview("")
+            .owner("ou_fa7aa170f92d1615de63371ac425a767")
+            .extra("{}")
+            .build())
         .build();
 
     // 发起请求

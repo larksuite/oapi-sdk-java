@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFilterViewConditionReq;
 import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFilterViewConditionResp;
+import com.lark.oapi.service.sheets.v3.model.FilterViewCondition;
 
 // HTTP PATH: /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions"
 public class CreateSpreadsheetSheetFilterViewConditionSample {
@@ -17,6 +18,12 @@ public class CreateSpreadsheetSheetFilterViewConditionSample {
         .spreadsheetToken("")
         .sheetId("")
         .filterViewId("")
+        .filterViewCondition(FilterViewCondition.newBuilder()
+            .conditionId("")
+            .filterType("")
+            .compareType("")
+            .expected(new String[]{})
+            .build())
         .build();
 
     // 发起请求

@@ -2,8 +2,10 @@ package com.lark.oapi.sample.apiall.bitablev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.bitable.v1.model.AppTableRecord;
 import com.lark.oapi.service.bitable.v1.model.UpdateAppTableRecordReq;
 import com.lark.oapi.service.bitable.v1.model.UpdateAppTableRecordResp;
+import java.util.HashMap;
 
 // HTTP PATH: /open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
 public class UpdateAppTableRecordSample {
@@ -18,6 +20,9 @@ public class UpdateAppTableRecordSample {
         .tableId("")
         .recordId("")
         .userIdType("user_id")
+        .appTableRecord(AppTableRecord.newBuilder()
+            .fields(new HashMap<String, Object>())
+            .build())
         .build();
 
     // 发起请求

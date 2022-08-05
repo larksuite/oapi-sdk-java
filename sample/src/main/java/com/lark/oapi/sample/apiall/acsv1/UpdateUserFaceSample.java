@@ -18,6 +18,11 @@ public class UpdateUserFaceSample {
     UpdateUserFaceReq req = UpdateUserFaceReq.newBuilder()
         .userId("")
         .userIdType("user_id")
+        .file(com.lark.oapi.service.acs.v1.model.File.newBuilder()
+            .files(file)
+            .fileType("jpg")
+            .fileName("efeqz12f.jpg")
+            .build())
         .build();
 
     // 发起请求

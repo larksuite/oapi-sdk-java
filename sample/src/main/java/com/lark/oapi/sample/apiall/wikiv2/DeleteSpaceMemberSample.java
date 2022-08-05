@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.wiki.v2.model.DeleteSpaceMemberReq;
 import com.lark.oapi.service.wiki.v2.model.DeleteSpaceMemberResp;
+import com.lark.oapi.service.wiki.v2.model.Member;
 
 // HTTP PATH: /open-apis/wiki/v2/spaces/:space_id/members/:member_id"
 public class DeleteSpaceMemberSample {
@@ -16,6 +17,10 @@ public class DeleteSpaceMemberSample {
     DeleteSpaceMemberReq req = DeleteSpaceMemberReq.newBuilder()
         .spaceId("7008061636015554580")
         .memberId("g64fb7g7")
+        .member(Member.newBuilder()
+            .memberType("")
+            .memberRole("")
+            .build())
         .build();
 
     // 发起请求

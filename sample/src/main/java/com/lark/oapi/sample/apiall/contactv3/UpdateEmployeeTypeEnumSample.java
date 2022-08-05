@@ -2,6 +2,8 @@ package com.lark.oapi.sample.apiall.contactv3;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.contact.v3.model.EmployeeTypeEnum;
+import com.lark.oapi.service.contact.v3.model.I18nContent;
 import com.lark.oapi.service.contact.v3.model.UpdateEmployeeTypeEnumReq;
 import com.lark.oapi.service.contact.v3.model.UpdateEmployeeTypeEnumResp;
 
@@ -15,6 +17,12 @@ public class UpdateEmployeeTypeEnumSample {
     // 创建请求对象
     UpdateEmployeeTypeEnumReq req = UpdateEmployeeTypeEnumReq.newBuilder()
         .enumId("")
+        .employeeTypeEnum(EmployeeTypeEnum.newBuilder()
+            .content("")
+            .enumType(1)
+            .enumStatus(1)
+            .i18nContent(new I18nContent[]{})
+            .build())
         .build();
 
     // 发起请求

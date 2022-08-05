@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.CreateTicketCustomizedFieldReq;
 import com.lark.oapi.service.helpdesk.v1.model.CreateTicketCustomizedFieldResp;
+import com.lark.oapi.service.helpdesk.v1.model.TicketCustomizedField;
 
 // HTTP PATH: /open-apis/helpdesk/v1/ticket_customized_fields"
 public class CreateTicketCustomizedFieldSample {
@@ -14,6 +15,18 @@ public class CreateTicketCustomizedFieldSample {
 
     // 创建请求对象
     CreateTicketCustomizedFieldReq req = CreateTicketCustomizedFieldReq.newBuilder()
+        .ticketCustomizedField(TicketCustomizedField.newBuilder()
+            .helpdeskId("")
+            .keyName("")
+            .displayName("")
+            .position("")
+            .fieldType("")
+            .description("")
+            .visible(false)
+            .editable(false)
+            .required(false)
+            .dropdownAllowMultiple(false)
+            .build())
         .build();
 
     // 发起请求

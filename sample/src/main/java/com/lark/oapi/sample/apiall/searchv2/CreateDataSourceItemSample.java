@@ -2,8 +2,12 @@ package com.lark.oapi.sample.apiall.searchv2;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.search.v2.model.Acl;
 import com.lark.oapi.service.search.v2.model.CreateDataSourceItemReq;
 import com.lark.oapi.service.search.v2.model.CreateDataSourceItemResp;
+import com.lark.oapi.service.search.v2.model.Item;
+import com.lark.oapi.service.search.v2.model.ItemContent;
+import com.lark.oapi.service.search.v2.model.ItemMetadata;
 
 // HTTP PATH: /open-apis/search/v2/data_sources/:data_source_id/items"
 public class CreateDataSourceItemSample {
@@ -15,6 +19,13 @@ public class CreateDataSourceItemSample {
     // 创建请求对象
     CreateDataSourceItemReq req = CreateDataSourceItemReq.newBuilder()
         .dataSourceId("")
+        .item(Item.newBuilder()
+            .id("")
+            .acl(new Acl[]{})
+            .metadata(ItemMetadata.newBuilder().build())
+            .structuredData("")
+            .content(ItemContent.newBuilder().build())
+            .build())
         .build();
 
     // 发起请求

@@ -4,6 +4,10 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.attendance.v1.model.CreateShiftReq;
 import com.lark.oapi.service.attendance.v1.model.CreateShiftResp;
+import com.lark.oapi.service.attendance.v1.model.LateOffLateOnRule;
+import com.lark.oapi.service.attendance.v1.model.PunchTimeRule;
+import com.lark.oapi.service.attendance.v1.model.RestRule;
+import com.lark.oapi.service.attendance.v1.model.Shift;
 
 // HTTP PATH: /open-apis/attendance/v1/shifts"
 public class CreateShiftSample {
@@ -14,6 +18,16 @@ public class CreateShiftSample {
 
     // 创建请求对象
     CreateShiftReq req = CreateShiftReq.newBuilder()
+        .shift(Shift.newBuilder()
+            .shiftName("早班")
+            .punchTimes(1)
+            .isFlexible(false)
+            .flexibleMinutes(60)
+            .noNeedOff(true)
+            .punchTimeRule(new PunchTimeRule[]{})
+            .lateOffLateOnRule(new LateOffLateOnRule[]{})
+            .restTimeRule(new RestRule[]{})
+            .build())
         .build();
 
     // 发起请求

@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.approval.v4.model.CancelInstanceReq;
 import com.lark.oapi.service.approval.v4.model.CancelInstanceResp;
+import com.lark.oapi.service.approval.v4.model.InstanceCancel;
 
 // HTTP PATH: /open-apis/approval/v4/instances/cancel"
 public class CancelInstanceSample {
@@ -15,6 +16,12 @@ public class CancelInstanceSample {
     // 创建请求对象
     CancelInstanceReq req = CancelInstanceReq.newBuilder()
         .userIdType("user_id")
+        .instanceCancel(InstanceCancel.newBuilder()
+            .approvalCode("7C468A54-8745-2245-9675-08B7C63E7A85")
+            .instanceCode("81D31358-93AF-92D6-7425-01A5D67C4E71")
+            .userId("f7cb567e")
+            .notifyStarter(true)
+            .build())
         .build();
 
     // 发起请求

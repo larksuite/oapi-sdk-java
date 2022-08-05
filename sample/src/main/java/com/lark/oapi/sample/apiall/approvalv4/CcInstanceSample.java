@@ -4,6 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.approval.v4.model.CcInstanceReq;
 import com.lark.oapi.service.approval.v4.model.CcInstanceResp;
+import com.lark.oapi.service.approval.v4.model.InstanceCc;
 
 // HTTP PATH: /open-apis/approval/v4/instances/cc"
 public class CcInstanceSample {
@@ -15,6 +16,13 @@ public class CcInstanceSample {
     // 创建请求对象
     CcInstanceReq req = CcInstanceReq.newBuilder()
         .userIdType("user_id")
+        .instanceCc(InstanceCc.newBuilder()
+            .approvalCode("7C468A54-8745-2245-9675-08B7C63E7A85")
+            .instanceCode("7C468A54-8745-2245-9675-08B7C63E7A85")
+            .userId("f7cb567e")
+            .ccUserIds(new String[]{})
+            .comment("ok")
+            .build())
         .build();
 
     // 发起请求
