@@ -77,6 +77,10 @@ public class Transport {
       return AccessTokenType.Tenant;
     }
 
+    if (accessTokenTypeSet.contains(AccessTokenType.App)) {
+      return AccessTokenType.App;
+    }
+
     throw new IllegalAccessTokenTypeException();
   }
 

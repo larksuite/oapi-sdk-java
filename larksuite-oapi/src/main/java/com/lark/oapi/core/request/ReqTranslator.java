@@ -96,6 +96,10 @@ public class ReqTranslator {
         if (config.isDisableTokenCache()) {
           return requestOptions.getAppAccessToken();
         }
+
+        if (Strings.isNotEmpty(requestOptions.getAppAccessToken())) {
+          return requestOptions.getAppAccessToken();
+        }
         return GlobalTokenManager.getTokenManager()
             .getAppAccessToken(config);
 

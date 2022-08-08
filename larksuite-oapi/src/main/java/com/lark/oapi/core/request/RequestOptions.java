@@ -162,6 +162,11 @@ public class RequestOptions {
       return this;
     }
 
+    public Builder appAccessToken(String appAccessToken) {
+      this.appAccessToken = appAccessToken;
+      return this;
+    }
+
     public Builder tenantAccessToken(String tenantAccessToken) {
       this.tenantAccessToken = tenantAccessToken;
       return this;

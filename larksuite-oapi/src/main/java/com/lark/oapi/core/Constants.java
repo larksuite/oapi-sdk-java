@@ -40,4 +40,7 @@ public interface Constants {
   String TENANT_ACCESS_TOKEN_INTERNAL_URL_PATH = "/open-apis/auth/v3/tenant_access_token/internal";
   String TENANT_ACCESS_TOKEN_ISV_URL_PATH = "/open-apis/auth/v3/tenant_access_token";
   String APPLY_APP_TICKET_PATH = "/open-apis/auth/v3/app_ticket/resend";
+  String GET_AUTHEN_ACCESS_TOKEN = "/open-apis/authen/v1/access_token";
+  String REFRESH_AUTHEN_ACCESS_TOKEN = "/open-apis/authen/v1/refresh_access_token";
+  String GET_AUTHEN_USER_INFO = "/open-apis/authen/v1/user_info";
 }

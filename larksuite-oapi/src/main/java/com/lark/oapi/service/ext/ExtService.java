@@ -26,8 +26,13 @@ import com.lark.oapi.core.response.TenantAccessTokenResp;
 import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.ext.model.AuthenAccessTokenReq;
+import com.lark.oapi.service.ext.model.AuthenAccessTokenResp;
 import com.lark.oapi.service.ext.model.CreateFileReq;
 import com.lark.oapi.service.ext.model.CreateFileResp;
+import com.lark.oapi.service.ext.model.GetAuthenUserInfoResp;
+import com.lark.oapi.service.ext.model.RefreshAuthenAccessTokenReq;
+import com.lark.oapi.service.ext.model.RefreshAuthenAccessTokenResp;
 
 public class ExtService {
 
@@ -117,6 +122,84 @@ public class ExtService {
         TenantAccessTokenResp.class);
     tenantAccessTokenResp.setRawResponse(resp);
     return tenantAccessTokenResp;
+  }
+
+  public AuthenAccessTokenResp getAuthenAccessToken(
+      AuthenAccessTokenReq req)
+      throws Exception {
+
+    RawResponse resp = Transport.send(config
+        , new RequestOptions(), "POST"
+        , Constants.GET_AUTHEN_ACCESS_TOKEN
+        , Sets.newHashSet(AccessTokenType.App), req);
+
+    AuthenAccessTokenResp authenAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
+        AuthenAccessTokenResp.class);
+    authenAccessTokenResp.setRawResponse(resp);
+    return authenAccessTokenResp;
+  }
+
+  public AuthenAccessTokenResp getAuthenAccessToken(
+      AuthenAccessTokenReq req, RequestOptions requestOptions)
+      throws Exception {
+
+    RawResponse resp = Transport.send(config
+        , requestOptions
+        , "POST"
+        , Constants.GET_AUTHEN_ACCESS_TOKEN
+        , Sets.newHashSet(AccessTokenType.App), req);
+
+    AuthenAccessTokenResp authenAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
+        AuthenAccessTokenResp.class);
+    authenAccessTokenResp.setRawResponse(resp);
+    return authenAccessTokenResp;
+  }
+
+  public RefreshAuthenAccessTokenResp refreshAuthenAccessToken(
+      RefreshAuthenAccessTokenReq req, RequestOptions requestOptions)
+      throws Exception {
+
+    RawResponse resp = Transport.send(config
+        , requestOptions
+        , "POST"
+        , Constants.REFRESH_AUTHEN_ACCESS_TOKEN
+        , Sets.newHashSet(AccessTokenType.App), req);
+
+    RefreshAuthenAccessTokenResp authenAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
+        RefreshAuthenAccessTokenResp.class);
+    authenAccessTokenResp.setRawResponse(resp);
+    return authenAccessTokenResp;
+  }
+
+  public RefreshAuthenAccessTokenResp refreshAuthenAccessToken(
+      RefreshAuthenAccessTokenReq req)
+      throws Exception {
+
+    RawResponse resp = Transport.send(config
+        , new RequestOptions()
+        , "POST"
+        , Constants.REFRESH_AUTHEN_ACCESS_TOKEN
+        , Sets.newHashSet(AccessTokenType.App), req);
+
+    RefreshAuthenAccessTokenResp authenAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
+        RefreshAuthenAccessTokenResp.class);
+    authenAccessTokenResp.setRawResponse(resp);
+    return authenAccessTokenResp;
+  }
+
+  public GetAuthenUserInfoResp getAuthenUserInfo(RequestOptions requestOptions)
+      throws Exception {
+
+    RawResponse resp = Transport.send(config
+        , requestOptions
+        , "GET"
+        , Constants.GET_AUTHEN_USER_INFO
+        , Sets.newHashSet(AccessTokenType.User), null);
+
+    GetAuthenUserInfoResp authenAccessTokenResp = UnmarshalRespUtil.unmarshalResp(resp,
+        GetAuthenUserInfoResp.class);
+    authenAccessTokenResp.setRawResponse(resp);
+    return authenAccessTokenResp;
   }
 
 

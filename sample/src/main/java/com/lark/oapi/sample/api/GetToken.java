@@ -16,11 +16,19 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.enums.AppType;
 import com.lark.oapi.core.request.MarketplaceAppAccessTokenReq;
 import com.lark.oapi.core.request.MarketplaceTenantAccessTokenReq;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.request.SelfBuiltAppAccessTokenReq;
 import com.lark.oapi.core.request.SelfBuiltTenantAccessTokenReq;
 import com.lark.oapi.core.response.AppAccessTokenResp;
 import com.lark.oapi.core.response.TenantAccessTokenResp;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.ext.model.AuthenAccessTokenReq;
+import com.lark.oapi.service.ext.model.AuthenAccessTokenReqBody;
+import com.lark.oapi.service.ext.model.AuthenAccessTokenResp;
+import com.lark.oapi.service.ext.model.GetAuthenUserInfoResp;
+import com.lark.oapi.service.ext.model.RefreshAuthenAccessTokenReq;
+import com.lark.oapi.service.ext.model.RefreshAuthenAccessTokenReqBody;
+import com.lark.oapi.service.ext.model.RefreshAuthenAccessTokenResp;
 
 /**
  * 原生http 调用方式
@@ -118,7 +126,78 @@ public class GetToken {
     System.out.println(resp.getRequestId());
   }
 
+  public static void getAuthenAccesstoken() throws Exception {
+    String appId = System.getenv().get("APP_ID");
+    String appSecret = System.getenv().get("APP_SECRET");
+
+    // 构建client
+    Client client = Client.newBuilder(appId, appSecret)
+        .appType(AppType.SELF_BUILT) // 设置app类型，默认为自建
+        .logReqAtDebug(true)
+        .build();
+
+    // 发起请求
+    AuthenAccessTokenResp resp = client.ext().getAuthenAccessToken(
+        AuthenAccessTokenReq.newBuilder()
+            .body(AuthenAccessTokenReqBody.newBuilder()
+                .code("30brdf4b66164382baabf594fb0b3630")
+                .grantType("authorization_code")
+                .build())
+            .build());
+
+    // 处理结果
+    System.out.println(Jsons.DEFAULT.toJson(resp));
+    System.out.println(resp.getRequestId());
+  }
+
+  public static void refreshAuthenAccesstoken() throws Exception {
+    String appId = System.getenv().get("APP_ID");
+    String appSecret = System.getenv().get("APP_SECRET");
+
+    // 构建client
+    Client client = Client.newBuilder(appId, appSecret)
+        .appType(AppType.SELF_BUILT) // 设置app类型，默认为自建
+        .logReqAtDebug(true)
+        .build();
+
+    // 发起请求
+    RefreshAuthenAccessTokenResp resp = client.ext().refreshAuthenAccessToken(
+        RefreshAuthenAccessTokenReq.newBuilder()
+            .body(RefreshAuthenAccessTokenReqBody.newBuilder()
+                .refreshToken("ur-2SgRhB43N7X9WCgmcpKzRx0h7blw1lcbq8000lOE025A")
+                .grantType("authorization_code")
+                .build())
+            .build());
+
+    // 处理结果
+    System.out.println(Jsons.DEFAULT.toJson(resp));
+    System.out.println(resp.getRequestId());
+  }
+
+
+  public static void getAuthenUserInfo() throws Exception {
+    String appId = System.getenv().get("APP_ID");
+    String appSecret = System.getenv().get("APP_SECRET");
+
+    // 构建client
+    Client client = Client.newBuilder(appId, appSecret)
+        .appType(AppType.SELF_BUILT) // 设置app类型，默认为自建
+        .logReqAtDebug(true)
+        .build();
+
+    // 发起请求
+    GetAuthenUserInfoResp resp = client.ext().getAuthenUserInfo(
+        RequestOptions.newBuilder()
+            .userAccessToken("u-1MCUiFT0F2mGeUEs1YHy43h02_Tw1lezhO00k1ow0KyC")
+            .build()
+    );
+
+    // 处理结果
+    System.out.println(Jsons.DEFAULT.toJson(resp));
+    System.out.println(resp.getRequestId());
+  }
+
   public static void main(String arg[]) throws Exception {
-    getTenantAccessTokenBySelfBuiltApp();
+    getAuthenUserInfo();
   }
 }
