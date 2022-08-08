@@ -22,6 +22,7 @@ import com.lark.oapi.core.request.SelfBuiltTenantAccessTokenReq;
 import com.lark.oapi.core.response.AppAccessTokenResp;
 import com.lark.oapi.core.response.TenantAccessTokenResp;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.ext.enums.GrantTypeEnum;
 import com.lark.oapi.service.ext.model.AuthenAccessTokenReq;
 import com.lark.oapi.service.ext.model.AuthenAccessTokenReqBody;
 import com.lark.oapi.service.ext.model.AuthenAccessTokenResp;
@@ -141,7 +142,7 @@ public class GetToken {
         AuthenAccessTokenReq.newBuilder()
             .body(AuthenAccessTokenReqBody.newBuilder()
                 .code("30brdf4b66164382baabf594fb0b3630")
-                .grantType("authorization_code")
+                .grantType(GrantTypeEnum.AUTHORIZATION_CODE)
                 .build())
             .build());
 
@@ -165,7 +166,7 @@ public class GetToken {
         RefreshAuthenAccessTokenReq.newBuilder()
             .body(RefreshAuthenAccessTokenReqBody.newBuilder()
                 .refreshToken("ur-2SgRhB43N7X9WCgmcpKzRx0h7blw1lcbq8000lOE025A")
-                .grantType("authorization_code")
+                .grantType(GrantTypeEnum.REFRESH_TOKEN)
                 .build())
             .build());
 
@@ -198,6 +199,6 @@ public class GetToken {
   }
 
   public static void main(String arg[]) throws Exception {
-    getAuthenUserInfo();
+    refreshAuthenAccesstoken();
   }
 }
