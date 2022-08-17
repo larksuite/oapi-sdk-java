@@ -89,6 +89,10 @@ public class OkHttpTransport implements IHttpTransport {
       }
     }
 
+    if (!(request.getBody() instanceof  FormData)) {
+      builder.header("content-type","application/json; charset=utf-8");
+    }
+
     // 执行请求
     Response response = okHttpClient.newCall(builder.build()).execute();
 

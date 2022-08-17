@@ -10,14 +10,13 @@ public class ReadUsersMessageSample {
 
   public static void main(String arg[]) throws Exception {
     // 构建client
-    Client client = Client.newBuilder("appId", "appSecret").build();
+    Client client = Client.newBuilder("cli_a1eccc36c278900d", "uvNOxS6mplA6Nf3YPt8rUbbShON1Ocj5").build();
 
     // 创建请求对象
     ReadUsersMessageReq req = ReadUsersMessageReq.newBuilder()
-        .messageId("om_dc13264520392913993dd051dba21dcf")
-        .userIdType("user_id")
+        .messageId("om_7f7592e6b9f130ff575a9da9c3d7d506")
+        .userIdType("open_id")
         .pageSize(0)
-        .pageToken("")
         .build();
 
     // 发起请求

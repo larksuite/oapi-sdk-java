@@ -1041,6 +1041,8 @@ public class ImSample {
     file.close();
     // 返回请求ID
     System.out.println(resp.getRequestId());
+    System.out.println(resp.getFileName());
+    System.out.println(Jsons.DEFAULT.toJson(resp.getRawResponse().getHeaders()));
   }
 
   public static void downLoadFile2(Client client) throws Exception {

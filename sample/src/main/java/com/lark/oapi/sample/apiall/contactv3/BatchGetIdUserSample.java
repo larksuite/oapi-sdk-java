@@ -11,13 +11,13 @@ public class BatchGetIdUserSample {
 
   public static void main(String arg[]) throws Exception {
     // 构建client
-    Client client = Client.newBuilder("appId", "appSecret").build();
+    Client client = Client.newBuilder("cli_a1eccc36c278900d", "uvNOxS6mplA6Nf3YPt8rUbbShON1Ocj5").build();
 
     // 创建请求对象
     BatchGetIdUserReq req = BatchGetIdUserReq.newBuilder()
         .userIdType("open_id")
         .batchGetIdUserReqBody(BatchGetIdUserReqBody.newBuilder()
-            .emails(new String[]{})
+            .emails(new String[]{"zhailuxu@bytedance.com"})
             .mobiles(new String[]{})
             .build())
         .build();
