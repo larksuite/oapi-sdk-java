@@ -112,6 +112,9 @@ public class BuildSubHandler implements SubHandler {
         }
         com.larksuite.oapi.okhttp3_14.Request.Builder builder = new com.larksuite.oapi.okhttp3_14.Request.Builder().url(req.url()).method(req.getHttpMethod(), body);
         builder.header("User-Agent", "oapi-sdk-java/" + Constants.VERSION);
+        if (req.isResponseStream()) {
+            builder.header("content-type", "application/json; charset=utf-8");
+        }
         req.setHttpRequestBuilder(builder);
     }
 }
