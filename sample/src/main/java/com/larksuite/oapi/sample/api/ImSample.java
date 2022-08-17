@@ -1,54 +1,45 @@
 package com.larksuite.oapi.sample.api;
 
-import com.larksuite.oapi.core.*;
+import com.larksuite.oapi.core.AppSettings;
+import com.larksuite.oapi.core.Config;
+import com.larksuite.oapi.core.DefaultStore;
+import com.larksuite.oapi.core.Domain;
 import com.larksuite.oapi.core.api.response.Response;
 import com.larksuite.oapi.core.utils.Jsons;
 import com.larksuite.oapi.service.im.v1.ImService;
-import com.larksuite.oapi.service.im.v1.model.Message;
-import com.larksuite.oapi.service.im.v1.model.MessageCreateReqBody;
-
-import java.util.concurrent.TimeUnit;
+import com.larksuite.oapi.service.im.v1.ImService.FileGetReqCall;
+import java.io.FileOutputStream;
 
 public class ImSample {
-    // Configuration of "Custom App", parameter description:
-    // AppID、AppSecret: "Developer Console" -> "Credentials"（App ID、App Secret）
-    // VerificationToken、EncryptKey: "Developer Console" -> "Event Subscriptions"（Verification Token、Encrypt Key）
-    // For more information, please see: Github->README.md->Advanced use->How to build app settings(AppSettings)
-    private static final AppSettings appSettings = Config.getInternalAppSettingsByEnv();
 
-    // Currently, you are visiting Feishu, which uses default storage
-    // For more information, please see: Github->README.md->Advanced use->How to build overall configuration(Config)
+  // Configuration of "Custom App", parameter description:
+  // AppID、AppSecret: "Developer Console" -> "Credentials"（App ID、App Secret）
+  // VerificationToken、EncryptKey: "Developer Console" -> "Event Subscriptions"（Verification Token、Encrypt Key）
+  // For more information, please see: Github->README.md->Advanced use->How to build app settings(AppSettings)
+  private static final AppSettings appSettings = Config.getInternalAppSettingsByEnv();
 
-
-    public static void main(String[] args) throws Exception {
-        DefaultStore store = new DefaultStore();
-        Config config = new Config(Domain.FeiShu, appSettings, store);
-
-        ImService imService = new ImService(config);
-        // body params
-        MessageCreateReqBody body = new MessageCreateReqBody();
-        body.setReceiveId("77bbc392");
-        body.setContent("{\"text\": \"test content\"}");
-        body.setMsgType("text");
-
-        ImService.MessageCreateReqCall reqCall2 = imService.getMessages().create(body);
-        // query params
-        reqCall2.setReceiveIdType("user_id");
-
-        Response<Message> resp2 = reqCall2.execute();
-        System.out.println(resp2.getRequestID());
-        System.out.println(resp2.getHTTPStatusCode());
-        System.out.println(Jsons.DEFAULT_GSON.toJson(resp2));
+  // Currently, you are visiting Feishu, which uses default storage
+  // For more information, please see: Github->README.md->Advanced use->How to build overall configuration(Config)
 
 
-        // store.put("tenant_access_token-cli_9fe8602eab7f500d-", "", 12, TimeUnit.HOURS);
-        ImService.MessageCreateReqCall reqCall3 = imService.getMessages().create(body);
-        // query params
-        reqCall3.setReceiveIdType("user_id");
+  public static void main(String[] args) throws Exception {
+    DefaultStore store = new DefaultStore();
+    Config config = new Config(Domain.FeiShu, appSettings, store);
 
-        Response<Message> resp3 = reqCall3.execute();
-        System.out.println(resp3.getRequestID());
-        System.out.println(resp3.getHTTPStatusCode());
-        System.out.println(Jsons.DEFAULT_GSON.toJson(resp3));
+    ImService imService = new ImService(config);
+    FileGetReqCall reqCall3 = imService.getFiles().get();
+    // query params
+    reqCall3.setFileKey("file_v2_4fa17cda-01f3-4aac-927a-7833ab482fcg");
+    try (FileOutputStream output = new FileOutputStream("a.pdf")) {
+      reqCall3.setResponseStream(output);
+
+      Response resp3 = reqCall3.execute();
+      System.out.println(resp3.getRequestID());
+      System.out.println(resp3.getHTTPStatusCode());
+      System.out.println(Jsons.DEFAULT_GSON.toJson(resp3.getHeader()));
+    } catch (Exception e) {
+      e.printStackTrace();
     }
+
+  }
 }
