@@ -14,6 +14,7 @@
 package com.lark.oapi.service.bitable.v1.model;
 
 import com.google.gson.annotations.SerializedName;
+import java.util.Objects;
 
 public class Url {
 
@@ -49,6 +50,31 @@ public class Url {
 
   public void setLink(String link) {
     this.link = link;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    Url url = (Url) o;
+    return Objects.equals(text, url.text) && Objects.equals(link, url.link);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(text, link);
+  }
+
+  @Override
+  public String toString() {
+    return "Url{" +
+        "text='" + text + '\'' +
+        ", link='" + link + '\'' +
+        '}';
   }
 
   public static class Builder {

@@ -13,6 +13,24 @@
 
 package com.lark.oapi;
 
+import com.lark.oapi.core.Config;
+import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.cache.ICache;
+import com.lark.oapi.core.cache.LocalCache;
+import com.lark.oapi.core.enums.AppType;
+import com.lark.oapi.core.enums.BaseUrlEnum;
+import com.lark.oapi.core.httpclient.IHttpTransport;
+import com.lark.oapi.core.httpclient.OkHttpTransport;
+import com.lark.oapi.core.request.RequestOptions;
+import com.lark.oapi.core.response.RawResponse;
+import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.token.AppTicketManager;
+import com.lark.oapi.core.token.GlobalAppTicketManager;
+import com.lark.oapi.core.token.GlobalTokenManager;
+import com.lark.oapi.core.token.TokenManager;
+import com.lark.oapi.core.utils.OKHttps;
+import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.service.acs.v1.AcsService;
 import com.lark.oapi.service.admin.v1.AdminService;
 import com.lark.oapi.service.application.v6.ApplicationService;
@@ -27,6 +45,7 @@ import com.lark.oapi.service.docx.v1.DocxService;
 import com.lark.oapi.service.drive.v1.DriveService;
 import com.lark.oapi.service.ehr.v1.EhrService;
 import com.lark.oapi.service.event.v1.EventService;
+import com.lark.oapi.service.ext.ExtService;
 import com.lark.oapi.service.face_detection.v1.FaceDetectionService;
 import com.lark.oapi.service.gray_test_open_sg.v1.GrayTestOpenSgService;
 import com.lark.oapi.service.helpdesk.v1.HelpdeskService;
@@ -44,388 +63,398 @@ import com.lark.oapi.service.tenant.v2.TenantService;
 import com.lark.oapi.service.translation.v1.TranslationService;
 import com.lark.oapi.service.vc.v1.VcService;
 import com.lark.oapi.service.wiki.v2.WikiService;
-
-import com.lark.oapi.service.ext.ExtService;
-import com.lark.oapi.core.httpclient.IHttpTransport;
-import com.lark.oapi.core.httpclient.OkHttpTransport;
-import com.lark.oapi.core.Transport;
-import com.lark.oapi.core.request.RequestOptions;
-import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.token.*;
-import com.lark.oapi.core.utils.Sets;
-import com.lark.oapi.core.enums.AppType;
-import com.lark.oapi.core.Config;
-import com.lark.oapi.okhttp.OkHttpClient;
-import com.lark.oapi.core.cache.ICache;
-import com.lark.oapi.core.cache.LocalCache;
-import com.lark.oapi.core.token.AppTicketManager;
-import com.lark.oapi.core.token.TokenManager;
-import com.lark.oapi.core.token.GlobalAppTicketManager;
-import com.lark.oapi.core.token.GlobalTokenManager;
-import java.util.concurrent.TimeUnit;
-import com.lark.oapi.core.utils.OKHttps;
-import com.lark.oapi.core.utils.Strings;
 import java.nio.charset.StandardCharsets;
-import com.lark.oapi.core.enums.BaseUrlEnum;
-import com.lark.oapi.core.request.MarketplaceAppAccessTokenReq;
-import com.lark.oapi.core.request.MarketplaceTenantAccessTokenReq;
-import com.lark.oapi.core.request.SelfBuiltAppAccessTokenReq;
-import com.lark.oapi.core.request.SelfBuiltTenantAccessTokenReq;
-import com.lark.oapi.core.response.AppAccessTokenResp;
-import com.lark.oapi.core.response.TenantAccessTokenResp;
-import com.lark.oapi.core.exception.ObtainAccessTokenException;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
-import com.lark.oapi.core.Constants;
+import java.util.concurrent.TimeUnit;
 
 
-public class Client  {
-	private Config config;
-   private AcsService acs;
-   private AdminService admin;
-   private ApplicationService application;
-   private ApprovalService approval;
-   private AttendanceService attendance;
-   private BaikeService baike;
-   private BitableService bitable;
-   private BlockService block;
-   private CalendarService calendar;
-   private ContactService contact;
-   private DocxService docx;
-   private DriveService drive;
-   private EhrService ehr;
-   private EventService event;
-   private FaceDetectionService faceDetection;
-   private GrayTestOpenSgService grayTestOpenSg;
-   private HelpdeskService helpdesk;
-   private HumanAuthenticationService humanAuthentication;
-   private ImService im;
-   private MailService mail;
-   private MeetingRoomService meetingRoom;
-   private OpticalCharRecognitionService opticalCharRecognition;
-   private PassportService passport;
-   private SearchService search;
-   private SheetsService sheets;
-   private SpeechToTextService speechToText;
-   private TaskService task;
-   private TenantService tenant;
-   private TranslationService translation;
-   private VcService vc;
-   private WikiService wiki;
+public class Client {
 
-	private ExtService extService;
+  private Config config;
+  private AcsService acs;
+  private AdminService admin;
+  private ApplicationService application;
+  private ApprovalService approval;
+  private AttendanceService attendance;
+  private BaikeService baike;
+  private BitableService bitable;
+  private BlockService block;
+  private CalendarService calendar;
+  private ContactService contact;
+  private DocxService docx;
+  private DriveService drive;
+  private EhrService ehr;
+  private EventService event;
+  private FaceDetectionService faceDetection;
+  private GrayTestOpenSgService grayTestOpenSg;
+  private HelpdeskService helpdesk;
+  private HumanAuthenticationService humanAuthentication;
+  private ImService im;
+  private MailService mail;
+  private MeetingRoomService meetingRoom;
+  private OpticalCharRecognitionService opticalCharRecognition;
+  private PassportService passport;
+  private SearchService search;
+  private SheetsService sheets;
+  private SpeechToTextService speechToText;
+  private TaskService task;
+  private TenantService tenant;
+  private TranslationService translation;
+  private VcService vc;
+  private WikiService wiki;
 
-	public ExtService ext() {
-	  return extService;
-	}
+  private ExtService extService;
 
-	public void setConfig(Config config) {
-		this.config = config;
-	}
+  public static Builder newBuilder(String appId, String appSecret) {
+    return new Builder(appId, appSecret);
+  }
 
-   public AcsService acs(){
-	   return acs;
-	}
-   public AdminService admin(){
-	   return admin;
-	}
-   public ApplicationService application(){
-	   return application;
-	}
-   public ApprovalService approval(){
-	   return approval;
-	}
-   public AttendanceService attendance(){
-	   return attendance;
-	}
-   public BaikeService baike(){
-	   return baike;
-	}
-   public BitableService bitable(){
-	   return bitable;
-	}
-   public BlockService block(){
-	   return block;
-	}
-   public CalendarService calendar(){
-	   return calendar;
-	}
-   public ContactService contact(){
-	   return contact;
-	}
-   public DocxService docx(){
-	   return docx;
-	}
-   public DriveService drive(){
-	   return drive;
-	}
-   public EhrService ehr(){
-	   return ehr;
-	}
-   public EventService event(){
-	   return event;
-	}
-   public FaceDetectionService faceDetection(){
-	   return faceDetection;
-	}
-   public GrayTestOpenSgService grayTestOpenSg(){
-	   return grayTestOpenSg;
-	}
-   public HelpdeskService helpdesk(){
-	   return helpdesk;
-	}
-   public HumanAuthenticationService humanAuthentication(){
-	   return humanAuthentication;
-	}
-   public ImService im(){
-	   return im;
-	}
-   public MailService mail(){
-	   return mail;
-	}
-   public MeetingRoomService meetingRoom(){
-	   return meetingRoom;
-	}
-   public OpticalCharRecognitionService opticalCharRecognition(){
-	   return opticalCharRecognition;
-	}
-   public PassportService passport(){
-	   return passport;
-	}
-   public SearchService search(){
-	   return search;
-	}
-   public SheetsService sheets(){
-	   return sheets;
-	}
-   public SpeechToTextService speechToText(){
-	   return speechToText;
-	}
-   public TaskService task(){
-	   return task;
-	}
-   public TenantService tenant(){
-	   return tenant;
-	}
-   public TranslationService translation(){
-	   return translation;
-	}
-   public VcService vc(){
-	   return vc;
-	}
-   public WikiService wiki(){
-	   return wiki;
-	}
+  public ExtService ext() {
+    return extService;
+  }
 
+  public void setConfig(Config config) {
+    this.config = config;
+  }
 
-	public RawResponse post(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType
-			, RequestOptions requestOptions) throws Exception {
-		return Transport.send(config, requestOptions, "POST", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+  public AcsService acs() {
+    return acs;
+  }
 
-	public RawResponse post(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType
-	) throws Exception {
-		return Transport.send(config, null, "POST", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+  public AdminService admin() {
+    return admin;
+  }
 
-	public RawResponse get(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType
-			, RequestOptions requestOptions) throws Exception {
-		return Transport.send(config, requestOptions, "GET", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+  public ApplicationService application() {
+    return application;
+  }
 
-	public RawResponse get(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType) throws Exception {
-		return Transport.send(config, null, "GET", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+  public ApprovalService approval() {
+    return approval;
+  }
 
-	public RawResponse delete(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType
-			, RequestOptions requestOptions) throws Exception {
-		return Transport.send(config, requestOptions, "DELETE", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+  public AttendanceService attendance() {
+    return attendance;
+  }
 
-	public RawResponse delete(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType) throws Exception {
-		return Transport.send(config, null, "DELETE", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+  public BaikeService baike() {
+    return baike;
+  }
 
-	public RawResponse put(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType
-			, RequestOptions requestOptions) throws Exception {
-		return Transport.send(config, requestOptions, "PUT", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+  public BitableService bitable() {
+    return bitable;
+  }
 
-	public RawResponse put(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType) throws Exception {
-		return Transport.send(config, null, "PUT", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+  public BlockService block() {
+    return block;
+  }
 
-	public RawResponse patch(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType
-			, RequestOptions requestOptions) throws Exception {
-		return Transport.send(config, requestOptions, "PATCH", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+  public CalendarService calendar() {
+    return calendar;
+  }
 
-	public RawResponse patch(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType) throws Exception {
-		return Transport.send(config, null, "PATCH", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+  public ContactService contact() {
+    return contact;
+  }
 
-	public RawResponse options(String httpPath
-			, Object body
-			, AccessTokenType accessTokenType
-			, RequestOptions requestOptions) throws Exception {
-		return Transport.send(config, requestOptions, "OPTIONS", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+  public DocxService docx() {
+    return docx;
+  }
 
-	public RawResponse options(String httpPath
-			, Object body, AccessTokenType accessTokenType) throws Exception {
-		return Transport.send(config, null, "OPTIONS", httpPath, Sets.newHashSet(accessTokenType), body);
-	}
+  public DriveService drive() {
+    return drive;
+  }
 
-	public static final class Builder {
-	   private Config config = new Config();
+  public EhrService ehr() {
+    return ehr;
+  }
 
-		public Builder helpDeskCredential(String helpDeskId, String helpDeskToken) {
-			config.setHelpDeskToken(helpDeskToken);
-			config.setHelpDeskID(helpDeskId);
-			if (Strings.isNotEmpty(helpDeskId) && Strings.isNotEmpty(helpDeskToken)) {
-				config.setHelpDeskAuthToken(java.util.Base64.getEncoder().encodeToString(String.format("%s:%s", helpDeskId, helpDeskToken).getBytes(StandardCharsets.UTF_8)));
-			}
-			return this;
-		}
+  public EventService event() {
+    return event;
+  }
 
-		public Builder appType(AppType appType) {
-			config.setAppType(appType);
-			return this;
-		}
+  public FaceDetectionService faceDetection() {
+    return faceDetection;
+  }
 
-		public Builder marketplaceApp() {
-		  config.setAppType(AppType.MARKETPLACE);
-		  return this;
-		}
+  public GrayTestOpenSgService grayTestOpenSg() {
+    return grayTestOpenSg;
+  }
 
-		public Builder disableTokenCache() {
-			config.setDisableTokenCache(true);
-			return this;
-		}
+  public HelpdeskService helpdesk() {
+    return helpdesk;
+  }
 
-		public Builder logReqAtDebug(boolean logReqRespInfoAtDebugLevel) {
-			config.setLogReqAtDebug(logReqRespInfoAtDebugLevel);
-			return this;
-		}
+  public HumanAuthenticationService humanAuthentication() {
+    return humanAuthentication;
+  }
 
-		public Builder openBaseUrl(String baseUrl) {
-			config.setBaseUrl(baseUrl);
-			return this;
-		}
+  public ImService im() {
+    return im;
+  }
 
-		public Builder openBaseUrl(BaseUrlEnum baseUrl) {
-			config.setBaseUrl(baseUrl.getUrl());
-			return this;
-		}
+  public MailService mail() {
+    return mail;
+  }
 
-		public Builder tokenCache(ICache cache) {
-			config.setCache(cache);
-			return this;
-		}
+  public MeetingRoomService meetingRoom() {
+    return meetingRoom;
+  }
 
-		public Builder requestTimeout(long timeout, TimeUnit timeUnit) {
-			config.setRequestTimeOut(timeout);
-			config.setTimeOutTimeUnit(timeUnit);
-			return this;
-		}
+  public OpticalCharRecognitionService opticalCharRecognition() {
+    return opticalCharRecognition;
+  }
 
-		public Builder(String appId,String appSecret) {
-			config.setAppId(appId);
-			config.setAppSecret(appSecret);
-			config.setBaseUrl(BaseUrlEnum.FeiShu.getUrl());
-			config.setAppType(AppType.SELF_BUILT);
-			config.setDisableTokenCache(false);
-		}
+  public PassportService passport() {
+    return passport;
+  }
 
-		public Builder httpTransport(IHttpTransport httpTransport) {
-			config.setHttpTransport(httpTransport);
-			return this;
-		}
+  public SearchService search() {
+    return search;
+  }
 
-		private void initCache(Config config) {
-			if (config.getCache() != null) {
-				GlobalAppTicketManager.setAppTicketManager(new AppTicketManager(config.getCache()));
-				GlobalTokenManager.setTokenManager(new TokenManager(config.getCache()));
-			} else {
-				ICache cache = LocalCache.getInstance();
-				GlobalAppTicketManager.setAppTicketManager(new AppTicketManager(cache));
-				GlobalTokenManager.setTokenManager(new TokenManager(cache));
-			}
-		}
+  public SheetsService sheets() {
+    return sheets;
+  }
 
-		private void initHttpTransport(Config config) {
-			if (config.getHttpTransport() == null) {
-				if (config.getRequestTimeOut() > 0) {
-					config.setHttpTransport(new OkHttpTransport(OKHttps.create(config.getRequestTimeOut(), config.getTimeOutTimeUnit())));
-				} else {
-					config.setHttpTransport(new OkHttpTransport(OKHttps.defaultClient));
-				}
-			}
-		}
+  public SpeechToTextService speechToText() {
+    return speechToText;
+  }
 
-		public Client build() {
-			Client client = new Client();
-			client.setConfig(config);
-			initCache(config);
-			initHttpTransport(config);
-			client.extService = new ExtService(config);
-			client.acs = new AcsService(config);
-			client.admin = new AdminService(config);
-			client.application = new ApplicationService(config);
-			client.approval = new ApprovalService(config);
-			client.attendance = new AttendanceService(config);
-			client.baike = new BaikeService(config);
-			client.bitable = new BitableService(config);
-			client.block = new BlockService(config);
-			client.calendar = new CalendarService(config);
-			client.contact = new ContactService(config);
-			client.docx = new DocxService(config);
-			client.drive = new DriveService(config);
-			client.ehr = new EhrService(config);
-			client.event = new EventService(config);
-			client.faceDetection = new FaceDetectionService(config);
-			client.grayTestOpenSg = new GrayTestOpenSgService(config);
-			client.helpdesk = new HelpdeskService(config);
-			client.humanAuthentication = new HumanAuthenticationService(config);
-			client.im = new ImService(config);
-			client.mail = new MailService(config);
-			client.meetingRoom = new MeetingRoomService(config);
-			client.opticalCharRecognition = new OpticalCharRecognitionService(config);
-			client.passport = new PassportService(config);
-			client.search = new SearchService(config);
-			client.sheets = new SheetsService(config);
-			client.speechToText = new SpeechToTextService(config);
-			client.task = new TaskService(config);
-			client.tenant = new TenantService(config);
-			client.translation = new TranslationService(config);
-			client.vc = new VcService(config);
-			client.wiki = new WikiService(config);
+  public TaskService task() {
+    return task;
+  }
 
-			return client;
-		}
-	}
+  public TenantService tenant() {
+    return tenant;
+  }
 
-	public static Builder newBuilder(String appId, String appSecret) {
-		return new Builder(appId, appSecret);
-	}
+  public TranslationService translation() {
+    return translation;
+  }
+
+  public VcService vc() {
+    return vc;
+  }
+
+  public WikiService wiki() {
+    return wiki;
+  }
+
+  public RawResponse post(String httpPath
+      , Object body
+      , AccessTokenType accessTokenType
+      , RequestOptions requestOptions) throws Exception {
+    return Transport.send(config, requestOptions, "POST", httpPath,
+        Sets.newHashSet(accessTokenType), body);
+  }
+
+  public RawResponse post(String httpPath
+      , Object body
+      , AccessTokenType accessTokenType
+  ) throws Exception {
+    return Transport.send(config, null, "POST", httpPath, Sets.newHashSet(accessTokenType), body);
+  }
+
+  public RawResponse get(String httpPath
+      , Object body
+      , AccessTokenType accessTokenType
+      , RequestOptions requestOptions) throws Exception {
+    return Transport.send(config, requestOptions, "GET", httpPath, Sets.newHashSet(accessTokenType),
+        body);
+  }
+
+  public RawResponse get(String httpPath
+      , Object body
+      , AccessTokenType accessTokenType) throws Exception {
+    return Transport.send(config, null, "GET", httpPath, Sets.newHashSet(accessTokenType), body);
+  }
+
+  public RawResponse delete(String httpPath
+      , Object body
+      , AccessTokenType accessTokenType
+      , RequestOptions requestOptions) throws Exception {
+    return Transport.send(config, requestOptions, "DELETE", httpPath,
+        Sets.newHashSet(accessTokenType), body);
+  }
+
+  public RawResponse delete(String httpPath
+      , Object body
+      , AccessTokenType accessTokenType) throws Exception {
+    return Transport.send(config, null, "DELETE", httpPath, Sets.newHashSet(accessTokenType), body);
+  }
+
+  public RawResponse put(String httpPath
+      , Object body
+      , AccessTokenType accessTokenType
+      , RequestOptions requestOptions) throws Exception {
+    return Transport.send(config, requestOptions, "PUT", httpPath, Sets.newHashSet(accessTokenType),
+        body);
+  }
+
+  public RawResponse put(String httpPath
+      , Object body
+      , AccessTokenType accessTokenType) throws Exception {
+    return Transport.send(config, null, "PUT", httpPath, Sets.newHashSet(accessTokenType), body);
+  }
+
+  public RawResponse patch(String httpPath
+      , Object body
+      , AccessTokenType accessTokenType
+      , RequestOptions requestOptions) throws Exception {
+    return Transport.send(config, requestOptions, "PATCH", httpPath,
+        Sets.newHashSet(accessTokenType), body);
+  }
+
+  public RawResponse patch(String httpPath
+      , Object body
+      , AccessTokenType accessTokenType) throws Exception {
+    return Transport.send(config, null, "PATCH", httpPath, Sets.newHashSet(accessTokenType), body);
+  }
+
+  public RawResponse options(String httpPath
+      , Object body
+      , AccessTokenType accessTokenType
+      , RequestOptions requestOptions) throws Exception {
+    return Transport.send(config, requestOptions, "OPTIONS", httpPath,
+        Sets.newHashSet(accessTokenType), body);
+  }
+
+  public RawResponse options(String httpPath
+      , Object body, AccessTokenType accessTokenType) throws Exception {
+    return Transport.send(config, null, "OPTIONS", httpPath, Sets.newHashSet(accessTokenType),
+        body);
+  }
+
+  public static final class Builder {
+
+    private Config config = new Config();
+
+    public Builder(String appId, String appSecret) {
+      config.setAppId(appId);
+      config.setAppSecret(appSecret);
+      config.setBaseUrl(BaseUrlEnum.FeiShu.getUrl());
+      config.setAppType(AppType.SELF_BUILT);
+      config.setDisableTokenCache(false);
+    }
+
+    public Builder helpDeskCredential(String helpDeskId, String helpDeskToken) {
+      config.setHelpDeskToken(helpDeskToken);
+      config.setHelpDeskID(helpDeskId);
+      if (Strings.isNotEmpty(helpDeskId) && Strings.isNotEmpty(helpDeskToken)) {
+        config.setHelpDeskAuthToken(java.util.Base64.getEncoder().encodeToString(
+            String.format("%s:%s", helpDeskId, helpDeskToken).getBytes(StandardCharsets.UTF_8)));
+      }
+      return this;
+    }
+
+    public Builder appType(AppType appType) {
+      config.setAppType(appType);
+      return this;
+    }
+
+    public Builder marketplaceApp() {
+      config.setAppType(AppType.MARKETPLACE);
+      return this;
+    }
+
+    public Builder disableTokenCache() {
+      config.setDisableTokenCache(true);
+      return this;
+    }
+
+    public Builder logReqAtDebug(boolean logReqRespInfoAtDebugLevel) {
+      config.setLogReqAtDebug(logReqRespInfoAtDebugLevel);
+      return this;
+    }
+
+    public Builder openBaseUrl(String baseUrl) {
+      config.setBaseUrl(baseUrl);
+      return this;
+    }
+
+    public Builder openBaseUrl(BaseUrlEnum baseUrl) {
+      config.setBaseUrl(baseUrl.getUrl());
+      return this;
+    }
+
+    public Builder tokenCache(ICache cache) {
+      config.setCache(cache);
+      return this;
+    }
+
+    public Builder requestTimeout(long timeout, TimeUnit timeUnit) {
+      config.setRequestTimeOut(timeout);
+      config.setTimeOutTimeUnit(timeUnit);
+      return this;
+    }
+
+    public Builder httpTransport(IHttpTransport httpTransport) {
+      config.setHttpTransport(httpTransport);
+      return this;
+    }
+
+    private void initCache(Config config) {
+      if (config.getCache() != null) {
+        GlobalAppTicketManager.setAppTicketManager(new AppTicketManager(config.getCache()));
+        GlobalTokenManager.setTokenManager(new TokenManager(config.getCache()));
+      } else {
+        ICache cache = LocalCache.getInstance();
+        GlobalAppTicketManager.setAppTicketManager(new AppTicketManager(cache));
+        GlobalTokenManager.setTokenManager(new TokenManager(cache));
+      }
+    }
+
+    private void initHttpTransport(Config config) {
+      if (config.getHttpTransport() == null) {
+        if (config.getRequestTimeOut() > 0) {
+          config.setHttpTransport(new OkHttpTransport(
+              OKHttps.create(config.getRequestTimeOut(), config.getTimeOutTimeUnit())));
+        } else {
+          config.setHttpTransport(new OkHttpTransport(OKHttps.defaultClient));
+        }
+      }
+    }
+
+    public Client build() {
+      Client client = new Client();
+      client.setConfig(config);
+      initCache(config);
+      initHttpTransport(config);
+      client.extService = new ExtService(config);
+      client.acs = new AcsService(config);
+      client.admin = new AdminService(config);
+      client.application = new ApplicationService(config);
+      client.approval = new ApprovalService(config);
+      client.attendance = new AttendanceService(config);
+      client.baike = new BaikeService(config);
+      client.bitable = new BitableService(config);
+      client.block = new BlockService(config);
+      client.calendar = new CalendarService(config);
+      client.contact = new ContactService(config);
+      client.docx = new DocxService(config);
+      client.drive = new DriveService(config);
+      client.ehr = new EhrService(config);
+      client.event = new EventService(config);
+      client.faceDetection = new FaceDetectionService(config);
+      client.grayTestOpenSg = new GrayTestOpenSgService(config);
+      client.helpdesk = new HelpdeskService(config);
+      client.humanAuthentication = new HumanAuthenticationService(config);
+      client.im = new ImService(config);
+      client.mail = new MailService(config);
+      client.meetingRoom = new MeetingRoomService(config);
+      client.opticalCharRecognition = new OpticalCharRecognitionService(config);
+      client.passport = new PassportService(config);
+      client.search = new SearchService(config);
+      client.sheets = new SheetsService(config);
+      client.speechToText = new SpeechToTextService(config);
+      client.task = new TaskService(config);
+      client.tenant = new TenantService(config);
+      client.translation = new TranslationService(config);
+      client.vc = new VcService(config);
+      client.wiki = new WikiService(config);
+
+      return client;
+    }
+  }
 }
 

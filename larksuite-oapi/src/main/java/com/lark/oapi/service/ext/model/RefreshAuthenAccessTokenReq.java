@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 
 public class RefreshAuthenAccessTokenReq {
+
   @Body
   @SerializedName("body")
   private RefreshAuthenAccessTokenReqBody body;

@@ -14,6 +14,7 @@
 package com.lark.oapi.service.bitable.v1.model;
 
 import com.google.gson.annotations.SerializedName;
+import java.util.Objects;
 
 public class Attachment {
 
@@ -93,6 +94,38 @@ public class Attachment {
 
   public void setTmpUrl(String tmpUrl) {
     this.tmpUrl = tmpUrl;
+  }
+
+  @Override
+  public String toString() {
+    return "Attachment{" +
+        "fileToken='" + fileToken + '\'' +
+        ", name='" + name + '\'' +
+        ", type='" + type + '\'' +
+        ", size=" + size +
+        ", url='" + url + '\'' +
+        ", tmpUrl='" + tmpUrl + '\'' +
+        '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    Attachment that = (Attachment) o;
+    return Objects.equals(fileToken, that.fileToken) && Objects.equals(name,
+        that.name) && Objects.equals(type, that.type) && Objects.equals(size,
+        that.size) && Objects.equals(url, that.url) && Objects.equals(tmpUrl,
+        that.tmpUrl);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(fileToken, name, type, size, url, tmpUrl);
   }
 
   public static class Builder {
