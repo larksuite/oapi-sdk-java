@@ -13,13 +13,13 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-// 生成枚举值
+/**
+ * 协作者的类型
+ */
 public enum MemberTypeEnum {
-  EMAIL("email"),
-  OPENID("openid"),
-  OPENCHATID("openchat"),
-  OPENDEPARTMENTID("opendepartmentid"),
-  USERID("userid"),
+  USER("user"), // 用户
+  CHAT("chat"), // 群组
+  DEPARTMENT("department"), // 组织架构
   ;
   private String value;
 

@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class AnswerUserQueryTicketReqBody {
 
+  /**
+   * 事件ID,可从订阅事件中提取
+   * <p> 示例值：abcd
+   */
   @SerializedName("event_id")
   private String eventId;
+  /**
+   * faq结果列表
+   * <p> 示例值：
+   */
   @SerializedName("faqs")
   private UserQueryFaqInfo[] faqs;
 
@@ -27,7 +35,15 @@ public class AnswerUserQueryTicketReqBody {
   }
 
   public AnswerUserQueryTicketReqBody(Builder builder) {
+    /**
+     * 事件ID,可从订阅事件中提取
+     * <p> 示例值：abcd
+     */
     this.eventId = builder.eventId;
+    /**
+     * faq结果列表
+     * <p> 示例值：
+     */
     this.faqs = builder.faqs;
   }
 
@@ -53,14 +69,37 @@ public class AnswerUserQueryTicketReqBody {
 
   public static class Builder {
 
+    /**
+     * 事件ID,可从订阅事件中提取
+     * <p> 示例值：abcd
+     */
     private String eventId;
+    /**
+     * faq结果列表
+     * <p> 示例值：
+     */
     private UserQueryFaqInfo[] faqs;
 
+    /**
+     * 事件ID,可从订阅事件中提取
+     * <p> 示例值：abcd
+     *
+     * @param eventId
+     * @return
+     */
     public Builder eventId(String eventId) {
       this.eventId = eventId;
       return this;
     }
 
+
+    /**
+     * faq结果列表
+     * <p> 示例值：
+     *
+     * @param faqs
+     * @return
+     */
     public Builder faqs(UserQueryFaqInfo[] faqs) {
       this.faqs = faqs;
       return this;

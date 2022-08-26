@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.calendar.v4.model.DeleteTimeoffEventReq;
 import com.lark.oapi.service.calendar.v4.model.DeleteTimeoffEventResp;
 
-// HTTP PATH: /open-apis/calendar/v4/timeoff_events/:timeoff_event_id"
+// DELETE /open-apis/calendar/v4/timeoff_events/:timeoff_event_id
 public class DeleteTimeoffEventSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class DeleteTimeoffEventSample {
 
     // 创建请求对象
     DeleteTimeoffEventReq req = DeleteTimeoffEventReq.newBuilder()
-        .timeoffEventId("")
+        .timeoffEventId("timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39")
         .build();
 
     // 发起请求

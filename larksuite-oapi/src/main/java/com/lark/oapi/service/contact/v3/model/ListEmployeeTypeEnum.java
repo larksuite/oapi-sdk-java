@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListEmployeeTypeEnum {
 
+  /**
+   * 枚举数据
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private EmployeeTypeEnum[] items;
+  /**
+   * 是否下一页
+   * <p> 示例值：true
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 分页token
+   * <p> 示例值：3
+   */
   @SerializedName("page_token")
   private String pageToken;
 

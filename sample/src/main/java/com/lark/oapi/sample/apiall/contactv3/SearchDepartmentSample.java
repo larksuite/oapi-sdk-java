@@ -6,7 +6,7 @@ import com.lark.oapi.service.contact.v3.model.SearchDepartmentReq;
 import com.lark.oapi.service.contact.v3.model.SearchDepartmentReqBody;
 import com.lark.oapi.service.contact.v3.model.SearchDepartmentResp;
 
-// HTTP PATH: /open-apis/contact/v3/departments/search"
+// POST /open-apis/contact/v3/departments/search
 public class SearchDepartmentSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,11 +16,12 @@ public class SearchDepartmentSample {
     // 创建请求对象
     SearchDepartmentReq req = SearchDepartmentReq.newBuilder()
         .userIdType("user_id")
-        .departmentIdType("department_id")
-        .pageToken("")
+        .departmentIdType("open_department_id")
+        .pageToken(
+            "AQD9/Rn9eij9Pm39ED40/RD/cIFmu77WxpxPB/2oHfQLZ+G8JG6tK7+ZnHiT7COhD2hMSICh/eBl7cpzU6JEC3J7COKNe4jrQ8ExwBCR")
         .pageSize(20)
         .searchDepartmentReqBody(SearchDepartmentReqBody.newBuilder()
-            .query("")
+            .query("DemoName")
             .build())
         .build();
 

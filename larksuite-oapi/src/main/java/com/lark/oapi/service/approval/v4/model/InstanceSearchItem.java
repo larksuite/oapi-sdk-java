@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class InstanceSearchItem {
 
+  /**
+   * 审批定义
+   * <p> 示例值：
+   */
   @SerializedName("approval")
   private InstanceSearchApproval approval;
+  /**
+   * 审批定义分组
+   * <p> 示例值：
+   */
   @SerializedName("group")
   private InstanceSearchGroup group;
+  /**
+   * 审批实例信息
+   * <p> 示例值：
+   */
   @SerializedName("instance")
   private InstanceSearchNode instance;
 
@@ -29,8 +41,20 @@ public class InstanceSearchItem {
   }
 
   public InstanceSearchItem(Builder builder) {
+    /**
+     * 审批定义
+     * <p> 示例值：
+     */
     this.approval = builder.approval;
+    /**
+     * 审批定义分组
+     * <p> 示例值：
+     */
     this.group = builder.group;
+    /**
+     * 审批实例信息
+     * <p> 示例值：
+     */
     this.instance = builder.instance;
   }
 
@@ -64,20 +88,55 @@ public class InstanceSearchItem {
 
   public static class Builder {
 
+    /**
+     * 审批定义
+     * <p> 示例值：
+     */
     private InstanceSearchApproval approval;
+    /**
+     * 审批定义分组
+     * <p> 示例值：
+     */
     private InstanceSearchGroup group;
+    /**
+     * 审批实例信息
+     * <p> 示例值：
+     */
     private InstanceSearchNode instance;
 
+    /**
+     * 审批定义
+     * <p> 示例值：
+     *
+     * @param approval
+     * @return
+     */
     public Builder approval(InstanceSearchApproval approval) {
       this.approval = approval;
       return this;
     }
 
+
+    /**
+     * 审批定义分组
+     * <p> 示例值：
+     *
+     * @param group
+     * @return
+     */
     public Builder group(InstanceSearchGroup group) {
       this.group = group;
       return this;
     }
 
+
+    /**
+     * 审批实例信息
+     * <p> 示例值：
+     *
+     * @param instance
+     * @return
+     */
     public Builder instance(InstanceSearchNode instance) {
       this.instance = instance;
       return this;

@@ -48,6 +48,12 @@ public class CreateAgentScheduleReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder createAgentScheduleReqBody(CreateAgentScheduleReqBody body) {
       this.body = body;
       return this;

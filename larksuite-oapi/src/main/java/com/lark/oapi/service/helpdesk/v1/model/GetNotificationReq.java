@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class GetNotificationReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * 唯一ID
+   * <p> 示例值：1624326025000
+   */
   @Path
   @SerializedName("notification_id")
   private String notificationId;
@@ -31,7 +39,15 @@ public class GetNotificationReq {
   }
 
   public GetNotificationReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
+    /**
+     * 唯一ID
+     * <p> 示例值：1624326025000
+     */
     this.notificationId = builder.notificationId;
   }
 
@@ -57,19 +73,41 @@ public class GetNotificationReq {
 
   public static class Builder {
 
-    private String userIdType;
-    private String notificationId;
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String notificationId; // 唯一ID
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.helpdesk.v1.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.helpdesk.v1.enums.GetNotificationUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.helpdesk.v1.enums.GetNotificationUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+    /**
+     * 唯一ID
+     * <p> 示例值：1624326025000
+     *
+     * @param notificationId
+     * @return
+     */
     public Builder notificationId(String notificationId) {
       this.notificationId = notificationId;
       return this;

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateTabsChatTab {
 
+  /**
+   * 群标签
+   * <p> 示例值：
+   */
   @SerializedName("chat_tabs")
   private ChatTab[] chatTabs;
 

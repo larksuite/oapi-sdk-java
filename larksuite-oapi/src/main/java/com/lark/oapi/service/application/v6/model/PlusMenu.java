@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class PlusMenu {
 
+  /**
+   * pc 端链接
+   * <p> 示例值：https://www.example.com
+   */
   @SerializedName("pc_app_link")
   private String pcAppLink;
+  /**
+   * 移动端链接
+   * <p> 示例值：https://www.example.com
+   */
   @SerializedName("mobile_app_link")
   private String mobileAppLink;
 
@@ -27,7 +35,15 @@ public class PlusMenu {
   }
 
   public PlusMenu(Builder builder) {
+    /**
+     * pc 端链接
+     * <p> 示例值：https://www.example.com
+     */
     this.pcAppLink = builder.pcAppLink;
+    /**
+     * 移动端链接
+     * <p> 示例值：https://www.example.com
+     */
     this.mobileAppLink = builder.mobileAppLink;
   }
 
@@ -53,14 +69,37 @@ public class PlusMenu {
 
   public static class Builder {
 
+    /**
+     * pc 端链接
+     * <p> 示例值：https://www.example.com
+     */
     private String pcAppLink;
+    /**
+     * 移动端链接
+     * <p> 示例值：https://www.example.com
+     */
     private String mobileAppLink;
 
+    /**
+     * pc 端链接
+     * <p> 示例值：https://www.example.com
+     *
+     * @param pcAppLink
+     * @return
+     */
     public Builder pcAppLink(String pcAppLink) {
       this.pcAppLink = pcAppLink;
       return this;
     }
 
+
+    /**
+     * 移动端链接
+     * <p> 示例值：https://www.example.com
+     *
+     * @param mobileAppLink
+     * @return
+     */
     public Builder mobileAppLink(String mobileAppLink) {
       this.mobileAppLink = mobileAppLink;
       return this;

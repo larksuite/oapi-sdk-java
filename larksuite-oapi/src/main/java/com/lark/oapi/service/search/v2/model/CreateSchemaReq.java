@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Query;
 
 public class CreateSchemaReq {
 
+  /**
+   * 是否只用来校验合法性
+   * <p> 示例值：true
+   */
   @Query
   @SerializedName("validate_only")
   private Boolean validateOnly;
@@ -30,6 +34,10 @@ public class CreateSchemaReq {
   }
 
   public CreateSchemaReq(Builder builder) {
+    /**
+     * 是否只用来校验合法性
+     * <p> 示例值：true
+     */
     this.validateOnly = builder.validateOnly;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class CreateSchemaReq {
 
   public static class Builder {
 
-    private Boolean validateOnly;
+    private Boolean validateOnly; // 是否只用来校验合法性
     private Schema body;
 
+    /**
+     * 是否只用来校验合法性
+     * <p> 示例值：true
+     *
+     * @param validateOnly
+     * @return
+     */
     public Builder validateOnly(Boolean validateOnly) {
       this.validateOnly = validateOnly;
       return this;
@@ -68,6 +83,12 @@ public class CreateSchemaReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder schema(Schema body) {
       this.body = body;
       return this;

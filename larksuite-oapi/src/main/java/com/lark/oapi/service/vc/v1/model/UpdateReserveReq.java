@@ -20,9 +20,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class UpdateReserveReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * 预约ID（预约的唯一标识）
+   * <p> 示例值：6911188411932033028
+   */
   @Path
   @SerializedName("reserve_id")
   private String reserveId;
@@ -34,7 +42,15 @@ public class UpdateReserveReq {
   }
 
   public UpdateReserveReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
+    /**
+     * 预约ID（预约的唯一标识）
+     * <p> 示例值：6911188411932033028
+     */
     this.reserveId = builder.reserveId;
     this.body = builder.body;
   }
@@ -69,20 +85,42 @@ public class UpdateReserveReq {
 
   public static class Builder {
 
-    private String userIdType;
-    private String reserveId;
+    private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
+    private String reserveId; // 预约ID（预约的唯一标识）
     private UpdateReserveReqBody body;
 
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.vc.v1.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.UpdateReserveUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.vc.v1.enums.UpdateReserveUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+    /**
+     * 预约ID（预约的唯一标识）
+     * <p> 示例值：6911188411932033028
+     *
+     * @param reserveId
+     * @return
+     */
     public Builder reserveId(String reserveId) {
       this.reserveId = reserveId;
       return this;
@@ -92,6 +130,12 @@ public class UpdateReserveReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder updateReserveReqBody(UpdateReserveReqBody body) {
       this.body = body;
       return this;

@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserSetting {
 
+  /**
+   * 用户 ID
+   * <p> 示例值：abd754f7
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 人脸照片文件 ID，获取方式：[文件上传](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)
+   * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
+   */
   @SerializedName("face_key")
   private String faceKey;
+  /**
+   * 人脸照片更新时间，精确到秒的时间戳
+   * <p> 示例值：1625681917
+   */
   @SerializedName("face_key_update_time")
   private String faceKeyUpdateTime;
 
@@ -29,8 +41,20 @@ public class UserSetting {
   }
 
   public UserSetting(Builder builder) {
+    /**
+     * 用户 ID
+     * <p> 示例值：abd754f7
+     */
     this.userId = builder.userId;
+    /**
+     * 人脸照片文件 ID，获取方式：[文件上传](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)
+     * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
+     */
     this.faceKey = builder.faceKey;
+    /**
+     * 人脸照片更新时间，精确到秒的时间戳
+     * <p> 示例值：1625681917
+     */
     this.faceKeyUpdateTime = builder.faceKeyUpdateTime;
   }
 
@@ -64,20 +88,55 @@ public class UserSetting {
 
   public static class Builder {
 
+    /**
+     * 用户 ID
+     * <p> 示例值：abd754f7
+     */
     private String userId;
+    /**
+     * 人脸照片文件 ID，获取方式：[文件上传](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)
+     * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
+     */
     private String faceKey;
+    /**
+     * 人脸照片更新时间，精确到秒的时间戳
+     * <p> 示例值：1625681917
+     */
     private String faceKeyUpdateTime;
 
+    /**
+     * 用户 ID
+     * <p> 示例值：abd754f7
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 人脸照片文件 ID，获取方式：[文件上传](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)
+     * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
+     *
+     * @param faceKey
+     * @return
+     */
     public Builder faceKey(String faceKey) {
       this.faceKey = faceKey;
       return this;
     }
 
+
+    /**
+     * 人脸照片更新时间，精确到秒的时间戳
+     * <p> 示例值：1625681917
+     *
+     * @param faceKeyUpdateTime
+     * @return
+     */
     public Builder faceKeyUpdateTime(String faceKeyUpdateTime) {
       this.faceKeyUpdateTime = faceKeyUpdateTime;
       return this;

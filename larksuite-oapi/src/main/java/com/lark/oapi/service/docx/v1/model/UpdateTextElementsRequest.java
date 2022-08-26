@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateTextElementsRequest {
 
+  /**
+   * 更新的文本元素列表，单次更新中 reminder 上限 30 个，mention_doc 上限 50 个，mention_user 上限 100 个
+   * <p> 示例值：
+   */
   @SerializedName("elements")
   private TextElement[] elements;
 
@@ -25,6 +29,10 @@ public class UpdateTextElementsRequest {
   }
 
   public UpdateTextElementsRequest(Builder builder) {
+    /**
+     * 更新的文本元素列表，单次更新中 reminder 上限 30 个，mention_doc 上限 50 个，mention_user 上限 100 个
+     * <p> 示例值：
+     */
     this.elements = builder.elements;
   }
 
@@ -42,8 +50,19 @@ public class UpdateTextElementsRequest {
 
   public static class Builder {
 
+    /**
+     * 更新的文本元素列表，单次更新中 reminder 上限 30 个，mention_doc 上限 50 个，mention_user 上限 100 个
+     * <p> 示例值：
+     */
     private TextElement[] elements;
 
+    /**
+     * 更新的文本元素列表，单次更新中 reminder 上限 30 个，mention_doc 上限 50 个，mention_user 上限 100 个
+     * <p> 示例值：
+     *
+     * @param elements
+     * @return
+     */
     public Builder elements(TextElement[] elements) {
       this.elements = elements;
       return this;

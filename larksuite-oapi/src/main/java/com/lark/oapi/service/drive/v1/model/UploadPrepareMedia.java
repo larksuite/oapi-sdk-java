@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class UploadPrepareMedia {
 
+  /**
+   * 分片上传事务ID
+   * <p> 示例值：7111211691345512356
+   */
   @SerializedName("upload_id")
   private String uploadId;
+  /**
+   * 分片大小策略
+   * <p> 示例值：4194304
+   */
   @SerializedName("block_size")
   private Integer blockSize;
+  /**
+   * 分片数量
+   * <p> 示例值：1
+   */
   @SerializedName("block_num")
   private Integer blockNum;
 

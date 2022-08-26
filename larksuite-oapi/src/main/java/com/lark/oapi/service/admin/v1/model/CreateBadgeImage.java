@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateBadgeImage {
 
+  /**
+   * 图片的key
+   * <p> 示例值：f02a98aa-1413-4af6-93ab-431ba9e5f2cg
+   */
   @SerializedName("image_key")
   private String imageKey;
 

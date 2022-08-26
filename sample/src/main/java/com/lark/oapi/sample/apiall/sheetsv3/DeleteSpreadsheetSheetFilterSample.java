@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.sheets.v3.model.DeleteSpreadsheetSheetFilterReq;
 import com.lark.oapi.service.sheets.v3.model.DeleteSpreadsheetSheetFilterResp;
 
-// HTTP PATH: /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
+// DELETE /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter
 public class DeleteSpreadsheetSheetFilterSample {
 
   public static void main(String arg[]) throws Exception {

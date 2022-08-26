@@ -14,7 +14,7 @@ public class DeleteTopNoticeChatTopNoticeSample {
 
     // 创建请求对象
     DeleteTopNoticeChatTopNoticeReq req = DeleteTopNoticeChatTopNoticeReq.newBuilder()
-        .chatId("")
+        .chatId("oc_5ad11d72b830411d72b836c20")
         .build();
 
     // 发起请求

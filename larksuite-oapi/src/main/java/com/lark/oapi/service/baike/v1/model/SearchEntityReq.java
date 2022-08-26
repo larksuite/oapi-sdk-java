@@ -19,12 +19,22 @@ import com.lark.oapi.core.annotation.Query;
 
 public class SearchEntityReq {
 
+  /**
+   * <p> 示例值：b152fa6e6f62a291019a04c3a93f365f8ac641910506ff15ff4cad6534e087cb4ed8fa2c
+   */
   @Query
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * <p> 示例值：10
+   */
   @Query
   @SerializedName("page_size")
   private Integer pageSize;
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
@@ -36,8 +46,20 @@ public class SearchEntityReq {
   }
 
   public SearchEntityReq(Builder builder) {
+    /**
+     *
+     * <p> 示例值：b152fa6e6f62a291019a04c3a93f365f8ac641910506ff15ff4cad6534e087cb4ed8fa2c
+     */
     this.pageToken = builder.pageToken;
+    /**
+     *
+     * <p> 示例值：10
+     */
     this.pageSize = builder.pageSize;
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
     this.body = builder.body;
   }
@@ -80,27 +102,54 @@ public class SearchEntityReq {
 
   public static class Builder {
 
-    private String pageToken;
-    private Integer pageSize;
-    private String userIdType;
+    private String pageToken; //
+    private Integer pageSize; //
+    private String userIdType; // 此次调用中使用的用户ID的类型
     private SearchEntityReqBody body;
 
+    /**
+     * <p> 示例值：b152fa6e6f62a291019a04c3a93f365f8ac641910506ff15ff4cad6534e087cb4ed8fa2c
+     *
+     * @param pageToken
+     * @return
+     */
     public Builder pageToken(String pageToken) {
       this.pageToken = pageToken;
       return this;
     }
 
+    /**
+     * <p> 示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
     public Builder pageSize(Integer pageSize) {
       this.pageSize = pageSize;
       return this;
     }
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.baike.v1.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.baike.v1.enums.SearchEntityUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.baike.v1.enums.SearchEntityUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
@@ -109,6 +158,12 @@ public class SearchEntityReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder searchEntityReqBody(SearchEntityReqBody body) {
       this.body = body;
       return this;

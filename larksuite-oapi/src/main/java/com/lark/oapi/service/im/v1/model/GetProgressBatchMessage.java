@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetProgressBatchMessage {
 
+  /**
+   * 消息发送进度
+   * <p> 示例值：
+   */
   @SerializedName("batch_message_send_progress")
   private BatchMessageSendProgress batchMessageSendProgress;
+  /**
+   * 消息撤回进度
+   * <p> 示例值：
+   */
   @SerializedName("batch_message_recall_progress")
   private BatchMessageRecallProgress batchMessageRecallProgress;
 

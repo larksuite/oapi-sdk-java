@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class SearchCalendarReqBody {
 
+  /**
+   * 搜索关键字
+   * <p> 示例值：query words
+   */
   @SerializedName("query")
   private String query;
 
@@ -25,6 +29,10 @@ public class SearchCalendarReqBody {
   }
 
   public SearchCalendarReqBody(Builder builder) {
+    /**
+     * 搜索关键字
+     * <p> 示例值：query words
+     */
     this.query = builder.query;
   }
 
@@ -42,8 +50,19 @@ public class SearchCalendarReqBody {
 
   public static class Builder {
 
+    /**
+     * 搜索关键字
+     * <p> 示例值：query words
+     */
     private String query;
 
+    /**
+     * 搜索关键字
+     * <p> 示例值：query words
+     *
+     * @param query
+     * @return
+     */
     public Builder query(String query) {
       this.query = query;
       return this;

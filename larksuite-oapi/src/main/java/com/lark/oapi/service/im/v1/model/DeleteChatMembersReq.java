@@ -20,9 +20,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class DeleteChatMembersReq {
 
+  /**
+   * 出群成员 id 类型 open_id/user_id/union_id/app_id
+   * <p> 示例值：open_id
+   */
   @Query
   @SerializedName("member_id_type")
   private String memberIdType;
+  /**
+   * 群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+   * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+   */
   @Path
   @SerializedName("chat_id")
   private String chatId;
@@ -34,7 +42,15 @@ public class DeleteChatMembersReq {
   }
 
   public DeleteChatMembersReq(Builder builder) {
+    /**
+     * 出群成员 id 类型 open_id/user_id/union_id/app_id
+     * <p> 示例值：open_id
+     */
     this.memberIdType = builder.memberIdType;
+    /**
+     * 群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+     */
     this.chatId = builder.chatId;
     this.body = builder.body;
   }
@@ -69,20 +85,42 @@ public class DeleteChatMembersReq {
 
   public static class Builder {
 
-    private String memberIdType;
-    private String chatId;
+    private String memberIdType; // 出群成员 id 类型 open_id/user_id/union_id/app_id
+    private String chatId; // 群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
     private DeleteChatMembersReqBody body;
 
+    /**
+     * 出群成员 id 类型 open_id/user_id/union_id/app_id
+     * <p> 示例值：open_id
+     *
+     * @param memberIdType
+     * @return
+     */
     public Builder memberIdType(String memberIdType) {
       this.memberIdType = memberIdType;
       return this;
     }
 
-    public Builder memberIdType(com.lark.oapi.service.im.v1.enums.MemberIdTypeEnum memberIdType) {
+    /**
+     * 出群成员 id 类型 open_id/user_id/union_id/app_id
+     * <p> 示例值：open_id
+     *
+     * @param memberIdType {@link com.lark.oapi.service.im.v1.enums.DeleteChatMembersMemberIdTypeEnum}
+     * @return
+     */
+    public Builder memberIdType(
+        com.lark.oapi.service.im.v1.enums.DeleteChatMembersMemberIdTypeEnum memberIdType) {
       this.memberIdType = memberIdType.getValue();
       return this;
     }
 
+    /**
+     * 群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+     *
+     * @param chatId
+     * @return
+     */
     public Builder chatId(String chatId) {
       this.chatId = chatId;
       return this;
@@ -92,6 +130,12 @@ public class DeleteChatMembersReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder deleteChatMembersReqBody(DeleteChatMembersReqBody body) {
       this.body = body;
       return this;

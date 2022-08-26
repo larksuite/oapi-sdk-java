@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateChatMembers {
 
+  /**
+   * 无效成员列表
+   * <p> 示例值：
+   */
   @SerializedName("invalid_id_list")
   private String[] invalidIdList;
+  /**
+   * ID不存在的成员列表
+   * <p> 示例值：
+   */
   @SerializedName("not_existed_id_list")
   private String[] notExistedIdList;
 

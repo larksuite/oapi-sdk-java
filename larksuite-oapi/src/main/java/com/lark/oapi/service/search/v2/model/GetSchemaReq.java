@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class GetSchemaReq {
 
+  /**
+   * 用户自定义数据范式的唯一标识
+   * <p> 示例值：custom_schema_id
+   */
   @Path
   @SerializedName("schema_id")
   private String schemaId;
@@ -27,6 +31,10 @@ public class GetSchemaReq {
   }
 
   public GetSchemaReq(Builder builder) {
+    /**
+     * 用户自定义数据范式的唯一标识
+     * <p> 示例值：custom_schema_id
+     */
     this.schemaId = builder.schemaId;
   }
 
@@ -44,8 +52,15 @@ public class GetSchemaReq {
 
   public static class Builder {
 
-    private String schemaId;
+    private String schemaId; // 用户自定义数据范式的唯一标识
 
+    /**
+     * 用户自定义数据范式的唯一标识
+     * <p> 示例值：custom_schema_id
+     *
+     * @param schemaId
+     * @return
+     */
     public Builder schemaId(String schemaId) {
       this.schemaId = schemaId;
       return this;

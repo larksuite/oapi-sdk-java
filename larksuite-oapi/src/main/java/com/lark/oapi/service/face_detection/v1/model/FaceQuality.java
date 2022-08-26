@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class FaceQuality {
 
+  /**
+   * 清晰度，值越高越清晰
+   * <p> 示例值：0.77
+   */
   @SerializedName("sharpness")
   private Double sharpness;
+  /**
+   * 亮度
+   * <p> 示例值：0.6
+   */
   @SerializedName("brightness")
   private Double brightness;
+  /**
+   * 面部遮挡属性
+   * <p> 示例值：
+   */
   @SerializedName("occlude")
   private FaceOcclude occlude;
 
@@ -29,8 +41,20 @@ public class FaceQuality {
   }
 
   public FaceQuality(Builder builder) {
+    /**
+     * 清晰度，值越高越清晰
+     * <p> 示例值：0.77
+     */
     this.sharpness = builder.sharpness;
+    /**
+     * 亮度
+     * <p> 示例值：0.6
+     */
     this.brightness = builder.brightness;
+    /**
+     * 面部遮挡属性
+     * <p> 示例值：
+     */
     this.occlude = builder.occlude;
   }
 
@@ -64,20 +88,55 @@ public class FaceQuality {
 
   public static class Builder {
 
+    /**
+     * 清晰度，值越高越清晰
+     * <p> 示例值：0.77
+     */
     private Double sharpness;
+    /**
+     * 亮度
+     * <p> 示例值：0.6
+     */
     private Double brightness;
+    /**
+     * 面部遮挡属性
+     * <p> 示例值：
+     */
     private FaceOcclude occlude;
 
+    /**
+     * 清晰度，值越高越清晰
+     * <p> 示例值：0.77
+     *
+     * @param sharpness
+     * @return
+     */
     public Builder sharpness(Double sharpness) {
       this.sharpness = sharpness;
       return this;
     }
 
+
+    /**
+     * 亮度
+     * <p> 示例值：0.6
+     *
+     * @param brightness
+     * @return
+     */
     public Builder brightness(Double brightness) {
       this.brightness = brightness;
       return this;
     }
 
+
+    /**
+     * 面部遮挡属性
+     * <p> 示例值：
+     *
+     * @param occlude
+     * @return
+     */
     public Builder occlude(FaceOcclude occlude) {
       this.occlude = occlude;
       return this;

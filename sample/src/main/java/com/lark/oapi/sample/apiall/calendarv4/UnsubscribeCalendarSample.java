@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.calendar.v4.model.UnsubscribeCalendarReq;
 import com.lark.oapi.service.calendar.v4.model.UnsubscribeCalendarResp;
 
-// HTTP PATH: /open-apis/calendar/v4/calendars/:calendar_id/unsubscribe"
+// POST /open-apis/calendar/v4/calendars/:calendar_id/unsubscribe
 public class UnsubscribeCalendarSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class UnsubscribeCalendarSample {
 
     // 创建请求对象
     UnsubscribeCalendarReq req = UnsubscribeCalendarReq.newBuilder()
-        .calendarId("")
+        .calendarId("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn")
         .build();
 
     // 发起请求

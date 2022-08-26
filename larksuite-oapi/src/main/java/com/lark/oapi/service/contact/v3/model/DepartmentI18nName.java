@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class DepartmentI18nName {
 
+  /**
+   * 部门的中文名
+   * <p> 示例值：Demo名称
+   */
   @SerializedName("zh_cn")
   private String zhCn;
+  /**
+   * 部门的日文名
+   * <p> 示例值：デモ名
+   */
   @SerializedName("ja_jp")
   private String jaJp;
+  /**
+   * 部门的英文名
+   * <p> 示例值：Demo Name
+   */
   @SerializedName("en_us")
   private String enUs;
 
@@ -29,8 +41,20 @@ public class DepartmentI18nName {
   }
 
   public DepartmentI18nName(Builder builder) {
+    /**
+     * 部门的中文名
+     * <p> 示例值：Demo名称
+     */
     this.zhCn = builder.zhCn;
+    /**
+     * 部门的日文名
+     * <p> 示例值：デモ名
+     */
     this.jaJp = builder.jaJp;
+    /**
+     * 部门的英文名
+     * <p> 示例值：Demo Name
+     */
     this.enUs = builder.enUs;
   }
 
@@ -64,20 +88,55 @@ public class DepartmentI18nName {
 
   public static class Builder {
 
+    /**
+     * 部门的中文名
+     * <p> 示例值：Demo名称
+     */
     private String zhCn;
+    /**
+     * 部门的日文名
+     * <p> 示例值：デモ名
+     */
     private String jaJp;
+    /**
+     * 部门的英文名
+     * <p> 示例值：Demo Name
+     */
     private String enUs;
 
+    /**
+     * 部门的中文名
+     * <p> 示例值：Demo名称
+     *
+     * @param zhCn
+     * @return
+     */
     public Builder zhCn(String zhCn) {
       this.zhCn = zhCn;
       return this;
     }
 
+
+    /**
+     * 部门的日文名
+     * <p> 示例值：デモ名
+     *
+     * @param jaJp
+     * @return
+     */
     public Builder jaJp(String jaJp) {
       this.jaJp = jaJp;
       return this;
     }
 
+
+    /**
+     * 部门的英文名
+     * <p> 示例值：Demo Name
+     *
+     * @param enUs
+     * @return
+     */
     public Builder enUs(String enUs) {
       this.enUs = enUs;
       return this;

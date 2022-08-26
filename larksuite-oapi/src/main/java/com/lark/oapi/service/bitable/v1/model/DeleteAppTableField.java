@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class DeleteAppTableField {
 
+  /**
+   * field id
+   * <p> 示例值：fldPTb0U2y
+   */
   @SerializedName("field_id")
   private String fieldId;
+  /**
+   * 删除标记
+   * <p> 示例值：true
+   */
   @SerializedName("deleted")
   private Boolean deleted;
 

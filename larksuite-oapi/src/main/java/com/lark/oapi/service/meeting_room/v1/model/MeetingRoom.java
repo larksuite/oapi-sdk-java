@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class MeetingRoom {
 
+  /**
+   * your description here
+   * <p> 示例值：
+   */
   @SerializedName("room_id")
   private Integer roomId;
 
@@ -25,6 +29,10 @@ public class MeetingRoom {
   }
 
   public MeetingRoom(Builder builder) {
+    /**
+     * your description here
+     * <p> 示例值：
+     */
     this.roomId = builder.roomId;
   }
 
@@ -42,8 +50,19 @@ public class MeetingRoom {
 
   public static class Builder {
 
+    /**
+     * your description here
+     * <p> 示例值：
+     */
     private Integer roomId;
 
+    /**
+     * your description here
+     * <p> 示例值：
+     *
+     * @param roomId
+     * @return
+     */
     public Builder roomId(Integer roomId) {
       this.roomId = roomId;
       return this;

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.application.v6.model.GetApplicationReq;
 import com.lark.oapi.service.application.v6.model.GetApplicationResp;
 
-// HTTP PATH: /open-apis/application/v6/applications/:app_id"
+// GET /open-apis/application/v6/applications/:app_id
 public class GetApplicationSample {
 
   public static void main(String arg[]) throws Exception {

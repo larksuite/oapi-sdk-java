@@ -48,6 +48,12 @@ public class CreateBadgeImageReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder createBadgeImageReqBody(CreateBadgeImageReqBody body) {
       this.body = body;
       return this;

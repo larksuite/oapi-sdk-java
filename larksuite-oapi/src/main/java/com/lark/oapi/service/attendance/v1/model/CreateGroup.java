@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateGroup {
 
+  /**
+   * 6921319402260496386
+   * <p> 示例值：
+   */
   @SerializedName("group")
   private Group group;
 

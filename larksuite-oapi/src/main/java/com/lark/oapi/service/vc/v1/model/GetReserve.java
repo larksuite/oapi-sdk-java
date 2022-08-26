@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetReserve {
 
+  /**
+   * 预约数据
+   * <p> 示例值：
+   */
   @SerializedName("reserve")
   private Reserve reserve;
 

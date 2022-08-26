@@ -19,15 +19,29 @@ import com.lark.oapi.core.annotation.Query;
 
 public class ListCalendarAclReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * <p> 示例值：xxx
+   */
   @Query
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * <p> 示例值：10，小于10取10
+   */
   @Query
   @SerializedName("page_size")
   private Integer pageSize;
+  /**
+   * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+   * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+   */
   @Path
   @SerializedName("calendar_id")
   private String calendarId;
@@ -37,9 +51,25 @@ public class ListCalendarAclReq {
   }
 
   public ListCalendarAclReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
+    /**
+     *
+     * <p> 示例值：xxx
+     */
     this.pageToken = builder.pageToken;
+    /**
+     *
+     * <p> 示例值：10，小于10取10
+     */
     this.pageSize = builder.pageSize;
+    /**
+     * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     */
     this.calendarId = builder.calendarId;
   }
 
@@ -81,31 +111,65 @@ public class ListCalendarAclReq {
 
   public static class Builder {
 
-    private String userIdType;
-    private String pageToken;
-    private Integer pageSize;
-    private String calendarId;
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String pageToken; //
+    private Integer pageSize; //
+    private String calendarId; // 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.ListCalendarAclUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.calendar.v4.enums.ListCalendarAclUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+    /**
+     * <p> 示例值：xxx
+     *
+     * @param pageToken
+     * @return
+     */
     public Builder pageToken(String pageToken) {
       this.pageToken = pageToken;
       return this;
     }
 
+    /**
+     * <p> 示例值：10，小于10取10
+     *
+     * @param pageSize
+     * @return
+     */
     public Builder pageSize(Integer pageSize) {
       this.pageSize = pageSize;
       return this;
     }
 
+    /**
+     * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     *
+     * @param calendarId
+     * @return
+     */
     public Builder calendarId(String calendarId) {
       this.calendarId = calendarId;
       return this;

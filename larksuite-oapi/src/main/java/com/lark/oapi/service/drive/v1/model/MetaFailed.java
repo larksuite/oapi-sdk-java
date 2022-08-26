@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class MetaFailed {
 
+  /**
+   * 获取元数据失败的文档token
+   * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+   */
   @SerializedName("token")
   private String token;
+  /**
+   * 获取元数据失败的错误码
+   * <p> 示例值：970005
+   */
   @SerializedName("code")
   private Integer code;
 
@@ -27,7 +35,15 @@ public class MetaFailed {
   }
 
   public MetaFailed(Builder builder) {
+    /**
+     * 获取元数据失败的文档token
+     * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+     */
     this.token = builder.token;
+    /**
+     * 获取元数据失败的错误码
+     * <p> 示例值：970005
+     */
     this.code = builder.code;
   }
 
@@ -53,20 +69,50 @@ public class MetaFailed {
 
   public static class Builder {
 
+    /**
+     * 获取元数据失败的文档token
+     * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+     */
     private String token;
+    /**
+     * 获取元数据失败的错误码
+     * <p> 示例值：970005
+     */
     private Integer code;
 
+    /**
+     * 获取元数据失败的文档token
+     * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+     *
+     * @param token
+     * @return
+     */
     public Builder token(String token) {
       this.token = token;
       return this;
     }
 
+
+    /**
+     * 获取元数据失败的错误码
+     * <p> 示例值：970005
+     *
+     * @param code
+     * @return
+     */
     public Builder code(Integer code) {
       this.code = code;
       return this;
     }
 
-    public Builder code(com.lark.oapi.service.drive.v1.enums.CodeEnum code) {
+    /**
+     * 获取元数据失败的错误码
+     * <p> 示例值：970005
+     *
+     * @param code {@link com.lark.oapi.service.drive.v1.enums.MetaFailedCodeEnum}
+     * @return
+     */
+    public Builder code(com.lark.oapi.service.drive.v1.enums.MetaFailedCodeEnum code) {
       this.code = code.getValue();
       return this;
     }

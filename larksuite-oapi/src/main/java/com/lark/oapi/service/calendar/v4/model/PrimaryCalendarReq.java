@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Query;
 
 public class PrimaryCalendarReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
@@ -27,6 +31,10 @@ public class PrimaryCalendarReq {
   }
 
   public PrimaryCalendarReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
   }
 
@@ -44,14 +52,30 @@ public class PrimaryCalendarReq {
 
   public static class Builder {
 
-    private String userIdType;
+    private String userIdType; // 此次调用中使用的用户ID的类型
 
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.PrimaryCalendarUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.calendar.v4.enums.PrimaryCalendarUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }

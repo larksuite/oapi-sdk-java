@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryUserTask {
 
+  /**
+   * 打卡任务列表
+   * <p> 示例值：
+   */
   @SerializedName("user_task_results")
   private UserTask[] userTaskResults;
+  /**
+   * 无效用户 ID 列表
+   * <p> 示例值：
+   */
   @SerializedName("invalid_user_ids")
   private String[] invalidUserIds;
+  /**
+   * 没有权限用户 ID 列表
+   * <p> 示例值：
+   */
   @SerializedName("unauthorized_user_ids")
   private String[] unauthorizedUserIds;
 

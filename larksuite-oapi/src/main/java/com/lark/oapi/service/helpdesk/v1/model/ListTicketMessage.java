@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListTicketMessage {
 
+  /**
+   * 工单消息列表
+   * <p> 示例值：
+   */
   @SerializedName("messages")
   private TicketMessage[] messages;
+  /**
+   * 消息总数
+   * <p> 示例值：100
+   */
   @SerializedName("total")
   private Integer total;
 

@@ -17,20 +17,52 @@ import com.google.gson.annotations.SerializedName;
 
 public class ExportTask {
 
+  /**
+   * 导出文件扩展名
+   * <p> 示例值：pdf
+   */
   @SerializedName("file_extension")
   private String fileExtension;
+  /**
+   * 导出文档 token
+   * <p> 示例值：doccnxe5OxxxxxxxSNdsJviENsk
+   */
   @SerializedName("token")
   private String token;
+  /**
+   * 导出文档类型
+   * <p> 示例值：doc
+   */
   @SerializedName("type")
   private String type;
+  /**
+   * 导出文件名
+   * <p> 示例值：docName
+   */
   @SerializedName("file_name")
   private String fileName;
+  /**
+   * 导出文件 drive token
+   * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
+   */
   @SerializedName("file_token")
   private String fileToken;
+  /**
+   * 导出文件大小
+   * <p> 示例值：34356
+   */
   @SerializedName("file_size")
   private Integer fileSize;
+  /**
+   * 任务失败原因
+   * <p> 示例值：success
+   */
   @SerializedName("job_error_msg")
   private String jobErrorMsg;
+  /**
+   * 任务状态
+   * <p> 示例值：0
+   */
   @SerializedName("job_status")
   private Integer jobStatus;
 
@@ -39,13 +71,45 @@ public class ExportTask {
   }
 
   public ExportTask(Builder builder) {
+    /**
+     * 导出文件扩展名
+     * <p> 示例值：pdf
+     */
     this.fileExtension = builder.fileExtension;
+    /**
+     * 导出文档 token
+     * <p> 示例值：doccnxe5OxxxxxxxSNdsJviENsk
+     */
     this.token = builder.token;
+    /**
+     * 导出文档类型
+     * <p> 示例值：doc
+     */
     this.type = builder.type;
+    /**
+     * 导出文件名
+     * <p> 示例值：docName
+     */
     this.fileName = builder.fileName;
+    /**
+     * 导出文件 drive token
+     * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
+     */
     this.fileToken = builder.fileToken;
+    /**
+     * 导出文件大小
+     * <p> 示例值：34356
+     */
     this.fileSize = builder.fileSize;
+    /**
+     * 任务失败原因
+     * <p> 示例值：success
+     */
     this.jobErrorMsg = builder.jobErrorMsg;
+    /**
+     * 任务状态
+     * <p> 示例值：0
+     */
     this.jobStatus = builder.jobStatus;
   }
 
@@ -119,67 +183,184 @@ public class ExportTask {
 
   public static class Builder {
 
+    /**
+     * 导出文件扩展名
+     * <p> 示例值：pdf
+     */
     private String fileExtension;
+    /**
+     * 导出文档 token
+     * <p> 示例值：doccnxe5OxxxxxxxSNdsJviENsk
+     */
     private String token;
+    /**
+     * 导出文档类型
+     * <p> 示例值：doc
+     */
     private String type;
+    /**
+     * 导出文件名
+     * <p> 示例值：docName
+     */
     private String fileName;
+    /**
+     * 导出文件 drive token
+     * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
+     */
     private String fileToken;
+    /**
+     * 导出文件大小
+     * <p> 示例值：34356
+     */
     private Integer fileSize;
+    /**
+     * 任务失败原因
+     * <p> 示例值：success
+     */
     private String jobErrorMsg;
+    /**
+     * 任务状态
+     * <p> 示例值：0
+     */
     private Integer jobStatus;
 
+    /**
+     * 导出文件扩展名
+     * <p> 示例值：pdf
+     *
+     * @param fileExtension
+     * @return
+     */
     public Builder fileExtension(String fileExtension) {
       this.fileExtension = fileExtension;
       return this;
     }
 
+    /**
+     * 导出文件扩展名
+     * <p> 示例值：pdf
+     *
+     * @param fileExtension {@link com.lark.oapi.service.drive.v1.enums.ExportTaskFileExtensionEnum}
+     * @return
+     */
     public Builder fileExtension(
-        com.lark.oapi.service.drive.v1.enums.FileExtensionEnum fileExtension) {
+        com.lark.oapi.service.drive.v1.enums.ExportTaskFileExtensionEnum fileExtension) {
       this.fileExtension = fileExtension.getValue();
       return this;
     }
 
+
+    /**
+     * 导出文档 token
+     * <p> 示例值：doccnxe5OxxxxxxxSNdsJviENsk
+     *
+     * @param token
+     * @return
+     */
     public Builder token(String token) {
       this.token = token;
       return this;
     }
 
+
+    /**
+     * 导出文档类型
+     * <p> 示例值：doc
+     *
+     * @param type
+     * @return
+     */
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public Builder type(com.lark.oapi.service.drive.v1.enums.TypeEnum type) {
+    /**
+     * 导出文档类型
+     * <p> 示例值：doc
+     *
+     * @param type {@link com.lark.oapi.service.drive.v1.enums.ExportTaskTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.drive.v1.enums.ExportTaskTypeEnum type) {
       this.type = type.getValue();
       return this;
     }
 
+
+    /**
+     * 导出文件名
+     * <p> 示例值：docName
+     *
+     * @param fileName
+     * @return
+     */
     public Builder fileName(String fileName) {
       this.fileName = fileName;
       return this;
     }
 
+
+    /**
+     * 导出文件 drive token
+     * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
+     *
+     * @param fileToken
+     * @return
+     */
     public Builder fileToken(String fileToken) {
       this.fileToken = fileToken;
       return this;
     }
 
+
+    /**
+     * 导出文件大小
+     * <p> 示例值：34356
+     *
+     * @param fileSize
+     * @return
+     */
     public Builder fileSize(Integer fileSize) {
       this.fileSize = fileSize;
       return this;
     }
 
+
+    /**
+     * 任务失败原因
+     * <p> 示例值：success
+     *
+     * @param jobErrorMsg
+     * @return
+     */
     public Builder jobErrorMsg(String jobErrorMsg) {
       this.jobErrorMsg = jobErrorMsg;
       return this;
     }
 
+
+    /**
+     * 任务状态
+     * <p> 示例值：0
+     *
+     * @param jobStatus
+     * @return
+     */
     public Builder jobStatus(Integer jobStatus) {
       this.jobStatus = jobStatus;
       return this;
     }
 
-    public Builder jobStatus(com.lark.oapi.service.drive.v1.enums.JobStatusEnum jobStatus) {
+    /**
+     * 任务状态
+     * <p> 示例值：0
+     *
+     * @param jobStatus {@link com.lark.oapi.service.drive.v1.enums.ExportTaskJobStatusEnum}
+     * @return
+     */
+    public Builder jobStatus(
+        com.lark.oapi.service.drive.v1.enums.ExportTaskJobStatusEnum jobStatus) {
       this.jobStatus = jobStatus.getValue();
       return this;
     }

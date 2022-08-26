@@ -48,6 +48,12 @@ public class StreamRecognizeSpeechReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder streamRecognizeSpeechReqBody(StreamRecognizeSpeechReqBody body) {
       this.body = body;
       return this;

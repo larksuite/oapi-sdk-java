@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class GetAccessRecordAccessPhotoReq {
 
+  /**
+   * 门禁访问记录 ID
+   * <p> 示例值：6939433228970082591
+   */
   @Path
   @SerializedName("access_record_id")
   private String accessRecordId;
@@ -27,6 +31,10 @@ public class GetAccessRecordAccessPhotoReq {
   }
 
   public GetAccessRecordAccessPhotoReq(Builder builder) {
+    /**
+     * 门禁访问记录 ID
+     * <p> 示例值：6939433228970082591
+     */
     this.accessRecordId = builder.accessRecordId;
   }
 
@@ -44,8 +52,15 @@ public class GetAccessRecordAccessPhotoReq {
 
   public static class Builder {
 
-    private String accessRecordId;
+    private String accessRecordId; // 门禁访问记录 ID
 
+    /**
+     * 门禁访问记录 ID
+     * <p> 示例值：6939433228970082591
+     *
+     * @param accessRecordId
+     * @return
+     */
     public Builder accessRecordId(String accessRecordId) {
       this.accessRecordId = accessRecordId;
       return this;

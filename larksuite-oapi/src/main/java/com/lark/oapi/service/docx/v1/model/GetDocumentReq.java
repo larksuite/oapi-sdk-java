@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class GetDocumentReq {
 
+  /**
+   * 文档的唯一标识
+   * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+   */
   @Path
   @SerializedName("document_id")
   private String documentId;
@@ -27,6 +31,10 @@ public class GetDocumentReq {
   }
 
   public GetDocumentReq(Builder builder) {
+    /**
+     * 文档的唯一标识
+     * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+     */
     this.documentId = builder.documentId;
   }
 
@@ -44,8 +52,15 @@ public class GetDocumentReq {
 
   public static class Builder {
 
-    private String documentId;
+    private String documentId; // 文档的唯一标识
 
+    /**
+     * 文档的唯一标识
+     * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+     *
+     * @param documentId
+     * @return
+     */
     public Builder documentId(String documentId) {
       this.documentId = documentId;
       return this;

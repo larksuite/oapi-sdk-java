@@ -18,15 +18,31 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DeleteSpreadsheetSheetFilterViewConditionReq {
 
+  /**
+   * 表格 token
+   * <p> 示例值：shtcnmBA*****yGehy8
+   */
   @Path
   @SerializedName("spreadsheet_token")
   private String spreadsheetToken;
+  /**
+   * 子表 id
+   * <p> 示例值：0b**12
+   */
   @Path
   @SerializedName("sheet_id")
   private String sheetId;
+  /**
+   * 筛选视图 id
+   * <p> 示例值：pH9hbVcCXA
+   */
   @Path
   @SerializedName("filter_view_id")
   private String filterViewId;
+  /**
+   * 筛选范围内的某列字母号
+   * <p> 示例值：E
+   */
   @Path
   @SerializedName("condition_id")
   private String conditionId;
@@ -36,9 +52,25 @@ public class DeleteSpreadsheetSheetFilterViewConditionReq {
   }
 
   public DeleteSpreadsheetSheetFilterViewConditionReq(Builder builder) {
+    /**
+     * 表格 token
+     * <p> 示例值：shtcnmBA*****yGehy8
+     */
     this.spreadsheetToken = builder.spreadsheetToken;
+    /**
+     * 子表 id
+     * <p> 示例值：0b**12
+     */
     this.sheetId = builder.sheetId;
+    /**
+     * 筛选视图 id
+     * <p> 示例值：pH9hbVcCXA
+     */
     this.filterViewId = builder.filterViewId;
+    /**
+     * 筛选范围内的某列字母号
+     * <p> 示例值：E
+     */
     this.conditionId = builder.conditionId;
   }
 
@@ -80,26 +112,57 @@ public class DeleteSpreadsheetSheetFilterViewConditionReq {
 
   public static class Builder {
 
-    private String spreadsheetToken;
-    private String sheetId;
-    private String filterViewId;
-    private String conditionId;
+    private String spreadsheetToken; // 表格 token
+    private String sheetId; // 子表 id
+    private String filterViewId; // 筛选视图 id
+    private String conditionId; // 筛选范围内的某列字母号
 
+    /**
+     * 表格 token
+     * <p> 示例值：shtcnmBA*****yGehy8
+     *
+     * @param spreadsheetToken
+     * @return
+     */
     public Builder spreadsheetToken(String spreadsheetToken) {
       this.spreadsheetToken = spreadsheetToken;
       return this;
     }
 
+
+    /**
+     * 子表 id
+     * <p> 示例值：0b**12
+     *
+     * @param sheetId
+     * @return
+     */
     public Builder sheetId(String sheetId) {
       this.sheetId = sheetId;
       return this;
     }
 
+
+    /**
+     * 筛选视图 id
+     * <p> 示例值：pH9hbVcCXA
+     *
+     * @param filterViewId
+     * @return
+     */
     public Builder filterViewId(String filterViewId) {
       this.filterViewId = filterViewId;
       return this;
     }
 
+
+    /**
+     * 筛选范围内的某列字母号
+     * <p> 示例值：E
+     *
+     * @param conditionId
+     * @return
+     */
     public Builder conditionId(String conditionId) {
       this.conditionId = conditionId;
       return this;

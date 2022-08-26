@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class FileUploadInfo {
 
+  /**
+   * 文件名
+   * <p> 示例值：test.txt
+   */
   @SerializedName("file_name")
   private String fileName;
+  /**
+   * 上传点类型
+   * <p> 示例值：explorer
+   */
   @SerializedName("parent_type")
   private String parentType;
+  /**
+   * 文件夹的token
+   * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+   */
   @SerializedName("parent_node")
   private String parentNode;
+  /**
+   * 文件大小
+   * <p> 示例值：1024
+   */
   @SerializedName("size")
   private Integer size;
 
@@ -31,9 +47,25 @@ public class FileUploadInfo {
   }
 
   public FileUploadInfo(Builder builder) {
+    /**
+     * 文件名
+     * <p> 示例值：test.txt
+     */
     this.fileName = builder.fileName;
+    /**
+     * 上传点类型
+     * <p> 示例值：explorer
+     */
     this.parentType = builder.parentType;
+    /**
+     * 文件夹的token
+     * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+     */
     this.parentNode = builder.parentNode;
+    /**
+     * 文件大小
+     * <p> 示例值：1024
+     */
     this.size = builder.size;
   }
 
@@ -75,31 +107,86 @@ public class FileUploadInfo {
 
   public static class Builder {
 
+    /**
+     * 文件名
+     * <p> 示例值：test.txt
+     */
     private String fileName;
+    /**
+     * 上传点类型
+     * <p> 示例值：explorer
+     */
     private String parentType;
+    /**
+     * 文件夹的token
+     * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+     */
     private String parentNode;
+    /**
+     * 文件大小
+     * <p> 示例值：1024
+     */
     private Integer size;
 
+    /**
+     * 文件名
+     * <p> 示例值：test.txt
+     *
+     * @param fileName
+     * @return
+     */
     public Builder fileName(String fileName) {
       this.fileName = fileName;
       return this;
     }
 
+
+    /**
+     * 上传点类型
+     * <p> 示例值：explorer
+     *
+     * @param parentType
+     * @return
+     */
     public Builder parentType(String parentType) {
       this.parentType = parentType;
       return this;
     }
 
-    public Builder parentType(com.lark.oapi.service.drive.v1.enums.ParentTypeEnum parentType) {
+    /**
+     * 上传点类型
+     * <p> 示例值：explorer
+     *
+     * @param parentType {@link com.lark.oapi.service.drive.v1.enums.FileUploadInfoParentTypeEnum}
+     * @return
+     */
+    public Builder parentType(
+        com.lark.oapi.service.drive.v1.enums.FileUploadInfoParentTypeEnum parentType) {
       this.parentType = parentType.getValue();
       return this;
     }
 
+
+    /**
+     * 文件夹的token
+     * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+     *
+     * @param parentNode
+     * @return
+     */
     public Builder parentNode(String parentNode) {
       this.parentNode = parentNode;
       return this;
     }
 
+
+    /**
+     * 文件大小
+     * <p> 示例值：1024
+     *
+     * @param size
+     * @return
+     */
     public Builder size(Integer size) {
       this.size = size;
       return this;

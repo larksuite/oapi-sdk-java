@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.baike.v1.model.ListClassificationReq;
 import com.lark.oapi.service.baike.v1.model.ListClassificationResp;
 
-// HTTP PATH: /open-apis/baike/v1/classifications"
+// GET /open-apis/baike/v1/classifications
 public class ListClassificationSample {
 
   public static void main(String arg[]) throws Exception {

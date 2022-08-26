@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.vc.v1.model.GetActiveMeetingReserveReq;
 import com.lark.oapi.service.vc.v1.model.GetActiveMeetingReserveResp;
 
-// HTTP PATH: /open-apis/vc/v1/reserves/:reserve_id/get_active_meeting"
+// GET /open-apis/vc/v1/reserves/:reserve_id/get_active_meeting
 public class GetActiveMeetingReserveSample {
 
   public static void main(String arg[]) throws Exception {

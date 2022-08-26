@@ -7,7 +7,7 @@ import com.lark.oapi.service.helpdesk.v1.model.SubscribeEventReq;
 import com.lark.oapi.service.helpdesk.v1.model.SubscribeEventReqBody;
 import com.lark.oapi.service.helpdesk.v1.model.SubscribeEventResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/events/subscribe"
+// POST /open-apis/helpdesk/v1/events/subscribe
 public class SubscribeEventSample {
 
   public static void main(String arg[]) throws Exception {

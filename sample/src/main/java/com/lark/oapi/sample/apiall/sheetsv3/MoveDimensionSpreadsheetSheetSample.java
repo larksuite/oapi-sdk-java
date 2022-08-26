@@ -7,7 +7,7 @@ import com.lark.oapi.service.sheets.v3.model.MoveDimension;
 import com.lark.oapi.service.sheets.v3.model.MoveDimensionSpreadsheetSheetReq;
 import com.lark.oapi.service.sheets.v3.model.MoveDimensionSpreadsheetSheetResp;
 
-// HTTP PATH: /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/move_dimension"
+// POST /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/move_dimension
 public class MoveDimensionSpreadsheetSheetSample {
 
   public static void main(String arg[]) throws Exception {

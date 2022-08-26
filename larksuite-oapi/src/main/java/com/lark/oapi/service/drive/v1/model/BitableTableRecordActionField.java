@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class BitableTableRecordActionField {
 
+  /**
+   * 字段 ID
+   * <p> 示例值：
+   */
   @SerializedName("field_id")
   private String fieldId;
+  /**
+   * 字段值
+   * <p> 示例值：
+   */
   @SerializedName("field_value")
   private String fieldValue;
 
@@ -27,7 +35,15 @@ public class BitableTableRecordActionField {
   }
 
   public BitableTableRecordActionField(Builder builder) {
+    /**
+     * 字段 ID
+     * <p> 示例值：
+     */
     this.fieldId = builder.fieldId;
+    /**
+     * 字段值
+     * <p> 示例值：
+     */
     this.fieldValue = builder.fieldValue;
   }
 
@@ -53,14 +69,37 @@ public class BitableTableRecordActionField {
 
   public static class Builder {
 
+    /**
+     * 字段 ID
+     * <p> 示例值：
+     */
     private String fieldId;
+    /**
+     * 字段值
+     * <p> 示例值：
+     */
     private String fieldValue;
 
+    /**
+     * 字段 ID
+     * <p> 示例值：
+     *
+     * @param fieldId
+     * @return
+     */
     public Builder fieldId(String fieldId) {
       this.fieldId = fieldId;
       return this;
     }
 
+
+    /**
+     * 字段值
+     * <p> 示例值：
+     *
+     * @param fieldValue
+     * @return
+     */
     public Builder fieldValue(String fieldValue) {
       this.fieldValue = fieldValue;
       return this;

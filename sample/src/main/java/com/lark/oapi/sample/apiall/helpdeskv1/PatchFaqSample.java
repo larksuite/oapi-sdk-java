@@ -7,7 +7,7 @@ import com.lark.oapi.service.helpdesk.v1.model.PatchFaqReq;
 import com.lark.oapi.service.helpdesk.v1.model.PatchFaqReqBody;
 import com.lark.oapi.service.helpdesk.v1.model.PatchFaqResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/faqs/:id"
+// PATCH /open-apis/helpdesk/v1/faqs/:id
 public class PatchFaqSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class PatchFaqSample {
 
     // 创建请求对象
     PatchFaqReq req = PatchFaqReq.newBuilder()
-        .id("")
+        .id("6856395634652479491")
         .patchFaqReqBody(PatchFaqReqBody.newBuilder()
             .faq(FaqUpdateInfo.newBuilder().build())
             .build())

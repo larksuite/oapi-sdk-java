@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.task.v1.model.GetTaskReq;
 import com.lark.oapi.service.task.v1.model.GetTaskResp;
 
-// HTTP PATH: /open-apis/task/v1/tasks/:task_id"
+// GET /open-apis/task/v1/tasks/:task_id
 public class GetTaskSample {
 
   public static void main(String arg[]) throws Exception {

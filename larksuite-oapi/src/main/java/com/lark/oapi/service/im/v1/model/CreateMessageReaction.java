@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateMessageReaction {
 
+  /**
+   * reaction资源ID
+   * <p> 示例值：
+   */
   @SerializedName("reaction_id")
   private String reactionId;
+  /**
+   * 添加reaction的操作人
+   * <p> 示例值：
+   */
   @SerializedName("operator")
   private Operator operator;
+  /**
+   * reaction动作的的unix timestamp(单位:ms)
+   * <p> 示例值：
+   */
   @SerializedName("action_time")
   private String actionTime;
+  /**
+   * reaction资源类型
+   * <p> 示例值：
+   */
   @SerializedName("reaction_type")
   private Emoji reactionType;
 

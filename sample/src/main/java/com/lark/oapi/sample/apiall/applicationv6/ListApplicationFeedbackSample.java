@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.application.v6.model.ListApplicationFeedbackReq;
 import com.lark.oapi.service.application.v6.model.ListApplicationFeedbackResp;
 
-// HTTP PATH: /open-apis/application/v6/applications/:app_id/feedbacks"
+// GET /open-apis/application/v6/applications/:app_id/feedbacks
 public class ListApplicationFeedbackSample {
 
   public static void main(String arg[]) throws Exception {

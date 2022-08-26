@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2UserUpdatedV1Data {
 
+  /**
+   * 用户 ID
+   * <p> 示例值：
+   */
   @SerializedName("user_id")
   private UserId userId;
+  /**
+   * 卡号
+   * <p> 示例值：123456
+   */
   @SerializedName("card")
   private Integer card;
+  /**
+   * 是否上传人脸图片
+   * <p> 示例值：true
+   */
   @SerializedName("face_uploaded")
   private Boolean faceUploaded;
 

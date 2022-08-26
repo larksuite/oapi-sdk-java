@@ -6,7 +6,7 @@ import com.lark.oapi.service.bitable.v1.model.BatchDeleteAppTableRecordReq;
 import com.lark.oapi.service.bitable.v1.model.BatchDeleteAppTableRecordReqBody;
 import com.lark.oapi.service.bitable.v1.model.BatchDeleteAppTableRecordResp;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_delete"
+// POST /open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_delete
 public class BatchDeleteAppTableRecordSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,8 +15,8 @@ public class BatchDeleteAppTableRecordSample {
 
     // 创建请求对象
     BatchDeleteAppTableRecordReq req = BatchDeleteAppTableRecordReq.newBuilder()
-        .appToken("")
-        .tableId("")
+        .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
+        .tableId("tblsRc9GRRXKqhvW")
         .batchDeleteAppTableRecordReqBody(BatchDeleteAppTableRecordReqBody.newBuilder()
             .records(new String[]{})
             .build())

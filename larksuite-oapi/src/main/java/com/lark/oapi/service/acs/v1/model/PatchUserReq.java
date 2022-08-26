@@ -20,9 +20,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class PatchUserReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * 用户 ID
+   * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
   @Path
   @SerializedName("user_id")
   private String userId;
@@ -34,7 +42,15 @@ public class PatchUserReq {
   }
 
   public PatchUserReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
+    /**
+     * 用户 ID
+     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
     this.userId = builder.userId;
     this.body = builder.body;
   }
@@ -69,20 +85,42 @@ public class PatchUserReq {
 
   public static class Builder {
 
-    private String userIdType;
-    private String userId;
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String userId; // 用户 ID
     private User body;
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.acs.v1.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.acs.v1.enums.PatchUserUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.acs.v1.enums.PatchUserUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+    /**
+     * 用户 ID
+     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
@@ -92,6 +130,12 @@ public class PatchUserReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder user(User body) {
       this.body = body;
       return this;

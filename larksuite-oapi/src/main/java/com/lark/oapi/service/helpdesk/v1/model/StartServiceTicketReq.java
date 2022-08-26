@@ -48,6 +48,12 @@ public class StartServiceTicketReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder startServiceTicketReqBody(StartServiceTicketReqBody body) {
       this.body = body;
       return this;

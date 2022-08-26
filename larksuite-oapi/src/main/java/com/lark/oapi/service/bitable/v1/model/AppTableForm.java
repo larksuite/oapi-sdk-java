@@ -17,16 +17,40 @@ import com.google.gson.annotations.SerializedName;
 
 public class AppTableForm {
 
+  /**
+   * 表单名称
+   * <p> 示例值：表单
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 表单描述
+   * <p> 示例值：表单描述
+   */
   @SerializedName("description")
   private String description;
+  /**
+   * 是否开启共享
+   * <p> 示例值：true
+   */
   @SerializedName("shared")
   private Boolean shared;
+  /**
+   * 分享 URL
+   * <p> 示例值：https://bytedance.feishu.cn/share/base/shrcnCy1KAlpahNotmhRn1abcde
+   */
   @SerializedName("shared_url")
   private String sharedUrl;
+  /**
+   * 分享范围限制
+   * <p> 示例值：tenant_editable
+   */
   @SerializedName("shared_limit")
-  private Integer sharedLimit;
+  private String sharedLimit;
+  /**
+   * 填写次数限制一次
+   * <p> 示例值：true
+   */
   @SerializedName("submit_limit_once")
   private Boolean submitLimitOnce;
 
@@ -35,11 +59,35 @@ public class AppTableForm {
   }
 
   public AppTableForm(Builder builder) {
+    /**
+     * 表单名称
+     * <p> 示例值：表单
+     */
     this.name = builder.name;
+    /**
+     * 表单描述
+     * <p> 示例值：表单描述
+     */
     this.description = builder.description;
+    /**
+     * 是否开启共享
+     * <p> 示例值：true
+     */
     this.shared = builder.shared;
+    /**
+     * 分享 URL
+     * <p> 示例值：https://bytedance.feishu.cn/share/base/shrcnCy1KAlpahNotmhRn1abcde
+     */
     this.sharedUrl = builder.sharedUrl;
+    /**
+     * 分享范围限制
+     * <p> 示例值：tenant_editable
+     */
     this.sharedLimit = builder.sharedLimit;
+    /**
+     * 填写次数限制一次
+     * <p> 示例值：true
+     */
     this.submitLimitOnce = builder.submitLimitOnce;
   }
 
@@ -79,11 +127,11 @@ public class AppTableForm {
     this.sharedUrl = sharedUrl;
   }
 
-  public Integer getSharedLimit() {
+  public String getSharedLimit() {
     return this.sharedLimit;
   }
 
-  public void setSharedLimit(Integer sharedLimit) {
+  public void setSharedLimit(String sharedLimit) {
     this.sharedLimit = sharedLimit;
   }
 
@@ -97,38 +145,122 @@ public class AppTableForm {
 
   public static class Builder {
 
+    /**
+     * 表单名称
+     * <p> 示例值：表单
+     */
     private String name;
+    /**
+     * 表单描述
+     * <p> 示例值：表单描述
+     */
     private String description;
+    /**
+     * 是否开启共享
+     * <p> 示例值：true
+     */
     private Boolean shared;
+    /**
+     * 分享 URL
+     * <p> 示例值：https://bytedance.feishu.cn/share/base/shrcnCy1KAlpahNotmhRn1abcde
+     */
     private String sharedUrl;
-    private Integer sharedLimit;
+    /**
+     * 分享范围限制
+     * <p> 示例值：tenant_editable
+     */
+    private String sharedLimit;
+    /**
+     * 填写次数限制一次
+     * <p> 示例值：true
+     */
     private Boolean submitLimitOnce;
 
+    /**
+     * 表单名称
+     * <p> 示例值：表单
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 表单描述
+     * <p> 示例值：表单描述
+     *
+     * @param description
+     * @return
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
+
+    /**
+     * 是否开启共享
+     * <p> 示例值：true
+     *
+     * @param shared
+     * @return
+     */
     public Builder shared(Boolean shared) {
       this.shared = shared;
       return this;
     }
 
+
+    /**
+     * 分享 URL
+     * <p> 示例值：https://bytedance.feishu.cn/share/base/shrcnCy1KAlpahNotmhRn1abcde
+     *
+     * @param sharedUrl
+     * @return
+     */
     public Builder sharedUrl(String sharedUrl) {
       this.sharedUrl = sharedUrl;
       return this;
     }
 
-    public Builder sharedLimit(Integer sharedLimit) {
+
+    /**
+     * 分享范围限制
+     * <p> 示例值：tenant_editable
+     *
+     * @param sharedLimit
+     * @return
+     */
+    public Builder sharedLimit(String sharedLimit) {
       this.sharedLimit = sharedLimit;
       return this;
     }
 
+    /**
+     * 分享范围限制
+     * <p> 示例值：tenant_editable
+     *
+     * @param sharedLimit {@link com.lark.oapi.service.bitable.v1.enums.AppTableFormSharedLimitEnum}
+     * @return
+     */
+    public Builder sharedLimit(
+        com.lark.oapi.service.bitable.v1.enums.AppTableFormSharedLimitEnum sharedLimit) {
+      this.sharedLimit = sharedLimit.getValue();
+      return this;
+    }
+
+
+    /**
+     * 填写次数限制一次
+     * <p> 示例值：true
+     *
+     * @param submitLimitOnce
+     * @return
+     */
     public Builder submitLimitOnce(Boolean submitLimitOnce) {
       this.submitLimitOnce = submitLimitOnce;
       return this;

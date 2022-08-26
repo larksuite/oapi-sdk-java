@@ -6,7 +6,7 @@ import com.lark.oapi.service.im.v1.model.DeleteTabsChatTabReq;
 import com.lark.oapi.service.im.v1.model.DeleteTabsChatTabReqBody;
 import com.lark.oapi.service.im.v1.model.DeleteTabsChatTabResp;
 
-// HTTP PATH: /open-apis/im/v1/chats/:chat_id/chat_tabs/delete_tabs"
+// DELETE /open-apis/im/v1/chats/:chat_id/chat_tabs/delete_tabs
 public class DeleteTabsChatTabSample {
 
   public static void main(String arg[]) throws Exception {

@@ -6,7 +6,7 @@ import com.lark.oapi.service.task.v1.model.UpdateTaskCommentReq;
 import com.lark.oapi.service.task.v1.model.UpdateTaskCommentReqBody;
 import com.lark.oapi.service.task.v1.model.UpdateTaskCommentResp;
 
-// HTTP PATH: /open-apis/task/v1/tasks/:task_id/comments/:comment_id"
+// PUT /open-apis/task/v1/tasks/:task_id/comments/:comment_id
 public class UpdateTaskCommentSample {
 
   public static void main(String arg[]) throws Exception {
@@ -18,7 +18,8 @@ public class UpdateTaskCommentSample {
         .taskId("83912691-2e43-47fc-94a4-d512e03984fa")
         .commentId("6937231762296684564")
         .updateTaskCommentReqBody(UpdateTaskCommentReqBody.newBuilder()
-            .content("")
+            .content("飞流直下三千尺，疑是银河落九天")
+            .richContent("飞流直下三千尺，疑是银河落九天<at id=7058204817822318612></at>")
             .build())
         .build();
 

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.task.v1.model.DeleteTaskReq;
 import com.lark.oapi.service.task.v1.model.DeleteTaskResp;
 
-// HTTP PATH: /open-apis/task/v1/tasks/:task_id"
+// DELETE /open-apis/task/v1/tasks/:task_id
 public class DeleteTaskSample {
 
   public static void main(String arg[]) throws Exception {

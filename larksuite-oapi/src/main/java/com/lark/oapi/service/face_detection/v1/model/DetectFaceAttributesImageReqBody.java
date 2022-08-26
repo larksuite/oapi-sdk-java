@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class DetectFaceAttributesImageReqBody {
 
+  /**
+   * 图片 base64 数据
+   * <p> 示例值：图片 base64 后的字符串
+   */
   @SerializedName("image")
   private String image;
 
@@ -25,6 +29,10 @@ public class DetectFaceAttributesImageReqBody {
   }
 
   public DetectFaceAttributesImageReqBody(Builder builder) {
+    /**
+     * 图片 base64 数据
+     * <p> 示例值：图片 base64 后的字符串
+     */
     this.image = builder.image;
   }
 
@@ -42,8 +50,19 @@ public class DetectFaceAttributesImageReqBody {
 
   public static class Builder {
 
+    /**
+     * 图片 base64 数据
+     * <p> 示例值：图片 base64 后的字符串
+     */
     private String image;
 
+    /**
+     * 图片 base64 数据
+     * <p> 示例值：图片 base64 后的字符串
+     *
+     * @param image
+     * @return
+     */
     public Builder image(String image) {
       this.image = image;
       return this;

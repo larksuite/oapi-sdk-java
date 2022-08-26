@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchRecallProgress {
 
+  /**
+   * 撤回成功的消息条数
+   * <p> 示例值：
+   */
   @SerializedName("recall_count")
   private String recallCount;
+  /**
+   * 计划撤回的消息条数
+   * <p> 示例值：
+   */
   @SerializedName("total_recall_count")
   private String totalRecallCount;
 
@@ -27,7 +35,15 @@ public class BatchRecallProgress {
   }
 
   public BatchRecallProgress(Builder builder) {
+    /**
+     * 撤回成功的消息条数
+     * <p> 示例值：
+     */
     this.recallCount = builder.recallCount;
+    /**
+     * 计划撤回的消息条数
+     * <p> 示例值：
+     */
     this.totalRecallCount = builder.totalRecallCount;
   }
 
@@ -53,14 +69,37 @@ public class BatchRecallProgress {
 
   public static class Builder {
 
+    /**
+     * 撤回成功的消息条数
+     * <p> 示例值：
+     */
     private String recallCount;
+    /**
+     * 计划撤回的消息条数
+     * <p> 示例值：
+     */
     private String totalRecallCount;
 
+    /**
+     * 撤回成功的消息条数
+     * <p> 示例值：
+     *
+     * @param recallCount
+     * @return
+     */
     public Builder recallCount(String recallCount) {
       this.recallCount = recallCount;
       return this;
     }
 
+
+    /**
+     * 计划撤回的消息条数
+     * <p> 示例值：
+     *
+     * @param totalRecallCount
+     * @return
+     */
     public Builder totalRecallCount(String totalRecallCount) {
       this.totalRecallCount = totalRecallCount;
       return this;

@@ -48,6 +48,12 @@ public class CreateDocumentReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder createDocumentReqBody(CreateDocumentReqBody body) {
       this.body = body;
       return this;

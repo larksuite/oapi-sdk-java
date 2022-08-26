@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class DisplayApp {
 
+  /**
+   * 多维表格的 app_token
+   * <p> 示例值：
+   */
   @SerializedName("app_token")
   private String appToken;
+  /**
+   * 多维表格的名字
+   * <p> 示例值：
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 多维表格的版本号（对 app 进行修改时更新，如新增、删除数据表，修改数据表名）
+   * <p> 示例值：
+   */
   @SerializedName("revision")
   private Integer revision;
+  /**
+   * 多维表格是否已开启高级权限
+   * <p> 示例值：
+   */
   @SerializedName("is_advanced")
   private Boolean isAdvanced;
 
@@ -31,9 +47,25 @@ public class DisplayApp {
   }
 
   public DisplayApp(Builder builder) {
+    /**
+     * 多维表格的 app_token
+     * <p> 示例值：
+     */
     this.appToken = builder.appToken;
+    /**
+     * 多维表格的名字
+     * <p> 示例值：
+     */
     this.name = builder.name;
+    /**
+     * 多维表格的版本号（对 app 进行修改时更新，如新增、删除数据表，修改数据表名）
+     * <p> 示例值：
+     */
     this.revision = builder.revision;
+    /**
+     * 多维表格是否已开启高级权限
+     * <p> 示例值：
+     */
     this.isAdvanced = builder.isAdvanced;
   }
 
@@ -75,26 +107,73 @@ public class DisplayApp {
 
   public static class Builder {
 
+    /**
+     * 多维表格的 app_token
+     * <p> 示例值：
+     */
     private String appToken;
+    /**
+     * 多维表格的名字
+     * <p> 示例值：
+     */
     private String name;
+    /**
+     * 多维表格的版本号（对 app 进行修改时更新，如新增、删除数据表，修改数据表名）
+     * <p> 示例值：
+     */
     private Integer revision;
+    /**
+     * 多维表格是否已开启高级权限
+     * <p> 示例值：
+     */
     private Boolean isAdvanced;
 
+    /**
+     * 多维表格的 app_token
+     * <p> 示例值：
+     *
+     * @param appToken
+     * @return
+     */
     public Builder appToken(String appToken) {
       this.appToken = appToken;
       return this;
     }
 
+
+    /**
+     * 多维表格的名字
+     * <p> 示例值：
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 多维表格的版本号（对 app 进行修改时更新，如新增、删除数据表，修改数据表名）
+     * <p> 示例值：
+     *
+     * @param revision
+     * @return
+     */
     public Builder revision(Integer revision) {
       this.revision = revision;
       return this;
     }
 
+
+    /**
+     * 多维表格是否已开启高级权限
+     * <p> 示例值：
+     *
+     * @param isAdvanced
+     * @return
+     */
     public Builder isAdvanced(Boolean isAdvanced) {
       this.isAdvanced = isAdvanced;
       return this;

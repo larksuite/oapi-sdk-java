@@ -48,6 +48,12 @@ public class CreateFaqReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder createFaqReqBody(CreateFaqReqBody body) {
       this.body = body;
       return this;

@@ -20,15 +20,31 @@ import com.lark.oapi.core.annotation.Query;
 
 public class UpdateAppTableRecordReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * bitable app token
+   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+   */
   @Path
   @SerializedName("app_token")
   private String appToken;
+  /**
+   * table id
+   * <p> 示例值：tblsRc9GRRXKqhvW
+   */
   @Path
   @SerializedName("table_id")
   private String tableId;
+  /**
+   * 单条记录的 id
+   * <p> 示例值：recqwIwhc6
+   */
   @Path
   @SerializedName("record_id")
   private String recordId;
@@ -40,9 +56,25 @@ public class UpdateAppTableRecordReq {
   }
 
   public UpdateAppTableRecordReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     */
     this.appToken = builder.appToken;
+    /**
+     * table id
+     * <p> 示例值：tblsRc9GRRXKqhvW
+     */
     this.tableId = builder.tableId;
+    /**
+     * 单条记录的 id
+     * <p> 示例值：recqwIwhc6
+     */
     this.recordId = builder.recordId;
     this.body = builder.body;
   }
@@ -93,32 +125,68 @@ public class UpdateAppTableRecordReq {
 
   public static class Builder {
 
-    private String userIdType;
-    private String appToken;
-    private String tableId;
-    private String recordId;
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String appToken; // bitable app token
+    private String tableId; // table id
+    private String recordId; // 单条记录的 id
     private AppTableRecord body;
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.bitable.v1.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.bitable.v1.enums.UpdateAppTableRecordUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.bitable.v1.enums.UpdateAppTableRecordUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     *
+     * @param appToken
+     * @return
+     */
     public Builder appToken(String appToken) {
       this.appToken = appToken;
       return this;
     }
 
+    /**
+     * table id
+     * <p> 示例值：tblsRc9GRRXKqhvW
+     *
+     * @param tableId
+     * @return
+     */
     public Builder tableId(String tableId) {
       this.tableId = tableId;
       return this;
     }
 
+    /**
+     * 单条记录的 id
+     * <p> 示例值：recqwIwhc6
+     *
+     * @param recordId
+     * @return
+     */
     public Builder recordId(String recordId) {
       this.recordId = recordId;
       return this;
@@ -128,6 +196,12 @@ public class UpdateAppTableRecordReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder appTableRecord(AppTableRecord body) {
       this.body = body;
       return this;

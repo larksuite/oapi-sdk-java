@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.attendance.v1.model.ListShiftReq;
 import com.lark.oapi.service.attendance.v1.model.ListShiftResp;
 
-// HTTP PATH: /open-apis/attendance/v1/shifts"
+// GET /open-apis/attendance/v1/shifts
 public class ListShiftSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class ListShiftSample {
     // 创建请求对象
     ListShiftReq req = ListShiftReq.newBuilder()
         .pageSize(10)
-        .pageToken("")
+        .pageToken("YrkvQ1wGaPVta45tkxuGiQ==")
         .build();
 
     // 发起请求

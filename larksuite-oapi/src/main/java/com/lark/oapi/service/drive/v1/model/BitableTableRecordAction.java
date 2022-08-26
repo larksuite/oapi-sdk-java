@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class BitableTableRecordAction {
 
+  /**
+   * 记录 ID
+   * <p> 示例值：
+   */
   @SerializedName("record_id")
   private String recordId;
+  /**
+   * 操作类型
+   * <p> 示例值：
+   */
   @SerializedName("action")
   private String action;
+  /**
+   * 操作前的记录值
+   * <p> 示例值：
+   */
   @SerializedName("before_value")
   private BitableTableRecordActionField[] beforeValue;
+  /**
+   * 操作后的记录值
+   * <p> 示例值：
+   */
   @SerializedName("after_value")
   private BitableTableRecordActionField[] afterValue;
 
@@ -31,9 +47,25 @@ public class BitableTableRecordAction {
   }
 
   public BitableTableRecordAction(Builder builder) {
+    /**
+     * 记录 ID
+     * <p> 示例值：
+     */
     this.recordId = builder.recordId;
+    /**
+     * 操作类型
+     * <p> 示例值：
+     */
     this.action = builder.action;
+    /**
+     * 操作前的记录值
+     * <p> 示例值：
+     */
     this.beforeValue = builder.beforeValue;
+    /**
+     * 操作后的记录值
+     * <p> 示例值：
+     */
     this.afterValue = builder.afterValue;
   }
 
@@ -75,26 +107,73 @@ public class BitableTableRecordAction {
 
   public static class Builder {
 
+    /**
+     * 记录 ID
+     * <p> 示例值：
+     */
     private String recordId;
+    /**
+     * 操作类型
+     * <p> 示例值：
+     */
     private String action;
+    /**
+     * 操作前的记录值
+     * <p> 示例值：
+     */
     private BitableTableRecordActionField[] beforeValue;
+    /**
+     * 操作后的记录值
+     * <p> 示例值：
+     */
     private BitableTableRecordActionField[] afterValue;
 
+    /**
+     * 记录 ID
+     * <p> 示例值：
+     *
+     * @param recordId
+     * @return
+     */
     public Builder recordId(String recordId) {
       this.recordId = recordId;
       return this;
     }
 
+
+    /**
+     * 操作类型
+     * <p> 示例值：
+     *
+     * @param action
+     * @return
+     */
     public Builder action(String action) {
       this.action = action;
       return this;
     }
 
+
+    /**
+     * 操作前的记录值
+     * <p> 示例值：
+     *
+     * @param beforeValue
+     * @return
+     */
     public Builder beforeValue(BitableTableRecordActionField[] beforeValue) {
       this.beforeValue = beforeValue;
       return this;
     }
 
+
+    /**
+     * 操作后的记录值
+     * <p> 示例值：
+     *
+     * @param afterValue
+     * @return
+     */
     public Builder afterValue(BitableTableRecordActionField[] afterValue) {
       this.afterValue = afterValue;
       return this;

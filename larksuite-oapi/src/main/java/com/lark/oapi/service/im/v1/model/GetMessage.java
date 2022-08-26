@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetMessage {
 
+  /**
+   * -
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private Message[] items;
 

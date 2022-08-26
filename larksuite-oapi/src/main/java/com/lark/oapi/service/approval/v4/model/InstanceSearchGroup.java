@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class InstanceSearchGroup {
 
+  /**
+   * 审批定义分组外部 id
+   * <p> 示例值：0004
+   */
   @SerializedName("external_id")
   private String externalId;
+  /**
+   * 审批定义分组名称
+   * <p> 示例值：groupA
+   */
   @SerializedName("name")
   private String name;
 
@@ -27,7 +35,15 @@ public class InstanceSearchGroup {
   }
 
   public InstanceSearchGroup(Builder builder) {
+    /**
+     * 审批定义分组外部 id
+     * <p> 示例值：0004
+     */
     this.externalId = builder.externalId;
+    /**
+     * 审批定义分组名称
+     * <p> 示例值：groupA
+     */
     this.name = builder.name;
   }
 
@@ -53,14 +69,37 @@ public class InstanceSearchGroup {
 
   public static class Builder {
 
+    /**
+     * 审批定义分组外部 id
+     * <p> 示例值：0004
+     */
     private String externalId;
+    /**
+     * 审批定义分组名称
+     * <p> 示例值：groupA
+     */
     private String name;
 
+    /**
+     * 审批定义分组外部 id
+     * <p> 示例值：0004
+     *
+     * @param externalId
+     * @return
+     */
     public Builder externalId(String externalId) {
       this.externalId = externalId;
       return this;
     }
 
+
+    /**
+     * 审批定义分组名称
+     * <p> 示例值：groupA
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;

@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchQueryMeta {
 
+  /**
+   * 文档元数据列表
+   * <p> 示例值：
+   */
   @SerializedName("metas")
   private Meta[] metas;
+  /**
+   * 无法获取元数据的文档列表
+   * <p> 示例值：
+   */
   @SerializedName("failed_list")
   private MetaFailed[] failedList;
 

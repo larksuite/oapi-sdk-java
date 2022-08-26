@@ -17,12 +17,27 @@ import com.google.gson.annotations.SerializedName;
 
 public class Area {
 
+  /**
+   * 区域类型
+   * <p> 示例值：
+   */
   @SerializedName("type")
   private String type;
+  /**
+   * 中心点
+   * <p> 示例值：
+   */
   @SerializedName("center")
   private Coordinate center;
+  /**
+   * 半径
+   * <p> 示例值：
+   */
   @SerializedName("radius")
   private String radius;
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("coords")
   private Coordinate[] coords;
 
@@ -31,9 +46,25 @@ public class Area {
   }
 
   public Area(Builder builder) {
+    /**
+     * 区域类型
+     * <p> 示例值：
+     */
     this.type = builder.type;
+    /**
+     * 中心点
+     * <p> 示例值：
+     */
     this.center = builder.center;
+    /**
+     * 半径
+     * <p> 示例值：
+     */
     this.radius = builder.radius;
+    /**
+     *
+     * <p> 示例值：
+     */
     this.coords = builder.coords;
   }
 
@@ -75,26 +106,71 @@ public class Area {
 
   public static class Builder {
 
+    /**
+     * 区域类型
+     * <p> 示例值：
+     */
     private String type;
+    /**
+     * 中心点
+     * <p> 示例值：
+     */
     private Coordinate center;
+    /**
+     * 半径
+     * <p> 示例值：
+     */
     private String radius;
+    /**
+     * <p> 示例值：
+     */
     private Coordinate[] coords;
 
+    /**
+     * 区域类型
+     * <p> 示例值：
+     *
+     * @param type
+     * @return
+     */
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
+
+    /**
+     * 中心点
+     * <p> 示例值：
+     *
+     * @param center
+     * @return
+     */
     public Builder center(Coordinate center) {
       this.center = center;
       return this;
     }
 
+
+    /**
+     * 半径
+     * <p> 示例值：
+     *
+     * @param radius
+     * @return
+     */
     public Builder radius(String radius) {
       this.radius = radius;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：
+     *
+     * @param coords
+     * @return
+     */
     public Builder coords(Coordinate[] coords) {
       this.coords = coords;
       return this;

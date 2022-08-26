@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class DetectFaceAttributesImage {
 
+  /**
+   * 图片信息
+   * <p> 示例值：
+   */
   @SerializedName("image_info")
   private Image imageInfo;
+  /**
+   * 人脸信息列表
+   * <p> 示例值：
+   */
   @SerializedName("face_infos")
   private FaceInfo[] faceInfos;
 

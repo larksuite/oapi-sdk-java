@@ -6,7 +6,7 @@ import com.lark.oapi.service.approval.v4.model.SpecifiedRollback;
 import com.lark.oapi.service.approval.v4.model.SpecifiedRollbackInstanceReq;
 import com.lark.oapi.service.approval.v4.model.SpecifiedRollbackInstanceResp;
 
-// HTTP PATH: /open-apis/approval/v4/instances/specified_rollback"
+// POST /open-apis/approval/v4/instances/specified_rollback
 public class SpecifiedRollbackInstanceSample {
 
   public static void main(String arg[]) throws Exception {

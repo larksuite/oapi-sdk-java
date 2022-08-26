@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateChatModerationReqBody {
 
+  /**
+   * 群发言模式（all_members/only_owner/moderator_list，其中 moderator_list 表示部分用户可发言的模式）
+   * <p> 示例值：moderator_list
+   */
   @SerializedName("moderation_setting")
   private String moderationSetting;
+  /**
+   * 选择部分用户可发言模式时，添加的可发言用户列表（自动过滤不在群内的用户）
+   * <p> 示例值：["4d7a3c6g"]
+   */
   @SerializedName("moderator_added_list")
   private String[] moderatorAddedList;
+  /**
+   * 选择部分用户可发言模式时，移除的可发言用户列表（自动过滤不在群内的用户）
+   * <p> 示例值：["4d7a3ih6"]
+   */
   @SerializedName("moderator_removed_list")
   private String[] moderatorRemovedList;
 
@@ -29,8 +41,20 @@ public class UpdateChatModerationReqBody {
   }
 
   public UpdateChatModerationReqBody(Builder builder) {
+    /**
+     * 群发言模式（all_members/only_owner/moderator_list，其中 moderator_list 表示部分用户可发言的模式）
+     * <p> 示例值：moderator_list
+     */
     this.moderationSetting = builder.moderationSetting;
+    /**
+     * 选择部分用户可发言模式时，添加的可发言用户列表（自动过滤不在群内的用户）
+     * <p> 示例值：["4d7a3c6g"]
+     */
     this.moderatorAddedList = builder.moderatorAddedList;
+    /**
+     * 选择部分用户可发言模式时，移除的可发言用户列表（自动过滤不在群内的用户）
+     * <p> 示例值：["4d7a3ih6"]
+     */
     this.moderatorRemovedList = builder.moderatorRemovedList;
   }
 
@@ -64,20 +88,55 @@ public class UpdateChatModerationReqBody {
 
   public static class Builder {
 
+    /**
+     * 群发言模式（all_members/only_owner/moderator_list，其中 moderator_list 表示部分用户可发言的模式）
+     * <p> 示例值：moderator_list
+     */
     private String moderationSetting;
+    /**
+     * 选择部分用户可发言模式时，添加的可发言用户列表（自动过滤不在群内的用户）
+     * <p> 示例值：["4d7a3c6g"]
+     */
     private String[] moderatorAddedList;
+    /**
+     * 选择部分用户可发言模式时，移除的可发言用户列表（自动过滤不在群内的用户）
+     * <p> 示例值：["4d7a3ih6"]
+     */
     private String[] moderatorRemovedList;
 
+    /**
+     * 群发言模式（all_members/only_owner/moderator_list，其中 moderator_list 表示部分用户可发言的模式）
+     * <p> 示例值：moderator_list
+     *
+     * @param moderationSetting
+     * @return
+     */
     public Builder moderationSetting(String moderationSetting) {
       this.moderationSetting = moderationSetting;
       return this;
     }
 
+
+    /**
+     * 选择部分用户可发言模式时，添加的可发言用户列表（自动过滤不在群内的用户）
+     * <p> 示例值：["4d7a3c6g"]
+     *
+     * @param moderatorAddedList
+     * @return
+     */
     public Builder moderatorAddedList(String[] moderatorAddedList) {
       this.moderatorAddedList = moderatorAddedList;
       return this;
     }
 
+
+    /**
+     * 选择部分用户可发言模式时，移除的可发言用户列表（自动过滤不在群内的用户）
+     * <p> 示例值：["4d7a3ih6"]
+     *
+     * @param moderatorRemovedList
+     * @return
+     */
     public Builder moderatorRemovedList(String[] moderatorRemovedList) {
       this.moderatorRemovedList = moderatorRemovedList;
       return this;

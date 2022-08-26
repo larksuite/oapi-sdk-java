@@ -6,7 +6,7 @@ import com.lark.oapi.service.block.v2.model.CreateEntityReq;
 import com.lark.oapi.service.block.v2.model.CreateEntityReqBody;
 import com.lark.oapi.service.block.v2.model.CreateEntityResp;
 
-// HTTP PATH: /open-apis/block/v2/entities"
+// POST /open-apis/block/v2/entities
 public class CreateEntitySample {
 
   public static void main(String arg[]) throws Exception {
@@ -23,7 +23,7 @@ public class CreateEntitySample {
             .version("1")
             .sourceLink("")
             .owner("ou_fa7aa170f92d1615de63371ac425a767")
-            .extra("")
+            .extra("{}")
             .i18nSummary("")
             .i18nPreview("")
             .summary("")

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.attendance.v1.model.GetShiftReq;
 import com.lark.oapi.service.attendance.v1.model.GetShiftResp;
 
-// HTTP PATH: /open-apis/attendance/v1/shifts/:shift_id"
+// GET /open-apis/attendance/v1/shifts/:shift_id
 public class GetShiftSample {
 
   public static void main(String arg[]) throws Exception {

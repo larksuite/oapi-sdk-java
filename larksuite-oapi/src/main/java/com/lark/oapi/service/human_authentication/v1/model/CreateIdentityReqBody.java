@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateIdentityReqBody {
 
+  /**
+   * 姓名
+   * <p> 示例值：张三
+   */
   @SerializedName("identity_name")
   private String identityName;
+  /**
+   * 身份证号
+   * <p> 示例值：4xxxxxxxx
+   */
   @SerializedName("identity_code")
   private String identityCode;
+  /**
+   * 手机号
+   * <p> 示例值：13xxxxxxx
+   */
   @SerializedName("mobile")
   private String mobile;
 
@@ -29,8 +41,20 @@ public class CreateIdentityReqBody {
   }
 
   public CreateIdentityReqBody(Builder builder) {
+    /**
+     * 姓名
+     * <p> 示例值：张三
+     */
     this.identityName = builder.identityName;
+    /**
+     * 身份证号
+     * <p> 示例值：4xxxxxxxx
+     */
     this.identityCode = builder.identityCode;
+    /**
+     * 手机号
+     * <p> 示例值：13xxxxxxx
+     */
     this.mobile = builder.mobile;
   }
 
@@ -64,20 +88,55 @@ public class CreateIdentityReqBody {
 
   public static class Builder {
 
+    /**
+     * 姓名
+     * <p> 示例值：张三
+     */
     private String identityName;
+    /**
+     * 身份证号
+     * <p> 示例值：4xxxxxxxx
+     */
     private String identityCode;
+    /**
+     * 手机号
+     * <p> 示例值：13xxxxxxx
+     */
     private String mobile;
 
+    /**
+     * 姓名
+     * <p> 示例值：张三
+     *
+     * @param identityName
+     * @return
+     */
     public Builder identityName(String identityName) {
       this.identityName = identityName;
       return this;
     }
 
+
+    /**
+     * 身份证号
+     * <p> 示例值：4xxxxxxxx
+     *
+     * @param identityCode
+     * @return
+     */
     public Builder identityCode(String identityCode) {
       this.identityCode = identityCode;
       return this;
     }
 
+
+    /**
+     * 手机号
+     * <p> 示例值：13xxxxxxx
+     *
+     * @param mobile
+     * @return
+     */
     public Builder mobile(String mobile) {
       this.mobile = mobile;
       return this;

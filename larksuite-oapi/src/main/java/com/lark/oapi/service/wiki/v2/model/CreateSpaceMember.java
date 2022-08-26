@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateSpaceMember {
 
+  /**
+   * 知识空间成员
+   * <p> 示例值：
+   */
   @SerializedName("member")
   private Member member;
 

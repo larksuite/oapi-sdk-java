@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class Iframe {
 
+  /**
+   * iframe 的组成元素
+   * <p> 示例值：
+   */
   @SerializedName("component")
   private IframeComponent component;
 
@@ -25,6 +29,10 @@ public class Iframe {
   }
 
   public Iframe(Builder builder) {
+    /**
+     * iframe 的组成元素
+     * <p> 示例值：
+     */
     this.component = builder.component;
   }
 
@@ -42,8 +50,19 @@ public class Iframe {
 
   public static class Builder {
 
+    /**
+     * iframe 的组成元素
+     * <p> 示例值：
+     */
     private IframeComponent component;
 
+    /**
+     * iframe 的组成元素
+     * <p> 示例值：
+     *
+     * @param component
+     * @return
+     */
     public Builder component(IframeComponent component) {
       this.component = component;
       return this;

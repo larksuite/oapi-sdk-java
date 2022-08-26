@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.ListFaqReq;
 import com.lark.oapi.service.helpdesk.v1.model.ListFaqResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/faqs"
+// GET /open-apis/helpdesk/v1/faqs
 public class ListFaqSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,10 +14,10 @@ public class ListFaqSample {
 
     // 创建请求对象
     ListFaqReq req = ListFaqReq.newBuilder()
-        .categoryId("")
-        .status("")
-        .search("")
-        .pageToken("")
+        .categoryId("6856395522433908739")
+        .status("1")
+        .search("点餐")
+        .pageToken("6856395634652479491")
         .pageSize(20)
         .build();
 

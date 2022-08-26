@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.mail.v1.model.DeleteMailgroupAliasReq;
 import com.lark.oapi.service.mail.v1.model.DeleteMailgroupAliasResp;
 
-// HTTP PATH: /open-apis/mail/v1/mailgroups/:mailgroup_id/aliases/:alias_id"
+// DELETE /open-apis/mail/v1/mailgroups/:mailgroup_id/aliases/:alias_id
 public class DeleteMailgroupAliasSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,8 +14,8 @@ public class DeleteMailgroupAliasSample {
 
     // 创建请求对象
     DeleteMailgroupAliasReq req = DeleteMailgroupAliasReq.newBuilder()
-        .mailgroupId("")
-        .aliasId("")
+        .mailgroupId("xxxxxx 或 test_group@xx.xxx")
+        .aliasId("xxx@xx.xxx")
         .build();
 
     // 发起请求

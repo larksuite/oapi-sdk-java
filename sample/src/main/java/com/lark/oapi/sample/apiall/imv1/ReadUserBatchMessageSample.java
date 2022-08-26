@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.im.v1.model.ReadUserBatchMessageReq;
 import com.lark.oapi.service.im.v1.model.ReadUserBatchMessageResp;
 
-// HTTP PATH: /open-apis/im/v1/batch_messages/:batch_message_id/read_user"
+// GET /open-apis/im/v1/batch_messages/:batch_message_id/read_user
 public class ReadUserBatchMessageSample {
 
   public static void main(String arg[]) throws Exception {

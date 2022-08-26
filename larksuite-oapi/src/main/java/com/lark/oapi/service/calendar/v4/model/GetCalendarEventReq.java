@@ -18,9 +18,17 @@ import com.lark.oapi.core.annotation.Path;
 
 public class GetCalendarEventReq {
 
+  /**
+   * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+   * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+   */
   @Path
   @SerializedName("calendar_id")
   private String calendarId;
+  /**
+   * 日程ID。参见[日程ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
+   * <p> 示例值：xxxxxxxxx_0
+   */
   @Path
   @SerializedName("event_id")
   private String eventId;
@@ -30,7 +38,15 @@ public class GetCalendarEventReq {
   }
 
   public GetCalendarEventReq(Builder builder) {
+    /**
+     * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     */
     this.calendarId = builder.calendarId;
+    /**
+     * 日程ID。参见[日程ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
+     * <p> 示例值：xxxxxxxxx_0
+     */
     this.eventId = builder.eventId;
   }
 
@@ -56,14 +72,29 @@ public class GetCalendarEventReq {
 
   public static class Builder {
 
-    private String calendarId;
-    private String eventId;
+    private String calendarId; // 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+    private String eventId; // 日程ID。参见[日程ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
 
+    /**
+     * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     *
+     * @param calendarId
+     * @return
+     */
     public Builder calendarId(String calendarId) {
       this.calendarId = calendarId;
       return this;
     }
 
+
+    /**
+     * 日程ID。参见[日程ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
+     * <p> 示例值：xxxxxxxxx_0
+     *
+     * @param eventId
+     * @return
+     */
     public Builder eventId(String eventId) {
       this.eventId = eventId;
       return this;

@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class GetAgentSchedulesReq {
 
+  /**
+   * 客服 id
+   * <p> 示例值：	客服 id
+   */
   @Path
   @SerializedName("agent_id")
   private String agentId;
@@ -27,6 +31,10 @@ public class GetAgentSchedulesReq {
   }
 
   public GetAgentSchedulesReq(Builder builder) {
+    /**
+     * 	客服 id
+     * <p> 示例值：	客服 id
+     */
     this.agentId = builder.agentId;
   }
 
@@ -44,8 +52,15 @@ public class GetAgentSchedulesReq {
 
   public static class Builder {
 
-    private String agentId;
+    private String agentId; // 	客服 id
 
+    /**
+     * 客服 id
+     * <p> 示例值：	客服 id
+     *
+     * @param agentId
+     * @return
+     */
     public Builder agentId(String agentId) {
       this.agentId = agentId;
       return this;

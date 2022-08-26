@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateDepartment {
 
+  /**
+   * 部门信息
+   * <p> 示例值：
+   */
   @SerializedName("department")
   private Department department;
 

@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class DeleteUserMailboxReq {
 
+  /**
+   * 用于接受转移的邮箱地址
+   * <p> 示例值：888888@abc.com
+   */
   @Query
   @SerializedName("transfer_mailbox")
   private String transferMailbox;
+  /**
+   * 要释放的邮箱地址
+   * <p> 示例值：111111@abc.com
+   */
   @Path
   @SerializedName("user_mailbox_id")
   private String userMailboxId;
@@ -31,7 +39,15 @@ public class DeleteUserMailboxReq {
   }
 
   public DeleteUserMailboxReq(Builder builder) {
+    /**
+     * 用于接受转移的邮箱地址
+     * <p> 示例值：888888@abc.com
+     */
     this.transferMailbox = builder.transferMailbox;
+    /**
+     * 要释放的邮箱地址
+     * <p> 示例值：111111@abc.com
+     */
     this.userMailboxId = builder.userMailboxId;
   }
 
@@ -57,14 +73,28 @@ public class DeleteUserMailboxReq {
 
   public static class Builder {
 
-    private String transferMailbox;
-    private String userMailboxId;
+    private String transferMailbox; // 用于接受转移的邮箱地址
+    private String userMailboxId; // 要释放的邮箱地址
 
+    /**
+     * 用于接受转移的邮箱地址
+     * <p> 示例值：888888@abc.com
+     *
+     * @param transferMailbox
+     * @return
+     */
     public Builder transferMailbox(String transferMailbox) {
       this.transferMailbox = transferMailbox;
       return this;
     }
 
+    /**
+     * 要释放的邮箱地址
+     * <p> 示例值：111111@abc.com
+     *
+     * @param userMailboxId
+     * @return
+     */
     public Builder userMailboxId(String userMailboxId) {
       this.userMailboxId = userMailboxId;
       return this;

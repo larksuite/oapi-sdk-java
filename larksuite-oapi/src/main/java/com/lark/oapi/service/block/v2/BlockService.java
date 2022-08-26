@@ -37,10 +37,20 @@ public class BlockService {
     this.message = new Message(config);
   }
 
+  /**
+   * entity
+   *
+   * @return
+   */
   public Entity entity() {
     return entity;
   }
 
+  /**
+   * message
+   *
+   * @return
+   */
   public Message message() {
     return message;
   }
@@ -53,6 +63,13 @@ public class BlockService {
       this.config = config;
     }
 
+    /**
+     * 创建 BlockEntity，开发者可以通过该接口将部分或全部数据存放于 BlockEntity。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2//CreateEntitySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2//CreateEntitySample.java</a>
+     * ;
+     */
     public CreateEntityResp create(CreateEntityReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -74,6 +91,13 @@ public class BlockService {
       return resp;
     }
 
+    /**
+     * 创建 BlockEntity，开发者可以通过该接口将部分或全部数据存放于 BlockEntity。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2//CreateEntitySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2//CreateEntitySample.java</a>
+     * ;
+     */
     public CreateEntityResp create(CreateEntityReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -92,6 +116,13 @@ public class BlockService {
       return resp;
     }
 
+    /**
+     * 更新BlockEntity，开发者通过该接口可以更新存储在BlockEntity中的数据，并实时推送到端侧。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2//UpdateEntitySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2//UpdateEntitySample.java</a>
+     * ;
+     */
     public UpdateEntityResp update(UpdateEntityReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -113,6 +144,13 @@ public class BlockService {
       return resp;
     }
 
+    /**
+     * 更新BlockEntity，开发者通过该接口可以更新存储在BlockEntity中的数据，并实时推送到端侧。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/entity/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2//UpdateEntitySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2//UpdateEntitySample.java</a>
+     * ;
+     */
     public UpdateEntityResp update(UpdateEntityReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -140,6 +178,13 @@ public class BlockService {
       this.config = config;
     }
 
+    /**
+     * Block消息推送，根据BlockID向指定用户列表推送消息。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/message/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/message/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2//CreateMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2//CreateMessageSample.java</a>
+     * ;
+     */
     public CreateMessageResp create(CreateMessageReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -162,6 +207,13 @@ public class BlockService {
       return resp;
     }
 
+    /**
+     * Block消息推送，根据BlockID向指定用户列表推送消息。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/message/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/message/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2//CreateMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2//CreateMessageSample.java</a>
+     * ;
+     */
     public CreateMessageResp create(CreateMessageReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();

@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Query;
 
 public class GetNodeSpaceReq {
 
+  /**
+   * 文档的wiki token
+   * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8VN6kVf
+   */
   @Query
   @SerializedName("token")
   private String token;
@@ -27,6 +31,10 @@ public class GetNodeSpaceReq {
   }
 
   public GetNodeSpaceReq(Builder builder) {
+    /**
+     * 文档的wiki token
+     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8VN6kVf
+     */
     this.token = builder.token;
   }
 
@@ -44,8 +52,16 @@ public class GetNodeSpaceReq {
 
   public static class Builder {
 
-    private String token;
+    private String token; // 文档的wiki token
 
+
+    /**
+     * 文档的wiki token
+     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8VN6kVf
+     *
+     * @param token
+     * @return
+     */
     public Builder token(String token) {
       this.token = token;
       return this;

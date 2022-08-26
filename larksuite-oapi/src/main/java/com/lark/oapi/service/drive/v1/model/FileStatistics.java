@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class FileStatistics {
 
+  /**
+   * 文件历史访问人数，同一用户（user_id）多次访问按一次计算。
+   * <p> 示例值：10
+   */
   @SerializedName("uv")
   private Integer uv;
+  /**
+   * 文件历史访问次数，同一用户（user_id）多次访问按多次计算。（注：同一用户相邻两次访问间隔在半小时内视为一次访问）
+   * <p> 示例值：15
+   */
   @SerializedName("pv")
   private Integer pv;
+  /**
+   * 文件历史点赞总数，若对应的文档类型不支持点赞，返回 -1
+   * <p> 示例值：2
+   */
   @SerializedName("like_count")
   private Integer likeCount;
+  /**
+   * 时间戳（秒）
+   * <p> 示例值：1627367349
+   */
   @SerializedName("timestamp")
   private Integer timestamp;
 
@@ -31,9 +47,25 @@ public class FileStatistics {
   }
 
   public FileStatistics(Builder builder) {
+    /**
+     * 文件历史访问人数，同一用户（user_id）多次访问按一次计算。
+     * <p> 示例值：10
+     */
     this.uv = builder.uv;
+    /**
+     * 文件历史访问次数，同一用户（user_id）多次访问按多次计算。（注：同一用户相邻两次访问间隔在半小时内视为一次访问）
+     * <p> 示例值：15
+     */
     this.pv = builder.pv;
+    /**
+     * 文件历史点赞总数，若对应的文档类型不支持点赞，返回 -1
+     * <p> 示例值：2
+     */
     this.likeCount = builder.likeCount;
+    /**
+     * 时间戳（秒）
+     * <p> 示例值：1627367349
+     */
     this.timestamp = builder.timestamp;
   }
 
@@ -75,26 +107,73 @@ public class FileStatistics {
 
   public static class Builder {
 
+    /**
+     * 文件历史访问人数，同一用户（user_id）多次访问按一次计算。
+     * <p> 示例值：10
+     */
     private Integer uv;
+    /**
+     * 文件历史访问次数，同一用户（user_id）多次访问按多次计算。（注：同一用户相邻两次访问间隔在半小时内视为一次访问）
+     * <p> 示例值：15
+     */
     private Integer pv;
+    /**
+     * 文件历史点赞总数，若对应的文档类型不支持点赞，返回 -1
+     * <p> 示例值：2
+     */
     private Integer likeCount;
+    /**
+     * 时间戳（秒）
+     * <p> 示例值：1627367349
+     */
     private Integer timestamp;
 
+    /**
+     * 文件历史访问人数，同一用户（user_id）多次访问按一次计算。
+     * <p> 示例值：10
+     *
+     * @param uv
+     * @return
+     */
     public Builder uv(Integer uv) {
       this.uv = uv;
       return this;
     }
 
+
+    /**
+     * 文件历史访问次数，同一用户（user_id）多次访问按多次计算。（注：同一用户相邻两次访问间隔在半小时内视为一次访问）
+     * <p> 示例值：15
+     *
+     * @param pv
+     * @return
+     */
     public Builder pv(Integer pv) {
       this.pv = pv;
       return this;
     }
 
+
+    /**
+     * 文件历史点赞总数，若对应的文档类型不支持点赞，返回 -1
+     * <p> 示例值：2
+     *
+     * @param likeCount
+     * @return
+     */
     public Builder likeCount(Integer likeCount) {
       this.likeCount = likeCount;
       return this;
     }
 
+
+    /**
+     * 时间戳（秒）
+     * <p> 示例值：1627367349
+     *
+     * @param timestamp
+     * @return
+     */
     public Builder timestamp(Integer timestamp) {
       this.timestamp = timestamp;
       return this;

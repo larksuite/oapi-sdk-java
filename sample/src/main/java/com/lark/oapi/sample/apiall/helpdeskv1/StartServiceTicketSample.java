@@ -6,7 +6,7 @@ import com.lark.oapi.service.helpdesk.v1.model.StartServiceTicketReq;
 import com.lark.oapi.service.helpdesk.v1.model.StartServiceTicketReqBody;
 import com.lark.oapi.service.helpdesk.v1.model.StartServiceTicketResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/start_service"
+// POST /open-apis/helpdesk/v1/start_service
 public class StartServiceTicketSample {
 
   public static void main(String arg[]) throws Exception {
@@ -18,8 +18,8 @@ public class StartServiceTicketSample {
         .startServiceTicketReqBody(StartServiceTicketReqBody.newBuilder()
             .humanService(false)
             .appointedAgents(new String[]{})
-            .openId("")
-            .customizedInfo("")
+            .openId("ou_7dab8a3d3cdcc9da365777c7ad535d62")
+            .customizedInfo("测试自定义字段信息")
             .build())
         .build();
 

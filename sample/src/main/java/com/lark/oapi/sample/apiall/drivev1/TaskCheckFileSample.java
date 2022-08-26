@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.drive.v1.model.TaskCheckFileReq;
 import com.lark.oapi.service.drive.v1.model.TaskCheckFileResp;
 
-// HTTP PATH: /open-apis/drive/v1/files/task_check"
+// GET /open-apis/drive/v1/files/task_check
 public class TaskCheckFileSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class TaskCheckFileSample {
 
     // 创建请求对象
     TaskCheckFileReq req = TaskCheckFileReq.newBuilder()
-        .taskId("")
+        .taskId("12345")
         .build();
 
     // 发起请求

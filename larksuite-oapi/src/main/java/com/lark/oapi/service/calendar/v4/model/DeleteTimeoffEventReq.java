@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DeleteTimeoffEventReq {
 
+  /**
+   * 休假申请的唯一标识id。参见[请假日程ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
+   * <p> 示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39
+   */
   @Path
   @SerializedName("timeoff_event_id")
   private String timeoffEventId;
@@ -27,6 +31,10 @@ public class DeleteTimeoffEventReq {
   }
 
   public DeleteTimeoffEventReq(Builder builder) {
+    /**
+     * 休假申请的唯一标识id。参见[请假日程ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
+     * <p> 示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39
+     */
     this.timeoffEventId = builder.timeoffEventId;
   }
 
@@ -44,8 +52,15 @@ public class DeleteTimeoffEventReq {
 
   public static class Builder {
 
-    private String timeoffEventId;
+    private String timeoffEventId; // 休假申请的唯一标识id。参见[请假日程ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
 
+    /**
+     * 休假申请的唯一标识id。参见[请假日程ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
+     * <p> 示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39
+     *
+     * @param timeoffEventId
+     * @return
+     */
     public Builder timeoffEventId(String timeoffEventId) {
       this.timeoffEventId = timeoffEventId;
       return this;

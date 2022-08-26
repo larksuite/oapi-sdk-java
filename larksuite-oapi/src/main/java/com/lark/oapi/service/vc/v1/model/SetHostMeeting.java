@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class SetHostMeeting {
 
+  /**
+   * 会中当前主持人
+   * <p> 示例值：
+   */
   @SerializedName("host_user")
   private MeetingUser hostUser;
 

@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class ContractCompany {
 
+  /**
+   * 公司 ID
+   * <p> 示例值：1695838220091399
+   */
   @SerializedName("id")
   private Long id;
+  /**
+   * 公司名称
+   * <p> 示例值：油条一号
+   */
   @SerializedName("name")
   private String name;
 
@@ -27,7 +35,15 @@ public class ContractCompany {
   }
 
   public ContractCompany(Builder builder) {
+    /**
+     * 公司 ID
+     * <p> 示例值：1695838220091399
+     */
     this.id = builder.id;
+    /**
+     * 公司名称
+     * <p> 示例值：油条一号
+     */
     this.name = builder.name;
   }
 
@@ -53,14 +69,37 @@ public class ContractCompany {
 
   public static class Builder {
 
+    /**
+     * 公司 ID
+     * <p> 示例值：1695838220091399
+     */
     private Long id;
+    /**
+     * 公司名称
+     * <p> 示例值：油条一号
+     */
     private String name;
 
+    /**
+     * 公司 ID
+     * <p> 示例值：1695838220091399
+     *
+     * @param id
+     * @return
+     */
     public Builder id(Long id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 公司名称
+     * <p> 示例值：油条一号
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;

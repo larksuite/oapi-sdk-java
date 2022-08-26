@@ -7,7 +7,7 @@ import com.lark.oapi.service.vc.v1.model.SetPermissionMeetingRecordingReq;
 import com.lark.oapi.service.vc.v1.model.SetPermissionMeetingRecordingReqBody;
 import com.lark.oapi.service.vc.v1.model.SetPermissionMeetingRecordingResp;
 
-// HTTP PATH: /open-apis/vc/v1/meetings/:meeting_id/recording/set_permission"
+// PATCH /open-apis/vc/v1/meetings/:meeting_id/recording/set_permission
 public class SetPermissionMeetingRecordingSample {
 
   public static void main(String arg[]) throws Exception {

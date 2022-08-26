@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.approval.v4.model.GetApprovalReq;
 import com.lark.oapi.service.approval.v4.model.GetApprovalResp;
 
-// HTTP PATH: /open-apis/approval/v4/approvals/:approval_code"
+// GET /open-apis/approval/v4/approvals/:approval_code
 public class GetApprovalSample {
 
   public static void main(String arg[]) throws Exception {

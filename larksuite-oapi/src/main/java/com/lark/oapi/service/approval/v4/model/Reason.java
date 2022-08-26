@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Reason {
 
+  /**
+   * 原因说明
+   * <p> 示例值：
+   */
   @SerializedName("text")
   private String text;
+  /**
+   * 附件集合
+   * <p> 示例值：
+   */
   @SerializedName("files")
   private File[] files;
 
@@ -27,7 +35,15 @@ public class Reason {
   }
 
   public Reason(Builder builder) {
+    /**
+     * 原因说明
+     * <p> 示例值：
+     */
     this.text = builder.text;
+    /**
+     * 附件集合
+     * <p> 示例值：
+     */
     this.files = builder.files;
   }
 
@@ -53,14 +69,37 @@ public class Reason {
 
   public static class Builder {
 
+    /**
+     * 原因说明
+     * <p> 示例值：
+     */
     private String text;
+    /**
+     * 附件集合
+     * <p> 示例值：
+     */
     private File[] files;
 
+    /**
+     * 原因说明
+     * <p> 示例值：
+     *
+     * @param text
+     * @return
+     */
     public Builder text(String text) {
       this.text = text;
       return this;
     }
 
+
+    /**
+     * 附件集合
+     * <p> 示例值：
+     *
+     * @param files
+     * @return
+     */
     public Builder files(File[] files) {
       this.files = files;
       return this;

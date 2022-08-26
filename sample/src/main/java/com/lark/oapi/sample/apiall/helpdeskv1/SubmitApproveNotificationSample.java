@@ -6,7 +6,7 @@ import com.lark.oapi.service.helpdesk.v1.model.SubmitApproveNotificationReq;
 import com.lark.oapi.service.helpdesk.v1.model.SubmitApproveNotificationReqBody;
 import com.lark.oapi.service.helpdesk.v1.model.SubmitApproveNotificationResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/notifications/:notification_id/submit_approve"
+// POST /open-apis/helpdesk/v1/notifications/:notification_id/submit_approve
 public class SubmitApproveNotificationSample {
 
   public static void main(String arg[]) throws Exception {

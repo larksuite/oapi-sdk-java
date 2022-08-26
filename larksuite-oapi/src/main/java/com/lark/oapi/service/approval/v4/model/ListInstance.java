@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListInstance {
 
+  /**
+   * 审批实例 Code
+   * <p> 示例值："357C21A0-2069-4F6B-955F-1DFBE6710C51"
+   */
   @SerializedName("instance_code_list")
   private String[] instanceCodeList;
+  /**
+   * 翻页 Token
+   * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 是否有更多任务可供拉取
+   * <p> 示例值：false
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
 

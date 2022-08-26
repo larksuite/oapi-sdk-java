@@ -6,7 +6,7 @@ import com.lark.oapi.service.helpdesk.v1.model.CreateTicketCustomizedFieldReq;
 import com.lark.oapi.service.helpdesk.v1.model.CreateTicketCustomizedFieldResp;
 import com.lark.oapi.service.helpdesk.v1.model.TicketCustomizedField;
 
-// HTTP PATH: /open-apis/helpdesk/v1/ticket_customized_fields"
+// POST /open-apis/helpdesk/v1/ticket_customized_fields
 public class CreateTicketCustomizedFieldSample {
 
   public static void main(String arg[]) throws Exception {

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class QuerySpreadsheetSheetFilterViewCondition {
 
+  /**
+   * 筛选视图设置的所有筛选条件
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private FilterViewCondition[] items;
 

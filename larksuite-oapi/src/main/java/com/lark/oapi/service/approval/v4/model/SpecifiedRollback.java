@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class SpecifiedRollback {
 
+  /**
+   * 用户ID
+   * <p> 示例值：893g4c45
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 回退的任务ID
+   * <p> 示例值：7026591166355210260
+   */
   @SerializedName("task_id")
   private String taskId;
+  /**
+   * 退回原因
+   * <p> 示例值：申请事项填写不具体，请重新填写
+   */
   @SerializedName("reason")
   private String reason;
+  /**
+   * 扩展字段
+   * <p> 示例值：暂不填写
+   */
   @SerializedName("extra")
   private String extra;
+  /**
+   * 退回到节点列表
+   * <p> 示例值：["START","APPROVAL_27997_285502","APPROVAL_462205_2734554"]
+   */
   @SerializedName("task_def_key_list")
   private String[] taskDefKeyList;
 
@@ -33,10 +53,30 @@ public class SpecifiedRollback {
   }
 
   public SpecifiedRollback(Builder builder) {
+    /**
+     * 用户ID
+     * <p> 示例值：893g4c45
+     */
     this.userId = builder.userId;
+    /**
+     * 回退的任务ID
+     * <p> 示例值：7026591166355210260
+     */
     this.taskId = builder.taskId;
+    /**
+     * 退回原因
+     * <p> 示例值：申请事项填写不具体，请重新填写
+     */
     this.reason = builder.reason;
+    /**
+     * 扩展字段
+     * <p> 示例值：暂不填写
+     */
     this.extra = builder.extra;
+    /**
+     * 退回到节点列表
+     * <p> 示例值：["START","APPROVAL_27997_285502","APPROVAL_462205_2734554"]
+     */
     this.taskDefKeyList = builder.taskDefKeyList;
   }
 
@@ -86,32 +126,91 @@ public class SpecifiedRollback {
 
   public static class Builder {
 
+    /**
+     * 用户ID
+     * <p> 示例值：893g4c45
+     */
     private String userId;
+    /**
+     * 回退的任务ID
+     * <p> 示例值：7026591166355210260
+     */
     private String taskId;
+    /**
+     * 退回原因
+     * <p> 示例值：申请事项填写不具体，请重新填写
+     */
     private String reason;
+    /**
+     * 扩展字段
+     * <p> 示例值：暂不填写
+     */
     private String extra;
+    /**
+     * 退回到节点列表
+     * <p> 示例值：["START","APPROVAL_27997_285502","APPROVAL_462205_2734554"]
+     */
     private String[] taskDefKeyList;
 
+    /**
+     * 用户ID
+     * <p> 示例值：893g4c45
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 回退的任务ID
+     * <p> 示例值：7026591166355210260
+     *
+     * @param taskId
+     * @return
+     */
     public Builder taskId(String taskId) {
       this.taskId = taskId;
       return this;
     }
 
+
+    /**
+     * 退回原因
+     * <p> 示例值：申请事项填写不具体，请重新填写
+     *
+     * @param reason
+     * @return
+     */
     public Builder reason(String reason) {
       this.reason = reason;
       return this;
     }
 
+
+    /**
+     * 扩展字段
+     * <p> 示例值：暂不填写
+     *
+     * @param extra
+     * @return
+     */
     public Builder extra(String extra) {
       this.extra = extra;
       return this;
     }
 
+
+    /**
+     * 退回到节点列表
+     * <p> 示例值：["START","APPROVAL_27997_285502","APPROVAL_462205_2734554"]
+     *
+     * @param taskDefKeyList
+     * @return
+     */
     public Builder taskDefKeyList(String[] taskDefKeyList) {
       this.taskDefKeyList = taskDefKeyList;
       return this;

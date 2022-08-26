@@ -48,6 +48,12 @@ public class CreateImageReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder createImageReqBody(CreateImageReqBody body) {
       this.body = body;
       return this;

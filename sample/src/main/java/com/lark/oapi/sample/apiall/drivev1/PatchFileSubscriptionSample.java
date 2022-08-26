@@ -6,7 +6,7 @@ import com.lark.oapi.service.drive.v1.model.PatchFileSubscriptionReq;
 import com.lark.oapi.service.drive.v1.model.PatchFileSubscriptionReqBody;
 import com.lark.oapi.service.drive.v1.model.PatchFileSubscriptionResp;
 
-// HTTP PATH: /open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id"
+// PATCH /open-apis/drive/v1/files/:file_token/subscriptions/:subscription_id
 public class PatchFileSubscriptionSample {
 
   public static void main(String arg[]) throws Exception {

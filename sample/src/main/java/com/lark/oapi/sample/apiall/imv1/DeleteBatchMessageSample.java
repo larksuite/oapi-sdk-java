@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.im.v1.model.DeleteBatchMessageReq;
 import com.lark.oapi.service.im.v1.model.DeleteBatchMessageResp;
 
-// HTTP PATH: /open-apis/im/v1/batch_messages/:batch_message_id"
+// DELETE /open-apis/im/v1/batch_messages/:batch_message_id
 public class DeleteBatchMessageSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class DeleteBatchMessageSample {
 
     // 创建请求对象
     DeleteBatchMessageReq req = DeleteBatchMessageReq.newBuilder()
-        .batchMessageId("bm_dc13264520392913993dd051dba21dcf")
+        .batchMessageId("bm-dc13264520392913993dd051dba21dcf")
         .build();
 
     // 发起请求

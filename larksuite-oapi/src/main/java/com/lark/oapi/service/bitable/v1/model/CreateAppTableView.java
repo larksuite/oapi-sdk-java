@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateAppTableView {
 
+  /**
+   * 视图
+   * <p> 示例值：
+   */
   @SerializedName("view")
   private AppTableView view;
 

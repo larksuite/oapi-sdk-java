@@ -8,7 +8,7 @@ import com.lark.oapi.service.search.v2.model.Schema;
 import com.lark.oapi.service.search.v2.model.SchemaDisplay;
 import com.lark.oapi.service.search.v2.model.SchemaProperty;
 
-// HTTP PATH: /open-apis/search/v2/schemas"
+// POST /open-apis/search/v2/schemas
 public class CreateSchemaSample {
 
   public static void main(String arg[]) throws Exception {

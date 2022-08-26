@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateSpreadsheetSheetFilterViewCondition {
 
+  /**
+   * 更新后的筛选条件
+   * <p> 示例值：
+   */
   @SerializedName("condition")
   private FilterViewCondition condition;
 

@@ -19,15 +19,31 @@ import com.lark.oapi.core.annotation.Query;
 
 public class ReadUsersMessageReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * 此次调用中使用的分页的大小
+   * <p> 示例值：20
+   */
   @Query
   @SerializedName("page_size")
   private Integer pageSize;
+  /**
+   * 下一页分页的token
+   * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+   */
   @Query
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 待查询的消息的ID，请注意不支持查询批量消息
+   * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+   */
   @Path
   @SerializedName("message_id")
   private String messageId;
@@ -37,9 +53,25 @@ public class ReadUsersMessageReq {
   }
 
   public ReadUsersMessageReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
+    /**
+     * 此次调用中使用的分页的大小
+     * <p> 示例值：20
+     */
     this.pageSize = builder.pageSize;
+    /**
+     * 下一页分页的token
+     * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+     */
     this.pageToken = builder.pageToken;
+    /**
+     * 待查询的消息的ID，请注意不支持查询批量消息
+     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+     */
     this.messageId = builder.messageId;
   }
 
@@ -81,31 +113,67 @@ public class ReadUsersMessageReq {
 
   public static class Builder {
 
-    private String userIdType;
-    private Integer pageSize;
-    private String pageToken;
-    private String messageId;
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private Integer pageSize; // 此次调用中使用的分页的大小
+    private String pageToken; // 下一页分页的token
+    private String messageId; // 待查询的消息的ID，请注意不支持查询批量消息
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.im.v1.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.im.v1.enums.ReadUsersMessageUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.im.v1.enums.ReadUsersMessageUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+    /**
+     * 此次调用中使用的分页的大小
+     * <p> 示例值：20
+     *
+     * @param pageSize
+     * @return
+     */
     public Builder pageSize(Integer pageSize) {
       this.pageSize = pageSize;
       return this;
     }
 
+    /**
+     * 下一页分页的token
+     * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+     *
+     * @param pageToken
+     * @return
+     */
     public Builder pageToken(String pageToken) {
       this.pageToken = pageToken;
       return this;
     }
 
+    /**
+     * 待查询的消息的ID，请注意不支持查询批量消息
+     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+     *
+     * @param messageId
+     * @return
+     */
     public Builder messageId(String messageId) {
       this.messageId = messageId;
       return this;

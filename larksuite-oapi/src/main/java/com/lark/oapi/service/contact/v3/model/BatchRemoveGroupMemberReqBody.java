@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchRemoveGroupMemberReqBody {
 
+  /**
+   * 待移除成员
+   * <p> 示例值：
+   */
   @SerializedName("members")
   private Memberlist[] members;
 
@@ -25,6 +29,10 @@ public class BatchRemoveGroupMemberReqBody {
   }
 
   public BatchRemoveGroupMemberReqBody(Builder builder) {
+    /**
+     * 待移除成员
+     * <p> 示例值：
+     */
     this.members = builder.members;
   }
 
@@ -42,8 +50,19 @@ public class BatchRemoveGroupMemberReqBody {
 
   public static class Builder {
 
+    /**
+     * 待移除成员
+     * <p> 示例值：
+     */
     private Memberlist[] members;
 
+    /**
+     * 待移除成员
+     * <p> 示例值：
+     *
+     * @param members
+     * @return
+     */
     public Builder members(Memberlist[] members) {
       this.members = members;
       return this;

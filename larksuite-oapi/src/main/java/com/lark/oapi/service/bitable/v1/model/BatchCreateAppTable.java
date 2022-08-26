@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchCreateAppTable {
 
+  /**
+   * table ids
+   * <p> 示例值：
+   */
   @SerializedName("table_ids")
   private String[] tableIds;
 

@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class PatchSchemaReq {
 
+  /**
+   * 用户自定义数据范式的唯一标识
+   * <p> 示例值：custom_schema_id
+   */
   @Path
   @SerializedName("schema_id")
   private String schemaId;
@@ -30,6 +34,10 @@ public class PatchSchemaReq {
   }
 
   public PatchSchemaReq(Builder builder) {
+    /**
+     * 用户自定义数据范式的唯一标识
+     * <p> 示例值：custom_schema_id
+     */
     this.schemaId = builder.schemaId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class PatchSchemaReq {
 
   public static class Builder {
 
-    private String schemaId;
+    private String schemaId; // 用户自定义数据范式的唯一标识
     private PatchSchemaReqBody body;
 
+    /**
+     * 用户自定义数据范式的唯一标识
+     * <p> 示例值：custom_schema_id
+     *
+     * @param schemaId
+     * @return
+     */
     public Builder schemaId(String schemaId) {
       this.schemaId = schemaId;
       return this;
@@ -68,6 +83,12 @@ public class PatchSchemaReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder patchSchemaReqBody(PatchSchemaReqBody body) {
       this.body = body;
       return this;

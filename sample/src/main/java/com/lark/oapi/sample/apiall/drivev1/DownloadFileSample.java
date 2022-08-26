@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.drive.v1.model.DownloadFileReq;
 import com.lark.oapi.service.drive.v1.model.DownloadFileResp;
 
-// HTTP PATH: /open-apis/drive/v1/files/:file_token/download"
+// GET /open-apis/drive/v1/files/:file_token/download
 public class DownloadFileSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class DownloadFileSample {
 
     // 创建请求对象
     DownloadFileReq req = DownloadFileReq.newBuilder()
-        .fileToken("")
+        .fileToken("boxcnabCdefg12345")
         .build();
 
     // 发起请求

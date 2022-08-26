@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.attendance.v1.model.DeleteGroupReq;
 import com.lark.oapi.service.attendance.v1.model.DeleteGroupResp;
 
-// HTTP PATH: /open-apis/attendance/v1/groups/:group_id"
+// DELETE /open-apis/attendance/v1/groups/:group_id
 public class DeleteGroupSample {
 
   public static void main(String arg[]) throws Exception {

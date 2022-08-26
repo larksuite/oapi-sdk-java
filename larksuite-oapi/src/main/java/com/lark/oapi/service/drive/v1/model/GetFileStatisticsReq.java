@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class GetFileStatisticsReq {
 
+  /**
+   * 文档类型
+   * <p> 示例值：doc
+   */
   @Query
   @SerializedName("file_type")
   private String fileType;
+  /**
+   * 文件 token
+   * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
+   */
   @Path
   @SerializedName("file_token")
   private String fileToken;
@@ -31,7 +39,15 @@ public class GetFileStatisticsReq {
   }
 
   public GetFileStatisticsReq(Builder builder) {
+    /**
+     * 文档类型
+     * <p> 示例值：doc
+     */
     this.fileType = builder.fileType;
+    /**
+     * 文件 token
+     * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
+     */
     this.fileToken = builder.fileToken;
   }
 
@@ -57,19 +73,41 @@ public class GetFileStatisticsReq {
 
   public static class Builder {
 
-    private String fileType;
-    private String fileToken;
+    private String fileType; // 文档类型
+    private String fileToken; // 文件 token
 
+    /**
+     * 文档类型
+     * <p> 示例值：doc
+     *
+     * @param fileType
+     * @return
+     */
     public Builder fileType(String fileType) {
       this.fileType = fileType;
       return this;
     }
 
-    public Builder fileType(com.lark.oapi.service.drive.v1.enums.FileTypeEnum fileType) {
+    /**
+     * 文档类型
+     * <p> 示例值：doc
+     *
+     * @param fileType {@link com.lark.oapi.service.drive.v1.enums.GetFileStatisticsFileTypeEnum}
+     * @return
+     */
+    public Builder fileType(
+        com.lark.oapi.service.drive.v1.enums.GetFileStatisticsFileTypeEnum fileType) {
       this.fileType = fileType.getValue();
       return this;
     }
 
+    /**
+     * 文件 token
+     * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
+     *
+     * @param fileToken
+     * @return
+     */
     public Builder fileToken(String fileToken) {
       this.fileToken = fileToken;
       return this;

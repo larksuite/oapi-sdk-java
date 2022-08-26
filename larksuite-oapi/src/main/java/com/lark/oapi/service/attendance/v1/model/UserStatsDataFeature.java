@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserStatsDataFeature {
 
+  /**
+   * 统计数据列附加属性的名称
+   * <p> 示例值：Abnormal
+   */
   @SerializedName("key")
   private String key;
+  /**
+   * 统计数据列附加属性的值
+   * <p> 示例值：false
+   */
   @SerializedName("value")
   private String value;
 
@@ -27,7 +35,15 @@ public class UserStatsDataFeature {
   }
 
   public UserStatsDataFeature(Builder builder) {
+    /**
+     * 统计数据列附加属性的名称
+     * <p> 示例值：Abnormal
+     */
     this.key = builder.key;
+    /**
+     * 统计数据列附加属性的值
+     * <p> 示例值：false
+     */
     this.value = builder.value;
   }
 
@@ -53,14 +69,37 @@ public class UserStatsDataFeature {
 
   public static class Builder {
 
+    /**
+     * 统计数据列附加属性的名称
+     * <p> 示例值：Abnormal
+     */
     private String key;
+    /**
+     * 统计数据列附加属性的值
+     * <p> 示例值：false
+     */
     private String value;
 
+    /**
+     * 统计数据列附加属性的名称
+     * <p> 示例值：Abnormal
+     *
+     * @param key
+     * @return
+     */
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
+
+    /**
+     * 统计数据列附加属性的值
+     * <p> 示例值：false
+     *
+     * @param value
+     * @return
+     */
     public Builder value(String value) {
       this.value = value;
       return this;

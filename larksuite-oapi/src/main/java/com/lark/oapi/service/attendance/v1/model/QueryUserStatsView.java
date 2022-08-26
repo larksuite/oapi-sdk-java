@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryUserStatsView {
 
+  /**
+   * 统计视图
+   * <p> 示例值：
+   */
   @SerializedName("view")
   private UserStatsView view;
 

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class AddManagersChatManagersReqBody {
 
+  /**
+   * 要增加的 manager_id
+   * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
+   */
   @SerializedName("manager_ids")
   private String[] managerIds;
 
@@ -25,6 +29,10 @@ public class AddManagersChatManagersReqBody {
   }
 
   public AddManagersChatManagersReqBody(Builder builder) {
+    /**
+     * 要增加的 manager_id
+     * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
+     */
     this.managerIds = builder.managerIds;
   }
 
@@ -42,8 +50,19 @@ public class AddManagersChatManagersReqBody {
 
   public static class Builder {
 
+    /**
+     * 要增加的 manager_id
+     * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
+     */
     private String[] managerIds;
 
+    /**
+     * 要增加的 manager_id
+     * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
+     *
+     * @param managerIds
+     * @return
+     */
     public Builder managerIds(String[] managerIds) {
       this.managerIds = managerIds;
       return this;

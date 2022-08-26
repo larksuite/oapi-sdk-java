@@ -18,24 +18,52 @@ import com.lark.oapi.core.annotation.Query;
 
 public class QueryRoomConfigReq {
 
+  /**
+   * 查询节点范围
+   * <p> 示例值：5
+   */
   @Query
   @SerializedName("scope")
   private Integer scope;
+  /**
+   * 国家/地区ID scope为2，3时需要此参数
+   * <p> 示例值：086
+   */
   @Query
   @SerializedName("country_id")
   private String countryId;
+  /**
+   * 城市ID scope为3时需要此参数
+   * <p> 示例值：001
+   */
   @Query
   @SerializedName("district_id")
   private String districtId;
+  /**
+   * 建筑ID scope为4，5时需要此参数
+   * <p> 示例值：22
+   */
   @Query
   @SerializedName("building_id")
   private String buildingId;
+  /**
+   * 楼层 scope为5时需要此参数
+   * <p> 示例值：4
+   */
   @Query
   @SerializedName("floor_name")
   private String floorName;
+  /**
+   * 会议室ID scope为6时需要此参数
+   * <p> 示例值：6383786266263
+   */
   @Query
   @SerializedName("room_id")
   private String roomId;
+  /**
+   * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
@@ -45,12 +73,40 @@ public class QueryRoomConfigReq {
   }
 
   public QueryRoomConfigReq(Builder builder) {
+    /**
+     * 查询节点范围
+     * <p> 示例值：5
+     */
     this.scope = builder.scope;
+    /**
+     * 国家/地区ID scope为2，3时需要此参数
+     * <p> 示例值：086
+     */
     this.countryId = builder.countryId;
+    /**
+     * 城市ID scope为3时需要此参数
+     * <p> 示例值：001
+     */
     this.districtId = builder.districtId;
+    /**
+     * 建筑ID scope为4，5时需要此参数
+     * <p> 示例值：22
+     */
     this.buildingId = builder.buildingId;
+    /**
+     * 楼层 scope为5时需要此参数
+     * <p> 示例值：4
+     */
     this.floorName = builder.floorName;
+    /**
+     * 会议室ID scope为6时需要此参数
+     * <p> 示例值：6383786266263
+     */
     this.roomId = builder.roomId;
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
   }
 
@@ -116,55 +172,126 @@ public class QueryRoomConfigReq {
 
   public static class Builder {
 
-    private Integer scope;
-    private String countryId;
-    private String districtId;
-    private String buildingId;
-    private String floorName;
-    private String roomId;
-    private String userIdType;
+    private Integer scope; // 查询节点范围
+    private String countryId; // 国家/地区ID scope为2，3时需要此参数
+    private String districtId; // 城市ID scope为3时需要此参数
+    private String buildingId; // 建筑ID scope为4，5时需要此参数
+    private String floorName; // 楼层 scope为5时需要此参数
+    private String roomId; // 会议室ID scope为6时需要此参数
+    private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
 
+
+    /**
+     * 查询节点范围
+     * <p> 示例值：5
+     *
+     * @param scope
+     * @return
+     */
     public Builder scope(Integer scope) {
       this.scope = scope;
       return this;
     }
 
-    public Builder scope(com.lark.oapi.service.vc.v1.enums.NodeScopeEnum scope) {
+    /**
+     * 查询节点范围
+     * <p> 示例值：5
+     *
+     * @param scope {@link com.lark.oapi.service.vc.v1.enums.QueryRoomConfigNodeScopeEnum}
+     * @return
+     */
+    public Builder scope(com.lark.oapi.service.vc.v1.enums.QueryRoomConfigNodeScopeEnum scope) {
       this.scope = scope.getValue();
       return this;
     }
 
+
+    /**
+     * 国家/地区ID scope为2，3时需要此参数
+     * <p> 示例值：086
+     *
+     * @param countryId
+     * @return
+     */
     public Builder countryId(String countryId) {
       this.countryId = countryId;
       return this;
     }
 
+
+    /**
+     * 城市ID scope为3时需要此参数
+     * <p> 示例值：001
+     *
+     * @param districtId
+     * @return
+     */
     public Builder districtId(String districtId) {
       this.districtId = districtId;
       return this;
     }
 
+
+    /**
+     * 建筑ID scope为4，5时需要此参数
+     * <p> 示例值：22
+     *
+     * @param buildingId
+     * @return
+     */
     public Builder buildingId(String buildingId) {
       this.buildingId = buildingId;
       return this;
     }
 
+
+    /**
+     * 楼层 scope为5时需要此参数
+     * <p> 示例值：4
+     *
+     * @param floorName
+     * @return
+     */
     public Builder floorName(String floorName) {
       this.floorName = floorName;
       return this;
     }
 
+
+    /**
+     * 会议室ID scope为6时需要此参数
+     * <p> 示例值：6383786266263
+     *
+     * @param roomId
+     * @return
+     */
     public Builder roomId(String roomId) {
       this.roomId = roomId;
       return this;
     }
 
+
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.vc.v1.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.QueryRoomConfigUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.vc.v1.enums.QueryRoomConfigUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }

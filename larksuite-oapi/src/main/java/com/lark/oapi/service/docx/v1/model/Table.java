@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Table {
 
+  /**
+   * 单元格数组，数组元素为 Table Cell Block 的 ID
+   * <p> 示例值：
+   */
   @SerializedName("cells")
   private String[] cells;
+  /**
+   * 表格属性
+   * <p> 示例值：
+   */
   @SerializedName("property")
   private TableProperty property;
 
@@ -27,7 +35,15 @@ public class Table {
   }
 
   public Table(Builder builder) {
+    /**
+     * 单元格数组，数组元素为 Table Cell Block 的 ID
+     * <p> 示例值：
+     */
     this.cells = builder.cells;
+    /**
+     * 表格属性
+     * <p> 示例值：
+     */
     this.property = builder.property;
   }
 
@@ -53,14 +69,37 @@ public class Table {
 
   public static class Builder {
 
+    /**
+     * 单元格数组，数组元素为 Table Cell Block 的 ID
+     * <p> 示例值：
+     */
     private String[] cells;
+    /**
+     * 表格属性
+     * <p> 示例值：
+     */
     private TableProperty property;
 
+    /**
+     * 单元格数组，数组元素为 Table Cell Block 的 ID
+     * <p> 示例值：
+     *
+     * @param cells
+     * @return
+     */
     public Builder cells(String[] cells) {
       this.cells = cells;
       return this;
     }
 
+
+    /**
+     * 表格属性
+     * <p> 示例值：
+     *
+     * @param property
+     * @return
+     */
     public Builder property(TableProperty property) {
       this.property = property;
       return this;

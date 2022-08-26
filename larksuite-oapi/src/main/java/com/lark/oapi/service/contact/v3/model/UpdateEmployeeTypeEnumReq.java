@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class UpdateEmployeeTypeEnumReq {
 
+  /**
+   * 枚举值id
+   * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
+   */
   @Path
   @SerializedName("enum_id")
   private String enumId;
@@ -30,6 +34,10 @@ public class UpdateEmployeeTypeEnumReq {
   }
 
   public UpdateEmployeeTypeEnumReq(Builder builder) {
+    /**
+     * 枚举值id
+     * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
+     */
     this.enumId = builder.enumId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class UpdateEmployeeTypeEnumReq {
 
   public static class Builder {
 
-    private String enumId;
+    private String enumId; // 枚举值id
     private EmployeeTypeEnum body;
 
+    /**
+     * 枚举值id
+     * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
+     *
+     * @param enumId
+     * @return
+     */
     public Builder enumId(String enumId) {
       this.enumId = enumId;
       return this;
@@ -68,6 +83,12 @@ public class UpdateEmployeeTypeEnumReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder employeeTypeEnum(EmployeeTypeEnum body) {
       this.body = body;
       return this;

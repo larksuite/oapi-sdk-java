@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.CustomizedFieldsTicketReq;
 import com.lark.oapi.service.helpdesk.v1.model.CustomizedFieldsTicketResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/customized_fields"
+// GET /open-apis/helpdesk/v1/customized_fields
 public class CustomizedFieldsTicketSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class CustomizedFieldsTicketSample {
 
     // 创建请求对象
     CustomizedFieldsTicketReq req = CustomizedFieldsTicketReq.newBuilder()
-        .visibleOnly(false)
+        .visibleOnly(true)
         .build();
 
     // 发起请求

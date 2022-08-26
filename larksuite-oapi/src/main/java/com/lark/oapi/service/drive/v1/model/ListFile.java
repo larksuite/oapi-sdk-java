@@ -17,10 +17,21 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListFile {
 
+  /**
+   * 文件夹清单列表
+   * <p> 示例值：
+   */
   @SerializedName("files")
   private File[] files;
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回下一次遍历的page_token，否则则不返回
+   * <p> 示例值：
+   */
   @SerializedName("next_page_token")
   private String nextPageToken;
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
 

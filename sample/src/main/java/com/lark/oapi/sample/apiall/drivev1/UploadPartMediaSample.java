@@ -7,7 +7,7 @@ import com.lark.oapi.service.drive.v1.model.UploadPartMediaReqBody;
 import com.lark.oapi.service.drive.v1.model.UploadPartMediaResp;
 import java.io.File;
 
-// HTTP PATH: /open-apis/drive/v1/medias/upload_part"
+// POST /open-apis/drive/v1/medias/upload_part
 public class UploadPartMediaSample {
 
   public static void main(String arg[]) throws Exception {
@@ -18,10 +18,10 @@ public class UploadPartMediaSample {
     File file = new File("filepath");
     UploadPartMediaReq req = UploadPartMediaReq.newBuilder()
         .uploadPartMediaReqBody(UploadPartMediaReqBody.newBuilder()
-            .uploadId("")
+            .uploadId("7111211691345512356")
             .seq(0)
-            .size(0)
-            .checksum("")
+            .size(4194304)
+            .checksum("12345678")
             .file(file)
             .build())
         .build();

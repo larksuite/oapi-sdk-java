@@ -36,10 +36,20 @@ public class EhrService {
     this.employee = new Employee(config);
   }
 
+  /**
+   * 附件
+   *
+   * @return
+   */
   public Attachment attachment() {
     return attachment;
   }
 
+  /**
+   * 员工
+   *
+   * @return
+   */
   public Employee employee() {
     return employee;
   }
@@ -52,6 +62,15 @@ public class EhrService {
       this.config = config;
     }
 
+    /**
+     * 下载附件，根据文件 token 下载文件。;;调用 「批量获取员工花名册信息」接口的返回值中，「文件」类型的字段 id，即是文件 token
+     * <p> ![image.png](//sf1-ttcdn-tos.pstatp.com/obj/open-platform-opendoc/bed391d2a8ce6ed2d5985ea69bf92850_9GY1mnuDXP.png)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/attachment/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/attachment/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1//GetAttachmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1//GetAttachmentSample.java</a>
+     * ;
+     */
     public GetAttachmentResp get(GetAttachmentReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -83,6 +102,15 @@ public class EhrService {
       return resp;
     }
 
+    /**
+     * 下载附件，根据文件 token 下载文件。;;调用 「批量获取员工花名册信息」接口的返回值中，「文件」类型的字段 id，即是文件 token
+     * <p> ![image.png](//sf1-ttcdn-tos.pstatp.com/obj/open-platform-opendoc/bed391d2a8ce6ed2d5985ea69bf92850_9GY1mnuDXP.png)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/attachment/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/attachment/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1//GetAttachmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1//GetAttachmentSample.java</a>
+     * ;
+     */
     public GetAttachmentResp get(GetAttachmentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -122,6 +150,14 @@ public class EhrService {
       this.config = config;
     }
 
+    /**
+     * 批量获取员工花名册信息，根据员工飞书用户 ID / 员工状态 / 雇员类型等搜索条件 ，批量获取员工花名册字段信息。字段包括「系统标准字段 / system_fields」和「自定义字段
+     * / custom_fields」
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/employee/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/employee/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1//ListEmployeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1//ListEmployeeSample.java</a>
+     * ;
+     */
     public ListEmployeeResp list(ListEmployeeReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -142,6 +178,14 @@ public class EhrService {
       return resp;
     }
 
+    /**
+     * 批量获取员工花名册信息，根据员工飞书用户 ID / 员工状态 / 雇员类型等搜索条件 ，批量获取员工花名册字段信息。字段包括「系统标准字段 / system_fields」和「自定义字段
+     * / custom_fields」
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/employee/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/ehr/ehr-v1/employee/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1//ListEmployeeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/ehrv1//ListEmployeeSample.java</a>
+     * ;
+     */
     public ListEmployeeResp list(ListEmployeeReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();

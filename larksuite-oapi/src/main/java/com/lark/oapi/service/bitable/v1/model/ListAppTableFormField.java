@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListAppTableFormField {
 
+  /**
+   * 表单问题信息
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private AppTableFormField[] items;
+  /**
+   * 下一页分页的token
+   * <p> 示例值：fld1lAbHh7
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 是否有下一页
+   * <p> 示例值：true
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 总数
+   * <p> 示例值：1
+   */
   @SerializedName("total")
   private Integer total;
 

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.docx.v1.model.GetDocumentReq;
 import com.lark.oapi.service.docx.v1.model.GetDocumentResp;
 
-// HTTP PATH: /open-apis/docx/v1/documents/:document_id"
+// GET /open-apis/docx/v1/documents/:document_id
 public class GetDocumentSample {
 
   public static void main(String arg[]) throws Exception {

@@ -6,7 +6,7 @@ import com.lark.oapi.service.mail.v1.model.Mailgroup;
 import com.lark.oapi.service.mail.v1.model.PatchMailgroupReq;
 import com.lark.oapi.service.mail.v1.model.PatchMailgroupResp;
 
-// HTTP PATH: /open-apis/mail/v1/mailgroups/:mailgroup_id"
+// PATCH /open-apis/mail/v1/mailgroups/:mailgroup_id
 public class PatchMailgroupSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class PatchMailgroupSample {
 
     // 创建请求对象
     PatchMailgroupReq req = PatchMailgroupReq.newBuilder()
-        .mailgroupId("xxxxxxxxxxxxxxx or test_mail_group@xxx.xx")
+        .mailgroupId("xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx")
         .mailgroup(Mailgroup.newBuilder()
             .name("test mail group")
             .description("mail group for testing")

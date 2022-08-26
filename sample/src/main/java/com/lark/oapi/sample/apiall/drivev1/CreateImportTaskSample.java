@@ -7,7 +7,7 @@ import com.lark.oapi.service.drive.v1.model.CreateImportTaskResp;
 import com.lark.oapi.service.drive.v1.model.ImportTask;
 import com.lark.oapi.service.drive.v1.model.ImportTaskMountPoint;
 
-// HTTP PATH: /open-apis/drive/v1/import_tasks"
+// POST /open-apis/drive/v1/import_tasks
 public class CreateImportTaskSample {
 
   public static void main(String arg[]) throws Exception {

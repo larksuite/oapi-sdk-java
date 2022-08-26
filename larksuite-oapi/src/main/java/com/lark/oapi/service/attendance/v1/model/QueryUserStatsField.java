@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryUserStatsField {
 
+  /**
+   * 统计数据表头
+   * <p> 示例值：
+   */
   @SerializedName("user_stats_field")
   private UserStatsField userStatsField;
 

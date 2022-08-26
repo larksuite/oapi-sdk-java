@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Feature {
 
+  /**
+   * 卡号
+   * <p> 示例值：123456
+   */
   @SerializedName("card")
   private Integer card;
+  /**
+   * 是否已上传人脸图片
+   * <p> 示例值：true
+   */
   @SerializedName("face_uploaded")
   private Boolean faceUploaded;
 
@@ -27,7 +35,15 @@ public class Feature {
   }
 
   public Feature(Builder builder) {
+    /**
+     * 卡号
+     * <p> 示例值：123456
+     */
     this.card = builder.card;
+    /**
+     * 是否已上传人脸图片
+     * <p> 示例值：true
+     */
     this.faceUploaded = builder.faceUploaded;
   }
 
@@ -53,14 +69,37 @@ public class Feature {
 
   public static class Builder {
 
+    /**
+     * 卡号
+     * <p> 示例值：123456
+     */
     private Integer card;
+    /**
+     * 是否已上传人脸图片
+     * <p> 示例值：true
+     */
     private Boolean faceUploaded;
 
+    /**
+     * 卡号
+     * <p> 示例值：123456
+     *
+     * @param card
+     * @return
+     */
     public Builder card(Integer card) {
       this.card = card;
       return this;
     }
 
+
+    /**
+     * 是否已上传人脸图片
+     * <p> 示例值：true
+     *
+     * @param faceUploaded
+     * @return
+     */
     public Builder faceUploaded(Boolean faceUploaded) {
       this.faceUploaded = faceUploaded;
       return this;

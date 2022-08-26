@@ -6,7 +6,7 @@ import com.lark.oapi.service.helpdesk.v1.model.ListTicketCustomizedFieldReq;
 import com.lark.oapi.service.helpdesk.v1.model.ListTicketCustomizedFieldReqBody;
 import com.lark.oapi.service.helpdesk.v1.model.ListTicketCustomizedFieldResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/ticket_customized_fields"
+// GET /open-apis/helpdesk/v1/ticket_customized_fields
 public class ListTicketCustomizedFieldSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,10 +15,10 @@ public class ListTicketCustomizedFieldSample {
 
     // 创建请求对象
     ListTicketCustomizedFieldReq req = ListTicketCustomizedFieldReq.newBuilder()
-        .pageToken("")
+        .pageToken("6948728206392295444")
         .pageSize(20)
         .listTicketCustomizedFieldReqBody(ListTicketCustomizedFieldReqBody.newBuilder()
-            .visible(false)
+            .visible(true)
             .build())
         .build();
 

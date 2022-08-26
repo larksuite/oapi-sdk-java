@@ -6,7 +6,7 @@ import com.lark.oapi.service.attendance.v1.model.QueryUserApprovalReq;
 import com.lark.oapi.service.attendance.v1.model.QueryUserApprovalReqBody;
 import com.lark.oapi.service.attendance.v1.model.QueryUserApprovalResp;
 
-// HTTP PATH: /open-apis/attendance/v1/user_approvals/query"
+// POST /open-apis/attendance/v1/user_approvals/query
 public class QueryUserApprovalSample {
 
   public static void main(String arg[]) throws Exception {
@@ -20,6 +20,8 @@ public class QueryUserApprovalSample {
             .userIds(new String[]{})
             .checkDateFrom(20190817)
             .checkDateTo(20190820)
+            .checkDateType("PeriodTime")
+            .status(2)
             .build())
         .build();
 

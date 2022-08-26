@@ -18,6 +18,9 @@ import com.lark.oapi.event.model.BaseEventV2;
 
 public class P2ApplicationCreatedV6 extends BaseEventV2 {
 
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("event")
   private P2ApplicationCreatedV6Data event;
 

@@ -7,7 +7,7 @@ import com.lark.oapi.service.bitable.v1.model.UpdateAppTableRecordReq;
 import com.lark.oapi.service.bitable.v1.model.UpdateAppTableRecordResp;
 import java.util.HashMap;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
+// PUT /open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id
 public class UpdateAppTableRecordSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,9 +16,9 @@ public class UpdateAppTableRecordSample {
 
     // 创建请求对象
     UpdateAppTableRecordReq req = UpdateAppTableRecordReq.newBuilder()
-        .appToken("")
-        .tableId("")
-        .recordId("")
+        .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
+        .tableId("tblsRc9GRRXKqhvW")
+        .recordId("recqwIwhc6")
         .userIdType("user_id")
         .appTableRecord(AppTableRecord.newBuilder()
             .fields(new HashMap<String, Object>())

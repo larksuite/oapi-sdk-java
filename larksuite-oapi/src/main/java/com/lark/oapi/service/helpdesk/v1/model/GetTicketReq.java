@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class GetTicketReq {
 
+  /**
+   * ticket id
+   * <p> 示例值：123456
+   */
   @Path
   @SerializedName("ticket_id")
   private String ticketId;
@@ -27,6 +31,10 @@ public class GetTicketReq {
   }
 
   public GetTicketReq(Builder builder) {
+    /**
+     * ticket id
+     * <p> 示例值：123456
+     */
     this.ticketId = builder.ticketId;
   }
 
@@ -44,8 +52,15 @@ public class GetTicketReq {
 
   public static class Builder {
 
-    private String ticketId;
+    private String ticketId; // ticket id
 
+    /**
+     * ticket id
+     * <p> 示例值：123456
+     *
+     * @param ticketId
+     * @return
+     */
     public Builder ticketId(String ticketId) {
       this.ticketId = ticketId;
       return this;

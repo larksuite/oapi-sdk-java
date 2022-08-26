@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class DocsLink {
 
+  /**
+   * 回复 at云文档
+   * <p> 示例值：https://bytedance.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef
+   */
   @SerializedName("url")
   private String url;
 
@@ -25,6 +29,10 @@ public class DocsLink {
   }
 
   public DocsLink(Builder builder) {
+    /**
+     * 回复 at云文档
+     * <p> 示例值：https://bytedance.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef
+     */
     this.url = builder.url;
   }
 
@@ -42,8 +50,19 @@ public class DocsLink {
 
   public static class Builder {
 
+    /**
+     * 回复 at云文档
+     * <p> 示例值：https://bytedance.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef
+     */
     private String url;
 
+    /**
+     * 回复 at云文档
+     * <p> 示例值：https://bytedance.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef
+     *
+     * @param url
+     * @return
+     */
     public Builder url(String url) {
       this.url = url;
       return this;

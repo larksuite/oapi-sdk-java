@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.approval.v4.model.SubscribeApprovalReq;
 import com.lark.oapi.service.approval.v4.model.SubscribeApprovalResp;
 
-// HTTP PATH: /open-apis/approval/v4/approvals/:approval_code/subscribe"
+// POST /open-apis/approval/v4/approvals/:approval_code/subscribe
 public class SubscribeApprovalSample {
 
   public static void main(String arg[]) throws Exception {

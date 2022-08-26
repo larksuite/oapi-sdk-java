@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class QuerySessionReqBody {
 
+  /**
+   * 用户 ID
+   * <p> 示例值：["47f621ff"]
+   */
   @SerializedName("user_ids")
   private String[] userIds;
 
@@ -25,6 +29,10 @@ public class QuerySessionReqBody {
   }
 
   public QuerySessionReqBody(Builder builder) {
+    /**
+     * 用户 ID
+     * <p> 示例值：["47f621ff"]
+     */
     this.userIds = builder.userIds;
   }
 
@@ -42,8 +50,19 @@ public class QuerySessionReqBody {
 
   public static class Builder {
 
+    /**
+     * 用户 ID
+     * <p> 示例值：["47f621ff"]
+     */
     private String[] userIds;
 
+    /**
+     * 用户 ID
+     * <p> 示例值：["47f621ff"]
+     *
+     * @param userIds
+     * @return
+     */
     public Builder userIds(String[] userIds) {
       this.userIds = userIds;
       return this;

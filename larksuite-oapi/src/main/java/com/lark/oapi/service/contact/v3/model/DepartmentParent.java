@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class DepartmentParent {
 
+  /**
+   * 部门ID
+   * <p> 示例值：
+   */
   @SerializedName("department_id")
   private String departmentId;
+  /**
+   * 父部门ID列表，从直接父部门到根部门
+   * <p> 示例值：
+   */
   @SerializedName("parent_ids")
   private String[] parentIds;
 
@@ -27,7 +35,15 @@ public class DepartmentParent {
   }
 
   public DepartmentParent(Builder builder) {
+    /**
+     * 部门ID
+     * <p> 示例值：
+     */
     this.departmentId = builder.departmentId;
+    /**
+     * 父部门ID列表，从直接父部门到根部门
+     * <p> 示例值：
+     */
     this.parentIds = builder.parentIds;
   }
 
@@ -53,14 +69,37 @@ public class DepartmentParent {
 
   public static class Builder {
 
+    /**
+     * 部门ID
+     * <p> 示例值：
+     */
     private String departmentId;
+    /**
+     * 父部门ID列表，从直接父部门到根部门
+     * <p> 示例值：
+     */
     private String[] parentIds;
 
+    /**
+     * 部门ID
+     * <p> 示例值：
+     *
+     * @param departmentId
+     * @return
+     */
     public Builder departmentId(String departmentId) {
       this.departmentId = departmentId;
       return this;
     }
 
+
+    /**
+     * 父部门ID列表，从直接父部门到根部门
+     * <p> 示例值：
+     *
+     * @param parentIds
+     * @return
+     */
     public Builder parentIds(String[] parentIds) {
       this.parentIds = parentIds;
       return this;

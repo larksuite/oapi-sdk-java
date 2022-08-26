@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.im.v1.model.GetMessageResourceReq;
 import com.lark.oapi.service.im.v1.model.GetMessageResourceResp;
 
-// HTTP PATH: /open-apis/im/v1/messages/:message_id/resources/:file_key"
+// GET /open-apis/im/v1/messages/:message_id/resources/:file_key
 public class GetMessageResourceSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,9 +14,9 @@ public class GetMessageResourceSample {
 
     // 创建请求对象
     GetMessageResourceReq req = GetMessageResourceReq.newBuilder()
-        .messageId("")
-        .fileKey("")
-        .type("")
+        .messageId("om_dc13264520392913993dd051dba21dcf")
+        .fileKey("file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g")
+        .type("image")
         .build();
 
     // 发起请求

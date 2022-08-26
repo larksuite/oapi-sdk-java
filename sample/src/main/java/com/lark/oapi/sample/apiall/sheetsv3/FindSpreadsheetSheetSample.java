@@ -7,7 +7,7 @@ import com.lark.oapi.service.sheets.v3.model.FindCondition;
 import com.lark.oapi.service.sheets.v3.model.FindSpreadsheetSheetReq;
 import com.lark.oapi.service.sheets.v3.model.FindSpreadsheetSheetResp;
 
-// HTTP PATH: /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/find"
+// POST /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/find
 public class FindSpreadsheetSheetSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,8 +16,8 @@ public class FindSpreadsheetSheetSample {
 
     // 创建请求对象
     FindSpreadsheetSheetReq req = FindSpreadsheetSheetReq.newBuilder()
-        .spreadsheetToken("")
-        .sheetId("")
+        .spreadsheetToken("shtcnmBA*****yGehy8")
+        .sheetId("0b**12")
         .find(Find.newBuilder()
             .findCondition(FindCondition.newBuilder().build())
             .find("")

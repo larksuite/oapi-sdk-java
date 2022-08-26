@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class AppTable {
 
+  /**
+   * 数据表 id
+   * <p> 示例值：tblKz5D60T4JlfcT
+   */
   @SerializedName("table_id")
   private String tableId;
+  /**
+   * 数据表的版本号
+   * <p> 示例值：1
+   */
   @SerializedName("revision")
   private Integer revision;
+  /**
+   * 数据表名字
+   * <p> 示例值：数据表1
+   */
   @SerializedName("name")
   private String name;
 
@@ -29,8 +41,20 @@ public class AppTable {
   }
 
   public AppTable(Builder builder) {
+    /**
+     * 数据表 id
+     * <p> 示例值：tblKz5D60T4JlfcT
+     */
     this.tableId = builder.tableId;
+    /**
+     * 数据表的版本号
+     * <p> 示例值：1
+     */
     this.revision = builder.revision;
+    /**
+     * 数据表名字
+     * <p> 示例值：数据表1
+     */
     this.name = builder.name;
   }
 
@@ -64,20 +88,55 @@ public class AppTable {
 
   public static class Builder {
 
+    /**
+     * 数据表 id
+     * <p> 示例值：tblKz5D60T4JlfcT
+     */
     private String tableId;
+    /**
+     * 数据表的版本号
+     * <p> 示例值：1
+     */
     private Integer revision;
+    /**
+     * 数据表名字
+     * <p> 示例值：数据表1
+     */
     private String name;
 
+    /**
+     * 数据表 id
+     * <p> 示例值：tblKz5D60T4JlfcT
+     *
+     * @param tableId
+     * @return
+     */
     public Builder tableId(String tableId) {
       this.tableId = tableId;
       return this;
     }
 
+
+    /**
+     * 数据表的版本号
+     * <p> 示例值：1
+     *
+     * @param revision
+     * @return
+     */
     public Builder revision(Integer revision) {
       this.revision = revision;
       return this;
     }
 
+
+    /**
+     * 数据表名字
+     * <p> 示例值：数据表1
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;

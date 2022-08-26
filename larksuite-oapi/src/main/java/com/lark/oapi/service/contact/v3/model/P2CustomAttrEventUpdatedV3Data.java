@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2CustomAttrEventUpdatedV3Data {
 
+  /**
+   * 变更后信息
+   * <p> 示例值：
+   */
   @SerializedName("object")
   private CustomAttrEvent object;
+  /**
+   * 变更前信息
+   * <p> 示例值：
+   */
   @SerializedName("old_object")
   private CustomAttrEvent oldObject;
 

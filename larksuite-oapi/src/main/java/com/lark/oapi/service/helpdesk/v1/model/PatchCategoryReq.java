@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class PatchCategoryReq {
 
+  /**
+   * category id
+   * <p> 示例值：6948728206392295444
+   */
   @Path
   @SerializedName("id")
   private String id;
@@ -30,6 +34,10 @@ public class PatchCategoryReq {
   }
 
   public PatchCategoryReq(Builder builder) {
+    /**
+     * category id
+     * <p> 示例值：6948728206392295444
+     */
     this.id = builder.id;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class PatchCategoryReq {
 
   public static class Builder {
 
-    private String id;
+    private String id; // category id
     private Category body;
 
+    /**
+     * category id
+     * <p> 示例值：6948728206392295444
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
@@ -68,6 +83,12 @@ public class PatchCategoryReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder category(Category body) {
       this.body = body;
       return this;

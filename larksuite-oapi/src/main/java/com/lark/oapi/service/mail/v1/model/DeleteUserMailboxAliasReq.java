@@ -18,9 +18,17 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DeleteUserMailboxAliasReq {
 
+  /**
+   * 用户邮箱地址
+   * <p> 示例值：user@xxx.xx
+   */
   @Path
   @SerializedName("user_mailbox_id")
   private String userMailboxId;
+  /**
+   * 别名邮箱地址
+   * <p> 示例值：user_alias@xxx.xx
+   */
   @Path
   @SerializedName("alias_id")
   private String aliasId;
@@ -30,7 +38,15 @@ public class DeleteUserMailboxAliasReq {
   }
 
   public DeleteUserMailboxAliasReq(Builder builder) {
+    /**
+     * 用户邮箱地址
+     * <p> 示例值：user@xxx.xx
+     */
     this.userMailboxId = builder.userMailboxId;
+    /**
+     * 别名邮箱地址
+     * <p> 示例值：user_alias@xxx.xx
+     */
     this.aliasId = builder.aliasId;
   }
 
@@ -56,14 +72,29 @@ public class DeleteUserMailboxAliasReq {
 
   public static class Builder {
 
-    private String userMailboxId;
-    private String aliasId;
+    private String userMailboxId; // 用户邮箱地址
+    private String aliasId; // 别名邮箱地址
 
+    /**
+     * 用户邮箱地址
+     * <p> 示例值：user@xxx.xx
+     *
+     * @param userMailboxId
+     * @return
+     */
     public Builder userMailboxId(String userMailboxId) {
       this.userMailboxId = userMailboxId;
       return this;
     }
 
+
+    /**
+     * 别名邮箱地址
+     * <p> 示例值：user_alias@xxx.xx
+     *
+     * @param aliasId
+     * @return
+     */
     public Builder aliasId(String aliasId) {
       this.aliasId = aliasId;
       return this;

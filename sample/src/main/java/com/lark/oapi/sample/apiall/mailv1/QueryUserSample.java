@@ -6,7 +6,7 @@ import com.lark.oapi.service.mail.v1.model.QueryUserReq;
 import com.lark.oapi.service.mail.v1.model.QueryUserReqBody;
 import com.lark.oapi.service.mail.v1.model.QueryUserResp;
 
-// HTTP PATH: /open-apis/mail/v1/users/query"
+// POST /open-apis/mail/v1/users/query
 public class QueryUserSample {
 
   public static void main(String arg[]) throws Exception {

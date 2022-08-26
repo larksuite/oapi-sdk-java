@@ -17,46 +17,130 @@ import com.google.gson.annotations.SerializedName;
 
 public class ImDepthData {
 
+  /**
+   * 分区日期
+   * <p> 示例值：2022-02-02
+   */
   @SerializedName("p_date")
   private String pDate;
+  /**
+   * 部门id
+   * <p> 示例值：123456
+   */
   @SerializedName("department_id")
   private String departmentId;
+  /**
+   * 部门路径
+   * <p> 示例值：test/subtest
+   */
   @SerializedName("department_path")
   private String departmentPath;
+  /**
+   * 发消息用户渗透率
+   * <p> 示例值：0.50
+   */
   @SerializedName("send_msg_rate")
   private Double sendMsgRate;
+  /**
+   * 人均发消息数量
+   * <p> 示例值：50
+   */
   @SerializedName("avg_send_msg_cnt")
   private Double avgSendMsgCnt;
+  /**
+   * 仅 PC 端的发消息用户渗透率
+   * <p> 示例值：0.50
+   */
   @SerializedName("pc_send_msg_rate")
   private Double pcSendMsgRate;
+  /**
+   * 仅 PC 端的人均发消息数量
+   * <p> 示例值：50
+   */
   @SerializedName("pc_avg_send_msg_cnt")
   private Double pcAvgSendMsgCnt;
+  /**
+   * 仅移动端的发消息用户渗透率
+   * <p> 示例值：0.50
+   */
   @SerializedName("mobile_send_msg_rate")
   private Double mobileSendMsgRate;
+  /**
+   * 仅移动端的人均发消息数量
+   * <p> 示例值：50
+   */
   @SerializedName("mobile_avg_send_msg_cnt")
   private Double mobileAvgSendMsgCnt;
+  /**
+   * 会议群发消息用户渗透率
+   * <p> 示例值：0.50
+   */
   @SerializedName("meeting_group_send_msg_rate")
   private Double meetingGroupSendMsgRate;
+  /**
+   * 全员群发消息用户渗透率
+   * <p> 示例值：0.50
+   */
   @SerializedName("tenant_group_send_msg_rate")
   private Double tenantGroupSendMsgRate;
+  /**
+   * 部门群发消息用户渗透率
+   * <p> 示例值：0.50
+   */
   @SerializedName("dept_group_send_msg_rate")
   private Double deptGroupSendMsgRate;
+  /**
+   * 话题群发消息用户渗透率
+   * <p> 示例值：0.50
+   */
   @SerializedName("topic_group_send_msg_rate")
   private Double topicGroupSendMsgRate;
+  /**
+   * 群聊中 @ 消息占比
+   * <p> 示例值：0.50
+   */
   @SerializedName("group_at_msg_rate")
   private Double groupAtMsgRate;
+  /**
+   * 群聊中回复消息占比
+   * <p> 示例值：0.50
+   */
   @SerializedName("group_reply_msg_rate")
   private Double groupReplyMsgRate;
+  /**
+   * 发送 reaction 用户渗透率
+   * <p> 示例值：0.50
+   */
   @SerializedName("reaction_rate")
   private Double reactionRate;
+  /**
+   * 发送单聊消息占比
+   * <p> 示例值：0.50
+   */
   @SerializedName("p2p_send_msg_rate")
   private Double p2pSendMsgRate;
+  /**
+   * 图片消息用户渗透率
+   * <p> 示例值：0.50
+   */
   @SerializedName("img_send_msg_rate")
   private Double imgSendMsgRate;
+  /**
+   * 文件消息用户渗透率
+   * <p> 示例值：0.50
+   */
   @SerializedName("file_send_msg_rate")
   private Double fileSendMsgRate;
+  /**
+   * 表情包消息用户渗透率
+   * <p> 示例值：0.50
+   */
   @SerializedName("sticker_send_msg_rate")
   private Double stickerSendMsgRate;
+  /**
+   * 富文本消息用户渗透率
+   * <p> 示例值：0.50
+   */
   @SerializedName("post_send_msg_rate")
   private Double postSendMsgRate;
 
@@ -65,26 +149,110 @@ public class ImDepthData {
   }
 
   public ImDepthData(Builder builder) {
+    /**
+     * 分区日期
+     * <p> 示例值：2022-02-02
+     */
     this.pDate = builder.pDate;
+    /**
+     * 部门id
+     * <p> 示例值：123456
+     */
     this.departmentId = builder.departmentId;
+    /**
+     * 部门路径
+     * <p> 示例值：test/subtest
+     */
     this.departmentPath = builder.departmentPath;
+    /**
+     * 发消息用户渗透率
+     * <p> 示例值：0.50
+     */
     this.sendMsgRate = builder.sendMsgRate;
+    /**
+     * 人均发消息数量
+     * <p> 示例值：50
+     */
     this.avgSendMsgCnt = builder.avgSendMsgCnt;
+    /**
+     * 仅 PC 端的发消息用户渗透率
+     * <p> 示例值：0.50
+     */
     this.pcSendMsgRate = builder.pcSendMsgRate;
+    /**
+     * 仅 PC 端的人均发消息数量
+     * <p> 示例值：50
+     */
     this.pcAvgSendMsgCnt = builder.pcAvgSendMsgCnt;
+    /**
+     * 仅移动端的发消息用户渗透率
+     * <p> 示例值：0.50
+     */
     this.mobileSendMsgRate = builder.mobileSendMsgRate;
+    /**
+     * 仅移动端的人均发消息数量
+     * <p> 示例值：50
+     */
     this.mobileAvgSendMsgCnt = builder.mobileAvgSendMsgCnt;
+    /**
+     * 会议群发消息用户渗透率
+     * <p> 示例值：0.50
+     */
     this.meetingGroupSendMsgRate = builder.meetingGroupSendMsgRate;
+    /**
+     * 全员群发消息用户渗透率
+     * <p> 示例值：0.50
+     */
     this.tenantGroupSendMsgRate = builder.tenantGroupSendMsgRate;
+    /**
+     * 部门群发消息用户渗透率
+     * <p> 示例值：0.50
+     */
     this.deptGroupSendMsgRate = builder.deptGroupSendMsgRate;
+    /**
+     * 话题群发消息用户渗透率
+     * <p> 示例值：0.50
+     */
     this.topicGroupSendMsgRate = builder.topicGroupSendMsgRate;
+    /**
+     * 群聊中 @ 消息占比
+     * <p> 示例值：0.50
+     */
     this.groupAtMsgRate = builder.groupAtMsgRate;
+    /**
+     * 群聊中回复消息占比
+     * <p> 示例值：0.50
+     */
     this.groupReplyMsgRate = builder.groupReplyMsgRate;
+    /**
+     * 发送 reaction 用户渗透率
+     * <p> 示例值：0.50
+     */
     this.reactionRate = builder.reactionRate;
+    /**
+     * 发送单聊消息占比
+     * <p> 示例值：0.50
+     */
     this.p2pSendMsgRate = builder.p2pSendMsgRate;
+    /**
+     * 图片消息用户渗透率
+     * <p> 示例值：0.50
+     */
     this.imgSendMsgRate = builder.imgSendMsgRate;
+    /**
+     * 文件消息用户渗透率
+     * <p> 示例值：0.50
+     */
     this.fileSendMsgRate = builder.fileSendMsgRate;
+    /**
+     * 表情包消息用户渗透率
+     * <p> 示例值：0.50
+     */
     this.stickerSendMsgRate = builder.stickerSendMsgRate;
+    /**
+     * 富文本消息用户渗透率
+     * <p> 示例值：0.50
+     */
     this.postSendMsgRate = builder.postSendMsgRate;
   }
 
@@ -262,128 +430,379 @@ public class ImDepthData {
 
   public static class Builder {
 
+    /**
+     * 分区日期
+     * <p> 示例值：2022-02-02
+     */
     private String pDate;
+    /**
+     * 部门id
+     * <p> 示例值：123456
+     */
     private String departmentId;
+    /**
+     * 部门路径
+     * <p> 示例值：test/subtest
+     */
     private String departmentPath;
+    /**
+     * 发消息用户渗透率
+     * <p> 示例值：0.50
+     */
     private Double sendMsgRate;
+    /**
+     * 人均发消息数量
+     * <p> 示例值：50
+     */
     private Double avgSendMsgCnt;
+    /**
+     * 仅 PC 端的发消息用户渗透率
+     * <p> 示例值：0.50
+     */
     private Double pcSendMsgRate;
+    /**
+     * 仅 PC 端的人均发消息数量
+     * <p> 示例值：50
+     */
     private Double pcAvgSendMsgCnt;
+    /**
+     * 仅移动端的发消息用户渗透率
+     * <p> 示例值：0.50
+     */
     private Double mobileSendMsgRate;
+    /**
+     * 仅移动端的人均发消息数量
+     * <p> 示例值：50
+     */
     private Double mobileAvgSendMsgCnt;
+    /**
+     * 会议群发消息用户渗透率
+     * <p> 示例值：0.50
+     */
     private Double meetingGroupSendMsgRate;
+    /**
+     * 全员群发消息用户渗透率
+     * <p> 示例值：0.50
+     */
     private Double tenantGroupSendMsgRate;
+    /**
+     * 部门群发消息用户渗透率
+     * <p> 示例值：0.50
+     */
     private Double deptGroupSendMsgRate;
+    /**
+     * 话题群发消息用户渗透率
+     * <p> 示例值：0.50
+     */
     private Double topicGroupSendMsgRate;
+    /**
+     * 群聊中 @ 消息占比
+     * <p> 示例值：0.50
+     */
     private Double groupAtMsgRate;
+    /**
+     * 群聊中回复消息占比
+     * <p> 示例值：0.50
+     */
     private Double groupReplyMsgRate;
+    /**
+     * 发送 reaction 用户渗透率
+     * <p> 示例值：0.50
+     */
     private Double reactionRate;
+    /**
+     * 发送单聊消息占比
+     * <p> 示例值：0.50
+     */
     private Double p2pSendMsgRate;
+    /**
+     * 图片消息用户渗透率
+     * <p> 示例值：0.50
+     */
     private Double imgSendMsgRate;
+    /**
+     * 文件消息用户渗透率
+     * <p> 示例值：0.50
+     */
     private Double fileSendMsgRate;
+    /**
+     * 表情包消息用户渗透率
+     * <p> 示例值：0.50
+     */
     private Double stickerSendMsgRate;
+    /**
+     * 富文本消息用户渗透率
+     * <p> 示例值：0.50
+     */
     private Double postSendMsgRate;
 
+    /**
+     * 分区日期
+     * <p> 示例值：2022-02-02
+     *
+     * @param pDate
+     * @return
+     */
     public Builder pDate(String pDate) {
       this.pDate = pDate;
       return this;
     }
 
+
+    /**
+     * 部门id
+     * <p> 示例值：123456
+     *
+     * @param departmentId
+     * @return
+     */
     public Builder departmentId(String departmentId) {
       this.departmentId = departmentId;
       return this;
     }
 
+
+    /**
+     * 部门路径
+     * <p> 示例值：test/subtest
+     *
+     * @param departmentPath
+     * @return
+     */
     public Builder departmentPath(String departmentPath) {
       this.departmentPath = departmentPath;
       return this;
     }
 
+
+    /**
+     * 发消息用户渗透率
+     * <p> 示例值：0.50
+     *
+     * @param sendMsgRate
+     * @return
+     */
     public Builder sendMsgRate(Double sendMsgRate) {
       this.sendMsgRate = sendMsgRate;
       return this;
     }
 
+
+    /**
+     * 人均发消息数量
+     * <p> 示例值：50
+     *
+     * @param avgSendMsgCnt
+     * @return
+     */
     public Builder avgSendMsgCnt(Double avgSendMsgCnt) {
       this.avgSendMsgCnt = avgSendMsgCnt;
       return this;
     }
 
+
+    /**
+     * 仅 PC 端的发消息用户渗透率
+     * <p> 示例值：0.50
+     *
+     * @param pcSendMsgRate
+     * @return
+     */
     public Builder pcSendMsgRate(Double pcSendMsgRate) {
       this.pcSendMsgRate = pcSendMsgRate;
       return this;
     }
 
+
+    /**
+     * 仅 PC 端的人均发消息数量
+     * <p> 示例值：50
+     *
+     * @param pcAvgSendMsgCnt
+     * @return
+     */
     public Builder pcAvgSendMsgCnt(Double pcAvgSendMsgCnt) {
       this.pcAvgSendMsgCnt = pcAvgSendMsgCnt;
       return this;
     }
 
+
+    /**
+     * 仅移动端的发消息用户渗透率
+     * <p> 示例值：0.50
+     *
+     * @param mobileSendMsgRate
+     * @return
+     */
     public Builder mobileSendMsgRate(Double mobileSendMsgRate) {
       this.mobileSendMsgRate = mobileSendMsgRate;
       return this;
     }
 
+
+    /**
+     * 仅移动端的人均发消息数量
+     * <p> 示例值：50
+     *
+     * @param mobileAvgSendMsgCnt
+     * @return
+     */
     public Builder mobileAvgSendMsgCnt(Double mobileAvgSendMsgCnt) {
       this.mobileAvgSendMsgCnt = mobileAvgSendMsgCnt;
       return this;
     }
 
+
+    /**
+     * 会议群发消息用户渗透率
+     * <p> 示例值：0.50
+     *
+     * @param meetingGroupSendMsgRate
+     * @return
+     */
     public Builder meetingGroupSendMsgRate(Double meetingGroupSendMsgRate) {
       this.meetingGroupSendMsgRate = meetingGroupSendMsgRate;
       return this;
     }
 
+
+    /**
+     * 全员群发消息用户渗透率
+     * <p> 示例值：0.50
+     *
+     * @param tenantGroupSendMsgRate
+     * @return
+     */
     public Builder tenantGroupSendMsgRate(Double tenantGroupSendMsgRate) {
       this.tenantGroupSendMsgRate = tenantGroupSendMsgRate;
       return this;
     }
 
+
+    /**
+     * 部门群发消息用户渗透率
+     * <p> 示例值：0.50
+     *
+     * @param deptGroupSendMsgRate
+     * @return
+     */
     public Builder deptGroupSendMsgRate(Double deptGroupSendMsgRate) {
       this.deptGroupSendMsgRate = deptGroupSendMsgRate;
       return this;
     }
 
+
+    /**
+     * 话题群发消息用户渗透率
+     * <p> 示例值：0.50
+     *
+     * @param topicGroupSendMsgRate
+     * @return
+     */
     public Builder topicGroupSendMsgRate(Double topicGroupSendMsgRate) {
       this.topicGroupSendMsgRate = topicGroupSendMsgRate;
       return this;
     }
 
+
+    /**
+     * 群聊中 @ 消息占比
+     * <p> 示例值：0.50
+     *
+     * @param groupAtMsgRate
+     * @return
+     */
     public Builder groupAtMsgRate(Double groupAtMsgRate) {
       this.groupAtMsgRate = groupAtMsgRate;
       return this;
     }
 
+
+    /**
+     * 群聊中回复消息占比
+     * <p> 示例值：0.50
+     *
+     * @param groupReplyMsgRate
+     * @return
+     */
     public Builder groupReplyMsgRate(Double groupReplyMsgRate) {
       this.groupReplyMsgRate = groupReplyMsgRate;
       return this;
     }
 
+
+    /**
+     * 发送 reaction 用户渗透率
+     * <p> 示例值：0.50
+     *
+     * @param reactionRate
+     * @return
+     */
     public Builder reactionRate(Double reactionRate) {
       this.reactionRate = reactionRate;
       return this;
     }
 
+
+    /**
+     * 发送单聊消息占比
+     * <p> 示例值：0.50
+     *
+     * @param p2pSendMsgRate
+     * @return
+     */
     public Builder p2pSendMsgRate(Double p2pSendMsgRate) {
       this.p2pSendMsgRate = p2pSendMsgRate;
       return this;
     }
 
+
+    /**
+     * 图片消息用户渗透率
+     * <p> 示例值：0.50
+     *
+     * @param imgSendMsgRate
+     * @return
+     */
     public Builder imgSendMsgRate(Double imgSendMsgRate) {
       this.imgSendMsgRate = imgSendMsgRate;
       return this;
     }
 
+
+    /**
+     * 文件消息用户渗透率
+     * <p> 示例值：0.50
+     *
+     * @param fileSendMsgRate
+     * @return
+     */
     public Builder fileSendMsgRate(Double fileSendMsgRate) {
       this.fileSendMsgRate = fileSendMsgRate;
       return this;
     }
 
+
+    /**
+     * 表情包消息用户渗透率
+     * <p> 示例值：0.50
+     *
+     * @param stickerSendMsgRate
+     * @return
+     */
     public Builder stickerSendMsgRate(Double stickerSendMsgRate) {
       this.stickerSendMsgRate = stickerSendMsgRate;
       return this;
     }
 
+
+    /**
+     * 富文本消息用户渗透率
+     * <p> 示例值：0.50
+     *
+     * @param postSendMsgRate
+     * @return
+     */
     public Builder postSendMsgRate(Double postSendMsgRate) {
       this.postSendMsgRate = postSendMsgRate;
       return this;

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.vc.v1.model.DeleteReserveReq;
 import com.lark.oapi.service.vc.v1.model.DeleteReserveResp;
 
-// HTTP PATH: /open-apis/vc/v1/reserves/:reserve_id"
+// DELETE /open-apis/vc/v1/reserves/:reserve_id
 public class DeleteReserveSample {
 
   public static void main(String arg[]) throws Exception {

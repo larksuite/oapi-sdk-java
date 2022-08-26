@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class PatchTicketCustomizedFieldReq {
 
+  /**
+   * 工单自定义字段ID
+   * <p> 示例值：6948728206392295444
+   */
   @Path
   @SerializedName("ticket_customized_field_id")
   private String ticketCustomizedFieldId;
@@ -30,6 +34,10 @@ public class PatchTicketCustomizedFieldReq {
   }
 
   public PatchTicketCustomizedFieldReq(Builder builder) {
+    /**
+     * 工单自定义字段ID
+     * <p> 示例值：6948728206392295444
+     */
     this.ticketCustomizedFieldId = builder.ticketCustomizedFieldId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class PatchTicketCustomizedFieldReq {
 
   public static class Builder {
 
-    private String ticketCustomizedFieldId;
+    private String ticketCustomizedFieldId; // 工单自定义字段ID
     private TicketCustomizedField body;
 
+    /**
+     * 工单自定义字段ID
+     * <p> 示例值：6948728206392295444
+     *
+     * @param ticketCustomizedFieldId
+     * @return
+     */
     public Builder ticketCustomizedFieldId(String ticketCustomizedFieldId) {
       this.ticketCustomizedFieldId = ticketCustomizedFieldId;
       return this;
@@ -68,6 +83,12 @@ public class PatchTicketCustomizedFieldReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder ticketCustomizedField(TicketCustomizedField body) {
       this.body = body;
       return this;

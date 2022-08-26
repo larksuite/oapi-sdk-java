@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class RawContentDocument {
 
+  /**
+   * 文档纯文本
+   * <p> 示例值：test
+   */
   @SerializedName("content")
   private String content;
 

@@ -50,8 +50,8 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Strings;
 import com.lark.oapi.service.drive.v1.model.DownloadFileReq;
 import com.lark.oapi.service.drive.v1.model.DownloadFileResp;
-import com.lark.oapi.service.im.v1.enums.FileTypeEnum;
-import com.lark.oapi.service.im.v1.enums.ImageTypeEnum;
+import com.lark.oapi.service.im.v1.enums.CreateFileFileTypeEnum;
+import com.lark.oapi.service.im.v1.enums.CreateImageImageTypeEnum;
 import com.lark.oapi.service.im.v1.enums.MsgTypeEnum;
 import com.lark.oapi.service.im.v1.enums.ReceiveIdTypeEnum;
 import com.lark.oapi.service.im.v1.model.CreateFileReq;
@@ -975,7 +975,7 @@ public class ImSample {
     File file = new File("/Users/bytedance/Downloads/go-icon.png");
     CreateImageReq req = CreateImageReq.newBuilder()
         .createImageReqBody(CreateImageReqBody.newBuilder()
-            .imageType(ImageTypeEnum.MESSAGE)
+            .imageType(CreateImageImageTypeEnum.MESSAGE)
             .image(file)
             .build())
         .build();
@@ -1001,7 +1001,7 @@ public class ImSample {
     // 创建请求对象
     CreateFileReq req = CreateFileReq.newBuilder()
         .createFileReqBody(CreateFileReqBody.newBuilder()
-            .fileType(FileTypeEnum.PDF)
+            .fileType(CreateFileFileTypeEnum.PDF)
             .fileName("db.pdf")
             .file(new File("/Users/bytedance/Downloads/redis.pdf"))
             .build())

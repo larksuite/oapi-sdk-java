@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class SchemaSortOptions {
 
+  /**
+   * 排序的优先级，可选范围为 0~4，0为最高优先级。如果优先级相同，则随机进行排序。默认为0
+   * <p> 示例值：0
+   */
   @SerializedName("priority")
   private Integer priority;
+  /**
+   * 排序的顺序。默认为 desc
+   * <p> 示例值：asc
+   */
   @SerializedName("order")
   private String order;
 
@@ -27,7 +35,15 @@ public class SchemaSortOptions {
   }
 
   public SchemaSortOptions(Builder builder) {
+    /**
+     * 排序的优先级，可选范围为 0~4，0为最高优先级。如果优先级相同，则随机进行排序。默认为0
+     * <p> 示例值：0
+     */
     this.priority = builder.priority;
+    /**
+     * 排序的顺序。默认为 desc
+     * <p> 示例值：asc
+     */
     this.order = builder.order;
   }
 
@@ -53,25 +69,64 @@ public class SchemaSortOptions {
 
   public static class Builder {
 
+    /**
+     * 排序的优先级，可选范围为 0~4，0为最高优先级。如果优先级相同，则随机进行排序。默认为0
+     * <p> 示例值：0
+     */
     private Integer priority;
+    /**
+     * 排序的顺序。默认为 desc
+     * <p> 示例值：asc
+     */
     private String order;
 
+    /**
+     * 排序的优先级，可选范围为 0~4，0为最高优先级。如果优先级相同，则随机进行排序。默认为0
+     * <p> 示例值：0
+     *
+     * @param priority
+     * @return
+     */
     public Builder priority(Integer priority) {
       this.priority = priority;
       return this;
     }
 
-    public Builder priority(com.lark.oapi.service.search.v2.enums.SchemaSortPriorityEnum priority) {
+    /**
+     * 排序的优先级，可选范围为 0~4，0为最高优先级。如果优先级相同，则随机进行排序。默认为0
+     * <p> 示例值：0
+     *
+     * @param priority {@link com.lark.oapi.service.search.v2.enums.SchemaSortOptionsSchemaSortPriorityEnum}
+     * @return
+     */
+    public Builder priority(
+        com.lark.oapi.service.search.v2.enums.SchemaSortOptionsSchemaSortPriorityEnum priority) {
       this.priority = priority.getValue();
       return this;
     }
 
+
+    /**
+     * 排序的顺序。默认为 desc
+     * <p> 示例值：asc
+     *
+     * @param order
+     * @return
+     */
     public Builder order(String order) {
       this.order = order;
       return this;
     }
 
-    public Builder order(com.lark.oapi.service.search.v2.enums.SchemaSortOrderEnum order) {
+    /**
+     * 排序的顺序。默认为 desc
+     * <p> 示例值：asc
+     *
+     * @param order {@link com.lark.oapi.service.search.v2.enums.SchemaSortOptionsSchemaSortOrderEnum}
+     * @return
+     */
+    public Builder order(
+        com.lark.oapi.service.search.v2.enums.SchemaSortOptionsSchemaSortOrderEnum order) {
       this.order = order.getValue();
       return this;
     }

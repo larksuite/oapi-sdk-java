@@ -17,10 +17,23 @@ import com.google.gson.annotations.SerializedName;
 
 public class ApprovalViewerInfo {
 
+  /**
+   * 可见人类型
+   * <p> 示例值：TENANT
+   */
   @SerializedName("type")
   private String type;
+  /**
+   * 在可见人类型为DEPARTMENT时，id为部门的id ；在可见人类型为USER时，id为用户的id ；在可见人类型为ROLE时，id为角色的id
+   * ；在可见人类型为USER_GROUP时，id为用户组的id
+   * <p> 示例值：ou_e03053f0541cecc3269d7a9dc34a0b21
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * 在可见人类型为USER时，表示可见人用户id
+   * <p> 示例值：f7cb567e
+   */
   @SerializedName("user_id")
   private String userId;
 
@@ -29,8 +42,20 @@ public class ApprovalViewerInfo {
   }
 
   public ApprovalViewerInfo(Builder builder) {
+    /**
+     * 可见人类型
+     * <p> 示例值：TENANT
+     */
     this.type = builder.type;
+    /**
+     * 在可见人类型为DEPARTMENT时，id为部门的id ；在可见人类型为USER时，id为用户的id ；在可见人类型为ROLE时，id为角色的id ；在可见人类型为USER_GROUP时，id为用户组的id
+     * <p> 示例值：ou_e03053f0541cecc3269d7a9dc34a0b21
+     */
     this.id = builder.id;
+    /**
+     * 在可见人类型为USER时，表示可见人用户id
+     * <p> 示例值：f7cb567e
+     */
     this.userId = builder.userId;
   }
 
@@ -64,25 +89,69 @@ public class ApprovalViewerInfo {
 
   public static class Builder {
 
+    /**
+     * 可见人类型
+     * <p> 示例值：TENANT
+     */
     private String type;
+    /**
+     * 在可见人类型为DEPARTMENT时，id为部门的id ；在可见人类型为USER时，id为用户的id ；在可见人类型为ROLE时，id为角色的id
+     * ；在可见人类型为USER_GROUP时，id为用户组的id
+     * <p> 示例值：ou_e03053f0541cecc3269d7a9dc34a0b21
+     */
     private String id;
+    /**
+     * 在可见人类型为USER时，表示可见人用户id
+     * <p> 示例值：f7cb567e
+     */
     private String userId;
 
+    /**
+     * 可见人类型
+     * <p> 示例值：TENANT
+     *
+     * @param type
+     * @return
+     */
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public Builder type(com.lark.oapi.service.approval.v4.enums.TypeEnum type) {
+    /**
+     * 可见人类型
+     * <p> 示例值：TENANT
+     *
+     * @param type {@link com.lark.oapi.service.approval.v4.enums.ApprovalViewerInfoTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.approval.v4.enums.ApprovalViewerInfoTypeEnum type) {
       this.type = type.getValue();
       return this;
     }
 
+
+    /**
+     * 在可见人类型为DEPARTMENT时，id为部门的id ；在可见人类型为USER时，id为用户的id ；在可见人类型为ROLE时，id为角色的id
+     * ；在可见人类型为USER_GROUP时，id为用户组的id
+     * <p> 示例值：ou_e03053f0541cecc3269d7a9dc34a0b21
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 在可见人类型为USER时，表示可见人用户id
+     * <p> 示例值：f7cb567e
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;

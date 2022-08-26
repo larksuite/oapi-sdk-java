@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.approval.v4.model.ListInstanceCommentReq;
 import com.lark.oapi.service.approval.v4.model.ListInstanceCommentResp;
 
-// HTTP PATH: /open-apis/approval/v4/instances/:instance_id/comments"
+// GET /open-apis/approval/v4/instances/:instance_id/comments
 public class ListInstanceCommentSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,10 +14,10 @@ public class ListInstanceCommentSample {
 
     // 创建请求对象
     ListInstanceCommentReq req = ListInstanceCommentReq.newBuilder()
-        .instanceId("")
-        .userIdType("open_id")
-        .userId("")
-        .pageToken("")
+        .instanceId("6A123516-FB88-470D-A428-9AF58B71B3C0")
+        .userIdType("user_id")
+        .userId("e5286g26")
+        .pageToken("nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU")
         .pageSize(20)
         .build();
 

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchGetIdUser {
 
+  /**
+   * 手机号或者邮箱对应的用户id信息
+   * <p> 示例值：
+   */
   @SerializedName("user_list")
   private UserContactInfo[] userList;
 

@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class ApplicationEventOwner {
 
+  /**
+   * 应用所有者类型，可选值有：0：飞书科技（海外是另个名字企业），1：飞书合作伙伴，2：企业内成员
+   * <p> 示例值：0
+   */
   @SerializedName("type")
   private Integer type;
+  /**
+   * 应用开发商名称，仅商店应用返回
+   * <p> 示例值：应用名称
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 应用开发商的服务台链接，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+   * <p> 示例值：
+   */
   @SerializedName("help_desk")
   private String helpDesk;
+  /**
+   * 应用开发商的邮箱，仅商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+   * <p> 示例值：
+   */
   @SerializedName("email")
   private String email;
+  /**
+   * 应用开发商的手机号，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+   * <p> 示例值：
+   */
   @SerializedName("phone")
   private String phone;
 
@@ -33,10 +53,30 @@ public class ApplicationEventOwner {
   }
 
   public ApplicationEventOwner(Builder builder) {
+    /**
+     * 应用所有者类型，可选值有：0：飞书科技（海外是另个名字企业），1：飞书合作伙伴，2：企业内成员
+     * <p> 示例值：0
+     */
     this.type = builder.type;
+    /**
+     * 应用开发商名称，仅商店应用返回
+     * <p> 示例值：应用名称
+     */
     this.name = builder.name;
+    /**
+     * 应用开发商的服务台链接，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+     * <p> 示例值：
+     */
     this.helpDesk = builder.helpDesk;
+    /**
+     * 应用开发商的邮箱，仅商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+     * <p> 示例值：
+     */
     this.email = builder.email;
+    /**
+     * 应用开发商的手机号，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+     * <p> 示例值：
+     */
     this.phone = builder.phone;
   }
 
@@ -86,32 +126,91 @@ public class ApplicationEventOwner {
 
   public static class Builder {
 
+    /**
+     * 应用所有者类型，可选值有：0：飞书科技（海外是另个名字企业），1：飞书合作伙伴，2：企业内成员
+     * <p> 示例值：0
+     */
     private Integer type;
+    /**
+     * 应用开发商名称，仅商店应用返回
+     * <p> 示例值：应用名称
+     */
     private String name;
+    /**
+     * 应用开发商的服务台链接，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+     * <p> 示例值：
+     */
     private String helpDesk;
+    /**
+     * 应用开发商的邮箱，仅商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+     * <p> 示例值：
+     */
     private String email;
+    /**
+     * 应用开发商的手机号，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+     * <p> 示例值：
+     */
     private String phone;
 
+    /**
+     * 应用所有者类型，可选值有：0：飞书科技（海外是另个名字企业），1：飞书合作伙伴，2：企业内成员
+     * <p> 示例值：0
+     *
+     * @param type
+     * @return
+     */
     public Builder type(Integer type) {
       this.type = type;
       return this;
     }
 
+
+    /**
+     * 应用开发商名称，仅商店应用返回
+     * <p> 示例值：应用名称
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 应用开发商的服务台链接，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+     * <p> 示例值：
+     *
+     * @param helpDesk
+     * @return
+     */
     public Builder helpDesk(String helpDesk) {
       this.helpDesk = helpDesk;
       return this;
     }
 
+
+    /**
+     * 应用开发商的邮箱，仅商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+     * <p> 示例值：
+     *
+     * @param email
+     * @return
+     */
     public Builder email(String email) {
       this.email = email;
       return this;
     }
 
+
+    /**
+     * 应用开发商的手机号，进商店应用返回。仅当应用商店配置了这种联系方式时才会返回
+     * <p> 示例值：
+     *
+     * @param phone
+     * @return
+     */
     public Builder phone(String phone) {
       this.phone = phone;
       return this;

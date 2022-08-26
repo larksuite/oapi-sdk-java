@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.contact.v3.model.GetDepartmentReq;
 import com.lark.oapi.service.contact.v3.model.GetDepartmentResp;
 
-// HTTP PATH: /open-apis/contact/v3/departments/:department_id"
+// GET /open-apis/contact/v3/departments/:department_id
 public class GetDepartmentSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class GetDepartmentSample {
 
     // 创建请求对象
     GetDepartmentReq req = GetDepartmentReq.newBuilder()
-        .departmentId("")
+        .departmentId("od-4e6ac4d14bcd5071a37a39de902c7141")
         .userIdType("open_id")
         .departmentIdType("open_department_id")
         .build();

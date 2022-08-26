@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateCategory {
 
+  /**
+   * 知识库分类
+   * <p> 示例值：
+   */
   @SerializedName("category")
   private Category category;
 

@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class CreateFileSubscriptionReq {
 
+  /**
+   * 文档token
+   * <p> 示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
+   */
   @Path
   @SerializedName("file_token")
   private String fileToken;
@@ -30,6 +34,10 @@ public class CreateFileSubscriptionReq {
   }
 
   public CreateFileSubscriptionReq(Builder builder) {
+    /**
+     * 文档token
+     * <p> 示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
+     */
     this.fileToken = builder.fileToken;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class CreateFileSubscriptionReq {
 
   public static class Builder {
 
-    private String fileToken;
+    private String fileToken; // 文档token
     private FileSubscription body;
 
+    /**
+     * 文档token
+     * <p> 示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
+     *
+     * @param fileToken
+     * @return
+     */
     public Builder fileToken(String fileToken) {
       this.fileToken = fileToken;
       return this;
@@ -68,6 +83,12 @@ public class CreateFileSubscriptionReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder fileSubscription(FileSubscription body) {
       this.body = body;
       return this;

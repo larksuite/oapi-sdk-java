@@ -4,7 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.ListAgentSkillResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/agent_skills"
+// GET /open-apis/helpdesk/v1/agent_skills
 public class ListAgentSkillSample {
 
   public static void main(String arg[]) throws Exception {

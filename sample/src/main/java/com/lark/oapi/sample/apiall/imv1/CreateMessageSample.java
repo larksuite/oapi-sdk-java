@@ -6,7 +6,7 @@ import com.lark.oapi.service.im.v1.model.CreateMessageReq;
 import com.lark.oapi.service.im.v1.model.CreateMessageReqBody;
 import com.lark.oapi.service.im.v1.model.CreateMessageResp;
 
-// HTTP PATH: /open-apis/im/v1/messages"
+// POST /open-apis/im/v1/messages
 public class CreateMessageSample {
 
   public static void main(String arg[]) throws Exception {
@@ -20,6 +20,7 @@ public class CreateMessageSample {
             .receiveId("ou_7d8a6e6df7621556ce0d21922b676706ccs")
             .content("")
             .msgType("text")
+            .uuid("a0d69e20-1dd1-458b-k525-dfeca4015204")
             .build())
         .build();
 

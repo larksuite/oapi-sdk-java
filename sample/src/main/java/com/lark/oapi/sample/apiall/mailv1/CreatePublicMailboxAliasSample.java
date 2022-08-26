@@ -6,7 +6,7 @@ import com.lark.oapi.service.mail.v1.model.CreatePublicMailboxAliasReq;
 import com.lark.oapi.service.mail.v1.model.CreatePublicMailboxAliasResp;
 import com.lark.oapi.service.mail.v1.model.EmailAlias;
 
-// HTTP PATH: /open-apis/mail/v1/public_mailboxes/:public_mailbox_id/aliases"
+// POST /open-apis/mail/v1/public_mailboxes/:public_mailbox_id/aliases
 public class CreatePublicMailboxAliasSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class CreatePublicMailboxAliasSample {
 
     // 创建请求对象
     CreatePublicMailboxAliasReq req = CreatePublicMailboxAliasReq.newBuilder()
-        .publicMailboxId("")
+        .publicMailboxId("xxxxxx 或 xxx@xx.xxx")
         .emailAlias(EmailAlias.newBuilder()
             .emailAlias("email_alias@xxx.xx")
             .build())

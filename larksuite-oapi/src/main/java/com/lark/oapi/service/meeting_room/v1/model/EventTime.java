@@ -17,6 +17,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class EventTime {
 
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("time_stamp")
   private Integer timeStamp;
 
@@ -25,6 +28,10 @@ public class EventTime {
   }
 
   public EventTime(Builder builder) {
+    /**
+     *
+     * <p> 示例值：
+     */
     this.timeStamp = builder.timeStamp;
   }
 
@@ -42,8 +49,17 @@ public class EventTime {
 
   public static class Builder {
 
+    /**
+     * <p> 示例值：
+     */
     private Integer timeStamp;
 
+    /**
+     * <p> 示例值：
+     *
+     * @param timeStamp
+     * @return
+     */
     public Builder timeStamp(Integer timeStamp) {
       this.timeStamp = timeStamp;
       return this;

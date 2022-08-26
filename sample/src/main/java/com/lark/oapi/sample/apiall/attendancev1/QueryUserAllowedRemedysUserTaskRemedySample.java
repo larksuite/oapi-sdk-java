@@ -6,7 +6,7 @@ import com.lark.oapi.service.attendance.v1.model.QueryUserAllowedRemedysUserTask
 import com.lark.oapi.service.attendance.v1.model.QueryUserAllowedRemedysUserTaskRemedyReqBody;
 import com.lark.oapi.service.attendance.v1.model.QueryUserAllowedRemedysUserTaskRemedyResp;
 
-// HTTP PATH: /open-apis/attendance/v1/user_task_remedys/query_user_allowed_remedys"
+// POST /open-apis/attendance/v1/user_task_remedys/query_user_allowed_remedys
 public class QueryUserAllowedRemedysUserTaskRemedySample {
 
   public static void main(String arg[]) throws Exception {
@@ -18,7 +18,7 @@ public class QueryUserAllowedRemedysUserTaskRemedySample {
         .employeeType("employee_id")
         .queryUserAllowedRemedysUserTaskRemedyReqBody(
             QueryUserAllowedRemedysUserTaskRemedyReqBody.newBuilder()
-                .userId("")
+                .userId("abd754f7")
                 .remedyDate(20210104)
                 .build())
         .build();

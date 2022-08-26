@@ -17,10 +17,20 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListGroup {
 
+  /**
+   * 考勤组列表
+   * <p> 示例值：
+   */
   @SerializedName("group_list")
   private GroupMeta[] groupList;
+  /**
+   * <p> 示例值：wgNOR1rmxogRvAsGl6CXlQ==
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * <p> 示例值：true
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
 

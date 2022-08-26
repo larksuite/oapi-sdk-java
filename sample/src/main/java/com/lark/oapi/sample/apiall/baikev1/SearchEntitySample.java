@@ -6,7 +6,7 @@ import com.lark.oapi.service.baike.v1.model.SearchEntityReq;
 import com.lark.oapi.service.baike.v1.model.SearchEntityReqBody;
 import com.lark.oapi.service.baike.v1.model.SearchEntityResp;
 
-// HTTP PATH: /open-apis/baike/v1/entities/search"
+// POST /open-apis/baike/v1/entities/search
 public class SearchEntitySample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class SearchEntitySample {
 
     // 创建请求对象
     SearchEntityReq req = SearchEntityReq.newBuilder()
-        .pageToken("")
+        .pageToken("b152fa6e6f62a291019a04c3a93f365f8ac641910506ff15ff4cad6534e087cb4ed8fa2c")
         .pageSize(20)
         .userIdType("user_id")
         .searchEntityReqBody(SearchEntityReqBody.newBuilder()

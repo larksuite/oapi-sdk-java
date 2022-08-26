@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class MailgroupPermissionMember {
 
+  /**
+   * 权限组内成员唯一标识
+   * <p> 示例值：xxxxxxxxxxxxxxx
+   */
   @SerializedName("permission_member_id")
   private String permissionMemberId;
+  /**
+   * 租户内用户的唯一标识（当成员类型是USER时有值）
+   * <p> 示例值：xxxxxxxxxx
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 租户内部门的唯一标识（当成员类型是DEPARTMENT时有值）
+   * <p> 示例值：xxxxxxxxxx
+   */
   @SerializedName("department_id")
   private String departmentId;
+  /**
+   * 成员类型
+   * <p> 示例值：USER
+   */
   @SerializedName("type")
   private String type;
 
@@ -31,9 +47,25 @@ public class MailgroupPermissionMember {
   }
 
   public MailgroupPermissionMember(Builder builder) {
+    /**
+     * 权限组内成员唯一标识
+     * <p> 示例值：xxxxxxxxxxxxxxx
+     */
     this.permissionMemberId = builder.permissionMemberId;
+    /**
+     * 租户内用户的唯一标识（当成员类型是USER时有值）
+     * <p> 示例值：xxxxxxxxxx
+     */
     this.userId = builder.userId;
+    /**
+     * 租户内部门的唯一标识（当成员类型是DEPARTMENT时有值）
+     * <p> 示例值：xxxxxxxxxx
+     */
     this.departmentId = builder.departmentId;
+    /**
+     * 成员类型
+     * <p> 示例值：USER
+     */
     this.type = builder.type;
   }
 
@@ -75,32 +107,87 @@ public class MailgroupPermissionMember {
 
   public static class Builder {
 
+    /**
+     * 权限组内成员唯一标识
+     * <p> 示例值：xxxxxxxxxxxxxxx
+     */
     private String permissionMemberId;
+    /**
+     * 租户内用户的唯一标识（当成员类型是USER时有值）
+     * <p> 示例值：xxxxxxxxxx
+     */
     private String userId;
+    /**
+     * 租户内部门的唯一标识（当成员类型是DEPARTMENT时有值）
+     * <p> 示例值：xxxxxxxxxx
+     */
     private String departmentId;
+    /**
+     * 成员类型
+     * <p> 示例值：USER
+     */
     private String type;
 
+    /**
+     * 权限组内成员唯一标识
+     * <p> 示例值：xxxxxxxxxxxxxxx
+     *
+     * @param permissionMemberId
+     * @return
+     */
     public Builder permissionMemberId(String permissionMemberId) {
       this.permissionMemberId = permissionMemberId;
       return this;
     }
 
+
+    /**
+     * 租户内用户的唯一标识（当成员类型是USER时有值）
+     * <p> 示例值：xxxxxxxxxx
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 租户内部门的唯一标识（当成员类型是DEPARTMENT时有值）
+     * <p> 示例值：xxxxxxxxxx
+     *
+     * @param departmentId
+     * @return
+     */
     public Builder departmentId(String departmentId) {
       this.departmentId = departmentId;
       return this;
     }
 
+
+    /**
+     * 成员类型
+     * <p> 示例值：USER
+     *
+     * @param type
+     * @return
+     */
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public Builder type(com.lark.oapi.service.mail.v1.enums.TypeEnum type) {
+    /**
+     * 成员类型
+     * <p> 示例值：USER
+     *
+     * @param type {@link com.lark.oapi.service.mail.v1.enums.MailgroupPermissionMemberTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.mail.v1.enums.MailgroupPermissionMemberTypeEnum type) {
       this.type = type.getValue();
       return this;
     }

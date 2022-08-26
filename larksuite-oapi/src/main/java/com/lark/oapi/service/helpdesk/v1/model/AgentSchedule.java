@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class AgentSchedule {
 
+  /**
+   * 客服状态, 1 - online客服, 2 - offline(手动)客服, 3 - off duty(下班)自动处于非服务时间段
+   * <p> 示例值：1
+   */
   @SerializedName("status")
   private Integer status;
+  /**
+   * 客服信息
+   * <p> 示例值：
+   */
   @SerializedName("agent")
   private AgentUser agent;
+  /**
+   * 工作日程列表
+   * <p> 示例值：
+   */
   @SerializedName("schedule")
   private WeekdaySchedule[] schedule;
+  /**
+   * 客服技能
+   * <p> 示例值：
+   */
   @SerializedName("agent_skills")
   private AgentSkillLessInfo[] agentSkills;
 
@@ -31,9 +47,25 @@ public class AgentSchedule {
   }
 
   public AgentSchedule(Builder builder) {
+    /**
+     * 客服状态, 1 - online客服, 2 - offline(手动)客服, 3 - off duty(下班)自动处于非服务时间段
+     * <p> 示例值：1
+     */
     this.status = builder.status;
+    /**
+     * 客服信息
+     * <p> 示例值：
+     */
     this.agent = builder.agent;
+    /**
+     * 工作日程列表
+     * <p> 示例值：
+     */
     this.schedule = builder.schedule;
+    /**
+     * 客服技能
+     * <p> 示例值：
+     */
     this.agentSkills = builder.agentSkills;
   }
 
@@ -75,26 +107,73 @@ public class AgentSchedule {
 
   public static class Builder {
 
+    /**
+     * 客服状态, 1 - online客服, 2 - offline(手动)客服, 3 - off duty(下班)自动处于非服务时间段
+     * <p> 示例值：1
+     */
     private Integer status;
+    /**
+     * 客服信息
+     * <p> 示例值：
+     */
     private AgentUser agent;
+    /**
+     * 工作日程列表
+     * <p> 示例值：
+     */
     private WeekdaySchedule[] schedule;
+    /**
+     * 客服技能
+     * <p> 示例值：
+     */
     private AgentSkillLessInfo[] agentSkills;
 
+    /**
+     * 客服状态, 1 - online客服, 2 - offline(手动)客服, 3 - off duty(下班)自动处于非服务时间段
+     * <p> 示例值：1
+     *
+     * @param status
+     * @return
+     */
     public Builder status(Integer status) {
       this.status = status;
       return this;
     }
 
+
+    /**
+     * 客服信息
+     * <p> 示例值：
+     *
+     * @param agent
+     * @return
+     */
     public Builder agent(AgentUser agent) {
       this.agent = agent;
       return this;
     }
 
+
+    /**
+     * 工作日程列表
+     * <p> 示例值：
+     *
+     * @param schedule
+     * @return
+     */
     public Builder schedule(WeekdaySchedule[] schedule) {
       this.schedule = schedule;
       return this;
     }
 
+
+    /**
+     * 客服技能
+     * <p> 示例值：
+     *
+     * @param agentSkills
+     * @return
+     */
     public Builder agentSkills(AgentSkillLessInfo[] agentSkills) {
       this.agentSkills = agentSkills;
       return this;

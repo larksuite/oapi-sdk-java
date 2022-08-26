@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class Equation {
 
+  /**
+   * 符合 KaTeX 语法的公式内容，语法规则请参考：https://katex.org/docs/supported.html
+   * <p> 示例值：E=mc^2\n
+   */
   @SerializedName("content")
   private String content;
 
@@ -25,6 +29,10 @@ public class Equation {
   }
 
   public Equation(Builder builder) {
+    /**
+     * 符合 KaTeX 语法的公式内容，语法规则请参考：https://katex.org/docs/supported.html
+     * <p> 示例值：E=mc^2\n
+     */
     this.content = builder.content;
   }
 
@@ -42,8 +50,19 @@ public class Equation {
 
   public static class Builder {
 
+    /**
+     * 符合 KaTeX 语法的公式内容，语法规则请参考：https://katex.org/docs/supported.html
+     * <p> 示例值：E=mc^2\n
+     */
     private String content;
 
+    /**
+     * 符合 KaTeX 语法的公式内容，语法规则请参考：https://katex.org/docs/supported.html
+     * <p> 示例值：E=mc^2\n
+     *
+     * @param content
+     * @return
+     */
     public Builder content(String content) {
       this.content = content;
       return this;

@@ -17,24 +17,64 @@ import com.google.gson.annotations.SerializedName;
 
 public class InstanceTask {
 
+  /**
+   * task id
+   * <p> 示例值：1234
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * 审批人的用户id，自动通过、自动拒绝 时为空
+   * <p> 示例值：f7cb567e
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 审批人 open id
+   * <p> 示例值：ou_123457
+   */
   @SerializedName("open_id")
   private String openId;
+  /**
+   * 任务状态
+   * <p> 示例值：PENDING
+   */
   @SerializedName("status")
   private String status;
+  /**
+   * task 所属节点 id
+   * <p> 示例值：46e6d96cfa756980907209209ec03b64
+   */
   @SerializedName("node_id")
   private String nodeId;
+  /**
+   * task 所属节点名称
+   * <p> 示例值：开始
+   */
   @SerializedName("node_name")
   private String nodeName;
+  /**
+   * task 所属节点自定义 id, 如果没设置自定义 id, 则不返回该字段
+   * <p> 示例值：manager
+   */
   @SerializedName("custom_node_id")
   private String customNodeId;
+  /**
+   * 审批方式
+   * <p> 示例值：AND
+   */
   @SerializedName("type")
   private String type;
+  /**
+   * task 开始时间
+   * <p> 示例值：1564590532967
+   */
   @SerializedName("start_time")
   private String startTime;
+  /**
+   * task 完成时间, 未完成为 0
+   * <p> 示例值：0
+   */
   @SerializedName("end_time")
   private String endTime;
 
@@ -43,15 +83,55 @@ public class InstanceTask {
   }
 
   public InstanceTask(Builder builder) {
+    /**
+     * task id
+     * <p> 示例值：1234
+     */
     this.id = builder.id;
+    /**
+     * 审批人的用户id，自动通过、自动拒绝 时为空
+     * <p> 示例值：f7cb567e
+     */
     this.userId = builder.userId;
+    /**
+     * 审批人 open id
+     * <p> 示例值：ou_123457
+     */
     this.openId = builder.openId;
+    /**
+     * 任务状态
+     * <p> 示例值：PENDING
+     */
     this.status = builder.status;
+    /**
+     * task 所属节点 id
+     * <p> 示例值：46e6d96cfa756980907209209ec03b64
+     */
     this.nodeId = builder.nodeId;
+    /**
+     * task 所属节点名称
+     * <p> 示例值：开始
+     */
     this.nodeName = builder.nodeName;
+    /**
+     * task 所属节点自定义 id, 如果没设置自定义 id, 则不返回该字段
+     * <p> 示例值：manager
+     */
     this.customNodeId = builder.customNodeId;
+    /**
+     * 审批方式
+     * <p> 示例值：AND
+     */
     this.type = builder.type;
+    /**
+     * task 开始时间
+     * <p> 示例值：1564590532967
+     */
     this.startTime = builder.startTime;
+    /**
+     * task 完成时间, 未完成为 0
+     * <p> 示例值：0
+     */
     this.endTime = builder.endTime;
   }
 
@@ -141,72 +221,205 @@ public class InstanceTask {
 
   public static class Builder {
 
+    /**
+     * task id
+     * <p> 示例值：1234
+     */
     private String id;
+    /**
+     * 审批人的用户id，自动通过、自动拒绝 时为空
+     * <p> 示例值：f7cb567e
+     */
     private String userId;
+    /**
+     * 审批人 open id
+     * <p> 示例值：ou_123457
+     */
     private String openId;
+    /**
+     * 任务状态
+     * <p> 示例值：PENDING
+     */
     private String status;
+    /**
+     * task 所属节点 id
+     * <p> 示例值：46e6d96cfa756980907209209ec03b64
+     */
     private String nodeId;
+    /**
+     * task 所属节点名称
+     * <p> 示例值：开始
+     */
     private String nodeName;
+    /**
+     * task 所属节点自定义 id, 如果没设置自定义 id, 则不返回该字段
+     * <p> 示例值：manager
+     */
     private String customNodeId;
+    /**
+     * 审批方式
+     * <p> 示例值：AND
+     */
     private String type;
+    /**
+     * task 开始时间
+     * <p> 示例值：1564590532967
+     */
     private String startTime;
+    /**
+     * task 完成时间, 未完成为 0
+     * <p> 示例值：0
+     */
     private String endTime;
 
+    /**
+     * task id
+     * <p> 示例值：1234
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 审批人的用户id，自动通过、自动拒绝 时为空
+     * <p> 示例值：f7cb567e
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 审批人 open id
+     * <p> 示例值：ou_123457
+     *
+     * @param openId
+     * @return
+     */
     public Builder openId(String openId) {
       this.openId = openId;
       return this;
     }
 
+
+    /**
+     * 任务状态
+     * <p> 示例值：PENDING
+     *
+     * @param status
+     * @return
+     */
     public Builder status(String status) {
       this.status = status;
       return this;
     }
 
-    public Builder status(com.lark.oapi.service.approval.v4.enums.StatusEnum status) {
+    /**
+     * 任务状态
+     * <p> 示例值：PENDING
+     *
+     * @param status {@link com.lark.oapi.service.approval.v4.enums.InstanceTaskStatusEnum}
+     * @return
+     */
+    public Builder status(com.lark.oapi.service.approval.v4.enums.InstanceTaskStatusEnum status) {
       this.status = status.getValue();
       return this;
     }
 
+
+    /**
+     * task 所属节点 id
+     * <p> 示例值：46e6d96cfa756980907209209ec03b64
+     *
+     * @param nodeId
+     * @return
+     */
     public Builder nodeId(String nodeId) {
       this.nodeId = nodeId;
       return this;
     }
 
+
+    /**
+     * task 所属节点名称
+     * <p> 示例值：开始
+     *
+     * @param nodeName
+     * @return
+     */
     public Builder nodeName(String nodeName) {
       this.nodeName = nodeName;
       return this;
     }
 
+
+    /**
+     * task 所属节点自定义 id, 如果没设置自定义 id, 则不返回该字段
+     * <p> 示例值：manager
+     *
+     * @param customNodeId
+     * @return
+     */
     public Builder customNodeId(String customNodeId) {
       this.customNodeId = customNodeId;
       return this;
     }
 
+
+    /**
+     * 审批方式
+     * <p> 示例值：AND
+     *
+     * @param type
+     * @return
+     */
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public Builder type(com.lark.oapi.service.approval.v4.enums.TypeEnum type) {
+    /**
+     * 审批方式
+     * <p> 示例值：AND
+     *
+     * @param type {@link com.lark.oapi.service.approval.v4.enums.InstanceTaskTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.approval.v4.enums.InstanceTaskTypeEnum type) {
       this.type = type.getValue();
       return this;
     }
 
+
+    /**
+     * task 开始时间
+     * <p> 示例值：1564590532967
+     *
+     * @param startTime
+     * @return
+     */
     public Builder startTime(String startTime) {
       this.startTime = startTime;
       return this;
     }
 
+
+    /**
+     * task 完成时间, 未完成为 0
+     * <p> 示例值：0
+     *
+     * @param endTime
+     * @return
+     */
     public Builder endTime(String endTime) {
       this.endTime = endTime;
       return this;

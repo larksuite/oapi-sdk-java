@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.task.v1.model.DeleteTaskReminderReq;
 import com.lark.oapi.service.task.v1.model.DeleteTaskReminderResp;
 
-// HTTP PATH: /open-apis/task/v1/tasks/:task_id/reminders/:reminder_id"
+// DELETE /open-apis/task/v1/tasks/:task_id/reminders/:reminder_id
 public class DeleteTaskReminderSample {
 
   public static void main(String arg[]) throws Exception {

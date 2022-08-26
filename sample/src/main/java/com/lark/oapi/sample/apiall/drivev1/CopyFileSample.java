@@ -6,7 +6,7 @@ import com.lark.oapi.service.drive.v1.model.CopyFileReq;
 import com.lark.oapi.service.drive.v1.model.CopyFileReqBody;
 import com.lark.oapi.service.drive.v1.model.CopyFileResp;
 
-// HTTP PATH: /open-apis/drive/v1/files/:file_token/copy"
+// POST /open-apis/drive/v1/files/:file_token/copy
 public class CopyFileSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,11 +15,11 @@ public class CopyFileSample {
 
     // 创建请求对象
     CopyFileReq req = CopyFileReq.newBuilder()
-        .fileToken("")
+        .fileToken("boxbc0dGSMu23m7QkC1bvabcef")
         .copyFileReqBody(CopyFileReqBody.newBuilder()
-            .name("")
+            .name("123.txt")
             .type("file")
-            .folderToken("")
+            .folderToken("fldbcO1UuPz8VwnpPx5a92abcef")
             .build())
         .build();
 

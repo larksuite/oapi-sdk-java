@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class Attachment {
 
+  /**
+   * 下载文件所需要的 Token
+   * <p> 示例值：c7273e07ed9e40a394f88c7dccb49212
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * 文件类型
+   * <p> 示例值：png
+   */
   @SerializedName("mime_type")
   private String mimeType;
+  /**
+   * 名称
+   * <p> 示例值：Custom Code.png
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 大小
+   * <p> 示例值：57380
+   */
   @SerializedName("size")
   private Long size;
 
@@ -31,9 +47,25 @@ public class Attachment {
   }
 
   public Attachment(Builder builder) {
+    /**
+     * 下载文件所需要的 Token
+     * <p> 示例值：c7273e07ed9e40a394f88c7dccb49212
+     */
     this.id = builder.id;
+    /**
+     * 文件类型
+     * <p> 示例值：png
+     */
     this.mimeType = builder.mimeType;
+    /**
+     * 名称
+     * <p> 示例值：Custom Code.png
+     */
     this.name = builder.name;
+    /**
+     * 大小
+     * <p> 示例值：57380
+     */
     this.size = builder.size;
   }
 
@@ -75,26 +107,73 @@ public class Attachment {
 
   public static class Builder {
 
+    /**
+     * 下载文件所需要的 Token
+     * <p> 示例值：c7273e07ed9e40a394f88c7dccb49212
+     */
     private String id;
+    /**
+     * 文件类型
+     * <p> 示例值：png
+     */
     private String mimeType;
+    /**
+     * 名称
+     * <p> 示例值：Custom Code.png
+     */
     private String name;
+    /**
+     * 大小
+     * <p> 示例值：57380
+     */
     private Long size;
 
+    /**
+     * 下载文件所需要的 Token
+     * <p> 示例值：c7273e07ed9e40a394f88c7dccb49212
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 文件类型
+     * <p> 示例值：png
+     *
+     * @param mimeType
+     * @return
+     */
     public Builder mimeType(String mimeType) {
       this.mimeType = mimeType;
       return this;
     }
 
+
+    /**
+     * 名称
+     * <p> 示例值：Custom Code.png
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 大小
+     * <p> 示例值：57380
+     *
+     * @param size
+     * @return
+     */
     public Builder size(Long size) {
       this.size = size;
       return this;

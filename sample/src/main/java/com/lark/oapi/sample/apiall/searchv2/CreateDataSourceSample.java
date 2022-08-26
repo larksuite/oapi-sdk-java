@@ -7,7 +7,7 @@ import com.lark.oapi.service.search.v2.model.CreateDataSourceResp;
 import com.lark.oapi.service.search.v2.model.DataSource;
 import com.lark.oapi.service.search.v2.model.I18nMeta;
 
-// HTTP PATH: /open-apis/search/v2/data_sources"
+// POST /open-apis/search/v2/data_sources
 public class CreateDataSourceSample {
 
   public static void main(String arg[]) throws Exception {

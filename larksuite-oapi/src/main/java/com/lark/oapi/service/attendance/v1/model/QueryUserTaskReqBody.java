@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryUserTaskReqBody {
 
+  /**
+   * employee_no 或 employee_id 列表
+   * <p> 示例值：abd754f7
+   */
   @SerializedName("user_ids")
   private String[] userIds;
+  /**
+   * 查询的起始工作日
+   * <p> 示例值：20190817
+   */
   @SerializedName("check_date_from")
   private Integer checkDateFrom;
+  /**
+   * 查询的结束工作日
+   * <p> 示例值：20190820
+   */
   @SerializedName("check_date_to")
   private Integer checkDateTo;
 
@@ -29,8 +41,20 @@ public class QueryUserTaskReqBody {
   }
 
   public QueryUserTaskReqBody(Builder builder) {
+    /**
+     * employee_no 或 employee_id 列表
+     * <p> 示例值：abd754f7
+     */
     this.userIds = builder.userIds;
+    /**
+     * 查询的起始工作日
+     * <p> 示例值：20190817
+     */
     this.checkDateFrom = builder.checkDateFrom;
+    /**
+     * 查询的结束工作日
+     * <p> 示例值：20190820
+     */
     this.checkDateTo = builder.checkDateTo;
   }
 
@@ -64,20 +88,55 @@ public class QueryUserTaskReqBody {
 
   public static class Builder {
 
+    /**
+     * employee_no 或 employee_id 列表
+     * <p> 示例值：abd754f7
+     */
     private String[] userIds;
+    /**
+     * 查询的起始工作日
+     * <p> 示例值：20190817
+     */
     private Integer checkDateFrom;
+    /**
+     * 查询的结束工作日
+     * <p> 示例值：20190820
+     */
     private Integer checkDateTo;
 
+    /**
+     * employee_no 或 employee_id 列表
+     * <p> 示例值：abd754f7
+     *
+     * @param userIds
+     * @return
+     */
     public Builder userIds(String[] userIds) {
       this.userIds = userIds;
       return this;
     }
 
+
+    /**
+     * 查询的起始工作日
+     * <p> 示例值：20190817
+     *
+     * @param checkDateFrom
+     * @return
+     */
     public Builder checkDateFrom(Integer checkDateFrom) {
       this.checkDateFrom = checkDateFrom;
       return this;
     }
 
+
+    /**
+     * 查询的结束工作日
+     * <p> 示例值：20190820
+     *
+     * @param checkDateTo
+     * @return
+     */
     public Builder checkDateTo(Integer checkDateTo) {
       this.checkDateTo = checkDateTo;
       return this;

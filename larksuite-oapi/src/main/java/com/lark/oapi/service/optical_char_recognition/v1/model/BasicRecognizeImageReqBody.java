@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class BasicRecognizeImageReqBody {
 
+  /**
+   * base64 后的图片数据
+   * <p> 示例值：base64后的图片二进制数据
+   */
   @SerializedName("image")
   private String image;
 
@@ -25,6 +29,10 @@ public class BasicRecognizeImageReqBody {
   }
 
   public BasicRecognizeImageReqBody(Builder builder) {
+    /**
+     * base64 后的图片数据
+     * <p> 示例值：base64后的图片二进制数据
+     */
     this.image = builder.image;
   }
 
@@ -42,8 +50,19 @@ public class BasicRecognizeImageReqBody {
 
   public static class Builder {
 
+    /**
+     * base64 后的图片数据
+     * <p> 示例值：base64后的图片二进制数据
+     */
     private String image;
 
+    /**
+     * base64 后的图片数据
+     * <p> 示例值：base64后的图片二进制数据
+     *
+     * @param image
+     * @return
+     */
     public Builder image(String image) {
       this.image = image;
       return this;

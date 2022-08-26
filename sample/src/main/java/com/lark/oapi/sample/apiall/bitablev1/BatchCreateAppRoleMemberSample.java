@@ -7,7 +7,7 @@ import com.lark.oapi.service.bitable.v1.model.BatchCreateAppRoleMemberReq;
 import com.lark.oapi.service.bitable.v1.model.BatchCreateAppRoleMemberReqBody;
 import com.lark.oapi.service.bitable.v1.model.BatchCreateAppRoleMemberResp;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/roles/:role_id/members/batch_create"
+// POST /open-apis/bitable/v1/apps/:app_token/roles/:role_id/members/batch_create
 public class BatchCreateAppRoleMemberSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,8 +16,8 @@ public class BatchCreateAppRoleMemberSample {
 
     // 创建请求对象
     BatchCreateAppRoleMemberReq req = BatchCreateAppRoleMemberReq.newBuilder()
-        .appToken("")
-        .roleId("")
+        .appToken("bascnnKKvcoUblgmmhZkYqabcef")
+        .roleId("rolNGhPqks")
         .batchCreateAppRoleMemberReqBody(BatchCreateAppRoleMemberReqBody.newBuilder()
             .memberList(new AppRoleMemberId[]{})
             .build())

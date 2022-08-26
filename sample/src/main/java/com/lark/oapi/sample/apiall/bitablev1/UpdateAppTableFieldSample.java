@@ -7,7 +7,7 @@ import com.lark.oapi.service.bitable.v1.model.AppTableFieldProperty;
 import com.lark.oapi.service.bitable.v1.model.UpdateAppTableFieldReq;
 import com.lark.oapi.service.bitable.v1.model.UpdateAppTableFieldResp;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id"
+// PUT /open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id
 public class UpdateAppTableFieldSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,9 +16,9 @@ public class UpdateAppTableFieldSample {
 
     // 创建请求对象
     UpdateAppTableFieldReq req = UpdateAppTableFieldReq.newBuilder()
-        .appToken("")
-        .tableId("")
-        .fieldId("")
+        .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
+        .tableId("tblsRc9GRRXKqhvW")
+        .fieldId("fldPTb0U2y")
         .appTableField(AppTableField.newBuilder()
             .fieldName("")
             .type(1)

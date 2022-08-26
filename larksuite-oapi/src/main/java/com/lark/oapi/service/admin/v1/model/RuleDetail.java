@@ -17,12 +17,29 @@ import com.google.gson.annotations.SerializedName;
 
 public class RuleDetail {
 
+  /**
+   * 开始生效的时间戳。1.手动设置有效期类型勋章，配置有效期限需要配置该字段；2.时间戳必须是所在时区当天的零点时间戳，如时区为Asia/Shanghai时区时的1649606400
+   * <p> 示例值：1649606400
+   */
   @SerializedName("effective_time")
   private String effectiveTime;
+  /**
+   * 结束生效的时间戳。1.手动设置有效期类型勋章，配置有效期限需要配置该字段；2.最大值：不得超过effective_time+100
+   * 年；3.非永久有效：时间戳必须是所在时区当天的23:59:59时间戳，如时区为Asia/Shanghai时区时的1649692799；4.永久有效：传值为0即可
+   * <p> 示例值：1649692799
+   */
   @SerializedName("expiration_time")
   private String expirationTime;
+  /**
+   * 入职周年日。根据入职时间发放类型勋章，需要配置该字段。
+   * <p> 示例值：1
+   */
   @SerializedName("anniversary")
   private Integer anniversary;
+  /**
+   * 有效期限。根据入职时间发放类型勋章，需要配置该字段。
+   * <p> 示例值：1
+   */
   @SerializedName("effective_period")
   private Integer effectivePeriod;
 
@@ -31,9 +48,25 @@ public class RuleDetail {
   }
 
   public RuleDetail(Builder builder) {
+    /**
+     * 开始生效的时间戳。1.手动设置有效期类型勋章，配置有效期限需要配置该字段；2.时间戳必须是所在时区当天的零点时间戳，如时区为Asia/Shanghai时区时的1649606400
+     * <p> 示例值：1649606400
+     */
     this.effectiveTime = builder.effectiveTime;
+    /**
+     * 结束生效的时间戳。1.手动设置有效期类型勋章，配置有效期限需要配置该字段；2.最大值：不得超过effective_time+100 年；3.非永久有效：时间戳必须是所在时区当天的23:59:59时间戳，如时区为Asia/Shanghai时区时的1649692799；4.永久有效：传值为0即可
+     * <p> 示例值：1649692799
+     */
     this.expirationTime = builder.expirationTime;
+    /**
+     * 入职周年日。根据入职时间发放类型勋章，需要配置该字段。
+     * <p> 示例值：1
+     */
     this.anniversary = builder.anniversary;
+    /**
+     * 有效期限。根据入职时间发放类型勋章，需要配置该字段。
+     * <p> 示例值：1
+     */
     this.effectivePeriod = builder.effectivePeriod;
   }
 
@@ -75,33 +108,89 @@ public class RuleDetail {
 
   public static class Builder {
 
+    /**
+     * 开始生效的时间戳。1.手动设置有效期类型勋章，配置有效期限需要配置该字段；2.时间戳必须是所在时区当天的零点时间戳，如时区为Asia/Shanghai时区时的1649606400
+     * <p> 示例值：1649606400
+     */
     private String effectiveTime;
+    /**
+     * 结束生效的时间戳。1.手动设置有效期类型勋章，配置有效期限需要配置该字段；2.最大值：不得超过effective_time+100
+     * 年；3.非永久有效：时间戳必须是所在时区当天的23:59:59时间戳，如时区为Asia/Shanghai时区时的1649692799；4.永久有效：传值为0即可
+     * <p> 示例值：1649692799
+     */
     private String expirationTime;
+    /**
+     * 入职周年日。根据入职时间发放类型勋章，需要配置该字段。
+     * <p> 示例值：1
+     */
     private Integer anniversary;
+    /**
+     * 有效期限。根据入职时间发放类型勋章，需要配置该字段。
+     * <p> 示例值：1
+     */
     private Integer effectivePeriod;
 
+    /**
+     * 开始生效的时间戳。1.手动设置有效期类型勋章，配置有效期限需要配置该字段；2.时间戳必须是所在时区当天的零点时间戳，如时区为Asia/Shanghai时区时的1649606400
+     * <p> 示例值：1649606400
+     *
+     * @param effectiveTime
+     * @return
+     */
     public Builder effectiveTime(String effectiveTime) {
       this.effectiveTime = effectiveTime;
       return this;
     }
 
+
+    /**
+     * 结束生效的时间戳。1.手动设置有效期类型勋章，配置有效期限需要配置该字段；2.最大值：不得超过effective_time+100
+     * 年；3.非永久有效：时间戳必须是所在时区当天的23:59:59时间戳，如时区为Asia/Shanghai时区时的1649692799；4.永久有效：传值为0即可
+     * <p> 示例值：1649692799
+     *
+     * @param expirationTime
+     * @return
+     */
     public Builder expirationTime(String expirationTime) {
       this.expirationTime = expirationTime;
       return this;
     }
 
+
+    /**
+     * 入职周年日。根据入职时间发放类型勋章，需要配置该字段。
+     * <p> 示例值：1
+     *
+     * @param anniversary
+     * @return
+     */
     public Builder anniversary(Integer anniversary) {
       this.anniversary = anniversary;
       return this;
     }
 
+
+    /**
+     * 有效期限。根据入职时间发放类型勋章，需要配置该字段。
+     * <p> 示例值：1
+     *
+     * @param effectivePeriod
+     * @return
+     */
     public Builder effectivePeriod(Integer effectivePeriod) {
       this.effectivePeriod = effectivePeriod;
       return this;
     }
 
+    /**
+     * 有效期限。根据入职时间发放类型勋章，需要配置该字段。
+     * <p> 示例值：1
+     *
+     * @param effectivePeriod {@link com.lark.oapi.service.admin.v1.enums.RuleDetailEffectivePeriodEnum}
+     * @return
+     */
     public Builder effectivePeriod(
-        com.lark.oapi.service.admin.v1.enums.EffectivePeriodEnum effectivePeriod) {
+        com.lark.oapi.service.admin.v1.enums.RuleDetailEffectivePeriodEnum effectivePeriod) {
       this.effectivePeriod = effectivePeriod.getValue();
       return this;
     }

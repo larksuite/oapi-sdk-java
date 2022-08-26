@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.mail.v1.model.ListMailgroupReq;
 import com.lark.oapi.service.mail.v1.model.ListMailgroupResp;
 
-// HTTP PATH: /open-apis/mail/v1/mailgroups"
+// GET /open-apis/mail/v1/mailgroups
 public class ListMailgroupSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class ListMailgroupSample {
     ListMailgroupReq req = ListMailgroupReq.newBuilder()
         .managerUserId("ou_xxxxxx")
         .userIdType("user_id")
-        .pageToken("")
+        .pageToken("xxx")
         .pageSize(20)
         .build();
 

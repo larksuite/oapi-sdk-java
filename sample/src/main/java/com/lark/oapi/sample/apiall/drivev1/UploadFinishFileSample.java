@@ -6,7 +6,7 @@ import com.lark.oapi.service.drive.v1.model.UploadFinishFileReq;
 import com.lark.oapi.service.drive.v1.model.UploadFinishFileReqBody;
 import com.lark.oapi.service.drive.v1.model.UploadFinishFileResp;
 
-// HTTP PATH: /open-apis/drive/v1/files/upload_finish"
+// POST /open-apis/drive/v1/files/upload_finish
 public class UploadFinishFileSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,8 +16,8 @@ public class UploadFinishFileSample {
     // 创建请求对象
     UploadFinishFileReq req = UploadFinishFileReq.newBuilder()
         .uploadFinishFileReqBody(UploadFinishFileReqBody.newBuilder()
-            .uploadId("")
-            .blockNum(0)
+            .uploadId("7111211691345512356")
+            .blockNum(1)
             .build())
         .build();
 

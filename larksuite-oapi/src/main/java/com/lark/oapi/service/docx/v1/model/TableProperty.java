@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class TableProperty {
 
+  /**
+   * 行数
+   * <p> 示例值：1
+   */
   @SerializedName("row_size")
   private Integer rowSize;
+  /**
+   * 列数
+   * <p> 示例值：1
+   */
   @SerializedName("column_size")
   private Integer columnSize;
+  /**
+   * 列宽，单位px
+   * <p> 示例值：100
+   */
   @SerializedName("column_width")
   private Integer[] columnWidth;
+  /**
+   * 单元格合并信息
+   * <p> 示例值：
+   */
   @SerializedName("merge_info")
   private TableMergeInfo[] mergeInfo;
 
@@ -31,9 +47,25 @@ public class TableProperty {
   }
 
   public TableProperty(Builder builder) {
+    /**
+     * 行数
+     * <p> 示例值：1
+     */
     this.rowSize = builder.rowSize;
+    /**
+     * 列数
+     * <p> 示例值：1
+     */
     this.columnSize = builder.columnSize;
+    /**
+     * 列宽，单位px
+     * <p> 示例值：100
+     */
     this.columnWidth = builder.columnWidth;
+    /**
+     * 单元格合并信息
+     * <p> 示例值：
+     */
     this.mergeInfo = builder.mergeInfo;
   }
 
@@ -75,26 +107,73 @@ public class TableProperty {
 
   public static class Builder {
 
+    /**
+     * 行数
+     * <p> 示例值：1
+     */
     private Integer rowSize;
+    /**
+     * 列数
+     * <p> 示例值：1
+     */
     private Integer columnSize;
+    /**
+     * 列宽，单位px
+     * <p> 示例值：100
+     */
     private Integer[] columnWidth;
+    /**
+     * 单元格合并信息
+     * <p> 示例值：
+     */
     private TableMergeInfo[] mergeInfo;
 
+    /**
+     * 行数
+     * <p> 示例值：1
+     *
+     * @param rowSize
+     * @return
+     */
     public Builder rowSize(Integer rowSize) {
       this.rowSize = rowSize;
       return this;
     }
 
+
+    /**
+     * 列数
+     * <p> 示例值：1
+     *
+     * @param columnSize
+     * @return
+     */
     public Builder columnSize(Integer columnSize) {
       this.columnSize = columnSize;
       return this;
     }
 
+
+    /**
+     * 列宽，单位px
+     * <p> 示例值：100
+     *
+     * @param columnWidth
+     * @return
+     */
     public Builder columnWidth(Integer[] columnWidth) {
       this.columnWidth = columnWidth;
       return this;
     }
 
+
+    /**
+     * 单元格合并信息
+     * <p> 示例值：
+     *
+     * @param mergeInfo
+     * @return
+     */
     public Builder mergeInfo(TableMergeInfo[] mergeInfo) {
       this.mergeInfo = mergeInfo;
       return this;

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class SubscribeEventReqBody {
 
+  /**
+   * 可订阅的事件列表
+   * <p> 示例值：
+   */
   @SerializedName("events")
   private Event[] events;
 
@@ -25,6 +29,10 @@ public class SubscribeEventReqBody {
   }
 
   public SubscribeEventReqBody(Builder builder) {
+    /**
+     * 可订阅的事件列表
+     * <p> 示例值：
+     */
     this.events = builder.events;
   }
 
@@ -42,8 +50,19 @@ public class SubscribeEventReqBody {
 
   public static class Builder {
 
+    /**
+     * 可订阅的事件列表
+     * <p> 示例值：
+     */
     private Event[] events;
 
+    /**
+     * 可订阅的事件列表
+     * <p> 示例值：
+     *
+     * @param events
+     * @return
+     */
     public Builder events(Event[] events) {
       this.events = events;
       return this;

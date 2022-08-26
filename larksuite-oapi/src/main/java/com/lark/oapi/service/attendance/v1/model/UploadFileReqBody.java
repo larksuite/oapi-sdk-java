@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UploadFileReqBody {
 
+  /**
+   * 文件内容
+   * <p> 示例值：二进制文件
+   */
   @SerializedName("file")
   private java.io.File file;
 
@@ -25,6 +29,10 @@ public class UploadFileReqBody {
   }
 
   public UploadFileReqBody(Builder builder) {
+    /**
+     * 文件内容
+     * <p> 示例值：二进制文件
+     */
     this.file = builder.file;
   }
 
@@ -42,8 +50,19 @@ public class UploadFileReqBody {
 
   public static class Builder {
 
+    /**
+     * 文件内容
+     * <p> 示例值：二进制文件
+     */
     private java.io.File file;
 
+    /**
+     * 文件内容
+     * <p> 示例值：二进制文件
+     *
+     * @param file
+     * @return
+     */
     public Builder file(java.io.File file) {
       this.file = file;
       return this;

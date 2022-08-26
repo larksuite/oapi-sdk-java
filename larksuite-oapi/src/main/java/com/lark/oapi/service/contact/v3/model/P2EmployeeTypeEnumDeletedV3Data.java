@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2EmployeeTypeEnumDeletedV3Data {
 
+  /**
+   * 旧枚举类型
+   * <p> 示例值：
+   */
   @SerializedName("old_enum")
   private EmployeeTypeEnum oldEnum;
 

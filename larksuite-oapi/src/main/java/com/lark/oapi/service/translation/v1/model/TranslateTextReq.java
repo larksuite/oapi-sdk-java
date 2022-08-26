@@ -48,6 +48,12 @@ public class TranslateTextReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder translateTextReqBody(TranslateTextReqBody body) {
       this.body = body;
       return this;

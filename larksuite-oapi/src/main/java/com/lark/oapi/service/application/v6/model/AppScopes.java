@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class AppScopes {
 
+  /**
+   * 应用高级权限列表
+   * <p> 示例值：
+   */
   @SerializedName("high_level_scopes")
   private String[] highLevelScopes;
+  /**
+   * 应用低级权限列表
+   * <p> 示例值：
+   */
   @SerializedName("low_level_scopes")
   private String[] lowLevelScopes;
 
@@ -27,7 +35,15 @@ public class AppScopes {
   }
 
   public AppScopes(Builder builder) {
+    /**
+     * 应用高级权限列表
+     * <p> 示例值：
+     */
     this.highLevelScopes = builder.highLevelScopes;
+    /**
+     * 应用低级权限列表
+     * <p> 示例值：
+     */
     this.lowLevelScopes = builder.lowLevelScopes;
   }
 
@@ -53,14 +69,37 @@ public class AppScopes {
 
   public static class Builder {
 
+    /**
+     * 应用高级权限列表
+     * <p> 示例值：
+     */
     private String[] highLevelScopes;
+    /**
+     * 应用低级权限列表
+     * <p> 示例值：
+     */
     private String[] lowLevelScopes;
 
+    /**
+     * 应用高级权限列表
+     * <p> 示例值：
+     *
+     * @param highLevelScopes
+     * @return
+     */
     public Builder highLevelScopes(String[] highLevelScopes) {
       this.highLevelScopes = highLevelScopes;
       return this;
     }
 
+
+    /**
+     * 应用低级权限列表
+     * <p> 示例值：
+     *
+     * @param lowLevelScopes
+     * @return
+     */
     public Builder lowLevelScopes(String[] lowLevelScopes) {
       this.lowLevelScopes = lowLevelScopes;
       return this;

@@ -4,7 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.acs.v1.model.ListDeviceResp;
 
-// HTTP PATH: /open-apis/acs/v1/devices"
+// GET /open-apis/acs/v1/devices
 public class ListDeviceSample {
 
   public static void main(String arg[]) throws Exception {

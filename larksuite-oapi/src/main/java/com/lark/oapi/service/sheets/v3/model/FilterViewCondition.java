@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class FilterViewCondition {
 
+  /**
+   * 设置筛选条件的列，使用字母号
+   * <p> 示例值：E
+   */
   @SerializedName("condition_id")
   private String conditionId;
+  /**
+   * 筛选类型
+   * <p> 示例值：number
+   */
   @SerializedName("filter_type")
   private String filterType;
+  /**
+   * 比较类型
+   * <p> 示例值：less
+   */
   @SerializedName("compare_type")
   private String compareType;
+  /**
+   * 筛选参数
+   * <p> 示例值：6
+   */
   @SerializedName("expected")
   private String[] expected;
 
@@ -31,9 +47,25 @@ public class FilterViewCondition {
   }
 
   public FilterViewCondition(Builder builder) {
+    /**
+     * 设置筛选条件的列，使用字母号
+     * <p> 示例值：E
+     */
     this.conditionId = builder.conditionId;
+    /**
+     * 筛选类型
+     * <p> 示例值：number
+     */
     this.filterType = builder.filterType;
+    /**
+     * 比较类型
+     * <p> 示例值：less
+     */
     this.compareType = builder.compareType;
+    /**
+     * 筛选参数
+     * <p> 示例值：6
+     */
     this.expected = builder.expected;
   }
 
@@ -75,26 +107,73 @@ public class FilterViewCondition {
 
   public static class Builder {
 
+    /**
+     * 设置筛选条件的列，使用字母号
+     * <p> 示例值：E
+     */
     private String conditionId;
+    /**
+     * 筛选类型
+     * <p> 示例值：number
+     */
     private String filterType;
+    /**
+     * 比较类型
+     * <p> 示例值：less
+     */
     private String compareType;
+    /**
+     * 筛选参数
+     * <p> 示例值：6
+     */
     private String[] expected;
 
+    /**
+     * 设置筛选条件的列，使用字母号
+     * <p> 示例值：E
+     *
+     * @param conditionId
+     * @return
+     */
     public Builder conditionId(String conditionId) {
       this.conditionId = conditionId;
       return this;
     }
 
+
+    /**
+     * 筛选类型
+     * <p> 示例值：number
+     *
+     * @param filterType
+     * @return
+     */
     public Builder filterType(String filterType) {
       this.filterType = filterType;
       return this;
     }
 
+
+    /**
+     * 比较类型
+     * <p> 示例值：less
+     *
+     * @param compareType
+     * @return
+     */
     public Builder compareType(String compareType) {
       this.compareType = compareType;
       return this;
     }
 
+
+    /**
+     * 筛选参数
+     * <p> 示例值：6
+     *
+     * @param expected
+     * @return
+     */
     public Builder expected(String[] expected) {
       this.expected = expected;
       return this;

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.contact.v3.model.ListUnitReq;
 import com.lark.oapi.service.contact.v3.model.ListUnitResp;
 
-// HTTP PATH: /open-apis/contact/v3/unit"
+// GET /open-apis/contact/v3/unit
 public class ListUnitSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,8 @@ public class ListUnitSample {
     // 创建请求对象
     ListUnitReq req = ListUnitReq.newBuilder()
         .pageSize(50)
-        .pageToken("")
+        .pageToken(
+            "AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=")
         .build();
 
     // 发起请求

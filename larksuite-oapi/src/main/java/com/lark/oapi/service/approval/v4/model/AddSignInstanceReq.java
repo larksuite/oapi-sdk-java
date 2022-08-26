@@ -48,6 +48,12 @@ public class AddSignInstanceReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder addSignInstanceReqBody(AddSignInstanceReqBody body) {
       this.body = body;
       return this;

@@ -17,16 +17,40 @@ import com.google.gson.annotations.SerializedName;
 
 public class File {
 
+  /**
+   * 文件标识
+   * <p> 示例值：boxbc0dGSMu23m7QkC1bvabcef
+   */
   @SerializedName("token")
   private String token;
+  /**
+   * 文件名
+   * <p> 示例值：123.txt
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 文件类型
+   * <p> 示例值：file
+   */
   @SerializedName("type")
   private String type;
+  /**
+   * 父文件夹标识
+   * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+   */
   @SerializedName("parent_token")
   private String parentToken;
+  /**
+   * 在浏览器中查看的链接
+   * <p> 示例值：https://bytedance.feishu.cn/file/boxbc0dGSMu23m7QkC1bvabcef
+   */
   @SerializedName("url")
   private String url;
+  /**
+   * 快捷方式文件信息
+   * <p> 示例值：
+   */
   @SerializedName("shortcut_info")
   private ShortcutInfo shortcutInfo;
 
@@ -35,11 +59,35 @@ public class File {
   }
 
   public File(Builder builder) {
+    /**
+     * 文件标识
+     * <p> 示例值：boxbc0dGSMu23m7QkC1bvabcef
+     */
     this.token = builder.token;
+    /**
+     * 文件名
+     * <p> 示例值：123.txt
+     */
     this.name = builder.name;
+    /**
+     * 文件类型
+     * <p> 示例值：file
+     */
     this.type = builder.type;
+    /**
+     * 父文件夹标识
+     * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+     */
     this.parentToken = builder.parentToken;
+    /**
+     * 在浏览器中查看的链接
+     * <p> 示例值：https://bytedance.feishu.cn/file/boxbc0dGSMu23m7QkC1bvabcef
+     */
     this.url = builder.url;
+    /**
+     * 快捷方式文件信息
+     * <p> 示例值：
+     */
     this.shortcutInfo = builder.shortcutInfo;
   }
 
@@ -97,38 +145,109 @@ public class File {
 
   public static class Builder {
 
+    /**
+     * 文件标识
+     * <p> 示例值：boxbc0dGSMu23m7QkC1bvabcef
+     */
     private String token;
+    /**
+     * 文件名
+     * <p> 示例值：123.txt
+     */
     private String name;
+    /**
+     * 文件类型
+     * <p> 示例值：file
+     */
     private String type;
+    /**
+     * 父文件夹标识
+     * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+     */
     private String parentToken;
+    /**
+     * 在浏览器中查看的链接
+     * <p> 示例值：https://bytedance.feishu.cn/file/boxbc0dGSMu23m7QkC1bvabcef
+     */
     private String url;
+    /**
+     * 快捷方式文件信息
+     * <p> 示例值：
+     */
     private ShortcutInfo shortcutInfo;
 
+    /**
+     * 文件标识
+     * <p> 示例值：boxbc0dGSMu23m7QkC1bvabcef
+     *
+     * @param token
+     * @return
+     */
     public Builder token(String token) {
       this.token = token;
       return this;
     }
 
+
+    /**
+     * 文件名
+     * <p> 示例值：123.txt
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 文件类型
+     * <p> 示例值：file
+     *
+     * @param type
+     * @return
+     */
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
+
+    /**
+     * 父文件夹标识
+     * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+     *
+     * @param parentToken
+     * @return
+     */
     public Builder parentToken(String parentToken) {
       this.parentToken = parentToken;
       return this;
     }
 
+
+    /**
+     * 在浏览器中查看的链接
+     * <p> 示例值：https://bytedance.feishu.cn/file/boxbc0dGSMu23m7QkC1bvabcef
+     *
+     * @param url
+     * @return
+     */
     public Builder url(String url) {
       this.url = url;
       return this;
     }
 
+
+    /**
+     * 快捷方式文件信息
+     * <p> 示例值：
+     *
+     * @param shortcutInfo
+     * @return
+     */
     public Builder shortcutInfo(ShortcutInfo shortcutInfo) {
       this.shortcutInfo = shortcutInfo;
       return this;

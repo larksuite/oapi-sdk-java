@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetSpreadsheetSheetFilter {
 
+  /**
+   * 筛选信息
+   * <p> 示例值：
+   */
   @SerializedName("sheet_filter_info")
   private SheetFilterInfo sheetFilterInfo;
 

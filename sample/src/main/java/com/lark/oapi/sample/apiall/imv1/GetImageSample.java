@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.im.v1.model.GetImageReq;
 import com.lark.oapi.service.im.v1.model.GetImageResp;
 
-// HTTP PATH: /open-apis/im/v1/images/:image_key"
+// GET /open-apis/im/v1/images/:image_key
 public class GetImageSample {
 
   public static void main(String arg[]) throws Exception {

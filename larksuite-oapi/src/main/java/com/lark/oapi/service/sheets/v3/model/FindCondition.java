@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class FindCondition {
 
+  /**
+   * 查找范围
+   * <p> 示例值：0b**12!A1:H10
+   */
   @SerializedName("range")
   private String range;
+  /**
+   * 是否忽略大小写
+   * <p> 示例值：true
+   */
   @SerializedName("match_case")
   private Boolean matchCase;
+  /**
+   * 是否匹配整个单元格
+   * <p> 示例值：false
+   */
   @SerializedName("match_entire_cell")
   private Boolean matchEntireCell;
+  /**
+   * 是否为正则匹配
+   * <p> 示例值：false
+   */
   @SerializedName("search_by_regex")
   private Boolean searchByRegex;
+  /**
+   * 是否搜索公式内容
+   * <p> 示例值：false
+   */
   @SerializedName("include_formulas")
   private Boolean includeFormulas;
 
@@ -33,10 +53,30 @@ public class FindCondition {
   }
 
   public FindCondition(Builder builder) {
+    /**
+     * 查找范围
+     * <p> 示例值：0b**12!A1:H10
+     */
     this.range = builder.range;
+    /**
+     * 是否忽略大小写
+     * <p> 示例值：true
+     */
     this.matchCase = builder.matchCase;
+    /**
+     * 是否匹配整个单元格
+     * <p> 示例值：false
+     */
     this.matchEntireCell = builder.matchEntireCell;
+    /**
+     * 是否为正则匹配
+     * <p> 示例值：false
+     */
     this.searchByRegex = builder.searchByRegex;
+    /**
+     * 是否搜索公式内容
+     * <p> 示例值：false
+     */
     this.includeFormulas = builder.includeFormulas;
   }
 
@@ -86,32 +126,91 @@ public class FindCondition {
 
   public static class Builder {
 
+    /**
+     * 查找范围
+     * <p> 示例值：0b**12!A1:H10
+     */
     private String range;
+    /**
+     * 是否忽略大小写
+     * <p> 示例值：true
+     */
     private Boolean matchCase;
+    /**
+     * 是否匹配整个单元格
+     * <p> 示例值：false
+     */
     private Boolean matchEntireCell;
+    /**
+     * 是否为正则匹配
+     * <p> 示例值：false
+     */
     private Boolean searchByRegex;
+    /**
+     * 是否搜索公式内容
+     * <p> 示例值：false
+     */
     private Boolean includeFormulas;
 
+    /**
+     * 查找范围
+     * <p> 示例值：0b**12!A1:H10
+     *
+     * @param range
+     * @return
+     */
     public Builder range(String range) {
       this.range = range;
       return this;
     }
 
+
+    /**
+     * 是否忽略大小写
+     * <p> 示例值：true
+     *
+     * @param matchCase
+     * @return
+     */
     public Builder matchCase(Boolean matchCase) {
       this.matchCase = matchCase;
       return this;
     }
 
+
+    /**
+     * 是否匹配整个单元格
+     * <p> 示例值：false
+     *
+     * @param matchEntireCell
+     * @return
+     */
     public Builder matchEntireCell(Boolean matchEntireCell) {
       this.matchEntireCell = matchEntireCell;
       return this;
     }
 
+
+    /**
+     * 是否为正则匹配
+     * <p> 示例值：false
+     *
+     * @param searchByRegex
+     * @return
+     */
     public Builder searchByRegex(Boolean searchByRegex) {
       this.searchByRegex = searchByRegex;
       return this;
     }
 
+
+    /**
+     * 是否搜索公式内容
+     * <p> 示例值：false
+     *
+     * @param includeFormulas
+     * @return
+     */
     public Builder includeFormulas(Boolean includeFormulas) {
       this.includeFormulas = includeFormulas;
       return this;

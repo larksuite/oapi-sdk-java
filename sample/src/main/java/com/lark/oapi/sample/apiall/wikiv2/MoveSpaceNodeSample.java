@@ -6,7 +6,7 @@ import com.lark.oapi.service.wiki.v2.model.MoveSpaceNodeReq;
 import com.lark.oapi.service.wiki.v2.model.MoveSpaceNodeReqBody;
 import com.lark.oapi.service.wiki.v2.model.MoveSpaceNodeResp;
 
-// HTTP PATH: /open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/move"
+// POST /open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/move
 public class MoveSpaceNodeSample {
 
   public static void main(String arg[]) throws Exception {

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class ReplaceSpreadsheetSheet {
 
+  /**
+   * 符合查找条件并替换的单元格信息
+   * <p> 示例值：
+   */
   @SerializedName("replace_result")
   private FindReplaceResult replaceResult;
 

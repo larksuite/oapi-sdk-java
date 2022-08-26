@@ -18,6 +18,12 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DeleteGroupReq {
 
+  /**
+   * 考勤组 ID，获取方式：1）[创建或修改考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create)
+   * 2）[按名称查询考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search)
+   * 3）[获取打卡结果](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
+   * <p> 示例值：6919358128597097404
+   */
   @Path
   @SerializedName("group_id")
   private String groupId;
@@ -27,6 +33,10 @@ public class DeleteGroupReq {
   }
 
   public DeleteGroupReq(Builder builder) {
+    /**
+     * 考勤组 ID，获取方式：1）[创建或修改考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create) 2）[按名称查询考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search) 3）[获取打卡结果](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
+     * <p> 示例值：6919358128597097404
+     */
     this.groupId = builder.groupId;
   }
 
@@ -44,8 +54,17 @@ public class DeleteGroupReq {
 
   public static class Builder {
 
-    private String groupId;
+    private String groupId; // 考勤组 ID，获取方式：1）[创建或修改考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create) 2）[按名称查询考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search) 3）[获取打卡结果](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
 
+    /**
+     * 考勤组 ID，获取方式：1）[创建或修改考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create)
+     * 2）[按名称查询考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search)
+     * 3）[获取打卡结果](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
+     * <p> 示例值：6919358128597097404
+     *
+     * @param groupId
+     * @return
+     */
     public Builder groupId(String groupId) {
       this.groupId = groupId;
       return this;

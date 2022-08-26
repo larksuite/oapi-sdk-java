@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class AgentEmailAgent {
 
+  /**
+   * agent emails
+   * <p> 示例值：{;            "ou_xxx": "xxx",;            "ou_yyy": "yyy";        }
+   */
   @SerializedName("agents")
   private String agents;
 

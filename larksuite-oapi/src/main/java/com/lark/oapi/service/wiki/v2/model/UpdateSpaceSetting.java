@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateSpaceSetting {
 
+  /**
+   * 知识空间设置
+   * <p> 示例值：
+   */
   @SerializedName("setting")
   private Setting setting;
 

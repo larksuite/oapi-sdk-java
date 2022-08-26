@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class DetectTextReqBody {
 
+  /**
+   * 需要被识别语种的文本
+   * <p> 示例值：你好
+   */
   @SerializedName("text")
   private String text;
 
@@ -25,6 +29,10 @@ public class DetectTextReqBody {
   }
 
   public DetectTextReqBody(Builder builder) {
+    /**
+     * 需要被识别语种的文本
+     * <p> 示例值：你好
+     */
     this.text = builder.text;
   }
 
@@ -42,8 +50,19 @@ public class DetectTextReqBody {
 
   public static class Builder {
 
+    /**
+     * 需要被识别语种的文本
+     * <p> 示例值：你好
+     */
     private String text;
 
+    /**
+     * 需要被识别语种的文本
+     * <p> 示例值：你好
+     *
+     * @param text
+     * @return
+     */
     public Builder text(String text) {
       this.text = text;
       return this;

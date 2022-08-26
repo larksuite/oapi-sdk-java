@@ -17,6 +17,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class LocationInfoEvent {
 
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("coord")
   private Coordinate coord;
 
@@ -25,6 +28,10 @@ public class LocationInfoEvent {
   }
 
   public LocationInfoEvent(Builder builder) {
+    /**
+     *
+     * <p> 示例值：
+     */
     this.coord = builder.coord;
   }
 
@@ -42,8 +49,17 @@ public class LocationInfoEvent {
 
   public static class Builder {
 
+    /**
+     * <p> 示例值：
+     */
     private Coordinate coord;
 
+    /**
+     * <p> 示例值：
+     *
+     * @param coord
+     * @return
+     */
     public Builder coord(Coordinate coord) {
       this.coord = coord;
       return this;

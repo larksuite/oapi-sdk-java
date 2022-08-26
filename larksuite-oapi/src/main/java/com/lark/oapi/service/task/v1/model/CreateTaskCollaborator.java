@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateTaskCollaborator {
 
+  /**
+   * 返回创建成功后的任务执行者列表
+   * <p> 示例值：
+   */
   @SerializedName("collaborator")
   private Collaborator collaborator;
 

@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class GetExportTaskReq {
 
+  /**
+   * 导出文档的 token
+   * <p> 示例值：doccnZVxxxxxxxxxxxxGiyBgYqe
+   */
   @Query
   @SerializedName("token")
   private String token;
+  /**
+   * 导出任务ID
+   * <p> 示例值：6933093124755423251
+   */
   @Path
   @SerializedName("ticket")
   private String ticket;
@@ -31,7 +39,15 @@ public class GetExportTaskReq {
   }
 
   public GetExportTaskReq(Builder builder) {
+    /**
+     * 导出文档的 token
+     * <p> 示例值：doccnZVxxxxxxxxxxxxGiyBgYqe
+     */
     this.token = builder.token;
+    /**
+     * 导出任务ID
+     * <p> 示例值：6933093124755423251
+     */
     this.ticket = builder.ticket;
   }
 
@@ -57,14 +73,28 @@ public class GetExportTaskReq {
 
   public static class Builder {
 
-    private String token;
-    private String ticket;
+    private String token; // 导出文档的 token
+    private String ticket; // 导出任务ID
 
+    /**
+     * 导出文档的 token
+     * <p> 示例值：doccnZVxxxxxxxxxxxxGiyBgYqe
+     *
+     * @param token
+     * @return
+     */
     public Builder token(String token) {
       this.token = token;
       return this;
     }
 
+    /**
+     * 导出任务ID
+     * <p> 示例值：6933093124755423251
+     *
+     * @param ticket
+     * @return
+     */
     public Builder ticket(String ticket) {
       this.ticket = ticket;
       return this;

@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchDeleteCalendarEventAttendeeReqBody {
 
+  /**
+   * 要移除的参与人 ID 列表。参见[参与人ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
+   * <p> 示例值：["user_xxxxx", "chat_xxxxx", "resource_xxxxx", "third_party_xxxxx"]
+   */
   @SerializedName("attendee_ids")
   private String[] attendeeIds;
+  /**
+   * 需要删除的参与人类型实体ID，作为attendee_ids字段的补充。
+   * <p> 示例值：
+   */
   @SerializedName("delete_ids")
   private CalendarEventAttendeeId[] deleteIds;
+  /**
+   * 删除日程参与人时是否要给参与人发送bot通知，默认为true
+   * <p> 示例值：false
+   */
   @SerializedName("need_notification")
   private Boolean needNotification;
+  /**
+   * 使用管理员身份访问时要修改的实例
+   * <p> 示例值：1647320400
+   */
   @SerializedName("instance_start_time_admin")
   private String instanceStartTimeAdmin;
+  /**
+   * 是否启用管理员身份(需先在管理后台设置某人为会议室管理员)
+   * <p> 示例值：false
+   */
   @SerializedName("is_enable_admin")
   private Boolean isEnableAdmin;
 
@@ -33,10 +53,30 @@ public class BatchDeleteCalendarEventAttendeeReqBody {
   }
 
   public BatchDeleteCalendarEventAttendeeReqBody(Builder builder) {
+    /**
+     * 要移除的参与人 ID 列表。参见[参与人ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
+     * <p> 示例值：["user_xxxxx", "chat_xxxxx", "resource_xxxxx", "third_party_xxxxx"]
+     */
     this.attendeeIds = builder.attendeeIds;
+    /**
+     * 需要删除的参与人类型实体ID，作为attendee_ids字段的补充。
+     * <p> 示例值：
+     */
     this.deleteIds = builder.deleteIds;
+    /**
+     * 删除日程参与人时是否要给参与人发送bot通知，默认为true
+     * <p> 示例值：false
+     */
     this.needNotification = builder.needNotification;
+    /**
+     * 使用管理员身份访问时要修改的实例
+     * <p> 示例值：1647320400
+     */
     this.instanceStartTimeAdmin = builder.instanceStartTimeAdmin;
+    /**
+     * 是否启用管理员身份(需先在管理后台设置某人为会议室管理员)
+     * <p> 示例值：false
+     */
     this.isEnableAdmin = builder.isEnableAdmin;
   }
 
@@ -86,32 +126,91 @@ public class BatchDeleteCalendarEventAttendeeReqBody {
 
   public static class Builder {
 
+    /**
+     * 要移除的参与人 ID 列表。参见[参与人ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
+     * <p> 示例值：["user_xxxxx", "chat_xxxxx", "resource_xxxxx", "third_party_xxxxx"]
+     */
     private String[] attendeeIds;
+    /**
+     * 需要删除的参与人类型实体ID，作为attendee_ids字段的补充。
+     * <p> 示例值：
+     */
     private CalendarEventAttendeeId[] deleteIds;
+    /**
+     * 删除日程参与人时是否要给参与人发送bot通知，默认为true
+     * <p> 示例值：false
+     */
     private Boolean needNotification;
+    /**
+     * 使用管理员身份访问时要修改的实例
+     * <p> 示例值：1647320400
+     */
     private String instanceStartTimeAdmin;
+    /**
+     * 是否启用管理员身份(需先在管理后台设置某人为会议室管理员)
+     * <p> 示例值：false
+     */
     private Boolean isEnableAdmin;
 
+    /**
+     * 要移除的参与人 ID 列表。参见[参与人ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
+     * <p> 示例值：["user_xxxxx", "chat_xxxxx", "resource_xxxxx", "third_party_xxxxx"]
+     *
+     * @param attendeeIds
+     * @return
+     */
     public Builder attendeeIds(String[] attendeeIds) {
       this.attendeeIds = attendeeIds;
       return this;
     }
 
+
+    /**
+     * 需要删除的参与人类型实体ID，作为attendee_ids字段的补充。
+     * <p> 示例值：
+     *
+     * @param deleteIds
+     * @return
+     */
     public Builder deleteIds(CalendarEventAttendeeId[] deleteIds) {
       this.deleteIds = deleteIds;
       return this;
     }
 
+
+    /**
+     * 删除日程参与人时是否要给参与人发送bot通知，默认为true
+     * <p> 示例值：false
+     *
+     * @param needNotification
+     * @return
+     */
     public Builder needNotification(Boolean needNotification) {
       this.needNotification = needNotification;
       return this;
     }
 
+
+    /**
+     * 使用管理员身份访问时要修改的实例
+     * <p> 示例值：1647320400
+     *
+     * @param instanceStartTimeAdmin
+     * @return
+     */
     public Builder instanceStartTimeAdmin(String instanceStartTimeAdmin) {
       this.instanceStartTimeAdmin = instanceStartTimeAdmin;
       return this;
     }
 
+
+    /**
+     * 是否启用管理员身份(需先在管理后台设置某人为会议室管理员)
+     * <p> 示例值：false
+     *
+     * @param isEnableAdmin
+     * @return
+     */
     public Builder isEnableAdmin(Boolean isEnableAdmin) {
       this.isEnableAdmin = isEnableAdmin;
       return this;

@@ -20,12 +20,24 @@ import com.lark.oapi.core.annotation.Query;
 
 public class CreateAppRoleMemberReq {
 
+  /**
+   * 协作者id类型，与请求体中的member_id要对应
+   * <p> 示例值：open_id
+   */
   @Query
   @SerializedName("member_id_type")
   private String memberIdType;
+  /**
+   * bitable app token
+   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+   */
   @Path
   @SerializedName("app_token")
   private String appToken;
+  /**
+   * 自定义角色的id
+   * <p> 示例值：roljRpwIUt
+   */
   @Path
   @SerializedName("role_id")
   private String roleId;
@@ -37,8 +49,20 @@ public class CreateAppRoleMemberReq {
   }
 
   public CreateAppRoleMemberReq(Builder builder) {
+    /**
+     * 协作者id类型，与请求体中的member_id要对应
+     * <p> 示例值：open_id
+     */
     this.memberIdType = builder.memberIdType;
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     */
     this.appToken = builder.appToken;
+    /**
+     * 自定义角色的id
+     * <p> 示例值：roljRpwIUt
+     */
     this.roleId = builder.roleId;
     this.body = builder.body;
   }
@@ -81,27 +105,55 @@ public class CreateAppRoleMemberReq {
 
   public static class Builder {
 
-    private String memberIdType;
-    private String appToken;
-    private String roleId;
+    private String memberIdType; // 协作者id类型，与请求体中的member_id要对应
+    private String appToken; // bitable app token
+    private String roleId; // 自定义角色的id
     private AppRoleMember body;
 
+    /**
+     * 协作者id类型，与请求体中的member_id要对应
+     * <p> 示例值：open_id
+     *
+     * @param memberIdType
+     * @return
+     */
     public Builder memberIdType(String memberIdType) {
       this.memberIdType = memberIdType;
       return this;
     }
 
+    /**
+     * 协作者id类型，与请求体中的member_id要对应
+     * <p> 示例值：open_id
+     *
+     * @param memberIdType {@link com.lark.oapi.service.bitable.v1.enums.CreateAppRoleMemberMemberIdTypeEnum}
+     * @return
+     */
     public Builder memberIdType(
-        com.lark.oapi.service.bitable.v1.enums.MemberIdTypeEnum memberIdType) {
+        com.lark.oapi.service.bitable.v1.enums.CreateAppRoleMemberMemberIdTypeEnum memberIdType) {
       this.memberIdType = memberIdType.getValue();
       return this;
     }
 
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     *
+     * @param appToken
+     * @return
+     */
     public Builder appToken(String appToken) {
       this.appToken = appToken;
       return this;
     }
 
+    /**
+     * 自定义角色的id
+     * <p> 示例值：roljRpwIUt
+     *
+     * @param roleId
+     * @return
+     */
     public Builder roleId(String roleId) {
       this.roleId = roleId;
       return this;
@@ -111,6 +163,12 @@ public class CreateAppRoleMemberReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder appRoleMember(AppRoleMember body) {
       this.body = body;
       return this;

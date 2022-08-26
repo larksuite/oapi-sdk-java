@@ -19,12 +19,24 @@ import com.lark.oapi.core.annotation.Query;
 
 public class RemoveInstanceCommentReq {
 
+  /**
+   * 用户ID类型，不填默认为open_id
+   * <p> 示例值：user_id
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * 根据user_id_type填写用户ID
+   * <p> 示例值：ou_806a18fb5bdf525e38ba219733bdbd73
+   */
   @Query
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 审批实例code（或者租户自定义审批实例ID）
+   * <p> 示例值：6A123516-FB88-470D-A428-9AF58B71B3C0
+   */
   @Path
   @SerializedName("instance_id")
   private String instanceId;
@@ -34,8 +46,20 @@ public class RemoveInstanceCommentReq {
   }
 
   public RemoveInstanceCommentReq(Builder builder) {
+    /**
+     * 用户ID类型，不填默认为open_id
+     * <p> 示例值：user_id
+     */
     this.userIdType = builder.userIdType;
+    /**
+     * 根据user_id_type填写用户ID
+     * <p> 示例值：ou_806a18fb5bdf525e38ba219733bdbd73
+     */
     this.userId = builder.userId;
+    /**
+     * 审批实例code（或者租户自定义审批实例ID）
+     * <p> 示例值：6A123516-FB88-470D-A428-9AF58B71B3C0
+     */
     this.instanceId = builder.instanceId;
   }
 
@@ -69,25 +93,54 @@ public class RemoveInstanceCommentReq {
 
   public static class Builder {
 
-    private String userIdType;
-    private String userId;
-    private String instanceId;
+    private String userIdType; // 用户ID类型，不填默认为open_id
+    private String userId; // 根据user_id_type填写用户ID
+    private String instanceId; // 审批实例code（或者租户自定义审批实例ID）
 
+    /**
+     * 用户ID类型，不填默认为open_id
+     * <p> 示例值：user_id
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.approval.v4.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 用户ID类型，不填默认为open_id
+     * <p> 示例值：user_id
+     *
+     * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.RemoveInstanceCommentUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.approval.v4.enums.RemoveInstanceCommentUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+    /**
+     * 根据user_id_type填写用户ID
+     * <p> 示例值：ou_806a18fb5bdf525e38ba219733bdbd73
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+    /**
+     * 审批实例code（或者租户自定义审批实例ID）
+     * <p> 示例值：6A123516-FB88-470D-A428-9AF58B71B3C0
+     *
+     * @param instanceId
+     * @return
+     */
     public Builder instanceId(String instanceId) {
       this.instanceId = instanceId;
       return this;

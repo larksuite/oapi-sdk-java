@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UrgentReceivers {
 
+  /**
+   * 目标用户的ID。列表不可为空。
+   * <p> 示例值：["ou_6yf8af6bgb9100449565764t3382b168"]
+   */
   @SerializedName("user_id_list")
   private String[] userIdList;
 
@@ -25,6 +29,10 @@ public class UrgentReceivers {
   }
 
   public UrgentReceivers(Builder builder) {
+    /**
+     * 目标用户的ID。列表不可为空。
+     * <p> 示例值：["ou_6yf8af6bgb9100449565764t3382b168"]
+     */
     this.userIdList = builder.userIdList;
   }
 
@@ -42,8 +50,19 @@ public class UrgentReceivers {
 
   public static class Builder {
 
+    /**
+     * 目标用户的ID。列表不可为空。
+     * <p> 示例值：["ou_6yf8af6bgb9100449565764t3382b168"]
+     */
     private String[] userIdList;
 
+    /**
+     * 目标用户的ID。列表不可为空。
+     * <p> 示例值：["ou_6yf8af6bgb9100449565764t3382b168"]
+     *
+     * @param userIdList
+     * @return
+     */
     public Builder userIdList(String[] userIdList) {
       this.userIdList = userIdList;
       return this;

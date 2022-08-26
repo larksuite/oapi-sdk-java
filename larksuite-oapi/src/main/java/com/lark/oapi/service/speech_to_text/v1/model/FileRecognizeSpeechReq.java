@@ -48,6 +48,12 @@ public class FileRecognizeSpeechReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder fileRecognizeSpeechReqBody(FileRecognizeSpeechReqBody body) {
       this.body = body;
       return this;

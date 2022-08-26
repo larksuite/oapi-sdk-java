@@ -18,7 +18,8 @@ public class ReplyMessageSample {
         .messageId("om_dc13264520392913993dd051dba21dcf")
         .replyMessageReqBody(ReplyMessageReqBody.newBuilder()
             .content("")
-            .msgType("")
+            .msgType("text")
+            .uuid("a0d69e20-1dd1-458b-k525-dfeca4015204")
             .build())
         .build();
 

@@ -17,16 +17,40 @@ import com.google.gson.annotations.SerializedName;
 
 public class CommentRequest {
 
+  /**
+   * 评论内容，包含艾特人、附件等
+   * <p> 示例值：{\"text\":\"来自小程序的评论111我带附件中有extra \",\"files\":[{\"url\":\"xxx\",\"fileSize\":155149,\"title\":\"9a9fedc5cfb01a4a20c715098.png\",\"type\":\"image\",\"extra\":\"\"}]}
+   */
   @SerializedName("content")
   private String content;
+  /**
+   * 评论中艾特人信息
+   * <p> 示例值：
+   */
   @SerializedName("at_info_list")
   private CommentAtInfo[] atInfoList;
+  /**
+   * 父评论ID，如果是回复评论，需要传
+   * <p> 示例值：7081516627711524883
+   */
   @SerializedName("parent_comment_id")
   private String parentCommentId;
+  /**
+   * 评论ID，如果是编辑、删除一条评论，需要传
+   * <p> 示例值：7081516627711524883
+   */
   @SerializedName("comment_id")
   private String commentId;
+  /**
+   * disable_bot=true只同步数据，不触发bot
+   * <p> 示例值：false
+   */
   @SerializedName("disable_bot")
   private Boolean disableBot;
+  /**
+   * 附加字段
+   * <p> 示例值：{\"a\":\"a\"}
+   */
   @SerializedName("extra")
   private String extra;
 
@@ -35,11 +59,35 @@ public class CommentRequest {
   }
 
   public CommentRequest(Builder builder) {
+    /**
+     * 评论内容，包含艾特人、附件等
+     * <p> 示例值：{\"text\":\"来自小程序的评论111我带附件中有extra \",\"files\":[{\"url\":\"xxx\",\"fileSize\":155149,\"title\":\"9a9fedc5cfb01a4a20c715098.png\",\"type\":\"image\",\"extra\":\"\"}]}
+     */
     this.content = builder.content;
+    /**
+     * 评论中艾特人信息
+     * <p> 示例值：
+     */
     this.atInfoList = builder.atInfoList;
+    /**
+     * 父评论ID，如果是回复评论，需要传
+     * <p> 示例值：7081516627711524883
+     */
     this.parentCommentId = builder.parentCommentId;
+    /**
+     * 评论ID，如果是编辑、删除一条评论，需要传
+     * <p> 示例值：7081516627711524883
+     */
     this.commentId = builder.commentId;
+    /**
+     * disable_bot=true只同步数据，不触发bot
+     * <p> 示例值：false
+     */
     this.disableBot = builder.disableBot;
+    /**
+     * 附加字段
+     * <p> 示例值：{\"a\":\"a\"}
+     */
     this.extra = builder.extra;
   }
 
@@ -97,38 +145,109 @@ public class CommentRequest {
 
   public static class Builder {
 
+    /**
+     * 评论内容，包含艾特人、附件等
+     * <p> 示例值：{\"text\":\"来自小程序的评论111我带附件中有extra \",\"files\":[{\"url\":\"xxx\",\"fileSize\":155149,\"title\":\"9a9fedc5cfb01a4a20c715098.png\",\"type\":\"image\",\"extra\":\"\"}]}
+     */
     private String content;
+    /**
+     * 评论中艾特人信息
+     * <p> 示例值：
+     */
     private CommentAtInfo[] atInfoList;
+    /**
+     * 父评论ID，如果是回复评论，需要传
+     * <p> 示例值：7081516627711524883
+     */
     private String parentCommentId;
+    /**
+     * 评论ID，如果是编辑、删除一条评论，需要传
+     * <p> 示例值：7081516627711524883
+     */
     private String commentId;
+    /**
+     * disable_bot=true只同步数据，不触发bot
+     * <p> 示例值：false
+     */
     private Boolean disableBot;
+    /**
+     * 附加字段
+     * <p> 示例值：{\"a\":\"a\"}
+     */
     private String extra;
 
+    /**
+     * 评论内容，包含艾特人、附件等
+     * <p> 示例值：{\"text\":\"来自小程序的评论111我带附件中有extra \",\"files\":[{\"url\":\"xxx\",\"fileSize\":155149,\"title\":\"9a9fedc5cfb01a4a20c715098.png\",\"type\":\"image\",\"extra\":\"\"}]}
+     *
+     * @param content
+     * @return
+     */
     public Builder content(String content) {
       this.content = content;
       return this;
     }
 
+
+    /**
+     * 评论中艾特人信息
+     * <p> 示例值：
+     *
+     * @param atInfoList
+     * @return
+     */
     public Builder atInfoList(CommentAtInfo[] atInfoList) {
       this.atInfoList = atInfoList;
       return this;
     }
 
+
+    /**
+     * 父评论ID，如果是回复评论，需要传
+     * <p> 示例值：7081516627711524883
+     *
+     * @param parentCommentId
+     * @return
+     */
     public Builder parentCommentId(String parentCommentId) {
       this.parentCommentId = parentCommentId;
       return this;
     }
 
+
+    /**
+     * 评论ID，如果是编辑、删除一条评论，需要传
+     * <p> 示例值：7081516627711524883
+     *
+     * @param commentId
+     * @return
+     */
     public Builder commentId(String commentId) {
       this.commentId = commentId;
       return this;
     }
 
+
+    /**
+     * disable_bot=true只同步数据，不触发bot
+     * <p> 示例值：false
+     *
+     * @param disableBot
+     * @return
+     */
     public Builder disableBot(Boolean disableBot) {
       this.disableBot = disableBot;
       return this;
     }
 
+
+    /**
+     * 附加字段
+     * <p> 示例值：{\"a\":\"a\"}
+     *
+     * @param extra
+     * @return
+     */
     public Builder extra(String extra) {
       this.extra = extra;
       return this;

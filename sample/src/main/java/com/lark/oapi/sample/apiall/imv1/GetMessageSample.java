@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.im.v1.model.GetMessageReq;
 import com.lark.oapi.service.im.v1.model.GetMessageResp;
 
-// HTTP PATH: /open-apis/im/v1/messages/:message_id"
+// GET /open-apis/im/v1/messages/:message_id
 public class GetMessageSample {
 
   public static void main(String arg[]) throws Exception {

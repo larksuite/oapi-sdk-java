@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class UsageTrendItem {
 
+  /**
+   * 时间戳
+   * <p> 示例值：
+   */
   @SerializedName("timestamp")
   private String timestamp;
+  /**
+   * 应用使用pv
+   * <p> 示例值：
+   */
   @SerializedName("page_view")
   private String pageView;
+  /**
+   * 应用使用uv
+   * <p> 示例值：
+   */
   @SerializedName("unique_visitor")
   private String uniqueVisitor;
 
@@ -29,8 +41,20 @@ public class UsageTrendItem {
   }
 
   public UsageTrendItem(Builder builder) {
+    /**
+     * 时间戳
+     * <p> 示例值：
+     */
     this.timestamp = builder.timestamp;
+    /**
+     * 应用使用pv
+     * <p> 示例值：
+     */
     this.pageView = builder.pageView;
+    /**
+     * 应用使用uv
+     * <p> 示例值：
+     */
     this.uniqueVisitor = builder.uniqueVisitor;
   }
 
@@ -64,20 +88,55 @@ public class UsageTrendItem {
 
   public static class Builder {
 
+    /**
+     * 时间戳
+     * <p> 示例值：
+     */
     private String timestamp;
+    /**
+     * 应用使用pv
+     * <p> 示例值：
+     */
     private String pageView;
+    /**
+     * 应用使用uv
+     * <p> 示例值：
+     */
     private String uniqueVisitor;
 
+    /**
+     * 时间戳
+     * <p> 示例值：
+     *
+     * @param timestamp
+     * @return
+     */
     public Builder timestamp(String timestamp) {
       this.timestamp = timestamp;
       return this;
     }
 
+
+    /**
+     * 应用使用pv
+     * <p> 示例值：
+     *
+     * @param pageView
+     * @return
+     */
     public Builder pageView(String pageView) {
       this.pageView = pageView;
       return this;
     }
 
+
+    /**
+     * 应用使用uv
+     * <p> 示例值：
+     *
+     * @param uniqueVisitor
+     * @return
+     */
     public Builder uniqueVisitor(String uniqueVisitor) {
       this.uniqueVisitor = uniqueVisitor;
       return this;

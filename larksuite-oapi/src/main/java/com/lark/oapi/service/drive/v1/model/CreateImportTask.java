@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateImportTask {
 
+  /**
+   * 导入任务ID
+   * <p> 示例值：6990281xxxxxxxxxxx843
+   */
   @SerializedName("ticket")
   private String ticket;
 

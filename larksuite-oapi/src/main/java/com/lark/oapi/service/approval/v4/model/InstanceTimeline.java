@@ -17,45 +17,144 @@ import com.google.gson.annotations.SerializedName;
 
 public class InstanceTimeline {
 
+  /**
+   * 动态类型，不同类型 ext 内的 user_id_list 含义不一样
+   * <p> 示例值：PASS
+   */
   @SerializedName("type")
   private String type;
+  /**
+   * 发生时间
+   * <p> 示例值：1564590532967
+   */
   @SerializedName("create_time")
   private String createTime;
+  /**
+   * 动态产生用户
+   * <p> 示例值：f7cb567e
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 动态产生用户 open id
+   * <p> 示例值：ou_123456
+   */
   @SerializedName("open_id")
   private String openId;
+  /**
+   * 被抄送人列表
+   * <p> 示例值：f7cb567e
+   */
   @SerializedName("user_id_list")
   private String[] userIdList;
+  /**
+   * 被抄送人列表
+   * <p> 示例值：ou_123456
+   */
   @SerializedName("open_id_list")
   private String[] openIdList;
+  /**
+   * 产生动态关联的task_id
+   * <p> 示例值：1234
+   */
   @SerializedName("task_id")
   private String taskId;
+  /**
+   * 理由
+   * <p> 示例值：ok
+   */
   @SerializedName("comment")
   private String comment;
+  /**
+   * 抄送人列表
+   * <p> 示例值：
+   */
   @SerializedName("cc_user_list")
   private InstanceCcUser[] ccUserList;
+  /**
+   * 动态其他信息，json格式，目前包括 user_id_list, user_id，open_id_list，open_id
+   * <p> 示例值：{\"user_id\":\"62d4a44c\",\"open_id\":\"ou_123456\"}
+   */
   @SerializedName("ext")
   private String ext;
+  /**
+   * 产生task的节点key
+   * <p> 示例值：APPROVAL_240330_4058663
+   */
   @SerializedName("node_key")
   private String nodeKey;
+  /**
+   * 审批附件
+   * <p> 示例值：
+   */
+  @SerializedName("files")
+  private File[] files;
 
   // builder 开始
   public InstanceTimeline() {
   }
 
   public InstanceTimeline(Builder builder) {
+    /**
+     * 动态类型，不同类型 ext 内的 user_id_list 含义不一样
+     * <p> 示例值：PASS
+     */
     this.type = builder.type;
+    /**
+     * 发生时间
+     * <p> 示例值：1564590532967
+     */
     this.createTime = builder.createTime;
+    /**
+     * 动态产生用户
+     * <p> 示例值：f7cb567e
+     */
     this.userId = builder.userId;
+    /**
+     * 动态产生用户 open id
+     * <p> 示例值：ou_123456
+     */
     this.openId = builder.openId;
+    /**
+     * 被抄送人列表
+     * <p> 示例值：f7cb567e
+     */
     this.userIdList = builder.userIdList;
+    /**
+     * 被抄送人列表
+     * <p> 示例值：ou_123456
+     */
     this.openIdList = builder.openIdList;
+    /**
+     * 产生动态关联的task_id
+     * <p> 示例值：1234
+     */
     this.taskId = builder.taskId;
+    /**
+     * 理由
+     * <p> 示例值：ok
+     */
     this.comment = builder.comment;
+    /**
+     * 抄送人列表
+     * <p> 示例值：
+     */
     this.ccUserList = builder.ccUserList;
+    /**
+     * 动态其他信息，json格式，目前包括 user_id_list, user_id，open_id_list，open_id
+     * <p> 示例值：{\"user_id\":\"62d4a44c\",\"open_id\":\"ou_123456\"}
+     */
     this.ext = builder.ext;
+    /**
+     * 产生task的节点key
+     * <p> 示例值：APPROVAL_240330_4058663
+     */
     this.nodeKey = builder.nodeKey;
+    /**
+     * 审批附件
+     * <p> 示例值：
+     */
+    this.files = builder.files;
   }
 
   public static Builder newBuilder() {
@@ -150,77 +249,241 @@ public class InstanceTimeline {
     this.nodeKey = nodeKey;
   }
 
+  public File[] getFiles() {
+    return this.files;
+  }
+
+  public void setFiles(File[] files) {
+    this.files = files;
+  }
+
   public static class Builder {
 
+    /**
+     * 动态类型，不同类型 ext 内的 user_id_list 含义不一样
+     * <p> 示例值：PASS
+     */
     private String type;
+    /**
+     * 发生时间
+     * <p> 示例值：1564590532967
+     */
     private String createTime;
+    /**
+     * 动态产生用户
+     * <p> 示例值：f7cb567e
+     */
     private String userId;
+    /**
+     * 动态产生用户 open id
+     * <p> 示例值：ou_123456
+     */
     private String openId;
+    /**
+     * 被抄送人列表
+     * <p> 示例值：f7cb567e
+     */
     private String[] userIdList;
+    /**
+     * 被抄送人列表
+     * <p> 示例值：ou_123456
+     */
     private String[] openIdList;
+    /**
+     * 产生动态关联的task_id
+     * <p> 示例值：1234
+     */
     private String taskId;
+    /**
+     * 理由
+     * <p> 示例值：ok
+     */
     private String comment;
+    /**
+     * 抄送人列表
+     * <p> 示例值：
+     */
     private InstanceCcUser[] ccUserList;
+    /**
+     * 动态其他信息，json格式，目前包括 user_id_list, user_id，open_id_list，open_id
+     * <p> 示例值：{\"user_id\":\"62d4a44c\",\"open_id\":\"ou_123456\"}
+     */
     private String ext;
+    /**
+     * 产生task的节点key
+     * <p> 示例值：APPROVAL_240330_4058663
+     */
     private String nodeKey;
+    /**
+     * 审批附件
+     * <p> 示例值：
+     */
+    private File[] files;
 
+    /**
+     * 动态类型，不同类型 ext 内的 user_id_list 含义不一样
+     * <p> 示例值：PASS
+     *
+     * @param type
+     * @return
+     */
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public Builder type(com.lark.oapi.service.approval.v4.enums.TypeEnum type) {
+    /**
+     * 动态类型，不同类型 ext 内的 user_id_list 含义不一样
+     * <p> 示例值：PASS
+     *
+     * @param type {@link com.lark.oapi.service.approval.v4.enums.InstanceTimelineTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.approval.v4.enums.InstanceTimelineTypeEnum type) {
       this.type = type.getValue();
       return this;
     }
 
+
+    /**
+     * 发生时间
+     * <p> 示例值：1564590532967
+     *
+     * @param createTime
+     * @return
+     */
     public Builder createTime(String createTime) {
       this.createTime = createTime;
       return this;
     }
 
+
+    /**
+     * 动态产生用户
+     * <p> 示例值：f7cb567e
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 动态产生用户 open id
+     * <p> 示例值：ou_123456
+     *
+     * @param openId
+     * @return
+     */
     public Builder openId(String openId) {
       this.openId = openId;
       return this;
     }
 
+
+    /**
+     * 被抄送人列表
+     * <p> 示例值：f7cb567e
+     *
+     * @param userIdList
+     * @return
+     */
     public Builder userIdList(String[] userIdList) {
       this.userIdList = userIdList;
       return this;
     }
 
+
+    /**
+     * 被抄送人列表
+     * <p> 示例值：ou_123456
+     *
+     * @param openIdList
+     * @return
+     */
     public Builder openIdList(String[] openIdList) {
       this.openIdList = openIdList;
       return this;
     }
 
+
+    /**
+     * 产生动态关联的task_id
+     * <p> 示例值：1234
+     *
+     * @param taskId
+     * @return
+     */
     public Builder taskId(String taskId) {
       this.taskId = taskId;
       return this;
     }
 
+
+    /**
+     * 理由
+     * <p> 示例值：ok
+     *
+     * @param comment
+     * @return
+     */
     public Builder comment(String comment) {
       this.comment = comment;
       return this;
     }
 
+
+    /**
+     * 抄送人列表
+     * <p> 示例值：
+     *
+     * @param ccUserList
+     * @return
+     */
     public Builder ccUserList(InstanceCcUser[] ccUserList) {
       this.ccUserList = ccUserList;
       return this;
     }
 
+
+    /**
+     * 动态其他信息，json格式，目前包括 user_id_list, user_id，open_id_list，open_id
+     * <p> 示例值：{\"user_id\":\"62d4a44c\",\"open_id\":\"ou_123456\"}
+     *
+     * @param ext
+     * @return
+     */
     public Builder ext(String ext) {
       this.ext = ext;
       return this;
     }
 
+
+    /**
+     * 产生task的节点key
+     * <p> 示例值：APPROVAL_240330_4058663
+     *
+     * @param nodeKey
+     * @return
+     */
     public Builder nodeKey(String nodeKey) {
       this.nodeKey = nodeKey;
+      return this;
+    }
+
+
+    /**
+     * 审批附件
+     * <p> 示例值：
+     *
+     * @param files
+     * @return
+     */
+    public Builder files(File[] files) {
+      this.files = files;
       return this;
     }
 

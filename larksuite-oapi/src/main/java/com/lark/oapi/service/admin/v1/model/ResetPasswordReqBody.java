@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class ResetPasswordReqBody {
 
+  /**
+   * 需要重置的密码参数，不少于8个字符，字母、数字和符号，至少三选二
+   * <p> 示例值：1234abcd
+   */
   @SerializedName("password")
   private Password password;
+  /**
+   * 待修改密码的用户ID，只针对邮箱登录凭证与企业邮箱(包括别名)相等的用户生效
+   * <p> 示例值：abc123
+   */
   @SerializedName("user_id")
   private String userId;
 
@@ -27,7 +35,15 @@ public class ResetPasswordReqBody {
   }
 
   public ResetPasswordReqBody(Builder builder) {
+    /**
+     * 需要重置的密码参数，不少于8个字符，字母、数字和符号，至少三选二
+     * <p> 示例值：1234abcd
+     */
     this.password = builder.password;
+    /**
+     * 待修改密码的用户ID，只针对邮箱登录凭证与企业邮箱(包括别名)相等的用户生效
+     * <p> 示例值：abc123
+     */
     this.userId = builder.userId;
   }
 
@@ -53,14 +69,37 @@ public class ResetPasswordReqBody {
 
   public static class Builder {
 
+    /**
+     * 需要重置的密码参数，不少于8个字符，字母、数字和符号，至少三选二
+     * <p> 示例值：1234abcd
+     */
     private Password password;
+    /**
+     * 待修改密码的用户ID，只针对邮箱登录凭证与企业邮箱(包括别名)相等的用户生效
+     * <p> 示例值：abc123
+     */
     private String userId;
 
+    /**
+     * 需要重置的密码参数，不少于8个字符，字母、数字和符号，至少三选二
+     * <p> 示例值：1234abcd
+     *
+     * @param password
+     * @return
+     */
     public Builder password(Password password) {
       this.password = password;
       return this;
     }
 
+
+    /**
+     * 待修改密码的用户ID，只针对邮箱登录凭证与企业邮箱(包括别名)相等的用户生效
+     * <p> 示例值：abc123
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;

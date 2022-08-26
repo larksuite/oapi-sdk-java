@@ -15,7 +15,8 @@ package com.lark.oapi.sample.api;
 import com.lark.oapi.Client;
 import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.bitable.v1.enums.UserIdTypeEnum;
+import com.lark.oapi.service.bitable.v1.enums.BatchCreateAppTableRecordUserIdTypeEnum;
+import com.lark.oapi.service.bitable.v1.enums.CreateAppTableRecordUserIdTypeEnum;
 import com.lark.oapi.service.bitable.v1.model.AppTableRecord;
 import com.lark.oapi.service.bitable.v1.model.BatchCreateAppTableRecordReq;
 import com.lark.oapi.service.bitable.v1.model.BatchCreateAppTableRecordReqBody;
@@ -44,7 +45,7 @@ public class BitableSample {
 //        new Attachment[]{Attachment.newBuilder().fileToken("boxcnnIpo5luPZtLWjuyJpuo9yf").build()});
 
     CreateAppTableRecordReq req = CreateAppTableRecordReq.newBuilder()
-        .userIdType(UserIdTypeEnum.USER_ID)
+        .userIdType(CreateAppTableRecordUserIdTypeEnum.USER_ID)
         .tableId("tbl9a6pWtNVFsSrQ")
         .appToken("bascnpApISZqKuO0uEbcOzGcH6b")
         .appTableRecord(AppTableRecord.newBuilder()
@@ -85,7 +86,7 @@ public class BitableSample {
         .build();
 
     BatchCreateAppTableRecordReq req = BatchCreateAppTableRecordReq.newBuilder()
-        .userIdType(UserIdTypeEnum.USER_ID)
+        .userIdType(BatchCreateAppTableRecordUserIdTypeEnum.USER_ID)
         .tableId("tbl2CfTdOZ2cuTMD")
         .appToken("bascnXiAbRDW2azUWZECiBc2Hrd")
         .batchCreateAppTableRecordReqBody(BatchCreateAppTableRecordReqBody.newBuilder()

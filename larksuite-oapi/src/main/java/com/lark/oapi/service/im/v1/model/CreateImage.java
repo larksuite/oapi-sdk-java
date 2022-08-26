@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateImage {
 
+  /**
+   * 图片的key
+   * <p> 示例值：img_8d5181ca-0aed-40f0-b0d1-b1452132afbg
+   */
   @SerializedName("image_key")
   private String imageKey;
 

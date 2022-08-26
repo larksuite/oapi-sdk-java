@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class Identity {
 
+  /**
+   * user identity name
+   * <p> 示例值：
+   */
   @SerializedName("identity_name")
   private String identityName;
+  /**
+   * user identity code
+   * <p> 示例值：
+   */
   @SerializedName("identity_code")
   private String identityCode;
+  /**
+   * user mobile
+   * <p> 示例值：
+   */
   @SerializedName("mobile")
   private String mobile;
 
@@ -29,8 +41,20 @@ public class Identity {
   }
 
   public Identity(Builder builder) {
+    /**
+     * user identity name
+     * <p> 示例值：
+     */
     this.identityName = builder.identityName;
+    /**
+     * user identity code
+     * <p> 示例值：
+     */
     this.identityCode = builder.identityCode;
+    /**
+     * user mobile
+     * <p> 示例值：
+     */
     this.mobile = builder.mobile;
   }
 
@@ -64,20 +88,55 @@ public class Identity {
 
   public static class Builder {
 
+    /**
+     * user identity name
+     * <p> 示例值：
+     */
     private String identityName;
+    /**
+     * user identity code
+     * <p> 示例值：
+     */
     private String identityCode;
+    /**
+     * user mobile
+     * <p> 示例值：
+     */
     private String mobile;
 
+    /**
+     * user identity name
+     * <p> 示例值：
+     *
+     * @param identityName
+     * @return
+     */
     public Builder identityName(String identityName) {
       this.identityName = identityName;
       return this;
     }
 
+
+    /**
+     * user identity code
+     * <p> 示例值：
+     *
+     * @param identityCode
+     * @return
+     */
     public Builder identityCode(String identityCode) {
       this.identityCode = identityCode;
       return this;
     }
 
+
+    /**
+     * user mobile
+     * <p> 示例值：
+     *
+     * @param mobile
+     * @return
+     */
     public Builder mobile(String mobile) {
       this.mobile = mobile;
       return this;

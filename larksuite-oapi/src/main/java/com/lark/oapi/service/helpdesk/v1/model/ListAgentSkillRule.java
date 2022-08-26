@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListAgentSkillRule {
 
+  /**
+   * rules列表
+   * <p> 示例值：
+   */
   @SerializedName("rules")
   private AgentSkillRule[] rules;
 

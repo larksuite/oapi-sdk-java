@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class SubscriptionCalendarEventReq {
 
+  /**
+   * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+   * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+   */
   @Path
   @SerializedName("calendar_id")
   private String calendarId;
@@ -27,6 +31,10 @@ public class SubscriptionCalendarEventReq {
   }
 
   public SubscriptionCalendarEventReq(Builder builder) {
+    /**
+     * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     */
     this.calendarId = builder.calendarId;
   }
 
@@ -44,8 +52,15 @@ public class SubscriptionCalendarEventReq {
 
   public static class Builder {
 
-    private String calendarId;
+    private String calendarId; // 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
 
+    /**
+     * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     *
+     * @param calendarId
+     * @return
+     */
     public Builder calendarId(String calendarId) {
       this.calendarId = calendarId;
       return this;

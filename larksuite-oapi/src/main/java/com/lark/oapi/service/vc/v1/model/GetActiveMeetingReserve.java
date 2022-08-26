@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetActiveMeetingReserve {
 
+  /**
+   * 会议数据
+   * <p> 示例值：
+   */
   @SerializedName("meeting")
   private Meeting meeting;
 

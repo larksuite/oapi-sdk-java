@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class ReserveCallSetting {
 
+  /**
+   * 被呼叫的用户
+   * <p> 示例值：
+   */
   @SerializedName("callee")
   private ReserveCallee callee;
 
@@ -25,6 +29,10 @@ public class ReserveCallSetting {
   }
 
   public ReserveCallSetting(Builder builder) {
+    /**
+     * 被呼叫的用户
+     * <p> 示例值：
+     */
     this.callee = builder.callee;
   }
 
@@ -42,8 +50,19 @@ public class ReserveCallSetting {
 
   public static class Builder {
 
+    /**
+     * 被呼叫的用户
+     * <p> 示例值：
+     */
     private ReserveCallee callee;
 
+    /**
+     * 被呼叫的用户
+     * <p> 示例值：
+     *
+     * @param callee
+     * @return
+     */
     public Builder callee(ReserveCallee callee) {
       this.callee = callee;
       return this;

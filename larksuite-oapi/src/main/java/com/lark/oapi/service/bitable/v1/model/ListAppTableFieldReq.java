@@ -19,18 +19,36 @@ import com.lark.oapi.core.annotation.Query;
 
 public class ListAppTableFieldReq {
 
+  /**
+   * 视图 ID
+   * <p> 示例值：vewOVMEXPF
+   */
   @Query
   @SerializedName("view_id")
   private String viewId;
+  /**
+   * <p> 示例值：fldwJ4YrtB
+   */
   @Query
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * <p> 示例值：10
+   */
   @Query
   @SerializedName("page_size")
   private Integer pageSize;
+  /**
+   * bitable app token
+   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+   */
   @Path
   @SerializedName("app_token")
   private String appToken;
+  /**
+   * table id
+   * <p> 示例值：tblsRc9GRRXKqhvW
+   */
   @Path
   @SerializedName("table_id")
   private String tableId;
@@ -40,10 +58,30 @@ public class ListAppTableFieldReq {
   }
 
   public ListAppTableFieldReq(Builder builder) {
+    /**
+     * 视图 ID
+     * <p> 示例值：vewOVMEXPF
+     */
     this.viewId = builder.viewId;
+    /**
+     *
+     * <p> 示例值：fldwJ4YrtB
+     */
     this.pageToken = builder.pageToken;
+    /**
+     *
+     * <p> 示例值：10
+     */
     this.pageSize = builder.pageSize;
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     */
     this.appToken = builder.appToken;
+    /**
+     * table id
+     * <p> 示例值：tblsRc9GRRXKqhvW
+     */
     this.tableId = builder.tableId;
   }
 
@@ -93,32 +131,66 @@ public class ListAppTableFieldReq {
 
   public static class Builder {
 
-    private String viewId;
-    private String pageToken;
-    private Integer pageSize;
-    private String appToken;
-    private String tableId;
+    private String viewId; // 视图 ID
+    private String pageToken; //
+    private Integer pageSize; //
+    private String appToken; // bitable app token
+    private String tableId; // table id
 
+    /**
+     * 视图 ID
+     * <p> 示例值：vewOVMEXPF
+     *
+     * @param viewId
+     * @return
+     */
     public Builder viewId(String viewId) {
       this.viewId = viewId;
       return this;
     }
 
+    /**
+     * <p> 示例值：fldwJ4YrtB
+     *
+     * @param pageToken
+     * @return
+     */
     public Builder pageToken(String pageToken) {
       this.pageToken = pageToken;
       return this;
     }
 
+    /**
+     * <p> 示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
     public Builder pageSize(Integer pageSize) {
       this.pageSize = pageSize;
       return this;
     }
 
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     *
+     * @param appToken
+     * @return
+     */
     public Builder appToken(String appToken) {
       this.appToken = appToken;
       return this;
     }
 
+
+    /**
+     * table id
+     * <p> 示例值：tblsRc9GRRXKqhvW
+     *
+     * @param tableId
+     * @return
+     */
     public Builder tableId(String tableId) {
       this.tableId = tableId;
       return this;

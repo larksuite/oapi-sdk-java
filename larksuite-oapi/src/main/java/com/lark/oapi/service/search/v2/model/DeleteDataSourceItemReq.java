@@ -18,9 +18,17 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DeleteDataSourceItemReq {
 
+  /**
+   * 数据源的ID
+   * <p> 示例值：service_ticket
+   */
   @Path
   @SerializedName("data_source_id")
   private String dataSourceId;
+  /**
+   * 数据记录的ID
+   * <p> 示例值：01010111
+   */
   @Path
   @SerializedName("item_id")
   private String itemId;
@@ -30,7 +38,15 @@ public class DeleteDataSourceItemReq {
   }
 
   public DeleteDataSourceItemReq(Builder builder) {
+    /**
+     * 数据源的ID
+     * <p> 示例值：service_ticket
+     */
     this.dataSourceId = builder.dataSourceId;
+    /**
+     * 数据记录的ID
+     * <p> 示例值：01010111
+     */
     this.itemId = builder.itemId;
   }
 
@@ -56,14 +72,29 @@ public class DeleteDataSourceItemReq {
 
   public static class Builder {
 
-    private String dataSourceId;
-    private String itemId;
+    private String dataSourceId; // 数据源的ID
+    private String itemId; // 数据记录的ID
 
+    /**
+     * 数据源的ID
+     * <p> 示例值：service_ticket
+     *
+     * @param dataSourceId
+     * @return
+     */
     public Builder dataSourceId(String dataSourceId) {
       this.dataSourceId = dataSourceId;
       return this;
     }
 
+
+    /**
+     * 数据记录的ID
+     * <p> 示例值：01010111
+     *
+     * @param itemId
+     * @return
+     */
     public Builder itemId(String itemId) {
       this.itemId = itemId;
       return this;

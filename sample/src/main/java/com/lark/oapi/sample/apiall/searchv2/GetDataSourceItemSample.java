@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.search.v2.model.GetDataSourceItemReq;
 import com.lark.oapi.service.search.v2.model.GetDataSourceItemResp;
 
-// HTTP PATH: /open-apis/search/v2/data_sources/:data_source_id/items/:item_id"
+// GET /open-apis/search/v2/data_sources/:data_source_id/items/:item_id
 public class GetDataSourceItemSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,8 +14,8 @@ public class GetDataSourceItemSample {
 
     // 创建请求对象
     GetDataSourceItemReq req = GetDataSourceItemReq.newBuilder()
-        .dataSourceId("")
-        .itemId("")
+        .dataSourceId("service_ticket")
+        .itemId("01010111")
         .build();
 
     // 发起请求

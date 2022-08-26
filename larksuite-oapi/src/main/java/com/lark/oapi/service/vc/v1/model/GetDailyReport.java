@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetDailyReport {
 
+  /**
+   * 会议报告
+   * <p> 示例值：
+   */
   @SerializedName("meeting_report")
   private Report meetingReport;
 

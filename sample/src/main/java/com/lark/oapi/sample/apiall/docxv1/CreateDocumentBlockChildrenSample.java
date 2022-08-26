@@ -7,7 +7,7 @@ import com.lark.oapi.service.docx.v1.model.CreateDocumentBlockChildrenReq;
 import com.lark.oapi.service.docx.v1.model.CreateDocumentBlockChildrenReqBody;
 import com.lark.oapi.service.docx.v1.model.CreateDocumentBlockChildrenResp;
 
-// HTTP PATH: /open-apis/docx/v1/documents/:document_id/blocks/:block_id/children"
+// POST /open-apis/docx/v1/documents/:document_id/blocks/:block_id/children
 public class CreateDocumentBlockChildrenSample {
 
   public static void main(String arg[]) throws Exception {
@@ -19,7 +19,7 @@ public class CreateDocumentBlockChildrenSample {
         .documentId("doxcnePuYufKa49ISjhD8Ih0ikh")
         .blockId("doxcnO6UW6wAw2qIcYf4hZpFIth")
         .documentRevisionId(-1)
-        .clientToken("")
+        .clientToken("fe599b60-450f-46ff-b2ef-9f6675625b97")
         .userIdType("user_id")
         .createDocumentBlockChildrenReqBody(CreateDocumentBlockChildrenReqBody.newBuilder()
             .children(new Block[]{})

@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class PunchSpecialDateShift {
 
+  /**
+   * 打卡日期
+   * <p> 示例值：20190101
+   */
   @SerializedName("punch_day")
   private Integer punchDay;
+  /**
+   * 班次 ID
+   * <p> 示例值：6919668827865513935
+   */
   @SerializedName("shift_id")
   private String shiftId;
 
@@ -27,7 +35,15 @@ public class PunchSpecialDateShift {
   }
 
   public PunchSpecialDateShift(Builder builder) {
+    /**
+     * 打卡日期
+     * <p> 示例值：20190101
+     */
     this.punchDay = builder.punchDay;
+    /**
+     * 班次 ID
+     * <p> 示例值：6919668827865513935
+     */
     this.shiftId = builder.shiftId;
   }
 
@@ -53,14 +69,37 @@ public class PunchSpecialDateShift {
 
   public static class Builder {
 
+    /**
+     * 打卡日期
+     * <p> 示例值：20190101
+     */
     private Integer punchDay;
+    /**
+     * 班次 ID
+     * <p> 示例值：6919668827865513935
+     */
     private String shiftId;
 
+    /**
+     * 打卡日期
+     * <p> 示例值：20190101
+     *
+     * @param punchDay
+     * @return
+     */
     public Builder punchDay(Integer punchDay) {
       this.punchDay = punchDay;
       return this;
     }
 
+
+    /**
+     * 班次 ID
+     * <p> 示例值：6919668827865513935
+     *
+     * @param shiftId
+     * @return
+     */
     public Builder shiftId(String shiftId) {
       this.shiftId = shiftId;
       return this;

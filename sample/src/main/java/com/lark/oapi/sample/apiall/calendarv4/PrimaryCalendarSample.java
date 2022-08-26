@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.calendar.v4.model.PrimaryCalendarReq;
 import com.lark.oapi.service.calendar.v4.model.PrimaryCalendarResp;
 
-// HTTP PATH: /open-apis/calendar/v4/calendars/primary"
+// POST /open-apis/calendar/v4/calendars/primary
 public class PrimaryCalendarSample {
 
   public static void main(String arg[]) throws Exception {

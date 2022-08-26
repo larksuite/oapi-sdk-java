@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.drive.v1.model.DeleteFileReq;
 import com.lark.oapi.service.drive.v1.model.DeleteFileResp;
 
-// HTTP PATH: /open-apis/drive/v1/files/:file_token"
+// DELETE /open-apis/drive/v1/files/:file_token
 public class DeleteFileSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class DeleteFileSample {
 
     // 创建请求对象
     DeleteFileReq req = DeleteFileReq.newBuilder()
-        .fileToken("boxxxxxxx")
+        .fileToken("boxcnrHpsg1QDqXAAAyachabcef")
         .type("file")
         .build();
 

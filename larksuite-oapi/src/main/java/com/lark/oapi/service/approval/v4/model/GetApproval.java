@@ -17,14 +17,35 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetApproval {
 
+  /**
+   * 审批名称
+   * <p> 示例值：Payment
+   */
   @SerializedName("approval_name")
   private String approvalName;
+  /**
+   * 审批定义状态
+   * <p> 示例值：ACTIVE
+   */
   @SerializedName("status")
   private String status;
+  /**
+   * 控件信息，见下方form字段说明
+   * <p> 示例值：[{\"id\": \"widget1\", \"custom_id\": \"user_name\",\"name\": \"Item
+   * application\",\"type\": \"textarea\",\"printable\": true,\"required\": true}\"]
+   */
   @SerializedName("form")
   private String form;
+  /**
+   * 节点信息
+   * <p> 示例值：
+   */
   @SerializedName("node_list")
   private ApprovalNodeInfo[] nodeList;
+  /**
+   * 可见人列表
+   * <p> 示例值：
+   */
   @SerializedName("viewers")
   private ApprovalViewerInfo[] viewers;
 

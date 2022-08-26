@@ -4,7 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.AgentEmailAgentResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/agent_emails"
+// GET /open-apis/helpdesk/v1/agent_emails
 public class AgentEmailAgentSample {
 
   public static void main(String arg[]) throws Exception {

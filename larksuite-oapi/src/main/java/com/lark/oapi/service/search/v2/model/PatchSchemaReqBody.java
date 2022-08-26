@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class PatchSchemaReqBody {
 
+  /**
+   * 数据展示相关配置
+   * <p> 示例值：
+   */
   @SerializedName("display")
   private SchemaDisplay display;
 
@@ -25,6 +29,10 @@ public class PatchSchemaReqBody {
   }
 
   public PatchSchemaReqBody(Builder builder) {
+    /**
+     * 数据展示相关配置
+     * <p> 示例值：
+     */
     this.display = builder.display;
   }
 
@@ -42,8 +50,19 @@ public class PatchSchemaReqBody {
 
   public static class Builder {
 
+    /**
+     * 数据展示相关配置
+     * <p> 示例值：
+     */
     private SchemaDisplay display;
 
+    /**
+     * 数据展示相关配置
+     * <p> 示例值：
+     *
+     * @param display
+     * @return
+     */
     public Builder display(SchemaDisplay display) {
       this.display = display;
       return this;

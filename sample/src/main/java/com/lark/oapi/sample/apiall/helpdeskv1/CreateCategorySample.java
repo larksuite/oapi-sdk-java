@@ -6,7 +6,7 @@ import com.lark.oapi.service.helpdesk.v1.model.Category;
 import com.lark.oapi.service.helpdesk.v1.model.CreateCategoryReq;
 import com.lark.oapi.service.helpdesk.v1.model.CreateCategoryResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/categories"
+// POST /open-apis/helpdesk/v1/categories
 public class CreateCategorySample {
 
   public static void main(String arg[]) throws Exception {

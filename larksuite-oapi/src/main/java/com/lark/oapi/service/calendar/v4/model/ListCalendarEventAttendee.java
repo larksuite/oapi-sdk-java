@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListCalendarEventAttendee {
 
+  /**
+   * 日程的参与者列表
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private CalendarEventAttendee[] items;
+  /**
+   * 是否有下一页数据
+   * <p> 示例值：true
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 下次请求需要带上的分页标记，90 天有效期
+   * <p> 示例值：38RTjheyXXXX
+   */
   @SerializedName("page_token")
   private String pageToken;
 

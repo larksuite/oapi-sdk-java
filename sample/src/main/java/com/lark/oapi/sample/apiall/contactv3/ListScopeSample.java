@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.contact.v3.model.ListScopeReq;
 import com.lark.oapi.service.contact.v3.model.ListScopeResp;
 
-// HTTP PATH: /open-apis/contact/v3/scopes"
+// GET /open-apis/contact/v3/scopes
 public class ListScopeSample {
 
   public static void main(String arg[]) throws Exception {

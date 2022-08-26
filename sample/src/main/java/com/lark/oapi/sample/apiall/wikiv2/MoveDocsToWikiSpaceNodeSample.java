@@ -6,7 +6,7 @@ import com.lark.oapi.service.wiki.v2.model.MoveDocsToWikiSpaceNodeReq;
 import com.lark.oapi.service.wiki.v2.model.MoveDocsToWikiSpaceNodeReqBody;
 import com.lark.oapi.service.wiki.v2.model.MoveDocsToWikiSpaceNodeResp;
 
-// HTTP PATH: /open-apis/wiki/v2/spaces/:space_id/nodes/move_docs_to_wiki"
+// POST /open-apis/wiki/v2/spaces/:space_id/nodes/move_docs_to_wiki
 public class MoveDocsToWikiSpaceNodeSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,12 +15,12 @@ public class MoveDocsToWikiSpaceNodeSample {
 
     // 创建请求对象
     MoveDocsToWikiSpaceNodeReq req = MoveDocsToWikiSpaceNodeReq.newBuilder()
-        .spaceId("")
+        .spaceId("1565676577122621")
         .moveDocsToWikiSpaceNodeReqBody(MoveDocsToWikiSpaceNodeReqBody.newBuilder()
-            .parentWikiToken("")
+            .parentWikiToken("wikbcOHIFxB0PJS2UTd2kF2SP6c")
             .objType("doc")
-            .objToken("")
-            .apply(false)
+            .objToken("docbc6e1qBqt1O5mCBVA1QUKVEg")
+            .apply(true)
             .build())
         .build();
 

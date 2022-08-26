@@ -6,7 +6,7 @@ import com.lark.oapi.service.optical_char_recognition.v1.model.BasicRecognizeIma
 import com.lark.oapi.service.optical_char_recognition.v1.model.BasicRecognizeImageReqBody;
 import com.lark.oapi.service.optical_char_recognition.v1.model.BasicRecognizeImageResp;
 
-// HTTP PATH: /open-apis/optical_char_recognition/v1/image/basic_recognize"
+// POST /open-apis/optical_char_recognition/v1/image/basic_recognize
 public class BasicRecognizeImageSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class BasicRecognizeImageSample {
     // 创建请求对象
     BasicRecognizeImageReq req = BasicRecognizeImageReq.newBuilder()
         .basicRecognizeImageReqBody(BasicRecognizeImageReqBody.newBuilder()
-            .image("")
+            .image("base64后的图片二进制数据")
             .build())
         .build();
 

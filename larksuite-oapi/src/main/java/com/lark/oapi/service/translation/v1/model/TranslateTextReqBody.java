@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class TranslateTextReqBody {
 
+  /**
+   * 源语言
+   * <p> 示例值：zh
+   */
   @SerializedName("source_language")
   private String sourceLanguage;
+  /**
+   * 源文本
+   * <p> 示例值：尝试使用一下飞书吧
+   */
   @SerializedName("text")
   private String text;
+  /**
+   * 目标语言
+   * <p> 示例值：en
+   */
   @SerializedName("target_language")
   private String targetLanguage;
+  /**
+   * 请求级术语表，携带术语，仅在本次翻译中生效（最多能携带 128个术语词）
+   * <p> 示例值：
+   */
   @SerializedName("glossary")
   private Term[] glossary;
 
@@ -31,9 +47,25 @@ public class TranslateTextReqBody {
   }
 
   public TranslateTextReqBody(Builder builder) {
+    /**
+     * 源语言
+     * <p> 示例值：zh
+     */
     this.sourceLanguage = builder.sourceLanguage;
+    /**
+     * 源文本
+     * <p> 示例值：尝试使用一下飞书吧
+     */
     this.text = builder.text;
+    /**
+     * 目标语言
+     * <p> 示例值：en
+     */
     this.targetLanguage = builder.targetLanguage;
+    /**
+     * 请求级术语表，携带术语，仅在本次翻译中生效（最多能携带 128个术语词）
+     * <p> 示例值：
+     */
     this.glossary = builder.glossary;
   }
 
@@ -75,26 +107,73 @@ public class TranslateTextReqBody {
 
   public static class Builder {
 
+    /**
+     * 源语言
+     * <p> 示例值：zh
+     */
     private String sourceLanguage;
+    /**
+     * 源文本
+     * <p> 示例值：尝试使用一下飞书吧
+     */
     private String text;
+    /**
+     * 目标语言
+     * <p> 示例值：en
+     */
     private String targetLanguage;
+    /**
+     * 请求级术语表，携带术语，仅在本次翻译中生效（最多能携带 128个术语词）
+     * <p> 示例值：
+     */
     private Term[] glossary;
 
+    /**
+     * 源语言
+     * <p> 示例值：zh
+     *
+     * @param sourceLanguage
+     * @return
+     */
     public Builder sourceLanguage(String sourceLanguage) {
       this.sourceLanguage = sourceLanguage;
       return this;
     }
 
+
+    /**
+     * 源文本
+     * <p> 示例值：尝试使用一下飞书吧
+     *
+     * @param text
+     * @return
+     */
     public Builder text(String text) {
       this.text = text;
       return this;
     }
 
+
+    /**
+     * 目标语言
+     * <p> 示例值：en
+     *
+     * @param targetLanguage
+     * @return
+     */
     public Builder targetLanguage(String targetLanguage) {
       this.targetLanguage = targetLanguage;
       return this;
     }
 
+
+    /**
+     * 请求级术语表，携带术语，仅在本次翻译中生效（最多能携带 128个术语词）
+     * <p> 示例值：
+     *
+     * @param glossary
+     * @return
+     */
     public Builder glossary(Term[] glossary) {
       this.glossary = glossary;
       return this;

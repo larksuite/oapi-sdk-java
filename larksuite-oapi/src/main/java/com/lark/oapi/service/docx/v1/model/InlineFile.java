@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class InlineFile {
 
+  /**
+   * 附件 token
+   * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
+   */
   @SerializedName("file_token")
   private String fileToken;
+  /**
+   * 当前文档中该附件所处的 block 的 id
+   * <p> 示例值：doxcnM46kSWSkgUMW04ldKsJDsc
+   */
   @SerializedName("source_block_id")
   private String sourceBlockId;
 
@@ -27,7 +35,15 @@ public class InlineFile {
   }
 
   public InlineFile(Builder builder) {
+    /**
+     * 附件 token
+     * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
+     */
     this.fileToken = builder.fileToken;
+    /**
+     * 当前文档中该附件所处的 block 的 id
+     * <p> 示例值：doxcnM46kSWSkgUMW04ldKsJDsc
+     */
     this.sourceBlockId = builder.sourceBlockId;
   }
 
@@ -53,14 +69,37 @@ public class InlineFile {
 
   public static class Builder {
 
+    /**
+     * 附件 token
+     * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
+     */
     private String fileToken;
+    /**
+     * 当前文档中该附件所处的 block 的 id
+     * <p> 示例值：doxcnM46kSWSkgUMW04ldKsJDsc
+     */
     private String sourceBlockId;
 
+    /**
+     * 附件 token
+     * <p> 示例值：boxcnOj88GDkmWGm2zsTyCBqoLb
+     *
+     * @param fileToken
+     * @return
+     */
     public Builder fileToken(String fileToken) {
       this.fileToken = fileToken;
       return this;
     }
 
+
+    /**
+     * 当前文档中该附件所处的 block 的 id
+     * <p> 示例值：doxcnM46kSWSkgUMW04ldKsJDsc
+     *
+     * @param sourceBlockId
+     * @return
+     */
     public Builder sourceBlockId(String sourceBlockId) {
       this.sourceBlockId = sourceBlockId;
       return this;

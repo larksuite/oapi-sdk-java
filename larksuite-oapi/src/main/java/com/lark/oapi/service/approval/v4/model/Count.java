@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Count {
 
+  /**
+   * 总数，大于等于 1000 个项目时将返回 999
+   * <p> 示例值：123
+   */
   @SerializedName("total")
   private Integer total;
+  /**
+   * 还有更多，当大于等于 1000 时将返回 true
+   * <p> 示例值：false
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
 
@@ -27,7 +35,15 @@ public class Count {
   }
 
   public Count(Builder builder) {
+    /**
+     * 总数，大于等于 1000 个项目时将返回 999
+     * <p> 示例值：123
+     */
     this.total = builder.total;
+    /**
+     * 还有更多，当大于等于 1000 时将返回 true
+     * <p> 示例值：false
+     */
     this.hasMore = builder.hasMore;
   }
 
@@ -53,14 +69,37 @@ public class Count {
 
   public static class Builder {
 
+    /**
+     * 总数，大于等于 1000 个项目时将返回 999
+     * <p> 示例值：123
+     */
     private Integer total;
+    /**
+     * 还有更多，当大于等于 1000 时将返回 true
+     * <p> 示例值：false
+     */
     private Boolean hasMore;
 
+    /**
+     * 总数，大于等于 1000 个项目时将返回 999
+     * <p> 示例值：123
+     *
+     * @param total
+     * @return
+     */
     public Builder total(Integer total) {
       this.total = total;
       return this;
     }
 
+
+    /**
+     * 还有更多，当大于等于 1000 时将返回 true
+     * <p> 示例值：false
+     *
+     * @param hasMore
+     * @return
+     */
     public Builder hasMore(Boolean hasMore) {
       this.hasMore = hasMore;
       return this;

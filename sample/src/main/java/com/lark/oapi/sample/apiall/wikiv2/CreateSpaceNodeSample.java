@@ -6,7 +6,7 @@ import com.lark.oapi.service.wiki.v2.model.CreateSpaceNodeReq;
 import com.lark.oapi.service.wiki.v2.model.CreateSpaceNodeResp;
 import com.lark.oapi.service.wiki.v2.model.Node;
 
-// HTTP PATH: /open-apis/wiki/v2/spaces/:space_id/nodes"
+// POST /open-apis/wiki/v2/spaces/:space_id/nodes
 public class CreateSpaceNodeSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class CreateSpaceNodeSample {
 
     // 创建请求对象
     CreateSpaceNodeReq req = CreateSpaceNodeReq.newBuilder()
-        .spaceId("")
+        .spaceId("6704147935988285963")
         .node(Node.newBuilder()
             .objType("doc")
             .parentNodeToken("")

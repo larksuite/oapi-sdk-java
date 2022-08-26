@@ -6,8 +6,9 @@ import com.lark.oapi.service.contact.v3.model.CreateDepartmentReq;
 import com.lark.oapi.service.contact.v3.model.CreateDepartmentResp;
 import com.lark.oapi.service.contact.v3.model.Department;
 import com.lark.oapi.service.contact.v3.model.DepartmentI18nName;
+import com.lark.oapi.service.contact.v3.model.DepartmentLeader;
 
-// HTTP PATH: /open-apis/contact/v3/departments"
+// POST /open-apis/contact/v3/departments
 public class CreateDepartmentSample {
 
   public static void main(String arg[]) throws Exception {
@@ -17,8 +18,8 @@ public class CreateDepartmentSample {
     // 创建请求对象
     CreateDepartmentReq req = CreateDepartmentReq.newBuilder()
         .userIdType("user_id")
-        .departmentIdType("department_id")
-        .clientToken("")
+        .departmentIdType("open_department_id")
+        .clientToken("473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E")
         .department(Department.newBuilder()
             .name("")
             .i18nName(DepartmentI18nName.newBuilder().build())
@@ -28,6 +29,7 @@ public class CreateDepartmentSample {
             .order("")
             .unitIds(new String[]{})
             .createGroupChat(false)
+            .leaders(new DepartmentLeader[]{})
             .build())
         .build();
 

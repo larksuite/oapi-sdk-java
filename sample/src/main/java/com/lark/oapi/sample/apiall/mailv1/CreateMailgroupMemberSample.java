@@ -6,7 +6,7 @@ import com.lark.oapi.service.mail.v1.model.CreateMailgroupMemberReq;
 import com.lark.oapi.service.mail.v1.model.CreateMailgroupMemberResp;
 import com.lark.oapi.service.mail.v1.model.MailgroupMember;
 
-// HTTP PATH: /open-apis/mail/v1/mailgroups/:mailgroup_id/members"
+// POST /open-apis/mail/v1/mailgroups/:mailgroup_id/members
 public class CreateMailgroupMemberSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,9 +15,9 @@ public class CreateMailgroupMemberSample {
 
     // 创建请求对象
     CreateMailgroupMemberReq req = CreateMailgroupMemberReq.newBuilder()
-        .mailgroupId("xxxxxxxxxxxxxxx or test_mail_group@xxx.xx")
+        .mailgroupId("xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx")
         .userIdType("user_id")
-        .departmentIdType("department_id")
+        .departmentIdType("open_department_id")
         .mailgroupMember(MailgroupMember.newBuilder()
             .email("test_memeber@xxx.xx")
             .userId("xxxxxxxxxx")

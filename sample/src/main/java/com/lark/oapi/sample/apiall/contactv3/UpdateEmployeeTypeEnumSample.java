@@ -7,7 +7,7 @@ import com.lark.oapi.service.contact.v3.model.I18nContent;
 import com.lark.oapi.service.contact.v3.model.UpdateEmployeeTypeEnumReq;
 import com.lark.oapi.service.contact.v3.model.UpdateEmployeeTypeEnumResp;
 
-// HTTP PATH: /open-apis/contact/v3/employee_type_enums/:enum_id"
+// PUT /open-apis/contact/v3/employee_type_enums/:enum_id
 public class UpdateEmployeeTypeEnumSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class UpdateEmployeeTypeEnumSample {
 
     // 创建请求对象
     UpdateEmployeeTypeEnumReq req = UpdateEmployeeTypeEnumReq.newBuilder()
-        .enumId("")
+        .enumId("exGeIjow7zIqWMy+ONkFxA==")
         .employeeTypeEnum(EmployeeTypeEnum.newBuilder()
             .content("")
             .enumType(1)

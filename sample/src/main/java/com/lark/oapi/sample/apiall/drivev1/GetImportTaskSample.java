@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.drive.v1.model.GetImportTaskReq;
 import com.lark.oapi.service.drive.v1.model.GetImportTaskResp;
 
-// HTTP PATH: /open-apis/drive/v1/import_tasks/:ticket"
+// GET /open-apis/drive/v1/import_tasks/:ticket
 public class GetImportTaskSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class GetImportTaskSample {
 
     // 创建请求对象
     GetImportTaskReq req = GetImportTaskReq.newBuilder()
-        .ticket("")
+        .ticket("6990281865xxxxxxxx7843")
         .build();
 
     // 发起请求

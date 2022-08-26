@@ -6,7 +6,7 @@ import com.lark.oapi.service.admin.v1.model.Badge;
 import com.lark.oapi.service.admin.v1.model.CreateBadgeReq;
 import com.lark.oapi.service.admin.v1.model.CreateBadgeResp;
 
-// HTTP PATH: /open-apis/admin/v1/badges"
+// POST /open-apis/admin/v1/badges
 public class CreateBadgeSample {
 
   public static void main(String arg[]) throws Exception {

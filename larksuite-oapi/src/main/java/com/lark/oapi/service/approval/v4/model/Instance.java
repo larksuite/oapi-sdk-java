@@ -17,16 +17,40 @@ import com.google.gson.annotations.SerializedName;
 
 public class Instance {
 
+  /**
+   * 审批实例code
+   * <p> 示例值：
+   */
   @SerializedName("instance_code")
   private String instanceCode;
+  /**
+   * 审批名称
+   * <p> 示例值：
+   */
   @SerializedName("approval_name")
   private String approvalName;
+  /**
+   * 审批实例发起时间戳
+   * <p> 示例值：
+   */
   @SerializedName("start_time")
   private String startTime;
+  /**
+   * 审批实例结束时间戳
+   * <p> 示例值：
+   */
   @SerializedName("end_time")
   private String endTime;
+  /**
+   * 发起人
+   * <p> 示例值：
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 申请编号
+   * <p> 示例值：
+   */
   @SerializedName("serial_id")
   private String serialId;
 
@@ -35,11 +59,35 @@ public class Instance {
   }
 
   public Instance(Builder builder) {
+    /**
+     * 审批实例code
+     * <p> 示例值：
+     */
     this.instanceCode = builder.instanceCode;
+    /**
+     * 审批名称
+     * <p> 示例值：
+     */
     this.approvalName = builder.approvalName;
+    /**
+     * 审批实例发起时间戳
+     * <p> 示例值：
+     */
     this.startTime = builder.startTime;
+    /**
+     * 审批实例结束时间戳
+     * <p> 示例值：
+     */
     this.endTime = builder.endTime;
+    /**
+     * 发起人
+     * <p> 示例值：
+     */
     this.userId = builder.userId;
+    /**
+     * 申请编号
+     * <p> 示例值：
+     */
     this.serialId = builder.serialId;
   }
 
@@ -97,38 +145,109 @@ public class Instance {
 
   public static class Builder {
 
+    /**
+     * 审批实例code
+     * <p> 示例值：
+     */
     private String instanceCode;
+    /**
+     * 审批名称
+     * <p> 示例值：
+     */
     private String approvalName;
+    /**
+     * 审批实例发起时间戳
+     * <p> 示例值：
+     */
     private String startTime;
+    /**
+     * 审批实例结束时间戳
+     * <p> 示例值：
+     */
     private String endTime;
+    /**
+     * 发起人
+     * <p> 示例值：
+     */
     private String userId;
+    /**
+     * 申请编号
+     * <p> 示例值：
+     */
     private String serialId;
 
+    /**
+     * 审批实例code
+     * <p> 示例值：
+     *
+     * @param instanceCode
+     * @return
+     */
     public Builder instanceCode(String instanceCode) {
       this.instanceCode = instanceCode;
       return this;
     }
 
+
+    /**
+     * 审批名称
+     * <p> 示例值：
+     *
+     * @param approvalName
+     * @return
+     */
     public Builder approvalName(String approvalName) {
       this.approvalName = approvalName;
       return this;
     }
 
+
+    /**
+     * 审批实例发起时间戳
+     * <p> 示例值：
+     *
+     * @param startTime
+     * @return
+     */
     public Builder startTime(String startTime) {
       this.startTime = startTime;
       return this;
     }
 
+
+    /**
+     * 审批实例结束时间戳
+     * <p> 示例值：
+     *
+     * @param endTime
+     * @return
+     */
     public Builder endTime(String endTime) {
       this.endTime = endTime;
       return this;
     }
 
+
+    /**
+     * 发起人
+     * <p> 示例值：
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 申请编号
+     * <p> 示例值：
+     *
+     * @param serialId
+     * @return
+     */
     public Builder serialId(String serialId) {
       this.serialId = serialId;
       return this;

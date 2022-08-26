@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateUnit {
 
+  /**
+   * 单位的自定义ID
+   * <p> 示例值：BU121
+   */
   @SerializedName("unit_id")
   private String unitId;
 

@@ -6,7 +6,7 @@ import com.lark.oapi.service.drive.v1.model.FileUploadInfo;
 import com.lark.oapi.service.drive.v1.model.UploadPrepareFileReq;
 import com.lark.oapi.service.drive.v1.model.UploadPrepareFileResp;
 
-// HTTP PATH: /open-apis/drive/v1/files/upload_prepare"
+// POST /open-apis/drive/v1/files/upload_prepare
 public class UploadPrepareFileSample {
 
   public static void main(String arg[]) throws Exception {

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.ListAgentScheduleReq;
 import com.lark.oapi.service.helpdesk.v1.model.ListAgentScheduleResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/agent_schedules"
+// GET /open-apis/helpdesk/v1/agent_schedules
 public class ListAgentScheduleSample {
 
   public static void main(String arg[]) throws Exception {

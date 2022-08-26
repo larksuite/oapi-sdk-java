@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class AppTableField {
 
+  /**
+   * 多维表格字段 id
+   * <p> 示例值：
+   */
   @SerializedName("field_id")
   private String fieldId;
+  /**
+   * 多维表格字段名
+   * <p> 示例值：多行文本
+   */
   @SerializedName("field_name")
   private String fieldName;
+  /**
+   * 多维表格字段类型
+   * <p> 示例值：1
+   */
   @SerializedName("type")
   private Integer type;
+  /**
+   * 字段属性，具体参考：[字段编辑指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
+   * <p> 示例值：
+   */
   @SerializedName("property")
   private AppTableFieldProperty property;
 
@@ -31,9 +47,25 @@ public class AppTableField {
   }
 
   public AppTableField(Builder builder) {
+    /**
+     * 多维表格字段 id
+     * <p> 示例值：
+     */
     this.fieldId = builder.fieldId;
+    /**
+     * 多维表格字段名
+     * <p> 示例值：多行文本
+     */
     this.fieldName = builder.fieldName;
+    /**
+     * 多维表格字段类型
+     * <p> 示例值：1
+     */
     this.type = builder.type;
+    /**
+     * 字段属性，具体参考：[字段编辑指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
+     * <p> 示例值：
+     */
     this.property = builder.property;
   }
 
@@ -75,31 +107,85 @@ public class AppTableField {
 
   public static class Builder {
 
+    /**
+     * 多维表格字段 id
+     * <p> 示例值：
+     */
     private String fieldId;
+    /**
+     * 多维表格字段名
+     * <p> 示例值：多行文本
+     */
     private String fieldName;
+    /**
+     * 多维表格字段类型
+     * <p> 示例值：1
+     */
     private Integer type;
+    /**
+     * 字段属性，具体参考：[字段编辑指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
+     * <p> 示例值：
+     */
     private AppTableFieldProperty property;
 
+    /**
+     * 多维表格字段 id
+     * <p> 示例值：
+     *
+     * @param fieldId
+     * @return
+     */
     public Builder fieldId(String fieldId) {
       this.fieldId = fieldId;
       return this;
     }
 
+
+    /**
+     * 多维表格字段名
+     * <p> 示例值：多行文本
+     *
+     * @param fieldName
+     * @return
+     */
     public Builder fieldName(String fieldName) {
       this.fieldName = fieldName;
       return this;
     }
 
+
+    /**
+     * 多维表格字段类型
+     * <p> 示例值：1
+     *
+     * @param type
+     * @return
+     */
     public Builder type(Integer type) {
       this.type = type;
       return this;
     }
 
-    public Builder type(com.lark.oapi.service.bitable.v1.enums.TypeEnum type) {
+    /**
+     * 多维表格字段类型
+     * <p> 示例值：1
+     *
+     * @param type {@link com.lark.oapi.service.bitable.v1.enums.AppTableFieldTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.bitable.v1.enums.AppTableFieldTypeEnum type) {
       this.type = type.getValue();
       return this;
     }
 
+
+    /**
+     * 字段属性，具体参考：[字段编辑指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
+     * <p> 示例值：
+     *
+     * @param property
+     * @return
+     */
     public Builder property(AppTableFieldProperty property) {
       this.property = property;
       return this;

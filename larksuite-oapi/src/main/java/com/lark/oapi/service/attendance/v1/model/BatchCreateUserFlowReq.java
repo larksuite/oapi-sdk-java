@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Query;
 
 public class BatchCreateUserFlowReq {
 
+  /**
+   * 请求体和响应体中的 user_id 和 creator_id 的员工工号类型
+   * <p> 示例值：employee_id
+   */
   @Query
   @SerializedName("employee_type")
   private String employeeType;
@@ -30,6 +34,10 @@ public class BatchCreateUserFlowReq {
   }
 
   public BatchCreateUserFlowReq(Builder builder) {
+    /**
+     * 请求体和响应体中的 user_id 和 creator_id 的员工工号类型
+     * <p> 示例值：employee_id
+     */
     this.employeeType = builder.employeeType;
     this.body = builder.body;
   }
@@ -56,16 +64,30 @@ public class BatchCreateUserFlowReq {
 
   public static class Builder {
 
-    private String employeeType;
+    private String employeeType; // 请求体和响应体中的 user_id 和 creator_id 的员工工号类型
     private BatchCreateUserFlowReqBody body;
 
+    /**
+     * 请求体和响应体中的 user_id 和 creator_id 的员工工号类型
+     * <p> 示例值：employee_id
+     *
+     * @param employeeType
+     * @return
+     */
     public Builder employeeType(String employeeType) {
       this.employeeType = employeeType;
       return this;
     }
 
+    /**
+     * 请求体和响应体中的 user_id 和 creator_id 的员工工号类型
+     * <p> 示例值：employee_id
+     *
+     * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.BatchCreateUserFlowEmployeeTypeEnum}
+     * @return
+     */
     public Builder employeeType(
-        com.lark.oapi.service.attendance.v1.enums.EmployeeTypeEnum employeeType) {
+        com.lark.oapi.service.attendance.v1.enums.BatchCreateUserFlowEmployeeTypeEnum employeeType) {
       this.employeeType = employeeType.getValue();
       return this;
     }
@@ -74,6 +96,12 @@ public class BatchCreateUserFlowReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder batchCreateUserFlowReqBody(BatchCreateUserFlowReqBody body) {
       this.body = body;
       return this;

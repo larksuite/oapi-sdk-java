@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetExportTask {
 
+  /**
+   * 导出任务结果
+   * <p> 示例值：
+   */
   @SerializedName("result")
   private ExportTask result;
 

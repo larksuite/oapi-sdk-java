@@ -48,6 +48,12 @@ public class CreateCalendarReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder calendar(Calendar body) {
       this.body = body;
       return this;

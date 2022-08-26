@@ -7,7 +7,7 @@ import com.lark.oapi.service.attendance.v1.model.BatchCreateUserFlowReqBody;
 import com.lark.oapi.service.attendance.v1.model.BatchCreateUserFlowResp;
 import com.lark.oapi.service.attendance.v1.model.UserFlow;
 
-// HTTP PATH: /open-apis/attendance/v1/user_flows/batch_create"
+// POST /open-apis/attendance/v1/user_flows/batch_create
 public class BatchCreateUserFlowSample {
 
   public static void main(String arg[]) throws Exception {

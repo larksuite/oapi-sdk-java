@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetGroup {
 
+  /**
+   * 用户组详情
+   * <p> 示例值：
+   */
   @SerializedName("group")
   private Group group;
 

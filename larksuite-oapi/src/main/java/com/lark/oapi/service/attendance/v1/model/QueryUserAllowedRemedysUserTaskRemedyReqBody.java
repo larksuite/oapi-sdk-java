@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryUserAllowedRemedysUserTaskRemedyReqBody {
 
+  /**
+   * 用户 ID
+   * <p> 示例值：abd754f7
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 补卡日期
+   * <p> 示例值：20210104
+   */
   @SerializedName("remedy_date")
   private Integer remedyDate;
 
@@ -27,7 +35,15 @@ public class QueryUserAllowedRemedysUserTaskRemedyReqBody {
   }
 
   public QueryUserAllowedRemedysUserTaskRemedyReqBody(Builder builder) {
+    /**
+     * 用户 ID
+     * <p> 示例值：abd754f7
+     */
     this.userId = builder.userId;
+    /**
+     * 补卡日期
+     * <p> 示例值：20210104
+     */
     this.remedyDate = builder.remedyDate;
   }
 
@@ -53,14 +69,37 @@ public class QueryUserAllowedRemedysUserTaskRemedyReqBody {
 
   public static class Builder {
 
+    /**
+     * 用户 ID
+     * <p> 示例值：abd754f7
+     */
     private String userId;
+    /**
+     * 补卡日期
+     * <p> 示例值：20210104
+     */
     private Integer remedyDate;
 
+    /**
+     * 用户 ID
+     * <p> 示例值：abd754f7
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 补卡日期
+     * <p> 示例值：20210104
+     *
+     * @param remedyDate
+     * @return
+     */
     public Builder remedyDate(Integer remedyDate) {
       this.remedyDate = remedyDate;
       return this;

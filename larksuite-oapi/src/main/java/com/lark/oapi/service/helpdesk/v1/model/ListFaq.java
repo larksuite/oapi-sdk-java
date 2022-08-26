@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListFaq {
 
+  /**
+   * if there's next page
+   * <p> 示例值：true
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * the next page token
+   * <p> 示例值：6856395634652479491
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 实际返回的FAQ数量
+   * <p> 示例值：100
+   */
   @SerializedName("page_size")
   private Integer pageSize;
+  /**
+   * 总数
+   * <p> 示例值：200
+   */
   @SerializedName("total")
   private Integer total;
+  /**
+   * 知识库列表
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private Faq[] items;
 

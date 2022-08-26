@@ -5,18 +5,20 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.im.v1.model.ReadUsersMessageReq;
 import com.lark.oapi.service.im.v1.model.ReadUsersMessageResp;
 
-// HTTP PATH: /open-apis/im/v1/messages/:message_id/read_users"
+// GET /open-apis/im/v1/messages/:message_id/read_users
 public class ReadUsersMessageSample {
 
   public static void main(String arg[]) throws Exception {
     // 构建client
-    Client client = Client.newBuilder("cli_a1eccc36c278900d", "uvNOxS6mplA6Nf3YPt8rUbbShON1Ocj5").build();
+    Client client = Client.newBuilder("appId", "appSecret").build();
 
     // 创建请求对象
     ReadUsersMessageReq req = ReadUsersMessageReq.newBuilder()
-        .messageId("om_7f7592e6b9f130ff575a9da9c3d7d506")
-        .userIdType("open_id")
-        .pageSize(0)
+        .messageId("om_dc13264520392913993dd051dba21dcf")
+        .userIdType("user_id")
+        .pageSize(20)
+        .pageToken(
+            "GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==")
         .build();
 
     // 发起请求

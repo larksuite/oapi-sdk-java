@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class SubmitApproveNotificationReqBody {
 
+  /**
+   * 提交审批理由
+   * <p> 示例值：测试发送消息
+   */
   @SerializedName("reason")
   private String reason;
 
@@ -25,6 +29,10 @@ public class SubmitApproveNotificationReqBody {
   }
 
   public SubmitApproveNotificationReqBody(Builder builder) {
+    /**
+     * 提交审批理由
+     * <p> 示例值：测试发送消息
+     */
     this.reason = builder.reason;
   }
 
@@ -42,8 +50,19 @@ public class SubmitApproveNotificationReqBody {
 
   public static class Builder {
 
+    /**
+     * 提交审批理由
+     * <p> 示例值：测试发送消息
+     */
     private String reason;
 
+    /**
+     * 提交审批理由
+     * <p> 示例值：测试发送消息
+     *
+     * @param reason
+     * @return
+     */
     public Builder reason(String reason) {
       this.reason = reason;
       return this;

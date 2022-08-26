@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Query;
 
 public class CreateMotoReq {
 
+  /**
+   * desc
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("department_id_type")
   private String departmentIdType;
@@ -30,6 +34,10 @@ public class CreateMotoReq {
   }
 
   public CreateMotoReq(Builder builder) {
+    /**
+     * desc
+     * <p> 示例值：
+     */
     this.departmentIdType = builder.departmentIdType;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class CreateMotoReq {
 
   public static class Builder {
 
-    private String departmentIdType;
+    private String departmentIdType; // desc
     private Level body;
 
+    /**
+     * desc
+     * <p> 示例值：
+     *
+     * @param departmentIdType
+     * @return
+     */
     public Builder departmentIdType(String departmentIdType) {
       this.departmentIdType = departmentIdType;
       return this;
@@ -68,6 +83,12 @@ public class CreateMotoReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder level(Level body) {
       this.body = body;
       return this;

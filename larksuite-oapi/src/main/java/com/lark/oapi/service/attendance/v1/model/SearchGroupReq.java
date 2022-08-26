@@ -48,6 +48,12 @@ public class SearchGroupReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder searchGroupReqBody(SearchGroupReqBody body) {
       this.body = body;
       return this;

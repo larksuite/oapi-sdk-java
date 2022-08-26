@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DownloadExportTaskReq {
 
+  /**
+   * 导出文档token
+   * <p> 示例值：boxcnNAlfwHxxxxxxxxxxSaLSec
+   */
   @Path
   @SerializedName("file_token")
   private String fileToken;
@@ -27,6 +31,10 @@ public class DownloadExportTaskReq {
   }
 
   public DownloadExportTaskReq(Builder builder) {
+    /**
+     * 导出文档token
+     * <p> 示例值：boxcnNAlfwHxxxxxxxxxxSaLSec
+     */
     this.fileToken = builder.fileToken;
   }
 
@@ -44,8 +52,15 @@ public class DownloadExportTaskReq {
 
   public static class Builder {
 
-    private String fileToken;
+    private String fileToken; // 导出文档token
 
+    /**
+     * 导出文档token
+     * <p> 示例值：boxcnNAlfwHxxxxxxxxxxSaLSec
+     *
+     * @param fileToken
+     * @return
+     */
     public Builder fileToken(String fileToken) {
       this.fileToken = fileToken;
       return this;

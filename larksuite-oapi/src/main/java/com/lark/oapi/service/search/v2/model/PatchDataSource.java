@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class PatchDataSource {
 
+  /**
+   * 数据源
+   * <p> 示例值：
+   */
   @SerializedName("data_source")
   private DataSource dataSource;
 

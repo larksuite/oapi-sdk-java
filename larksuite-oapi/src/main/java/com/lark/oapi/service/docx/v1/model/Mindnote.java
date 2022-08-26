@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class Mindnote {
 
+  /**
+   * 思维导图 token
+   * <p> 示例值：bmnbcXXGPWfJMwDfGCbCiU14c6f
+   */
   @SerializedName("token")
   private String token;
 
@@ -25,6 +29,10 @@ public class Mindnote {
   }
 
   public Mindnote(Builder builder) {
+    /**
+     * 思维导图 token
+     * <p> 示例值：bmnbcXXGPWfJMwDfGCbCiU14c6f
+     */
     this.token = builder.token;
   }
 
@@ -42,8 +50,19 @@ public class Mindnote {
 
   public static class Builder {
 
+    /**
+     * 思维导图 token
+     * <p> 示例值：bmnbcXXGPWfJMwDfGCbCiU14c6f
+     */
     private String token;
 
+    /**
+     * 思维导图 token
+     * <p> 示例值：bmnbcXXGPWfJMwDfGCbCiU14c6f
+     *
+     * @param token
+     * @return
+     */
     public Builder token(String token) {
       this.token = token;
       return this;

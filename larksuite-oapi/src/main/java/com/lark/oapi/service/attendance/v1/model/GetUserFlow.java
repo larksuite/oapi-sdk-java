@@ -17,36 +17,82 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetUserFlow {
 
+  /**
+   * 用户工号
+   * <p> 示例值：abd754f7
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 记录创建者的工号
+   * <p> 示例值：abd754f7
+   */
   @SerializedName("creator_id")
   private String creatorId;
+  /**
+   * 打卡位置名称信息
+   * <p> 示例值：西溪八方城
+   */
   @SerializedName("location_name")
   private String locationName;
+  /**
+   * 打卡时间，精确到秒的时间戳
+   * <p> 示例值：1611476284
+   */
   @SerializedName("check_time")
   private String checkTime;
+  /**
+   * 打卡备注
+   * <p> 示例值：上班打卡
+   */
   @SerializedName("comment")
   private String comment;
+  /**
+   * 打卡记录ID
+   * <p> 示例值：6709359313699356941
+   */
   @SerializedName("record_id")
   private String recordId;
-  @SerializedName("longitude")
-  private Double longitude;
-  @SerializedName("latitude")
-  private Double latitude;
+  /**
+   * 打卡wifi ssid
+   * <p> 示例值：b0:b8:67:5c:1d:72
+   */
   @SerializedName("ssid")
   private String ssid;
+  /**
+   * 打卡wifi MAC地址
+   * <p> 示例值：b0:b8:67:5c:1d:72
+   */
   @SerializedName("bssid")
   private String bssid;
+  /**
+   * 是否为外勤打卡
+   * <p> 示例值：true
+   */
   @SerializedName("is_field")
   private Boolean isField;
+  /**
+   * 是否为wifi打卡
+   * <p> 示例值：true
+   */
   @SerializedName("is_wifi")
   private Boolean isWifi;
+  /**
+   * 记录生成方式
+   * <p> 示例值：0
+   */
   @SerializedName("type")
   private Integer type;
+  /**
+   * 打卡照片列表
+   * <p> 示例值：
+   */
   @SerializedName("photo_urls")
   private String[] photoUrls;
-  @SerializedName("device_id")
-  private String deviceId;
+  /**
+   * 打卡结果
+   * <p> 示例值：Invalid
+   */
   @SerializedName("check_result")
   private String checkResult;
 
@@ -98,21 +144,6 @@ public class GetUserFlow {
     this.recordId = recordId;
   }
 
-  public Double getLongitude() {
-    return this.longitude;
-  }
-
-  public void setLongitude(Double longitude) {
-    this.longitude = longitude;
-  }
-
-  public Double getLatitude() {
-    return this.latitude;
-  }
-
-  public void setLatitude(Double latitude) {
-    this.latitude = latitude;
-  }
 
   public String getSsid() {
     return this.ssid;
@@ -162,13 +193,6 @@ public class GetUserFlow {
     this.photoUrls = photoUrls;
   }
 
-  public String getDeviceId() {
-    return this.deviceId;
-  }
-
-  public void setDeviceId(String deviceId) {
-    this.deviceId = deviceId;
-  }
 
   public String getCheckResult() {
     return this.checkResult;

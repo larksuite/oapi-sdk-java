@@ -6,7 +6,7 @@ import com.lark.oapi.service.drive.v1.model.MoveFileReq;
 import com.lark.oapi.service.drive.v1.model.MoveFileReqBody;
 import com.lark.oapi.service.drive.v1.model.MoveFileResp;
 
-// HTTP PATH: /open-apis/drive/v1/files/:file_token/move"
+// POST /open-apis/drive/v1/files/:file_token/move
 public class MoveFileSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,10 +15,10 @@ public class MoveFileSample {
 
     // 创建请求对象
     MoveFileReq req = MoveFileReq.newBuilder()
-        .fileToken("")
+        .fileToken("boxcnrHpsg1QDqXAAAyachabcef")
         .moveFileReqBody(MoveFileReqBody.newBuilder()
             .type("file")
-            .folderToken("")
+            .folderToken("fldbcO1UuPz8VwnpPx5a92abcef")
             .build())
         .build();
 

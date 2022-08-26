@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.event.v1.model.ListOutboundIpReq;
 import com.lark.oapi.service.event.v1.model.ListOutboundIpResp;
 
-// HTTP PATH: /open-apis/event/v1/outbound_ip"
+// GET /open-apis/event/v1/outbound_ip
 public class ListOutboundIpSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,8 +15,7 @@ public class ListOutboundIpSample {
     // 创建请求对象
     ListOutboundIpReq req = ListOutboundIpReq.newBuilder()
         .pageSize(10)
-        .pageToken(
-            "AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=")
+        .pageToken("xxx")
         .build();
 
     // 发起请求

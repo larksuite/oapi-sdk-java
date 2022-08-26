@@ -33,6 +33,11 @@ public class TranslationService {
     this.text = new Text(config);
   }
 
+  /**
+   * 文本
+   *
+   * @return
+   */
   public Text text() {
     return text;
   }
@@ -45,6 +50,14 @@ public class TranslationService {
       this.config = config;
     }
 
+    /**
+     * 文本语种识别，机器翻译 (MT)，支持 100 多种语言识别，返回符合 ISO 639-1 标准
+     * <p> 单租户限流：20QPS，同租户下的应用没有限流，共享本租户的 20QPS 限流 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/detect">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/detect</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1//DetectTextSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1//DetectTextSample.java</a>
+     * ;
+     */
     public DetectTextResp detect(DetectTextReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -65,6 +78,14 @@ public class TranslationService {
       return resp;
     }
 
+    /**
+     * 文本语种识别，机器翻译 (MT)，支持 100 多种语言识别，返回符合 ISO 639-1 标准
+     * <p> 单租户限流：20QPS，同租户下的应用没有限流，共享本租户的 20QPS 限流 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/detect">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/detect</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1//DetectTextSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1//DetectTextSample.java</a>
+     * ;
+     */
     public DetectTextResp detect(DetectTextReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -83,6 +104,16 @@ public class TranslationService {
       return resp;
     }
 
+    /**
+     * 文本翻译，机器翻译 (MT)，支持以下语种互译：;"zh": 汉语；;"zh-Hant": 繁体汉语；;"en": 英语；;"ja": 日语；;"ru": 俄语；;"de":
+     * 德语；;"fr": 法语；;"it": 意大利语；;"pl": 波兰语；;"th": 泰语；;"hi": 印地语；;"id": 印尼语；;"es": 西班牙语；;"pt":
+     * 葡萄牙语；;"ko": 朝鲜语；;"vi": 越南语；
+     * <p> 单租户限流：20QPS，同租户下的应用没有限流，共享本租户的 20QPS 限流 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/translate">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/translate</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1//TranslateTextSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1//TranslateTextSample.java</a>
+     * ;
+     */
     public TranslateTextResp translate(TranslateTextReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -105,6 +136,16 @@ public class TranslationService {
       return resp;
     }
 
+    /**
+     * 文本翻译，机器翻译 (MT)，支持以下语种互译：;"zh": 汉语；;"zh-Hant": 繁体汉语；;"en": 英语；;"ja": 日语；;"ru": 俄语；;"de":
+     * 德语；;"fr": 法语；;"it": 意大利语；;"pl": 波兰语；;"th": 泰语；;"hi": 印地语；;"id": 印尼语；;"es": 西班牙语；;"pt":
+     * 葡萄牙语；;"ko": 朝鲜语；;"vi": 越南语；
+     * <p> 单租户限流：20QPS，同租户下的应用没有限流，共享本租户的 20QPS 限流 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/translate">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/translation-v1/text/translate</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1//TranslateTextSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/translationv1//TranslateTextSample.java</a>
+     * ;
+     */
     public TranslateTextResp translate(TranslateTextReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();

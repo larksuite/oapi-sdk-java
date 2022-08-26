@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class SearchEntityReqBody {
 
+  /**
+   * 搜索关键词
+   * <p> 示例值：百科
+   */
   @SerializedName("query")
   private String query;
 
@@ -25,6 +29,10 @@ public class SearchEntityReqBody {
   }
 
   public SearchEntityReqBody(Builder builder) {
+    /**
+     * 搜索关键词
+     * <p> 示例值：百科
+     */
     this.query = builder.query;
   }
 
@@ -42,8 +50,19 @@ public class SearchEntityReqBody {
 
   public static class Builder {
 
+    /**
+     * 搜索关键词
+     * <p> 示例值：百科
+     */
     private String query;
 
+    /**
+     * 搜索关键词
+     * <p> 示例值：百科
+     *
+     * @param query
+     * @return
+     */
     public Builder query(String query) {
       this.query = query;
       return this;

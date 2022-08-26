@@ -7,7 +7,7 @@ import com.lark.oapi.service.calendar.v4.model.CreateCalendarEventAttendeeReq;
 import com.lark.oapi.service.calendar.v4.model.CreateCalendarEventAttendeeReqBody;
 import com.lark.oapi.service.calendar.v4.model.CreateCalendarEventAttendeeResp;
 
-// HTTP PATH: /open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees"
+// POST /open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees
 public class CreateCalendarEventAttendeeSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,13 +16,13 @@ public class CreateCalendarEventAttendeeSample {
 
     // 创建请求对象
     CreateCalendarEventAttendeeReq req = CreateCalendarEventAttendeeReq.newBuilder()
-        .calendarId("")
-        .eventId("")
+        .calendarId("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn")
+        .eventId("xxxxxxxxx_0")
         .userIdType("user_id")
         .createCalendarEventAttendeeReqBody(CreateCalendarEventAttendeeReqBody.newBuilder()
             .attendees(new CalendarEventAttendee[]{})
             .needNotification(false)
-            .instanceStartTimeAdmin("")
+            .instanceStartTimeAdmin("1647320400")
             .isEnableAdmin(false)
             .build())
         .build();

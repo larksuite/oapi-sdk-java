@@ -6,7 +6,7 @@ import com.lark.oapi.service.approval.v4.model.CcSearch;
 import com.lark.oapi.service.approval.v4.model.SearchCcInstanceReq;
 import com.lark.oapi.service.approval.v4.model.SearchCcInstanceResp;
 
-// HTTP PATH: /open-apis/approval/v4/instances/search_cc"
+// POST /open-apis/approval/v4/instances/search_cc
 public class SearchCcInstanceSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class SearchCcInstanceSample {
 
     // 创建请求对象
     SearchCcInstanceReq req = SearchCcInstanceReq.newBuilder()
-        .pageSize(100)
+        .pageSize(10)
         .pageToken("nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU")
         .userIdType("user_id")
         .ccSearch(CcSearch.newBuilder()

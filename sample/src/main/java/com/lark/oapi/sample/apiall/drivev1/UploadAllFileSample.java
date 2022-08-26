@@ -7,7 +7,7 @@ import com.lark.oapi.service.drive.v1.model.UploadAllFileReqBody;
 import com.lark.oapi.service.drive.v1.model.UploadAllFileResp;
 import java.io.File;
 
-// HTTP PATH: /open-apis/drive/v1/files/upload_all"
+// POST /open-apis/drive/v1/files/upload_all
 public class UploadAllFileSample {
 
   public static void main(String arg[]) throws Exception {
@@ -18,11 +18,11 @@ public class UploadAllFileSample {
     File file = new File("filepath");
     UploadAllFileReq req = UploadAllFileReq.newBuilder()
         .uploadAllFileReqBody(UploadAllFileReqBody.newBuilder()
-            .fileName("")
+            .fileName("demo.pdf")
             .parentType("explorer")
-            .parentNode("")
-            .size(0)
-            .checksum("")
+            .parentNode("fldbcO1UuPz8VwnpPx5a92abcef")
+            .size(1024)
+            .checksum("123423882374238912356")
             .file(file)
             .build())
         .build();

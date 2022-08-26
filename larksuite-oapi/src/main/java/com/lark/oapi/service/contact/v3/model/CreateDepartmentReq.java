@@ -19,12 +19,24 @@ import com.lark.oapi.core.annotation.Query;
 
 public class CreateDepartmentReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+   * <p> 示例值：open_department_id
+   */
   @Query
   @SerializedName("department_id_type")
   private String departmentIdType;
+  /**
+   * 用于幂等判断是否为同一请求，避免重复创建。字符串类型，自行生成。
+   * <p> 示例值：473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   @Query
   @SerializedName("client_token")
   private String clientToken;
@@ -36,8 +48,20 @@ public class CreateDepartmentReq {
   }
 
   public CreateDepartmentReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
+    /**
+     * 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * <p> 示例值：open_department_id
+     */
     this.departmentIdType = builder.departmentIdType;
+    /**
+     * 用于幂等判断是否为同一请求，避免重复创建。字符串类型，自行生成。
+     * <p> 示例值：473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     */
     this.clientToken = builder.clientToken;
     this.body = builder.body;
   }
@@ -80,32 +104,68 @@ public class CreateDepartmentReq {
 
   public static class Builder {
 
-    private String userIdType;
-    private String departmentIdType;
-    private String clientToken;
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String departmentIdType; // 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+    private String clientToken; // 用于幂等判断是否为同一请求，避免重复创建。字符串类型，自行生成。
     private Department body;
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.contact.v3.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.CreateDepartmentUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.contact.v3.enums.CreateDepartmentUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+    /**
+     * 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * <p> 示例值：open_department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
     public Builder departmentIdType(String departmentIdType) {
       this.departmentIdType = departmentIdType;
       return this;
     }
 
+    /**
+     * 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * <p> 示例值：open_department_id
+     *
+     * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.CreateDepartmentDepartmentIdTypeEnum}
+     * @return
+     */
     public Builder departmentIdType(
-        com.lark.oapi.service.contact.v3.enums.DepartmentIdTypeEnum departmentIdType) {
+        com.lark.oapi.service.contact.v3.enums.CreateDepartmentDepartmentIdTypeEnum departmentIdType) {
       this.departmentIdType = departmentIdType.getValue();
       return this;
     }
 
+    /**
+     * 用于幂等判断是否为同一请求，避免重复创建。字符串类型，自行生成。
+     * <p> 示例值：473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
+     * @param clientToken
+     * @return
+     */
     public Builder clientToken(String clientToken) {
       this.clientToken = clientToken;
       return this;
@@ -115,6 +175,12 @@ public class CreateDepartmentReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder department(Department body) {
       this.body = body;
       return this;

@@ -3,12 +3,11 @@ package com.lark.oapi.sample.apiall.searchv2;
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.search.v2.model.I18nMeta;
-import com.lark.oapi.service.search.v2.model.ItemMetadata;
 import com.lark.oapi.service.search.v2.model.PatchDataSourceReq;
 import com.lark.oapi.service.search.v2.model.PatchDataSourceReqBody;
 import com.lark.oapi.service.search.v2.model.PatchDataSourceResp;
 
-// HTTP PATH: /open-apis/search/v2/data_sources/:data_source_id"
+// PATCH /open-apis/search/v2/data_sources/:data_source_id
 public class PatchDataSourceSample {
 
   public static void main(String arg[]) throws Exception {
@@ -17,13 +16,13 @@ public class PatchDataSourceSample {
 
     // 创建请求对象
     PatchDataSourceReq req = PatchDataSourceReq.newBuilder()
-        .dataSourceId("数据源")
+        .dataSourceId("service_ticket")
         .patchDataSourceReqBody(PatchDataSourceReqBody.newBuilder()
-            .name("")
+            .name("客服工单")
             .state(0)
-            .description("")
-            .iconUrl("")
-            .i18nName(ItemMetadata.newBuilder().build())
+            .description("搜索客服工单")
+            .iconUrl("https://www.xxx.com/open.jpg")
+            .i18nName(I18nMeta.newBuilder().build())
             .i18nDescription(I18nMeta.newBuilder().build())
             .build())
         .build();

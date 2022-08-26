@@ -6,7 +6,7 @@ import com.lark.oapi.service.drive.v1.model.CreateExportTaskReq;
 import com.lark.oapi.service.drive.v1.model.CreateExportTaskResp;
 import com.lark.oapi.service.drive.v1.model.ExportTask;
 
-// HTTP PATH: /open-apis/drive/v1/export_tasks"
+// POST /open-apis/drive/v1/export_tasks
 public class CreateExportTaskSample {
 
   public static void main(String arg[]) throws Exception {

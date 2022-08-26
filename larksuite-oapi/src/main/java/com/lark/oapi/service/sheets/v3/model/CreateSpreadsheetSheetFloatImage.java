@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateSpreadsheetSheetFloatImage {
 
+  /**
+   * 浮动图片返回值
+   * <p> 示例值：
+   */
   @SerializedName("float_image")
   private FloatImage floatImage;
 

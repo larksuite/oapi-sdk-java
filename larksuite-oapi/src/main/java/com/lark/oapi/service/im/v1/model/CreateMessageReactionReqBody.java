@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateMessageReactionReqBody {
 
+  /**
+   * reaction资源类型
+   * <p> 示例值：
+   */
   @SerializedName("reaction_type")
   private Emoji reactionType;
 
@@ -25,6 +29,10 @@ public class CreateMessageReactionReqBody {
   }
 
   public CreateMessageReactionReqBody(Builder builder) {
+    /**
+     * reaction资源类型
+     * <p> 示例值：
+     */
     this.reactionType = builder.reactionType;
   }
 
@@ -42,8 +50,19 @@ public class CreateMessageReactionReqBody {
 
   public static class Builder {
 
+    /**
+     * reaction资源类型
+     * <p> 示例值：
+     */
     private Emoji reactionType;
 
+    /**
+     * reaction资源类型
+     * <p> 示例值：
+     *
+     * @param reactionType
+     * @return
+     */
     public Builder reactionType(Emoji reactionType) {
       this.reactionType = reactionType;
       return this;

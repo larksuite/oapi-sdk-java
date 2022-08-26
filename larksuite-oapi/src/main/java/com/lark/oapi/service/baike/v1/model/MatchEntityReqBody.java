@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class MatchEntityReqBody {
 
+  /**
+   * 搜索关键词，将与词条名、别名进行精准匹配
+   * <p> 示例值：企业百科
+   */
   @SerializedName("word")
   private String word;
 
@@ -25,6 +29,10 @@ public class MatchEntityReqBody {
   }
 
   public MatchEntityReqBody(Builder builder) {
+    /**
+     * 搜索关键词，将与词条名、别名进行精准匹配
+     * <p> 示例值：企业百科
+     */
     this.word = builder.word;
   }
 
@@ -42,8 +50,19 @@ public class MatchEntityReqBody {
 
   public static class Builder {
 
+    /**
+     * 搜索关键词，将与词条名、别名进行精准匹配
+     * <p> 示例值：企业百科
+     */
     private String word;
 
+    /**
+     * 搜索关键词，将与词条名、别名进行精准匹配
+     * <p> 示例值：企业百科
+     *
+     * @param word
+     * @return
+     */
     public Builder word(String word) {
       this.word = word;
       return this;

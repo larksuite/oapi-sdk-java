@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class User {
 
+  /**
+   * 用户名称
+   * <p> 示例值：张三
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 用户头像
+   * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/d50ddc01-5ddb-4431-950e-452637e4a09j~?image_size=72x72&cut_type=default-face&quality=&format=png&sticker_format=.webp
+   */
   @SerializedName("avatar")
   private String avatar;
+  /**
+   * 用户ID
+   * <p> 示例值：6994699009591869459
+   */
   @SerializedName("id")
   private String id;
 
@@ -29,8 +41,20 @@ public class User {
   }
 
   public User(Builder builder) {
+    /**
+     * 用户名称
+     * <p> 示例值：张三
+     */
     this.name = builder.name;
+    /**
+     * 用户头像
+     * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/d50ddc01-5ddb-4431-950e-452637e4a09j~?image_size=72x72&cut_type=default-face&quality=&format=png&sticker_format=.webp
+     */
     this.avatar = builder.avatar;
+    /**
+     * 用户ID
+     * <p> 示例值：6994699009591869459
+     */
     this.id = builder.id;
   }
 
@@ -64,20 +88,55 @@ public class User {
 
   public static class Builder {
 
+    /**
+     * 用户名称
+     * <p> 示例值：张三
+     */
     private String name;
+    /**
+     * 用户头像
+     * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/d50ddc01-5ddb-4431-950e-452637e4a09j~?image_size=72x72&cut_type=default-face&quality=&format=png&sticker_format=.webp
+     */
     private String avatar;
+    /**
+     * 用户ID
+     * <p> 示例值：6994699009591869459
+     */
     private String id;
 
+    /**
+     * 用户名称
+     * <p> 示例值：张三
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 用户头像
+     * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/d50ddc01-5ddb-4431-950e-452637e4a09j~?image_size=72x72&cut_type=default-face&quality=&format=png&sticker_format=.webp
+     *
+     * @param avatar
+     * @return
+     */
     public Builder avatar(String avatar) {
       this.avatar = avatar;
       return this;
     }
 
+
+    /**
+     * 用户ID
+     * <p> 示例值：6994699009591869459
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;

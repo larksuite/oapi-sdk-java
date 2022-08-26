@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class UpdateTicketReq {
 
+  /**
+   * 工单ID
+   * <p> 示例值：6945345902185807891
+   */
   @Path
   @SerializedName("ticket_id")
   private String ticketId;
@@ -30,6 +34,10 @@ public class UpdateTicketReq {
   }
 
   public UpdateTicketReq(Builder builder) {
+    /**
+     * 工单ID
+     * <p> 示例值：6945345902185807891
+     */
     this.ticketId = builder.ticketId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class UpdateTicketReq {
 
   public static class Builder {
 
-    private String ticketId;
+    private String ticketId; // 工单ID
     private UpdateTicketReqBody body;
 
+    /**
+     * 工单ID
+     * <p> 示例值：6945345902185807891
+     *
+     * @param ticketId
+     * @return
+     */
     public Builder ticketId(String ticketId) {
       this.ticketId = ticketId;
       return this;
@@ -68,6 +83,12 @@ public class UpdateTicketReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder updateTicketReqBody(UpdateTicketReqBody body) {
       this.body = body;
       return this;

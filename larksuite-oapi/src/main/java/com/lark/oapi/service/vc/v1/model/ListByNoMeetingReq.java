@@ -18,18 +18,36 @@ import com.lark.oapi.core.annotation.Query;
 
 public class ListByNoMeetingReq {
 
+  /**
+   * 9位会议号
+   * <p> 示例值：123456789
+   */
   @Query
   @SerializedName("meeting_no")
   private String meetingNo;
+  /**
+   * 查询开始时间（unix时间，单位sec）
+   * <p> 示例值：1608888867
+   */
   @Query
   @SerializedName("start_time")
   private String startTime;
+  /**
+   * 查询结束时间（unix时间，单位sec）
+   * <p> 示例值：1608888867
+   */
   @Query
   @SerializedName("end_time")
   private String endTime;
+  /**
+   * <p> 示例值：5
+   */
   @Query
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * <p> 示例值：10
+   */
   @Query
   @SerializedName("page_size")
   private Integer pageSize;
@@ -39,10 +57,30 @@ public class ListByNoMeetingReq {
   }
 
   public ListByNoMeetingReq(Builder builder) {
+    /**
+     * 9位会议号
+     * <p> 示例值：123456789
+     */
     this.meetingNo = builder.meetingNo;
+    /**
+     * 查询开始时间（unix时间，单位sec）
+     * <p> 示例值：1608888867
+     */
     this.startTime = builder.startTime;
+    /**
+     * 查询结束时间（unix时间，单位sec）
+     * <p> 示例值：1608888867
+     */
     this.endTime = builder.endTime;
+    /**
+     *
+     * <p> 示例值：5
+     */
     this.pageToken = builder.pageToken;
+    /**
+     *
+     * <p> 示例值：10
+     */
     this.pageSize = builder.pageSize;
   }
 
@@ -92,32 +130,70 @@ public class ListByNoMeetingReq {
 
   public static class Builder {
 
-    private String meetingNo;
-    private String startTime;
-    private String endTime;
-    private String pageToken;
-    private Integer pageSize;
+    private String meetingNo; // 9位会议号
+    private String startTime; // 查询开始时间（unix时间，单位sec）
+    private String endTime; // 查询结束时间（unix时间，单位sec）
+    private String pageToken; //
+    private Integer pageSize; //
 
+
+    /**
+     * 9位会议号
+     * <p> 示例值：123456789
+     *
+     * @param meetingNo
+     * @return
+     */
     public Builder meetingNo(String meetingNo) {
       this.meetingNo = meetingNo;
       return this;
     }
 
+
+    /**
+     * 查询开始时间（unix时间，单位sec）
+     * <p> 示例值：1608888867
+     *
+     * @param startTime
+     * @return
+     */
     public Builder startTime(String startTime) {
       this.startTime = startTime;
       return this;
     }
 
+
+    /**
+     * 查询结束时间（unix时间，单位sec）
+     * <p> 示例值：1608888867
+     *
+     * @param endTime
+     * @return
+     */
     public Builder endTime(String endTime) {
       this.endTime = endTime;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：5
+     *
+     * @param pageToken
+     * @return
+     */
     public Builder pageToken(String pageToken) {
       this.pageToken = pageToken;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
     public Builder pageSize(Integer pageSize) {
       this.pageSize = pageSize;
       return this;

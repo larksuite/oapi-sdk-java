@@ -48,6 +48,12 @@ public class CreateShiftReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder shift(Shift body) {
       this.body = body;
       return this;

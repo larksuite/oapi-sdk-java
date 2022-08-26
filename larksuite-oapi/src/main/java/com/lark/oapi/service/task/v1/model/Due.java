@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class Due {
 
+  /**
+   * 截止时间的时间戳（单位为秒）
+   * <p> 示例值：1623124318
+   */
   @SerializedName("time")
   private String time;
+  /**
+   * 截止时间对应的时区，使用IANA Time Zone Database标准，如Asia/Shanghai
+   * <p> 示例值：Asia/Shanghai
+   */
   @SerializedName("timezone")
   private String timezone;
+  /**
+   * 标记任务是否为全天任务（全天任务的截止时间为当天 UTC 时间的 0 点）
+   * <p> 示例值：false
+   */
   @SerializedName("is_all_day")
   private Boolean isAllDay;
 
@@ -29,8 +41,20 @@ public class Due {
   }
 
   public Due(Builder builder) {
+    /**
+     * 截止时间的时间戳（单位为秒）
+     * <p> 示例值：1623124318
+     */
     this.time = builder.time;
+    /**
+     * 截止时间对应的时区，使用IANA Time Zone Database标准，如Asia/Shanghai
+     * <p> 示例值：Asia/Shanghai
+     */
     this.timezone = builder.timezone;
+    /**
+     * 标记任务是否为全天任务（全天任务的截止时间为当天 UTC 时间的 0 点）
+     * <p> 示例值：false
+     */
     this.isAllDay = builder.isAllDay;
   }
 
@@ -64,20 +88,55 @@ public class Due {
 
   public static class Builder {
 
+    /**
+     * 截止时间的时间戳（单位为秒）
+     * <p> 示例值：1623124318
+     */
     private String time;
+    /**
+     * 截止时间对应的时区，使用IANA Time Zone Database标准，如Asia/Shanghai
+     * <p> 示例值：Asia/Shanghai
+     */
     private String timezone;
+    /**
+     * 标记任务是否为全天任务（全天任务的截止时间为当天 UTC 时间的 0 点）
+     * <p> 示例值：false
+     */
     private Boolean isAllDay;
 
+    /**
+     * 截止时间的时间戳（单位为秒）
+     * <p> 示例值：1623124318
+     *
+     * @param time
+     * @return
+     */
     public Builder time(String time) {
       this.time = time;
       return this;
     }
 
+
+    /**
+     * 截止时间对应的时区，使用IANA Time Zone Database标准，如Asia/Shanghai
+     * <p> 示例值：Asia/Shanghai
+     *
+     * @param timezone
+     * @return
+     */
     public Builder timezone(String timezone) {
       this.timezone = timezone;
       return this;
     }
 
+
+    /**
+     * 标记任务是否为全天任务（全天任务的截止时间为当天 UTC 时间的 0 点）
+     * <p> 示例值：false
+     *
+     * @param isAllDay
+     * @return
+     */
     public Builder isAllDay(Boolean isAllDay) {
       this.isAllDay = isAllDay;
       return this;

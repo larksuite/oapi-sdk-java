@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserStatsData {
 
+  /**
+   * 用户姓名
+   * <p> 示例值：小李
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 用户 ID
+   * <p> 示例值：ec8ddg56
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 用户的统计数据
+   * <p> 示例值：
+   */
   @SerializedName("datas")
   private UserStatsDataCell[] datas;
 
@@ -29,8 +41,20 @@ public class UserStatsData {
   }
 
   public UserStatsData(Builder builder) {
+    /**
+     * 用户姓名
+     * <p> 示例值：小李
+     */
     this.name = builder.name;
+    /**
+     * 用户 ID
+     * <p> 示例值：ec8ddg56
+     */
     this.userId = builder.userId;
+    /**
+     * 用户的统计数据
+     * <p> 示例值：
+     */
     this.datas = builder.datas;
   }
 
@@ -64,20 +88,55 @@ public class UserStatsData {
 
   public static class Builder {
 
+    /**
+     * 用户姓名
+     * <p> 示例值：小李
+     */
     private String name;
+    /**
+     * 用户 ID
+     * <p> 示例值：ec8ddg56
+     */
     private String userId;
+    /**
+     * 用户的统计数据
+     * <p> 示例值：
+     */
     private UserStatsDataCell[] datas;
 
+    /**
+     * 用户姓名
+     * <p> 示例值：小李
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 用户 ID
+     * <p> 示例值：ec8ddg56
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 用户的统计数据
+     * <p> 示例值：
+     *
+     * @param datas
+     * @return
+     */
     public Builder datas(UserStatsDataCell[] datas) {
       this.datas = datas;
       return this;

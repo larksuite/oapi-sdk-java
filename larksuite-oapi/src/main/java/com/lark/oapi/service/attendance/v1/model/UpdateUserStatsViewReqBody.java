@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateUserStatsViewReqBody {
 
+  /**
+   * 统计设置
+   * <p> 示例值：
+   */
   @SerializedName("view")
   private UserStatsView view;
 
@@ -25,6 +29,10 @@ public class UpdateUserStatsViewReqBody {
   }
 
   public UpdateUserStatsViewReqBody(Builder builder) {
+    /**
+     * 统计设置
+     * <p> 示例值：
+     */
     this.view = builder.view;
   }
 
@@ -42,8 +50,19 @@ public class UpdateUserStatsViewReqBody {
 
   public static class Builder {
 
+    /**
+     * 统计设置
+     * <p> 示例值：
+     */
     private UserStatsView view;
 
+    /**
+     * 统计设置
+     * <p> 示例值：
+     *
+     * @param view
+     * @return
+     */
     public Builder view(UserStatsView view) {
       this.view = view;
       return this;

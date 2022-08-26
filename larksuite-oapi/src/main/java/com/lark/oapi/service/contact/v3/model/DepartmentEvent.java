@@ -17,36 +17,111 @@ import com.google.gson.annotations.SerializedName;
 
 public class DepartmentEvent {
 
+  /**
+   * 部门名称
+   * <p> 示例值：测试部门
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 父部门的部门open_department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+   * <p> 示例值：jkfsd89782
+   */
   @SerializedName("parent_department_id")
   private String parentDepartmentId;
+  /**
+   * 本部门的department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+   * <p> 示例值：yd7sa8yf2j
+   */
   @SerializedName("department_id")
   private String departmentId;
+  /**
+   * 部门的open_department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+   * <p> 示例值：od_j10j52hjksd9g0isdfg43
+   */
   @SerializedName("open_department_id")
   private String openDepartmentId;
+  /**
+   * 部门主管用户open_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * <p> 示例值：ou_3j1kh45jk18fgh23hf
+   */
   @SerializedName("leader_user_id")
   private String leaderUserId;
+  /**
+   * 部门群ID
+   * <p> 示例值：oc_uiy325uy23bnv48gdf
+   */
   @SerializedName("chat_id")
   private String chatId;
+  /**
+   * 部门的排序
+   * <p> 示例值：100
+   */
   @SerializedName("order")
   private Integer order;
+  /**
+   * 部门状态
+   * <p> 示例值：
+   */
   @SerializedName("status")
   private DepartmentStatus status;
+  /**
+   * 部门负责人
+   * <p> 示例值：
+   */
+  @SerializedName("leaders")
+  private DepartmentLeader[] leaders;
 
   // builder 开始
   public DepartmentEvent() {
   }
 
   public DepartmentEvent(Builder builder) {
+    /**
+     * 部门名称
+     * <p> 示例值：测试部门
+     */
     this.name = builder.name;
+    /**
+     * 父部门的部门open_department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * <p> 示例值：jkfsd89782
+     */
     this.parentDepartmentId = builder.parentDepartmentId;
+    /**
+     * 本部门的department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * <p> 示例值：yd7sa8yf2j
+     */
     this.departmentId = builder.departmentId;
+    /**
+     * 部门的open_department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * <p> 示例值：od_j10j52hjksd9g0isdfg43
+     */
     this.openDepartmentId = builder.openDepartmentId;
+    /**
+     * 部门主管用户open_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * <p> 示例值：ou_3j1kh45jk18fgh23hf
+     */
     this.leaderUserId = builder.leaderUserId;
+    /**
+     * 部门群ID
+     * <p> 示例值：oc_uiy325uy23bnv48gdf
+     */
     this.chatId = builder.chatId;
+    /**
+     * 部门的排序
+     * <p> 示例值：100
+     */
     this.order = builder.order;
+    /**
+     * 部门状态
+     * <p> 示例值：
+     */
     this.status = builder.status;
+    /**
+     * 部门负责人
+     * <p> 示例值：
+     */
+    this.leaders = builder.leaders;
   }
 
   public static Builder newBuilder() {
@@ -117,55 +192,175 @@ public class DepartmentEvent {
     this.status = status;
   }
 
+  public DepartmentLeader[] getLeaders() {
+    return this.leaders;
+  }
+
+  public void setLeaders(DepartmentLeader[] leaders) {
+    this.leaders = leaders;
+  }
+
   public static class Builder {
 
+    /**
+     * 部门名称
+     * <p> 示例值：测试部门
+     */
     private String name;
+    /**
+     * 父部门的部门open_department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * <p> 示例值：jkfsd89782
+     */
     private String parentDepartmentId;
+    /**
+     * 本部门的department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * <p> 示例值：yd7sa8yf2j
+     */
     private String departmentId;
+    /**
+     * 部门的open_department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * <p> 示例值：od_j10j52hjksd9g0isdfg43
+     */
     private String openDepartmentId;
+    /**
+     * 部门主管用户open_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * <p> 示例值：ou_3j1kh45jk18fgh23hf
+     */
     private String leaderUserId;
+    /**
+     * 部门群ID
+     * <p> 示例值：oc_uiy325uy23bnv48gdf
+     */
     private String chatId;
+    /**
+     * 部门的排序
+     * <p> 示例值：100
+     */
     private Integer order;
+    /**
+     * 部门状态
+     * <p> 示例值：
+     */
     private DepartmentStatus status;
+    /**
+     * 部门负责人
+     * <p> 示例值：
+     */
+    private DepartmentLeader[] leaders;
 
+    /**
+     * 部门名称
+     * <p> 示例值：测试部门
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 父部门的部门open_department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * <p> 示例值：jkfsd89782
+     *
+     * @param parentDepartmentId
+     * @return
+     */
     public Builder parentDepartmentId(String parentDepartmentId) {
       this.parentDepartmentId = parentDepartmentId;
       return this;
     }
 
+
+    /**
+     * 本部门的department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * <p> 示例值：yd7sa8yf2j
+     *
+     * @param departmentId
+     * @return
+     */
     public Builder departmentId(String departmentId) {
       this.departmentId = departmentId;
       return this;
     }
 
+
+    /**
+     * 部门的open_department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * <p> 示例值：od_j10j52hjksd9g0isdfg43
+     *
+     * @param openDepartmentId
+     * @return
+     */
     public Builder openDepartmentId(String openDepartmentId) {
       this.openDepartmentId = openDepartmentId;
       return this;
     }
 
+
+    /**
+     * 部门主管用户open_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * <p> 示例值：ou_3j1kh45jk18fgh23hf
+     *
+     * @param leaderUserId
+     * @return
+     */
     public Builder leaderUserId(String leaderUserId) {
       this.leaderUserId = leaderUserId;
       return this;
     }
 
+
+    /**
+     * 部门群ID
+     * <p> 示例值：oc_uiy325uy23bnv48gdf
+     *
+     * @param chatId
+     * @return
+     */
     public Builder chatId(String chatId) {
       this.chatId = chatId;
       return this;
     }
 
+
+    /**
+     * 部门的排序
+     * <p> 示例值：100
+     *
+     * @param order
+     * @return
+     */
     public Builder order(Integer order) {
       this.order = order;
       return this;
     }
 
 
+    /**
+     * 部门状态
+     * <p> 示例值：
+     *
+     * @param status
+     * @return
+     */
     public Builder status(DepartmentStatus status) {
       this.status = status;
+      return this;
+    }
+
+
+    /**
+     * 部门负责人
+     * <p> 示例值：
+     *
+     * @param leaders
+     * @return
+     */
+    public Builder leaders(DepartmentLeader[] leaders) {
+      this.leaders = leaders;
       return this;
     }
 

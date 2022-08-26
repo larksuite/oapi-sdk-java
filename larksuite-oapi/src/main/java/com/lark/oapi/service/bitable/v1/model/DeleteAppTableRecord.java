@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class DeleteAppTableRecord {
 
+  /**
+   * 是否成功删除
+   * <p> 示例值：
+   */
   @SerializedName("deleted")
   private Boolean deleted;
+  /**
+   * 删除的记录id
+   * <p> 示例值：
+   */
   @SerializedName("record_id")
   private String recordId;
 

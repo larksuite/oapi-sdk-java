@@ -17,20 +17,52 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryUserStatsDataReqBody {
 
+  /**
+   * 语言类型
+   * <p> 示例值：zh
+   */
   @SerializedName("locale")
   private String locale;
+  /**
+   * 统计类型
+   * <p> 示例值：month
+   */
   @SerializedName("stats_type")
   private String statsType;
+  /**
+   * 开始时间
+   * <p> 示例值：20210316
+   */
   @SerializedName("start_date")
   private Integer startDate;
+  /**
+   * 结束时间;（时间间隔不超过 40 天）
+   * <p> 示例值：20210323
+   */
   @SerializedName("end_date")
   private Integer endDate;
+  /**
+   * 查询的用户 ID 列表;（用户数量不超过 200）
+   * <p> 示例值：[;        "ec8ddg56",;        "4dbb52f2",;        "4167842e";    ]
+   */
   @SerializedName("user_ids")
   private String[] userIds;
+  /**
+   * 是否需要历史数据
+   * <p> 示例值：true
+   */
   @SerializedName("need_history")
   private Boolean needHistory;
+  /**
+   * 只展示当前考勤组
+   * <p> 示例值：true
+   */
   @SerializedName("current_group_only")
   private Boolean currentGroupOnly;
+  /**
+   * 查询用户id，同【更新统计设置】、【查询统计设置】user_id
+   * <p> 示例值：ec8ddg56
+   */
   @SerializedName("user_id")
   private String userId;
 
@@ -39,13 +71,45 @@ public class QueryUserStatsDataReqBody {
   }
 
   public QueryUserStatsDataReqBody(Builder builder) {
+    /**
+     * 语言类型
+     * <p> 示例值：zh
+     */
     this.locale = builder.locale;
+    /**
+     * 统计类型
+     * <p> 示例值：month
+     */
     this.statsType = builder.statsType;
+    /**
+     * 开始时间
+     * <p> 示例值：20210316
+     */
     this.startDate = builder.startDate;
+    /**
+     * 结束时间;（时间间隔不超过 40 天）
+     * <p> 示例值：20210323
+     */
     this.endDate = builder.endDate;
+    /**
+     * 查询的用户 ID 列表;（用户数量不超过 200）
+     * <p> 示例值：[;        "ec8ddg56",;        "4dbb52f2",;        "4167842e";    ]
+     */
     this.userIds = builder.userIds;
+    /**
+     * 是否需要历史数据
+     * <p> 示例值：true
+     */
     this.needHistory = builder.needHistory;
+    /**
+     * 只展示当前考勤组
+     * <p> 示例值：true
+     */
     this.currentGroupOnly = builder.currentGroupOnly;
+    /**
+     * 查询用户id，同【更新统计设置】、【查询统计设置】user_id
+     * <p> 示例值：ec8ddg56
+     */
     this.userId = builder.userId;
   }
 
@@ -119,60 +183,171 @@ public class QueryUserStatsDataReqBody {
 
   public static class Builder {
 
+    /**
+     * 语言类型
+     * <p> 示例值：zh
+     */
     private String locale;
+    /**
+     * 统计类型
+     * <p> 示例值：month
+     */
     private String statsType;
+    /**
+     * 开始时间
+     * <p> 示例值：20210316
+     */
     private Integer startDate;
+    /**
+     * 结束时间;（时间间隔不超过 40 天）
+     * <p> 示例值：20210323
+     */
     private Integer endDate;
+    /**
+     * 查询的用户 ID 列表;（用户数量不超过 200）
+     * <p> 示例值：[;        "ec8ddg56",;        "4dbb52f2",;        "4167842e";    ]
+     */
     private String[] userIds;
+    /**
+     * 是否需要历史数据
+     * <p> 示例值：true
+     */
     private Boolean needHistory;
+    /**
+     * 只展示当前考勤组
+     * <p> 示例值：true
+     */
     private Boolean currentGroupOnly;
+    /**
+     * 查询用户id，同【更新统计设置】、【查询统计设置】user_id
+     * <p> 示例值：ec8ddg56
+     */
     private String userId;
 
+    /**
+     * 语言类型
+     * <p> 示例值：zh
+     *
+     * @param locale
+     * @return
+     */
     public Builder locale(String locale) {
       this.locale = locale;
       return this;
     }
 
-    public Builder locale(com.lark.oapi.service.attendance.v1.enums.LocaleEnum locale) {
+    /**
+     * 语言类型
+     * <p> 示例值：zh
+     *
+     * @param locale {@link com.lark.oapi.service.attendance.v1.enums.QueryUserStatsDataLocaleEnum}
+     * @return
+     */
+    public Builder locale(
+        com.lark.oapi.service.attendance.v1.enums.QueryUserStatsDataLocaleEnum locale) {
       this.locale = locale.getValue();
       return this;
     }
 
+
+    /**
+     * 统计类型
+     * <p> 示例值：month
+     *
+     * @param statsType
+     * @return
+     */
     public Builder statsType(String statsType) {
       this.statsType = statsType;
       return this;
     }
 
-    public Builder statsType(com.lark.oapi.service.attendance.v1.enums.StatsTypeEnum statsType) {
+    /**
+     * 统计类型
+     * <p> 示例值：month
+     *
+     * @param statsType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserStatsDataStatsTypeEnum}
+     * @return
+     */
+    public Builder statsType(
+        com.lark.oapi.service.attendance.v1.enums.QueryUserStatsDataStatsTypeEnum statsType) {
       this.statsType = statsType.getValue();
       return this;
     }
 
+
+    /**
+     * 开始时间
+     * <p> 示例值：20210316
+     *
+     * @param startDate
+     * @return
+     */
     public Builder startDate(Integer startDate) {
       this.startDate = startDate;
       return this;
     }
 
+
+    /**
+     * 结束时间;（时间间隔不超过 40 天）
+     * <p> 示例值：20210323
+     *
+     * @param endDate
+     * @return
+     */
     public Builder endDate(Integer endDate) {
       this.endDate = endDate;
       return this;
     }
 
+
+    /**
+     * 查询的用户 ID 列表;（用户数量不超过 200）
+     * <p> 示例值：[;        "ec8ddg56",;        "4dbb52f2",;        "4167842e";    ]
+     *
+     * @param userIds
+     * @return
+     */
     public Builder userIds(String[] userIds) {
       this.userIds = userIds;
       return this;
     }
 
+
+    /**
+     * 是否需要历史数据
+     * <p> 示例值：true
+     *
+     * @param needHistory
+     * @return
+     */
     public Builder needHistory(Boolean needHistory) {
       this.needHistory = needHistory;
       return this;
     }
 
+
+    /**
+     * 只展示当前考勤组
+     * <p> 示例值：true
+     *
+     * @param currentGroupOnly
+     * @return
+     */
     public Builder currentGroupOnly(Boolean currentGroupOnly) {
       this.currentGroupOnly = currentGroupOnly;
       return this;
     }
 
+
+    /**
+     * 查询用户id，同【更新统计设置】、【查询统计设置】user_id
+     * <p> 示例值：ec8ddg56
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;

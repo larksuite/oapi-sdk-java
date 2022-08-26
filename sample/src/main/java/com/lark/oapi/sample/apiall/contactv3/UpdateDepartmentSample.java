@@ -4,10 +4,11 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.contact.v3.model.Department;
 import com.lark.oapi.service.contact.v3.model.DepartmentI18nName;
+import com.lark.oapi.service.contact.v3.model.DepartmentLeader;
 import com.lark.oapi.service.contact.v3.model.UpdateDepartmentReq;
 import com.lark.oapi.service.contact.v3.model.UpdateDepartmentResp;
 
-// HTTP PATH: /open-apis/contact/v3/departments/:department_id"
+// PUT /open-apis/contact/v3/departments/:department_id
 public class UpdateDepartmentSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +17,7 @@ public class UpdateDepartmentSample {
 
     // 创建请求对象
     UpdateDepartmentReq req = UpdateDepartmentReq.newBuilder()
-        .departmentId("")
+        .departmentId("od-4e6ac4d14bcd5071a37a39de902c7141")
         .userIdType("open_id")
         .departmentIdType("open_department_id")
         .department(Department.newBuilder()
@@ -27,6 +28,7 @@ public class UpdateDepartmentSample {
             .order("")
             .unitIds(new String[]{})
             .createGroupChat(false)
+            .leaders(new DepartmentLeader[]{})
             .build())
         .build();
 

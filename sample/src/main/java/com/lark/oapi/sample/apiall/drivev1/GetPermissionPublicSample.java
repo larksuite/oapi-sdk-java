@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.drive.v1.model.GetPermissionPublicReq;
 import com.lark.oapi.service.drive.v1.model.GetPermissionPublicResp;
 
-// HTTP PATH: /open-apis/drive/v1/permissions/:token/public"
+// GET /open-apis/drive/v1/permissions/:token/public
 public class GetPermissionPublicSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class GetPermissionPublicSample {
 
     // 创建请求对象
     GetPermissionPublicReq req = GetPermissionPublicReq.newBuilder()
-        .token("")
+        .token("doccnBKgoMyY5OMbUG6FioTXuBe")
         .type("doc")
         .build();
 

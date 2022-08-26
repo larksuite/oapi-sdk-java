@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Point {
 
+  /**
+   * 横轴坐标
+   * <p> 示例值：200
+   */
   @SerializedName("x")
   private Double x;
+  /**
+   * 纵轴坐标
+   * <p> 示例值：200
+   */
   @SerializedName("y")
   private Double y;
 
@@ -27,7 +35,15 @@ public class Point {
   }
 
   public Point(Builder builder) {
+    /**
+     * 横轴坐标
+     * <p> 示例值：200
+     */
     this.x = builder.x;
+    /**
+     * 纵轴坐标
+     * <p> 示例值：200
+     */
     this.y = builder.y;
   }
 
@@ -53,14 +69,37 @@ public class Point {
 
   public static class Builder {
 
+    /**
+     * 横轴坐标
+     * <p> 示例值：200
+     */
     private Double x;
+    /**
+     * 纵轴坐标
+     * <p> 示例值：200
+     */
     private Double y;
 
+    /**
+     * 横轴坐标
+     * <p> 示例值：200
+     *
+     * @param x
+     * @return
+     */
     public Builder x(Double x) {
       this.x = x;
       return this;
     }
 
+
+    /**
+     * 纵轴坐标
+     * <p> 示例值：200
+     *
+     * @param y
+     * @return
+     */
     public Builder y(Double y) {
       this.y = y;
       return this;

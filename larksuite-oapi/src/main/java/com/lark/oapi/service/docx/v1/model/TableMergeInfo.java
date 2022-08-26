@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class TableMergeInfo {
 
+  /**
+   * 从当前行索引起被合并的连续行数
+   * <p> 示例值：2
+   */
   @SerializedName("row_span")
   private Integer rowSpan;
+  /**
+   * 从当前列索引起被合并的连续列数
+   * <p> 示例值：2
+   */
   @SerializedName("col_span")
   private Integer colSpan;
 
@@ -27,7 +35,15 @@ public class TableMergeInfo {
   }
 
   public TableMergeInfo(Builder builder) {
+    /**
+     * 从当前行索引起被合并的连续行数
+     * <p> 示例值：2
+     */
     this.rowSpan = builder.rowSpan;
+    /**
+     * 从当前列索引起被合并的连续列数
+     * <p> 示例值：2
+     */
     this.colSpan = builder.colSpan;
   }
 
@@ -53,14 +69,37 @@ public class TableMergeInfo {
 
   public static class Builder {
 
+    /**
+     * 从当前行索引起被合并的连续行数
+     * <p> 示例值：2
+     */
     private Integer rowSpan;
+    /**
+     * 从当前列索引起被合并的连续列数
+     * <p> 示例值：2
+     */
     private Integer colSpan;
 
+    /**
+     * 从当前行索引起被合并的连续行数
+     * <p> 示例值：2
+     *
+     * @param rowSpan
+     * @return
+     */
     public Builder rowSpan(Integer rowSpan) {
       this.rowSpan = rowSpan;
       return this;
     }
 
+
+    /**
+     * 从当前列索引起被合并的连续列数
+     * <p> 示例值：2
+     *
+     * @param colSpan
+     * @return
+     */
     public Builder colSpan(Integer colSpan) {
       this.colSpan = colSpan;
       return this;

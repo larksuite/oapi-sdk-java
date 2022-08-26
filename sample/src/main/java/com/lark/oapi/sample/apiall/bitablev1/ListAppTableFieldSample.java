@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.bitable.v1.model.ListAppTableFieldReq;
 import com.lark.oapi.service.bitable.v1.model.ListAppTableFieldResp;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields"
+// GET /open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields
 public class ListAppTableFieldSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,10 +14,10 @@ public class ListAppTableFieldSample {
 
     // 创建请求对象
     ListAppTableFieldReq req = ListAppTableFieldReq.newBuilder()
-        .appToken("")
-        .tableId("")
-        .viewId("")
-        .pageToken("")
+        .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
+        .tableId("tblsRc9GRRXKqhvW")
+        .viewId("vewOVMEXPF")
+        .pageToken("fldwJ4YrtB")
         .pageSize(20)
         .build();
 

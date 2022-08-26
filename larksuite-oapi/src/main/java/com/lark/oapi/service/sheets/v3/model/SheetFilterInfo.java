@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class SheetFilterInfo {
 
+  /**
+   * 筛选应用范围
+   * <p> 示例值：xxxxxx!A1:H14
+   */
   @SerializedName("range")
   private String range;
+  /**
+   * 筛选出来隐藏的行
+   * <p> 示例值：
+   */
   @SerializedName("filtered_out_rows")
   private Integer[] filteredOutRows;
+  /**
+   * sheet的筛选条件
+   * <p> 示例值：
+   */
   @SerializedName("filter_infos")
   private FilterInfo[] filterInfos;
 
@@ -29,8 +41,20 @@ public class SheetFilterInfo {
   }
 
   public SheetFilterInfo(Builder builder) {
+    /**
+     * 筛选应用范围
+     * <p> 示例值：xxxxxx!A1:H14
+     */
     this.range = builder.range;
+    /**
+     * 筛选出来隐藏的行
+     * <p> 示例值：
+     */
     this.filteredOutRows = builder.filteredOutRows;
+    /**
+     * sheet的筛选条件
+     * <p> 示例值：
+     */
     this.filterInfos = builder.filterInfos;
   }
 
@@ -64,20 +88,55 @@ public class SheetFilterInfo {
 
   public static class Builder {
 
+    /**
+     * 筛选应用范围
+     * <p> 示例值：xxxxxx!A1:H14
+     */
     private String range;
+    /**
+     * 筛选出来隐藏的行
+     * <p> 示例值：
+     */
     private Integer[] filteredOutRows;
+    /**
+     * sheet的筛选条件
+     * <p> 示例值：
+     */
     private FilterInfo[] filterInfos;
 
+    /**
+     * 筛选应用范围
+     * <p> 示例值：xxxxxx!A1:H14
+     *
+     * @param range
+     * @return
+     */
     public Builder range(String range) {
       this.range = range;
       return this;
     }
 
+
+    /**
+     * 筛选出来隐藏的行
+     * <p> 示例值：
+     *
+     * @param filteredOutRows
+     * @return
+     */
     public Builder filteredOutRows(Integer[] filteredOutRows) {
       this.filteredOutRows = filteredOutRows;
       return this;
     }
 
+
+    /**
+     * sheet的筛选条件
+     * <p> 示例值：
+     *
+     * @param filterInfos
+     * @return
+     */
     public Builder filterInfos(FilterInfo[] filterInfos) {
       this.filterInfos = filterInfos;
       return this;

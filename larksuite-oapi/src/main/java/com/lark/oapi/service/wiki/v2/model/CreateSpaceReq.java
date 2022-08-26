@@ -48,6 +48,12 @@ public class CreateSpaceReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder space(Space body) {
       this.body = body;
       return this;

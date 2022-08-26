@@ -9,7 +9,7 @@ import com.lark.oapi.service.helpdesk.v1.model.NotificationChat;
 import com.lark.oapi.service.helpdesk.v1.model.NotificationDepartment;
 import com.lark.oapi.service.helpdesk.v1.model.NotificationUser;
 
-// HTTP PATH: /open-apis/helpdesk/v1/notifications"
+// POST /open-apis/helpdesk/v1/notifications
 public class CreateNotificationSample {
 
   public static void main(String arg[]) throws Exception {

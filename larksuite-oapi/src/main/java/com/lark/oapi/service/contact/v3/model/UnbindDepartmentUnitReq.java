@@ -48,6 +48,12 @@ public class UnbindDepartmentUnitReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder unbindDepartmentUnitReqBody(UnbindDepartmentUnitReqBody body) {
       this.body = body;
       return this;

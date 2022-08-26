@@ -17,12 +17,24 @@ import com.google.gson.annotations.SerializedName;
 
 public class WifiInfoEvent {
 
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("ssid")
   private String ssid;
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("bssid")
   private String bssid;
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("lastssid")
   private String lastssid;
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("lastbssid")
   private String lastbssid;
 
@@ -31,9 +43,25 @@ public class WifiInfoEvent {
   }
 
   public WifiInfoEvent(Builder builder) {
+    /**
+     *
+     * <p> 示例值：
+     */
     this.ssid = builder.ssid;
+    /**
+     *
+     * <p> 示例值：
+     */
     this.bssid = builder.bssid;
+    /**
+     *
+     * <p> 示例值：
+     */
     this.lastssid = builder.lastssid;
+    /**
+     *
+     * <p> 示例值：
+     */
     this.lastbssid = builder.lastbssid;
   }
 
@@ -75,26 +103,65 @@ public class WifiInfoEvent {
 
   public static class Builder {
 
+    /**
+     * <p> 示例值：
+     */
     private String ssid;
+    /**
+     * <p> 示例值：
+     */
     private String bssid;
+    /**
+     * <p> 示例值：
+     */
     private String lastssid;
+    /**
+     * <p> 示例值：
+     */
     private String lastbssid;
 
+    /**
+     * <p> 示例值：
+     *
+     * @param ssid
+     * @return
+     */
     public Builder ssid(String ssid) {
       this.ssid = ssid;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：
+     *
+     * @param bssid
+     * @return
+     */
     public Builder bssid(String bssid) {
       this.bssid = bssid;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：
+     *
+     * @param lastssid
+     * @return
+     */
     public Builder lastssid(String lastssid) {
       this.lastssid = lastssid;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：
+     *
+     * @param lastbssid
+     * @return
+     */
     public Builder lastbssid(String lastbssid) {
       this.lastbssid = lastbssid;
       return this;

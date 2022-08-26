@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class CustomizedFieldsTicket {
 
+  /**
+   * 用户自定义字段
+   * <p> 示例值：
+   */
   @SerializedName("user_customized_fields")
   private UserCustomizedField[] userCustomizedFields;
+  /**
+   * 自定义工单字段
+   * <p> 示例值：
+   */
   @SerializedName("ticket_customized_fields")
   private TicketCustomizedField[] ticketCustomizedFields;
 

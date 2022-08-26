@@ -17,8 +17,14 @@ import com.google.gson.annotations.SerializedName;
 
 public class ScanWifiInfo {
 
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("ssid")
   private String ssid;
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("bssid")
   private String bssid;
 
@@ -27,7 +33,15 @@ public class ScanWifiInfo {
   }
 
   public ScanWifiInfo(Builder builder) {
+    /**
+     *
+     * <p> 示例值：
+     */
     this.ssid = builder.ssid;
+    /**
+     *
+     * <p> 示例值：
+     */
     this.bssid = builder.bssid;
   }
 
@@ -53,14 +67,33 @@ public class ScanWifiInfo {
 
   public static class Builder {
 
+    /**
+     * <p> 示例值：
+     */
     private String ssid;
+    /**
+     * <p> 示例值：
+     */
     private String bssid;
 
+    /**
+     * <p> 示例值：
+     *
+     * @param ssid
+     * @return
+     */
     public Builder ssid(String ssid) {
       this.ssid = ssid;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：
+     *
+     * @param bssid
+     * @return
+     */
     public Builder bssid(String bssid) {
       this.bssid = bssid;
       return this;

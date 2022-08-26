@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class AclScopeEvent {
 
+  /**
+   * 权限类型，当type为User时，值为open_id/user_id/union_id
+   * <p> 示例值：user
+   */
   @SerializedName("type")
   private String type;
+  /**
+   * 用户 ID
+   * <p> 示例值：
+   */
   @SerializedName("user_id")
   private UserId userId;
 
@@ -27,7 +35,15 @@ public class AclScopeEvent {
   }
 
   public AclScopeEvent(Builder builder) {
+    /**
+     * 权限类型，当type为User时，值为open_id/user_id/union_id
+     * <p> 示例值：user
+     */
     this.type = builder.type;
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     */
     this.userId = builder.userId;
   }
 
@@ -53,19 +69,50 @@ public class AclScopeEvent {
 
   public static class Builder {
 
+    /**
+     * 权限类型，当type为User时，值为open_id/user_id/union_id
+     * <p> 示例值：user
+     */
     private String type;
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     */
     private UserId userId;
 
+    /**
+     * 权限类型，当type为User时，值为open_id/user_id/union_id
+     * <p> 示例值：user
+     *
+     * @param type
+     * @return
+     */
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public Builder type(com.lark.oapi.service.calendar.v4.enums.AclScopeTypeEnum type) {
+    /**
+     * 权限类型，当type为User时，值为open_id/user_id/union_id
+     * <p> 示例值：user
+     *
+     * @param type {@link com.lark.oapi.service.calendar.v4.enums.AclScopeEventAclScopeTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.calendar.v4.enums.AclScopeEventAclScopeTypeEnum type) {
       this.type = type.getValue();
       return this;
     }
 
+
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(UserId userId) {
       this.userId = userId;
       return this;

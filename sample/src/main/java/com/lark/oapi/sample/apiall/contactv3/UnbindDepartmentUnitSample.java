@@ -6,7 +6,7 @@ import com.lark.oapi.service.contact.v3.model.UnbindDepartmentUnitReq;
 import com.lark.oapi.service.contact.v3.model.UnbindDepartmentUnitReqBody;
 import com.lark.oapi.service.contact.v3.model.UnbindDepartmentUnitResp;
 
-// HTTP PATH: /open-apis/contact/v3/unit/unbind_department"
+// POST /open-apis/contact/v3/unit/unbind_department
 public class UnbindDepartmentUnitSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,8 +16,8 @@ public class UnbindDepartmentUnitSample {
     // 创建请求对象
     UnbindDepartmentUnitReq req = UnbindDepartmentUnitReq.newBuilder()
         .unbindDepartmentUnitReqBody(UnbindDepartmentUnitReqBody.newBuilder()
-            .unitId("")
-            .departmentId("")
+            .unitId("BU121")
+            .departmentId("od-4e6ac4d14bcd5071a37a39de902c7141")
             .departmentIdType("open_department_id")
             .build())
         .build();

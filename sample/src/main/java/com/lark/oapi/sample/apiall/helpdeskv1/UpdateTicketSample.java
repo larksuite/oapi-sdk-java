@@ -7,7 +7,7 @@ import com.lark.oapi.service.helpdesk.v1.model.UpdateTicketReq;
 import com.lark.oapi.service.helpdesk.v1.model.UpdateTicketReqBody;
 import com.lark.oapi.service.helpdesk.v1.model.UpdateTicketResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/tickets/:ticket_id"
+// PUT /open-apis/helpdesk/v1/tickets/:ticket_id
 public class UpdateTicketSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,15 +16,15 @@ public class UpdateTicketSample {
 
     // 创建请求对象
     UpdateTicketReq req = UpdateTicketReq.newBuilder()
-        .ticketId("")
+        .ticketId("6945345902185807891")
         .updateTicketReqBody(UpdateTicketReqBody.newBuilder()
-            .status(0)
+            .status(1)
             .tagNames(new String[]{})
-            .comment("")
+            .comment("good")
             .customizedFields(new CustomizedFieldDisplayItem[]{})
-            .ticketType(0)
-            .solved(0)
-            .channel(0)
+            .ticketType(1)
+            .solved(1)
+            .channel(1)
             .build())
         .build();
 

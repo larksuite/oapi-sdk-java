@@ -17,10 +17,21 @@ import com.google.gson.annotations.SerializedName;
 
 public class SearchDepartment {
 
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private Department[] items;
+  /**
+   * 翻页 token，传入返回下一页，首页不需要传入
+   * <p> 示例值：AQD9/Rn9eij9Pm39ED40/RD/cIFmu77WxpxPB/2oHfQLZ%2BG8JG6tK7%2BZnHiT7COhD2hMSICh/eBl7cpzU6JEC3J7COKNe4jrQ8ExwBCR
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 是否还有下一页
+   * <p> 示例值：true
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
 

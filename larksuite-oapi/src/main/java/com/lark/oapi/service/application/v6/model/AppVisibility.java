@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class AppVisibility {
 
+  /**
+   * 是否全员可见
+   * <p> 示例值：false
+   */
   @SerializedName("is_all")
   private Boolean isAll;
+  /**
+   * 可见名单
+   * <p> 示例值：
+   */
   @SerializedName("visible_list")
   private AppVisibleList visibleList;
+  /**
+   * 不可见名单
+   * <p> 示例值：
+   */
   @SerializedName("invisible_list")
   private AppVisibleList invisibleList;
 
@@ -29,8 +41,20 @@ public class AppVisibility {
   }
 
   public AppVisibility(Builder builder) {
+    /**
+     * 是否全员可见
+     * <p> 示例值：false
+     */
     this.isAll = builder.isAll;
+    /**
+     * 可见名单
+     * <p> 示例值：
+     */
     this.visibleList = builder.visibleList;
+    /**
+     * 不可见名单
+     * <p> 示例值：
+     */
     this.invisibleList = builder.invisibleList;
   }
 
@@ -64,20 +88,55 @@ public class AppVisibility {
 
   public static class Builder {
 
+    /**
+     * 是否全员可见
+     * <p> 示例值：false
+     */
     private Boolean isAll;
+    /**
+     * 可见名单
+     * <p> 示例值：
+     */
     private AppVisibleList visibleList;
+    /**
+     * 不可见名单
+     * <p> 示例值：
+     */
     private AppVisibleList invisibleList;
 
+    /**
+     * 是否全员可见
+     * <p> 示例值：false
+     *
+     * @param isAll
+     * @return
+     */
     public Builder isAll(Boolean isAll) {
       this.isAll = isAll;
       return this;
     }
 
+
+    /**
+     * 可见名单
+     * <p> 示例值：
+     *
+     * @param visibleList
+     * @return
+     */
     public Builder visibleList(AppVisibleList visibleList) {
       this.visibleList = visibleList;
       return this;
     }
 
+
+    /**
+     * 不可见名单
+     * <p> 示例值：
+     *
+     * @param invisibleList
+     * @return
+     */
     public Builder invisibleList(AppVisibleList invisibleList) {
       this.invisibleList = invisibleList;
       return this;

@@ -48,6 +48,12 @@ public class UploadPartFileReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder uploadPartFileReqBody(UploadPartFileReqBody body) {
       this.body = body;
       return this;

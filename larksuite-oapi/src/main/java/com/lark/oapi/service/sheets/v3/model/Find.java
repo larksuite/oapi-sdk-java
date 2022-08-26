@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Find {
 
+  /**
+   * 查找条件
+   * <p> 示例值：
+   */
   @SerializedName("find_condition")
   private FindCondition findCondition;
+  /**
+   * 查找的字符串
+   * <p> 示例值：hello
+   */
   @SerializedName("find")
   private String find;
 
@@ -27,7 +35,15 @@ public class Find {
   }
 
   public Find(Builder builder) {
+    /**
+     * 查找条件
+     * <p> 示例值：
+     */
     this.findCondition = builder.findCondition;
+    /**
+     * 查找的字符串
+     * <p> 示例值：hello
+     */
     this.find = builder.find;
   }
 
@@ -53,14 +69,37 @@ public class Find {
 
   public static class Builder {
 
+    /**
+     * 查找条件
+     * <p> 示例值：
+     */
     private FindCondition findCondition;
+    /**
+     * 查找的字符串
+     * <p> 示例值：hello
+     */
     private String find;
 
+    /**
+     * 查找条件
+     * <p> 示例值：
+     *
+     * @param findCondition
+     * @return
+     */
     public Builder findCondition(FindCondition findCondition) {
       this.findCondition = findCondition;
       return this;
     }
 
+
+    /**
+     * 查找的字符串
+     * <p> 示例值：hello
+     *
+     * @param find
+     * @return
+     */
     public Builder find(String find) {
       this.find = find;
       return this;

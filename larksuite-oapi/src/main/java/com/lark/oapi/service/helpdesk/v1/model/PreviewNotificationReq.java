@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class PreviewNotificationReq {
 
+  /**
+   * 创建推送接口成功后返回的唯一id
+   * <p> 示例值：6985032626234982420
+   */
   @Path
   @SerializedName("notification_id")
   private String notificationId;
@@ -27,6 +31,10 @@ public class PreviewNotificationReq {
   }
 
   public PreviewNotificationReq(Builder builder) {
+    /**
+     * 创建推送接口成功后返回的唯一id
+     * <p> 示例值：6985032626234982420
+     */
     this.notificationId = builder.notificationId;
   }
 
@@ -44,8 +52,15 @@ public class PreviewNotificationReq {
 
   public static class Builder {
 
-    private String notificationId;
+    private String notificationId; // 创建推送接口成功后返回的唯一id
 
+    /**
+     * 创建推送接口成功后返回的唯一id
+     * <p> 示例值：6985032626234982420
+     *
+     * @param notificationId
+     * @return
+     */
     public Builder notificationId(String notificationId) {
       this.notificationId = notificationId;
       return this;

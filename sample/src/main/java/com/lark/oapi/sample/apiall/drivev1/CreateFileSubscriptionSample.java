@@ -6,7 +6,7 @@ import com.lark.oapi.service.drive.v1.model.CreateFileSubscriptionReq;
 import com.lark.oapi.service.drive.v1.model.CreateFileSubscriptionResp;
 import com.lark.oapi.service.drive.v1.model.FileSubscription;
 
-// HTTP PATH: /open-apis/drive/v1/files/:file_token/subscriptions"
+// POST /open-apis/drive/v1/files/:file_token/subscriptions
 public class CreateFileSubscriptionSample {
 
   public static void main(String arg[]) throws Exception {

@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class GetAttachmentReq {
 
+  /**
+   * 文件 token
+   * <p> 示例值：09bf7b924f9a4a69875788891b5970d8
+   */
   @Path
   @SerializedName("token")
   private String token;
@@ -27,6 +31,10 @@ public class GetAttachmentReq {
   }
 
   public GetAttachmentReq(Builder builder) {
+    /**
+     * 文件 token
+     * <p> 示例值：09bf7b924f9a4a69875788891b5970d8
+     */
     this.token = builder.token;
   }
 
@@ -44,8 +52,15 @@ public class GetAttachmentReq {
 
   public static class Builder {
 
-    private String token;
+    private String token; // 文件 token
 
+    /**
+     * 文件 token
+     * <p> 示例值：09bf7b924f9a4a69875788891b5970d8
+     *
+     * @param token
+     * @return
+     */
     public Builder token(String token) {
       this.token = token;
       return this;

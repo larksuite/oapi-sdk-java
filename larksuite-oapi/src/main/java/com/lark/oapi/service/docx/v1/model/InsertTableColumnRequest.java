@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class InsertTableColumnRequest {
 
+  /**
+   * 插入的列在表格中的索引。（-1表示在表格末尾插入一列）
+   * <p> 示例值：-1
+   */
   @SerializedName("column_index")
   private Integer columnIndex;
 
@@ -25,6 +29,10 @@ public class InsertTableColumnRequest {
   }
 
   public InsertTableColumnRequest(Builder builder) {
+    /**
+     * 插入的列在表格中的索引。（-1表示在表格末尾插入一列）
+     * <p> 示例值：-1
+     */
     this.columnIndex = builder.columnIndex;
   }
 
@@ -42,8 +50,19 @@ public class InsertTableColumnRequest {
 
   public static class Builder {
 
+    /**
+     * 插入的列在表格中的索引。（-1表示在表格末尾插入一列）
+     * <p> 示例值：-1
+     */
     private Integer columnIndex;
 
+    /**
+     * 插入的列在表格中的索引。（-1表示在表格末尾插入一列）
+     * <p> 示例值：-1
+     *
+     * @param columnIndex
+     * @return
+     */
     public Builder columnIndex(Integer columnIndex) {
       this.columnIndex = columnIndex;
       return this;

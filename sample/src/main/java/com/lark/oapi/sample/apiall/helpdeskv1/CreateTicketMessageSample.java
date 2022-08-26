@@ -6,7 +6,7 @@ import com.lark.oapi.service.helpdesk.v1.model.CreateTicketMessageReq;
 import com.lark.oapi.service.helpdesk.v1.model.CreateTicketMessageReqBody;
 import com.lark.oapi.service.helpdesk.v1.model.CreateTicketMessageResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/tickets/:ticket_id/messages"
+// POST /open-apis/helpdesk/v1/tickets/:ticket_id/messages
 public class CreateTicketMessageSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,9 +15,9 @@ public class CreateTicketMessageSample {
 
     // 创建请求对象
     CreateTicketMessageReq req = CreateTicketMessageReq.newBuilder()
-        .ticketId("")
+        .ticketId("6948728206392295444")
         .createTicketMessageReqBody(CreateTicketMessageReqBody.newBuilder()
-            .msgType("")
+            .msgType("post")
             .content("")
             .build())
         .build();

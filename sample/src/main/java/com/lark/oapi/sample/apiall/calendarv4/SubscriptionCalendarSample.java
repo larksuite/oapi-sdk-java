@@ -4,7 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.calendar.v4.model.SubscriptionCalendarResp;
 
-// HTTP PATH: /open-apis/calendar/v4/calendars/subscription"
+// POST /open-apis/calendar/v4/calendars/subscription
 public class SubscriptionCalendarSample {
 
   public static void main(String arg[]) throws Exception {

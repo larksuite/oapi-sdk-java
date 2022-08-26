@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.drive.v1.model.SubscribeFileReq;
 import com.lark.oapi.service.drive.v1.model.SubscribeFileResp;
 
-// HTTP PATH: /open-apis/drive/v1/files/:file_token/subscribe"
+// POST /open-apis/drive/v1/files/:file_token/subscribe
 public class SubscribeFileSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class SubscribeFileSample {
 
     // 创建请求对象
     SubscribeFileReq req = SubscribeFileReq.newBuilder()
-        .fileToken("")
+        .fileToken("doccnxxxxxxxxxxxxxxxxxxxxxx")
         .fileType("doc")
         .build();
 

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.GetFaqReq;
 import com.lark.oapi.service.helpdesk.v1.model.GetFaqResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/faqs/:id"
+// GET /open-apis/helpdesk/v1/faqs/:id
 public class GetFaqSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class GetFaqSample {
 
     // 创建请求对象
     GetFaqReq req = GetFaqReq.newBuilder()
-        .id("")
+        .id("6856395634652479491")
         .build();
 
     // 发起请求

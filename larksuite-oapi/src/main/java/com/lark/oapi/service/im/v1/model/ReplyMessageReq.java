@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class ReplyMessageReq {
 
+  /**
+   * 待回复的消息的ID
+   * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+   */
   @Path
   @SerializedName("message_id")
   private String messageId;
@@ -30,6 +34,10 @@ public class ReplyMessageReq {
   }
 
   public ReplyMessageReq(Builder builder) {
+    /**
+     * 待回复的消息的ID
+     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+     */
     this.messageId = builder.messageId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class ReplyMessageReq {
 
   public static class Builder {
 
-    private String messageId;
+    private String messageId; // 待回复的消息的ID
     private ReplyMessageReqBody body;
 
+    /**
+     * 待回复的消息的ID
+     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+     *
+     * @param messageId
+     * @return
+     */
     public Builder messageId(String messageId) {
       this.messageId = messageId;
       return this;
@@ -68,6 +83,12 @@ public class ReplyMessageReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder replyMessageReqBody(ReplyMessageReqBody body) {
       this.body = body;
       return this;

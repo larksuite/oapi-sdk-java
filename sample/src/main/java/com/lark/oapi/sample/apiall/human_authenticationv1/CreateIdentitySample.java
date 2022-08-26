@@ -6,7 +6,7 @@ import com.lark.oapi.service.human_authentication.v1.model.CreateIdentityReq;
 import com.lark.oapi.service.human_authentication.v1.model.CreateIdentityReqBody;
 import com.lark.oapi.service.human_authentication.v1.model.CreateIdentityResp;
 
-// HTTP PATH: /open-apis/human_authentication/v1/identities"
+// POST /open-apis/human_authentication/v1/identities
 public class CreateIdentitySample {
 
   public static void main(String arg[]) throws Exception {
@@ -18,9 +18,9 @@ public class CreateIdentitySample {
         .userId("ou_2eb5483cb377daa5054bc6f86e2089a5")
         .userIdType("open_id")
         .createIdentityReqBody(CreateIdentityReqBody.newBuilder()
-            .identityName("")
-            .identityCode("")
-            .mobile("")
+            .identityName("张三")
+            .identityCode("4xxxxxxxx")
+            .mobile("13xxxxxxx")
             .build())
         .build();
 

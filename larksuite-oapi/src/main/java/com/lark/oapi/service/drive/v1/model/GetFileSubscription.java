@@ -17,6 +17,11 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetFileSubscription {
 
+  /**
+   * 文档订阅信息
+   * <p> 示例值：{       "subscription_id": "1234567890987654321",       "subscription_type":
+   * "comment_update",       "is_subcribe": true,       "file_type": "doc" }
+   */
   @SerializedName("subscription")
   private FileSubscription subscription;
 

@@ -6,7 +6,7 @@ import com.lark.oapi.service.approval.v4.model.SearchTaskReq;
 import com.lark.oapi.service.approval.v4.model.SearchTaskResp;
 import com.lark.oapi.service.approval.v4.model.TaskSearch;
 
-// HTTP PATH: /open-apis/approval/v4/tasks/search"
+// POST /open-apis/approval/v4/tasks/search
 public class SearchTaskSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class SearchTaskSample {
 
     // 创建请求对象
     SearchTaskReq req = SearchTaskReq.newBuilder()
-        .pageSize(100)
+        .pageSize(10)
         .pageToken("nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU")
         .userIdType("user_id")
         .taskSearch(TaskSearch.newBuilder()
@@ -26,8 +26,8 @@ public class SearchTaskSample {
             .groupExternalId("1234567")
             .taskTitle("test")
             .taskStatus("PENDING")
-            .instanceStartTimeFrom("1547654251506")
-            .instanceStartTimeTo("1547654251506")
+            .taskStartTimeFrom("1547654251506")
+            .taskStartTimeTo("1547654251506")
             .locale("zh-CN")
             .build())
         .build();

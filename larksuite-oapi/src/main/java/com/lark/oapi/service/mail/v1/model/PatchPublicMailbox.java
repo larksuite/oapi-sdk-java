@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class PatchPublicMailbox {
 
+  /**
+   * The unique ID of a public mailbox
+   * <p> 示例值：xxxxxxxxxxxxxxx
+   */
   @SerializedName("public_mailbox_id")
   private String publicMailboxId;
+  /**
+   * The public mailbox's email address
+   * <p> 示例值：test_public_mailbox@xxx.xx
+   */
   @SerializedName("email")
   private String email;
+  /**
+   * The public mailbox's display name
+   * <p> 示例值：test public mailbox
+   */
   @SerializedName("name")
   private String name;
 

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateBotMessage {
 
+  /**
+   * chat消息open_id
+   * <p> 示例值：om_7054301238434
+   */
   @SerializedName("message_id")
   private String messageId;
 

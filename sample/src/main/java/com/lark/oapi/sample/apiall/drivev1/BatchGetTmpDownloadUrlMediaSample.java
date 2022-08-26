@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.drive.v1.model.BatchGetTmpDownloadUrlMediaReq;
 import com.lark.oapi.service.drive.v1.model.BatchGetTmpDownloadUrlMediaResp;
 
-// HTTP PATH: /open-apis/drive/v1/medias/batch_get_tmp_download_url"
+// GET /open-apis/drive/v1/medias/batch_get_tmp_download_url
 public class BatchGetTmpDownloadUrlMediaSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,8 @@ public class BatchGetTmpDownloadUrlMediaSample {
     // 创建请求对象
     BatchGetTmpDownloadUrlMediaReq req = BatchGetTmpDownloadUrlMediaReq.newBuilder()
         .fileTokens(new String[]{})
-        .extra("")
+        .extra(
+            "[请参考-上传点类型及对应Extra说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)")
         .build();
 
     // 发起请求

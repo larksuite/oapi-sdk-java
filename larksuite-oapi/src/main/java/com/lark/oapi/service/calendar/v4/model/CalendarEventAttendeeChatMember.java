@@ -17,16 +17,40 @@ import com.google.gson.annotations.SerializedName;
 
 public class CalendarEventAttendeeChatMember {
 
+  /**
+   * 参与人RSVP状态
+   * <p> 示例值：needs_action
+   */
   @SerializedName("rsvp_status")
   private String rsvpStatus;
+  /**
+   * 参与人是否为「可选参加」
+   * <p> 示例值：true
+   */
   @SerializedName("is_optional")
   private Boolean isOptional;
+  /**
+   * 参与人名称
+   * <p> 示例值：Zhang San
+   */
   @SerializedName("display_name")
   private String displayName;
+  /**
+   * 参与人open_id，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction);;**示例值**："ou_xxxxxxxx"
+   * <p> 示例值：ou_143669c5a53647f00f6c80a0253aa68b
+   */
   @SerializedName("open_id")
   private String openId;
+  /**
+   * 参与人是否为日程组织者
+   * <p> 示例值：true
+   */
   @SerializedName("is_organizer")
   private Boolean isOrganizer;
+  /**
+   * 参与人是否为外部参与人
+   * <p> 示例值：false
+   */
   @SerializedName("is_external")
   private Boolean isExternal;
 
@@ -35,11 +59,35 @@ public class CalendarEventAttendeeChatMember {
   }
 
   public CalendarEventAttendeeChatMember(Builder builder) {
+    /**
+     * 参与人RSVP状态
+     * <p> 示例值：needs_action
+     */
     this.rsvpStatus = builder.rsvpStatus;
+    /**
+     * 参与人是否为「可选参加」
+     * <p> 示例值：true
+     */
     this.isOptional = builder.isOptional;
+    /**
+     * 参与人名称
+     * <p> 示例值：Zhang San
+     */
     this.displayName = builder.displayName;
+    /**
+     * 参与人open_id，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction);;**示例值**："ou_xxxxxxxx"
+     * <p> 示例值：ou_143669c5a53647f00f6c80a0253aa68b
+     */
     this.openId = builder.openId;
+    /**
+     * 参与人是否为日程组织者
+     * <p> 示例值：true
+     */
     this.isOrganizer = builder.isOrganizer;
+    /**
+     * 参与人是否为外部参与人
+     * <p> 示例值：false
+     */
     this.isExternal = builder.isExternal;
   }
 
@@ -97,43 +145,122 @@ public class CalendarEventAttendeeChatMember {
 
   public static class Builder {
 
+    /**
+     * 参与人RSVP状态
+     * <p> 示例值：needs_action
+     */
     private String rsvpStatus;
+    /**
+     * 参与人是否为「可选参加」
+     * <p> 示例值：true
+     */
     private Boolean isOptional;
+    /**
+     * 参与人名称
+     * <p> 示例值：Zhang San
+     */
     private String displayName;
+    /**
+     * 参与人open_id，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction);;**示例值**："ou_xxxxxxxx"
+     * <p> 示例值：ou_143669c5a53647f00f6c80a0253aa68b
+     */
     private String openId;
+    /**
+     * 参与人是否为日程组织者
+     * <p> 示例值：true
+     */
     private Boolean isOrganizer;
+    /**
+     * 参与人是否为外部参与人
+     * <p> 示例值：false
+     */
     private Boolean isExternal;
 
+    /**
+     * 参与人RSVP状态
+     * <p> 示例值：needs_action
+     *
+     * @param rsvpStatus
+     * @return
+     */
     public Builder rsvpStatus(String rsvpStatus) {
       this.rsvpStatus = rsvpStatus;
       return this;
     }
 
-    public Builder rsvpStatus(com.lark.oapi.service.calendar.v4.enums.RsvpStatusEnum rsvpStatus) {
+    /**
+     * 参与人RSVP状态
+     * <p> 示例值：needs_action
+     *
+     * @param rsvpStatus {@link com.lark.oapi.service.calendar.v4.enums.CalendarEventAttendeeChatMemberRsvpStatusEnum}
+     * @return
+     */
+    public Builder rsvpStatus(
+        com.lark.oapi.service.calendar.v4.enums.CalendarEventAttendeeChatMemberRsvpStatusEnum rsvpStatus) {
       this.rsvpStatus = rsvpStatus.getValue();
       return this;
     }
 
+
+    /**
+     * 参与人是否为「可选参加」
+     * <p> 示例值：true
+     *
+     * @param isOptional
+     * @return
+     */
     public Builder isOptional(Boolean isOptional) {
       this.isOptional = isOptional;
       return this;
     }
 
+
+    /**
+     * 参与人名称
+     * <p> 示例值：Zhang San
+     *
+     * @param displayName
+     * @return
+     */
     public Builder displayName(String displayName) {
       this.displayName = displayName;
       return this;
     }
 
+
+    /**
+     * 参与人open_id，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction);;**示例值**："ou_xxxxxxxx"
+     * <p> 示例值：ou_143669c5a53647f00f6c80a0253aa68b
+     *
+     * @param openId
+     * @return
+     */
     public Builder openId(String openId) {
       this.openId = openId;
       return this;
     }
 
+
+    /**
+     * 参与人是否为日程组织者
+     * <p> 示例值：true
+     *
+     * @param isOrganizer
+     * @return
+     */
     public Builder isOrganizer(Boolean isOrganizer) {
       this.isOrganizer = isOrganizer;
       return this;
     }
 
+
+    /**
+     * 参与人是否为外部参与人
+     * <p> 示例值：false
+     *
+     * @param isExternal
+     * @return
+     */
     public Builder isExternal(Boolean isExternal) {
       this.isExternal = isExternal;
       return this;

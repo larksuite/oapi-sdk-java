@@ -6,7 +6,7 @@ import com.lark.oapi.service.helpdesk.v1.model.ExecuteSendNotificationReq;
 import com.lark.oapi.service.helpdesk.v1.model.ExecuteSendNotificationReqBody;
 import com.lark.oapi.service.helpdesk.v1.model.ExecuteSendNotificationResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/notifications/:notification_id/execute_send"
+// POST /open-apis/helpdesk/v1/notifications/:notification_id/execute_send
 public class ExecuteSendNotificationSample {
 
   public static void main(String arg[]) throws Exception {

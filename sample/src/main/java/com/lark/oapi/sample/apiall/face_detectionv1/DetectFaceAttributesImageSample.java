@@ -6,7 +6,7 @@ import com.lark.oapi.service.face_detection.v1.model.DetectFaceAttributesImageRe
 import com.lark.oapi.service.face_detection.v1.model.DetectFaceAttributesImageReqBody;
 import com.lark.oapi.service.face_detection.v1.model.DetectFaceAttributesImageResp;
 
-// HTTP PATH: /open-apis/face_detection/v1/image/detect_face_attributes"
+// POST /open-apis/face_detection/v1/image/detect_face_attributes
 public class DetectFaceAttributesImageSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class DetectFaceAttributesImageSample {
     // 创建请求对象
     DetectFaceAttributesImageReq req = DetectFaceAttributesImageReq.newBuilder()
         .detectFaceAttributesImageReqBody(DetectFaceAttributesImageReqBody.newBuilder()
-            .image("")
+            .image("图片 base64 后的字符串")
             .build())
         .build();
 

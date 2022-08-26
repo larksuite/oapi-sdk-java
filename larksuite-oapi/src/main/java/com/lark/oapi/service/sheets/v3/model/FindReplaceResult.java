@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class FindReplaceResult {
 
+  /**
+   * 符合查找条件的单元格数组，不包含公式，例如["A1", "A2"...]
+   * <p> 示例值：
+   */
   @SerializedName("matched_cells")
   private String[] matchedCells;
+  /**
+   * 符合查找条件的含有公式的单元格数组，例如["B3", "H7"...]
+   * <p> 示例值：
+   */
   @SerializedName("matched_formula_cells")
   private String[] matchedFormulaCells;
+  /**
+   * 符合查找条件的总行数
+   * <p> 示例值：2
+   */
   @SerializedName("rows_count")
   private Integer rowsCount;
 
@@ -29,8 +41,20 @@ public class FindReplaceResult {
   }
 
   public FindReplaceResult(Builder builder) {
+    /**
+     * 符合查找条件的单元格数组，不包含公式，例如["A1", "A2"...]
+     * <p> 示例值：
+     */
     this.matchedCells = builder.matchedCells;
+    /**
+     * 符合查找条件的含有公式的单元格数组，例如["B3", "H7"...]
+     * <p> 示例值：
+     */
     this.matchedFormulaCells = builder.matchedFormulaCells;
+    /**
+     * 符合查找条件的总行数
+     * <p> 示例值：2
+     */
     this.rowsCount = builder.rowsCount;
   }
 
@@ -64,20 +88,55 @@ public class FindReplaceResult {
 
   public static class Builder {
 
+    /**
+     * 符合查找条件的单元格数组，不包含公式，例如["A1", "A2"...]
+     * <p> 示例值：
+     */
     private String[] matchedCells;
+    /**
+     * 符合查找条件的含有公式的单元格数组，例如["B3", "H7"...]
+     * <p> 示例值：
+     */
     private String[] matchedFormulaCells;
+    /**
+     * 符合查找条件的总行数
+     * <p> 示例值：2
+     */
     private Integer rowsCount;
 
+    /**
+     * 符合查找条件的单元格数组，不包含公式，例如["A1", "A2"...]
+     * <p> 示例值：
+     *
+     * @param matchedCells
+     * @return
+     */
     public Builder matchedCells(String[] matchedCells) {
       this.matchedCells = matchedCells;
       return this;
     }
 
+
+    /**
+     * 符合查找条件的含有公式的单元格数组，例如["B3", "H7"...]
+     * <p> 示例值：
+     *
+     * @param matchedFormulaCells
+     * @return
+     */
     public Builder matchedFormulaCells(String[] matchedFormulaCells) {
       this.matchedFormulaCells = matchedFormulaCells;
       return this;
     }
 
+
+    /**
+     * 符合查找条件的总行数
+     * <p> 示例值：2
+     *
+     * @param rowsCount
+     * @return
+     */
     public Builder rowsCount(Integer rowsCount) {
       this.rowsCount = rowsCount;
       return this;

@@ -6,7 +6,7 @@ import com.lark.oapi.service.helpdesk.v1.model.BotMessage;
 import com.lark.oapi.service.helpdesk.v1.model.CreateBotMessageReq;
 import com.lark.oapi.service.helpdesk.v1.model.CreateBotMessageResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/message"
+// POST /open-apis/helpdesk/v1/message
 public class CreateBotMessageSample {
 
   public static void main(String arg[]) throws Exception {

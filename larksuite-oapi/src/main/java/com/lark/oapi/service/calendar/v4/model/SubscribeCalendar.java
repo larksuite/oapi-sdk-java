@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class SubscribeCalendar {
 
+  /**
+   * 订阅的日历实体
+   * <p> 示例值：
+   */
   @SerializedName("calendar")
   private Calendar calendar;
 

@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2FileReadV1Data {
 
+  /**
+   * 文档类型
+   * <p> 示例值：
+   */
   @SerializedName("file_type")
   private String fileType;
+  /**
+   * 文档token
+   * <p> 示例值：
+   */
   @SerializedName("file_token")
   private String fileToken;
+  /**
+   * 操作者id列表
+   * <p> 示例值：
+   */
   @SerializedName("operator_id_list")
   private UserId[] operatorIdList;
+  /**
+   * 订阅用户id列表
+   * <p> 示例值：
+   */
   @SerializedName("subscriber_id_list")
   private UserId[] subscriberIdList;
 

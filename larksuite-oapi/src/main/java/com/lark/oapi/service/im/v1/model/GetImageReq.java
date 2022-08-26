@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class GetImageReq {
 
+  /**
+   * 图片的key
+   * <p> 示例值：img_8d5181ca-0aed-40f0-b0d1-b1452132afbg
+   */
   @Path
   @SerializedName("image_key")
   private String imageKey;
@@ -27,6 +31,10 @@ public class GetImageReq {
   }
 
   public GetImageReq(Builder builder) {
+    /**
+     * 图片的key
+     * <p> 示例值：img_8d5181ca-0aed-40f0-b0d1-b1452132afbg
+     */
     this.imageKey = builder.imageKey;
   }
 
@@ -44,8 +52,15 @@ public class GetImageReq {
 
   public static class Builder {
 
-    private String imageKey;
+    private String imageKey; // 图片的key
 
+    /**
+     * 图片的key
+     * <p> 示例值：img_8d5181ca-0aed-40f0-b0d1-b1452132afbg
+     *
+     * @param imageKey
+     * @return
+     */
     public Builder imageKey(String imageKey) {
       this.imageKey = imageKey;
       return this;

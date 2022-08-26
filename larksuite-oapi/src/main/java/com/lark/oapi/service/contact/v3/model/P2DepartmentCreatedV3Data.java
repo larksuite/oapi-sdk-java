@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2DepartmentCreatedV3Data {
 
+  /**
+   * 部门信息
+   * <p> 示例值：
+   */
   @SerializedName("object")
   private DepartmentEvent object;
 

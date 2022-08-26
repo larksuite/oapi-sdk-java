@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class App {
 
+  /**
+   * 多维表格 app token
+   * <p> 示例值：
+   */
   @SerializedName("app_token")
   private String appToken;
+  /**
+   * 多维表格 App 名字
+   * <p> 示例值：
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 多维表格 App 版本号
+   * <p> 示例值：
+   */
   @SerializedName("revision")
   private Integer revision;
+  /**
+   * 多维表格 App 归属文件夹
+   * <p> 示例值：
+   */
   @SerializedName("folder_token")
   private String folderToken;
+  /**
+   * 多维表格 App URL
+   * <p> 示例值：
+   */
   @SerializedName("url")
   private String url;
 
@@ -33,10 +53,30 @@ public class App {
   }
 
   public App(Builder builder) {
+    /**
+     * 多维表格 app token
+     * <p> 示例值：
+     */
     this.appToken = builder.appToken;
+    /**
+     * 多维表格 App 名字
+     * <p> 示例值：
+     */
     this.name = builder.name;
+    /**
+     * 多维表格 App 版本号
+     * <p> 示例值：
+     */
     this.revision = builder.revision;
+    /**
+     * 多维表格 App 归属文件夹
+     * <p> 示例值：
+     */
     this.folderToken = builder.folderToken;
+    /**
+     * 多维表格 App URL
+     * <p> 示例值：
+     */
     this.url = builder.url;
   }
 
@@ -86,32 +126,91 @@ public class App {
 
   public static class Builder {
 
+    /**
+     * 多维表格 app token
+     * <p> 示例值：
+     */
     private String appToken;
+    /**
+     * 多维表格 App 名字
+     * <p> 示例值：
+     */
     private String name;
+    /**
+     * 多维表格 App 版本号
+     * <p> 示例值：
+     */
     private Integer revision;
+    /**
+     * 多维表格 App 归属文件夹
+     * <p> 示例值：
+     */
     private String folderToken;
+    /**
+     * 多维表格 App URL
+     * <p> 示例值：
+     */
     private String url;
 
+    /**
+     * 多维表格 app token
+     * <p> 示例值：
+     *
+     * @param appToken
+     * @return
+     */
     public Builder appToken(String appToken) {
       this.appToken = appToken;
       return this;
     }
 
+
+    /**
+     * 多维表格 App 名字
+     * <p> 示例值：
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 多维表格 App 版本号
+     * <p> 示例值：
+     *
+     * @param revision
+     * @return
+     */
     public Builder revision(Integer revision) {
       this.revision = revision;
       return this;
     }
 
+
+    /**
+     * 多维表格 App 归属文件夹
+     * <p> 示例值：
+     *
+     * @param folderToken
+     * @return
+     */
     public Builder folderToken(String folderToken) {
       this.folderToken = folderToken;
       return this;
     }
 
+
+    /**
+     * 多维表格 App URL
+     * <p> 示例值：
+     *
+     * @param url
+     * @return
+     */
     public Builder url(String url) {
       this.url = url;
       return this;

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.wiki.v2.model.GetSpaceReq;
 import com.lark.oapi.service.wiki.v2.model.GetSpaceResp;
 
-// HTTP PATH: /open-apis/wiki/v2/spaces/:space_id"
+// GET /open-apis/wiki/v2/spaces/:space_id
 public class GetSpaceSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class GetSpaceSample {
 
     // 创建请求对象
     GetSpaceReq req = GetSpaceReq.newBuilder()
-        .spaceId("")
+        .spaceId("6870403571079249922")
         .build();
 
     // 发起请求

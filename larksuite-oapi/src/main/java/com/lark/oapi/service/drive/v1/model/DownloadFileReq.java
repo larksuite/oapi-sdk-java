@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DownloadFileReq {
 
+  /**
+   * 文件的 token，获取方式见 [概述](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+   * <p> 示例值：boxcnabCdefg12345
+   */
   @Path
   @SerializedName("file_token")
   private String fileToken;
@@ -27,6 +31,10 @@ public class DownloadFileReq {
   }
 
   public DownloadFileReq(Builder builder) {
+    /**
+     * 文件的 token，获取方式见 [概述](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+     * <p> 示例值：boxcnabCdefg12345
+     */
     this.fileToken = builder.fileToken;
   }
 
@@ -44,8 +52,15 @@ public class DownloadFileReq {
 
   public static class Builder {
 
-    private String fileToken;
+    private String fileToken; // 文件的 token，获取方式见 [概述](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
 
+    /**
+     * 文件的 token，获取方式见 [概述](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+     * <p> 示例值：boxcnabCdefg12345
+     *
+     * @param fileToken
+     * @return
+     */
     public Builder fileToken(String fileToken) {
       this.fileToken = fileToken;
       return this;

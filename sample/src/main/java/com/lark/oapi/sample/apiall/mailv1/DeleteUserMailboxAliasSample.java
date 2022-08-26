@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.mail.v1.model.DeleteUserMailboxAliasReq;
 import com.lark.oapi.service.mail.v1.model.DeleteUserMailboxAliasResp;
 
-// HTTP PATH: /open-apis/mail/v1/user_mailboxes/:user_mailbox_id/aliases/:alias_id"
+// DELETE /open-apis/mail/v1/user_mailboxes/:user_mailbox_id/aliases/:alias_id
 public class DeleteUserMailboxAliasSample {
 
   public static void main(String arg[]) throws Exception {

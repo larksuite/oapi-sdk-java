@@ -48,6 +48,12 @@ public class CreateAgentSkillReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder createAgentSkillReqBody(CreateAgentSkillReqBody body) {
       this.body = body;
       return this;

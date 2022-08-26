@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateInstanceComment {
 
+  /**
+   * 保存成功的comment_id
+   * <p> 示例值：7081516627711606803
+   */
   @SerializedName("comment_id")
   private String commentId;
 

@@ -18,21 +18,43 @@ import com.lark.oapi.core.annotation.Query;
 
 public class ListMessageReq {
 
+  /**
+   * 容器类型 ，目前可选值仅有"chat"，包含单聊（p2p）和群聊（group）
+   * <p> 示例值：chat
+   */
   @Query
   @SerializedName("container_id_type")
   private String containerIdType;
+  /**
+   * 容器的id，即chat的id
+   * <p> 示例值：oc_234jsi43d3ssi993d43545f
+   */
   @Query
   @SerializedName("container_id")
   private String containerId;
+  /**
+   * 历史信息的起始时间（秒级时间戳）
+   * <p> 示例值：1609296809
+   */
   @Query
   @SerializedName("start_time")
   private String startTime;
+  /**
+   * 历史信息的结束时间（秒级时间戳）
+   * <p> 示例值：1608594809
+   */
   @Query
   @SerializedName("end_time")
   private String endTime;
+  /**
+   * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+   */
   @Query
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * <p> 示例值：10
+   */
   @Query
   @SerializedName("page_size")
   private Integer pageSize;
@@ -42,11 +64,35 @@ public class ListMessageReq {
   }
 
   public ListMessageReq(Builder builder) {
+    /**
+     * 容器类型 ，目前可选值仅有"chat"，包含单聊（p2p）和群聊（group）
+     * <p> 示例值：chat
+     */
     this.containerIdType = builder.containerIdType;
+    /**
+     * 容器的id，即chat的id
+     * <p> 示例值：oc_234jsi43d3ssi993d43545f
+     */
     this.containerId = builder.containerId;
+    /**
+     * 历史信息的起始时间（秒级时间戳）
+     * <p> 示例值：1609296809
+     */
     this.startTime = builder.startTime;
+    /**
+     * 历史信息的结束时间（秒级时间戳）
+     * <p> 示例值：1608594809
+     */
     this.endTime = builder.endTime;
+    /**
+     *
+     * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+     */
     this.pageToken = builder.pageToken;
+    /**
+     *
+     * <p> 示例值：10
+     */
     this.pageSize = builder.pageSize;
   }
 
@@ -104,38 +150,84 @@ public class ListMessageReq {
 
   public static class Builder {
 
-    private String containerIdType;
-    private String containerId;
-    private String startTime;
-    private String endTime;
-    private String pageToken;
-    private Integer pageSize;
+    private String containerIdType; // 容器类型 ，目前可选值仅有"chat"，包含单聊（p2p）和群聊（group）
+    private String containerId; // 容器的id，即chat的id
+    private String startTime; // 历史信息的起始时间（秒级时间戳）
+    private String endTime; // 历史信息的结束时间（秒级时间戳）
+    private String pageToken; //
+    private Integer pageSize; //
 
+
+    /**
+     * 容器类型 ，目前可选值仅有"chat"，包含单聊（p2p）和群聊（group）
+     * <p> 示例值：chat
+     *
+     * @param containerIdType
+     * @return
+     */
     public Builder containerIdType(String containerIdType) {
       this.containerIdType = containerIdType;
       return this;
     }
 
+
+    /**
+     * 容器的id，即chat的id
+     * <p> 示例值：oc_234jsi43d3ssi993d43545f
+     *
+     * @param containerId
+     * @return
+     */
     public Builder containerId(String containerId) {
       this.containerId = containerId;
       return this;
     }
 
+
+    /**
+     * 历史信息的起始时间（秒级时间戳）
+     * <p> 示例值：1609296809
+     *
+     * @param startTime
+     * @return
+     */
     public Builder startTime(String startTime) {
       this.startTime = startTime;
       return this;
     }
 
+
+    /**
+     * 历史信息的结束时间（秒级时间戳）
+     * <p> 示例值：1608594809
+     *
+     * @param endTime
+     * @return
+     */
     public Builder endTime(String endTime) {
       this.endTime = endTime;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+     *
+     * @param pageToken
+     * @return
+     */
     public Builder pageToken(String pageToken) {
       this.pageToken = pageToken;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
     public Builder pageSize(Integer pageSize) {
       this.pageSize = pageSize;
       return this;

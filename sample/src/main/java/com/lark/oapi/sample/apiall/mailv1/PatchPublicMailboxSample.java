@@ -15,7 +15,7 @@ public class PatchPublicMailboxSample {
 
     // 创建请求对象
     PatchPublicMailboxReq req = PatchPublicMailboxReq.newBuilder()
-        .publicMailboxId("xxxxxxxxxxxxxxx or test_public_mailbox@xxx.xx")
+        .publicMailboxId("xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx")
         .publicMailbox(PublicMailbox.newBuilder()
             .name("test public mailbox")
             .build())

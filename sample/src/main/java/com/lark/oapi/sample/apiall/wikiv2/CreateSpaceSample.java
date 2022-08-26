@@ -6,7 +6,7 @@ import com.lark.oapi.service.wiki.v2.model.CreateSpaceReq;
 import com.lark.oapi.service.wiki.v2.model.CreateSpaceResp;
 import com.lark.oapi.service.wiki.v2.model.Space;
 
-// HTTP PATH: /open-apis/wiki/v2/spaces"
+// POST /open-apis/wiki/v2/spaces
 public class CreateSpaceSample {
 
   public static void main(String arg[]) throws Exception {

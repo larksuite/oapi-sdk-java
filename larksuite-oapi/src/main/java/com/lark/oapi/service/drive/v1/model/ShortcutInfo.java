@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class ShortcutInfo {
 
+  /**
+   * 快捷方式指向的原文件类型
+   * <p> 示例值：
+   */
   @SerializedName("target_type")
   private String targetType;
+  /**
+   * 快捷方式指向的原文件token
+   * <p> 示例值：
+   */
   @SerializedName("target_token")
   private String targetToken;
 
@@ -27,7 +35,15 @@ public class ShortcutInfo {
   }
 
   public ShortcutInfo(Builder builder) {
+    /**
+     * 快捷方式指向的原文件类型
+     * <p> 示例值：
+     */
     this.targetType = builder.targetType;
+    /**
+     * 快捷方式指向的原文件token
+     * <p> 示例值：
+     */
     this.targetToken = builder.targetToken;
   }
 
@@ -53,14 +69,37 @@ public class ShortcutInfo {
 
   public static class Builder {
 
+    /**
+     * 快捷方式指向的原文件类型
+     * <p> 示例值：
+     */
     private String targetType;
+    /**
+     * 快捷方式指向的原文件token
+     * <p> 示例值：
+     */
     private String targetToken;
 
+    /**
+     * 快捷方式指向的原文件类型
+     * <p> 示例值：
+     *
+     * @param targetType
+     * @return
+     */
     public Builder targetType(String targetType) {
       this.targetType = targetType;
       return this;
     }
 
+
+    /**
+     * 快捷方式指向的原文件token
+     * <p> 示例值：
+     *
+     * @param targetToken
+     * @return
+     */
     public Builder targetToken(String targetToken) {
       this.targetToken = targetToken;
       return this;

@@ -6,7 +6,7 @@ import com.lark.oapi.service.application.v6.model.OverviewApplicationAppUsageReq
 import com.lark.oapi.service.application.v6.model.OverviewApplicationAppUsageReqBody;
 import com.lark.oapi.service.application.v6.model.OverviewApplicationAppUsageResp;
 
-// HTTP PATH: /open-apis/application/v6/applications/:app_id/app_usage/overview"
+// POST /open-apis/application/v6/applications/:app_id/app_usage/overview
 public class OverviewApplicationAppUsageSample {
 
   public static void main(String arg[]) throws Exception {

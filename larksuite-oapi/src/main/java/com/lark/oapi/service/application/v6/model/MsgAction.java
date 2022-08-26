@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class MsgAction {
 
+  /**
+   * pc 端链接
+   * <p> 示例值：https://www.example.com
+   */
   @SerializedName("pc_app_link")
   private String pcAppLink;
+  /**
+   * 移动端链接
+   * <p> 示例值：https://www.example.com
+   */
   @SerializedName("mobile_app_link")
   private String mobileAppLink;
+  /**
+   * 国际化信息
+   * <p> 示例值：
+   */
   @SerializedName("i18n")
   private MsgActionI18nInfo[] i18n;
 
@@ -29,8 +41,20 @@ public class MsgAction {
   }
 
   public MsgAction(Builder builder) {
+    /**
+     * pc 端链接
+     * <p> 示例值：https://www.example.com
+     */
     this.pcAppLink = builder.pcAppLink;
+    /**
+     * 移动端链接
+     * <p> 示例值：https://www.example.com
+     */
     this.mobileAppLink = builder.mobileAppLink;
+    /**
+     * 国际化信息
+     * <p> 示例值：
+     */
     this.i18n = builder.i18n;
   }
 
@@ -64,20 +88,55 @@ public class MsgAction {
 
   public static class Builder {
 
+    /**
+     * pc 端链接
+     * <p> 示例值：https://www.example.com
+     */
     private String pcAppLink;
+    /**
+     * 移动端链接
+     * <p> 示例值：https://www.example.com
+     */
     private String mobileAppLink;
+    /**
+     * 国际化信息
+     * <p> 示例值：
+     */
     private MsgActionI18nInfo[] i18n;
 
+    /**
+     * pc 端链接
+     * <p> 示例值：https://www.example.com
+     *
+     * @param pcAppLink
+     * @return
+     */
     public Builder pcAppLink(String pcAppLink) {
       this.pcAppLink = pcAppLink;
       return this;
     }
 
+
+    /**
+     * 移动端链接
+     * <p> 示例值：https://www.example.com
+     *
+     * @param mobileAppLink
+     * @return
+     */
     public Builder mobileAppLink(String mobileAppLink) {
       this.mobileAppLink = mobileAppLink;
       return this;
     }
 
+
+    /**
+     * 国际化信息
+     * <p> 示例值：
+     *
+     * @param i18n
+     * @return
+     */
     public Builder i18n(MsgActionI18nInfo[] i18n) {
       this.i18n = i18n;
       return this;

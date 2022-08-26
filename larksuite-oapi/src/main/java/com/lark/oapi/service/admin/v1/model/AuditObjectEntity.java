@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class AuditObjectEntity {
 
+  /**
+   * 操作对象类型
+   * <p> 示例值：
+   */
   @SerializedName("object_type")
   private String objectType;
+  /**
+   * 操作对象值，可能存在department_id、user_id等，需要进行lark_id的转换
+   * <p> 示例值：
+   */
   @SerializedName("object_value")
   private String objectValue;
+  /**
+   * 操作对象名称，如会话名、文档名等
+   * <p> 示例值：
+   */
   @SerializedName("object_name")
   private String objectName;
+  /**
+   * 操作对象的所有者
+   * <p> 示例值：
+   */
   @SerializedName("object_owner")
   private String objectOwner;
+  /**
+   * object 详情
+   * <p> 示例值：
+   */
   @SerializedName("object_detail")
   private AuditObjectDetail objectDetail;
 
@@ -33,10 +53,30 @@ public class AuditObjectEntity {
   }
 
   public AuditObjectEntity(Builder builder) {
+    /**
+     * 操作对象类型
+     * <p> 示例值：
+     */
     this.objectType = builder.objectType;
+    /**
+     * 操作对象值，可能存在department_id、user_id等，需要进行lark_id的转换
+     * <p> 示例值：
+     */
     this.objectValue = builder.objectValue;
+    /**
+     * 操作对象名称，如会话名、文档名等
+     * <p> 示例值：
+     */
     this.objectName = builder.objectName;
+    /**
+     * 操作对象的所有者
+     * <p> 示例值：
+     */
     this.objectOwner = builder.objectOwner;
+    /**
+     * object 详情
+     * <p> 示例值：
+     */
     this.objectDetail = builder.objectDetail;
   }
 
@@ -86,32 +126,91 @@ public class AuditObjectEntity {
 
   public static class Builder {
 
+    /**
+     * 操作对象类型
+     * <p> 示例值：
+     */
     private String objectType;
+    /**
+     * 操作对象值，可能存在department_id、user_id等，需要进行lark_id的转换
+     * <p> 示例值：
+     */
     private String objectValue;
+    /**
+     * 操作对象名称，如会话名、文档名等
+     * <p> 示例值：
+     */
     private String objectName;
+    /**
+     * 操作对象的所有者
+     * <p> 示例值：
+     */
     private String objectOwner;
+    /**
+     * object 详情
+     * <p> 示例值：
+     */
     private AuditObjectDetail objectDetail;
 
+    /**
+     * 操作对象类型
+     * <p> 示例值：
+     *
+     * @param objectType
+     * @return
+     */
     public Builder objectType(String objectType) {
       this.objectType = objectType;
       return this;
     }
 
+
+    /**
+     * 操作对象值，可能存在department_id、user_id等，需要进行lark_id的转换
+     * <p> 示例值：
+     *
+     * @param objectValue
+     * @return
+     */
     public Builder objectValue(String objectValue) {
       this.objectValue = objectValue;
       return this;
     }
 
+
+    /**
+     * 操作对象名称，如会话名、文档名等
+     * <p> 示例值：
+     *
+     * @param objectName
+     * @return
+     */
     public Builder objectName(String objectName) {
       this.objectName = objectName;
       return this;
     }
 
+
+    /**
+     * 操作对象的所有者
+     * <p> 示例值：
+     *
+     * @param objectOwner
+     * @return
+     */
     public Builder objectOwner(String objectOwner) {
       this.objectOwner = objectOwner;
       return this;
     }
 
+
+    /**
+     * object 详情
+     * <p> 示例值：
+     *
+     * @param objectDetail
+     * @return
+     */
     public Builder objectDetail(AuditObjectDetail objectDetail) {
       this.objectDetail = objectDetail;
       return this;

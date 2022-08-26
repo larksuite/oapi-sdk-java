@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class TicketUserEvent {
 
+  /**
+   * 6626871355780366332
+   * <p> 示例值：
+   */
   @SerializedName("id")
   private UserId id;
+  /**
+   * user avartal url
+   * <p> 示例值：
+   */
   @SerializedName("avatar_url")
   private String avatarUrl;
+  /**
+   * 6626871355780366333
+   * <p> 示例值：abc
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * user email
+   * <p> 示例值：
+   */
   @SerializedName("email")
   private String email;
 
@@ -31,9 +47,25 @@ public class TicketUserEvent {
   }
 
   public TicketUserEvent(Builder builder) {
+    /**
+     * 6626871355780366332
+     * <p> 示例值：
+     */
     this.id = builder.id;
+    /**
+     * user avartal url
+     * <p> 示例值：
+     */
     this.avatarUrl = builder.avatarUrl;
+    /**
+     * 6626871355780366333
+     * <p> 示例值：abc
+     */
     this.name = builder.name;
+    /**
+     * user email
+     * <p> 示例值：
+     */
     this.email = builder.email;
   }
 
@@ -75,26 +107,73 @@ public class TicketUserEvent {
 
   public static class Builder {
 
+    /**
+     * 6626871355780366332
+     * <p> 示例值：
+     */
     private UserId id;
+    /**
+     * user avartal url
+     * <p> 示例值：
+     */
     private String avatarUrl;
+    /**
+     * 6626871355780366333
+     * <p> 示例值：abc
+     */
     private String name;
+    /**
+     * user email
+     * <p> 示例值：
+     */
     private String email;
 
+    /**
+     * 6626871355780366332
+     * <p> 示例值：
+     *
+     * @param id
+     * @return
+     */
     public Builder id(UserId id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * user avartal url
+     * <p> 示例值：
+     *
+     * @param avatarUrl
+     * @return
+     */
     public Builder avatarUrl(String avatarUrl) {
       this.avatarUrl = avatarUrl;
       return this;
     }
 
+
+    /**
+     * 6626871355780366333
+     * <p> 示例值：abc
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * user email
+     * <p> 示例值：
+     *
+     * @param email
+     * @return
+     */
     public Builder email(String email) {
       this.email = email;
       return this;

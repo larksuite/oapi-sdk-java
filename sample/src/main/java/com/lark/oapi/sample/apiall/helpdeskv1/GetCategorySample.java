@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.GetCategoryReq;
 import com.lark.oapi.service.helpdesk.v1.model.GetCategoryResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/categories/:id"
+// GET /open-apis/helpdesk/v1/categories/:id
 public class GetCategorySample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class GetCategorySample {
 
     // 创建请求对象
     GetCategoryReq req = GetCategoryReq.newBuilder()
-        .id("")
+        .id("6948728206392295444")
         .build();
 
     // 发起请求

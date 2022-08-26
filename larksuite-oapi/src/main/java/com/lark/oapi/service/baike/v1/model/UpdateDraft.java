@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateDraft {
 
+  /**
+   * 草稿
+   * <p> 示例值：
+   */
   @SerializedName("draft")
   private Draft draft;
 

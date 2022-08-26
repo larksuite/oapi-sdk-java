@@ -18,7 +18,7 @@ public class BatchDeleteDocumentBlockChildrenSample {
         .documentId("doxcnePuYufKa49ISjhD8Ih0ikh")
         .blockId("doxcnO6UW6wAw2qIcYf4hZpFIth")
         .documentRevisionId(-1)
-        .clientToken("")
+        .clientToken("fe599b60-450f-46ff-b2ef-9f6675625b97")
         .batchDeleteDocumentBlockChildrenReqBody(
             BatchDeleteDocumentBlockChildrenReqBody.newBuilder()
                 .startIndex(0)

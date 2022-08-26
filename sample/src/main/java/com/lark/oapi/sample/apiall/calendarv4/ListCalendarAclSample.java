@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.calendar.v4.model.ListCalendarAclReq;
 import com.lark.oapi.service.calendar.v4.model.ListCalendarAclResp;
 
-// HTTP PATH: /open-apis/calendar/v4/calendars/:calendar_id/acls"
+// GET /open-apis/calendar/v4/calendars/:calendar_id/acls
 public class ListCalendarAclSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,9 +14,9 @@ public class ListCalendarAclSample {
 
     // 创建请求对象
     ListCalendarAclReq req = ListCalendarAclReq.newBuilder()
-        .calendarId("")
+        .calendarId("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn")
         .userIdType("user_id")
-        .pageToken("")
+        .pageToken("xxx")
         .pageSize(20)
         .build();
 

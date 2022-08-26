@@ -48,6 +48,12 @@ public class MatchEntityReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder matchEntityReqBody(MatchEntityReqBody body) {
       this.body = body;
       return this;

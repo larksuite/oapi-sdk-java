@@ -17,8 +17,15 @@ import com.google.gson.annotations.SerializedName;
 
 public class LocationInfo {
 
+  /**
+   * 开关状态
+   * <p> 示例值：
+   */
   @SerializedName("status")
   private Integer status;
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("geofences")
   private Area[] geofences;
 
@@ -27,7 +34,15 @@ public class LocationInfo {
   }
 
   public LocationInfo(Builder builder) {
+    /**
+     * 开关状态
+     * <p> 示例值：
+     */
     this.status = builder.status;
+    /**
+     *
+     * <p> 示例值：
+     */
     this.geofences = builder.geofences;
   }
 
@@ -53,14 +68,35 @@ public class LocationInfo {
 
   public static class Builder {
 
+    /**
+     * 开关状态
+     * <p> 示例值：
+     */
     private Integer status;
+    /**
+     * <p> 示例值：
+     */
     private Area[] geofences;
 
+    /**
+     * 开关状态
+     * <p> 示例值：
+     *
+     * @param status
+     * @return
+     */
     public Builder status(Integer status) {
       this.status = status;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：
+     *
+     * @param geofences
+     * @return
+     */
     public Builder geofences(Area[] geofences) {
       this.geofences = geofences;
       return this;

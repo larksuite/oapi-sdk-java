@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.mail.v1.model.DeletePublicMailboxMemberReq;
 import com.lark.oapi.service.mail.v1.model.DeletePublicMailboxMemberResp;
 
-// HTTP PATH: /open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members/:member_id"
+// DELETE /open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members/:member_id
 public class DeletePublicMailboxMemberSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class DeletePublicMailboxMemberSample {
 
     // 创建请求对象
     DeletePublicMailboxMemberReq req = DeletePublicMailboxMemberReq.newBuilder()
-        .publicMailboxId("xxxxxxxxxxxxxxx or test_public_mailbox@xxx.xx")
+        .publicMailboxId("xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx")
         .memberId("xxxxxxxxxxxxxxx")
         .build();
 

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class InlineBlock {
 
+  /**
+   * 关联的内联状态的 block 的 block_id
+   * <p> 示例值：doxcnPFi0R56ctbvh2MjkkROFWf
+   */
   @SerializedName("block_id")
   private String blockId;
 
@@ -25,6 +29,10 @@ public class InlineBlock {
   }
 
   public InlineBlock(Builder builder) {
+    /**
+     * 关联的内联状态的 block 的 block_id
+     * <p> 示例值：doxcnPFi0R56ctbvh2MjkkROFWf
+     */
     this.blockId = builder.blockId;
   }
 
@@ -42,8 +50,19 @@ public class InlineBlock {
 
   public static class Builder {
 
+    /**
+     * 关联的内联状态的 block 的 block_id
+     * <p> 示例值：doxcnPFi0R56ctbvh2MjkkROFWf
+     */
     private String blockId;
 
+    /**
+     * 关联的内联状态的 block 的 block_id
+     * <p> 示例值：doxcnPFi0R56ctbvh2MjkkROFWf
+     *
+     * @param blockId
+     * @return
+     */
     public Builder blockId(String blockId) {
       this.blockId = blockId;
       return this;

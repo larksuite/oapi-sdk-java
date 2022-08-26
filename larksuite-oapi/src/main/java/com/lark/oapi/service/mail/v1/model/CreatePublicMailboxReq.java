@@ -48,6 +48,12 @@ public class CreatePublicMailboxReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder publicMailbox(PublicMailbox body) {
       this.body = body;
       return this;

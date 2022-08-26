@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.acs.v1.model.ListUserReq;
 import com.lark.oapi.service.acs.v1.model.ListUserResp;
 
-// HTTP PATH: /open-apis/acs/v1/users"
+// GET /open-apis/acs/v1/users
 public class ListUserSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,8 +15,7 @@ public class ListUserSample {
     // 创建请求对象
     ListUserReq req = ListUserReq.newBuilder()
         .pageSize(10)
-        .pageToken(
-            "AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=")
+        .pageToken("10")
         .userIdType("user_id")
         .build();
 

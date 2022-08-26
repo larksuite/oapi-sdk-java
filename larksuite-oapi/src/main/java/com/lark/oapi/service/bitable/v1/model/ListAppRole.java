@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListAppRole {
 
+  /**
+   * 自定义角色列表
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private AppRole[] items;
+  /**
+   * 下一页分页的token
+   * <p> 示例值：
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 是否有下一页数据
+   * <p> 示例值：
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 总数
+   * <p> 示例值：
+   */
   @SerializedName("total")
   private Integer total;
 

@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetCategory {
 
+  /**
+   * category id
+   * <p> 示例值：
+   */
   @SerializedName("category_id")
   private String categoryId;
+  /**
+   * category id, for backward compatibility
+   * <p> 示例值：
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * category name
+   * <p> 示例值：
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * helpdesk id
+   * <p> 示例值：
+   */
   @SerializedName("helpdesk_id")
   private String helpdeskId;
+  /**
+   * category language
+   * <p> 示例值：
+   */
   @SerializedName("language")
   private String language;
 

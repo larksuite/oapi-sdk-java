@@ -17,24 +17,64 @@ import com.google.gson.annotations.SerializedName;
 
 public class TaskResult {
 
+  /**
+   * 上班打卡记录 ID
+   * <p> 示例值：6709359313699356941
+   */
   @SerializedName("check_in_record_id")
   private String checkInRecordId;
+  /**
+   * 上班打卡记录
+   * <p> 示例值：
+   */
   @SerializedName("check_in_record")
   private UserFlow checkInRecord;
+  /**
+   * 下班打卡记录 ID
+   * <p> 示例值：6709359313699356942
+   */
   @SerializedName("check_out_record_id")
   private String checkOutRecordId;
+  /**
+   * 下班打卡记录
+   * <p> 示例值：
+   */
   @SerializedName("check_out_record")
   private UserFlow checkOutRecord;
+  /**
+   * 上班打卡结果
+   * <p> 示例值：SystemCheck
+   */
   @SerializedName("check_in_result")
   private String checkInResult;
+  /**
+   * 下班打卡结果
+   * <p> 示例值：SystemCheck
+   */
   @SerializedName("check_out_result")
   private String checkOutResult;
+  /**
+   * 上班打卡结果补充
+   * <p> 示例值：None
+   */
   @SerializedName("check_in_result_supplement")
   private String checkInResultSupplement;
+  /**
+   * 下班打卡结果补充
+   * <p> 示例值：None
+   */
   @SerializedName("check_out_result_supplement")
   private String checkOutResultSupplement;
+  /**
+   * 上班打卡时间
+   * <p> 示例值：1609722000
+   */
   @SerializedName("check_in_shift_time")
   private String checkInShiftTime;
+  /**
+   * 下班打卡时间
+   * <p> 示例值：1609754400
+   */
   @SerializedName("check_out_shift_time")
   private String checkOutShiftTime;
 
@@ -43,15 +83,55 @@ public class TaskResult {
   }
 
   public TaskResult(Builder builder) {
+    /**
+     * 上班打卡记录 ID
+     * <p> 示例值：6709359313699356941
+     */
     this.checkInRecordId = builder.checkInRecordId;
+    /**
+     * 上班打卡记录
+     * <p> 示例值：
+     */
     this.checkInRecord = builder.checkInRecord;
+    /**
+     * 下班打卡记录 ID
+     * <p> 示例值：6709359313699356942
+     */
     this.checkOutRecordId = builder.checkOutRecordId;
+    /**
+     * 下班打卡记录
+     * <p> 示例值：
+     */
     this.checkOutRecord = builder.checkOutRecord;
+    /**
+     * 上班打卡结果
+     * <p> 示例值：SystemCheck
+     */
     this.checkInResult = builder.checkInResult;
+    /**
+     * 下班打卡结果
+     * <p> 示例值：SystemCheck
+     */
     this.checkOutResult = builder.checkOutResult;
+    /**
+     * 上班打卡结果补充
+     * <p> 示例值：None
+     */
     this.checkInResultSupplement = builder.checkInResultSupplement;
+    /**
+     * 下班打卡结果补充
+     * <p> 示例值：None
+     */
     this.checkOutResultSupplement = builder.checkOutResultSupplement;
+    /**
+     * 上班打卡时间
+     * <p> 示例值：1609722000
+     */
     this.checkInShiftTime = builder.checkInShiftTime;
+    /**
+     * 下班打卡时间
+     * <p> 示例值：1609754400
+     */
     this.checkOutShiftTime = builder.checkOutShiftTime;
   }
 
@@ -141,86 +221,233 @@ public class TaskResult {
 
   public static class Builder {
 
+    /**
+     * 上班打卡记录 ID
+     * <p> 示例值：6709359313699356941
+     */
     private String checkInRecordId;
+    /**
+     * 上班打卡记录
+     * <p> 示例值：
+     */
     private UserFlow checkInRecord;
+    /**
+     * 下班打卡记录 ID
+     * <p> 示例值：6709359313699356942
+     */
     private String checkOutRecordId;
+    /**
+     * 下班打卡记录
+     * <p> 示例值：
+     */
     private UserFlow checkOutRecord;
+    /**
+     * 上班打卡结果
+     * <p> 示例值：SystemCheck
+     */
     private String checkInResult;
+    /**
+     * 下班打卡结果
+     * <p> 示例值：SystemCheck
+     */
     private String checkOutResult;
+    /**
+     * 上班打卡结果补充
+     * <p> 示例值：None
+     */
     private String checkInResultSupplement;
+    /**
+     * 下班打卡结果补充
+     * <p> 示例值：None
+     */
     private String checkOutResultSupplement;
+    /**
+     * 上班打卡时间
+     * <p> 示例值：1609722000
+     */
     private String checkInShiftTime;
+    /**
+     * 下班打卡时间
+     * <p> 示例值：1609754400
+     */
     private String checkOutShiftTime;
 
+    /**
+     * 上班打卡记录 ID
+     * <p> 示例值：6709359313699356941
+     *
+     * @param checkInRecordId
+     * @return
+     */
     public Builder checkInRecordId(String checkInRecordId) {
       this.checkInRecordId = checkInRecordId;
       return this;
     }
 
+
+    /**
+     * 上班打卡记录
+     * <p> 示例值：
+     *
+     * @param checkInRecord
+     * @return
+     */
     public Builder checkInRecord(UserFlow checkInRecord) {
       this.checkInRecord = checkInRecord;
       return this;
     }
 
+
+    /**
+     * 下班打卡记录 ID
+     * <p> 示例值：6709359313699356942
+     *
+     * @param checkOutRecordId
+     * @return
+     */
     public Builder checkOutRecordId(String checkOutRecordId) {
       this.checkOutRecordId = checkOutRecordId;
       return this;
     }
 
+
+    /**
+     * 下班打卡记录
+     * <p> 示例值：
+     *
+     * @param checkOutRecord
+     * @return
+     */
     public Builder checkOutRecord(UserFlow checkOutRecord) {
       this.checkOutRecord = checkOutRecord;
       return this;
     }
 
+
+    /**
+     * 上班打卡结果
+     * <p> 示例值：SystemCheck
+     *
+     * @param checkInResult
+     * @return
+     */
     public Builder checkInResult(String checkInResult) {
       this.checkInResult = checkInResult;
       return this;
     }
 
+    /**
+     * 上班打卡结果
+     * <p> 示例值：SystemCheck
+     *
+     * @param checkInResult {@link com.lark.oapi.service.attendance.v1.enums.TaskResultCheckInResultEnum}
+     * @return
+     */
     public Builder checkInResult(
-        com.lark.oapi.service.attendance.v1.enums.CheckInResultEnum checkInResult) {
+        com.lark.oapi.service.attendance.v1.enums.TaskResultCheckInResultEnum checkInResult) {
       this.checkInResult = checkInResult.getValue();
       return this;
     }
 
+
+    /**
+     * 下班打卡结果
+     * <p> 示例值：SystemCheck
+     *
+     * @param checkOutResult
+     * @return
+     */
     public Builder checkOutResult(String checkOutResult) {
       this.checkOutResult = checkOutResult;
       return this;
     }
 
+    /**
+     * 下班打卡结果
+     * <p> 示例值：SystemCheck
+     *
+     * @param checkOutResult {@link com.lark.oapi.service.attendance.v1.enums.TaskResultCheckOutResultEnum}
+     * @return
+     */
     public Builder checkOutResult(
-        com.lark.oapi.service.attendance.v1.enums.CheckOutResultEnum checkOutResult) {
+        com.lark.oapi.service.attendance.v1.enums.TaskResultCheckOutResultEnum checkOutResult) {
       this.checkOutResult = checkOutResult.getValue();
       return this;
     }
 
+
+    /**
+     * 上班打卡结果补充
+     * <p> 示例值：None
+     *
+     * @param checkInResultSupplement
+     * @return
+     */
     public Builder checkInResultSupplement(String checkInResultSupplement) {
       this.checkInResultSupplement = checkInResultSupplement;
       return this;
     }
 
+    /**
+     * 上班打卡结果补充
+     * <p> 示例值：None
+     *
+     * @param checkInResultSupplement {@link com.lark.oapi.service.attendance.v1.enums.TaskResultCheckInResultSupplementEnum}
+     * @return
+     */
     public Builder checkInResultSupplement(
-        com.lark.oapi.service.attendance.v1.enums.CheckInResultSupplementEnum checkInResultSupplement) {
+        com.lark.oapi.service.attendance.v1.enums.TaskResultCheckInResultSupplementEnum checkInResultSupplement) {
       this.checkInResultSupplement = checkInResultSupplement.getValue();
       return this;
     }
 
+
+    /**
+     * 下班打卡结果补充
+     * <p> 示例值：None
+     *
+     * @param checkOutResultSupplement
+     * @return
+     */
     public Builder checkOutResultSupplement(String checkOutResultSupplement) {
       this.checkOutResultSupplement = checkOutResultSupplement;
       return this;
     }
 
+    /**
+     * 下班打卡结果补充
+     * <p> 示例值：None
+     *
+     * @param checkOutResultSupplement {@link com.lark.oapi.service.attendance.v1.enums.TaskResultCheckOutResultSupplementEnum}
+     * @return
+     */
     public Builder checkOutResultSupplement(
-        com.lark.oapi.service.attendance.v1.enums.CheckOutResultSupplementEnum checkOutResultSupplement) {
+        com.lark.oapi.service.attendance.v1.enums.TaskResultCheckOutResultSupplementEnum checkOutResultSupplement) {
       this.checkOutResultSupplement = checkOutResultSupplement.getValue();
       return this;
     }
 
+
+    /**
+     * 上班打卡时间
+     * <p> 示例值：1609722000
+     *
+     * @param checkInShiftTime
+     * @return
+     */
     public Builder checkInShiftTime(String checkInShiftTime) {
       this.checkInShiftTime = checkInShiftTime;
       return this;
     }
 
+
+    /**
+     * 下班打卡时间
+     * <p> 示例值：1609754400
+     *
+     * @param checkOutShiftTime
+     * @return
+     */
     public Builder checkOutShiftTime(String checkOutShiftTime) {
       this.checkOutShiftTime = checkOutShiftTime;
       return this;

@@ -6,7 +6,7 @@ import com.lark.oapi.service.approval.v4.model.AddSignInstanceReq;
 import com.lark.oapi.service.approval.v4.model.AddSignInstanceReqBody;
 import com.lark.oapi.service.approval.v4.model.AddSignInstanceResp;
 
-// HTTP PATH: /open-apis/approval/v4/instances/add_sign"
+// POST /open-apis/approval/v4/instances/add_sign
 public class AddSignInstanceSample {
 
   public static void main(String arg[]) throws Exception {

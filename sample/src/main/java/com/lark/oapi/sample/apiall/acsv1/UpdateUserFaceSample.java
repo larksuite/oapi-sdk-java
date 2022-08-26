@@ -6,7 +6,7 @@ import com.lark.oapi.service.acs.v1.model.UpdateUserFaceReq;
 import com.lark.oapi.service.acs.v1.model.UpdateUserFaceResp;
 import java.io.File;
 
-// HTTP PATH: /open-apis/acs/v1/users/:user_id/face"
+// PUT /open-apis/acs/v1/users/:user_id/face
 public class UpdateUserFaceSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class UpdateUserFaceSample {
     // 创建请求对象
     File file = new File("filepath");
     UpdateUserFaceReq req = UpdateUserFaceReq.newBuilder()
-        .userId("")
+        .userId("ou_7dab8a3d3cdcc9da365777c7ad535d62")
         .userIdType("user_id")
         .file(com.lark.oapi.service.acs.v1.model.File.newBuilder()
             .files(file)

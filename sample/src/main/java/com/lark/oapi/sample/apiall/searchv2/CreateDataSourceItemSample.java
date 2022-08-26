@@ -9,7 +9,7 @@ import com.lark.oapi.service.search.v2.model.Item;
 import com.lark.oapi.service.search.v2.model.ItemContent;
 import com.lark.oapi.service.search.v2.model.ItemMetadata;
 
-// HTTP PATH: /open-apis/search/v2/data_sources/:data_source_id/items"
+// POST /open-apis/search/v2/data_sources/:data_source_id/items
 public class CreateDataSourceItemSample {
 
   public static void main(String arg[]) throws Exception {
@@ -18,7 +18,7 @@ public class CreateDataSourceItemSample {
 
     // 创建请求对象
     CreateDataSourceItemReq req = CreateDataSourceItemReq.newBuilder()
-        .dataSourceId("")
+        .dataSourceId("service_ticket")
         .item(Item.newBuilder()
             .id("")
             .acl(new Acl[]{})

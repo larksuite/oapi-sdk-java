@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetCalendarEvent {
 
+  /**
+   * 日程实体
+   * <p> 示例值：
+   */
   @SerializedName("event")
   private CalendarEvent event;
 

@@ -20,12 +20,24 @@ import com.lark.oapi.core.annotation.Query;
 
 public class CreateAppTableRecordReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * bitable app token
+   * <p> 示例值：bascng7vrxcxpig7geggXiCtadY
+   */
   @Path
   @SerializedName("app_token")
   private String appToken;
+  /**
+   * table id
+   * <p> 示例值：tblUa9vcYjWQYJCj
+   */
   @Path
   @SerializedName("table_id")
   private String tableId;
@@ -37,8 +49,20 @@ public class CreateAppTableRecordReq {
   }
 
   public CreateAppTableRecordReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
+    /**
+     * bitable app token
+     * <p> 示例值：bascng7vrxcxpig7geggXiCtadY
+     */
     this.appToken = builder.appToken;
+    /**
+     * table id
+     * <p> 示例值：tblUa9vcYjWQYJCj
+     */
     this.tableId = builder.tableId;
     this.body = builder.body;
   }
@@ -81,26 +105,55 @@ public class CreateAppTableRecordReq {
 
   public static class Builder {
 
-    private String userIdType;
-    private String appToken;
-    private String tableId;
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String appToken; // bitable app token
+    private String tableId; // table id
     private AppTableRecord body;
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.bitable.v1.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.bitable.v1.enums.CreateAppTableRecordUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.bitable.v1.enums.CreateAppTableRecordUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+    /**
+     * bitable app token
+     * <p> 示例值：bascng7vrxcxpig7geggXiCtadY
+     *
+     * @param appToken
+     * @return
+     */
     public Builder appToken(String appToken) {
       this.appToken = appToken;
       return this;
     }
 
+    /**
+     * table id
+     * <p> 示例值：tblUa9vcYjWQYJCj
+     *
+     * @param tableId
+     * @return
+     */
     public Builder tableId(String tableId) {
       this.tableId = tableId;
       return this;
@@ -110,6 +163,12 @@ public class CreateAppTableRecordReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder appTableRecord(AppTableRecord body) {
       this.body = body;
       return this;

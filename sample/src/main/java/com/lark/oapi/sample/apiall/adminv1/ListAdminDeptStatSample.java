@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.admin.v1.model.ListAdminDeptStatReq;
 import com.lark.oapi.service.admin.v1.model.ListAdminDeptStatResp;
 
-// HTTP PATH: /open-apis/admin/v1/admin_dept_stats"
+// GET /open-apis/admin/v1/admin_dept_stats
 public class ListAdminDeptStatSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,13 +14,13 @@ public class ListAdminDeptStatSample {
 
     // 创建请求对象
     ListAdminDeptStatReq req = ListAdminDeptStatReq.newBuilder()
-        .departmentIdType("department_id")
-        .startDate("")
-        .endDate("")
-        .departmentId("")
+        .departmentIdType("open_department_id")
+        .startDate("2020-02-15")
+        .endDate("2020-02-15")
+        .departmentId("od-382e2793cfc9471f892e8a672987654c")
         .containsChildDept(false)
-        .pageSize(0)
-        .pageToken("")
+        .pageSize(10)
+        .pageToken("2")
         .build();
 
     // 发起请求

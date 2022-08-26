@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Path;
 
 public class ReplaceSpreadsheetSheetReq {
 
+  /**
+   * Spreadsheet token
+   * <p> 示例值：shtcnmBA*****yGehy8
+   */
   @Path
   @SerializedName("spreadsheet_token")
   private String spreadsheetToken;
+  /**
+   * Sheet id
+   * <p> 示例值：0b**12
+   */
   @Path
   @SerializedName("sheet_id")
   private String sheetId;
@@ -33,7 +41,15 @@ public class ReplaceSpreadsheetSheetReq {
   }
 
   public ReplaceSpreadsheetSheetReq(Builder builder) {
+    /**
+     * Spreadsheet token
+     * <p> 示例值：shtcnmBA*****yGehy8
+     */
     this.spreadsheetToken = builder.spreadsheetToken;
+    /**
+     * Sheet id
+     * <p> 示例值：0b**12
+     */
     this.sheetId = builder.sheetId;
     this.body = builder.body;
   }
@@ -68,15 +84,29 @@ public class ReplaceSpreadsheetSheetReq {
 
   public static class Builder {
 
-    private String spreadsheetToken;
-    private String sheetId;
+    private String spreadsheetToken; // Spreadsheet token
+    private String sheetId; // Sheet id
     private Replace body;
 
+    /**
+     * Spreadsheet token
+     * <p> 示例值：shtcnmBA*****yGehy8
+     *
+     * @param spreadsheetToken
+     * @return
+     */
     public Builder spreadsheetToken(String spreadsheetToken) {
       this.spreadsheetToken = spreadsheetToken;
       return this;
     }
 
+    /**
+     * Sheet id
+     * <p> 示例值：0b**12
+     *
+     * @param sheetId
+     * @return
+     */
     public Builder sheetId(String sheetId) {
       this.sheetId = sheetId;
       return this;
@@ -86,6 +116,12 @@ public class ReplaceSpreadsheetSheetReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder replace(Replace body) {
       this.body = body;
       return this;

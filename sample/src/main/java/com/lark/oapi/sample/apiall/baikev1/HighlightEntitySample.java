@@ -6,7 +6,7 @@ import com.lark.oapi.service.baike.v1.model.HighlightEntityReq;
 import com.lark.oapi.service.baike.v1.model.HighlightEntityReqBody;
 import com.lark.oapi.service.baike.v1.model.HighlightEntityResp;
 
-// HTTP PATH: /open-apis/baike/v1/entities/highlight"
+// POST /open-apis/baike/v1/entities/highlight
 public class HighlightEntitySample {
 
   public static void main(String arg[]) throws Exception {

@@ -7,7 +7,7 @@ import com.lark.oapi.service.sheets.v3.model.Replace;
 import com.lark.oapi.service.sheets.v3.model.ReplaceSpreadsheetSheetReq;
 import com.lark.oapi.service.sheets.v3.model.ReplaceSpreadsheetSheetResp;
 
-// HTTP PATH: /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/replace"
+// POST /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/replace
 public class ReplaceSpreadsheetSheetSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,8 +16,8 @@ public class ReplaceSpreadsheetSheetSample {
 
     // 创建请求对象
     ReplaceSpreadsheetSheetReq req = ReplaceSpreadsheetSheetReq.newBuilder()
-        .spreadsheetToken("")
-        .sheetId("")
+        .spreadsheetToken("shtcnmBA*****yGehy8")
+        .sheetId("0b**12")
         .replace(Replace.newBuilder()
             .findCondition(FindCondition.newBuilder().build())
             .find("")

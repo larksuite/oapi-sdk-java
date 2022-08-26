@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateTaskComment {
 
+  /**
+   * 返回创建好的任务评论
+   * <p> 示例值：
+   */
   @SerializedName("comment")
   private Comment comment;
 

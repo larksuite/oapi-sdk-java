@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateExternalApproval {
 
+  /**
+   * 审批定义 code，用户自定义，定义的唯一标识
+   * <p> 示例值：C30381C8-7A5F-4717-A9CF-C233BF0202D4
+   */
   @SerializedName("approval_code")
   private String approvalCode;
 

@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class ChatTab {
 
+  /**
+   * TabID
+   * <p> 示例值：7101214603622940671
+   */
   @SerializedName("tab_id")
   private String tabId;
+  /**
+   * Tab名称
+   * <p> 示例值：文档
+   */
   @SerializedName("tab_name")
   private String tabName;
+  /**
+   * Tab类型
+   * <p> 示例值：doc
+   */
   @SerializedName("tab_type")
   private String tabType;
+  /**
+   * Tab内容
+   * <p> 示例值：
+   */
   @SerializedName("tab_content")
   private ChatTabContent tabContent;
 
@@ -31,9 +47,25 @@ public class ChatTab {
   }
 
   public ChatTab(Builder builder) {
+    /**
+     * TabID
+     * <p> 示例值：7101214603622940671
+     */
     this.tabId = builder.tabId;
+    /**
+     * Tab名称
+     * <p> 示例值：文档
+     */
     this.tabName = builder.tabName;
+    /**
+     * Tab类型
+     * <p> 示例值：doc
+     */
     this.tabType = builder.tabType;
+    /**
+     * Tab内容
+     * <p> 示例值：
+     */
     this.tabContent = builder.tabContent;
   }
 
@@ -75,31 +107,85 @@ public class ChatTab {
 
   public static class Builder {
 
+    /**
+     * TabID
+     * <p> 示例值：7101214603622940671
+     */
     private String tabId;
+    /**
+     * Tab名称
+     * <p> 示例值：文档
+     */
     private String tabName;
+    /**
+     * Tab类型
+     * <p> 示例值：doc
+     */
     private String tabType;
+    /**
+     * Tab内容
+     * <p> 示例值：
+     */
     private ChatTabContent tabContent;
 
+    /**
+     * TabID
+     * <p> 示例值：7101214603622940671
+     *
+     * @param tabId
+     * @return
+     */
     public Builder tabId(String tabId) {
       this.tabId = tabId;
       return this;
     }
 
+
+    /**
+     * Tab名称
+     * <p> 示例值：文档
+     *
+     * @param tabName
+     * @return
+     */
     public Builder tabName(String tabName) {
       this.tabName = tabName;
       return this;
     }
 
+
+    /**
+     * Tab类型
+     * <p> 示例值：doc
+     *
+     * @param tabType
+     * @return
+     */
     public Builder tabType(String tabType) {
       this.tabType = tabType;
       return this;
     }
 
-    public Builder tabType(com.lark.oapi.service.im.v1.enums.TabTypeEnum tabType) {
+    /**
+     * Tab类型
+     * <p> 示例值：doc
+     *
+     * @param tabType {@link com.lark.oapi.service.im.v1.enums.ChatTabTabTypeEnum}
+     * @return
+     */
+    public Builder tabType(com.lark.oapi.service.im.v1.enums.ChatTabTabTypeEnum tabType) {
       this.tabType = tabType.getValue();
       return this;
     }
 
+
+    /**
+     * Tab内容
+     * <p> 示例值：
+     *
+     * @param tabContent
+     * @return
+     */
     public Builder tabContent(ChatTabContent tabContent) {
       this.tabContent = tabContent;
       return this;

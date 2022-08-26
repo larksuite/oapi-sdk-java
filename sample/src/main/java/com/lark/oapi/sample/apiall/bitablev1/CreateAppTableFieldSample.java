@@ -7,7 +7,7 @@ import com.lark.oapi.service.bitable.v1.model.AppTableFieldProperty;
 import com.lark.oapi.service.bitable.v1.model.CreateAppTableFieldReq;
 import com.lark.oapi.service.bitable.v1.model.CreateAppTableFieldResp;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields"
+// POST /open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields
 public class CreateAppTableFieldSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,8 +16,8 @@ public class CreateAppTableFieldSample {
 
     // 创建请求对象
     CreateAppTableFieldReq req = CreateAppTableFieldReq.newBuilder()
-        .appToken("")
-        .tableId("")
+        .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
+        .tableId("tblsRc9GRRXKqhvW")
         .appTableField(AppTableField.newBuilder()
             .fieldName("")
             .type(1)

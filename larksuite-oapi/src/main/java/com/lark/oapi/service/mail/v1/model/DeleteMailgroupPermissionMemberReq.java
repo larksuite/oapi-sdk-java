@@ -18,9 +18,17 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DeleteMailgroupPermissionMemberReq {
 
+  /**
+   * The unique ID or email address of a mail group
+   * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
+   */
   @Path
   @SerializedName("mailgroup_id")
   private String mailgroupId;
+  /**
+   * The unique ID of a member in this permission group
+   * <p> 示例值：xxxxxxxxxxxxxxx
+   */
   @Path
   @SerializedName("permission_member_id")
   private String permissionMemberId;
@@ -30,7 +38,15 @@ public class DeleteMailgroupPermissionMemberReq {
   }
 
   public DeleteMailgroupPermissionMemberReq(Builder builder) {
+    /**
+     * The unique ID or email address of a mail group
+     * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
+     */
     this.mailgroupId = builder.mailgroupId;
+    /**
+     * The unique ID of a member in this permission group
+     * <p> 示例值：xxxxxxxxxxxxxxx
+     */
     this.permissionMemberId = builder.permissionMemberId;
   }
 
@@ -56,14 +72,29 @@ public class DeleteMailgroupPermissionMemberReq {
 
   public static class Builder {
 
-    private String mailgroupId;
-    private String permissionMemberId;
+    private String mailgroupId; // The unique ID or email address of a mail group
+    private String permissionMemberId; // The unique ID of a member in this permission group
 
+    /**
+     * The unique ID or email address of a mail group
+     * <p> 示例值：xxxxxxxxxxxxxxx or test_mail_group@xxx.xx
+     *
+     * @param mailgroupId
+     * @return
+     */
     public Builder mailgroupId(String mailgroupId) {
       this.mailgroupId = mailgroupId;
       return this;
     }
 
+
+    /**
+     * The unique ID of a member in this permission group
+     * <p> 示例值：xxxxxxxxxxxxxxx
+     *
+     * @param permissionMemberId
+     * @return
+     */
     public Builder permissionMemberId(String permissionMemberId) {
       this.permissionMemberId = permissionMemberId;
       return this;

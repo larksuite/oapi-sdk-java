@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DeleteFaqReq {
 
+  /**
+   * id
+   * <p> 示例值：12345
+   */
   @Path
   @SerializedName("id")
   private String id;
@@ -27,6 +31,10 @@ public class DeleteFaqReq {
   }
 
   public DeleteFaqReq(Builder builder) {
+    /**
+     * id
+     * <p> 示例值：12345
+     */
     this.id = builder.id;
   }
 
@@ -44,8 +52,15 @@ public class DeleteFaqReq {
 
   public static class Builder {
 
-    private String id;
+    private String id; // id
 
+    /**
+     * id
+     * <p> 示例值：12345
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;

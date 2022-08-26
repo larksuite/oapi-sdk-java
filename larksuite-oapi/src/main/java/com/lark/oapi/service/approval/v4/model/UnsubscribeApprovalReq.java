@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class UnsubscribeApprovalReq {
 
+  /**
+   * 审批定义唯一标识
+   * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+   */
   @Path
   @SerializedName("approval_code")
   private String approvalCode;
@@ -27,6 +31,10 @@ public class UnsubscribeApprovalReq {
   }
 
   public UnsubscribeApprovalReq(Builder builder) {
+    /**
+     * 审批定义唯一标识
+     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     */
     this.approvalCode = builder.approvalCode;
   }
 
@@ -44,8 +52,15 @@ public class UnsubscribeApprovalReq {
 
   public static class Builder {
 
-    private String approvalCode;
+    private String approvalCode; // 审批定义唯一标识
 
+    /**
+     * 审批定义唯一标识
+     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     *
+     * @param approvalCode
+     * @return
+     */
     public Builder approvalCode(String approvalCode) {
       this.approvalCode = approvalCode;
       return this;

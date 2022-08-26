@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class GetChatAnnouncementReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：open_id
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * 待获取公告的群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+   * <p> 示例值：oc_5ad11d72b830411d72b836c20
+   */
   @Path
   @SerializedName("chat_id")
   private String chatId;
@@ -31,7 +39,15 @@ public class GetChatAnnouncementReq {
   }
 
   public GetChatAnnouncementReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：open_id
+     */
     this.userIdType = builder.userIdType;
+    /**
+     * 待获取公告的群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * <p> 示例值：oc_5ad11d72b830411d72b836c20
+     */
     this.chatId = builder.chatId;
   }
 
@@ -57,19 +73,41 @@ public class GetChatAnnouncementReq {
 
   public static class Builder {
 
-    private String userIdType;
-    private String chatId;
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String chatId; // 待获取公告的群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.im.v1.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：open_id
+     *
+     * @param userIdType {@link com.lark.oapi.service.im.v1.enums.GetChatAnnouncementUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.im.v1.enums.GetChatAnnouncementUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+    /**
+     * 待获取公告的群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * <p> 示例值：oc_5ad11d72b830411d72b836c20
+     *
+     * @param chatId
+     * @return
+     */
     public Builder chatId(String chatId) {
       this.chatId = chatId;
       return this;

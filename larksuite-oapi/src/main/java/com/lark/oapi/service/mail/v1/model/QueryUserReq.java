@@ -48,6 +48,12 @@ public class QueryUserReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder queryUserReqBody(QueryUserReqBody body) {
       this.body = body;
       return this;

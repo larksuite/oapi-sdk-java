@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.calendar.v4.model.GetCalendarReq;
 import com.lark.oapi.service.calendar.v4.model.GetCalendarResp;
 
-// HTTP PATH: /open-apis/calendar/v4/calendars/:calendar_id"
+// GET /open-apis/calendar/v4/calendars/:calendar_id
 public class GetCalendarSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class GetCalendarSample {
 
     // 创建请求对象
     GetCalendarReq req = GetCalendarReq.newBuilder()
-        .calendarId("")
+        .calendarId("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn")
         .build();
 
     // 发起请求

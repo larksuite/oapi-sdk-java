@@ -48,6 +48,12 @@ public class BasicRecognizeImageReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder basicRecognizeImageReqBody(BasicRecognizeImageReqBody body) {
       this.body = body;
       return this;

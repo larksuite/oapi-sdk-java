@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class BasicRecognizeImage {
 
+  /**
+   * 按区域识别，返回文本列表
+   * <p> 示例值：
+   */
   @SerializedName("text_list")
   private String[] textList;
 

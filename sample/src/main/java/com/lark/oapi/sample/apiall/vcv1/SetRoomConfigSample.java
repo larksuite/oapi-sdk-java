@@ -7,7 +7,7 @@ import com.lark.oapi.service.vc.v1.model.SetRoomConfigReq;
 import com.lark.oapi.service.vc.v1.model.SetRoomConfigReqBody;
 import com.lark.oapi.service.vc.v1.model.SetRoomConfigResp;
 
-// HTTP PATH: /open-apis/vc/v1/room_configs/set"
+// POST /open-apis/vc/v1/room_configs/set
 public class SetRoomConfigSample {
 
   public static void main(String arg[]) throws Exception {
@@ -19,10 +19,10 @@ public class SetRoomConfigSample {
         .userIdType("user_id")
         .setRoomConfigReqBody(SetRoomConfigReqBody.newBuilder()
             .scope(5)
-            .countryId("1")
-            .districtId("2")
-            .buildingId("3")
-            .floorName("4")
+            .countryId("086")
+            .districtId("223")
+            .buildingId("66")
+            .floorName("3")
             .roomId("67687262867363")
             .roomConfig(RoomConfig.newBuilder().build())
             .build())

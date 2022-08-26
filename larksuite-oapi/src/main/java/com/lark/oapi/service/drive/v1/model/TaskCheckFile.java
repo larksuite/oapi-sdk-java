@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class TaskCheckFile {
 
+  /**
+   * 异步任务的执行状态，如果任务执行成功则返回success，如果任务执行失败则返回fail，如果任务还在执行中则返回process。
+   * <p> 示例值：success
+   */
   @SerializedName("status")
   private String status;
 

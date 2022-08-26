@@ -17,6 +17,13 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateBadgeGrant {
 
+  /**
+   * 授予名单
+   * <p> 示例值：{     "grant_id": "g_uS4yux",     "badge_id": "m_DjMzaK",     "name":
+   * "授权给全员用户的周年授予名单",
+   * "grant_type": 1,     "timezone": "Asia/Shanghai",     "is_grant_all": true, "rule_detail": {
+   * "anniversary": 6,         "effective_period": 0     } }
+   */
   @SerializedName("grant")
   private Grant grant;
 

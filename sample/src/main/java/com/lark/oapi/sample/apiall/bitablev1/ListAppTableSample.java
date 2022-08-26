@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.bitable.v1.model.ListAppTableReq;
 import com.lark.oapi.service.bitable.v1.model.ListAppTableResp;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/tables"
+// GET /open-apis/bitable/v1/apps/:app_token/tables
 public class ListAppTableSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,8 +14,8 @@ public class ListAppTableSample {
 
     // 创建请求对象
     ListAppTableReq req = ListAppTableReq.newBuilder()
-        .appToken("")
-        .pageToken("")
+        .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
+        .pageToken("tblsRc9GRRXKqhvW")
         .pageSize(20)
         .build();
 

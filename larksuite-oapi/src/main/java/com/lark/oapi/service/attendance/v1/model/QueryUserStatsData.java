@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryUserStatsData {
 
+  /**
+   * 用户统计数据
+   * <p> 示例值：
+   */
   @SerializedName("user_datas")
   private UserStatsData[] userDatas;
 

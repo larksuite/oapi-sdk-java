@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.drive.v1.model.DownloadExportTaskReq;
 import com.lark.oapi.service.drive.v1.model.DownloadExportTaskResp;
 
-// HTTP PATH: /open-apis/drive/v1/export_tasks/file/:file_token/download"
+// GET /open-apis/drive/v1/export_tasks/file/:file_token/download
 public class DownloadExportTaskSample {
 
   public static void main(String arg[]) throws Exception {

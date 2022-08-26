@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class Image {
 
+  /**
+   * 宽度单位 px
+   * <p> 示例值：4069
+   */
   @SerializedName("width")
   private Integer width;
+  /**
+   * 高度
+   * <p> 示例值：2480
+   */
   @SerializedName("height")
   private Integer height;
+  /**
+   * 图片 Token
+   * <p> 示例值：boxbcVA91JtFgNhaCgy6s6wK4he
+   */
   @SerializedName("token")
   private String token;
 
@@ -29,8 +41,20 @@ public class Image {
   }
 
   public Image(Builder builder) {
+    /**
+     * 宽度单位 px
+     * <p> 示例值：4069
+     */
     this.width = builder.width;
+    /**
+     * 高度
+     * <p> 示例值：2480
+     */
     this.height = builder.height;
+    /**
+     * 图片 Token
+     * <p> 示例值：boxbcVA91JtFgNhaCgy6s6wK4he
+     */
     this.token = builder.token;
   }
 
@@ -64,20 +88,55 @@ public class Image {
 
   public static class Builder {
 
+    /**
+     * 宽度单位 px
+     * <p> 示例值：4069
+     */
     private Integer width;
+    /**
+     * 高度
+     * <p> 示例值：2480
+     */
     private Integer height;
+    /**
+     * 图片 Token
+     * <p> 示例值：boxbcVA91JtFgNhaCgy6s6wK4he
+     */
     private String token;
 
+    /**
+     * 宽度单位 px
+     * <p> 示例值：4069
+     *
+     * @param width
+     * @return
+     */
     public Builder width(Integer width) {
       this.width = width;
       return this;
     }
 
+
+    /**
+     * 高度
+     * <p> 示例值：2480
+     *
+     * @param height
+     * @return
+     */
     public Builder height(Integer height) {
       this.height = height;
       return this;
     }
 
+
+    /**
+     * 图片 Token
+     * <p> 示例值：boxbcVA91JtFgNhaCgy6s6wK4he
+     *
+     * @param token
+     * @return
+     */
     public Builder token(String token) {
       this.token = token;
       return this;

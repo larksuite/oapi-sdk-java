@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetMoto {
 
+  /**
+   * desc
+   * <p> 示例值：
+   */
   @SerializedName("moto")
   private Moto moto;
 

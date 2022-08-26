@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class PatchSpreadsheetSheetFloatImage {
 
+  /**
+   * 浮动图片信息
+   * <p> 示例值：
+   */
   @SerializedName("float_image")
   private FloatImage floatImage;
 

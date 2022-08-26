@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.mail.v1.model.GetMailgroupPermissionMemberReq;
 import com.lark.oapi.service.mail.v1.model.GetMailgroupPermissionMemberResp;
 
-// HTTP PATH: /open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members/:permission_member_id"
+// GET /open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members/:permission_member_id
 public class GetMailgroupPermissionMemberSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,10 +14,10 @@ public class GetMailgroupPermissionMemberSample {
 
     // 创建请求对象
     GetMailgroupPermissionMemberReq req = GetMailgroupPermissionMemberReq.newBuilder()
-        .mailgroupId("xxxxxxxxxxxxxxx or test_mail_group@xxx.xx")
+        .mailgroupId("xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx")
         .permissionMemberId("xxxxxxxxxxxxxxx")
         .userIdType("user_id")
-        .departmentIdType("department_id")
+        .departmentIdType("open_department_id")
         .build();
 
     // 发起请求

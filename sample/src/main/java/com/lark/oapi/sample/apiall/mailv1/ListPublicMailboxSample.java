@@ -14,7 +14,7 @@ public class ListPublicMailboxSample {
 
     // 创建请求对象
     ListPublicMailboxReq req = ListPublicMailboxReq.newBuilder()
-        .pageToken("")
+        .pageToken("xxx")
         .pageSize(20)
         .build();
 

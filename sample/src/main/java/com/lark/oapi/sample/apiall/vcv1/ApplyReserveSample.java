@@ -7,7 +7,7 @@ import com.lark.oapi.service.vc.v1.model.ApplyReserveReqBody;
 import com.lark.oapi.service.vc.v1.model.ApplyReserveResp;
 import com.lark.oapi.service.vc.v1.model.ReserveMeetingSetting;
 
-// HTTP PATH: /open-apis/vc/v1/reserves/apply"
+// POST /open-apis/vc/v1/reserves/apply
 public class ApplyReserveSample {
 
   public static void main(String arg[]) throws Exception {

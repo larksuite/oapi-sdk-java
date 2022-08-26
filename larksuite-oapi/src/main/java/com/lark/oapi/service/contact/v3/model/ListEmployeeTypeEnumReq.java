@@ -18,9 +18,15 @@ import com.lark.oapi.core.annotation.Query;
 
 public class ListEmployeeTypeEnumReq {
 
+  /**
+   * <p> 示例值：3
+   */
   @Query
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * <p> 示例值：10
+   */
   @Query
   @SerializedName("page_size")
   private Integer pageSize;
@@ -30,7 +36,15 @@ public class ListEmployeeTypeEnumReq {
   }
 
   public ListEmployeeTypeEnumReq(Builder builder) {
+    /**
+     *
+     * <p> 示例值：3
+     */
     this.pageToken = builder.pageToken;
+    /**
+     *
+     * <p> 示例值：10
+     */
     this.pageSize = builder.pageSize;
   }
 
@@ -56,14 +70,28 @@ public class ListEmployeeTypeEnumReq {
 
   public static class Builder {
 
-    private String pageToken;
-    private Integer pageSize;
+    private String pageToken; //
+    private Integer pageSize; //
 
+
+    /**
+     * <p> 示例值：3
+     *
+     * @param pageToken
+     * @return
+     */
     public Builder pageToken(String pageToken) {
       this.pageToken = pageToken;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
     public Builder pageSize(Integer pageSize) {
       this.pageSize = pageSize;
       return this;

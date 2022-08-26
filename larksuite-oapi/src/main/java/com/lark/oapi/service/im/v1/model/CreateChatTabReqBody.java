@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateChatTabReqBody {
 
+  /**
+   * 会话标签页
+   * <p> 示例值：
+   */
   @SerializedName("chat_tabs")
   private ChatTab[] chatTabs;
 
@@ -25,6 +29,10 @@ public class CreateChatTabReqBody {
   }
 
   public CreateChatTabReqBody(Builder builder) {
+    /**
+     * 会话标签页
+     * <p> 示例值：
+     */
     this.chatTabs = builder.chatTabs;
   }
 
@@ -42,8 +50,19 @@ public class CreateChatTabReqBody {
 
   public static class Builder {
 
+    /**
+     * 会话标签页
+     * <p> 示例值：
+     */
     private ChatTab[] chatTabs;
 
+    /**
+     * 会话标签页
+     * <p> 示例值：
+     *
+     * @param chatTabs
+     * @return
+     */
     public Builder chatTabs(ChatTab[] chatTabs) {
       this.chatTabs = chatTabs;
       return this;

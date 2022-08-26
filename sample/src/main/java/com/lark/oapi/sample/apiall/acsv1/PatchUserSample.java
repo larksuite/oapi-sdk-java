@@ -7,7 +7,7 @@ import com.lark.oapi.service.acs.v1.model.PatchUserReq;
 import com.lark.oapi.service.acs.v1.model.PatchUserResp;
 import com.lark.oapi.service.acs.v1.model.User;
 
-// HTTP PATH: /open-apis/acs/v1/users/:user_id"
+// PATCH /open-apis/acs/v1/users/:user_id
 public class PatchUserSample {
 
   public static void main(String arg[]) throws Exception {

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListDevice {
 
+  /**
+   * -
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private Device[] items;
 

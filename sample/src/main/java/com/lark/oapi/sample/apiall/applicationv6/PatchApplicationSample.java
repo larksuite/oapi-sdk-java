@@ -6,7 +6,7 @@ import com.lark.oapi.service.application.v6.model.Application;
 import com.lark.oapi.service.application.v6.model.PatchApplicationReq;
 import com.lark.oapi.service.application.v6.model.PatchApplicationResp;
 
-// HTTP PATH: /open-apis/application/v6/applications/:app_id"
+// PATCH /open-apis/application/v6/applications/:app_id
 public class PatchApplicationSample {
 
   public static void main(String arg[]) throws Exception {

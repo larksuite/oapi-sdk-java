@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class RestRule {
 
+  /**
+   * 休息开始
+   * <p> 示例值：13:00
+   */
   @SerializedName("rest_begin_time")
   private String restBeginTime;
+  /**
+   * 休息结束
+   * <p> 示例值：14:00
+   */
   @SerializedName("rest_end_time")
   private String restEndTime;
 
@@ -27,7 +35,15 @@ public class RestRule {
   }
 
   public RestRule(Builder builder) {
+    /**
+     * 休息开始
+     * <p> 示例值：13:00
+     */
     this.restBeginTime = builder.restBeginTime;
+    /**
+     * 休息结束
+     * <p> 示例值：14:00
+     */
     this.restEndTime = builder.restEndTime;
   }
 
@@ -53,14 +69,37 @@ public class RestRule {
 
   public static class Builder {
 
+    /**
+     * 休息开始
+     * <p> 示例值：13:00
+     */
     private String restBeginTime;
+    /**
+     * 休息结束
+     * <p> 示例值：14:00
+     */
     private String restEndTime;
 
+    /**
+     * 休息开始
+     * <p> 示例值：13:00
+     *
+     * @param restBeginTime
+     * @return
+     */
     public Builder restBeginTime(String restBeginTime) {
       this.restBeginTime = restBeginTime;
       return this;
     }
 
+
+    /**
+     * 休息结束
+     * <p> 示例值：14:00
+     *
+     * @param restEndTime
+     * @return
+     */
     public Builder restEndTime(String restEndTime) {
       this.restEndTime = restEndTime;
       return this;

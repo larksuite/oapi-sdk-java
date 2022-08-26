@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class GetExchangeBindingReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * exchange绑定唯一标识id。参见[exchange绑定ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
+   * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
+   */
   @Path
   @SerializedName("exchange_binding_id")
   private String exchangeBindingId;
@@ -31,7 +39,15 @@ public class GetExchangeBindingReq {
   }
 
   public GetExchangeBindingReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
+    /**
+     * exchange绑定唯一标识id。参见[exchange绑定ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
+     * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
+     */
     this.exchangeBindingId = builder.exchangeBindingId;
   }
 
@@ -57,19 +73,41 @@ public class GetExchangeBindingReq {
 
   public static class Builder {
 
-    private String userIdType;
-    private String exchangeBindingId;
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String exchangeBindingId; // exchange绑定唯一标识id。参见[exchange绑定ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.GetExchangeBindingUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.calendar.v4.enums.GetExchangeBindingUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+    /**
+     * exchange绑定唯一标识id。参见[exchange绑定ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
+     * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
+     *
+     * @param exchangeBindingId
+     * @return
+     */
     public Builder exchangeBindingId(String exchangeBindingId) {
       this.exchangeBindingId = exchangeBindingId;
       return this;

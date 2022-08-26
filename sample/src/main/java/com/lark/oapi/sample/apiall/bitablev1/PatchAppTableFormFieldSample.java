@@ -6,7 +6,7 @@ import com.lark.oapi.service.bitable.v1.model.AppTableFormPatchedField;
 import com.lark.oapi.service.bitable.v1.model.PatchAppTableFormFieldReq;
 import com.lark.oapi.service.bitable.v1.model.PatchAppTableFormFieldResp;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/tables/:table_id/forms/:form_id/fields/:field_id"
+// PATCH /open-apis/bitable/v1/apps/:app_token/tables/:table_id/forms/:form_id/fields/:field_id
 public class PatchAppTableFormFieldSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,10 +15,10 @@ public class PatchAppTableFormFieldSample {
 
     // 创建请求对象
     PatchAppTableFormFieldReq req = PatchAppTableFormFieldReq.newBuilder()
-        .appToken("")
-        .tableId("")
-        .formId("")
-        .fieldId("")
+        .appToken("bascnCMII2ORej2RItqpZZUNMIe")
+        .tableId("tblsRc9GRRXKqhvW")
+        .formId("vewTpR1urY")
+        .fieldId("fldjX7dUj5")
         .appTableFormPatchedField(AppTableFormPatchedField.newBuilder()
             .preFieldId("")
             .title("")

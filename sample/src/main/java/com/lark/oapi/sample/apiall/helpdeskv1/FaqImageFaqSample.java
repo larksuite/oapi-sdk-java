@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.FaqImageFaqReq;
 import com.lark.oapi.service.helpdesk.v1.model.FaqImageFaqResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/faqs/:id/image/:image_key"
+// GET /open-apis/helpdesk/v1/faqs/:id/image/:image_key
 public class FaqImageFaqSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,8 +14,8 @@ public class FaqImageFaqSample {
 
     // 创建请求对象
     FaqImageFaqReq req = FaqImageFaqReq.newBuilder()
-        .id("")
-        .imageKey("")
+        .id("12345")
+        .imageKey("img_b07ffac0-19c1-48a3-afca-599f8ea825fj")
         .build();
 
     // 发起请求

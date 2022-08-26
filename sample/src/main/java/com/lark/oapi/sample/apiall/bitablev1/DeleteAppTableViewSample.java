@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.bitable.v1.model.DeleteAppTableViewReq;
 import com.lark.oapi.service.bitable.v1.model.DeleteAppTableViewResp;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id"
+// DELETE /open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id
 public class DeleteAppTableViewSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,9 +14,9 @@ public class DeleteAppTableViewSample {
 
     // 创建请求对象
     DeleteAppTableViewReq req = DeleteAppTableViewReq.newBuilder()
-        .appToken("")
-        .tableId("")
-        .viewId("")
+        .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
+        .tableId("tblsRc9GRRXKqhvW")
+        .viewId("vewTpR1urY")
         .build();
 
     // 发起请求

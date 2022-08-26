@@ -48,6 +48,12 @@ public class CreateExternalInstanceReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder externalInstance(ExternalInstance body) {
       this.body = body;
       return this;

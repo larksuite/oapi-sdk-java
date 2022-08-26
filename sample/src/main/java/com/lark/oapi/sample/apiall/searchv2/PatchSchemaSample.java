@@ -7,7 +7,7 @@ import com.lark.oapi.service.search.v2.model.PatchSchemaReqBody;
 import com.lark.oapi.service.search.v2.model.PatchSchemaResp;
 import com.lark.oapi.service.search.v2.model.SchemaDisplay;
 
-// HTTP PATH: /open-apis/search/v2/schemas/:schema_id"
+// PATCH /open-apis/search/v2/schemas/:schema_id
 public class PatchSchemaSample {
 
   public static void main(String arg[]) throws Exception {

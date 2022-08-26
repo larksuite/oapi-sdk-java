@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Approval {
 
+  /**
+   * 审批定义code
+   * <p> 示例值：
+   */
   @SerializedName("approval_code")
   private String approvalCode;
+  /**
+   * 审批定义名称
+   * <p> 示例值：
+   */
   @SerializedName("approval_name")
   private String approvalName;
 
@@ -27,7 +35,15 @@ public class Approval {
   }
 
   public Approval(Builder builder) {
+    /**
+     * 审批定义code
+     * <p> 示例值：
+     */
     this.approvalCode = builder.approvalCode;
+    /**
+     * 审批定义名称
+     * <p> 示例值：
+     */
     this.approvalName = builder.approvalName;
   }
 
@@ -53,14 +69,37 @@ public class Approval {
 
   public static class Builder {
 
+    /**
+     * 审批定义code
+     * <p> 示例值：
+     */
     private String approvalCode;
+    /**
+     * 审批定义名称
+     * <p> 示例值：
+     */
     private String approvalName;
 
+    /**
+     * 审批定义code
+     * <p> 示例值：
+     *
+     * @param approvalCode
+     * @return
+     */
     public Builder approvalCode(String approvalCode) {
       this.approvalCode = approvalCode;
       return this;
     }
 
+
+    /**
+     * 审批定义名称
+     * <p> 示例值：
+     *
+     * @param approvalName
+     * @return
+     */
     public Builder approvalName(String approvalName) {
       this.approvalName = approvalName;
       return this;

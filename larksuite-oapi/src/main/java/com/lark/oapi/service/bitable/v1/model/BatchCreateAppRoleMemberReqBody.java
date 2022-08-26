@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchCreateAppRoleMemberReqBody {
 
+  /**
+   * 协作者列表
+   * <p> 示例值：
+   */
   @SerializedName("member_list")
   private AppRoleMemberId[] memberList;
 
@@ -25,6 +29,10 @@ public class BatchCreateAppRoleMemberReqBody {
   }
 
   public BatchCreateAppRoleMemberReqBody(Builder builder) {
+    /**
+     * 协作者列表
+     * <p> 示例值：
+     */
     this.memberList = builder.memberList;
   }
 
@@ -42,8 +50,19 @@ public class BatchCreateAppRoleMemberReqBody {
 
   public static class Builder {
 
+    /**
+     * 协作者列表
+     * <p> 示例值：
+     */
     private AppRoleMemberId[] memberList;
 
+    /**
+     * 协作者列表
+     * <p> 示例值：
+     *
+     * @param memberList
+     * @return
+     */
     public Builder memberList(AppRoleMemberId[] memberList) {
       this.memberList = memberList;
       return this;

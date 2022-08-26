@@ -6,7 +6,7 @@ import com.lark.oapi.service.admin.v1.model.Badge;
 import com.lark.oapi.service.admin.v1.model.UpdateBadgeReq;
 import com.lark.oapi.service.admin.v1.model.UpdateBadgeResp;
 
-// HTTP PATH: /open-apis/admin/v1/badges/:badge_id"
+// PUT /open-apis/admin/v1/badges/:badge_id
 public class UpdateBadgeSample {
 
   public static void main(String arg[]) throws Exception {

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.im.v1.model.DeleteMessageReq;
 import com.lark.oapi.service.im.v1.model.DeleteMessageResp;
 
-// HTTP PATH: /open-apis/im/v1/messages/:message_id"
+// DELETE /open-apis/im/v1/messages/:message_id
 public class DeleteMessageSample {
 
   public static void main(String arg[]) throws Exception {

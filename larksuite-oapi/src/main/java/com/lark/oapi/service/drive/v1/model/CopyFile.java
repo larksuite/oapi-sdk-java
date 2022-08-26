@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CopyFile {
 
+  /**
+   * 复制后的文件资源
+   * <p> 示例值：
+   */
   @SerializedName("file")
   private File file;
 

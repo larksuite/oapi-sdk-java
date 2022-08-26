@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.im.v1.model.ListMessageReq;
 import com.lark.oapi.service.im.v1.model.ListMessageResp;
 
-// HTTP PATH: /open-apis/im/v1/messages"
+// GET /open-apis/im/v1/messages
 public class ListMessageSample {
 
   public static void main(String arg[]) throws Exception {
@@ -18,7 +18,8 @@ public class ListMessageSample {
         .containerId("oc_234jsi43d3ssi993d43545f")
         .startTime("1609296809")
         .endTime("1608594809")
-        .pageToken("")
+        .pageToken(
+            "GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==")
         .pageSize(20)
         .build();
 

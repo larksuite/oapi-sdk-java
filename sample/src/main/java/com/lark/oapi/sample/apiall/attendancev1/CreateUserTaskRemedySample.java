@@ -6,7 +6,7 @@ import com.lark.oapi.service.attendance.v1.model.CreateUserTaskRemedyReq;
 import com.lark.oapi.service.attendance.v1.model.CreateUserTaskRemedyResp;
 import com.lark.oapi.service.attendance.v1.model.UserTaskRemedy;
 
-// HTTP PATH: /open-apis/attendance/v1/user_task_remedys"
+// POST /open-apis/attendance/v1/user_task_remedys
 public class CreateUserTaskRemedySample {
 
   public static void main(String arg[]) throws Exception {
@@ -21,14 +21,9 @@ public class CreateUserTaskRemedySample {
             .remedyDate(20210701)
             .punchNo(0)
             .workType(1)
-            .approvalId("6737202939523236113")
             .remedyTime("")
-            .status(2)
             .reason("忘记打卡")
             .time("1611476284")
-            .timeZone("Asia/Shanghai")
-            .createTime("1611476284")
-            .updateTime("1611476284")
             .build())
         .build();
 

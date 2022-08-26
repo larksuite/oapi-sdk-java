@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Query;
 
 public class BatchGetIdUserReq {
 
+  /**
+   * 返回的用户ID的类型
+   * <p> 示例值：user_id
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
@@ -30,6 +34,10 @@ public class BatchGetIdUserReq {
   }
 
   public BatchGetIdUserReq(Builder builder) {
+    /**
+     * 返回的用户ID的类型
+     * <p> 示例值：user_id
+     */
     this.userIdType = builder.userIdType;
     this.body = builder.body;
   }
@@ -56,15 +64,30 @@ public class BatchGetIdUserReq {
 
   public static class Builder {
 
-    private String userIdType;
+    private String userIdType; // 返回的用户ID的类型
     private BatchGetIdUserReqBody body;
 
+    /**
+     * 返回的用户ID的类型
+     * <p> 示例值：user_id
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.contact.v3.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 返回的用户ID的类型
+     * <p> 示例值：user_id
+     *
+     * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.BatchGetIdUserUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.contact.v3.enums.BatchGetIdUserUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
@@ -73,6 +96,12 @@ public class BatchGetIdUserReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder batchGetIdUserReqBody(BatchGetIdUserReqBody body) {
       this.body = body;
       return this;

@@ -17,16 +17,40 @@ import com.google.gson.annotations.SerializedName;
 
 public class ApplicationOwner {
 
+  /**
+   * 应用所有者类型
+   * <p> 示例值：0
+   */
   @SerializedName("type")
   private Integer type;
+  /**
+   * 应用所有者ID
+   * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
+   */
   @SerializedName("owner_id")
   private String ownerId;
+  /**
+   * 应用开发商名称(仅商店应用返回)
+   * <p> 示例值：
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 应用开发商服务台链接(仅商店应用返回)
+   * <p> 示例值：
+   */
   @SerializedName("help_desk")
   private String helpDesk;
+  /**
+   * 应用开发商的邮箱(仅商店应用返回)
+   * <p> 示例值：
+   */
   @SerializedName("email")
   private String email;
+  /**
+   * 应用开发商的手机号(仅商店应用返回)
+   * <p> 示例值：
+   */
   @SerializedName("phone")
   private String phone;
 
@@ -35,11 +59,35 @@ public class ApplicationOwner {
   }
 
   public ApplicationOwner(Builder builder) {
+    /**
+     * 应用所有者类型
+     * <p> 示例值：0
+     */
     this.type = builder.type;
+    /**
+     * 应用所有者ID
+     * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
+     */
     this.ownerId = builder.ownerId;
+    /**
+     * 应用开发商名称(仅商店应用返回)
+     * <p> 示例值：
+     */
     this.name = builder.name;
+    /**
+     * 应用开发商服务台链接(仅商店应用返回)
+     * <p> 示例值：
+     */
     this.helpDesk = builder.helpDesk;
+    /**
+     * 应用开发商的邮箱(仅商店应用返回)
+     * <p> 示例值：
+     */
     this.email = builder.email;
+    /**
+     * 应用开发商的手机号(仅商店应用返回)
+     * <p> 示例值：
+     */
     this.phone = builder.phone;
   }
 
@@ -97,43 +145,122 @@ public class ApplicationOwner {
 
   public static class Builder {
 
+    /**
+     * 应用所有者类型
+     * <p> 示例值：0
+     */
     private Integer type;
+    /**
+     * 应用所有者ID
+     * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
+     */
     private String ownerId;
+    /**
+     * 应用开发商名称(仅商店应用返回)
+     * <p> 示例值：
+     */
     private String name;
+    /**
+     * 应用开发商服务台链接(仅商店应用返回)
+     * <p> 示例值：
+     */
     private String helpDesk;
+    /**
+     * 应用开发商的邮箱(仅商店应用返回)
+     * <p> 示例值：
+     */
     private String email;
+    /**
+     * 应用开发商的手机号(仅商店应用返回)
+     * <p> 示例值：
+     */
     private String phone;
 
+    /**
+     * 应用所有者类型
+     * <p> 示例值：0
+     *
+     * @param type
+     * @return
+     */
     public Builder type(Integer type) {
       this.type = type;
       return this;
     }
 
-    public Builder type(com.lark.oapi.service.application.v6.enums.AppOwnerTypeEnum type) {
+    /**
+     * 应用所有者类型
+     * <p> 示例值：0
+     *
+     * @param type {@link com.lark.oapi.service.application.v6.enums.ApplicationOwnerAppOwnerTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.application.v6.enums.ApplicationOwnerAppOwnerTypeEnum type) {
       this.type = type.getValue();
       return this;
     }
 
+
+    /**
+     * 应用所有者ID
+     * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
+     *
+     * @param ownerId
+     * @return
+     */
     public Builder ownerId(String ownerId) {
       this.ownerId = ownerId;
       return this;
     }
 
+
+    /**
+     * 应用开发商名称(仅商店应用返回)
+     * <p> 示例值：
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 应用开发商服务台链接(仅商店应用返回)
+     * <p> 示例值：
+     *
+     * @param helpDesk
+     * @return
+     */
     public Builder helpDesk(String helpDesk) {
       this.helpDesk = helpDesk;
       return this;
     }
 
+
+    /**
+     * 应用开发商的邮箱(仅商店应用返回)
+     * <p> 示例值：
+     *
+     * @param email
+     * @return
+     */
     public Builder email(String email) {
       this.email = email;
       return this;
     }
 
+
+    /**
+     * 应用开发商的手机号(仅商店应用返回)
+     * <p> 示例值：
+     *
+     * @param phone
+     * @return
+     */
     public Builder phone(String phone) {
       this.phone = phone;
       return this;

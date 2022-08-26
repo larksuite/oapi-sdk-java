@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class Level {
 
+  /**
+   * string
+   * <p> 示例值：
+   */
   @SerializedName("level")
   private String level;
+  /**
+   * body
+   * <p> 示例值：
+   */
   @SerializedName("body")
   private String body;
+  /**
+   * type
+   * <p> 示例值：
+   */
   @SerializedName("type")
   private String type;
 
@@ -29,8 +41,20 @@ public class Level {
   }
 
   public Level(Builder builder) {
+    /**
+     * string
+     * <p> 示例值：
+     */
     this.level = builder.level;
+    /**
+     * body
+     * <p> 示例值：
+     */
     this.body = builder.body;
+    /**
+     * type
+     * <p> 示例值：
+     */
     this.type = builder.type;
   }
 
@@ -64,20 +88,55 @@ public class Level {
 
   public static class Builder {
 
+    /**
+     * string
+     * <p> 示例值：
+     */
     private String level;
+    /**
+     * body
+     * <p> 示例值：
+     */
     private String body;
+    /**
+     * type
+     * <p> 示例值：
+     */
     private String type;
 
+    /**
+     * string
+     * <p> 示例值：
+     *
+     * @param level
+     * @return
+     */
     public Builder level(String level) {
       this.level = level;
       return this;
     }
 
+
+    /**
+     * body
+     * <p> 示例值：
+     *
+     * @param body
+     * @return
+     */
     public Builder body(String body) {
       this.body = body;
       return this;
     }
 
+
+    /**
+     * type
+     * <p> 示例值：
+     *
+     * @param type
+     * @return
+     */
     public Builder type(String type) {
       this.type = type;
       return this;

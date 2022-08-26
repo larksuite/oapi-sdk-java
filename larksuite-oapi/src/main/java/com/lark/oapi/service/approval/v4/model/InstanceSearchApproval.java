@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class InstanceSearchApproval {
 
+  /**
+   * 审批定义 code
+   * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
+   */
   @SerializedName("code")
   private String code;
+  /**
+   * 审批定义名称
+   * <p> 示例值：approval
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 是否为第三方审批
+   * <p> 示例值：true
+   */
   @SerializedName("is_external")
   private Boolean isExternal;
+  /**
+   * 第三方审批信息
+   * <p> 示例值：
+   */
   @SerializedName("external")
   private InstanceSearchApprovalExternal external;
 
@@ -31,9 +47,25 @@ public class InstanceSearchApproval {
   }
 
   public InstanceSearchApproval(Builder builder) {
+    /**
+     * 审批定义 code
+     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
+     */
     this.code = builder.code;
+    /**
+     * 审批定义名称
+     * <p> 示例值：approval
+     */
     this.name = builder.name;
+    /**
+     * 是否为第三方审批
+     * <p> 示例值：true
+     */
     this.isExternal = builder.isExternal;
+    /**
+     * 第三方审批信息
+     * <p> 示例值：
+     */
     this.external = builder.external;
   }
 
@@ -75,26 +107,73 @@ public class InstanceSearchApproval {
 
   public static class Builder {
 
+    /**
+     * 审批定义 code
+     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
+     */
     private String code;
+    /**
+     * 审批定义名称
+     * <p> 示例值：approval
+     */
     private String name;
+    /**
+     * 是否为第三方审批
+     * <p> 示例值：true
+     */
     private Boolean isExternal;
+    /**
+     * 第三方审批信息
+     * <p> 示例值：
+     */
     private InstanceSearchApprovalExternal external;
 
+    /**
+     * 审批定义 code
+     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
+     *
+     * @param code
+     * @return
+     */
     public Builder code(String code) {
       this.code = code;
       return this;
     }
 
+
+    /**
+     * 审批定义名称
+     * <p> 示例值：approval
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 是否为第三方审批
+     * <p> 示例值：true
+     *
+     * @param isExternal
+     * @return
+     */
     public Builder isExternal(Boolean isExternal) {
       this.isExternal = isExternal;
       return this;
     }
 
+
+    /**
+     * 第三方审批信息
+     * <p> 示例值：
+     *
+     * @param external
+     * @return
+     */
     public Builder external(InstanceSearchApprovalExternal external) {
       this.external = external;
       return this;

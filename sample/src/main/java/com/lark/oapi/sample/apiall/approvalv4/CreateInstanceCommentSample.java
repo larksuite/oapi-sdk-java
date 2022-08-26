@@ -7,7 +7,7 @@ import com.lark.oapi.service.approval.v4.model.CommentRequest;
 import com.lark.oapi.service.approval.v4.model.CreateInstanceCommentReq;
 import com.lark.oapi.service.approval.v4.model.CreateInstanceCommentResp;
 
-// HTTP PATH: /open-apis/approval/v4/instances/:instance_id/comments"
+// POST /open-apis/approval/v4/instances/:instance_id/comments
 public class CreateInstanceCommentSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,14 +16,14 @@ public class CreateInstanceCommentSample {
 
     // 创建请求对象
     CreateInstanceCommentReq req = CreateInstanceCommentReq.newBuilder()
-        .instanceId("")
-        .userIdType("open_id")
-        .userId("")
+        .instanceId("6A123516-FB88-470D-A428-9AF58B71B3C0")
+        .userIdType("user_id")
+        .userId("e5286g26")
         .commentRequest(CommentRequest.newBuilder()
             .content("")
             .atInfoList(new CommentAtInfo[]{})
-            .parentCommentId("")
-            .commentId("")
+            .parentCommentId("7081516627711524883")
+            .commentId("7081516627711524883")
             .disableBot(false)
             .extra("")
             .build())

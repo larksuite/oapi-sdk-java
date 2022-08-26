@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateDocumentReqBody {
 
+  /**
+   * 文件夹 token，获取方式见云文档接口快速入门；空表示根目录，tenant_access_token应用权限仅允许操作应用创建的目录
+   * <p> 示例值：fldcnqquW1svRIYVT2Np6IuLCKd
+   */
   @SerializedName("folder_token")
   private String folderToken;
+  /**
+   * 文档标题，只支持纯文本
+   * <p> 示例值：undefined
+   */
   @SerializedName("title")
   private String title;
 
@@ -27,7 +35,15 @@ public class CreateDocumentReqBody {
   }
 
   public CreateDocumentReqBody(Builder builder) {
+    /**
+     * 文件夹 token，获取方式见云文档接口快速入门；空表示根目录，tenant_access_token应用权限仅允许操作应用创建的目录
+     * <p> 示例值：fldcnqquW1svRIYVT2Np6IuLCKd
+     */
     this.folderToken = builder.folderToken;
+    /**
+     * 文档标题，只支持纯文本
+     * <p> 示例值：undefined
+     */
     this.title = builder.title;
   }
 
@@ -53,14 +69,37 @@ public class CreateDocumentReqBody {
 
   public static class Builder {
 
+    /**
+     * 文件夹 token，获取方式见云文档接口快速入门；空表示根目录，tenant_access_token应用权限仅允许操作应用创建的目录
+     * <p> 示例值：fldcnqquW1svRIYVT2Np6IuLCKd
+     */
     private String folderToken;
+    /**
+     * 文档标题，只支持纯文本
+     * <p> 示例值：undefined
+     */
     private String title;
 
+    /**
+     * 文件夹 token，获取方式见云文档接口快速入门；空表示根目录，tenant_access_token应用权限仅允许操作应用创建的目录
+     * <p> 示例值：fldcnqquW1svRIYVT2Np6IuLCKd
+     *
+     * @param folderToken
+     * @return
+     */
     public Builder folderToken(String folderToken) {
       this.folderToken = folderToken;
       return this;
     }
 
+
+    /**
+     * 文档标题，只支持纯文本
+     * <p> 示例值：undefined
+     *
+     * @param title
+     * @return
+     */
     public Builder title(String title) {
       this.title = title;
       return this;

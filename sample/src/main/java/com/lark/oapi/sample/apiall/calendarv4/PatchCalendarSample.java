@@ -6,7 +6,7 @@ import com.lark.oapi.service.calendar.v4.model.Calendar;
 import com.lark.oapi.service.calendar.v4.model.PatchCalendarReq;
 import com.lark.oapi.service.calendar.v4.model.PatchCalendarResp;
 
-// HTTP PATH: /open-apis/calendar/v4/calendars/:calendar_id"
+// PATCH /open-apis/calendar/v4/calendars/:calendar_id
 public class PatchCalendarSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class PatchCalendarSample {
 
     // 创建请求对象
     PatchCalendarReq req = PatchCalendarReq.newBuilder()
-        .calendarId("")
+        .calendarId("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn")
         .calendar(Calendar.newBuilder()
             .summary("")
             .description("")

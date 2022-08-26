@@ -6,7 +6,7 @@ import com.lark.oapi.service.block.v2.model.CreateMessageReq;
 import com.lark.oapi.service.block.v2.model.CreateMessageResp;
 import com.lark.oapi.service.block.v2.model.Message;
 
-// HTTP PATH: /open-apis/block/v2/message"
+// POST /open-apis/block/v2/message
 public class CreateMessageSample {
 
   public static void main(String arg[]) throws Exception {

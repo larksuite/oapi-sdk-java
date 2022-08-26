@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class NotificationDepartment {
 
+  /**
+   * 部门ID
+   * <p> 示例值：od_7277fd1262bfafc363d5b2a1f9c2ac90
+   */
   @SerializedName("department_id")
   private String departmentId;
+  /**
+   * 非必填，部门名称
+   * <p> 示例值：测试部门
+   */
   @SerializedName("name")
   private String name;
 
@@ -27,7 +35,15 @@ public class NotificationDepartment {
   }
 
   public NotificationDepartment(Builder builder) {
+    /**
+     * 部门ID
+     * <p> 示例值：od_7277fd1262bfafc363d5b2a1f9c2ac90
+     */
     this.departmentId = builder.departmentId;
+    /**
+     * 非必填，部门名称
+     * <p> 示例值：测试部门
+     */
     this.name = builder.name;
   }
 
@@ -53,14 +69,37 @@ public class NotificationDepartment {
 
   public static class Builder {
 
+    /**
+     * 部门ID
+     * <p> 示例值：od_7277fd1262bfafc363d5b2a1f9c2ac90
+     */
     private String departmentId;
+    /**
+     * 非必填，部门名称
+     * <p> 示例值：测试部门
+     */
     private String name;
 
+    /**
+     * 部门ID
+     * <p> 示例值：od_7277fd1262bfafc363d5b2a1f9c2ac90
+     *
+     * @param departmentId
+     * @return
+     */
     public Builder departmentId(String departmentId) {
       this.departmentId = departmentId;
       return this;
     }
 
+
+    /**
+     * 非必填，部门名称
+     * <p> 示例值：测试部门
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;

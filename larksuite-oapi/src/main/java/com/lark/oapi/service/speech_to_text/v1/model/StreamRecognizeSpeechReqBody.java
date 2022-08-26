@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class StreamRecognizeSpeechReqBody {
 
+  /**
+   * 语音资源
+   * <p> 示例值：
+   */
   @SerializedName("speech")
   private Speech speech;
+  /**
+   * 配置属性
+   * <p> 示例值：
+   */
   @SerializedName("config")
   private StreamConfig config;
 
@@ -27,7 +35,15 @@ public class StreamRecognizeSpeechReqBody {
   }
 
   public StreamRecognizeSpeechReqBody(Builder builder) {
+    /**
+     * 语音资源
+     * <p> 示例值：
+     */
     this.speech = builder.speech;
+    /**
+     * 配置属性
+     * <p> 示例值：
+     */
     this.config = builder.config;
   }
 
@@ -53,14 +69,37 @@ public class StreamRecognizeSpeechReqBody {
 
   public static class Builder {
 
+    /**
+     * 语音资源
+     * <p> 示例值：
+     */
     private Speech speech;
+    /**
+     * 配置属性
+     * <p> 示例值：
+     */
     private StreamConfig config;
 
+    /**
+     * 语音资源
+     * <p> 示例值：
+     *
+     * @param speech
+     * @return
+     */
     public Builder speech(Speech speech) {
       this.speech = speech;
       return this;
     }
 
+
+    /**
+     * 配置属性
+     * <p> 示例值：
+     *
+     * @param config
+     * @return
+     */
     public Builder config(StreamConfig config) {
       this.config = config;
       return this;

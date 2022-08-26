@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateDocumentBlockChildren {
 
+  /**
+   * 所添加的孩子的 Block 信息
+   * <p> 示例值：
+   */
   @SerializedName("children")
   private Block[] children;
+  /**
+   * 当前 block children 创建成功后文档的版本号
+   * <p> 示例值：
+   */
   @SerializedName("document_revision_id")
   private Integer documentRevisionId;
+  /**
+   * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
+   * <p> 示例值：
+   */
   @SerializedName("client_token")
   private String clientToken;
 

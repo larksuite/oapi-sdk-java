@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class Diagram {
 
+  /**
+   * 绘图类型
+   * <p> 示例值：1
+   */
   @SerializedName("diagram_type")
   private Integer diagramType;
 
@@ -25,6 +29,10 @@ public class Diagram {
   }
 
   public Diagram(Builder builder) {
+    /**
+     * 绘图类型
+     * <p> 示例值：1
+     */
     this.diagramType = builder.diagramType;
   }
 
@@ -42,14 +50,33 @@ public class Diagram {
 
   public static class Builder {
 
+    /**
+     * 绘图类型
+     * <p> 示例值：1
+     */
     private Integer diagramType;
 
+    /**
+     * 绘图类型
+     * <p> 示例值：1
+     *
+     * @param diagramType
+     * @return
+     */
     public Builder diagramType(Integer diagramType) {
       this.diagramType = diagramType;
       return this;
     }
 
-    public Builder diagramType(com.lark.oapi.service.docx.v1.enums.DiagramTypeEnum diagramType) {
+    /**
+     * 绘图类型
+     * <p> 示例值：1
+     *
+     * @param diagramType {@link com.lark.oapi.service.docx.v1.enums.DiagramDiagramTypeEnum}
+     * @return
+     */
+    public Builder diagramType(
+        com.lark.oapi.service.docx.v1.enums.DiagramDiagramTypeEnum diagramType) {
       this.diagramType = diagramType.getValue();
       return this;
     }

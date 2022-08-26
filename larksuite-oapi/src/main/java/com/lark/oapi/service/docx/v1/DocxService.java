@@ -53,14 +53,29 @@ public class DocxService {
     this.documentBlockChildren = new DocumentBlockChildren(config);
   }
 
+  /**
+   * 文档
+   *
+   * @return
+   */
   public Document document() {
     return document;
   }
 
+  /**
+   * 块
+   *
+   * @return
+   */
   public DocumentBlock documentBlock() {
     return documentBlock;
   }
 
+  /**
+   * 块
+   *
+   * @return
+   */
   public DocumentBlockChildren documentBlockChildren() {
     return documentBlockChildren;
   }
@@ -73,6 +88,15 @@ public class DocxService {
       this.config = config;
     }
 
+    /**
+     * 创建文档，创建新版文档，文档标题和目录可选。
+     * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnby5Y0yoACL3PdfZqrJEm6f#doxcnyoyCgwS8ywWwMtQr9yjZ2f)，了解相关规则及约束。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//CreateDocumentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//CreateDocumentSample.java</a>
+     * ;
+     */
     public CreateDocumentResp create(CreateDocumentReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -95,6 +119,15 @@ public class DocxService {
       return resp;
     }
 
+    /**
+     * 创建文档，创建新版文档，文档标题和目录可选。
+     * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnby5Y0yoACL3PdfZqrJEm6f#doxcnyoyCgwS8ywWwMtQr9yjZ2f)，了解相关规则及约束。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//CreateDocumentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//CreateDocumentSample.java</a>
+     * ;
+     */
     public CreateDocumentResp create(CreateDocumentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -114,6 +147,15 @@ public class DocxService {
       return resp;
     }
 
+    /**
+     * 获取文档基本信息，获取文档最新版本号、标题等
+     * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnby5Y0yoACL3PdfZqrJEm6f#doxcnWKAE4aSaIU4GcdLInSaVde)，了解相关规则及约束。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//GetDocumentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//GetDocumentSample.java</a>
+     * ;
+     */
     public GetDocumentResp get(GetDocumentReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -134,6 +176,15 @@ public class DocxService {
       return resp;
     }
 
+    /**
+     * 获取文档基本信息，获取文档最新版本号、标题等
+     * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnby5Y0yoACL3PdfZqrJEm6f#doxcnWKAE4aSaIU4GcdLInSaVde)，了解相关规则及约束。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//GetDocumentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//GetDocumentSample.java</a>
+     * ;
+     */
     public GetDocumentResp get(GetDocumentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -152,6 +203,15 @@ public class DocxService {
       return resp;
     }
 
+    /**
+     * 获取文档纯文本内容，获取文档的纯文本内容。
+     * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnby5Y0yoACL3PdfZqrJEm6f#doxcnQeqI4wiKIMis6GNvCOBuqg)，了解相关规则及约束。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/raw_content">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/raw_content</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//RawContentDocumentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//RawContentDocumentSample.java</a>
+     * ;
+     */
     public RawContentDocumentResp rawContent(RawContentDocumentReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -174,6 +234,15 @@ public class DocxService {
       return resp;
     }
 
+    /**
+     * 获取文档纯文本内容，获取文档的纯文本内容。
+     * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnby5Y0yoACL3PdfZqrJEm6f#doxcnQeqI4wiKIMis6GNvCOBuqg)，了解相关规则及约束。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/raw_content">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/raw_content</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//RawContentDocumentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//RawContentDocumentSample.java</a>
+     * ;
+     */
     public RawContentDocumentResp rawContent(RawContentDocumentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -202,6 +271,15 @@ public class DocxService {
       this.config = config;
     }
 
+    /**
+     * 批量更新块，批量更新块的富文本内容。
+     * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnby5Y0yoACL3PdfZqrJEm6f#doxcnMiwAKCiE6oQEkPyhvmmQEe)，了解相关规则及约束。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/batch_update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/batch_update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//BatchUpdateDocumentBlockSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//BatchUpdateDocumentBlockSample.java</a>
+     * ;
+     */
     public BatchUpdateDocumentBlockResp batchUpdate(BatchUpdateDocumentBlockReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -224,6 +302,15 @@ public class DocxService {
       return resp;
     }
 
+    /**
+     * 批量更新块，批量更新块的富文本内容。
+     * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnby5Y0yoACL3PdfZqrJEm6f#doxcnMiwAKCiE6oQEkPyhvmmQEe)，了解相关规则及约束。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/batch_update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/batch_update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//BatchUpdateDocumentBlockSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//BatchUpdateDocumentBlockSample.java</a>
+     * ;
+     */
     public BatchUpdateDocumentBlockResp batchUpdate(BatchUpdateDocumentBlockReq req)
         throws Exception {
       // 请求参数选项
@@ -244,6 +331,15 @@ public class DocxService {
       return resp;
     }
 
+    /**
+     * 获取块，获取指定块的富文本内容。
+     * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnamKaccZKqIMopnREJCZUMe#doxcnWEMWYAg2YMkEq0SZXHzaih)，了解相关规则及约束。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//GetDocumentBlockSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//GetDocumentBlockSample.java</a>
+     * ;
+     */
     public GetDocumentBlockResp get(GetDocumentBlockReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -266,6 +362,15 @@ public class DocxService {
       return resp;
     }
 
+    /**
+     * 获取块，获取指定块的富文本内容。
+     * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnamKaccZKqIMopnREJCZUMe#doxcnWEMWYAg2YMkEq0SZXHzaih)，了解相关规则及约束。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//GetDocumentBlockSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//GetDocumentBlockSample.java</a>
+     * ;
+     */
     public GetDocumentBlockResp get(GetDocumentBlockReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -285,6 +390,15 @@ public class DocxService {
       return resp;
     }
 
+    /**
+     * 获取文档所有块，获取文档所有块的富文本内容并分页返回。
+     * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnamKaccZKqIMopnREJCZUMe#doxcn6AkCE2AUUm2WwxID7lS7Xc)，了解相关规则及约束。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//ListDocumentBlockSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//ListDocumentBlockSample.java</a>
+     * ;
+     */
     public ListDocumentBlockResp list(ListDocumentBlockReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -307,6 +421,15 @@ public class DocxService {
       return resp;
     }
 
+    /**
+     * 获取文档所有块，获取文档所有块的富文本内容并分页返回。
+     * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnamKaccZKqIMopnREJCZUMe#doxcn6AkCE2AUUm2WwxID7lS7Xc)，了解相关规则及约束。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//ListDocumentBlockSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//ListDocumentBlockSample.java</a>
+     * ;
+     */
     public ListDocumentBlockResp list(ListDocumentBlockReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -326,6 +449,15 @@ public class DocxService {
       return resp;
     }
 
+    /**
+     * 更新块，更新指定的块。
+     * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnby5Y0yoACL3PdfZqrJEm6f#doxcnEeyS0I8MMqoieIMpK7jm8g)，了解相关规则及约束。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//PatchDocumentBlockSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//PatchDocumentBlockSample.java</a>
+     * ;
+     */
     public PatchDocumentBlockResp patch(PatchDocumentBlockReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -348,6 +480,15 @@ public class DocxService {
       return resp;
     }
 
+    /**
+     * 更新块，更新指定的块。
+     * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnby5Y0yoACL3PdfZqrJEm6f#doxcnEeyS0I8MMqoieIMpK7jm8g)，了解相关规则及约束。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//PatchDocumentBlockSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//PatchDocumentBlockSample.java</a>
+     * ;
+     */
     public PatchDocumentBlockResp patch(PatchDocumentBlockReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -376,6 +517,15 @@ public class DocxService {
       this.config = config;
     }
 
+    /**
+     * 删除块，指定需要操作的块，删除其指定范围的子块。如果操作成功，接口将返回应用删除操作后的文档版本号。
+     * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnby5Y0yoACL3PdfZqrJEm6f#doxcngCsscGk0WacO258mYDgM6b)，了解相关规则及约束。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/batch_delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/batch_delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//BatchDeleteDocumentBlockChildrenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//BatchDeleteDocumentBlockChildrenSample.java</a>
+     * ;
+     */
     public BatchDeleteDocumentBlockChildrenResp batchDelete(BatchDeleteDocumentBlockChildrenReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -398,6 +548,15 @@ public class DocxService {
       return resp;
     }
 
+    /**
+     * 删除块，指定需要操作的块，删除其指定范围的子块。如果操作成功，接口将返回应用删除操作后的文档版本号。
+     * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnby5Y0yoACL3PdfZqrJEm6f#doxcngCsscGk0WacO258mYDgM6b)，了解相关规则及约束。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/batch_delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/batch_delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//BatchDeleteDocumentBlockChildrenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//BatchDeleteDocumentBlockChildrenSample.java</a>
+     * ;
+     */
     public BatchDeleteDocumentBlockChildrenResp batchDelete(BatchDeleteDocumentBlockChildrenReq req)
         throws Exception {
       // 请求参数选项
@@ -418,6 +577,15 @@ public class DocxService {
       return resp;
     }
 
+    /**
+     * 创建块，指定需要操作的块，为其创建一批子块，并插入到指定位置。如果操作成功，接口将返回新创建子块的富文本内容。
+     * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnby5Y0yoACL3PdfZqrJEm6f#doxcnm0ooUe0s20GwwVB3a05rtb)，了解相关规则及约束。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//CreateDocumentBlockChildrenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//CreateDocumentBlockChildrenSample.java</a>
+     * ;
+     */
     public CreateDocumentBlockChildrenResp create(CreateDocumentBlockChildrenReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -440,6 +608,15 @@ public class DocxService {
       return resp;
     }
 
+    /**
+     * 创建块，指定需要操作的块，为其创建一批子块，并插入到指定位置。如果操作成功，接口将返回新创建子块的富文本内容。
+     * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnby5Y0yoACL3PdfZqrJEm6f#doxcnm0ooUe0s20GwwVB3a05rtb)，了解相关规则及约束。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//CreateDocumentBlockChildrenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//CreateDocumentBlockChildrenSample.java</a>
+     * ;
+     */
     public CreateDocumentBlockChildrenResp create(CreateDocumentBlockChildrenReq req)
         throws Exception {
       // 请求参数选项
@@ -460,6 +637,15 @@ public class DocxService {
       return resp;
     }
 
+    /**
+     * 获取所有子块，给定一个指定版本的文档，并指定需要操作的块，分页遍历其所有子块富文本内容 。如果不指定版本，则会默认查询最新版本。
+     * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnby5Y0yoACL3PdfZqrJEm6f#doxcnE2UK2yY0gEGK8nBMPtB0vd)，了解相关规则及约束。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//GetDocumentBlockChildrenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//GetDocumentBlockChildrenSample.java</a>
+     * ;
+     */
     public GetDocumentBlockChildrenResp get(GetDocumentBlockChildrenReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -482,6 +668,15 @@ public class DocxService {
       return resp;
     }
 
+    /**
+     * 获取所有子块，给定一个指定版本的文档，并指定需要操作的块，分页遍历其所有子块富文本内容 。如果不指定版本，则会默认查询最新版本。
+     * <p> 在调用此接口前，请仔细阅读[新版文档 OpenAPI 接口校验规则](https://bytedance.feishu.cn/docx/doxcnby5Y0yoACL3PdfZqrJEm6f#doxcnE2UK2yY0gEGK8nBMPtB0vd)，了解相关规则及约束。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block-children/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//GetDocumentBlockChildrenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1//GetDocumentBlockChildrenSample.java</a>
+     * ;
+     */
     public GetDocumentBlockChildrenResp get(GetDocumentBlockChildrenReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();

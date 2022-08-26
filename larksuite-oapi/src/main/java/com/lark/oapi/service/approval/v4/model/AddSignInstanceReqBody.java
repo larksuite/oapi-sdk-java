@@ -17,20 +17,44 @@ import com.google.gson.annotations.SerializedName;
 
 public class AddSignInstanceReqBody {
 
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("approval_code")
   private String approvalCode;
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("instance_code")
   private String instanceCode;
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("task_id")
   private String taskId;
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("comment")
   private String comment;
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("add_sign_user_ids")
   private String[] addSignUserIds;
+  /**
+   * <p> 示例值：1
+   */
   @SerializedName("add_sign_type")
   private Integer addSignType;
+  /**
+   * <p> 示例值：1
+   */
   @SerializedName("approval_method")
   private Integer approvalMethod;
 
@@ -39,13 +63,45 @@ public class AddSignInstanceReqBody {
   }
 
   public AddSignInstanceReqBody(Builder builder) {
+    /**
+     *
+     * <p> 示例值：
+     */
     this.userId = builder.userId;
+    /**
+     *
+     * <p> 示例值：
+     */
     this.approvalCode = builder.approvalCode;
+    /**
+     *
+     * <p> 示例值：
+     */
     this.instanceCode = builder.instanceCode;
+    /**
+     *
+     * <p> 示例值：
+     */
     this.taskId = builder.taskId;
+    /**
+     *
+     * <p> 示例值：
+     */
     this.comment = builder.comment;
+    /**
+     *
+     * <p> 示例值：
+     */
     this.addSignUserIds = builder.addSignUserIds;
+    /**
+     *
+     * <p> 示例值：1
+     */
     this.addSignType = builder.addSignType;
+    /**
+     *
+     * <p> 示例值：1
+     */
     this.approvalMethod = builder.approvalMethod;
   }
 
@@ -119,63 +175,154 @@ public class AddSignInstanceReqBody {
 
   public static class Builder {
 
+    /**
+     * <p> 示例值：
+     */
     private String userId;
+    /**
+     * <p> 示例值：
+     */
     private String approvalCode;
+    /**
+     * <p> 示例值：
+     */
     private String instanceCode;
+    /**
+     * <p> 示例值：
+     */
     private String taskId;
+    /**
+     * <p> 示例值：
+     */
     private String comment;
+    /**
+     * <p> 示例值：
+     */
     private String[] addSignUserIds;
+    /**
+     * <p> 示例值：1
+     */
     private Integer addSignType;
+    /**
+     * <p> 示例值：1
+     */
     private Integer approvalMethod;
 
+    /**
+     * <p> 示例值：
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：
+     *
+     * @param approvalCode
+     * @return
+     */
     public Builder approvalCode(String approvalCode) {
       this.approvalCode = approvalCode;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：
+     *
+     * @param instanceCode
+     * @return
+     */
     public Builder instanceCode(String instanceCode) {
       this.instanceCode = instanceCode;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：
+     *
+     * @param taskId
+     * @return
+     */
     public Builder taskId(String taskId) {
       this.taskId = taskId;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：
+     *
+     * @param comment
+     * @return
+     */
     public Builder comment(String comment) {
       this.comment = comment;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：
+     *
+     * @param addSignUserIds
+     * @return
+     */
     public Builder addSignUserIds(String[] addSignUserIds) {
       this.addSignUserIds = addSignUserIds;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：1
+     *
+     * @param addSignType
+     * @return
+     */
     public Builder addSignType(Integer addSignType) {
       this.addSignType = addSignType;
       return this;
     }
 
+    /**
+     * <p> 示例值：1
+     *
+     * @param addSignType {@link com.lark.oapi.service.approval.v4.enums.AddSignInstanceAddSignEnumEnum}
+     * @return
+     */
     public Builder addSignType(
-        com.lark.oapi.service.approval.v4.enums.AddSignEnumEnum addSignType) {
+        com.lark.oapi.service.approval.v4.enums.AddSignInstanceAddSignEnumEnum addSignType) {
       this.addSignType = addSignType.getValue();
       return this;
     }
 
+
+    /**
+     * <p> 示例值：1
+     *
+     * @param approvalMethod
+     * @return
+     */
     public Builder approvalMethod(Integer approvalMethod) {
       this.approvalMethod = approvalMethod;
       return this;
     }
 
+    /**
+     * <p> 示例值：1
+     *
+     * @param approvalMethod {@link com.lark.oapi.service.approval.v4.enums.AddSignInstanceApprovalMethodEnumEnum}
+     * @return
+     */
     public Builder approvalMethod(
-        com.lark.oapi.service.approval.v4.enums.ApprovalMethodEnumEnum approvalMethod) {
+        com.lark.oapi.service.approval.v4.enums.AddSignInstanceApprovalMethodEnumEnum approvalMethod) {
       this.approvalMethod = approvalMethod.getValue();
       return this;
     }

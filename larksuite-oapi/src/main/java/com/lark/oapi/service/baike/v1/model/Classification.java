@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class Classification {
 
+  /**
+   * 二级分类 ID
+   * <p> 示例值：7049606926702837761
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * 二级分类名称
+   * <p> 示例值：行业术语
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 对应一级分类 ID
+   * <p> 示例值：7049606926702837777
+   */
   @SerializedName("father_id")
   private String fatherId;
 
@@ -29,8 +41,20 @@ public class Classification {
   }
 
   public Classification(Builder builder) {
+    /**
+     * 二级分类 ID
+     * <p> 示例值：7049606926702837761
+     */
     this.id = builder.id;
+    /**
+     * 二级分类名称
+     * <p> 示例值：行业术语
+     */
     this.name = builder.name;
+    /**
+     * 对应一级分类 ID
+     * <p> 示例值：7049606926702837777
+     */
     this.fatherId = builder.fatherId;
   }
 
@@ -64,20 +88,55 @@ public class Classification {
 
   public static class Builder {
 
+    /**
+     * 二级分类 ID
+     * <p> 示例值：7049606926702837761
+     */
     private String id;
+    /**
+     * 二级分类名称
+     * <p> 示例值：行业术语
+     */
     private String name;
+    /**
+     * 对应一级分类 ID
+     * <p> 示例值：7049606926702837777
+     */
     private String fatherId;
 
+    /**
+     * 二级分类 ID
+     * <p> 示例值：7049606926702837761
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 二级分类名称
+     * <p> 示例值：行业术语
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 对应一级分类 ID
+     * <p> 示例值：7049606926702837777
+     *
+     * @param fatherId
+     * @return
+     */
     public Builder fatherId(String fatherId) {
       this.fatherId = fatherId;
       return this;

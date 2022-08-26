@@ -6,7 +6,7 @@ import com.lark.oapi.service.task.v1.model.Comment;
 import com.lark.oapi.service.task.v1.model.CreateTaskCommentReq;
 import com.lark.oapi.service.task.v1.model.CreateTaskCommentResp;
 
-// HTTP PATH: /open-apis/task/v1/tasks/:task_id/comments"
+// POST /open-apis/task/v1/tasks/:task_id/comments
 public class CreateTaskCommentSample {
 
   public static void main(String arg[]) throws Exception {
@@ -20,6 +20,8 @@ public class CreateTaskCommentSample {
             .content("举杯邀明月，对影成三人")
             .parentId("6937231762296684564")
             .id("6937231762296684564")
+            .createMilliTime("1657075055135")
+            .richContent("举杯邀明月，对影成三人<at id=7058204817822318612></at>")
             .build())
         .build();
 

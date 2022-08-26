@@ -9,7 +9,7 @@ import com.lark.oapi.service.baike.v1.model.Term;
 import com.lark.oapi.service.baike.v1.model.UpdateEntityReq;
 import com.lark.oapi.service.baike.v1.model.UpdateEntityResp;
 
-// HTTP PATH: /open-apis/baike/v1/entities/:entity_id"
+// PUT /open-apis/baike/v1/entities/:entity_id
 public class UpdateEntitySample {
 
   public static void main(String arg[]) throws Exception {

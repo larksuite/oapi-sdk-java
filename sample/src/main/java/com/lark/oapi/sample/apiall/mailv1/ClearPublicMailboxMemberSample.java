@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.mail.v1.model.ClearPublicMailboxMemberReq;
 import com.lark.oapi.service.mail.v1.model.ClearPublicMailboxMemberResp;
 
-// HTTP PATH: /open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members/clear"
+// POST /open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members/clear
 public class ClearPublicMailboxMemberSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class ClearPublicMailboxMemberSample {
 
     // 创建请求对象
     ClearPublicMailboxMemberReq req = ClearPublicMailboxMemberReq.newBuilder()
-        .publicMailboxId("xxxxxxxxxxxxxxx or test_public_mailbox@xxx.xx")
+        .publicMailboxId("xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx")
         .build();
 
     // 发起请求

@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class Device {
 
+  /**
+   * 门禁设备 ID
+   * <p> 示例值：6939433228970082593
+   */
   @SerializedName("device_id")
   private String deviceId;
+  /**
+   * 设备名称
+   * <p> 示例值：东门
+   */
   @SerializedName("device_name")
   private String deviceName;
+  /**
+   * 设备 SN 码
+   * <p> 示例值：3X811621174000240
+   */
   @SerializedName("device_sn")
   private String deviceSn;
 
@@ -29,8 +41,20 @@ public class Device {
   }
 
   public Device(Builder builder) {
+    /**
+     * 门禁设备 ID
+     * <p> 示例值：6939433228970082593
+     */
     this.deviceId = builder.deviceId;
+    /**
+     * 设备名称
+     * <p> 示例值：东门
+     */
     this.deviceName = builder.deviceName;
+    /**
+     * 设备 SN 码
+     * <p> 示例值：3X811621174000240
+     */
     this.deviceSn = builder.deviceSn;
   }
 
@@ -64,20 +88,55 @@ public class Device {
 
   public static class Builder {
 
+    /**
+     * 门禁设备 ID
+     * <p> 示例值：6939433228970082593
+     */
     private String deviceId;
+    /**
+     * 设备名称
+     * <p> 示例值：东门
+     */
     private String deviceName;
+    /**
+     * 设备 SN 码
+     * <p> 示例值：3X811621174000240
+     */
     private String deviceSn;
 
+    /**
+     * 门禁设备 ID
+     * <p> 示例值：6939433228970082593
+     *
+     * @param deviceId
+     * @return
+     */
     public Builder deviceId(String deviceId) {
       this.deviceId = deviceId;
       return this;
     }
 
+
+    /**
+     * 设备名称
+     * <p> 示例值：东门
+     *
+     * @param deviceName
+     * @return
+     */
     public Builder deviceName(String deviceName) {
       this.deviceName = deviceName;
       return this;
     }
 
+
+    /**
+     * 设备 SN 码
+     * <p> 示例值：3X811621174000240
+     *
+     * @param deviceSn
+     * @return
+     */
     public Builder deviceSn(String deviceSn) {
       this.deviceSn = deviceSn;
       return this;

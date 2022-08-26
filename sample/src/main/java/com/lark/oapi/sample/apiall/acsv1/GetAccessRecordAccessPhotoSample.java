@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.acs.v1.model.GetAccessRecordAccessPhotoReq;
 import com.lark.oapi.service.acs.v1.model.GetAccessRecordAccessPhotoResp;
 
-// HTTP PATH: /open-apis/acs/v1/access_records/:access_record_id/access_photo"
+// GET /open-apis/acs/v1/access_records/:access_record_id/access_photo
 public class GetAccessRecordAccessPhotoSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class GetAccessRecordAccessPhotoSample {
 
     // 创建请求对象
     GetAccessRecordAccessPhotoReq req = GetAccessRecordAccessPhotoReq.newBuilder()
-        .accessRecordId("")
+        .accessRecordId("6939433228970082591")
         .build();
 
     // 发起请求

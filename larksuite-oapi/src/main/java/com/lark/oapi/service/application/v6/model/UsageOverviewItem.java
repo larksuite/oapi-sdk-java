@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class UsageOverviewItem {
 
+  /**
+   * 应用使用pv
+   * <p> 示例值：
+   */
   @SerializedName("page_view")
   private String pageView;
+  /**
+   * 应用使用uv
+   * <p> 示例值：
+   */
   @SerializedName("unique_visitor")
   private String uniqueVisitor;
+  /**
+   * 部门号
+   * <p> 示例值：
+   */
   @SerializedName("department_id")
   private String departmentId;
 
@@ -29,8 +41,20 @@ public class UsageOverviewItem {
   }
 
   public UsageOverviewItem(Builder builder) {
+    /**
+     * 应用使用pv
+     * <p> 示例值：
+     */
     this.pageView = builder.pageView;
+    /**
+     * 应用使用uv
+     * <p> 示例值：
+     */
     this.uniqueVisitor = builder.uniqueVisitor;
+    /**
+     * 部门号
+     * <p> 示例值：
+     */
     this.departmentId = builder.departmentId;
   }
 
@@ -64,20 +88,55 @@ public class UsageOverviewItem {
 
   public static class Builder {
 
+    /**
+     * 应用使用pv
+     * <p> 示例值：
+     */
     private String pageView;
+    /**
+     * 应用使用uv
+     * <p> 示例值：
+     */
     private String uniqueVisitor;
+    /**
+     * 部门号
+     * <p> 示例值：
+     */
     private String departmentId;
 
+    /**
+     * 应用使用pv
+     * <p> 示例值：
+     *
+     * @param pageView
+     * @return
+     */
     public Builder pageView(String pageView) {
       this.pageView = pageView;
       return this;
     }
 
+
+    /**
+     * 应用使用uv
+     * <p> 示例值：
+     *
+     * @param uniqueVisitor
+     * @return
+     */
     public Builder uniqueVisitor(String uniqueVisitor) {
       this.uniqueVisitor = uniqueVisitor;
       return this;
     }
 
+
+    /**
+     * 部门号
+     * <p> 示例值：
+     *
+     * @param departmentId
+     * @return
+     */
     public Builder departmentId(String departmentId) {
       this.departmentId = departmentId;
       return this;

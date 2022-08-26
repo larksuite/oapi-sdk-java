@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class DeleteTabsChatTabReqBody {
 
+  /**
+   * 会话标签页id列表
+   * <p> 示例值：["7101214603622940671", "7101214603622940672"]
+   */
   @SerializedName("tab_ids")
   private String[] tabIds;
 
@@ -25,6 +29,10 @@ public class DeleteTabsChatTabReqBody {
   }
 
   public DeleteTabsChatTabReqBody(Builder builder) {
+    /**
+     * 会话标签页id列表
+     * <p> 示例值：["7101214603622940671", "7101214603622940672"]
+     */
     this.tabIds = builder.tabIds;
   }
 
@@ -42,8 +50,19 @@ public class DeleteTabsChatTabReqBody {
 
   public static class Builder {
 
+    /**
+     * 会话标签页id列表
+     * <p> 示例值：["7101214603622940671", "7101214603622940672"]
+     */
     private String[] tabIds;
 
+    /**
+     * 会话标签页id列表
+     * <p> 示例值：["7101214603622940671", "7101214603622940672"]
+     *
+     * @param tabIds
+     * @return
+     */
     public Builder tabIds(String[] tabIds) {
       this.tabIds = tabIds;
       return this;

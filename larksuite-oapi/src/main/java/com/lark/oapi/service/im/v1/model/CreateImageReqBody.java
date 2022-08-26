@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateImageReqBody {
 
+  /**
+   * 图片类型
+   * <p> 示例值：message
+   */
   @SerializedName("image_type")
   private String imageType;
+  /**
+   * 图片内容
+   * <p> 示例值：二进制文件
+   */
   @SerializedName("image")
   private java.io.File image;
 
@@ -27,7 +35,15 @@ public class CreateImageReqBody {
   }
 
   public CreateImageReqBody(Builder builder) {
+    /**
+     * 图片类型
+     * <p> 示例值：message
+     */
     this.imageType = builder.imageType;
+    /**
+     * 图片内容
+     * <p> 示例值：二进制文件
+     */
     this.image = builder.image;
   }
 
@@ -53,19 +69,49 @@ public class CreateImageReqBody {
 
   public static class Builder {
 
+    /**
+     * 图片类型
+     * <p> 示例值：message
+     */
     private String imageType;
+    /**
+     * 图片内容
+     * <p> 示例值：二进制文件
+     */
     private java.io.File image;
 
+    /**
+     * 图片类型
+     * <p> 示例值：message
+     *
+     * @param imageType
+     * @return
+     */
     public Builder imageType(String imageType) {
       this.imageType = imageType;
       return this;
     }
 
-    public Builder imageType(com.lark.oapi.service.im.v1.enums.ImageTypeEnum imageType) {
+    /**
+     * 图片类型
+     * <p> 示例值：message
+     *
+     * @param imageType {@link com.lark.oapi.service.im.v1.enums.CreateImageImageTypeEnum}
+     * @return
+     */
+    public Builder imageType(com.lark.oapi.service.im.v1.enums.CreateImageImageTypeEnum imageType) {
       this.imageType = imageType.getValue();
       return this;
     }
 
+
+    /**
+     * 图片内容
+     * <p> 示例值：二进制文件
+     *
+     * @param image
+     * @return
+     */
     public Builder image(java.io.File image) {
       this.image = image;
       return this;

@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class PatchUnitReq {
 
+  /**
+   * 单位ID
+   * <p> 示例值：BU121
+   */
   @Path
   @SerializedName("unit_id")
   private String unitId;
@@ -30,6 +34,10 @@ public class PatchUnitReq {
   }
 
   public PatchUnitReq(Builder builder) {
+    /**
+     * 单位ID
+     * <p> 示例值：BU121
+     */
     this.unitId = builder.unitId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class PatchUnitReq {
 
   public static class Builder {
 
-    private String unitId;
+    private String unitId; // 单位ID
     private PatchUnitReqBody body;
 
+    /**
+     * 单位ID
+     * <p> 示例值：BU121
+     *
+     * @param unitId
+     * @return
+     */
     public Builder unitId(String unitId) {
       this.unitId = unitId;
       return this;
@@ -68,6 +83,12 @@ public class PatchUnitReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder patchUnitReqBody(PatchUnitReqBody body) {
       this.body = body;
       return this;

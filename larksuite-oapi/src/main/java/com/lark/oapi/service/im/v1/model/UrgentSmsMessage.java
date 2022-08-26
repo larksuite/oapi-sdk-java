@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UrgentSmsMessage {
 
+  /**
+   * 无效的用户ID
+   * <p> 示例值：
+   */
   @SerializedName("invalid_user_id_list")
   private String[] invalidUserIdList;
 

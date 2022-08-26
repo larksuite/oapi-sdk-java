@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class Badge {
 
+  /**
+   * 租户内勋章的唯一标识，该值由系统随机生成。
+   * <p> 示例值：m_MzfKDM
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * 租户内唯一的勋章名称，最多30个字符。
+   * <p> 示例值：激励勋章
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 勋章的描述文案，最多100个字符。
+   * <p> 示例值：这枚勋章为了激励员工颁发。
+   */
   @SerializedName("explanation")
   private String explanation;
+  /**
+   * 企业勋章的详情图Key。1.权限校验：非本租户上传的图片key，不能直接使用；2.时效校验：创建勋章，或者修改勋章图片key时，需使用1h内上传的图片key。
+   * <p> 示例值：75a1949f-d9df-4b46-bc88-dacc51e88f3j
+   */
   @SerializedName("detail_image")
   private String detailImage;
+  /**
+   * 企业勋章的头像挂饰图Key。1.权限校验：非本租户上传的图片key，不能直接使用；2.时效校验：创建勋章，或者修改勋章图片key时，需使用1h内上传的图片key。
+   * <p> 示例值：03daa74a-159f-49e9-963e-b6c4d76103fj
+   */
   @SerializedName("show_image")
   private String showImage;
 
@@ -33,10 +53,30 @@ public class Badge {
   }
 
   public Badge(Builder builder) {
+    /**
+     * 租户内勋章的唯一标识，该值由系统随机生成。
+     * <p> 示例值：m_MzfKDM
+     */
     this.id = builder.id;
+    /**
+     * 租户内唯一的勋章名称，最多30个字符。
+     * <p> 示例值：激励勋章
+     */
     this.name = builder.name;
+    /**
+     * 勋章的描述文案，最多100个字符。
+     * <p> 示例值：这枚勋章为了激励员工颁发。
+     */
     this.explanation = builder.explanation;
+    /**
+     * 企业勋章的详情图Key。1.权限校验：非本租户上传的图片key，不能直接使用；2.时效校验：创建勋章，或者修改勋章图片key时，需使用1h内上传的图片key。
+     * <p> 示例值：75a1949f-d9df-4b46-bc88-dacc51e88f3j
+     */
     this.detailImage = builder.detailImage;
+    /**
+     * 企业勋章的头像挂饰图Key。1.权限校验：非本租户上传的图片key，不能直接使用；2.时效校验：创建勋章，或者修改勋章图片key时，需使用1h内上传的图片key。
+     * <p> 示例值：03daa74a-159f-49e9-963e-b6c4d76103fj
+     */
     this.showImage = builder.showImage;
   }
 
@@ -86,32 +126,91 @@ public class Badge {
 
   public static class Builder {
 
+    /**
+     * 租户内勋章的唯一标识，该值由系统随机生成。
+     * <p> 示例值：m_MzfKDM
+     */
     private String id;
+    /**
+     * 租户内唯一的勋章名称，最多30个字符。
+     * <p> 示例值：激励勋章
+     */
     private String name;
+    /**
+     * 勋章的描述文案，最多100个字符。
+     * <p> 示例值：这枚勋章为了激励员工颁发。
+     */
     private String explanation;
+    /**
+     * 企业勋章的详情图Key。1.权限校验：非本租户上传的图片key，不能直接使用；2.时效校验：创建勋章，或者修改勋章图片key时，需使用1h内上传的图片key。
+     * <p> 示例值：75a1949f-d9df-4b46-bc88-dacc51e88f3j
+     */
     private String detailImage;
+    /**
+     * 企业勋章的头像挂饰图Key。1.权限校验：非本租户上传的图片key，不能直接使用；2.时效校验：创建勋章，或者修改勋章图片key时，需使用1h内上传的图片key。
+     * <p> 示例值：03daa74a-159f-49e9-963e-b6c4d76103fj
+     */
     private String showImage;
 
+    /**
+     * 租户内勋章的唯一标识，该值由系统随机生成。
+     * <p> 示例值：m_MzfKDM
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 租户内唯一的勋章名称，最多30个字符。
+     * <p> 示例值：激励勋章
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 勋章的描述文案，最多100个字符。
+     * <p> 示例值：这枚勋章为了激励员工颁发。
+     *
+     * @param explanation
+     * @return
+     */
     public Builder explanation(String explanation) {
       this.explanation = explanation;
       return this;
     }
 
+
+    /**
+     * 企业勋章的详情图Key。1.权限校验：非本租户上传的图片key，不能直接使用；2.时效校验：创建勋章，或者修改勋章图片key时，需使用1h内上传的图片key。
+     * <p> 示例值：75a1949f-d9df-4b46-bc88-dacc51e88f3j
+     *
+     * @param detailImage
+     * @return
+     */
     public Builder detailImage(String detailImage) {
       this.detailImage = detailImage;
       return this;
     }
 
+
+    /**
+     * 企业勋章的头像挂饰图Key。1.权限校验：非本租户上传的图片key，不能直接使用；2.时效校验：创建勋章，或者修改勋章图片key时，需使用1h内上传的图片key。
+     * <p> 示例值：03daa74a-159f-49e9-963e-b6c4d76103fj
+     *
+     * @param showImage
+     * @return
+     */
     public Builder showImage(String showImage) {
       this.showImage = showImage;
       return this;

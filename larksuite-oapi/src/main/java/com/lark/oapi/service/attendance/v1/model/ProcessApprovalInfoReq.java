@@ -48,6 +48,12 @@ public class ProcessApprovalInfoReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder processApprovalInfoReqBody(ProcessApprovalInfoReqBody body) {
       this.body = body;
       return this;

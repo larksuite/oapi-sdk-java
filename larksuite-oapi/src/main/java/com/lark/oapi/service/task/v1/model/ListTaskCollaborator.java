@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListTaskCollaborator {
 
+  /**
+   * 返回的执行者ID列表
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private Collaborator[] items;
+  /**
+   * 分页标记，分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   * <p> 示例值：「上次返回的page_token」
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 是否还有更多数据
+   * <p> 示例值：false
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
 

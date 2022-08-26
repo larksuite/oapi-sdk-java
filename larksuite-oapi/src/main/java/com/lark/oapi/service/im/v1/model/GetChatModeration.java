@@ -17,12 +17,26 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetChatModeration {
 
+  /**
+   * 群发言模式（all_members/only_owner/moderator_list，其中 moderator_list 表示部分用户可发言的模式）
+   * <p> 示例值：moderator_list
+   */
   @SerializedName("moderation_setting")
   private String moderationSetting;
+  /**
+   * <p> 示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * <p> 示例值：false
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 可发言用户列表
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private ListModerator[] items;
 

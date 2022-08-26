@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class AppVisibilityItem {
 
+  /**
+   * 租户内用户的唯一标识，ID值与查询参数中的user_id_type 对应
+   * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 用户所属部门的ID，ID值与查询参数中的department_id_type 对应
+   * <p> 示例值：od-aa2c50a04769feefededb7a05b7525a8
+   */
   @SerializedName("department_id")
   private String departmentId;
+  /**
+   * 用户组 ID group_id 用来标识租户内一个唯一的用户组
+   * <p> 示例值：
+   */
   @SerializedName("group_id")
   private String groupId;
 
@@ -29,8 +41,20 @@ public class AppVisibilityItem {
   }
 
   public AppVisibilityItem(Builder builder) {
+    /**
+     * 租户内用户的唯一标识，ID值与查询参数中的user_id_type 对应
+     * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
+     */
     this.userId = builder.userId;
+    /**
+     * 用户所属部门的ID，ID值与查询参数中的department_id_type 对应
+     * <p> 示例值：od-aa2c50a04769feefededb7a05b7525a8
+     */
     this.departmentId = builder.departmentId;
+    /**
+     * 用户组 ID group_id 用来标识租户内一个唯一的用户组
+     * <p> 示例值：
+     */
     this.groupId = builder.groupId;
   }
 
@@ -64,20 +88,55 @@ public class AppVisibilityItem {
 
   public static class Builder {
 
+    /**
+     * 租户内用户的唯一标识，ID值与查询参数中的user_id_type 对应
+     * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
+     */
     private String userId;
+    /**
+     * 用户所属部门的ID，ID值与查询参数中的department_id_type 对应
+     * <p> 示例值：od-aa2c50a04769feefededb7a05b7525a8
+     */
     private String departmentId;
+    /**
+     * 用户组 ID group_id 用来标识租户内一个唯一的用户组
+     * <p> 示例值：
+     */
     private String groupId;
 
+    /**
+     * 租户内用户的唯一标识，ID值与查询参数中的user_id_type 对应
+     * <p> 示例值：ou_d317f090b7258ad0372aa53963cda70d
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 用户所属部门的ID，ID值与查询参数中的department_id_type 对应
+     * <p> 示例值：od-aa2c50a04769feefededb7a05b7525a8
+     *
+     * @param departmentId
+     * @return
+     */
     public Builder departmentId(String departmentId) {
       this.departmentId = departmentId;
       return this;
     }
 
+
+    /**
+     * 用户组 ID group_id 用来标识租户内一个唯一的用户组
+     * <p> 示例值：
+     *
+     * @param groupId
+     * @return
+     */
     public Builder groupId(String groupId) {
       this.groupId = groupId;
       return this;

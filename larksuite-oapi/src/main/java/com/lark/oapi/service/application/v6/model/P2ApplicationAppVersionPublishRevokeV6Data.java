@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2ApplicationAppVersionPublishRevokeV6Data {
 
+  /**
+   * 用户 ID
+   * <p> 示例值：
+   */
   @SerializedName("operator_id")
   private UserId operatorId;
+  /**
+   * 用户 ID
+   * <p> 示例值：
+   */
   @SerializedName("creator_id")
   private UserId creatorId;
+  /**
+   * 撤回应用的 id
+   * <p> 示例值：cli_9b445f5258795107
+   */
   @SerializedName("app_id")
   private String appId;
+  /**
+   * 撤回应用的版本 id
+   * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
+   */
   @SerializedName("version_id")
   private String versionId;
 

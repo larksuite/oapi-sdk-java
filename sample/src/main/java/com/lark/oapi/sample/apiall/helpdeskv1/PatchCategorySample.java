@@ -6,7 +6,7 @@ import com.lark.oapi.service.helpdesk.v1.model.Category;
 import com.lark.oapi.service.helpdesk.v1.model.PatchCategoryReq;
 import com.lark.oapi.service.helpdesk.v1.model.PatchCategoryResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/categories/:id"
+// PATCH /open-apis/helpdesk/v1/categories/:id
 public class PatchCategorySample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class PatchCategorySample {
 
     // 创建请求对象
     PatchCategoryReq req = PatchCategoryReq.newBuilder()
-        .id("")
+        .id("6948728206392295444")
         .category(Category.newBuilder()
             .name("")
             .parentId("")

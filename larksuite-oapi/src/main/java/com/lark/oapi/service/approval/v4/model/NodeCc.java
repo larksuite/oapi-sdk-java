@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class NodeCc {
 
+  /**
+   * node id ，通过 [查看审批定义](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
+   * <p> 示例值：46e6d96cfa756980907209209ec03b75
+   */
   @SerializedName("key")
   private String key;
+  /**
+   * value: 审批人列表
+   * <p> 示例值：["f7cb567e"]
+   */
   @SerializedName("value")
   private String[] value;
 
@@ -27,7 +35,15 @@ public class NodeCc {
   }
 
   public NodeCc(Builder builder) {
+    /**
+     * node id ，通过 [查看审批定义](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
+     * <p> 示例值：46e6d96cfa756980907209209ec03b75
+     */
     this.key = builder.key;
+    /**
+     * value: 审批人列表
+     * <p> 示例值：["f7cb567e"]
+     */
     this.value = builder.value;
   }
 
@@ -53,14 +69,37 @@ public class NodeCc {
 
   public static class Builder {
 
+    /**
+     * node id ，通过 [查看审批定义](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
+     * <p> 示例值：46e6d96cfa756980907209209ec03b75
+     */
     private String key;
+    /**
+     * value: 审批人列表
+     * <p> 示例值：["f7cb567e"]
+     */
     private String[] value;
 
+    /**
+     * node id ，通过 [查看审批定义](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
+     * <p> 示例值：46e6d96cfa756980907209209ec03b75
+     *
+     * @param key
+     * @return
+     */
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
+
+    /**
+     * value: 审批人列表
+     * <p> 示例值：["f7cb567e"]
+     *
+     * @param value
+     * @return
+     */
     public Builder value(String[] value) {
       this.value = value;
       return this;

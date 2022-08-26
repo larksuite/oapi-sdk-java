@@ -48,6 +48,12 @@ public class DetectTextReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder detectTextReqBody(DetectTextReqBody body) {
       this.body = body;
       return this;

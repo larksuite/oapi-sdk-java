@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.contact.v3.model.MemberBelongGroupReq;
 import com.lark.oapi.service.contact.v3.model.MemberBelongGroupResp;
 
-// HTTP PATH: /open-apis/contact/v3/group/member_belong"
+// GET /open-apis/contact/v3/group/member_belong
 public class MemberBelongGroupSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,11 +14,12 @@ public class MemberBelongGroupSample {
 
     // 创建请求对象
     MemberBelongGroupReq req = MemberBelongGroupReq.newBuilder()
-        .memberId("")
+        .memberId("u287xj12")
         .memberIdType("open_id")
         .groupType(1)
         .pageSize(500)
-        .pageToken("")
+        .pageToken(
+            "AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=")
         .build();
 
     // 发起请求

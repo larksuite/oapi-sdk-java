@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class ModifyUserSettingReqBody {
 
+  /**
+   * 用户设置
+   * <p> 示例值：
+   */
   @SerializedName("user_setting")
   private UserSetting userSetting;
 
@@ -25,6 +29,10 @@ public class ModifyUserSettingReqBody {
   }
 
   public ModifyUserSettingReqBody(Builder builder) {
+    /**
+     * 用户设置
+     * <p> 示例值：
+     */
     this.userSetting = builder.userSetting;
   }
 
@@ -42,8 +50,19 @@ public class ModifyUserSettingReqBody {
 
   public static class Builder {
 
+    /**
+     * 用户设置
+     * <p> 示例值：
+     */
     private UserSetting userSetting;
 
+    /**
+     * 用户设置
+     * <p> 示例值：
+     *
+     * @param userSetting
+     * @return
+     */
     public Builder userSetting(UserSetting userSetting) {
       this.userSetting = userSetting;
       return this;

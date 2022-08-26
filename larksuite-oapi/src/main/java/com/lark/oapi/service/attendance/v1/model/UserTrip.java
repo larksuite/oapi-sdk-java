@@ -17,16 +17,40 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserTrip {
 
+  /**
+   * 审批实例 ID
+   * <p> 示例值：6737202939523236113
+   */
   @SerializedName("approval_id")
   private String approvalId;
+  /**
+   * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+   * <p> 示例值：2021-01-04 09:00:00
+   */
   @SerializedName("start_time")
   private String startTime;
+  /**
+   * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+   * <p> 示例值：2021-01-04 19:00:00
+   */
   @SerializedName("end_time")
   private String endTime;
+  /**
+   * 出差理由
+   * <p> 示例值：培训
+   */
   @SerializedName("reason")
   private String reason;
+  /**
+   * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
+   * <p> 示例值：2021-01-04 12:00:00
+   */
   @SerializedName("approve_pass_time")
   private String approvePassTime;
+  /**
+   * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
+   * <p> 示例值：2021-01-04 11:00:00
+   */
   @SerializedName("approve_apply_time")
   private String approveApplyTime;
 
@@ -35,11 +59,35 @@ public class UserTrip {
   }
 
   public UserTrip(Builder builder) {
+    /**
+     * 审批实例 ID
+     * <p> 示例值：6737202939523236113
+     */
     this.approvalId = builder.approvalId;
+    /**
+     * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     * <p> 示例值：2021-01-04 09:00:00
+     */
     this.startTime = builder.startTime;
+    /**
+     * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     * <p> 示例值：2021-01-04 19:00:00
+     */
     this.endTime = builder.endTime;
+    /**
+     * 出差理由
+     * <p> 示例值：培训
+     */
     this.reason = builder.reason;
+    /**
+     * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     * <p> 示例值：2021-01-04 12:00:00
+     */
     this.approvePassTime = builder.approvePassTime;
+    /**
+     * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     * <p> 示例值：2021-01-04 11:00:00
+     */
     this.approveApplyTime = builder.approveApplyTime;
   }
 
@@ -97,38 +145,109 @@ public class UserTrip {
 
   public static class Builder {
 
+    /**
+     * 审批实例 ID
+     * <p> 示例值：6737202939523236113
+     */
     private String approvalId;
+    /**
+     * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     * <p> 示例值：2021-01-04 09:00:00
+     */
     private String startTime;
+    /**
+     * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     * <p> 示例值：2021-01-04 19:00:00
+     */
     private String endTime;
+    /**
+     * 出差理由
+     * <p> 示例值：培训
+     */
     private String reason;
+    /**
+     * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     * <p> 示例值：2021-01-04 12:00:00
+     */
     private String approvePassTime;
+    /**
+     * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     * <p> 示例值：2021-01-04 11:00:00
+     */
     private String approveApplyTime;
 
+    /**
+     * 审批实例 ID
+     * <p> 示例值：6737202939523236113
+     *
+     * @param approvalId
+     * @return
+     */
     public Builder approvalId(String approvalId) {
       this.approvalId = approvalId;
       return this;
     }
 
+
+    /**
+     * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     * <p> 示例值：2021-01-04 09:00:00
+     *
+     * @param startTime
+     * @return
+     */
     public Builder startTime(String startTime) {
       this.startTime = startTime;
       return this;
     }
 
+
+    /**
+     * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     * <p> 示例值：2021-01-04 19:00:00
+     *
+     * @param endTime
+     * @return
+     */
     public Builder endTime(String endTime) {
       this.endTime = endTime;
       return this;
     }
 
+
+    /**
+     * 出差理由
+     * <p> 示例值：培训
+     *
+     * @param reason
+     * @return
+     */
     public Builder reason(String reason) {
       this.reason = reason;
       return this;
     }
 
+
+    /**
+     * 审批通过时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     * <p> 示例值：2021-01-04 12:00:00
+     *
+     * @param approvePassTime
+     * @return
+     */
     public Builder approvePassTime(String approvePassTime) {
       this.approvePassTime = approvePassTime;
       return this;
     }
 
+
+    /**
+     * 审批申请时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     * <p> 示例值：2021-01-04 11:00:00
+     *
+     * @param approveApplyTime
+     * @return
+     */
     public Builder approveApplyTime(String approveApplyTime) {
       this.approveApplyTime = approveApplyTime;
       return this;

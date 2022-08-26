@@ -33,7 +33,7 @@ public class PatchDocumentBlockSample {
         .documentId("doxcnePuYufKa49ISjhD8Ih0ikh")
         .blockId("doxcnO6UW6wAw2qIcYf4hZpFIth")
         .documentRevisionId(-1)
-        .clientToken("")
+        .clientToken("0e2633a3-aa1a-4171-af9e-0768ff863566")
         .userIdType("user_id")
         .updateBlockRequest(UpdateBlockRequest.newBuilder()
             .updateTextElements(UpdateTextElementsRequest.newBuilder().build())

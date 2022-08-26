@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UploadFile {
 
+  /**
+   * 文件
+   * <p> 示例值：
+   */
   @SerializedName("file")
   private File file;
 

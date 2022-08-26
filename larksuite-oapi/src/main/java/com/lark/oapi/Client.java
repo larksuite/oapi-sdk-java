@@ -52,6 +52,7 @@ import com.lark.oapi.service.helpdesk.v1.HelpdeskService;
 import com.lark.oapi.service.human_authentication.v1.HumanAuthenticationService;
 import com.lark.oapi.service.im.v1.ImService;
 import com.lark.oapi.service.mail.v1.MailService;
+import com.lark.oapi.service.mdm.v1.MdmService;
 import com.lark.oapi.service.meeting_room.v1.MeetingRoomService;
 import com.lark.oapi.service.optical_char_recognition.v1.OpticalCharRecognitionService;
 import com.lark.oapi.service.passport.v1.PassportService;
@@ -70,37 +71,38 @@ import java.util.concurrent.TimeUnit;
 public class Client {
 
   private Config config;
-  private AcsService acs;
-  private AdminService admin;
-  private ApplicationService application;
-  private ApprovalService approval;
-  private AttendanceService attendance;
-  private BaikeService baike;
-  private BitableService bitable;
-  private BlockService block;
-  private CalendarService calendar;
-  private ContactService contact;
-  private DocxService docx;
-  private DriveService drive;
-  private EhrService ehr;
-  private EventService event;
-  private FaceDetectionService faceDetection;
-  private GrayTestOpenSgService grayTestOpenSg;
-  private HelpdeskService helpdesk;
-  private HumanAuthenticationService humanAuthentication;
-  private ImService im;
-  private MailService mail;
-  private MeetingRoomService meetingRoom;
-  private OpticalCharRecognitionService opticalCharRecognition;
-  private PassportService passport;
-  private SearchService search;
-  private SheetsService sheets;
-  private SpeechToTextService speechToText;
-  private TaskService task;
-  private TenantService tenant;
-  private TranslationService translation;
-  private VcService vc;
-  private WikiService wiki;
+  private AcsService acs; // 智能门禁
+  private AdminService admin; // 管理后台-企业勋章
+  private ApplicationService application; // 应用信息
+  private ApprovalService approval; // 审批
+  private AttendanceService attendance; // 打卡
+  private BaikeService baike; // 企业百科
+  private BitableService bitable; // 云文档-多维表格
+  private BlockService block; // 小组件
+  private CalendarService calendar; // 日历
+  private ContactService contact; // 通讯录
+  private DocxService docx; // 云文档-文档
+  private DriveService drive; // 云文档-文件管理
+  private EhrService ehr; // 智能人事
+  private EventService event; // 事件订阅
+  private FaceDetectionService faceDetection; // AI能力
+  private GrayTestOpenSgService grayTestOpenSg; //
+  private HelpdeskService helpdesk; // 服务台
+  private HumanAuthenticationService humanAuthentication; // 实名认证
+  private ImService im; // 消息与群组
+  private MailService mail; // 邮箱
+  private MdmService mdm; // 主数据
+  private MeetingRoomService meetingRoom; //
+  private OpticalCharRecognitionService opticalCharRecognition; // AI能力
+  private PassportService passport; // 帐号
+  private SearchService search; // 搜索
+  private SheetsService sheets; // 云文档-电子表格
+  private SpeechToTextService speechToText; // AI能力
+  private TaskService task; // 任务
+  private TenantService tenant; // 企业信息
+  private TranslationService translation; // AI能力
+  private VcService vc; // 视频会议
+  private WikiService wiki; // 云文档-知识库
 
   private ExtService extService;
 
@@ -116,126 +118,286 @@ public class Client {
     this.config = config;
   }
 
+  /**
+   * 智能门禁
+   *
+   * @return
+   */
   public AcsService acs() {
     return acs;
   }
 
+  /**
+   * 管理后台-企业勋章
+   *
+   * @return
+   */
   public AdminService admin() {
     return admin;
   }
 
+  /**
+   * 应用信息
+   *
+   * @return
+   */
   public ApplicationService application() {
     return application;
   }
 
+  /**
+   * 审批
+   *
+   * @return
+   */
   public ApprovalService approval() {
     return approval;
   }
 
+  /**
+   * 打卡
+   *
+   * @return
+   */
   public AttendanceService attendance() {
     return attendance;
   }
 
+  /**
+   * 企业百科
+   *
+   * @return
+   */
   public BaikeService baike() {
     return baike;
   }
 
+  /**
+   * 云文档-多维表格
+   *
+   * @return
+   */
   public BitableService bitable() {
     return bitable;
   }
 
+  /**
+   * 小组件
+   *
+   * @return
+   */
   public BlockService block() {
     return block;
   }
 
+  /**
+   * 日历
+   *
+   * @return
+   */
   public CalendarService calendar() {
     return calendar;
   }
 
+  /**
+   * 通讯录
+   *
+   * @return
+   */
   public ContactService contact() {
     return contact;
   }
 
+  /**
+   * 云文档-文档
+   *
+   * @return
+   */
   public DocxService docx() {
     return docx;
   }
 
+  /**
+   * 云文档-文件管理
+   *
+   * @return
+   */
   public DriveService drive() {
     return drive;
   }
 
+  /**
+   * 智能人事
+   *
+   * @return
+   */
   public EhrService ehr() {
     return ehr;
   }
 
+  /**
+   * 事件订阅
+   *
+   * @return
+   */
   public EventService event() {
     return event;
   }
 
+  /**
+   * AI能力
+   *
+   * @return
+   */
   public FaceDetectionService faceDetection() {
     return faceDetection;
   }
 
+  /**
+   * @return
+   */
   public GrayTestOpenSgService grayTestOpenSg() {
     return grayTestOpenSg;
   }
 
+  /**
+   * 服务台
+   *
+   * @return
+   */
   public HelpdeskService helpdesk() {
     return helpdesk;
   }
 
+  /**
+   * 实名认证
+   *
+   * @return
+   */
   public HumanAuthenticationService humanAuthentication() {
     return humanAuthentication;
   }
 
+  /**
+   * 消息与群组
+   *
+   * @return
+   */
   public ImService im() {
     return im;
   }
 
+  /**
+   * 邮箱
+   *
+   * @return
+   */
   public MailService mail() {
     return mail;
   }
 
+  /**
+   * 主数据
+   *
+   * @return
+   */
+  public MdmService mdm() {
+    return mdm;
+  }
+
+  /**
+   * @return
+   */
   public MeetingRoomService meetingRoom() {
     return meetingRoom;
   }
 
+  /**
+   * AI能力
+   *
+   * @return
+   */
   public OpticalCharRecognitionService opticalCharRecognition() {
     return opticalCharRecognition;
   }
 
+  /**
+   * 帐号
+   *
+   * @return
+   */
   public PassportService passport() {
     return passport;
   }
 
+  /**
+   * 搜索
+   *
+   * @return
+   */
   public SearchService search() {
     return search;
   }
 
+  /**
+   * 云文档-电子表格
+   *
+   * @return
+   */
   public SheetsService sheets() {
     return sheets;
   }
 
+  /**
+   * AI能力
+   *
+   * @return
+   */
   public SpeechToTextService speechToText() {
     return speechToText;
   }
 
+  /**
+   * 任务
+   *
+   * @return
+   */
   public TaskService task() {
     return task;
   }
 
+  /**
+   * 企业信息
+   *
+   * @return
+   */
   public TenantService tenant() {
     return tenant;
   }
 
+  /**
+   * AI能力
+   *
+   * @return
+   */
   public TranslationService translation() {
     return translation;
   }
 
+  /**
+   * 视频会议
+   *
+   * @return
+   */
   public VcService vc() {
     return vc;
   }
 
+  /**
+   * 云文档-知识库
+   *
+   * @return
+   */
   public WikiService wiki() {
     return wiki;
   }
@@ -441,6 +603,7 @@ public class Client {
       client.humanAuthentication = new HumanAuthenticationService(config);
       client.im = new ImService(config);
       client.mail = new MailService(config);
+      client.mdm = new MdmService(config);
       client.meetingRoom = new MeetingRoomService(config);
       client.opticalCharRecognition = new OpticalCharRecognitionService(config);
       client.passport = new PassportService(config);

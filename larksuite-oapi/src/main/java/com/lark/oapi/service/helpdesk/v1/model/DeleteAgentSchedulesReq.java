@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DeleteAgentSchedulesReq {
 
+  /**
+   * agent user id
+   * <p> 示例值：12345
+   */
   @Path
   @SerializedName("agent_id")
   private String agentId;
@@ -27,6 +31,10 @@ public class DeleteAgentSchedulesReq {
   }
 
   public DeleteAgentSchedulesReq(Builder builder) {
+    /**
+     * agent user id
+     * <p> 示例值：12345
+     */
     this.agentId = builder.agentId;
   }
 
@@ -44,8 +52,15 @@ public class DeleteAgentSchedulesReq {
 
   public static class Builder {
 
-    private String agentId;
+    private String agentId; // agent user id
 
+    /**
+     * agent user id
+     * <p> 示例值：12345
+     *
+     * @param agentId
+     * @return
+     */
     public Builder agentId(String agentId) {
       this.agentId = agentId;
       return this;

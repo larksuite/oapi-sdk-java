@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListMember {
 
+  /**
+   * 成员的用户 ID 类型，与查询参数中的 member_id_type 相同。取值为：`open_id`、`user_id`、`union_id`其中之一。
+   * <p> 示例值：open_id
+   */
   @SerializedName("member_id_type")
   private String memberIdType;
+  /**
+   * 成员的用户ID，ID值与查询参数中的 member_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * <p> 示例值：ou_9204a37300b3700d61effaa439f34295
+   */
   @SerializedName("member_id")
   private String memberId;
+  /**
+   * 名字
+   * <p> 示例值：张三
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * tenant key
+   * <p> 示例值：736588c9260f175d
+   */
   @SerializedName("tenant_key")
   private String tenantKey;
 
@@ -31,9 +47,25 @@ public class ListMember {
   }
 
   public ListMember(Builder builder) {
+    /**
+     * 成员的用户 ID 类型，与查询参数中的 member_id_type 相同。取值为：`open_id`、`user_id`、`union_id`其中之一。
+     * <p> 示例值：open_id
+     */
     this.memberIdType = builder.memberIdType;
+    /**
+     * 成员的用户ID，ID值与查询参数中的 member_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * <p> 示例值：ou_9204a37300b3700d61effaa439f34295
+     */
     this.memberId = builder.memberId;
+    /**
+     * 名字
+     * <p> 示例值：张三
+     */
     this.name = builder.name;
+    /**
+     * tenant key
+     * <p> 示例值：736588c9260f175d
+     */
     this.tenantKey = builder.tenantKey;
   }
 
@@ -75,26 +107,73 @@ public class ListMember {
 
   public static class Builder {
 
+    /**
+     * 成员的用户 ID 类型，与查询参数中的 member_id_type 相同。取值为：`open_id`、`user_id`、`union_id`其中之一。
+     * <p> 示例值：open_id
+     */
     private String memberIdType;
+    /**
+     * 成员的用户ID，ID值与查询参数中的 member_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * <p> 示例值：ou_9204a37300b3700d61effaa439f34295
+     */
     private String memberId;
+    /**
+     * 名字
+     * <p> 示例值：张三
+     */
     private String name;
+    /**
+     * tenant key
+     * <p> 示例值：736588c9260f175d
+     */
     private String tenantKey;
 
+    /**
+     * 成员的用户 ID 类型，与查询参数中的 member_id_type 相同。取值为：`open_id`、`user_id`、`union_id`其中之一。
+     * <p> 示例值：open_id
+     *
+     * @param memberIdType
+     * @return
+     */
     public Builder memberIdType(String memberIdType) {
       this.memberIdType = memberIdType;
       return this;
     }
 
+
+    /**
+     * 成员的用户ID，ID值与查询参数中的 member_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * <p> 示例值：ou_9204a37300b3700d61effaa439f34295
+     *
+     * @param memberId
+     * @return
+     */
     public Builder memberId(String memberId) {
       this.memberId = memberId;
       return this;
     }
 
+
+    /**
+     * 名字
+     * <p> 示例值：张三
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * tenant key
+     * <p> 示例值：736588c9260f175d
+     *
+     * @param tenantKey
+     * @return
+     */
     public Builder tenantKey(String tenantKey) {
       this.tenantKey = tenantKey;
       return this;

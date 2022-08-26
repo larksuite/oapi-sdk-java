@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateGroupReqBody {
 
+  /**
+   * 6921319402260496386
+   * <p> 示例值：
+   */
   @SerializedName("group")
   private Group group;
+  /**
+   * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+   * <p> 示例值：dd31248a
+   */
   @SerializedName("operator_id")
   private String operatorId;
 
@@ -27,7 +35,15 @@ public class CreateGroupReqBody {
   }
 
   public CreateGroupReqBody(Builder builder) {
+    /**
+     * 6921319402260496386
+     * <p> 示例值：
+     */
     this.group = builder.group;
+    /**
+     * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+     * <p> 示例值：dd31248a
+     */
     this.operatorId = builder.operatorId;
   }
 
@@ -53,14 +69,37 @@ public class CreateGroupReqBody {
 
   public static class Builder {
 
+    /**
+     * 6921319402260496386
+     * <p> 示例值：
+     */
     private Group group;
+    /**
+     * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+     * <p> 示例值：dd31248a
+     */
     private String operatorId;
 
+    /**
+     * 6921319402260496386
+     * <p> 示例值：
+     *
+     * @param group
+     * @return
+     */
     public Builder group(Group group) {
       this.group = group;
       return this;
     }
 
+
+    /**
+     * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+     * <p> 示例值：dd31248a
+     *
+     * @param operatorId
+     * @return
+     */
     public Builder operatorId(String operatorId) {
       this.operatorId = operatorId;
       return this;

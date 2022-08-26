@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class InstanceSearchLink {
 
+  /**
+   * 审批实例 pc 端链接
+   * <p> 示例值：https://www.baidu.com/
+   */
   @SerializedName("pc_link")
   private String pcLink;
+  /**
+   * 审批实例移动端链接
+   * <p> 示例值：https://www.baidu.com/
+   */
   @SerializedName("mobile_link")
   private String mobileLink;
 
@@ -27,7 +35,15 @@ public class InstanceSearchLink {
   }
 
   public InstanceSearchLink(Builder builder) {
+    /**
+     * 审批实例 pc 端链接
+     * <p> 示例值：https://www.baidu.com/
+     */
     this.pcLink = builder.pcLink;
+    /**
+     * 审批实例移动端链接
+     * <p> 示例值：https://www.baidu.com/
+     */
     this.mobileLink = builder.mobileLink;
   }
 
@@ -53,14 +69,37 @@ public class InstanceSearchLink {
 
   public static class Builder {
 
+    /**
+     * 审批实例 pc 端链接
+     * <p> 示例值：https://www.baidu.com/
+     */
     private String pcLink;
+    /**
+     * 审批实例移动端链接
+     * <p> 示例值：https://www.baidu.com/
+     */
     private String mobileLink;
 
+    /**
+     * 审批实例 pc 端链接
+     * <p> 示例值：https://www.baidu.com/
+     *
+     * @param pcLink
+     * @return
+     */
     public Builder pcLink(String pcLink) {
       this.pcLink = pcLink;
       return this;
     }
 
+
+    /**
+     * 审批实例移动端链接
+     * <p> 示例值：https://www.baidu.com/
+     *
+     * @param mobileLink
+     * @return
+     */
     public Builder mobileLink(String mobileLink) {
       this.mobileLink = mobileLink;
       return this;

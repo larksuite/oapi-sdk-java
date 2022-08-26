@@ -17,10 +17,23 @@ import com.google.gson.annotations.SerializedName;
 
 public class Memberlist {
 
+  /**
+   * 成员ID
+   * <p> 示例值：u287xj12
+   */
   @SerializedName("member_id")
   private String memberId;
+  /**
+   * 用户组成员的类型，取值为 user或department。
+   * <p> 示例值：user
+   */
   @SerializedName("member_type")
   private String memberType;
+  /**
+   * 当member_type为user时，member_id_type表示user_id_type，可选值为open_id, union_id,
+   * user_id。仅在请求参数中有效，响应体中不会返回此参数。
+   * <p> 示例值：user_id
+   */
   @SerializedName("member_id_type")
   private String memberIdType;
 
@@ -29,8 +42,20 @@ public class Memberlist {
   }
 
   public Memberlist(Builder builder) {
+    /**
+     * 成员ID
+     * <p> 示例值：u287xj12
+     */
     this.memberId = builder.memberId;
+    /**
+     * 用户组成员的类型，取值为 user或department。
+     * <p> 示例值：user
+     */
     this.memberType = builder.memberType;
+    /**
+     * 当member_type为user时，member_id_type表示user_id_type，可选值为open_id, union_id, user_id。仅在请求参数中有效，响应体中不会返回此参数。
+     * <p> 示例值：user_id
+     */
     this.memberIdType = builder.memberIdType;
   }
 
@@ -64,20 +89,57 @@ public class Memberlist {
 
   public static class Builder {
 
+    /**
+     * 成员ID
+     * <p> 示例值：u287xj12
+     */
     private String memberId;
+    /**
+     * 用户组成员的类型，取值为 user或department。
+     * <p> 示例值：user
+     */
     private String memberType;
+    /**
+     * 当member_type为user时，member_id_type表示user_id_type，可选值为open_id, union_id,
+     * user_id。仅在请求参数中有效，响应体中不会返回此参数。
+     * <p> 示例值：user_id
+     */
     private String memberIdType;
 
+    /**
+     * 成员ID
+     * <p> 示例值：u287xj12
+     *
+     * @param memberId
+     * @return
+     */
     public Builder memberId(String memberId) {
       this.memberId = memberId;
       return this;
     }
 
+
+    /**
+     * 用户组成员的类型，取值为 user或department。
+     * <p> 示例值：user
+     *
+     * @param memberType
+     * @return
+     */
     public Builder memberType(String memberType) {
       this.memberType = memberType;
       return this;
     }
 
+
+    /**
+     * 当member_type为user时，member_id_type表示user_id_type，可选值为open_id, union_id,
+     * user_id。仅在请求参数中有效，响应体中不会返回此参数。
+     * <p> 示例值：user_id
+     *
+     * @param memberIdType
+     * @return
+     */
     public Builder memberIdType(String memberIdType) {
       this.memberIdType = memberIdType;
       return this;

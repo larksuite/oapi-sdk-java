@@ -17,18 +17,49 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateTimeoffEvent {
 
+  /**
+   * 休假申请的唯一标识id
+   * <p> 示例值：
+   */
   @SerializedName("timeoff_event_id")
   private String timeoffEventId;
+  /**
+   * 用户的user id
+   * <p> 示例值：
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 休假人的时区
+   * <p> 示例值：
+   */
   @SerializedName("timezone")
   private String timezone;
+  /**
+   * 休假开始时间（时间戳）/日期（2021-01-01），为日期时将生成全天日程，且与end_time对应，不符合将返回错误
+   * <p> 示例值：
+   */
   @SerializedName("start_time")
   private String startTime;
+  /**
+   * 休假结束时间（时间戳）/日期（2021-01-01），为日期时将生成全天日程，与start_time对应，不符合将返回错误
+   * <p> 示例值：
+   */
   @SerializedName("end_time")
   private String endTime;
+  /**
+   * 休假日程标题，可自定义例如："请假中(全天) / 1-Day Time Off"，"请假中(半天) / 0.5-Day Time Off"，"长期休假中 / Leave of
+   * Absence"，"请假中"
+   * <p> 示例值：
+   */
   @SerializedName("title")
   private String title;
+  /**
+   * 休假日程描述，可自定义,例如：;"若拒绝或删除此日程，飞书中相应的“请假”标签将自动消失，而请假系统中的休假申请不会被撤销。;;If the event is rejected or
+   * deleted, corresponding "On Leave" tag in Feishu will disappear, while the leave request in the
+   * time off system will not be revoked."
+   * <p> 示例值：
+   */
   @SerializedName("description")
   private String description;
 

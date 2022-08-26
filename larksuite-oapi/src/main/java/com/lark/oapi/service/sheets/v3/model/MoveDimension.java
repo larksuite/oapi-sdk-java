@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class MoveDimension {
 
+  /**
+   * 移动源位置参数
+   * <p> 示例值：
+   */
   @SerializedName("source")
   private Dimension source;
+  /**
+   * 移动的目标位置行或者列号
+   * <p> 示例值：4
+   */
   @SerializedName("destination_index")
   private Integer destinationIndex;
 
@@ -27,7 +35,15 @@ public class MoveDimension {
   }
 
   public MoveDimension(Builder builder) {
+    /**
+     * 移动源位置参数
+     * <p> 示例值：
+     */
     this.source = builder.source;
+    /**
+     * 移动的目标位置行或者列号
+     * <p> 示例值：4
+     */
     this.destinationIndex = builder.destinationIndex;
   }
 
@@ -53,14 +69,37 @@ public class MoveDimension {
 
   public static class Builder {
 
+    /**
+     * 移动源位置参数
+     * <p> 示例值：
+     */
     private Dimension source;
+    /**
+     * 移动的目标位置行或者列号
+     * <p> 示例值：4
+     */
     private Integer destinationIndex;
 
+    /**
+     * 移动源位置参数
+     * <p> 示例值：
+     *
+     * @param source
+     * @return
+     */
     public Builder source(Dimension source) {
       this.source = source;
       return this;
     }
 
+
+    /**
+     * 移动的目标位置行或者列号
+     * <p> 示例值：4
+     *
+     * @param destinationIndex
+     * @return
+     */
     public Builder destinationIndex(Integer destinationIndex) {
       this.destinationIndex = destinationIndex;
       return this;

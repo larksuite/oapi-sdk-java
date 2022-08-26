@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class ApiAuditCommonDrawers {
 
+  /**
+   * 扩展字段信息
+   * <p> 示例值：
+   */
   @SerializedName("common_draw_info_list")
   private ApiAuditDrawerInfo[] commonDrawInfoList;
 
@@ -25,6 +29,10 @@ public class ApiAuditCommonDrawers {
   }
 
   public ApiAuditCommonDrawers(Builder builder) {
+    /**
+     * 扩展字段信息
+     * <p> 示例值：
+     */
     this.commonDrawInfoList = builder.commonDrawInfoList;
   }
 
@@ -42,8 +50,19 @@ public class ApiAuditCommonDrawers {
 
   public static class Builder {
 
+    /**
+     * 扩展字段信息
+     * <p> 示例值：
+     */
     private ApiAuditDrawerInfo[] commonDrawInfoList;
 
+    /**
+     * 扩展字段信息
+     * <p> 示例值：
+     *
+     * @param commonDrawInfoList
+     * @return
+     */
     public Builder commonDrawInfoList(ApiAuditDrawerInfo[] commonDrawInfoList) {
       this.commonDrawInfoList = commonDrawInfoList;
       return this;

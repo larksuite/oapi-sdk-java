@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateIdentity {
 
+  /**
+   * 用户绑定实名身份的uid
+   * <p> 示例值：ou_2eb5483cb377daa5054bc6f86e2089a5
+   */
   @SerializedName("verify_uid")
   private String verifyUid;
 

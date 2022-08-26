@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Path;
 
 public class UpdateAppRoleReq {
 
+  /**
+   * bitable app token
+   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+   */
   @Path
   @SerializedName("app_token")
   private String appToken;
+  /**
+   * 自定义角色的id
+   * <p> 示例值：roljRpwIUt
+   */
   @Path
   @SerializedName("role_id")
   private String roleId;
@@ -33,7 +41,15 @@ public class UpdateAppRoleReq {
   }
 
   public UpdateAppRoleReq(Builder builder) {
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     */
     this.appToken = builder.appToken;
+    /**
+     * 自定义角色的id
+     * <p> 示例值：roljRpwIUt
+     */
     this.roleId = builder.roleId;
     this.body = builder.body;
   }
@@ -68,15 +84,29 @@ public class UpdateAppRoleReq {
 
   public static class Builder {
 
-    private String appToken;
-    private String roleId;
+    private String appToken; // bitable app token
+    private String roleId; // 自定义角色的id
     private AppRole body;
 
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     *
+     * @param appToken
+     * @return
+     */
     public Builder appToken(String appToken) {
       this.appToken = appToken;
       return this;
     }
 
+    /**
+     * 自定义角色的id
+     * <p> 示例值：roljRpwIUt
+     *
+     * @param roleId
+     * @return
+     */
     public Builder roleId(String roleId) {
       this.roleId = roleId;
       return this;
@@ -86,6 +116,12 @@ public class UpdateAppRoleReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder appRole(AppRole body) {
       this.body = body;
       return this;

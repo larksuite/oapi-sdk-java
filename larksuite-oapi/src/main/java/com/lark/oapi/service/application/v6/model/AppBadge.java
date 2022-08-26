@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class AppBadge {
 
+  /**
+   * 用户ID
+   * <p> 示例值：
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * badge数据版本号
+   * <p> 示例值：
+   */
   @SerializedName("version")
   private String version;
+  /**
+   * badge extra 信息
+   * <p> 示例值：
+   */
   @SerializedName("extra")
   private String extra;
+  /**
+   * pc端badge数量
+   * <p> 示例值：
+   */
   @SerializedName("pc")
   private ClientBadgeNum pc;
+  /**
+   * 移动端badge数量
+   * <p> 示例值：
+   */
   @SerializedName("mobile")
   private ClientBadgeNum mobile;
 
@@ -33,10 +53,30 @@ public class AppBadge {
   }
 
   public AppBadge(Builder builder) {
+    /**
+     * 用户ID
+     * <p> 示例值：
+     */
     this.userId = builder.userId;
+    /**
+     * badge数据版本号
+     * <p> 示例值：
+     */
     this.version = builder.version;
+    /**
+     * badge extra 信息
+     * <p> 示例值：
+     */
     this.extra = builder.extra;
+    /**
+     * pc端badge数量
+     * <p> 示例值：
+     */
     this.pc = builder.pc;
+    /**
+     * 移动端badge数量
+     * <p> 示例值：
+     */
     this.mobile = builder.mobile;
   }
 
@@ -86,32 +126,91 @@ public class AppBadge {
 
   public static class Builder {
 
+    /**
+     * 用户ID
+     * <p> 示例值：
+     */
     private String userId;
+    /**
+     * badge数据版本号
+     * <p> 示例值：
+     */
     private String version;
+    /**
+     * badge extra 信息
+     * <p> 示例值：
+     */
     private String extra;
+    /**
+     * pc端badge数量
+     * <p> 示例值：
+     */
     private ClientBadgeNum pc;
+    /**
+     * 移动端badge数量
+     * <p> 示例值：
+     */
     private ClientBadgeNum mobile;
 
+    /**
+     * 用户ID
+     * <p> 示例值：
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * badge数据版本号
+     * <p> 示例值：
+     *
+     * @param version
+     * @return
+     */
     public Builder version(String version) {
       this.version = version;
       return this;
     }
 
+
+    /**
+     * badge extra 信息
+     * <p> 示例值：
+     *
+     * @param extra
+     * @return
+     */
     public Builder extra(String extra) {
       this.extra = extra;
       return this;
     }
 
+
+    /**
+     * pc端badge数量
+     * <p> 示例值：
+     *
+     * @param pc
+     * @return
+     */
     public Builder pc(ClientBadgeNum pc) {
       this.pc = pc;
       return this;
     }
 
+
+    /**
+     * 移动端badge数量
+     * <p> 示例值：
+     *
+     * @param mobile
+     * @return
+     */
     public Builder mobile(ClientBadgeNum mobile) {
       this.mobile = mobile;
       return this;

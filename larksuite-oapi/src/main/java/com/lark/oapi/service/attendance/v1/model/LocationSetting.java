@@ -17,10 +17,21 @@ import com.google.gson.annotations.SerializedName;
 
 public class LocationSetting {
 
+  /**
+   * 位置配置
+   * <p> 示例值：
+   */
   @SerializedName("location")
   private LocationInfo location;
+  /**
+   * wifi配置
+   * <p> 示例值：
+   */
   @SerializedName("wifi")
   private WifiInfo wifi;
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("user_id")
   private String userId;
 
@@ -29,8 +40,20 @@ public class LocationSetting {
   }
 
   public LocationSetting(Builder builder) {
+    /**
+     * 位置配置
+     * <p> 示例值：
+     */
     this.location = builder.location;
+    /**
+     * wifi配置
+     * <p> 示例值：
+     */
     this.wifi = builder.wifi;
+    /**
+     *
+     * <p> 示例值：
+     */
     this.userId = builder.userId;
   }
 
@@ -64,20 +87,53 @@ public class LocationSetting {
 
   public static class Builder {
 
+    /**
+     * 位置配置
+     * <p> 示例值：
+     */
     private LocationInfo location;
+    /**
+     * wifi配置
+     * <p> 示例值：
+     */
     private WifiInfo wifi;
+    /**
+     * <p> 示例值：
+     */
     private String userId;
 
+    /**
+     * 位置配置
+     * <p> 示例值：
+     *
+     * @param location
+     * @return
+     */
     public Builder location(LocationInfo location) {
       this.location = location;
       return this;
     }
 
+
+    /**
+     * wifi配置
+     * <p> 示例值：
+     *
+     * @param wifi
+     * @return
+     */
     public Builder wifi(WifiInfo wifi) {
       this.wifi = wifi;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;

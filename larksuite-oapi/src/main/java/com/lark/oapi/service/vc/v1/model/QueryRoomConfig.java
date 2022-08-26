@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryRoomConfig {
 
+  /**
+   * 飞书会议室背景图
+   * <p> 示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx
+   */
   @SerializedName("room_background")
   private String roomBackground;
+  /**
+   * 飞书签到板背景图
+   * <p> 示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx
+   */
   @SerializedName("display_background")
   private String displayBackground;
+  /**
+   * 飞书会议室数字标牌
+   * <p> 示例值：
+   */
   @SerializedName("digital_signage")
   private RoomDigitalSignage digitalSignage;
+  /**
+   * 飞书投屏盒子数字标牌
+   * <p> 示例值：
+   */
   @SerializedName("room_box_digital_signage")
   private RoomDigitalSignage roomBoxDigitalSignage;
+  /**
+   * 会议室状态
+   * <p> 示例值：
+   */
   @SerializedName("room_status")
   private RoomStatus roomStatus;
 

@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Query;
 
 public class PreviewInstanceReq {
 
+  /**
+   * open_id(ou_开头)，union_id(on_开头)，user_id(字符串)。user_id_type不填默认为open_id
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
@@ -30,6 +34,10 @@ public class PreviewInstanceReq {
   }
 
   public PreviewInstanceReq(Builder builder) {
+    /**
+     * open_id(ou_开头)，union_id(on_开头)，user_id(字符串)。user_id_type不填默认为open_id
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
     this.body = builder.body;
   }
@@ -56,15 +64,30 @@ public class PreviewInstanceReq {
 
   public static class Builder {
 
-    private String userIdType;
+    private String userIdType; // open_id(ou_开头)，union_id(on_开头)，user_id(字符串)。user_id_type不填默认为open_id
     private PreviewInstanceReqBody body;
 
+    /**
+     * open_id(ou_开头)，union_id(on_开头)，user_id(字符串)。user_id_type不填默认为open_id
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.approval.v4.enums.UserIdTypeEnum userIdType) {
+    /**
+     * open_id(ou_开头)，union_id(on_开头)，user_id(字符串)。user_id_type不填默认为open_id
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.PreviewInstanceUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.approval.v4.enums.PreviewInstanceUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
@@ -73,6 +96,12 @@ public class PreviewInstanceReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder previewInstanceReqBody(PreviewInstanceReqBody body) {
       this.body = body;
       return this;

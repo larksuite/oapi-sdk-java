@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchCreateAppTableRecordReqBody {
 
+  /**
+   * 记录
+   * <p> 示例值：
+   */
   @SerializedName("records")
   private AppTableRecord[] records;
 
@@ -25,6 +29,10 @@ public class BatchCreateAppTableRecordReqBody {
   }
 
   public BatchCreateAppTableRecordReqBody(Builder builder) {
+    /**
+     * 记录
+     * <p> 示例值：
+     */
     this.records = builder.records;
   }
 
@@ -42,8 +50,19 @@ public class BatchCreateAppTableRecordReqBody {
 
   public static class Builder {
 
+    /**
+     * 记录
+     * <p> 示例值：
+     */
     private AppTableRecord[] records;
 
+    /**
+     * 记录
+     * <p> 示例值：
+     *
+     * @param records
+     * @return
+     */
     public Builder records(AppTableRecord[] records) {
       this.records = records;
       return this;

@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class StartMeetingRecordingReq {
 
+  /**
+   * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+   * <p> 示例值：6911188411932033028
+   */
   @Path
   @SerializedName("meeting_id")
   private String meetingId;
@@ -30,6 +34,10 @@ public class StartMeetingRecordingReq {
   }
 
   public StartMeetingRecordingReq(Builder builder) {
+    /**
+     * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+     * <p> 示例值：6911188411932033028
+     */
     this.meetingId = builder.meetingId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class StartMeetingRecordingReq {
 
   public static class Builder {
 
-    private String meetingId;
+    private String meetingId; // 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
     private StartMeetingRecordingReqBody body;
 
+    /**
+     * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+     * <p> 示例值：6911188411932033028
+     *
+     * @param meetingId
+     * @return
+     */
     public Builder meetingId(String meetingId) {
       this.meetingId = meetingId;
       return this;
@@ -68,6 +83,12 @@ public class StartMeetingRecordingReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder startMeetingRecordingReqBody(StartMeetingRecordingReqBody body) {
       this.body = body;
       return this;

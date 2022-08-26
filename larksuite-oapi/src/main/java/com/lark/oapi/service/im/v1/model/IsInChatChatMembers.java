@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class IsInChatChatMembers {
 
+  /**
+   * 用户或者机器人是否在群中
+   * <p> 示例值：false
+   */
   @SerializedName("is_in_chat")
   private Boolean isInChat;
 

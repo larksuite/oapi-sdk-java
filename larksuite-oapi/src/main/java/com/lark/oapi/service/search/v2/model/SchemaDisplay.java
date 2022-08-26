@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class SchemaDisplay {
 
+  /**
+   * 搜索数据的展示卡片
+   * <p> 示例值：search_common_card
+   */
   @SerializedName("card_key")
   private String cardKey;
+  /**
+   * 数据字段名称和展示字段名称的映射关系。如果没有设置，则只会展示 与展示字段名称同名的 数据字段
+   * <p> 示例值：
+   */
   @SerializedName("fields_mapping")
   private SchemaDisplayFieldMapping[] fieldsMapping;
 
@@ -27,7 +35,15 @@ public class SchemaDisplay {
   }
 
   public SchemaDisplay(Builder builder) {
+    /**
+     * 搜索数据的展示卡片
+     * <p> 示例值：search_common_card
+     */
     this.cardKey = builder.cardKey;
+    /**
+     * 数据字段名称和展示字段名称的映射关系。如果没有设置，则只会展示 与展示字段名称同名的 数据字段
+     * <p> 示例值：
+     */
     this.fieldsMapping = builder.fieldsMapping;
   }
 
@@ -53,19 +69,49 @@ public class SchemaDisplay {
 
   public static class Builder {
 
+    /**
+     * 搜索数据的展示卡片
+     * <p> 示例值：search_common_card
+     */
     private String cardKey;
+    /**
+     * 数据字段名称和展示字段名称的映射关系。如果没有设置，则只会展示 与展示字段名称同名的 数据字段
+     * <p> 示例值：
+     */
     private SchemaDisplayFieldMapping[] fieldsMapping;
 
+    /**
+     * 搜索数据的展示卡片
+     * <p> 示例值：search_common_card
+     *
+     * @param cardKey
+     * @return
+     */
     public Builder cardKey(String cardKey) {
       this.cardKey = cardKey;
       return this;
     }
 
-    public Builder cardKey(com.lark.oapi.service.search.v2.enums.CardKeyEnum cardKey) {
+    /**
+     * 搜索数据的展示卡片
+     * <p> 示例值：search_common_card
+     *
+     * @param cardKey {@link com.lark.oapi.service.search.v2.enums.SchemaDisplayCardKeyEnum}
+     * @return
+     */
+    public Builder cardKey(com.lark.oapi.service.search.v2.enums.SchemaDisplayCardKeyEnum cardKey) {
       this.cardKey = cardKey.getValue();
       return this;
     }
 
+
+    /**
+     * 数据字段名称和展示字段名称的映射关系。如果没有设置，则只会展示 与展示字段名称同名的 数据字段
+     * <p> 示例值：
+     *
+     * @param fieldsMapping
+     * @return
+     */
     public Builder fieldsMapping(SchemaDisplayFieldMapping[] fieldsMapping) {
       this.fieldsMapping = fieldsMapping;
       return this;

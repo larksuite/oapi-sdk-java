@@ -119,42 +119,92 @@ public class MailService {
     this.userMailboxAlias = new UserMailboxAlias(config);
   }
 
+  /**
+   * 邮件组
+   *
+   * @return
+   */
   public Mailgroup mailgroup() {
     return mailgroup;
   }
 
+  /**
+   * 邮件组别名
+   *
+   * @return
+   */
   public MailgroupAlias mailgroupAlias() {
     return mailgroupAlias;
   }
 
+  /**
+   * 邮件组成员
+   *
+   * @return
+   */
   public MailgroupMember mailgroupMember() {
     return mailgroupMember;
   }
 
+  /**
+   * 邮件组权限成员
+   *
+   * @return
+   */
   public MailgroupPermissionMember mailgroupPermissionMember() {
     return mailgroupPermissionMember;
   }
 
+  /**
+   * 公共邮箱
+   *
+   * @return
+   */
   public PublicMailbox publicMailbox() {
     return publicMailbox;
   }
 
+  /**
+   * 公共邮箱别名
+   *
+   * @return
+   */
   public PublicMailboxAlias publicMailboxAlias() {
     return publicMailboxAlias;
   }
 
+  /**
+   * 公共邮箱成员
+   *
+   * @return
+   */
   public PublicMailboxMember publicMailboxMember() {
     return publicMailboxMember;
   }
 
+  /**
+   * 邮箱地址
+   *
+   * @return
+   */
   public User user() {
     return user;
   }
 
+  /**
+   * 用户邮箱
+   *
+   * @return
+   */
   public UserMailbox userMailbox() {
     return userMailbox;
   }
 
+  /**
+   * 用户邮箱别名
+   *
+   * @return
+   */
   public UserMailboxAlias userMailboxAlias() {
     return userMailboxAlias;
   }
@@ -167,6 +217,13 @@ public class MailService {
       this.config = config;
     }
 
+    /**
+     * 创建邮件组，创建一个邮件组
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreateMailgroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreateMailgroupSample.java</a>
+     * ;
+     */
     public CreateMailgroupResp create(CreateMailgroupReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -189,6 +246,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 创建邮件组，创建一个邮件组
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreateMailgroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreateMailgroupSample.java</a>
+     * ;
+     */
     public CreateMailgroupResp create(CreateMailgroupReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -208,6 +272,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 删除邮件组，删除一个邮件组
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteMailgroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteMailgroupSample.java</a>
+     * ;
+     */
     public DeleteMailgroupResp delete(DeleteMailgroupReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -230,6 +301,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 删除邮件组，删除一个邮件组
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteMailgroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteMailgroupSample.java</a>
+     * ;
+     */
     public DeleteMailgroupResp delete(DeleteMailgroupReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -249,6 +327,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 获取邮件组，获取特定邮件组信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//GetMailgroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//GetMailgroupSample.java</a>
+     * ;
+     */
     public GetMailgroupResp get(GetMailgroupReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -269,6 +354,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 获取邮件组，获取特定邮件组信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//GetMailgroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//GetMailgroupSample.java</a>
+     * ;
+     */
     public GetMailgroupResp get(GetMailgroupReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -287,6 +379,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 批量获取邮件组，分页批量获取邮件组
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListMailgroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListMailgroupSample.java</a>
+     * ;
+     */
     public ListMailgroupResp list(ListMailgroupReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -309,6 +408,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 批量获取邮件组，分页批量获取邮件组
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListMailgroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListMailgroupSample.java</a>
+     * ;
+     */
     public ListMailgroupResp list(ListMailgroupReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -328,6 +434,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 修改邮件组，更新邮件组部分字段，没有填写的字段不会被更新
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//PatchMailgroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//PatchMailgroupSample.java</a>
+     * ;
+     */
     public PatchMailgroupResp patch(PatchMailgroupReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -350,6 +463,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 修改邮件组，更新邮件组部分字段，没有填写的字段不会被更新
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//PatchMailgroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//PatchMailgroupSample.java</a>
+     * ;
+     */
     public PatchMailgroupResp patch(PatchMailgroupReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -369,6 +489,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 更新邮件组，更新邮件组所有信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//UpdateMailgroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//UpdateMailgroupSample.java</a>
+     * ;
+     */
     public UpdateMailgroupResp update(UpdateMailgroupReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -391,6 +518,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 更新邮件组，更新邮件组所有信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//UpdateMailgroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//UpdateMailgroupSample.java</a>
+     * ;
+     */
     public UpdateMailgroupResp update(UpdateMailgroupReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -419,6 +553,13 @@ public class MailService {
       this.config = config;
     }
 
+    /**
+     * 创建邮件组别名，创建邮件组别名
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-alias/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-alias/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreateMailgroupAliasSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreateMailgroupAliasSample.java</a>
+     * ;
+     */
     public CreateMailgroupAliasResp create(CreateMailgroupAliasReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -441,6 +582,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 创建邮件组别名，创建邮件组别名
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-alias/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-alias/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreateMailgroupAliasSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreateMailgroupAliasSample.java</a>
+     * ;
+     */
     public CreateMailgroupAliasResp create(CreateMailgroupAliasReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -460,6 +608,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 删除邮件组别名，删除邮件组别名
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-alias/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-alias/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteMailgroupAliasSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteMailgroupAliasSample.java</a>
+     * ;
+     */
     public DeleteMailgroupAliasResp delete(DeleteMailgroupAliasReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -482,6 +637,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 删除邮件组别名，删除邮件组别名
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-alias/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-alias/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteMailgroupAliasSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteMailgroupAliasSample.java</a>
+     * ;
+     */
     public DeleteMailgroupAliasResp delete(DeleteMailgroupAliasReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -501,6 +663,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 获取邮件组所有别名，获取邮件组所有别名
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-alias/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-alias/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListMailgroupAliasSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListMailgroupAliasSample.java</a>
+     * ;
+     */
     public ListMailgroupAliasResp list(ListMailgroupAliasReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -523,6 +692,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 获取邮件组所有别名，获取邮件组所有别名
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-alias/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-alias/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListMailgroupAliasSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListMailgroupAliasSample.java</a>
+     * ;
+     */
     public ListMailgroupAliasResp list(ListMailgroupAliasReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -551,6 +727,13 @@ public class MailService {
       this.config = config;
     }
 
+    /**
+     * 创建邮件组成员，向邮件组添加单个成员
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-member/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-member/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreateMailgroupMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreateMailgroupMemberSample.java</a>
+     * ;
+     */
     public CreateMailgroupMemberResp create(CreateMailgroupMemberReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -573,6 +756,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 创建邮件组成员，向邮件组添加单个成员
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-member/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-member/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreateMailgroupMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreateMailgroupMemberSample.java</a>
+     * ;
+     */
     public CreateMailgroupMemberResp create(CreateMailgroupMemberReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -592,6 +782,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 删除邮件组成员，删除邮件组单个成员
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-member/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-member/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteMailgroupMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteMailgroupMemberSample.java</a>
+     * ;
+     */
     public DeleteMailgroupMemberResp delete(DeleteMailgroupMemberReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -614,6 +811,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 删除邮件组成员，删除邮件组单个成员
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-member/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-member/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteMailgroupMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteMailgroupMemberSample.java</a>
+     * ;
+     */
     public DeleteMailgroupMemberResp delete(DeleteMailgroupMemberReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -633,6 +837,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 获取邮件组成员信息，获取邮件组单个成员信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-member/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-member/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//GetMailgroupMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//GetMailgroupMemberSample.java</a>
+     * ;
+     */
     public GetMailgroupMemberResp get(GetMailgroupMemberReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -655,6 +866,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 获取邮件组成员信息，获取邮件组单个成员信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-member/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-member/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//GetMailgroupMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//GetMailgroupMemberSample.java</a>
+     * ;
+     */
     public GetMailgroupMemberResp get(GetMailgroupMemberReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -674,6 +892,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 批量获取邮件组成员，分页批量获取邮件组成员列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-member/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-member/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListMailgroupMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListMailgroupMemberSample.java</a>
+     * ;
+     */
     public ListMailgroupMemberResp list(ListMailgroupMemberReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -696,6 +921,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 批量获取邮件组成员，分页批量获取邮件组成员列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-member/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-member/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListMailgroupMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListMailgroupMemberSample.java</a>
+     * ;
+     */
     public ListMailgroupMemberResp list(ListMailgroupMemberReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -724,6 +956,13 @@ public class MailService {
       this.config = config;
     }
 
+    /**
+     * 创建邮件组权限成员，向邮件组添加单个自定义权限成员，添加后该成员可发送邮件到该邮件组
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-permission_member/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-permission_member/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreateMailgroupPermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreateMailgroupPermissionMemberSample.java</a>
+     * ;
+     */
     public CreateMailgroupPermissionMemberResp create(CreateMailgroupPermissionMemberReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -746,6 +985,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 创建邮件组权限成员，向邮件组添加单个自定义权限成员，添加后该成员可发送邮件到该邮件组
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-permission_member/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-permission_member/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreateMailgroupPermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreateMailgroupPermissionMemberSample.java</a>
+     * ;
+     */
     public CreateMailgroupPermissionMemberResp create(CreateMailgroupPermissionMemberReq req)
         throws Exception {
       // 请求参数选项
@@ -766,6 +1012,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 删除邮件组权限成员，从自定义成员中删除单个成员，删除后该成员无法发送邮件到该邮件组
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-permission_member/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-permission_member/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteMailgroupPermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteMailgroupPermissionMemberSample.java</a>
+     * ;
+     */
     public DeleteMailgroupPermissionMemberResp delete(DeleteMailgroupPermissionMemberReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -788,6 +1041,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 删除邮件组权限成员，从自定义成员中删除单个成员，删除后该成员无法发送邮件到该邮件组
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-permission_member/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-permission_member/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteMailgroupPermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteMailgroupPermissionMemberSample.java</a>
+     * ;
+     */
     public DeleteMailgroupPermissionMemberResp delete(DeleteMailgroupPermissionMemberReq req)
         throws Exception {
       // 请求参数选项
@@ -808,6 +1068,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 获取邮件组权限成员，获取邮件组单个权限成员信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-permission_member/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-permission_member/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//GetMailgroupPermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//GetMailgroupPermissionMemberSample.java</a>
+     * ;
+     */
     public GetMailgroupPermissionMemberResp get(GetMailgroupPermissionMemberReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -830,6 +1097,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 获取邮件组权限成员，获取邮件组单个权限成员信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-permission_member/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-permission_member/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//GetMailgroupPermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//GetMailgroupPermissionMemberSample.java</a>
+     * ;
+     */
     public GetMailgroupPermissionMemberResp get(GetMailgroupPermissionMemberReq req)
         throws Exception {
       // 请求参数选项
@@ -850,6 +1124,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 批量获取邮件组权限成员，分页批量获取邮件组权限成员列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-permission_member/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-permission_member/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListMailgroupPermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListMailgroupPermissionMemberSample.java</a>
+     * ;
+     */
     public ListMailgroupPermissionMemberResp list(ListMailgroupPermissionMemberReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -872,6 +1153,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 批量获取邮件组权限成员，分页批量获取邮件组权限成员列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-permission_member/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/mailgroup-permission_member/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListMailgroupPermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListMailgroupPermissionMemberSample.java</a>
+     * ;
+     */
     public ListMailgroupPermissionMemberResp list(ListMailgroupPermissionMemberReq req)
         throws Exception {
       // 请求参数选项
@@ -901,6 +1189,13 @@ public class MailService {
       this.config = config;
     }
 
+    /**
+     * 创建公共邮箱，创建一个公共邮箱
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreatePublicMailboxSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreatePublicMailboxSample.java</a>
+     * ;
+     */
     public CreatePublicMailboxResp create(CreatePublicMailboxReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -923,6 +1218,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 创建公共邮箱，创建一个公共邮箱
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreatePublicMailboxSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreatePublicMailboxSample.java</a>
+     * ;
+     */
     public CreatePublicMailboxResp create(CreatePublicMailboxReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -942,6 +1244,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 释放公共邮箱地址，该接口会永久删除公共邮箱地址。可用于释放邮箱回收站的公共邮箱地址，一旦删除，该邮箱地址将无法恢复。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeletePublicMailboxSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeletePublicMailboxSample.java</a>
+     * ;
+     */
     public DeletePublicMailboxResp delete(DeletePublicMailboxReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -964,6 +1273,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 释放公共邮箱地址，该接口会永久删除公共邮箱地址。可用于释放邮箱回收站的公共邮箱地址，一旦删除，该邮箱地址将无法恢复。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeletePublicMailboxSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeletePublicMailboxSample.java</a>
+     * ;
+     */
     public DeletePublicMailboxResp delete(DeletePublicMailboxReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -983,6 +1299,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 获取公共邮箱，获取公共邮箱信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//GetPublicMailboxSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//GetPublicMailboxSample.java</a>
+     * ;
+     */
     public GetPublicMailboxResp get(GetPublicMailboxReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1005,6 +1328,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 获取公共邮箱，获取公共邮箱信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//GetPublicMailboxSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//GetPublicMailboxSample.java</a>
+     * ;
+     */
     public GetPublicMailboxResp get(GetPublicMailboxReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1024,6 +1354,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 批量获取公共邮箱，分页批量获取公共邮箱列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListPublicMailboxSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListPublicMailboxSample.java</a>
+     * ;
+     */
     public ListPublicMailboxResp list(ListPublicMailboxReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1046,6 +1383,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 批量获取公共邮箱，分页批量获取公共邮箱列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListPublicMailboxSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListPublicMailboxSample.java</a>
+     * ;
+     */
     public ListPublicMailboxResp list(ListPublicMailboxReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1065,6 +1409,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 修改公共邮箱，更新公共邮箱部分字段，没有填写的字段不会被更新
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//PatchPublicMailboxSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//PatchPublicMailboxSample.java</a>
+     * ;
+     */
     public PatchPublicMailboxResp patch(PatchPublicMailboxReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1087,6 +1438,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 修改公共邮箱，更新公共邮箱部分字段，没有填写的字段不会被更新
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//PatchPublicMailboxSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//PatchPublicMailboxSample.java</a>
+     * ;
+     */
     public PatchPublicMailboxResp patch(PatchPublicMailboxReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1106,6 +1464,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 更新公共邮箱，更新公共邮箱所有信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//UpdatePublicMailboxSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//UpdatePublicMailboxSample.java</a>
+     * ;
+     */
     public UpdatePublicMailboxResp update(UpdatePublicMailboxReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1128,6 +1493,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 更新公共邮箱，更新公共邮箱所有信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//UpdatePublicMailboxSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//UpdatePublicMailboxSample.java</a>
+     * ;
+     */
     public UpdatePublicMailboxResp update(UpdatePublicMailboxReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1156,6 +1528,13 @@ public class MailService {
       this.config = config;
     }
 
+    /**
+     * 创建公共邮箱别名，创建公共邮箱别名
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-alias/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-alias/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreatePublicMailboxAliasSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreatePublicMailboxAliasSample.java</a>
+     * ;
+     */
     public CreatePublicMailboxAliasResp create(CreatePublicMailboxAliasReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1178,6 +1557,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 创建公共邮箱别名，创建公共邮箱别名
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-alias/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-alias/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreatePublicMailboxAliasSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreatePublicMailboxAliasSample.java</a>
+     * ;
+     */
     public CreatePublicMailboxAliasResp create(CreatePublicMailboxAliasReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1197,6 +1583,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 删除公共邮箱别名，删除公共邮箱别名
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-alias/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-alias/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeletePublicMailboxAliasSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeletePublicMailboxAliasSample.java</a>
+     * ;
+     */
     public DeletePublicMailboxAliasResp delete(DeletePublicMailboxAliasReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1219,6 +1612,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 删除公共邮箱别名，删除公共邮箱别名
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-alias/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-alias/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeletePublicMailboxAliasSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeletePublicMailboxAliasSample.java</a>
+     * ;
+     */
     public DeletePublicMailboxAliasResp delete(DeletePublicMailboxAliasReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1238,6 +1638,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 获取所有公共邮箱别名，获取所有公共邮箱别名
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-alias/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-alias/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListPublicMailboxAliasSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListPublicMailboxAliasSample.java</a>
+     * ;
+     */
     public ListPublicMailboxAliasResp list(ListPublicMailboxAliasReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1260,6 +1667,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 获取所有公共邮箱别名，获取所有公共邮箱别名
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-alias/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-alias/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListPublicMailboxAliasSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListPublicMailboxAliasSample.java</a>
+     * ;
+     */
     public ListPublicMailboxAliasResp list(ListPublicMailboxAliasReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1288,6 +1702,13 @@ public class MailService {
       this.config = config;
     }
 
+    /**
+     * 清空公共邮箱成员，删除公共邮箱所有成员
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/clear">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/clear</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ClearPublicMailboxMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ClearPublicMailboxMemberSample.java</a>
+     * ;
+     */
     public ClearPublicMailboxMemberResp clear(ClearPublicMailboxMemberReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1310,6 +1731,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 清空公共邮箱成员，删除公共邮箱所有成员
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/clear">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/clear</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ClearPublicMailboxMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ClearPublicMailboxMemberSample.java</a>
+     * ;
+     */
     public ClearPublicMailboxMemberResp clear(ClearPublicMailboxMemberReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1329,6 +1757,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 创建公共邮箱成员，向公共邮箱添加单个成员
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreatePublicMailboxMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreatePublicMailboxMemberSample.java</a>
+     * ;
+     */
     public CreatePublicMailboxMemberResp create(CreatePublicMailboxMemberReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1351,6 +1786,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 创建公共邮箱成员，向公共邮箱添加单个成员
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreatePublicMailboxMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreatePublicMailboxMemberSample.java</a>
+     * ;
+     */
     public CreatePublicMailboxMemberResp create(CreatePublicMailboxMemberReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1370,6 +1812,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 删除公共邮箱成员，删除公共邮箱单个成员
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeletePublicMailboxMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeletePublicMailboxMemberSample.java</a>
+     * ;
+     */
     public DeletePublicMailboxMemberResp delete(DeletePublicMailboxMemberReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1392,6 +1841,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 删除公共邮箱成员，删除公共邮箱单个成员
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeletePublicMailboxMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeletePublicMailboxMemberSample.java</a>
+     * ;
+     */
     public DeletePublicMailboxMemberResp delete(DeletePublicMailboxMemberReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1411,6 +1867,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 获取公共邮箱成员信息，获取公共邮箱单个成员信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//GetPublicMailboxMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//GetPublicMailboxMemberSample.java</a>
+     * ;
+     */
     public GetPublicMailboxMemberResp get(GetPublicMailboxMemberReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1433,6 +1896,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 获取公共邮箱成员信息，获取公共邮箱单个成员信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//GetPublicMailboxMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//GetPublicMailboxMemberSample.java</a>
+     * ;
+     */
     public GetPublicMailboxMemberResp get(GetPublicMailboxMemberReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1452,6 +1922,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 批量获取公共邮箱成员，分页批量获取公共邮箱成员列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListPublicMailboxMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListPublicMailboxMemberSample.java</a>
+     * ;
+     */
     public ListPublicMailboxMemberResp list(ListPublicMailboxMemberReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1474,6 +1951,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 批量获取公共邮箱成员，分页批量获取公共邮箱成员列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/public_mailbox-member/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListPublicMailboxMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListPublicMailboxMemberSample.java</a>
+     * ;
+     */
     public ListPublicMailboxMemberResp list(ListPublicMailboxMemberReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1502,6 +1986,13 @@ public class MailService {
       this.config = config;
     }
 
+    /**
+     * 邮箱状态查询，使用邮箱状态查询接口，可以输入邮箱地址，查询出该邮箱地址对应的类型以及状态
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//QueryUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//QueryUserSample.java</a>
+     * ;
+     */
     public QueryUserResp query(QueryUserReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -1522,6 +2013,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 邮箱状态查询，使用邮箱状态查询接口，可以输入邮箱地址，查询出该邮箱地址对应的类型以及状态
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//QueryUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//QueryUserSample.java</a>
+     * ;
+     */
     public QueryUserResp query(QueryUserReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1549,6 +2047,13 @@ public class MailService {
       this.config = config;
     }
 
+    /**
+     * 释放用户邮箱地址，该接口会永久删除用户邮箱地址。可用于删除位于邮箱回收站中的用户邮箱地址，一旦删除，将无法恢复。该接口支持邮件的转移，可以将被释放邮箱的邮件转移到另外一个可以使用的邮箱中。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteUserMailboxSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteUserMailboxSample.java</a>
+     * ;
+     */
     public DeleteUserMailboxResp delete(DeleteUserMailboxReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1571,6 +2076,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 释放用户邮箱地址，该接口会永久删除用户邮箱地址。可用于删除位于邮箱回收站中的用户邮箱地址，一旦删除，将无法恢复。该接口支持邮件的转移，可以将被释放邮箱的邮件转移到另外一个可以使用的邮箱中。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteUserMailboxSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteUserMailboxSample.java</a>
+     * ;
+     */
     public DeleteUserMailboxResp delete(DeleteUserMailboxReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1599,6 +2111,13 @@ public class MailService {
       this.config = config;
     }
 
+    /**
+     * 创建用户邮箱别名，创建用户邮箱别名
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-alias/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-alias/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreateUserMailboxAliasSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreateUserMailboxAliasSample.java</a>
+     * ;
+     */
     public CreateUserMailboxAliasResp create(CreateUserMailboxAliasReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1621,6 +2140,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 创建用户邮箱别名，创建用户邮箱别名
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-alias/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-alias/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreateUserMailboxAliasSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//CreateUserMailboxAliasSample.java</a>
+     * ;
+     */
     public CreateUserMailboxAliasResp create(CreateUserMailboxAliasReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1640,6 +2166,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 删除用户邮箱别名，删除用户邮箱别名
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-alias/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-alias/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteUserMailboxAliasSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteUserMailboxAliasSample.java</a>
+     * ;
+     */
     public DeleteUserMailboxAliasResp delete(DeleteUserMailboxAliasReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1662,6 +2195,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 删除用户邮箱别名，删除用户邮箱别名
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-alias/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-alias/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteUserMailboxAliasSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//DeleteUserMailboxAliasSample.java</a>
+     * ;
+     */
     public DeleteUserMailboxAliasResp delete(DeleteUserMailboxAliasReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1681,6 +2221,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 获取用户邮箱所有别名，获取用户邮箱所有别名
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-alias/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-alias/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListUserMailboxAliasSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListUserMailboxAliasSample.java</a>
+     * ;
+     */
     public ListUserMailboxAliasResp list(ListUserMailboxAliasReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1703,6 +2250,13 @@ public class MailService {
       return resp;
     }
 
+    /**
+     * 获取用户邮箱所有别名，获取用户邮箱所有别名
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-alias/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-alias/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListUserMailboxAliasSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/mailv1//ListUserMailboxAliasSample.java</a>
+     * ;
+     */
     public ListUserMailboxAliasResp list(ListUserMailboxAliasReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();

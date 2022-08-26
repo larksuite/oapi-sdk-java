@@ -6,7 +6,7 @@ import com.lark.oapi.service.attendance.v1.model.QueryUserDailyShiftReq;
 import com.lark.oapi.service.attendance.v1.model.QueryUserDailyShiftReqBody;
 import com.lark.oapi.service.attendance.v1.model.QueryUserDailyShiftResp;
 
-// HTTP PATH: /open-apis/attendance/v1/user_daily_shifts/query"
+// POST /open-apis/attendance/v1/user_daily_shifts/query
 public class QueryUserDailyShiftSample {
 
   public static void main(String arg[]) throws Exception {

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateShift {
 
+  /**
+   * 班次
+   * <p> 示例值：
+   */
   @SerializedName("shift")
   private Shift shift;
 

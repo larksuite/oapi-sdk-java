@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class View {
 
+  /**
+   * 视图类型
+   * <p> 示例值：1
+   */
   @SerializedName("view_type")
   private Integer viewType;
 
@@ -25,6 +29,10 @@ public class View {
   }
 
   public View(Builder builder) {
+    /**
+     * 视图类型
+     * <p> 示例值：1
+     */
     this.viewType = builder.viewType;
   }
 
@@ -42,14 +50,32 @@ public class View {
 
   public static class Builder {
 
+    /**
+     * 视图类型
+     * <p> 示例值：1
+     */
     private Integer viewType;
 
+    /**
+     * 视图类型
+     * <p> 示例值：1
+     *
+     * @param viewType
+     * @return
+     */
     public Builder viewType(Integer viewType) {
       this.viewType = viewType;
       return this;
     }
 
-    public Builder viewType(com.lark.oapi.service.docx.v1.enums.ViewTypeEnum viewType) {
+    /**
+     * 视图类型
+     * <p> 示例值：1
+     *
+     * @param viewType {@link com.lark.oapi.service.docx.v1.enums.ViewViewTypeEnum}
+     * @return
+     */
+    public Builder viewType(com.lark.oapi.service.docx.v1.enums.ViewViewTypeEnum viewType) {
       this.viewType = viewType.getValue();
       return this;
     }

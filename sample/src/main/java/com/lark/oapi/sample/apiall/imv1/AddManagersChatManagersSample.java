@@ -6,7 +6,7 @@ import com.lark.oapi.service.im.v1.model.AddManagersChatManagersReq;
 import com.lark.oapi.service.im.v1.model.AddManagersChatManagersReqBody;
 import com.lark.oapi.service.im.v1.model.AddManagersChatManagersResp;
 
-// HTTP PATH: /open-apis/im/v1/chats/:chat_id/managers/add_managers"
+// POST /open-apis/im/v1/chats/:chat_id/managers/add_managers
 public class AddManagersChatManagersSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class AddManagersChatManagersSample {
     // 创建请求对象
     AddManagersChatManagersReq req = AddManagersChatManagersReq.newBuilder()
         .chatId("oc_a0553eda9014c201e6969b478895c230")
-        .memberIdType("user_id")
+        .memberIdType("open_id")
         .addManagersChatManagersReqBody(AddManagersChatManagersReqBody.newBuilder()
             .managerIds(new String[]{})
             .build())

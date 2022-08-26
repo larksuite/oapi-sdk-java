@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class User {
 
+  /**
+   * 邮箱地址
+   * <p> 示例值：aaa@lark.com
+   */
   @SerializedName("email")
   private String email;
+  /**
+   * 邮箱地址状态
+   * <p> 示例值：4
+   */
   @SerializedName("status")
   private Integer status;
+  /**
+   * 邮箱地址类型
+   * <p> 示例值：1
+   */
   @SerializedName("type")
   private Integer type;
 
@@ -29,8 +41,20 @@ public class User {
   }
 
   public User(Builder builder) {
+    /**
+     * 邮箱地址
+     * <p> 示例值：aaa@lark.com
+     */
     this.email = builder.email;
+    /**
+     * 邮箱地址状态
+     * <p> 示例值：4
+     */
     this.status = builder.status;
+    /**
+     * 邮箱地址类型
+     * <p> 示例值：1
+     */
     this.type = builder.type;
   }
 
@@ -64,31 +88,80 @@ public class User {
 
   public static class Builder {
 
+    /**
+     * 邮箱地址
+     * <p> 示例值：aaa@lark.com
+     */
     private String email;
+    /**
+     * 邮箱地址状态
+     * <p> 示例值：4
+     */
     private Integer status;
+    /**
+     * 邮箱地址类型
+     * <p> 示例值：1
+     */
     private Integer type;
 
+    /**
+     * 邮箱地址
+     * <p> 示例值：aaa@lark.com
+     *
+     * @param email
+     * @return
+     */
     public Builder email(String email) {
       this.email = email;
       return this;
     }
 
+
+    /**
+     * 邮箱地址状态
+     * <p> 示例值：4
+     *
+     * @param status
+     * @return
+     */
     public Builder status(Integer status) {
       this.status = status;
       return this;
     }
 
-    public Builder status(com.lark.oapi.service.mail.v1.enums.UserStatusEnum status) {
+    /**
+     * 邮箱地址状态
+     * <p> 示例值：4
+     *
+     * @param status {@link com.lark.oapi.service.mail.v1.enums.UserUserStatusEnum}
+     * @return
+     */
+    public Builder status(com.lark.oapi.service.mail.v1.enums.UserUserStatusEnum status) {
       this.status = status.getValue();
       return this;
     }
 
+
+    /**
+     * 邮箱地址类型
+     * <p> 示例值：1
+     *
+     * @param type
+     * @return
+     */
     public Builder type(Integer type) {
       this.type = type;
       return this;
     }
 
-    public Builder type(com.lark.oapi.service.mail.v1.enums.UserTypeEnum type) {
+    /**
+     * 邮箱地址类型
+     * <p> 示例值：1
+     *
+     * @param type {@link com.lark.oapi.service.mail.v1.enums.UserUserTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.mail.v1.enums.UserUserTypeEnum type) {
       this.type = type.getValue();
       return this;
     }

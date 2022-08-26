@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class GetPermissionPublicReq {
 
+  /**
+   * 文件类型，放于query参数中，如：`?type=doc`
+   * <p> 示例值：doc
+   */
   @Query
   @SerializedName("type")
   private String type;
+  /**
+   * 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+   * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
+   */
   @Path
   @SerializedName("token")
   private String token;
@@ -31,7 +39,15 @@ public class GetPermissionPublicReq {
   }
 
   public GetPermissionPublicReq(Builder builder) {
+    /**
+     * 文件类型，放于query参数中，如：`?type=doc`
+     * <p> 示例值：doc
+     */
     this.type = builder.type;
+    /**
+     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+     * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
+     */
     this.token = builder.token;
   }
 
@@ -57,19 +73,41 @@ public class GetPermissionPublicReq {
 
   public static class Builder {
 
-    private String type;
-    private String token;
+    private String type; // 文件类型，放于query参数中，如：`?type=doc`
+    private String token; // 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
 
+    /**
+     * 文件类型，放于query参数中，如：`?type=doc`
+     * <p> 示例值：doc
+     *
+     * @param type
+     * @return
+     */
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public Builder type(com.lark.oapi.service.drive.v1.enums.TokenTypeEnum type) {
+    /**
+     * 文件类型，放于query参数中，如：`?type=doc`
+     * <p> 示例值：doc
+     *
+     * @param type {@link com.lark.oapi.service.drive.v1.enums.GetPermissionPublicTokenTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.drive.v1.enums.GetPermissionPublicTokenTypeEnum type) {
       this.type = type.getValue();
       return this;
     }
 
+    /**
+     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+     * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
+     *
+     * @param token
+     * @return
+     */
     public Builder token(String token) {
       this.token = token;
       return this;

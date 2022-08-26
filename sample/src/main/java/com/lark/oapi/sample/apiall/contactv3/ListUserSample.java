@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.contact.v3.model.ListUserReq;
 import com.lark.oapi.service.contact.v3.model.ListUserResp;
 
-// HTTP PATH: /open-apis/contact/v3/users"
+// GET /open-apis/contact/v3/users
 public class ListUserSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,8 +16,9 @@ public class ListUserSample {
     ListUserReq req = ListUserReq.newBuilder()
         .userIdType("open_id")
         .departmentIdType("open_department_id")
-        .departmentId("")
-        .pageToken("")
+        .departmentId("od-xxxxxxxxxxxxx")
+        .pageToken(
+            "AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS%2BJKiSIkdexPw=")
         .pageSize(20)
         .build();
 

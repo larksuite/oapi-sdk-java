@@ -6,7 +6,7 @@ import com.lark.oapi.service.block.v2.model.Entity;
 import com.lark.oapi.service.block.v2.model.UpdateEntityReq;
 import com.lark.oapi.service.block.v2.model.UpdateEntityResp;
 
-// HTTP PATH: /open-apis/block/v2/entities/:block_id"
+// PUT /open-apis/block/v2/entities/:block_id
 public class UpdateEntitySample {
 
   public static void main(String arg[]) throws Exception {

@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ReadUsersMessage {
 
+  /**
+   * -
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private ReadUser[] items;
+  /**
+   * 是否还有下一页
+   * <p> 示例值：true
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 下一页分页的token
+   * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+   */
   @SerializedName("page_token")
   private String pageToken;
 

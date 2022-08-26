@@ -6,7 +6,7 @@ import com.lark.oapi.service.mail.v1.model.CreateUserMailboxAliasReq;
 import com.lark.oapi.service.mail.v1.model.CreateUserMailboxAliasResp;
 import com.lark.oapi.service.mail.v1.model.EmailAlias;
 
-// HTTP PATH: /open-apis/mail/v1/user_mailboxes/:user_mailbox_id/aliases"
+// POST /open-apis/mail/v1/user_mailboxes/:user_mailbox_id/aliases
 public class CreateUserMailboxAliasSample {
 
   public static void main(String arg[]) throws Exception {

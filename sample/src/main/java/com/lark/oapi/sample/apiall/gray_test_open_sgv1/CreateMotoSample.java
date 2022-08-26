@@ -6,7 +6,7 @@ import com.lark.oapi.service.gray_test_open_sg.v1.model.CreateMotoReq;
 import com.lark.oapi.service.gray_test_open_sg.v1.model.CreateMotoResp;
 import com.lark.oapi.service.gray_test_open_sg.v1.model.Level;
 
-// HTTP PATH: /open-apis/gray_test_open_sg/v1/motos"
+// POST /open-apis/gray_test_open_sg/v1/motos
 public class CreateMotoSample {
 
   public static void main(String arg[]) throws Exception {

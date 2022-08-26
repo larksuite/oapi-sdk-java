@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.bitable.v1.model.GetAppTableRecordReq;
 import com.lark.oapi.service.bitable.v1.model.GetAppTableRecordResp;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
+// GET /open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id
 public class GetAppTableRecordSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,13 +14,13 @@ public class GetAppTableRecordSample {
 
     // 创建请求对象
     GetAppTableRecordReq req = GetAppTableRecordReq.newBuilder()
-        .appToken("")
-        .tableId("")
-        .recordId("")
-        .textFieldAsArray(false)
+        .appToken("bascnCMII2ORej2RItqpZZUNMIe")
+        .tableId("tblxI2tWaxP5dG7p")
+        .recordId("recn0hoyXL")
+        .textFieldAsArray(true)
         .userIdType("user_id")
-        .displayFormulaRef(false)
-        .automaticFields(false)
+        .displayFormulaRef(true)
+        .automaticFields(true)
         .build();
 
     // 发起请求

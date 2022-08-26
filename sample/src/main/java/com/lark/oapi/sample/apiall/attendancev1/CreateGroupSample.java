@@ -7,7 +7,7 @@ import com.lark.oapi.service.attendance.v1.model.CreateGroupReqBody;
 import com.lark.oapi.service.attendance.v1.model.CreateGroupResp;
 import com.lark.oapi.service.attendance.v1.model.Group;
 
-// HTTP PATH: /open-apis/attendance/v1/groups"
+// POST /open-apis/attendance/v1/groups
 public class CreateGroupSample {
 
   public static void main(String arg[]) throws Exception {
@@ -17,7 +17,7 @@ public class CreateGroupSample {
     // 创建请求对象
     CreateGroupReq req = CreateGroupReq.newBuilder()
         .employeeType("employee_id")
-        .deptType("open_id")
+        .deptType("od-fcb45c28a45311afd441b8869541ece8")
         .createGroupReqBody(CreateGroupReqBody.newBuilder()
             .group(Group.newBuilder().build())
             .operatorId("dd31248a")

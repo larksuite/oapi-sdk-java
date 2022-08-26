@@ -19,12 +19,22 @@ import com.lark.oapi.core.annotation.Query;
 
 public class ListAppTableReq {
 
+  /**
+   * <p> 示例值：tblsRc9GRRXKqhvW
+   */
   @Query
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * <p> 示例值：10
+   */
   @Query
   @SerializedName("page_size")
   private Integer pageSize;
+  /**
+   * bitable app token
+   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+   */
   @Path
   @SerializedName("app_token")
   private String appToken;
@@ -34,8 +44,20 @@ public class ListAppTableReq {
   }
 
   public ListAppTableReq(Builder builder) {
+    /**
+     *
+     * <p> 示例值：tblsRc9GRRXKqhvW
+     */
     this.pageToken = builder.pageToken;
+    /**
+     *
+     * <p> 示例值：10
+     */
     this.pageSize = builder.pageSize;
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     */
     this.appToken = builder.appToken;
   }
 
@@ -69,20 +91,39 @@ public class ListAppTableReq {
 
   public static class Builder {
 
-    private String pageToken;
-    private Integer pageSize;
-    private String appToken;
+    private String pageToken; //
+    private Integer pageSize; //
+    private String appToken; // bitable app token
 
+    /**
+     * <p> 示例值：tblsRc9GRRXKqhvW
+     *
+     * @param pageToken
+     * @return
+     */
     public Builder pageToken(String pageToken) {
       this.pageToken = pageToken;
       return this;
     }
 
+    /**
+     * <p> 示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
     public Builder pageSize(Integer pageSize) {
       this.pageSize = pageSize;
       return this;
     }
 
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     *
+     * @param appToken
+     * @return
+     */
     public Builder appToken(String appToken) {
       this.appToken = appToken;
       return this;

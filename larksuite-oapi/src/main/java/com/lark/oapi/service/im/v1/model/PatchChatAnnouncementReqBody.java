@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class PatchChatAnnouncementReqBody {
 
+  /**
+   * 文档当前版本号 int64 类型，get 接口会返回
+   * <p> 示例值：12
+   */
   @SerializedName("revision")
   private String revision;
+  /**
+   * 修改文档请求的序列化字段;;更新公告信息的格式和更新[云文档](/ssl:ttdoc/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同
+   * <p> 示例值：xxx
+   */
   @SerializedName("requests")
   private String[] requests;
 
@@ -27,7 +35,15 @@ public class PatchChatAnnouncementReqBody {
   }
 
   public PatchChatAnnouncementReqBody(Builder builder) {
+    /**
+     * 文档当前版本号 int64 类型，get 接口会返回
+     * <p> 示例值：12
+     */
     this.revision = builder.revision;
+    /**
+     * 修改文档请求的序列化字段;;更新公告信息的格式和更新[云文档](/ssl:ttdoc/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同
+     * <p> 示例值：xxx
+     */
     this.requests = builder.requests;
   }
 
@@ -53,14 +69,37 @@ public class PatchChatAnnouncementReqBody {
 
   public static class Builder {
 
+    /**
+     * 文档当前版本号 int64 类型，get 接口会返回
+     * <p> 示例值：12
+     */
     private String revision;
+    /**
+     * 修改文档请求的序列化字段;;更新公告信息的格式和更新[云文档](/ssl:ttdoc/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同
+     * <p> 示例值：xxx
+     */
     private String[] requests;
 
+    /**
+     * 文档当前版本号 int64 类型，get 接口会返回
+     * <p> 示例值：12
+     *
+     * @param revision
+     * @return
+     */
     public Builder revision(String revision) {
       this.revision = revision;
       return this;
     }
 
+
+    /**
+     * 修改文档请求的序列化字段;;更新公告信息的格式和更新[云文档](/ssl:ttdoc/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同
+     * <p> 示例值：xxx
+     *
+     * @param requests
+     * @return
+     */
     public Builder requests(String[] requests) {
       this.requests = requests;
       return this;

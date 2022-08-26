@@ -31,6 +31,11 @@ public class HumanAuthenticationService {
     this.identity = new Identity(config);
   }
 
+  /**
+   * 身份
+   *
+   * @return
+   */
   public Identity identity() {
     return identity;
   }
@@ -43,6 +48,15 @@ public class HumanAuthenticationService {
       this.config = config;
     }
 
+    /**
+     * 录入身份信息，该接口用于录入实名认证的身份信息，在唤起有源活体认证前，需要使用该接口进行实名认证。
+     * <p> 实名认证接口会有计费管理，接入前请联系飞书开放平台工作人员，邮箱：openplatform@bytedance.com。;;仅通过计费申请的应用，才能在[开发者后台](https://open.feishu.cn/app)查找并申请该接口的权限。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/human_authentication-v1/identity/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/human_authentication-v1/identity/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/human_authenticationv1//CreateIdentitySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/human_authenticationv1//CreateIdentitySample.java</a>
+     * ;
+     */
     public CreateIdentityResp create(CreateIdentityReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -65,6 +79,15 @@ public class HumanAuthenticationService {
       return resp;
     }
 
+    /**
+     * 录入身份信息，该接口用于录入实名认证的身份信息，在唤起有源活体认证前，需要使用该接口进行实名认证。
+     * <p> 实名认证接口会有计费管理，接入前请联系飞书开放平台工作人员，邮箱：openplatform@bytedance.com。;;仅通过计费申请的应用，才能在[开发者后台](https://open.feishu.cn/app)查找并申请该接口的权限。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/human_authentication-v1/identity/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/human_authentication-v1/identity/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/human_authenticationv1//CreateIdentitySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/human_authenticationv1//CreateIdentitySample.java</a>
+     * ;
+     */
     public CreateIdentityResp create(CreateIdentityReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();

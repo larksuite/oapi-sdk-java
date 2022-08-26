@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class WebApp {
 
+  /**
+   * pc 端 url
+   * <p> 示例值：https://www.example.com
+   */
   @SerializedName("pc_url")
   private String pcUrl;
+  /**
+   * 移动端 url
+   * <p> 示例值：https://www.example.com
+   */
   @SerializedName("mobile_url")
   private String mobileUrl;
 
@@ -27,7 +35,15 @@ public class WebApp {
   }
 
   public WebApp(Builder builder) {
+    /**
+     * pc 端 url
+     * <p> 示例值：https://www.example.com
+     */
     this.pcUrl = builder.pcUrl;
+    /**
+     * 移动端 url
+     * <p> 示例值：https://www.example.com
+     */
     this.mobileUrl = builder.mobileUrl;
   }
 
@@ -53,14 +69,37 @@ public class WebApp {
 
   public static class Builder {
 
+    /**
+     * pc 端 url
+     * <p> 示例值：https://www.example.com
+     */
     private String pcUrl;
+    /**
+     * 移动端 url
+     * <p> 示例值：https://www.example.com
+     */
     private String mobileUrl;
 
+    /**
+     * pc 端 url
+     * <p> 示例值：https://www.example.com
+     *
+     * @param pcUrl
+     * @return
+     */
     public Builder pcUrl(String pcUrl) {
       this.pcUrl = pcUrl;
       return this;
     }
 
+
+    /**
+     * 移动端 url
+     * <p> 示例值：https://www.example.com
+     *
+     * @param mobileUrl
+     * @return
+     */
     public Builder mobileUrl(String mobileUrl) {
       this.mobileUrl = mobileUrl;
       return this;

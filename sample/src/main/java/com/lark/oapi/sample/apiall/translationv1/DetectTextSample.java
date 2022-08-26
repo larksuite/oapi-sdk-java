@@ -6,7 +6,7 @@ import com.lark.oapi.service.translation.v1.model.DetectTextReq;
 import com.lark.oapi.service.translation.v1.model.DetectTextReqBody;
 import com.lark.oapi.service.translation.v1.model.DetectTextResp;
 
-// HTTP PATH: /open-apis/translation/v1/text/detect"
+// POST /open-apis/translation/v1/text/detect
 public class DetectTextSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class DetectTextSample {
     // 创建请求对象
     DetectTextReq req = DetectTextReq.newBuilder()
         .detectTextReqBody(DetectTextReqBody.newBuilder()
-            .text("")
+            .text("你好")
             .build())
         .build();
 

@@ -31,6 +31,8 @@ import com.lark.oapi.service.vc.v1.model.GetActiveMeetingReserveReq;
 import com.lark.oapi.service.vc.v1.model.GetActiveMeetingReserveResp;
 import com.lark.oapi.service.vc.v1.model.GetDailyReportReq;
 import com.lark.oapi.service.vc.v1.model.GetDailyReportResp;
+import com.lark.oapi.service.vc.v1.model.GetExportReq;
+import com.lark.oapi.service.vc.v1.model.GetExportResp;
 import com.lark.oapi.service.vc.v1.model.GetMeetingRecordingReq;
 import com.lark.oapi.service.vc.v1.model.GetMeetingRecordingResp;
 import com.lark.oapi.service.vc.v1.model.GetMeetingReq;
@@ -45,6 +47,8 @@ import com.lark.oapi.service.vc.v1.model.KickoutMeetingReq;
 import com.lark.oapi.service.vc.v1.model.KickoutMeetingResp;
 import com.lark.oapi.service.vc.v1.model.ListByNoMeetingReq;
 import com.lark.oapi.service.vc.v1.model.ListByNoMeetingResp;
+import com.lark.oapi.service.vc.v1.model.MeetingListExportReq;
+import com.lark.oapi.service.vc.v1.model.MeetingListExportResp;
 import com.lark.oapi.service.vc.v1.model.P2MeetingEndedV1;
 import com.lark.oapi.service.vc.v1.model.P2MeetingJoinMeetingV1;
 import com.lark.oapi.service.vc.v1.model.P2MeetingLeaveMeetingV1;
@@ -54,6 +58,10 @@ import com.lark.oapi.service.vc.v1.model.P2MeetingRecordingStartedV1;
 import com.lark.oapi.service.vc.v1.model.P2MeetingShareEndedV1;
 import com.lark.oapi.service.vc.v1.model.P2MeetingShareStartedV1;
 import com.lark.oapi.service.vc.v1.model.P2MeetingStartedV1;
+import com.lark.oapi.service.vc.v1.model.ParticipantListExportReq;
+import com.lark.oapi.service.vc.v1.model.ParticipantListExportResp;
+import com.lark.oapi.service.vc.v1.model.ParticipantQualityListExportReq;
+import com.lark.oapi.service.vc.v1.model.ParticipantQualityListExportResp;
 import com.lark.oapi.service.vc.v1.model.QueryRoomConfigReq;
 import com.lark.oapi.service.vc.v1.model.QueryRoomConfigResp;
 import com.lark.oapi.service.vc.v1.model.SetHostMeetingReq;
@@ -71,6 +79,7 @@ import com.lark.oapi.service.vc.v1.model.UpdateReserveResp;
 
 public class VcService {
 
+  private final Export export;
   private final Meeting meeting;
   private final MeetingRecording meetingRecording;
   private final Report report;
@@ -78,6 +87,7 @@ public class VcService {
   private final RoomConfig roomConfig;
 
   public VcService(Config config) {
+    this.export = new Export(config);
     this.meeting = new Meeting(config);
     this.meetingRecording = new MeetingRecording(config);
     this.report = new Report(config);
@@ -85,24 +95,286 @@ public class VcService {
     this.roomConfig = new RoomConfig(config);
   }
 
+  /**
+   * 导出
+   *
+   * @return
+   */
+  public Export export() {
+    return export;
+  }
+
+  /**
+   * 会议
+   *
+   * @return
+   */
   public Meeting meeting() {
     return meeting;
   }
 
+  /**
+   * 录制
+   *
+   * @return
+   */
   public MeetingRecording meetingRecording() {
     return meetingRecording;
   }
 
+  /**
+   * 会议报告
+   *
+   * @return
+   */
   public Report report() {
     return report;
   }
 
+  /**
+   * 预约
+   *
+   * @return
+   */
   public Reserve reserve() {
     return reserve;
   }
 
+  /**
+   * 会议室配置
+   *
+   * @return
+   */
   public RoomConfig roomConfig() {
     return roomConfig;
+  }
+
+  public static class Export {
+
+    private final Config config;
+
+    public Export(Config config) {
+      this.config = config;
+    }
+
+    /**
+     * 查询导出任务结果，查看异步导出的进度
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/export/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/export/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetExportSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetExportSample.java</a>
+     * ;
+     */
+    public GetExportResp get(GetExportReq req, RequestOptions reqOptions) throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/vc/v1/exports/:task_id"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      GetExportResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetExportResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 查询导出任务结果，查看异步导出的进度
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/export/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/export/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetExportSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetExportSample.java</a>
+     * ;
+     */
+    public GetExportResp get(GetExportReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/vc/v1/exports/:task_id"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      GetExportResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetExportResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 导出会议明细，导出会议明细
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/export/meeting_list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/export/meeting_list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//MeetingListExportSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//MeetingListExportSample.java</a>
+     * ;
+     */
+    public MeetingListExportResp meetingList(MeetingListExportReq req, RequestOptions reqOptions)
+        throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/vc/v1/exports/meeting_list"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      MeetingListExportResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          MeetingListExportResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 导出会议明细，导出会议明细
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/export/meeting_list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/export/meeting_list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//MeetingListExportSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//MeetingListExportSample.java</a>
+     * ;
+     */
+    public MeetingListExportResp meetingList(MeetingListExportReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/vc/v1/exports/meeting_list"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      MeetingListExportResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          MeetingListExportResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 导出参会人明细，导出某个会议的参会人详情列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/export/participant_list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/export/participant_list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//ParticipantListExportSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//ParticipantListExportSample.java</a>
+     * ;
+     */
+    public ParticipantListExportResp participantList(ParticipantListExportReq req,
+        RequestOptions reqOptions) throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/vc/v1/exports/participant_list"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      ParticipantListExportResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          ParticipantListExportResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 导出参会人明细，导出某个会议的参会人详情列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/export/participant_list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/export/participant_list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//ParticipantListExportSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//ParticipantListExportSample.java</a>
+     * ;
+     */
+    public ParticipantListExportResp participantList(ParticipantListExportReq req)
+        throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/vc/v1/exports/participant_list"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      ParticipantListExportResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          ParticipantListExportResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 导出参会人会议质量数据，导出某场会议某个参会人的音视频&共享质量数据
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/export/participant_quality_list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/export/participant_quality_list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//ParticipantQualityListExportSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//ParticipantQualityListExportSample.java</a>
+     * ;
+     */
+    public ParticipantQualityListExportResp participantQualityList(
+        ParticipantQualityListExportReq req, RequestOptions reqOptions) throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/vc/v1/exports/participant_quality_list"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      ParticipantQualityListExportResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          ParticipantQualityListExportResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 导出参会人会议质量数据，导出某场会议某个参会人的音视频&共享质量数据
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/export/participant_quality_list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/export/participant_quality_list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//ParticipantQualityListExportSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//ParticipantQualityListExportSample.java</a>
+     * ;
+     */
+    public ParticipantQualityListExportResp participantQualityList(
+        ParticipantQualityListExportReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/vc/v1/exports/participant_quality_list"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      ParticipantQualityListExportResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          ParticipantQualityListExportResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
   }
 
   public static class Meeting {
@@ -113,6 +385,14 @@ public class VcService {
       this.config = config;
     }
 
+    /**
+     * 结束会议，结束一个进行中的会议
+     * <p> 会议正在进行中，且操作者须具有相应的权限（如果操作者为用户，必须是会中当前主持人） ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/end">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/end</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//EndMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//EndMeetingSample.java</a>
+     * ;
+     */
     public EndMeetingResp end(EndMeetingReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -133,6 +413,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 结束会议，结束一个进行中的会议
+     * <p> 会议正在进行中，且操作者须具有相应的权限（如果操作者为用户，必须是会中当前主持人） ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/end">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/end</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//EndMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//EndMeetingSample.java</a>
+     * ;
+     */
     public EndMeetingResp end(EndMeetingReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -151,6 +439,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 获取会议详情，获取一个会议的详细数据
+     * <p> 只能获取归属于自己的会议，支持查询最近90天内的会议 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetMeetingSample.java</a>
+     * ;
+     */
     public GetMeetingResp get(GetMeetingReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -171,6 +467,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 获取会议详情，获取一个会议的详细数据
+     * <p> 只能获取归属于自己的会议，支持查询最近90天内的会议 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetMeetingSample.java</a>
+     * ;
+     */
     public GetMeetingResp get(GetMeetingReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -189,6 +493,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 邀请参会人，邀请参会人进入会议
+     * <p> 发起邀请的操作者必须具有相应的权限（如果操作者为用户，则必须在会中），如果会议被锁定、或参会人数如果达到上限，则会邀请失败 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/invite">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/invite</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//InviteMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//InviteMeetingSample.java</a>
+     * ;
+     */
     public InviteMeetingResp invite(InviteMeetingReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -211,6 +523,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 邀请参会人，邀请参会人进入会议
+     * <p> 发起邀请的操作者必须具有相应的权限（如果操作者为用户，则必须在会中），如果会议被锁定、或参会人数如果达到上限，则会邀请失败 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/invite">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/invite</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//InviteMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//InviteMeetingSample.java</a>
+     * ;
+     */
     public InviteMeetingResp invite(InviteMeetingReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -230,6 +550,13 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 移除参会人，将参会人从会议中移除
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/kickout">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/kickout</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//KickoutMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//KickoutMeetingSample.java</a>
+     * ;
+     */
     public KickoutMeetingResp kickout(KickoutMeetingReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -252,6 +579,13 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 移除参会人，将参会人从会议中移除
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/kickout">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/kickout</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//KickoutMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//KickoutMeetingSample.java</a>
+     * ;
+     */
     public KickoutMeetingResp kickout(KickoutMeetingReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -271,6 +605,13 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 获取与会议号相关联的会议列表，获取指定时间范围（90天内)会议号关联的会议简要信息列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/list_by_no">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/list_by_no</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//ListByNoMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//ListByNoMeetingSample.java</a>
+     * ;
+     */
     public ListByNoMeetingResp listByNo(ListByNoMeetingReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -293,6 +634,13 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 获取与会议号相关联的会议列表，获取指定时间范围（90天内)会议号关联的会议简要信息列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/list_by_no">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/list_by_no</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//ListByNoMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//ListByNoMeetingSample.java</a>
+     * ;
+     */
     public ListByNoMeetingResp listByNo(ListByNoMeetingReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -312,6 +660,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 设置主持人，设置会议的主持人
+     * <p> 发起设置主持人的操作者必须具有相应的权限（如果操作者为用户，必须是会中当前主持人）；该操作使用CAS并发安全机制，需传入会中当前主持人，如果操作失败可使用返回的最新数据重试 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/set_host">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/set_host</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//SetHostMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//SetHostMeetingSample.java</a>
+     * ;
+     */
     public SetHostMeetingResp setHost(SetHostMeetingReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -334,6 +690,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 设置主持人，设置会议的主持人
+     * <p> 发起设置主持人的操作者必须具有相应的权限（如果操作者为用户，必须是会中当前主持人）；该操作使用CAS并发安全机制，需传入会中当前主持人，如果操作失败可使用返回的最新数据重试 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/set_host">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/set_host</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//SetHostMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//SetHostMeetingSample.java</a>
+     * ;
+     */
     public SetHostMeetingResp setHost(SetHostMeetingReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -362,6 +726,14 @@ public class VcService {
       this.config = config;
     }
 
+    /**
+     * 获取录制文件，获取一个会议的录制文件。
+     * <p> 会议结束后并且收到了"录制完成"的事件方可获取录制文件；只有会议owner（通过开放平台预约的会议即为预约人）有权限获取；录制时间太短(&lt;5s)有可能无法生成录制文件 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-recording/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-recording/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetMeetingRecordingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetMeetingRecordingSample.java</a>
+     * ;
+     */
     public GetMeetingRecordingResp get(GetMeetingRecordingReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -384,6 +756,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 获取录制文件，获取一个会议的录制文件。
+     * <p> 会议结束后并且收到了"录制完成"的事件方可获取录制文件；只有会议owner（通过开放平台预约的会议即为预约人）有权限获取；录制时间太短(&lt;5s)有可能无法生成录制文件 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-recording/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-recording/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetMeetingRecordingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetMeetingRecordingSample.java</a>
+     * ;
+     */
     public GetMeetingRecordingResp get(GetMeetingRecordingReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -403,6 +783,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 授权录制文件，将一个会议的录制文件授权给组织、用户或公开到公网
+     * <p> 会议结束后并且收到了"录制完成"的事件方可进行授权；会议owner（通过开放平台预约的会议即为预约人）才有权限操作 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-recording/set_permission">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-recording/set_permission</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//SetPermissionMeetingRecordingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//SetPermissionMeetingRecordingSample.java</a>
+     * ;
+     */
     public SetPermissionMeetingRecordingResp setPermission(SetPermissionMeetingRecordingReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -425,6 +813,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 授权录制文件，将一个会议的录制文件授权给组织、用户或公开到公网
+     * <p> 会议结束后并且收到了"录制完成"的事件方可进行授权；会议owner（通过开放平台预约的会议即为预约人）才有权限操作 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-recording/set_permission">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-recording/set_permission</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//SetPermissionMeetingRecordingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//SetPermissionMeetingRecordingSample.java</a>
+     * ;
+     */
     public SetPermissionMeetingRecordingResp setPermission(SetPermissionMeetingRecordingReq req)
         throws Exception {
       // 请求参数选项
@@ -445,6 +841,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 开始录制，在会议中开始录制。
+     * <p> 会议正在进行中，且操作者具有相应权限（如果操作者为用户，必须是会中当前主持人） ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-recording/start">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-recording/start</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//StartMeetingRecordingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//StartMeetingRecordingSample.java</a>
+     * ;
+     */
     public StartMeetingRecordingResp start(StartMeetingRecordingReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -467,6 +871,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 开始录制，在会议中开始录制。
+     * <p> 会议正在进行中，且操作者具有相应权限（如果操作者为用户，必须是会中当前主持人） ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-recording/start">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-recording/start</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//StartMeetingRecordingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//StartMeetingRecordingSample.java</a>
+     * ;
+     */
     public StartMeetingRecordingResp start(StartMeetingRecordingReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -486,6 +898,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 停止录制，在会议中停止录制。
+     * <p> 会议正在录制中，且操作者具有相应权限（如果操作者为用户，必须是会中当前主持人） ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-recording/stop">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-recording/stop</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//StopMeetingRecordingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//StopMeetingRecordingSample.java</a>
+     * ;
+     */
     public StopMeetingRecordingResp stop(StopMeetingRecordingReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -508,6 +928,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 停止录制，在会议中停止录制。
+     * <p> 会议正在录制中，且操作者具有相应权限（如果操作者为用户，必须是会中当前主持人） ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-recording/stop">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-recording/stop</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//StopMeetingRecordingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//StopMeetingRecordingSample.java</a>
+     * ;
+     */
     public StopMeetingRecordingResp stop(StopMeetingRecordingReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -536,6 +964,14 @@ public class VcService {
       this.config = config;
     }
 
+    /**
+     * 获取会议报告，获取一段时间内组织的每日会议使用报告。
+     * <p> 支持最近90天内的数据查询 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/report/get_daily">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/report/get_daily</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetDailyReportSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetDailyReportSample.java</a>
+     * ;
+     */
     public GetDailyReportResp getDaily(GetDailyReportReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -558,6 +994,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 获取会议报告，获取一段时间内组织的每日会议使用报告。
+     * <p> 支持最近90天内的数据查询 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/report/get_daily">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/report/get_daily</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetDailyReportSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetDailyReportSample.java</a>
+     * ;
+     */
     public GetDailyReportResp getDaily(GetDailyReportReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -577,6 +1021,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 获取top用户列表，获取一段时间内组织内会议使用的top用户列表。
+     * <p> 支持最近90天内的数据查询；默认返回前10位，最多可查询前100位 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/report/get_top_user">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/report/get_top_user</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetTopUserReportSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetTopUserReportSample.java</a>
+     * ;
+     */
     public GetTopUserReportResp getTopUser(GetTopUserReportReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -599,6 +1051,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 获取top用户列表，获取一段时间内组织内会议使用的top用户列表。
+     * <p> 支持最近90天内的数据查询；默认返回前10位，最多可查询前100位 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/report/get_top_user">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/report/get_top_user</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetTopUserReportSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetTopUserReportSample.java</a>
+     * ;
+     */
     public GetTopUserReportResp getTopUser(GetTopUserReportReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -627,6 +1087,15 @@ public class VcService {
       this.config = config;
     }
 
+    /**
+     * 预约会议，创建一个会议预约。
+     * <p> 支持预约最近30天内的会议（到期时间距离当前时间不超过30天），预约到期后会议号将被释放，如需继续使用可通过"更新预约"接口进行续期；预约会议时可配置参会人在会中的权限，以达到控制会议的目的
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/apply">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/apply</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//ApplyReserveSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//ApplyReserveSample.java</a>
+     * ;
+     */
     public ApplyReserveResp apply(ApplyReserveReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -647,6 +1116,15 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 预约会议，创建一个会议预约。
+     * <p> 支持预约最近30天内的会议（到期时间距离当前时间不超过30天），预约到期后会议号将被释放，如需继续使用可通过"更新预约"接口进行续期；预约会议时可配置参会人在会中的权限，以达到控制会议的目的
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/apply">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/apply</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//ApplyReserveSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//ApplyReserveSample.java</a>
+     * ;
+     */
     public ApplyReserveResp apply(ApplyReserveReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -665,6 +1143,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 删除预约，删除一个预约
+     * <p> 只能删除归属于自己的预约；删除后数据不可恢复 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//DeleteReserveSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//DeleteReserveSample.java</a>
+     * ;
+     */
     public DeleteReserveResp delete(DeleteReserveReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -687,6 +1173,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 删除预约，删除一个预约
+     * <p> 只能删除归属于自己的预约；删除后数据不可恢复 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//DeleteReserveSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//DeleteReserveSample.java</a>
+     * ;
+     */
     public DeleteReserveResp delete(DeleteReserveReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -706,6 +1200,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 获取预约，获取一个预约的详情
+     * <p> 只能获取归属于自己的预约 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetReserveSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetReserveSample.java</a>
+     * ;
+     */
     public GetReserveResp get(GetReserveReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -726,6 +1228,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 获取预约，获取一个预约的详情
+     * <p> 只能获取归属于自己的预约 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetReserveSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetReserveSample.java</a>
+     * ;
+     */
     public GetReserveResp get(GetReserveReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -744,6 +1254,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 获取活跃会议，获取一个预约的当前活跃会议
+     * <p> 只能获取归属于自己的预约的活跃会议（一个预约最多有一个正在进行中的会议） ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/get_active_meeting">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/get_active_meeting</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetActiveMeetingReserveSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetActiveMeetingReserveSample.java</a>
+     * ;
+     */
     public GetActiveMeetingReserveResp getActiveMeeting(GetActiveMeetingReserveReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -766,6 +1284,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 获取活跃会议，获取一个预约的当前活跃会议
+     * <p> 只能获取归属于自己的预约的活跃会议（一个预约最多有一个正在进行中的会议） ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/get_active_meeting">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/get_active_meeting</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetActiveMeetingReserveSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//GetActiveMeetingReserveSample.java</a>
+     * ;
+     */
     public GetActiveMeetingReserveResp getActiveMeeting(GetActiveMeetingReserveReq req)
         throws Exception {
       // 请求参数选项
@@ -786,6 +1312,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 更新预约，更新一个预约
+     * <p> 只能更新归属于自己的预约，不需要更新的字段不传（如果传空则会被更新为空）；可用于续期操作，到期时间距离当前时间不超过30天 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//UpdateReserveSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//UpdateReserveSample.java</a>
+     * ;
+     */
     public UpdateReserveResp update(UpdateReserveReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -808,6 +1342,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 更新预约，更新一个预约
+     * <p> 只能更新归属于自己的预约，不需要更新的字段不传（如果传空则会被更新为空）；可用于续期操作，到期时间距离当前时间不超过30天 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//UpdateReserveSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//UpdateReserveSample.java</a>
+     * ;
+     */
     public UpdateReserveResp update(UpdateReserveReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -836,6 +1378,14 @@ public class VcService {
       this.config = config;
     }
 
+    /**
+     * 查询会议室配置，查询一个范围内的会议室配置。
+     * <p> 根据查询范围传入对应的参数 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room_config/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room_config/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//QueryRoomConfigSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//QueryRoomConfigSample.java</a>
+     * ;
+     */
     public QueryRoomConfigResp query(QueryRoomConfigReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -858,6 +1408,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 查询会议室配置，查询一个范围内的会议室配置。
+     * <p> 根据查询范围传入对应的参数 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room_config/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room_config/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//QueryRoomConfigSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//QueryRoomConfigSample.java</a>
+     * ;
+     */
     public QueryRoomConfigResp query(QueryRoomConfigReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -877,6 +1435,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 设置会议室配置，设置一个范围内的会议室配置。
+     * <p> 根据设置范围传入对应的参数 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room_config/set">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room_config/set</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//SetRoomConfigSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//SetRoomConfigSample.java</a>
+     * ;
+     */
     public SetRoomConfigResp set(SetRoomConfigReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -898,6 +1464,14 @@ public class VcService {
       return resp;
     }
 
+    /**
+     * 设置会议室配置，设置一个范围内的会议室配置。
+     * <p> 根据设置范围传入对应的参数 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room_config/set">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room_config/set</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//SetRoomConfigSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1//SetRoomConfigSample.java</a>
+     * ;
+     */
     public SetRoomConfigResp set(SetRoomConfigReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();

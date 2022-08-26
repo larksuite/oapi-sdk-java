@@ -235,6 +235,13 @@ public class EventDispatcher implements IHandler {
       return new EventDispatcher(this);
     }
 
+    /**
+     * <p> 门禁访问记录,门禁设备识别用户成功后发送该事件给订阅应用
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record/events/created</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2AccessRecordCreatedV1(AcsService.P2AccessRecordCreatedV1Handler handler) {
       if (eventType2EventHandler.containsKey("acs.access_record.created_v1")) {
         throw new EventTypeAlreadyHasHandlerException("acs.access_record.created_v1");
@@ -243,6 +250,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 智能门禁用户变更,智能门禁用户特征值变化时，发送此事件
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/events/updated</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2UserUpdatedV1(AcsService.P2UserUpdatedV1Handler handler) {
       if (eventType2EventHandler.containsKey("acs.user.updated_v1")) {
         throw new EventTypeAlreadyHasHandlerException("acs.user.updated_v1");
@@ -252,6 +266,13 @@ public class EventDispatcher implements IHandler {
     }
 
 
+    /**
+     * <p> 应用创建,当企业内有新的应用被创建时推送此事件
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/events/created</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2ApplicationCreatedV6(
         ApplicationService.P2ApplicationCreatedV6Handler handler) {
       if (eventType2EventHandler.containsKey("application.application.created_v6")) {
@@ -261,6 +282,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 应用审核,通过订阅该事件，可接收应用审核（通过 / 拒绝）事件
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/events/audit">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/events/audit</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2ApplicationAppVersionAuditV6(
         ApplicationService.P2ApplicationAppVersionAuditV6Handler handler) {
       if (eventType2EventHandler.containsKey("application.application.app_version.audit_v6")) {
@@ -271,6 +299,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 申请发布应用,通过订阅该事件，可接收应用提交发布申请事件
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/events/publish_apply">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/events/publish_apply</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2ApplicationAppVersionPublishApplyV6(
         ApplicationService.P2ApplicationAppVersionPublishApplyV6Handler handler) {
       if (eventType2EventHandler.containsKey(
@@ -282,6 +317,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 撤回应用发布申请,通过订阅该事件，可接收应用撤回发布申请事件
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/events/publish_revoke">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/events/publish_revoke</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2ApplicationAppVersionPublishRevokeV6(
         ApplicationService.P2ApplicationAppVersionPublishRevokeV6Handler handler) {
       if (eventType2EventHandler.containsKey(
@@ -293,6 +335,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 新增应用反馈,当应用收到新反馈时，触发该事件
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-feedback/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-feedback/events/created</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2ApplicationFeedbackCreatedV6(
         ApplicationService.P2ApplicationFeedbackCreatedV6Handler handler) {
       if (eventType2EventHandler.containsKey("application.application.feedback.created_v6")) {
@@ -303,6 +352,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 反馈更新,当反馈的处理状态被更新时，触发该事件
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-feedback/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-feedback/events/updated</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2ApplicationFeedbackUpdatedV6(
         ApplicationService.P2ApplicationFeedbackUpdatedV6Handler handler) {
       if (eventType2EventHandler.containsKey("application.application.feedback.updated_v6")) {
@@ -313,6 +369,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> ,
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/event/app-availability-scope-extended">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/event/app-availability-scope-extended</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2ApplicationVisibilityAddedV6(
         ApplicationService.P2ApplicationVisibilityAddedV6Handler handler) {
       if (eventType2EventHandler.containsKey("application.application.visibility.added_v6")) {
@@ -323,6 +386,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> ,
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/custom-approval-event">https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/custom-approval-event</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2ApprovalUpdatedV4(ApprovalService.P2ApprovalUpdatedV4Handler handler) {
       if (eventType2EventHandler.containsKey("approval.approval.updated_v4")) {
         throw new EventTypeAlreadyHasHandlerException("approval.approval.updated_v4");
@@ -332,6 +402,15 @@ public class EventDispatcher implements IHandler {
     }
 
 
+    /**
+     * <p> 日历变更,当订阅用户的日历列表有日历变动时触发此事件。
+     * <p> 应用首先需要调用上述接口建立订阅关系。应用收到该事件后，使用事件的 user_list 字段中的用户对应的 user_access_token
+     * 调用[获取日历列表](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list)接口拉取增量的变更数据
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/events/changed">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/events/changed</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2CalendarChangedV4(CalendarService.P2CalendarChangedV4Handler handler) {
       if (eventType2EventHandler.containsKey("calendar.calendar.changed_v4")) {
         throw new EventTypeAlreadyHasHandlerException("calendar.calendar.changed_v4");
@@ -340,6 +419,14 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> ACL新建,当被订阅的日历上有ACL被创建时触发此事件。
+     * <p> 特殊说明：应用首先需要调用上述接口建立订阅关系。
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/events/created</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2CalendarAclCreatedV4(CalendarService.P2CalendarAclCreatedV4Handler handler) {
       if (eventType2EventHandler.containsKey("calendar.calendar.acl.created_v4")) {
         throw new EventTypeAlreadyHasHandlerException("calendar.calendar.acl.created_v4");
@@ -348,6 +435,14 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> ACL移除,当被订阅的日历上有ACL被删除时触发此事件。
+     * <p> 特殊说明：应用首先需要调用上述接口建立订阅关系。
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/events/deleted">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/events/deleted</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2CalendarAclDeletedV4(CalendarService.P2CalendarAclDeletedV4Handler handler) {
       if (eventType2EventHandler.containsKey("calendar.calendar.acl.deleted_v4")) {
         throw new EventTypeAlreadyHasHandlerException("calendar.calendar.acl.deleted_v4");
@@ -356,6 +451,16 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 日程变更,当被订阅的用户日历下有日程变更时触发此事件。
+     * <p> 应用首先需要调用[订阅日程变更事件接口](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/subscription)建立订阅关系。应用收到该事件后，使用事件的
+     * user_list 字段中的用户对应的 user_access_token 调用[获取日程列表](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list)接口拉取事件中
+     * calendar_id 字段对应的日历下的日程数据
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/events/changed">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/events/changed</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2CalendarEventChangedV4(
         CalendarService.P2CalendarEventChangedV4Handler handler) {
       if (eventType2EventHandler.containsKey("calendar.calendar.event.changed_v4")) {
@@ -365,6 +470,14 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 成员字段变更,通过该事件订阅成员字段变更。old_object 展示更新字段的原始值。
+     * <p> 触发事件的动作有「打开/关闭」开关、「增加/删除」成员字段。
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/custom_attr_event/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/custom_attr_event/events/updated</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2CustomAttrEventUpdatedV3(
         ContactService.P2CustomAttrEventUpdatedV3Handler handler) {
       if (eventType2EventHandler.containsKey("contact.custom_attr_event.updated_v3")) {
@@ -374,6 +487,14 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 部门创建事件,创建通讯录部门时发送该事件给订阅应用。
+     * <p> 只有当应用拥有被改动字段的数据权限时，才会接收到事件。具体的数据权限与字段的关系请参考[应用权限](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)，或查看事件体参数列表的字段描述。
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/events/created</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2DepartmentCreatedV3(ContactService.P2DepartmentCreatedV3Handler handler) {
       if (eventType2EventHandler.containsKey("contact.department.created_v3")) {
         throw new EventTypeAlreadyHasHandlerException("contact.department.created_v3");
@@ -382,6 +503,14 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 部门被删除,订阅这一事件可以获得被删除部门的信息。
+     * <p> 只有当应用拥有被改动字段的数据权限时，才会接收到事件。具体的数据权限与字段的关系请参考[应用权限](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)，或查看事件体参数列表的字段描述。
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/events/deleted">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/events/deleted</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2DepartmentDeletedV3(ContactService.P2DepartmentDeletedV3Handler handler) {
       if (eventType2EventHandler.containsKey("contact.department.deleted_v3")) {
         throw new EventTypeAlreadyHasHandlerException("contact.department.deleted_v3");
@@ -390,6 +519,14 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 修改部门,通过该事件订阅部门更新。old_object只展示被更新字段的原始值。应用身份访问通讯录的权限为历史版本，不推荐申请。
+     * <p> 只有当应用拥有被改动字段的数据权限时，才会接收到事件。具体的数据权限与字段的关系请参考[应用权限](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)，或查看事件体参数列表的字段描述。
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/events/updated</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2DepartmentUpdatedV3(ContactService.P2DepartmentUpdatedV3Handler handler) {
       if (eventType2EventHandler.containsKey("contact.department.updated_v3")) {
         throw new EventTypeAlreadyHasHandlerException("contact.department.updated_v3");
@@ -398,6 +535,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 启用人员类型事件,启用人员类型会发出对应事件。
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/events/actived">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/events/actived</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2EmployeeTypeEnumActivedV3(
         ContactService.P2EmployeeTypeEnumActivedV3Handler handler) {
       if (eventType2EventHandler.containsKey("contact.employee_type_enum.actived_v3")) {
@@ -407,6 +551,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 新建人员类型事件,新建人员类型会发出对应事件。
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/events/created</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2EmployeeTypeEnumCreatedV3(
         ContactService.P2EmployeeTypeEnumCreatedV3Handler handler) {
       if (eventType2EventHandler.containsKey("contact.employee_type_enum.created_v3")) {
@@ -416,6 +567,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 停用人员类型事件,停用人员类型会发出对应事件。
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/events/deactivated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/events/deactivated</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2EmployeeTypeEnumDeactivatedV3(
         ContactService.P2EmployeeTypeEnumDeactivatedV3Handler handler) {
       if (eventType2EventHandler.containsKey("contact.employee_type_enum.deactivated_v3")) {
@@ -425,6 +583,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 删除人员类型事件,删除人员类型会发出对应事件。
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/events/deleted">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/events/deleted</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2EmployeeTypeEnumDeletedV3(
         ContactService.P2EmployeeTypeEnumDeletedV3Handler handler) {
       if (eventType2EventHandler.containsKey("contact.employee_type_enum.deleted_v3")) {
@@ -434,6 +599,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 修改人员类型名称事件,修改人员类型名称会发出对应事件。
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/events/updated</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2EmployeeTypeEnumUpdatedV3(
         ContactService.P2EmployeeTypeEnumUpdatedV3Handler handler) {
       if (eventType2EventHandler.containsKey("contact.employee_type_enum.updated_v3")) {
@@ -443,6 +615,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 通讯录范围权限被更新,当应用通讯录范围权限发生变更时，订阅这个事件的应用会收到事件。
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/scope/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/scope/events/updated</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2ScopeUpdatedV3(ContactService.P2ScopeUpdatedV3Handler handler) {
       if (eventType2EventHandler.containsKey("contact.scope.updated_v3")) {
         throw new EventTypeAlreadyHasHandlerException("contact.scope.updated_v3");
@@ -451,6 +630,14 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 员工入职,通过该事件订阅员工入职。
+     * <p> 只有当应用拥有被改动字段的数据权限时，才会接收到事件。具体的数据权限与字段的关系请参考[应用权限](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)，或查看事件体参数列表的字段描述。
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/events/created</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2UserCreatedV3(ContactService.P2UserCreatedV3Handler handler) {
       if (eventType2EventHandler.containsKey("contact.user.created_v3")) {
         throw new EventTypeAlreadyHasHandlerException("contact.user.created_v3");
@@ -459,6 +646,14 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 员工离职,通过该事件订阅员工离职。应用身份访问通讯录的权限为历史版本，不推荐申请。
+     * <p> 只有当应用拥有被改动字段的数据权限时，才会接收到事件。具体的数据权限与字段的关系请参考[应用权限](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)，或查看事件体参数列表的字段描述。
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/events/deleted">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/events/deleted</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2UserDeletedV3(ContactService.P2UserDeletedV3Handler handler) {
       if (eventType2EventHandler.containsKey("contact.user.deleted_v3")) {
         throw new EventTypeAlreadyHasHandlerException("contact.user.deleted_v3");
@@ -467,6 +662,14 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 员工变更,通过该事件订阅员工变更。old_object中只展示更新的字段的原始值。
+     * <p> 只有当应用拥有被改动字段的数据权限时，才会接收到事件。具体的数据权限与字段的关系请参考[应用权限](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)，或查看事件体参数列表的字段描述。
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/events/updated</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2UserUpdatedV3(ContactService.P2UserUpdatedV3Handler handler) {
       if (eventType2EventHandler.containsKey("contact.user.updated_v3")) {
         throw new EventTypeAlreadyHasHandlerException("contact.user.updated_v3");
@@ -476,6 +679,13 @@ public class EventDispatcher implements IHandler {
     }
 
 
+    /**
+     * <p> ,
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-deleted-completely">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-deleted-completely</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2FileDeletedV1(DriveService.P2FileDeletedV1Handler handler) {
       if (eventType2EventHandler.containsKey("drive.file.deleted_v1")) {
         throw new EventTypeAlreadyHasHandlerException("drive.file.deleted_v1");
@@ -484,6 +694,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> ,
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-edited">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-edited</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2FileEditV1(DriveService.P2FileEditV1Handler handler) {
       if (eventType2EventHandler.containsKey("drive.file.edit_v1")) {
         throw new EventTypeAlreadyHasHandlerException("drive.file.edit_v1");
@@ -492,6 +709,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> ,
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-collaborator-add">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-collaborator-add</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2FilePermissionMemberAddedV1(
         DriveService.P2FilePermissionMemberAddedV1Handler handler) {
       if (eventType2EventHandler.containsKey("drive.file.permission_member_added_v1")) {
@@ -501,6 +725,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> ,
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-collaborator-remove">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-collaborator-remove</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2FilePermissionMemberRemovedV1(
         DriveService.P2FilePermissionMemberRemovedV1Handler handler) {
       if (eventType2EventHandler.containsKey("drive.file.permission_member_removed_v1")) {
@@ -510,6 +741,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> ,
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-read">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-read</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2FileReadV1(DriveService.P2FileReadV1Handler handler) {
       if (eventType2EventHandler.containsKey("drive.file.read_v1")) {
         throw new EventTypeAlreadyHasHandlerException("drive.file.read_v1");
@@ -518,6 +756,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> ,
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-title-update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-title-update</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2FileTitleUpdatedV1(DriveService.P2FileTitleUpdatedV1Handler handler) {
       if (eventType2EventHandler.containsKey("drive.file.title_updated_v1")) {
         throw new EventTypeAlreadyHasHandlerException("drive.file.title_updated_v1");
@@ -526,6 +771,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> ,
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/delete-file-to-trash-can">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/delete-file-to-trash-can</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2FileTrashedV1(DriveService.P2FileTrashedV1Handler handler) {
       if (eventType2EventHandler.containsKey("drive.file.trashed_v1")) {
         throw new EventTypeAlreadyHasHandlerException("drive.file.trashed_v1");
@@ -535,6 +787,13 @@ public class EventDispatcher implements IHandler {
     }
 
 
+    /**
+     * <p> 审核事件,Push审核状态通知事件
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/notification/events/approve">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/notification/events/approve</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2NotificationApproveV1(
         HelpdeskService.P2NotificationApproveV1Handler handler) {
       if (eventType2EventHandler.containsKey("helpdesk.notification.approve_v1")) {
@@ -544,6 +803,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 工单创建事件,可监听服务台的工单创建事件。需使用订阅接口订阅：[事件订阅](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/event/overview)
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2TicketCreatedV1(HelpdeskService.P2TicketCreatedV1Handler handler) {
       if (eventType2EventHandler.containsKey("helpdesk.ticket.created_v1")) {
         throw new EventTypeAlreadyHasHandlerException("helpdesk.ticket.created_v1");
@@ -552,6 +818,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 工单状态变更事件,可监听工单状态和阶段变更事件。需使用订阅接口订阅：[事件订阅](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/event/overview)
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/updated</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2TicketUpdatedV1(HelpdeskService.P2TicketUpdatedV1Handler handler) {
       if (eventType2EventHandler.containsKey("helpdesk.ticket.updated_v1")) {
         throw new EventTypeAlreadyHasHandlerException("helpdesk.ticket.updated_v1");
@@ -560,7 +833,32 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 工单消息事件,该消息事件属于工单消息事件。需使用订阅接口订阅：[事件订阅](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/event/overview)
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_message/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_message/events/created</a>
+     *
+     * @param handler
+     * @return
+     */
+    public Builder onP2TicketMessageCreatedV1(
+        HelpdeskService.P2TicketMessageCreatedV1Handler handler) {
+      if (eventType2EventHandler.containsKey("helpdesk.ticket_message.created_v1")) {
+        throw new EventTypeAlreadyHasHandlerException("helpdesk.ticket_message.created_v1");
+      }
+      eventType2EventHandler.put("helpdesk.ticket_message.created_v1", handler);
+      return this;
+    }
 
+
+    /**
+     * <p> 群解散,群组被解散后触发此事件。
+     * <p> 注意事项：;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);- 需要订阅
+     * ==消息与群组== 分类下的 ==解散群== 事件;- 事件会向群内订阅了该事件的机器人进行推送
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/events/disbanded">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/events/disbanded</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2ChatDisbandedV1(ImService.P2ChatDisbandedV1Handler handler) {
       if (eventType2EventHandler.containsKey("im.chat.disbanded_v1")) {
         throw new EventTypeAlreadyHasHandlerException("im.chat.disbanded_v1");
@@ -569,6 +867,16 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 群配置修改,群组配置被修改后触发此事件，包含：;- 群主转移;- 群基本信息修改(群头像/群名称/群描述/群国际化名称);-
+     * 群权限修改(加人入群权限/群编辑权限/at所有人权限/群分享权限)。
+     * <p> 注意事项：; - 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);- 需要订阅
+     * ==消息与群组== 分类下的 ==群配置修改== 事件;- 事件会向群内订阅了该事件的机器人进行推送
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/events/updated</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2ChatUpdatedV1(ImService.P2ChatUpdatedV1Handler handler) {
       if (eventType2EventHandler.containsKey("im.chat.updated_v1")) {
         throw new EventTypeAlreadyHasHandlerException("im.chat.updated_v1");
@@ -577,6 +885,15 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 机器人进群,机器人被用户添加至群聊时触发此事件。
+     * <p> 注意事项：;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);- 需要订阅
+     * ==消息与群组== 分类下的 ==机器人进群== 事件;- 事件会向进群的机器人进行推送;- 机器人邀请机器人不会触发事件
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-bot/events/added">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-bot/events/added</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2ChatMemberBotAddedV1(ImService.P2ChatMemberBotAddedV1Handler handler) {
       if (eventType2EventHandler.containsKey("im.chat.member.bot.added_v1")) {
         throw new EventTypeAlreadyHasHandlerException("im.chat.member.bot.added_v1");
@@ -585,6 +902,15 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 机器人被移出群,机器人被移出群聊后触发此事件。
+     * <p> 注意事项：;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);- 需要订阅
+     * ==消息与群组== 分类下的 ==机器人被移出群== 事件;- 事件会向被移出群的机器人进行推送
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-bot/events/deleted">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-bot/events/deleted</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2ChatMemberBotDeletedV1(ImService.P2ChatMemberBotDeletedV1Handler handler) {
       if (eventType2EventHandler.containsKey("im.chat.member.bot.deleted_v1")) {
         throw new EventTypeAlreadyHasHandlerException("im.chat.member.bot.deleted_v1");
@@ -593,6 +919,15 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 用户进群,新用户进群触发此事件。
+     * <p> 注意事项：;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);- 需要订阅
+     * ==消息与群组== 分类下的 ==用户进群== 事件;- 事件会向群内订阅了该事件的机器人进行推送
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-user/events/added">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-user/events/added</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2ChatMemberUserAddedV1(ImService.P2ChatMemberUserAddedV1Handler handler) {
       if (eventType2EventHandler.containsKey("im.chat.member.user.added_v1")) {
         throw new EventTypeAlreadyHasHandlerException("im.chat.member.user.added_v1");
@@ -601,6 +936,15 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 用户主动退群或被移出群聊,用户主动退群或被移出群聊时推送事件。
+     * <p> 注意事项：;- 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)并且机器人所在群发生上述变化;-
+     * 机器人需要订阅 ==消息与群组== 分类下的 ==用户主动退群或被移出群聊== 事件;- 事件会向群内订阅了该事件的机器人进行推送
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-user/events/deleted">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-user/events/deleted</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2ChatMemberUserDeletedV1(ImService.P2ChatMemberUserDeletedV1Handler handler) {
       if (eventType2EventHandler.containsKey("im.chat.member.user.deleted_v1")) {
         throw new EventTypeAlreadyHasHandlerException("im.chat.member.user.deleted_v1");
@@ -609,6 +953,15 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 撤销拉用户进群,撤销拉用户进群后触发此事件。
+     * <p> 注意事项：;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);- 需要订阅
+     * ==消息与群组== 分类下的 ==撤销拉用户进群== 事件;- 事件会向群内订阅了该事件的机器人进行推送
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-user/events/withdrawn">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-user/events/withdrawn</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2ChatMemberUserWithdrawnV1(
         ImService.P2ChatMemberUserWithdrawnV1Handler handler) {
       if (eventType2EventHandler.containsKey("im.chat.member.user.withdrawn_v1")) {
@@ -618,6 +971,15 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 消息已读,用户阅读机器人发送的单聊消息后触发此事件。
+     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;- 需要订阅
+     * ==消息与群组== 分类下的 ==消息已读== 事件
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/message_read">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/message_read</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2MessageReadV1(ImService.P2MessageReadV1Handler handler) {
       if (eventType2EventHandler.containsKey("im.message.message_read_v1")) {
         throw new EventTypeAlreadyHasHandlerException("im.message.message_read_v1");
@@ -626,6 +988,18 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 接收消息,机器人接收到用户发送的消息后触发此事件。
+     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ，并订阅
+     * ==消息与群组== 分类下的 ==接收消息v2.0== 事件才可接收推送;- 同时，将根据应用具备的权限，判断可推送的信息：;	-
+     * 当具备==获取用户发给机器人的单聊消息==权限或者==读取用户发给机器人的单聊消息（历史权限）==，可接收与机器人单聊会话中用户发送的所有消息;	- 当具备==获取群组中所有消息==
+     * 权限时，可接收与机器人所在群聊会话中用户发送的所有消息;	- 当具备==获取用户在群组中@机器人的消息== 权限或者==获取用户在群聊中@机器人的消息（历史权限）==，可接收机器人所在群聊中用户
+     *
+     * @param handler
+     * @return
+     * @ 机器人的消息
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive</a>
+     */
     public Builder onP2MessageReceiveV1(ImService.P2MessageReceiveV1Handler handler) {
       if (eventType2EventHandler.containsKey("im.message.receive_v1")) {
         throw new EventTypeAlreadyHasHandlerException("im.message.receive_v1");
@@ -634,6 +1008,16 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 新增消息表情回复,消息被添加某一个表情回复后触发此事件
+     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ，具备==获取单聊、群组消息== 或 ==获取与发送单聊、群组消息==权限，并订阅 ==消息与群组== 分类下的 ==消息被reaction== 事件才可接收推送;-
+     * 机器人只能收到所在群聊内的消息被添加表情回复事件
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/events/created</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2MessageReactionCreatedV1(
         ImService.P2MessageReactionCreatedV1Handler handler) {
       if (eventType2EventHandler.containsKey("im.message.reaction.created_v1")) {
@@ -643,6 +1027,16 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 删除消息表情回复,消息被删除某一个表情回复后触发此事件
+     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ，具备==获取单聊、群组消息== 或 ==获取与发送单聊、群组消息==权限，并订阅 ==消息与群组== 分类下的 ==消息被取消reaction== 事件才可接收推送;-
+     * 机器人只能收到所在群聊内的消息被删除表情回复事件
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/events/deleted">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/events/deleted</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2MessageReactionDeletedV1(
         ImService.P2MessageReactionDeletedV1Handler handler) {
       if (eventType2EventHandler.containsKey("im.message.reaction.deleted_v1")) {
@@ -653,6 +1047,14 @@ public class EventDispatcher implements IHandler {
     }
 
 
+    /**
+     * <p> 会议室创建,会议室被创建将触发此事件。
+     * <p> 了解事件订阅的使用场景和配置流程，请点击查看 [事件订阅概述](/ssl:ttdoc/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/meeting_room-v1/meeting_room/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/meeting_room-v1/meeting_room/events/created</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2MeetingRoomCreatedV1(
         MeetingRoomService.P2MeetingRoomCreatedV1Handler handler) {
       if (eventType2EventHandler.containsKey("meeting_room.meeting_room.created_v1")) {
@@ -662,6 +1064,14 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 会议室删除,会议室被删除将触发此事件。
+     * <p> 了解事件订阅的使用场景和配置流程，请点击查看 [事件订阅概述](/ssl:ttdoc/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/meeting_room-v1/meeting_room/events/deleted">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/meeting_room-v1/meeting_room/events/deleted</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2MeetingRoomDeletedV1(
         MeetingRoomService.P2MeetingRoomDeletedV1Handler handler) {
       if (eventType2EventHandler.containsKey("meeting_room.meeting_room.deleted_v1")) {
@@ -671,6 +1081,14 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 会议室状态信息变更,会议室状态信息变更将触发此事件。
+     * <p> 了解事件订阅的使用场景和配置流程，请点击查看 [事件订阅概述](/ssl:ttdoc/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/meeting_room-v1/meeting_room/events/status_changed">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/meeting_room-v1/meeting_room/events/status_changed</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2MeetingRoomStatusChangedV1(
         MeetingRoomService.P2MeetingRoomStatusChangedV1Handler handler) {
       if (eventType2EventHandler.containsKey("meeting_room.meeting_room.status_changed_v1")) {
@@ -681,6 +1099,14 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 会议室属性变更,会议室属性更新将触发此事件。
+     * <p> 了解事件订阅的使用场景和配置流程，请点击查看 [事件订阅概述](/ssl:ttdoc/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/meeting_room-v1/meeting_room/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/meeting_room-v1/meeting_room/events/updated</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2MeetingRoomUpdatedV1(
         MeetingRoomService.P2MeetingRoomUpdatedV1Handler handler) {
       if (eventType2EventHandler.containsKey("meeting_room.meeting_room.updated_v1")) {
@@ -691,6 +1117,14 @@ public class EventDispatcher implements IHandler {
     }
 
 
+    /**
+     * <p> 任务信息变更（租户维度）,APP 订阅此事件后可接收到该 APP 所在租户的所有来源接口创建的任务的变更事件。事件体为发生变更任务的相关用户的 open_id，可用此
+     * open_id ，通过 获取任务列表接口获取与该用户相关的所有任务。
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/events/update_tenant">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/events/update_tenant</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2TaskUpdateTenantV1(TaskService.P2TaskUpdateTenantV1Handler handler) {
       if (eventType2EventHandler.containsKey("task.task.update_tenant_v1")) {
         throw new EventTypeAlreadyHasHandlerException("task.task.update_tenant_v1");
@@ -699,6 +1133,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 任务信息变更,当 APP 订阅此事件后可以接收到由该 APP 创建的任务发生的变更，包括任务标题、描述、截止时间、协作者、关注者、提醒时间、状态（完成或取消完成）。
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/events/updated</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2TaskUpdatedV1(TaskService.P2TaskUpdatedV1Handler handler) {
       if (eventType2EventHandler.containsKey("task.task.updated_v1")) {
         throw new EventTypeAlreadyHasHandlerException("task.task.updated_v1");
@@ -707,6 +1148,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 任务评论信息变更,当 APP 创建的任务评论信息发生变更时触发此事件，包括任务评论的创建、回复、更新、删除。
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/events/updated</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2TaskCommentUpdatedV1(TaskService.P2TaskCommentUpdatedV1Handler handler) {
       if (eventType2EventHandler.containsKey("task.task.comment.updated_v1")) {
         throw new EventTypeAlreadyHasHandlerException("task.task.comment.updated_v1");
@@ -716,6 +1164,13 @@ public class EventDispatcher implements IHandler {
     }
 
 
+    /**
+     * <p> 加入会议,发生在有人加入会议时
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/events/join_meeting">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/events/join_meeting</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2MeetingJoinMeetingV1(VcService.P2MeetingJoinMeetingV1Handler handler) {
       if (eventType2EventHandler.containsKey("vc.meeting.join_meeting_v1")) {
         throw new EventTypeAlreadyHasHandlerException("vc.meeting.join_meeting_v1");
@@ -724,6 +1179,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 离开会议,发生在有人离开会议时
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/events/leave_meeting">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/events/leave_meeting</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2MeetingLeaveMeetingV1(VcService.P2MeetingLeaveMeetingV1Handler handler) {
       if (eventType2EventHandler.containsKey("vc.meeting.leave_meeting_v1")) {
         throw new EventTypeAlreadyHasHandlerException("vc.meeting.leave_meeting_v1");
@@ -732,6 +1194,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 会议结束,发生在会议结束时
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/events/meeting_ended">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/events/meeting_ended</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2MeetingEndedV1(VcService.P2MeetingEndedV1Handler handler) {
       if (eventType2EventHandler.containsKey("vc.meeting.meeting_ended_v1")) {
         throw new EventTypeAlreadyHasHandlerException("vc.meeting.meeting_ended_v1");
@@ -740,6 +1209,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 会议开始,发生在会议开始时，目前仅提供预约会议的相关事件。
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/events/meeting_started">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/events/meeting_started</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2MeetingStartedV1(VcService.P2MeetingStartedV1Handler handler) {
       if (eventType2EventHandler.containsKey("vc.meeting.meeting_started_v1")) {
         throw new EventTypeAlreadyHasHandlerException("vc.meeting.meeting_started_v1");
@@ -748,6 +1224,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 录制停止,发生在录制结束时
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/events/recording_ended">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/events/recording_ended</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2MeetingRecordingEndedV1(VcService.P2MeetingRecordingEndedV1Handler handler) {
       if (eventType2EventHandler.containsKey("vc.meeting.recording_ended_v1")) {
         throw new EventTypeAlreadyHasHandlerException("vc.meeting.recording_ended_v1");
@@ -756,6 +1239,14 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 录制完成,发生在录制文件上传完毕时
+     * <p> 收到该事件后，方可进行录制文件获取、授权等操作
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/events/recording_ready">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/events/recording_ready</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2MeetingRecordingReadyV1(VcService.P2MeetingRecordingReadyV1Handler handler) {
       if (eventType2EventHandler.containsKey("vc.meeting.recording_ready_v1")) {
         throw new EventTypeAlreadyHasHandlerException("vc.meeting.recording_ready_v1");
@@ -764,6 +1255,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 录制开始,发生在开始录制时
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/events/recording_started">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/events/recording_started</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2MeetingRecordingStartedV1(
         VcService.P2MeetingRecordingStartedV1Handler handler) {
       if (eventType2EventHandler.containsKey("vc.meeting.recording_started_v1")) {
@@ -773,6 +1271,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 屏幕共享结束,发生在屏幕共享结束时
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/events/share_ended">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/events/share_ended</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2MeetingShareEndedV1(VcService.P2MeetingShareEndedV1Handler handler) {
       if (eventType2EventHandler.containsKey("vc.meeting.share_ended_v1")) {
         throw new EventTypeAlreadyHasHandlerException("vc.meeting.share_ended_v1");
@@ -781,6 +1286,13 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 屏幕共享开始,发生在屏幕共享开始时
+     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/events/share_started">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/events/share_started</a>
+     *
+     * @param handler
+     * @return
+     */
     public Builder onP2MeetingShareStartedV1(VcService.P2MeetingShareStartedV1Handler handler) {
       if (eventType2EventHandler.containsKey("vc.meeting.share_started_v1")) {
         throw new EventTypeAlreadyHasHandlerException("vc.meeting.share_started_v1");

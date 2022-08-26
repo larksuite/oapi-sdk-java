@@ -30,6 +30,11 @@ public class MeetingRoomService {
     this.meetingRoom = new MeetingRoom(config);
   }
 
+  /**
+   * meeting_room
+   *
+   * @return
+   */
   public MeetingRoom meetingRoom() {
     return meetingRoom;
   }

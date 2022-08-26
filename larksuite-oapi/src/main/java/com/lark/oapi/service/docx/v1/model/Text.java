@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Text {
 
+  /**
+   * 文本样式
+   * <p> 示例值：
+   */
   @SerializedName("style")
   private TextStyle style;
+  /**
+   * 文本元素
+   * <p> 示例值：
+   */
   @SerializedName("elements")
   private TextElement[] elements;
 
@@ -27,7 +35,15 @@ public class Text {
   }
 
   public Text(Builder builder) {
+    /**
+     * 文本样式
+     * <p> 示例值：
+     */
     this.style = builder.style;
+    /**
+     * 文本元素
+     * <p> 示例值：
+     */
     this.elements = builder.elements;
   }
 
@@ -53,14 +69,37 @@ public class Text {
 
   public static class Builder {
 
+    /**
+     * 文本样式
+     * <p> 示例值：
+     */
     private TextStyle style;
+    /**
+     * 文本元素
+     * <p> 示例值：
+     */
     private TextElement[] elements;
 
+    /**
+     * 文本样式
+     * <p> 示例值：
+     *
+     * @param style
+     * @return
+     */
     public Builder style(TextStyle style) {
       this.style = style;
       return this;
     }
 
+
+    /**
+     * 文本元素
+     * <p> 示例值：
+     *
+     * @param elements
+     * @return
+     */
     public Builder elements(TextElement[] elements) {
       this.elements = elements;
       return this;

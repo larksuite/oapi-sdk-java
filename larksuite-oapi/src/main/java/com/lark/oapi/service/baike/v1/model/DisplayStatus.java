@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class DisplayStatus {
 
+  /**
+   * 对应名称是否在消息/云文档高亮
+   * <p> 示例值：true
+   */
   @SerializedName("allow_highlight")
   private Boolean allowHighlight;
+  /**
+   * 对应名称是否在搜索结果中展示
+   * <p> 示例值：true
+   */
   @SerializedName("allow_search")
   private Boolean allowSearch;
 
@@ -27,7 +35,15 @@ public class DisplayStatus {
   }
 
   public DisplayStatus(Builder builder) {
+    /**
+     * 对应名称是否在消息/云文档高亮
+     * <p> 示例值：true
+     */
     this.allowHighlight = builder.allowHighlight;
+    /**
+     * 对应名称是否在搜索结果中展示
+     * <p> 示例值：true
+     */
     this.allowSearch = builder.allowSearch;
   }
 
@@ -53,14 +69,37 @@ public class DisplayStatus {
 
   public static class Builder {
 
+    /**
+     * 对应名称是否在消息/云文档高亮
+     * <p> 示例值：true
+     */
     private Boolean allowHighlight;
+    /**
+     * 对应名称是否在搜索结果中展示
+     * <p> 示例值：true
+     */
     private Boolean allowSearch;
 
+    /**
+     * 对应名称是否在消息/云文档高亮
+     * <p> 示例值：true
+     *
+     * @param allowHighlight
+     * @return
+     */
     public Builder allowHighlight(Boolean allowHighlight) {
       this.allowHighlight = allowHighlight;
       return this;
     }
 
+
+    /**
+     * 对应名称是否在搜索结果中展示
+     * <p> 示例值：true
+     *
+     * @param allowSearch
+     * @return
+     */
     public Builder allowSearch(Boolean allowSearch) {
       this.allowSearch = allowSearch;
       return this;

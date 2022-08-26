@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListTicket {
 
+  /**
+   * 工单总数 (单次请求最大为10000条)
+   * <p> 示例值：100
+   */
   @SerializedName("total")
   private Integer total;
+  /**
+   * 工单
+   * <p> 示例值：
+   */
   @SerializedName("tickets")
   private Ticket[] tickets;
 

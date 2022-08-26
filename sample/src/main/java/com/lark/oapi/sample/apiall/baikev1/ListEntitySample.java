@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.baike.v1.model.ListEntityReq;
 import com.lark.oapi.service.baike.v1.model.ListEntityResp;
 
-// HTTP PATH: /open-apis/baike/v1/entities"
+// GET /open-apis/baike/v1/entities
 public class ListEntitySample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class ListEntitySample {
     // 创建请求对象
     ListEntityReq req = ListEntityReq.newBuilder()
         .pageSize(20)
-        .pageToken("408ecac018b2e3518db37275e812aad7bb8ad3e755fc886f322ac6c430ba")
+        .pageToken("b152fa6e6f62a291019a04c3a93f365f8ac641910506ff15ff4cad6534e087cb4ed8fa2c")
         .provider("星云")
         .userIdType("user_id")
         .build();

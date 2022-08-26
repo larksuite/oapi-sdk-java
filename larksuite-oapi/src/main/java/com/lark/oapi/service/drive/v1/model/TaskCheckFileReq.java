@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Query;
 
 public class TaskCheckFileReq {
 
+  /**
+   * 文件相关异步任务id
+   * <p> 示例值：12345
+   */
   @Query
   @SerializedName("task_id")
   private String taskId;
@@ -27,6 +31,10 @@ public class TaskCheckFileReq {
   }
 
   public TaskCheckFileReq(Builder builder) {
+    /**
+     * 文件相关异步任务id
+     * <p> 示例值：12345
+     */
     this.taskId = builder.taskId;
   }
 
@@ -44,8 +52,16 @@ public class TaskCheckFileReq {
 
   public static class Builder {
 
-    private String taskId;
+    private String taskId; // 文件相关异步任务id
 
+
+    /**
+     * 文件相关异步任务id
+     * <p> 示例值：12345
+     *
+     * @param taskId
+     * @return
+     */
     public Builder taskId(String taskId) {
       this.taskId = taskId;
       return this;

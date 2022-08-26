@@ -19,12 +19,24 @@ import com.lark.oapi.core.annotation.Query;
 
 public class GetActiveMeetingReserveReq {
 
+  /**
+   * 是否需要参会人列表，默认为false
+   * <p> 示例值：false
+   */
   @Query
   @SerializedName("with_participants")
   private Boolean withParticipants;
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * 预约ID（预约的唯一标识）
+   * <p> 示例值：6911188411932033028
+   */
   @Path
   @SerializedName("reserve_id")
   private String reserveId;
@@ -34,8 +46,20 @@ public class GetActiveMeetingReserveReq {
   }
 
   public GetActiveMeetingReserveReq(Builder builder) {
+    /**
+     * 是否需要参会人列表，默认为false
+     * <p> 示例值：false
+     */
     this.withParticipants = builder.withParticipants;
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
+    /**
+     * 预约ID（预约的唯一标识）
+     * <p> 示例值：6911188411932033028
+     */
     this.reserveId = builder.reserveId;
   }
 
@@ -69,25 +93,54 @@ public class GetActiveMeetingReserveReq {
 
   public static class Builder {
 
-    private Boolean withParticipants;
-    private String userIdType;
-    private String reserveId;
+    private Boolean withParticipants; // 是否需要参会人列表，默认为false
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String reserveId; // 预约ID（预约的唯一标识）
 
+    /**
+     * 是否需要参会人列表，默认为false
+     * <p> 示例值：false
+     *
+     * @param withParticipants
+     * @return
+     */
     public Builder withParticipants(Boolean withParticipants) {
       this.withParticipants = withParticipants;
       return this;
     }
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.vc.v1.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.GetActiveMeetingReserveUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.vc.v1.enums.GetActiveMeetingReserveUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+    /**
+     * 预约ID（预约的唯一标识）
+     * <p> 示例值：6911188411932033028
+     *
+     * @param reserveId
+     * @return
+     */
     public Builder reserveId(String reserveId) {
       this.reserveId = reserveId;
       return this;

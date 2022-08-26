@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.calendar.v4.model.ListCalendarEventAttendeeChatMemberReq;
 import com.lark.oapi.service.calendar.v4.model.ListCalendarEventAttendeeChatMemberResp;
 
-// HTTP PATH: /open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees/:attendee_id/chat_members"
+// GET /open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees/:attendee_id/chat_members
 public class ListCalendarEventAttendeeChatMemberSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,10 +14,10 @@ public class ListCalendarEventAttendeeChatMemberSample {
 
     // 创建请求对象
     ListCalendarEventAttendeeChatMemberReq req = ListCalendarEventAttendeeChatMemberReq.newBuilder()
-        .calendarId("")
-        .eventId("")
-        .attendeeId("")
-        .pageToken("")
+        .calendarId("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn")
+        .eventId("xxxxxxxxx_0")
+        .attendeeId("chat_xxxxxx")
+        .pageToken("23jhysaxxxxsysy")
         .pageSize(20)
         .userIdType("user_id")
         .build();

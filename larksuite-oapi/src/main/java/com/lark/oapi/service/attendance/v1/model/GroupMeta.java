@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class GroupMeta {
 
+  /**
+   * 考勤组 ID
+   * <p> 示例值：6919358128597097404
+   */
   @SerializedName("group_id")
   private String groupId;
+  /**
+   * 考勤组名称
+   * <p> 示例值：考勤组1
+   */
   @SerializedName("group_name")
   private String groupName;
 
@@ -27,7 +35,15 @@ public class GroupMeta {
   }
 
   public GroupMeta(Builder builder) {
+    /**
+     * 考勤组 ID
+     * <p> 示例值：6919358128597097404
+     */
     this.groupId = builder.groupId;
+    /**
+     * 考勤组名称
+     * <p> 示例值：考勤组1
+     */
     this.groupName = builder.groupName;
   }
 
@@ -53,14 +69,37 @@ public class GroupMeta {
 
   public static class Builder {
 
+    /**
+     * 考勤组 ID
+     * <p> 示例值：6919358128597097404
+     */
     private String groupId;
+    /**
+     * 考勤组名称
+     * <p> 示例值：考勤组1
+     */
     private String groupName;
 
+    /**
+     * 考勤组 ID
+     * <p> 示例值：6919358128597097404
+     *
+     * @param groupId
+     * @return
+     */
     public Builder groupId(String groupId) {
       this.groupId = groupId;
       return this;
     }
 
+
+    /**
+     * 考勤组名称
+     * <p> 示例值：考勤组1
+     *
+     * @param groupName
+     * @return
+     */
     public Builder groupName(String groupName) {
       this.groupName = groupName;
       return this;

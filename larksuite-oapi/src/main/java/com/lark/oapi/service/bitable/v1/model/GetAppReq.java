@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class GetAppReq {
 
+  /**
+   * bitable app token
+   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+   */
   @Path
   @SerializedName("app_token")
   private String appToken;
@@ -27,6 +31,10 @@ public class GetAppReq {
   }
 
   public GetAppReq(Builder builder) {
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     */
     this.appToken = builder.appToken;
   }
 
@@ -44,8 +52,15 @@ public class GetAppReq {
 
   public static class Builder {
 
-    private String appToken;
+    private String appToken; // bitable app token
 
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     *
+     * @param appToken
+     * @return
+     */
     public Builder appToken(String appToken) {
       this.appToken = appToken;
       return this;

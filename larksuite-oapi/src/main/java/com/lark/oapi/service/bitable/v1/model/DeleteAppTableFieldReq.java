@@ -18,12 +18,24 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DeleteAppTableFieldReq {
 
+  /**
+   * bitable app token
+   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+   */
   @Path
   @SerializedName("app_token")
   private String appToken;
+  /**
+   * table id
+   * <p> 示例值：tblsRc9GRRXKqhvW
+   */
   @Path
   @SerializedName("table_id")
   private String tableId;
+  /**
+   * field id
+   * <p> 示例值：fldPTb0U2y
+   */
   @Path
   @SerializedName("field_id")
   private String fieldId;
@@ -33,8 +45,20 @@ public class DeleteAppTableFieldReq {
   }
 
   public DeleteAppTableFieldReq(Builder builder) {
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     */
     this.appToken = builder.appToken;
+    /**
+     * table id
+     * <p> 示例值：tblsRc9GRRXKqhvW
+     */
     this.tableId = builder.tableId;
+    /**
+     * field id
+     * <p> 示例值：fldPTb0U2y
+     */
     this.fieldId = builder.fieldId;
   }
 
@@ -68,20 +92,43 @@ public class DeleteAppTableFieldReq {
 
   public static class Builder {
 
-    private String appToken;
-    private String tableId;
-    private String fieldId;
+    private String appToken; // bitable app token
+    private String tableId; // table id
+    private String fieldId; // field id
 
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     *
+     * @param appToken
+     * @return
+     */
     public Builder appToken(String appToken) {
       this.appToken = appToken;
       return this;
     }
 
+
+    /**
+     * table id
+     * <p> 示例值：tblsRc9GRRXKqhvW
+     *
+     * @param tableId
+     * @return
+     */
     public Builder tableId(String tableId) {
       this.tableId = tableId;
       return this;
     }
 
+
+    /**
+     * field id
+     * <p> 示例值：fldPTb0U2y
+     *
+     * @param fieldId
+     * @return
+     */
     public Builder fieldId(String fieldId) {
       this.fieldId = fieldId;
       return this;

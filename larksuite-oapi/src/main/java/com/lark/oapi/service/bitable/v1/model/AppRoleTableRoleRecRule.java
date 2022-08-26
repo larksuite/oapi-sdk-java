@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class AppRoleTableRoleRecRule {
 
+  /**
+   * 记录筛选条件
+   * <p> 示例值：
+   */
   @SerializedName("conditions")
   private AppRoleTableRoleRecRuleCondition[] conditions;
+  /**
+   * 多个筛选条件的关系
+   * <p> 示例值：and
+   */
   @SerializedName("conjunction")
   private String conjunction;
+  /**
+   * 其他记录权限，仅在table_perm为2时有意义
+   * <p> 示例值：0
+   */
   @SerializedName("other_perm")
   private Integer otherPerm;
 
@@ -29,8 +41,20 @@ public class AppRoleTableRoleRecRule {
   }
 
   public AppRoleTableRoleRecRule(Builder builder) {
+    /**
+     * 记录筛选条件
+     * <p> 示例值：
+     */
     this.conditions = builder.conditions;
+    /**
+     * 多个筛选条件的关系
+     * <p> 示例值：and
+     */
     this.conjunction = builder.conjunction;
+    /**
+     * 其他记录权限，仅在table_perm为2时有意义
+     * <p> 示例值：0
+     */
     this.otherPerm = builder.otherPerm;
   }
 
@@ -64,31 +88,82 @@ public class AppRoleTableRoleRecRule {
 
   public static class Builder {
 
+    /**
+     * 记录筛选条件
+     * <p> 示例值：
+     */
     private AppRoleTableRoleRecRuleCondition[] conditions;
+    /**
+     * 多个筛选条件的关系
+     * <p> 示例值：and
+     */
     private String conjunction;
+    /**
+     * 其他记录权限，仅在table_perm为2时有意义
+     * <p> 示例值：0
+     */
     private Integer otherPerm;
 
+    /**
+     * 记录筛选条件
+     * <p> 示例值：
+     *
+     * @param conditions
+     * @return
+     */
     public Builder conditions(AppRoleTableRoleRecRuleCondition[] conditions) {
       this.conditions = conditions;
       return this;
     }
 
+
+    /**
+     * 多个筛选条件的关系
+     * <p> 示例值：and
+     *
+     * @param conjunction
+     * @return
+     */
     public Builder conjunction(String conjunction) {
       this.conjunction = conjunction;
       return this;
     }
 
-    public Builder conjunction(com.lark.oapi.service.bitable.v1.enums.ConjunctionEnum conjunction) {
+    /**
+     * 多个筛选条件的关系
+     * <p> 示例值：and
+     *
+     * @param conjunction {@link com.lark.oapi.service.bitable.v1.enums.AppRoleTableRoleRecRuleConjunctionEnum}
+     * @return
+     */
+    public Builder conjunction(
+        com.lark.oapi.service.bitable.v1.enums.AppRoleTableRoleRecRuleConjunctionEnum conjunction) {
       this.conjunction = conjunction.getValue();
       return this;
     }
 
+
+    /**
+     * 其他记录权限，仅在table_perm为2时有意义
+     * <p> 示例值：0
+     *
+     * @param otherPerm
+     * @return
+     */
     public Builder otherPerm(Integer otherPerm) {
       this.otherPerm = otherPerm;
       return this;
     }
 
-    public Builder otherPerm(com.lark.oapi.service.bitable.v1.enums.OtherPermEnum otherPerm) {
+    /**
+     * 其他记录权限，仅在table_perm为2时有意义
+     * <p> 示例值：0
+     *
+     * @param otherPerm {@link com.lark.oapi.service.bitable.v1.enums.AppRoleTableRoleRecRuleOtherPermEnum}
+     * @return
+     */
+    public Builder otherPerm(
+        com.lark.oapi.service.bitable.v1.enums.AppRoleTableRoleRecRuleOtherPermEnum otherPerm) {
       this.otherPerm = otherPerm.getValue();
       return this;
     }

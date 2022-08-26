@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class SearchDepartmentReqBody {
 
+  /**
+   * 搜索关键词，匹配字段为部门名称（不支持匹配部门国际化名称）
+   * <p> 示例值：DemoName
+   */
   @SerializedName("query")
   private String query;
 
@@ -25,6 +29,10 @@ public class SearchDepartmentReqBody {
   }
 
   public SearchDepartmentReqBody(Builder builder) {
+    /**
+     * 搜索关键词，匹配字段为部门名称（不支持匹配部门国际化名称）
+     * <p> 示例值：DemoName
+     */
     this.query = builder.query;
   }
 
@@ -42,8 +50,19 @@ public class SearchDepartmentReqBody {
 
   public static class Builder {
 
+    /**
+     * 搜索关键词，匹配字段为部门名称（不支持匹配部门国际化名称）
+     * <p> 示例值：DemoName
+     */
     private String query;
 
+    /**
+     * 搜索关键词，匹配字段为部门名称（不支持匹配部门国际化名称）
+     * <p> 示例值：DemoName
+     *
+     * @param query
+     * @return
+     */
     public Builder query(String query) {
       this.query = query;
       return this;

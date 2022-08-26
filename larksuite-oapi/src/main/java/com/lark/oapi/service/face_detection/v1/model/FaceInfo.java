@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class FaceInfo {
 
+  /**
+   * 人脸位置信息
+   * <p> 示例值：
+   */
   @SerializedName("position")
   private FacePosition position;
+  /**
+   * 人脸属性信息
+   * <p> 示例值：
+   */
   @SerializedName("attribute")
   private FaceAttribute attribute;
+  /**
+   * 人脸质量信息
+   * <p> 示例值：
+   */
   @SerializedName("quality")
   private FaceQuality quality;
 
@@ -29,8 +41,20 @@ public class FaceInfo {
   }
 
   public FaceInfo(Builder builder) {
+    /**
+     * 人脸位置信息
+     * <p> 示例值：
+     */
     this.position = builder.position;
+    /**
+     * 人脸属性信息
+     * <p> 示例值：
+     */
     this.attribute = builder.attribute;
+    /**
+     * 人脸质量信息
+     * <p> 示例值：
+     */
     this.quality = builder.quality;
   }
 
@@ -64,20 +88,55 @@ public class FaceInfo {
 
   public static class Builder {
 
+    /**
+     * 人脸位置信息
+     * <p> 示例值：
+     */
     private FacePosition position;
+    /**
+     * 人脸属性信息
+     * <p> 示例值：
+     */
     private FaceAttribute attribute;
+    /**
+     * 人脸质量信息
+     * <p> 示例值：
+     */
     private FaceQuality quality;
 
+    /**
+     * 人脸位置信息
+     * <p> 示例值：
+     *
+     * @param position
+     * @return
+     */
     public Builder position(FacePosition position) {
       this.position = position;
       return this;
     }
 
+
+    /**
+     * 人脸属性信息
+     * <p> 示例值：
+     *
+     * @param attribute
+     * @return
+     */
     public Builder attribute(FaceAttribute attribute) {
       this.attribute = attribute;
       return this;
     }
 
+
+    /**
+     * 人脸质量信息
+     * <p> 示例值：
+     *
+     * @param quality
+     * @return
+     */
     public Builder quality(FaceQuality quality) {
       this.quality = quality;
       return this;

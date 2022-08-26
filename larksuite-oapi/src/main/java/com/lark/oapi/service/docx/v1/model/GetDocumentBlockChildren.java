@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetDocumentBlockChildren {
 
+  /**
+   * block 的 children 列表
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private Block[] items;
+  /**
+   * 下一个分页的分页标记
+   * <p> 示例值：
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 是否还有下一个分页
+   * <p> 示例值：
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
 

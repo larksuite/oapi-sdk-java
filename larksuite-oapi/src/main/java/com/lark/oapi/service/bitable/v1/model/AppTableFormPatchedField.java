@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class AppTableFormPatchedField {
 
+  /**
+   * 上一个表单问题 ID，用于支持调整表单问题的顺序，通过前一个表单问题的 field_id 来确定位置；如果 pre_field_id 为空字符串，则说明要排到首个表单问题
+   * <p> 示例值：fldjX7dUj5
+   */
   @SerializedName("pre_field_id")
   private String preFieldId;
+  /**
+   * 表单问题
+   * <p> 示例值：多行文本
+   */
   @SerializedName("title")
   private String title;
+  /**
+   * 问题描述
+   * <p> 示例值：多行文本描述
+   */
   @SerializedName("description")
   private String description;
+  /**
+   * 是否必填
+   * <p> 示例值：true
+   */
   @SerializedName("required")
   private Boolean required;
+  /**
+   * 是否可见
+   * <p> 示例值：true
+   */
   @SerializedName("visible")
   private Boolean visible;
 
@@ -33,10 +53,30 @@ public class AppTableFormPatchedField {
   }
 
   public AppTableFormPatchedField(Builder builder) {
+    /**
+     * 上一个表单问题 ID，用于支持调整表单问题的顺序，通过前一个表单问题的 field_id 来确定位置；如果 pre_field_id 为空字符串，则说明要排到首个表单问题
+     * <p> 示例值：fldjX7dUj5
+     */
     this.preFieldId = builder.preFieldId;
+    /**
+     * 表单问题
+     * <p> 示例值：多行文本
+     */
     this.title = builder.title;
+    /**
+     * 问题描述
+     * <p> 示例值：多行文本描述
+     */
     this.description = builder.description;
+    /**
+     * 是否必填
+     * <p> 示例值：true
+     */
     this.required = builder.required;
+    /**
+     * 是否可见
+     * <p> 示例值：true
+     */
     this.visible = builder.visible;
   }
 
@@ -86,32 +126,91 @@ public class AppTableFormPatchedField {
 
   public static class Builder {
 
+    /**
+     * 上一个表单问题 ID，用于支持调整表单问题的顺序，通过前一个表单问题的 field_id 来确定位置；如果 pre_field_id 为空字符串，则说明要排到首个表单问题
+     * <p> 示例值：fldjX7dUj5
+     */
     private String preFieldId;
+    /**
+     * 表单问题
+     * <p> 示例值：多行文本
+     */
     private String title;
+    /**
+     * 问题描述
+     * <p> 示例值：多行文本描述
+     */
     private String description;
+    /**
+     * 是否必填
+     * <p> 示例值：true
+     */
     private Boolean required;
+    /**
+     * 是否可见
+     * <p> 示例值：true
+     */
     private Boolean visible;
 
+    /**
+     * 上一个表单问题 ID，用于支持调整表单问题的顺序，通过前一个表单问题的 field_id 来确定位置；如果 pre_field_id 为空字符串，则说明要排到首个表单问题
+     * <p> 示例值：fldjX7dUj5
+     *
+     * @param preFieldId
+     * @return
+     */
     public Builder preFieldId(String preFieldId) {
       this.preFieldId = preFieldId;
       return this;
     }
 
+
+    /**
+     * 表单问题
+     * <p> 示例值：多行文本
+     *
+     * @param title
+     * @return
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
+
+    /**
+     * 问题描述
+     * <p> 示例值：多行文本描述
+     *
+     * @param description
+     * @return
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
+
+    /**
+     * 是否必填
+     * <p> 示例值：true
+     *
+     * @param required
+     * @return
+     */
     public Builder required(Boolean required) {
       this.required = required;
       return this;
     }
 
+
+    /**
+     * 是否可见
+     * <p> 示例值：true
+     *
+     * @param visible
+     * @return
+     */
     public Builder visible(Boolean visible) {
       this.visible = visible;
       return this;

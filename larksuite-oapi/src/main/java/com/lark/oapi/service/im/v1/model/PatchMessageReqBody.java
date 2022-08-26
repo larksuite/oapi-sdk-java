@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class PatchMessageReqBody {
 
+  /**
+   * 消息内容 json 格式，[发送消息 content 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
+   * <p> 示例值：参考链接
+   */
   @SerializedName("content")
   private String content;
 
@@ -25,6 +29,10 @@ public class PatchMessageReqBody {
   }
 
   public PatchMessageReqBody(Builder builder) {
+    /**
+     * 消息内容 json 格式，[发送消息 content 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
+     * <p> 示例值：参考链接
+     */
     this.content = builder.content;
   }
 
@@ -42,8 +50,19 @@ public class PatchMessageReqBody {
 
   public static class Builder {
 
+    /**
+     * 消息内容 json 格式，[发送消息 content 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
+     * <p> 示例值：参考链接
+     */
     private String content;
 
+    /**
+     * 消息内容 json 格式，[发送消息 content 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)，参考文档中的卡片格式
+     * <p> 示例值：参考链接
+     *
+     * @param content
+     * @return
+     */
     public Builder content(String content) {
       this.content = content;
       return this;

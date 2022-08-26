@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.contact.v3.model.GetGroupReq;
 import com.lark.oapi.service.contact.v3.model.GetGroupResp;
 
-// HTTP PATH: /open-apis/contact/v3/group/:group_id"
+// GET /open-apis/contact/v3/group/:group_id
 public class GetGroupSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class GetGroupSample {
 
     // 创建请求对象
     GetGroupReq req = GetGroupReq.newBuilder()
-        .groupId("")
+        .groupId("g193821")
         .build();
 
     // 发起请求

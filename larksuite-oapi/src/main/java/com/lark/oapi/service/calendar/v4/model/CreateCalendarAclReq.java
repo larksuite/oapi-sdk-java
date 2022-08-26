@@ -20,9 +20,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class CreateCalendarAclReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+   * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+   */
   @Path
   @SerializedName("calendar_id")
   private String calendarId;
@@ -34,7 +42,15 @@ public class CreateCalendarAclReq {
   }
 
   public CreateCalendarAclReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
+    /**
+     * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     */
     this.calendarId = builder.calendarId;
     this.body = builder.body;
   }
@@ -69,20 +85,42 @@ public class CreateCalendarAclReq {
 
   public static class Builder {
 
-    private String userIdType;
-    private String calendarId;
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String calendarId; // 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
     private CalendarAcl body;
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.CreateCalendarAclUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.calendar.v4.enums.CreateCalendarAclUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+    /**
+     * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     *
+     * @param calendarId
+     * @return
+     */
     public Builder calendarId(String calendarId) {
       this.calendarId = calendarId;
       return this;
@@ -92,6 +130,12 @@ public class CreateCalendarAclReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder calendarAcl(CalendarAcl body) {
       this.body = body;
       return this;

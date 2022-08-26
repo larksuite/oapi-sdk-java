@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DeleteReserveReq {
 
+  /**
+   * 预约ID（预约的唯一标识）
+   * <p> 示例值：6911188411932033028
+   */
   @Path
   @SerializedName("reserve_id")
   private String reserveId;
@@ -27,6 +31,10 @@ public class DeleteReserveReq {
   }
 
   public DeleteReserveReq(Builder builder) {
+    /**
+     * 预约ID（预约的唯一标识）
+     * <p> 示例值：6911188411932033028
+     */
     this.reserveId = builder.reserveId;
   }
 
@@ -44,8 +52,15 @@ public class DeleteReserveReq {
 
   public static class Builder {
 
-    private String reserveId;
+    private String reserveId; // 预约ID（预约的唯一标识）
 
+    /**
+     * 预约ID（预约的唯一标识）
+     * <p> 示例值：6911188411932033028
+     *
+     * @param reserveId
+     * @return
+     */
     public Builder reserveId(String reserveId) {
       this.reserveId = reserveId;
       return this;

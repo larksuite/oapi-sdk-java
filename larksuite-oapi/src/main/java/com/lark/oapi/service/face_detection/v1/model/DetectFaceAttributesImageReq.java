@@ -48,6 +48,12 @@ public class DetectFaceAttributesImageReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder detectFaceAttributesImageReqBody(DetectFaceAttributesImageReqBody body) {
       this.body = body;
       return this;

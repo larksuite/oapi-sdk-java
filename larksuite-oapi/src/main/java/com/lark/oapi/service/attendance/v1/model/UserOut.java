@@ -17,26 +17,70 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserOut {
 
+  /**
+   * 审批实例 ID
+   * <p> 示例值：6737202939523236113
+   */
   @SerializedName("approval_id")
   private String approvalId;
+  /**
+   * 外出类型唯一 ID，代表一种假期类型，长度小于 14
+   * <p> 示例值：9496E43696967658A512969523E89870
+   */
   @SerializedName("uniq_id")
   private String uniqId;
+  /**
+   * 外出时长单位
+   * <p> 示例值：1
+   */
   @SerializedName("unit")
   private Integer unit;
+  /**
+   * 外出时长（单位：秒）
+   * <p> 示例值：28800
+   */
   @SerializedName("interval")
   private Integer interval;
+  /**
+   * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+   * <p> 示例值：2021-01-04 09:00:00
+   */
   @SerializedName("start_time")
   private String startTime;
+  /**
+   * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+   * <p> 示例值：2021-01-04 19:00:00
+   */
   @SerializedName("end_time")
   private String endTime;
+  /**
+   * 外出多语言展示，格式为 map，key 为 ["ch"、"en"、"ja"]，其中 ch 代表中文、en 代表英语、ja 代表日语
+   * <p> 示例值：
+   */
   @SerializedName("i18n_names")
   private I18nNames i18nNames;
+  /**
+   * 默认语言类型，由于飞书客户端支持中、英、日三种语言，当用户切换语言时，如果假期名称没有所对应的语言，会使用默认语言的名称
+   * <p> 示例值：ch
+   */
   @SerializedName("default_locale")
   private String defaultLocale;
+  /**
+   * 外出理由
+   * <p> 示例值：外出办事
+   */
   @SerializedName("reason")
   private String reason;
+  /**
+   * 审批通过时间
+   * <p> 示例值：2021-01-04 12:00:00
+   */
   @SerializedName("approve_pass_time")
   private String approvePassTime;
+  /**
+   * 审批申请时间
+   * <p> 示例值：2021-01-04 11:00:00
+   */
   @SerializedName("approve_apply_time")
   private String approveApplyTime;
 
@@ -45,16 +89,60 @@ public class UserOut {
   }
 
   public UserOut(Builder builder) {
+    /**
+     * 审批实例 ID
+     * <p> 示例值：6737202939523236113
+     */
     this.approvalId = builder.approvalId;
+    /**
+     * 外出类型唯一 ID，代表一种假期类型，长度小于 14
+     * <p> 示例值：9496E43696967658A512969523E89870
+     */
     this.uniqId = builder.uniqId;
+    /**
+     * 外出时长单位
+     * <p> 示例值：1
+     */
     this.unit = builder.unit;
+    /**
+     * 外出时长（单位：秒）
+     * <p> 示例值：28800
+     */
     this.interval = builder.interval;
+    /**
+     * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     * <p> 示例值：2021-01-04 09:00:00
+     */
     this.startTime = builder.startTime;
+    /**
+     * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     * <p> 示例值：2021-01-04 19:00:00
+     */
     this.endTime = builder.endTime;
+    /**
+     * 外出多语言展示，格式为 map，key 为 ["ch"、"en"、"ja"]，其中 ch 代表中文、en 代表英语、ja 代表日语
+     * <p> 示例值：
+     */
     this.i18nNames = builder.i18nNames;
+    /**
+     * 默认语言类型，由于飞书客户端支持中、英、日三种语言，当用户切换语言时，如果假期名称没有所对应的语言，会使用默认语言的名称
+     * <p> 示例值：ch
+     */
     this.defaultLocale = builder.defaultLocale;
+    /**
+     * 外出理由
+     * <p> 示例值：外出办事
+     */
     this.reason = builder.reason;
+    /**
+     * 审批通过时间
+     * <p> 示例值：2021-01-04 12:00:00
+     */
     this.approvePassTime = builder.approvePassTime;
+    /**
+     * 审批申请时间
+     * <p> 示例值：2021-01-04 11:00:00
+     */
     this.approveApplyTime = builder.approveApplyTime;
   }
 
@@ -152,73 +240,211 @@ public class UserOut {
 
   public static class Builder {
 
+    /**
+     * 审批实例 ID
+     * <p> 示例值：6737202939523236113
+     */
     private String approvalId;
+    /**
+     * 外出类型唯一 ID，代表一种假期类型，长度小于 14
+     * <p> 示例值：9496E43696967658A512969523E89870
+     */
     private String uniqId;
+    /**
+     * 外出时长单位
+     * <p> 示例值：1
+     */
     private Integer unit;
+    /**
+     * 外出时长（单位：秒）
+     * <p> 示例值：28800
+     */
     private Integer interval;
+    /**
+     * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     * <p> 示例值：2021-01-04 09:00:00
+     */
     private String startTime;
+    /**
+     * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     * <p> 示例值：2021-01-04 19:00:00
+     */
     private String endTime;
+    /**
+     * 外出多语言展示，格式为 map，key 为 ["ch"、"en"、"ja"]，其中 ch 代表中文、en 代表英语、ja 代表日语
+     * <p> 示例值：
+     */
     private I18nNames i18nNames;
+    /**
+     * 默认语言类型，由于飞书客户端支持中、英、日三种语言，当用户切换语言时，如果假期名称没有所对应的语言，会使用默认语言的名称
+     * <p> 示例值：ch
+     */
     private String defaultLocale;
+    /**
+     * 外出理由
+     * <p> 示例值：外出办事
+     */
     private String reason;
+    /**
+     * 审批通过时间
+     * <p> 示例值：2021-01-04 12:00:00
+     */
     private String approvePassTime;
+    /**
+     * 审批申请时间
+     * <p> 示例值：2021-01-04 11:00:00
+     */
     private String approveApplyTime;
 
+    /**
+     * 审批实例 ID
+     * <p> 示例值：6737202939523236113
+     *
+     * @param approvalId
+     * @return
+     */
     public Builder approvalId(String approvalId) {
       this.approvalId = approvalId;
       return this;
     }
 
+
+    /**
+     * 外出类型唯一 ID，代表一种假期类型，长度小于 14
+     * <p> 示例值：9496E43696967658A512969523E89870
+     *
+     * @param uniqId
+     * @return
+     */
     public Builder uniqId(String uniqId) {
       this.uniqId = uniqId;
       return this;
     }
 
+
+    /**
+     * 外出时长单位
+     * <p> 示例值：1
+     *
+     * @param unit
+     * @return
+     */
     public Builder unit(Integer unit) {
       this.unit = unit;
       return this;
     }
 
-    public Builder unit(com.lark.oapi.service.attendance.v1.enums.UnitEnum unit) {
+    /**
+     * 外出时长单位
+     * <p> 示例值：1
+     *
+     * @param unit {@link com.lark.oapi.service.attendance.v1.enums.UserOutUnitEnum}
+     * @return
+     */
+    public Builder unit(com.lark.oapi.service.attendance.v1.enums.UserOutUnitEnum unit) {
       this.unit = unit.getValue();
       return this;
     }
 
+
+    /**
+     * 外出时长（单位：秒）
+     * <p> 示例值：28800
+     *
+     * @param interval
+     * @return
+     */
     public Builder interval(Integer interval) {
       this.interval = interval;
       return this;
     }
 
+
+    /**
+     * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     * <p> 示例值：2021-01-04 09:00:00
+     *
+     * @param startTime
+     * @return
+     */
     public Builder startTime(String startTime) {
       this.startTime = startTime;
       return this;
     }
 
+
+    /**
+     * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     * <p> 示例值：2021-01-04 19:00:00
+     *
+     * @param endTime
+     * @return
+     */
     public Builder endTime(String endTime) {
       this.endTime = endTime;
       return this;
     }
 
+
+    /**
+     * 外出多语言展示，格式为 map，key 为 ["ch"、"en"、"ja"]，其中 ch 代表中文、en 代表英语、ja 代表日语
+     * <p> 示例值：
+     *
+     * @param i18nNames
+     * @return
+     */
     public Builder i18nNames(I18nNames i18nNames) {
       this.i18nNames = i18nNames;
       return this;
     }
 
+
+    /**
+     * 默认语言类型，由于飞书客户端支持中、英、日三种语言，当用户切换语言时，如果假期名称没有所对应的语言，会使用默认语言的名称
+     * <p> 示例值：ch
+     *
+     * @param defaultLocale
+     * @return
+     */
     public Builder defaultLocale(String defaultLocale) {
       this.defaultLocale = defaultLocale;
       return this;
     }
 
+
+    /**
+     * 外出理由
+     * <p> 示例值：外出办事
+     *
+     * @param reason
+     * @return
+     */
     public Builder reason(String reason) {
       this.reason = reason;
       return this;
     }
 
+
+    /**
+     * 审批通过时间
+     * <p> 示例值：2021-01-04 12:00:00
+     *
+     * @param approvePassTime
+     * @return
+     */
     public Builder approvePassTime(String approvePassTime) {
       this.approvePassTime = approvePassTime;
       return this;
     }
 
+
+    /**
+     * 审批申请时间
+     * <p> 示例值：2021-01-04 11:00:00
+     *
+     * @param approveApplyTime
+     * @return
+     */
     public Builder approveApplyTime(String approveApplyTime) {
       this.approveApplyTime = approveApplyTime;
       return this;

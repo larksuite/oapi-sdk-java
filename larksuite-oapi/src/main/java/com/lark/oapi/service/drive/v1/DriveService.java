@@ -136,46 +136,101 @@ public class DriveService {
     this.permissionPublic = new PermissionPublic(config);
   }
 
+  /**
+   * 导出
+   *
+   * @return
+   */
   public ExportTask exportTask() {
     return exportTask;
   }
 
+  /**
+   * 文件
+   *
+   * @return
+   */
   public File file() {
     return file;
   }
 
+  /**
+   * 评论
+   *
+   * @return
+   */
   public FileComment fileComment() {
     return fileComment;
   }
 
+  /**
+   * 评论
+   *
+   * @return
+   */
   public FileCommentReply fileCommentReply() {
     return fileCommentReply;
   }
 
+  /**
+   * 文件
+   *
+   * @return
+   */
   public FileStatistics fileStatistics() {
     return fileStatistics;
   }
 
+  /**
+   * 订阅
+   *
+   * @return
+   */
   public FileSubscription fileSubscription() {
     return fileSubscription;
   }
 
+  /**
+   * 导入
+   *
+   * @return
+   */
   public ImportTask importTask() {
     return importTask;
   }
 
+  /**
+   * 分片上传
+   *
+   * @return
+   */
   public Media media() {
     return media;
   }
 
+  /**
+   * 文件
+   *
+   * @return
+   */
   public Meta meta() {
     return meta;
   }
 
+  /**
+   * 成员
+   *
+   * @return
+   */
   public PermissionMember permissionMember() {
     return permissionMember;
   }
 
+  /**
+   * 设置
+   *
+   * @return
+   */
   public PermissionPublic permissionPublic() {
     return permissionPublic;
   }
@@ -188,6 +243,13 @@ public class DriveService {
       this.config = config;
     }
 
+    /**
+     * 创建导出任务，创建导出任务，将云文档导出为文件
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreateExportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreateExportTaskSample.java</a>
+     * ;
+     */
     public CreateExportTaskResp create(CreateExportTaskReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -210,6 +272,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 创建导出任务，创建导出任务，将云文档导出为文件
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreateExportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreateExportTaskSample.java</a>
+     * ;
+     */
     public CreateExportTaskResp create(CreateExportTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -229,6 +298,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 下载导出文件，根据任务导出结果的token，下载导出文件
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DownloadExportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DownloadExportTaskSample.java</a>
+     * ;
+     */
     public DownloadExportTaskResp download(DownloadExportTaskReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -261,6 +337,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 下载导出文件，根据任务导出结果的token，下载导出文件
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/download</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DownloadExportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DownloadExportTaskSample.java</a>
+     * ;
+     */
     public DownloadExportTaskResp download(DownloadExportTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -291,6 +374,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 查询导出任务结果，根据创建导出任务的ticket查询导出任务的结果
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetExportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetExportTaskSample.java</a>
+     * ;
+     */
     public GetExportTaskResp get(GetExportTaskReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -312,6 +402,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 查询导出任务结果，根据创建导出任务的ticket查询导出任务的结果
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/export_task/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetExportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetExportTaskSample.java</a>
+     * ;
+     */
     public GetExportTaskResp get(GetExportTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -340,6 +437,14 @@ public class DriveService {
       this.config = config;
     }
 
+    /**
+     * 复制文件，将文件复制到用户云空间的其他文件夹中。不支持复制文件夹。;;如果目标文件夹是我的空间，则复制的文件会在「**我的空间**」的「**归我所有**」列表里。
+     * <p> 该接口不支持并发拷贝多个文件，且调用频率上限为 5QPS 且 10000次/天 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CopyFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CopyFileSample.java</a>
+     * ;
+     */
     public CopyFileResp copy(CopyFileReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -360,6 +465,14 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 复制文件，将文件复制到用户云空间的其他文件夹中。不支持复制文件夹。;;如果目标文件夹是我的空间，则复制的文件会在「**我的空间**」的「**归我所有**」列表里。
+     * <p> 该接口不支持并发拷贝多个文件，且调用频率上限为 5QPS 且 10000次/天 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CopyFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CopyFileSample.java</a>
+     * ;
+     */
     public CopyFileResp copy(CopyFileReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -378,6 +491,14 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 新建文件夹，在用户云空间的指定文件夹中创建一个新的空文件夹。
+     * <p> 该接口不支持并发创建，且调用频率上限为 5QPS 以及 10000次/天 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreateFolderFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreateFolderFileSample.java</a>
+     * ;
+     */
     public CreateFolderFileResp createFolder(CreateFolderFileReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -400,6 +521,14 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 新建文件夹，在用户云空间的指定文件夹中创建一个新的空文件夹。
+     * <p> 该接口不支持并发创建，且调用频率上限为 5QPS 以及 10000次/天 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreateFolderFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreateFolderFileSample.java</a>
+     * ;
+     */
     public CreateFolderFileResp createFolder(CreateFolderFileReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -419,6 +548,17 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 删除文件，删除用户在云空间内的文件或者文件夹。文件或者文件夹被删除后，会进入用户回收站里。
+     * <p> 要删除文件需要确保应用具有下述两种权限之一：;1. 该应用是文件所有者并且具有该文件所在父文件夹的编辑权限。;2. 该应用并非文件所有者，但是是该文件所在父文件夹的所有者或者拥有该父文件夹的所有权限（full
+     * access）。 ;
+     * <p> 该接口不支持并发调用，且调用频率上限为5QPS。删除文件夹会异步执行并返回一个task_id，可以使用[task_check](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check)接口查询任务执行状态。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DeleteFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DeleteFileSample.java</a>
+     * ;
+     */
     public DeleteFileResp delete(DeleteFileReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -439,6 +579,17 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 删除文件，删除用户在云空间内的文件或者文件夹。文件或者文件夹被删除后，会进入用户回收站里。
+     * <p> 要删除文件需要确保应用具有下述两种权限之一：;1. 该应用是文件所有者并且具有该文件所在父文件夹的编辑权限。;2. 该应用并非文件所有者，但是是该文件所在父文件夹的所有者或者拥有该父文件夹的所有权限（full
+     * access）。 ;
+     * <p> 该接口不支持并发调用，且调用频率上限为5QPS。删除文件夹会异步执行并返回一个task_id，可以使用[task_check](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check)接口查询任务执行状态。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DeleteFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DeleteFileSample.java</a>
+     * ;
+     */
     public DeleteFileResp delete(DeleteFileReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -457,6 +608,14 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 下载文件，使用该接口可以下载在云空间目录下的文件（不含飞书文档/表格/思维导图等在线文档）。支持range下载。
+     * <p> 该接口支持调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DownloadFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DownloadFileSample.java</a>
+     * ;
+     */
     public DownloadFileResp download(DownloadFileReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -488,6 +647,14 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 下载文件，使用该接口可以下载在云空间目录下的文件（不含飞书文档/表格/思维导图等在线文档）。支持range下载。
+     * <p> 该接口支持调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/download</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DownloadFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DownloadFileSample.java</a>
+     * ;
+     */
     public DownloadFileResp download(DownloadFileReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -517,6 +684,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 获取文件夹下的清单，获取用户云空间中指定文件夹下的文件清单。清单类型包括文件、各种在线文档（文档、电子表格、多维表格、思维笔记）、文件夹和快捷方式。该接口支持分页，但是不会递归的获取子文件夹的清单。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//ListFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//ListFileSample.java</a>
+     * ;
+     */
     public ListFileResp list(ListFileReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -537,6 +711,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 获取文件夹下的清单，获取用户云空间中指定文件夹下的文件清单。清单类型包括文件、各种在线文档（文档、电子表格、多维表格、思维笔记）、文件夹和快捷方式。该接口支持分页，但是不会递归的获取子文件夹的清单。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//ListFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//ListFileSample.java</a>
+     * ;
+     */
     public ListFileResp list(ListFileReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -555,6 +736,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 移动文件，将文件或者文件夹移动到用户云空间的其他位置。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/move">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/move</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//MoveFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//MoveFileSample.java</a>
+     * ;
+     */
     public MoveFileResp move(MoveFileReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -575,6 +763,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 移动文件，将文件或者文件夹移动到用户云空间的其他位置。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/move">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/move</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//MoveFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//MoveFileSample.java</a>
+     * ;
+     */
     public MoveFileResp move(MoveFileReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -593,6 +788,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 订阅云文档事件，该接口仅支持**文档拥有者**订阅自己文档的通知事件，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](/ssl:ttdoc/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](/ssl:ttdoc/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//SubscribeFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//SubscribeFileSample.java</a>
+     * ;
+     */
     public SubscribeFileResp subscribe(SubscribeFileReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -615,6 +817,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 订阅云文档事件，该接口仅支持**文档拥有者**订阅自己文档的通知事件，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](/ssl:ttdoc/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](/ssl:ttdoc/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//SubscribeFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//SubscribeFileSample.java</a>
+     * ;
+     */
     public SubscribeFileResp subscribe(SubscribeFileReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -634,6 +843,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 查询异步任务状态，查询删除文件夹等异步任务的状态信息。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//TaskCheckFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//TaskCheckFileSample.java</a>
+     * ;
+     */
     public TaskCheckFileResp taskCheck(TaskCheckFileReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -656,6 +872,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 查询异步任务状态，查询删除文件夹等异步任务的状态信息。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//TaskCheckFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//TaskCheckFileSample.java</a>
+     * ;
+     */
     public TaskCheckFileResp taskCheck(TaskCheckFileReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -675,6 +898,16 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 上传文件，向云空间指定目录下上传一个小文件。
+     * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/multipart-upload-file-/introduction)。
+     * ;
+     * <p> 该接口支持调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadAllFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadAllFileSample.java</a>
+     * ;
+     */
     public UploadAllFileResp uploadAll(UploadAllFileReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -698,6 +931,16 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 上传文件，向云空间指定目录下上传一个小文件。
+     * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/multipart-upload-file-/introduction)。
+     * ;
+     * <p> 该接口支持调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadAllFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadAllFileSample.java</a>
+     * ;
+     */
     public UploadAllFileResp uploadAll(UploadAllFileReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -718,6 +961,14 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 分片上传文件（完成上传），触发完成上传。
+     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_finish">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_finish</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadFinishFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadFinishFileSample.java</a>
+     * ;
+     */
     public UploadFinishFileResp uploadFinish(UploadFinishFileReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -740,6 +991,14 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 分片上传文件（完成上传），触发完成上传。
+     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_finish">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_finish</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadFinishFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadFinishFileSample.java</a>
+     * ;
+     */
     public UploadFinishFileResp uploadFinish(UploadFinishFileReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -759,6 +1018,14 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 分片上传文件（上传分片），上传对应的文件块。
+     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_part">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_part</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadPartFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadPartFileSample.java</a>
+     * ;
+     */
     public UploadPartFileResp uploadPart(UploadPartFileReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -782,6 +1049,14 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 分片上传文件（上传分片），上传对应的文件块。
+     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_part">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_part</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadPartFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadPartFileSample.java</a>
+     * ;
+     */
     public UploadPartFileResp uploadPart(UploadPartFileReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -802,6 +1077,15 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 分片上传文件（预上传），发送初始化请求获取上传事务ID和分块策略，目前是以4MB大小进行定长分片。
+     * <p> 你在24小时内可保存上传事务ID和上传进度，以便可以恢复上传 ;
+     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_prepare">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_prepare</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadPrepareFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadPrepareFileSample.java</a>
+     * ;
+     */
     public UploadPrepareFileResp uploadPrepare(UploadPrepareFileReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -824,6 +1108,15 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 分片上传文件（预上传），发送初始化请求获取上传事务ID和分块策略，目前是以4MB大小进行定长分片。
+     * <p> 你在24小时内可保存上传事务ID和上传进度，以便可以恢复上传 ;
+     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_prepare">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_prepare</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadPrepareFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadPrepareFileSample.java</a>
+     * ;
+     */
     public UploadPrepareFileResp uploadPrepare(UploadPrepareFileReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -852,6 +1145,13 @@ public class DriveService {
       this.config = config;
     }
 
+    /**
+     * 添加评论，往云文档添加一条全局评论。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreateFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreateFileCommentSample.java</a>
+     * ;
+     */
     public CreateFileCommentResp create(CreateFileCommentReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -874,6 +1174,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 添加评论，往云文档添加一条全局评论。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreateFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreateFileCommentSample.java</a>
+     * ;
+     */
     public CreateFileCommentResp create(CreateFileCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -893,6 +1200,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 获取评论，获取云文档中的某条评论。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetFileCommentSample.java</a>
+     * ;
+     */
     public GetFileCommentResp get(GetFileCommentReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -915,6 +1229,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 获取评论，获取云文档中的某条评论。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetFileCommentSample.java</a>
+     * ;
+     */
     public GetFileCommentResp get(GetFileCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -934,6 +1255,14 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 获取评论列表，通过分页方式获取云文档中的全文评论列表。
+     * <p> 注意：该接口仅可获取在线文档的全文评论，不支持获取局部评论或者在线表格中的评论。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//ListFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//ListFileCommentSample.java</a>
+     * ;
+     */
     public ListFileCommentResp list(ListFileCommentReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -956,6 +1285,14 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 获取评论列表，通过分页方式获取云文档中的全文评论列表。
+     * <p> 注意：该接口仅可获取在线文档的全文评论，不支持获取局部评论或者在线表格中的评论。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//ListFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//ListFileCommentSample.java</a>
+     * ;
+     */
     public ListFileCommentResp list(ListFileCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -975,6 +1312,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 解决/恢复 评论，解决或恢复云文档中的评论。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//PatchFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//PatchFileCommentSample.java</a>
+     * ;
+     */
     public PatchFileCommentResp patch(PatchFileCommentReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -997,6 +1341,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 解决/恢复 评论，解决或恢复云文档中的评论。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//PatchFileCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//PatchFileCommentSample.java</a>
+     * ;
+     */
     public PatchFileCommentResp patch(PatchFileCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1025,6 +1376,13 @@ public class DriveService {
       this.config = config;
     }
 
+    /**
+     * 删除回复，删除云文档中的某条回复。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DeleteFileCommentReplySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DeleteFileCommentReplySample.java</a>
+     * ;
+     */
     public DeleteFileCommentReplyResp delete(DeleteFileCommentReplyReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1047,6 +1405,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 删除回复，删除云文档中的某条回复。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DeleteFileCommentReplySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DeleteFileCommentReplySample.java</a>
+     * ;
+     */
     public DeleteFileCommentReplyResp delete(DeleteFileCommentReplyReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1066,6 +1431,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 更新回复，更新云文档中的某条回复。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UpdateFileCommentReplySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UpdateFileCommentReplySample.java</a>
+     * ;
+     */
     public UpdateFileCommentReplyResp update(UpdateFileCommentReplyReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1088,6 +1460,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 更新回复，更新云文档中的某条回复。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UpdateFileCommentReplySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UpdateFileCommentReplySample.java</a>
+     * ;
+     */
     public UpdateFileCommentReplyResp update(UpdateFileCommentReplyReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1116,6 +1495,13 @@ public class DriveService {
       this.config = config;
     }
 
+    /**
+     * 获取文件统计信息，此接口用于获取文件统计信息，包括文档阅读人数、次数和点赞数。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-statistics/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-statistics/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetFileStatisticsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetFileStatisticsSample.java</a>
+     * ;
+     */
     public GetFileStatisticsResp get(GetFileStatisticsReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1138,6 +1524,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 获取文件统计信息，此接口用于获取文件统计信息，包括文档阅读人数、次数和点赞数。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-statistics/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-statistics/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetFileStatisticsSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetFileStatisticsSample.java</a>
+     * ;
+     */
     public GetFileStatisticsResp get(GetFileStatisticsReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1166,6 +1559,13 @@ public class DriveService {
       this.config = config;
     }
 
+    /**
+     * 创建订阅，订阅文档中的变更事件，当前支持文档评论订阅，订阅后文档评论更新会有“云文档助手”推送给订阅的用户
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreateFileSubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreateFileSubscriptionSample.java</a>
+     * ;
+     */
     public CreateFileSubscriptionResp create(CreateFileSubscriptionReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1188,6 +1588,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 创建订阅，订阅文档中的变更事件，当前支持文档评论订阅，订阅后文档评论更新会有“云文档助手”推送给订阅的用户
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreateFileSubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreateFileSubscriptionSample.java</a>
+     * ;
+     */
     public CreateFileSubscriptionResp create(CreateFileSubscriptionReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1207,6 +1614,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 获取订阅状态，根据订阅ID获取该订阅的状态
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetFileSubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetFileSubscriptionSample.java</a>
+     * ;
+     */
     public GetFileSubscriptionResp get(GetFileSubscriptionReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1229,6 +1643,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 获取订阅状态，根据订阅ID获取该订阅的状态
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetFileSubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetFileSubscriptionSample.java</a>
+     * ;
+     */
     public GetFileSubscriptionResp get(GetFileSubscriptionReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1248,6 +1669,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 更新订阅状态，根据订阅ID更新订阅状态
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//PatchFileSubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//PatchFileSubscriptionSample.java</a>
+     * ;
+     */
     public PatchFileSubscriptionResp patch(PatchFileSubscriptionReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1270,6 +1698,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 更新订阅状态，根据订阅ID更新订阅状态
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-subscription/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//PatchFileSubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//PatchFileSubscriptionSample.java</a>
+     * ;
+     */
     public PatchFileSubscriptionResp patch(PatchFileSubscriptionReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1298,6 +1733,13 @@ public class DriveService {
       this.config = config;
     }
 
+    /**
+     * 创建导入任务，创建导入任务。支持导入为 doc、docx、sheet、bitable，参考[导入用户指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreateImportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreateImportTaskSample.java</a>
+     * ;
+     */
     public CreateImportTaskResp create(CreateImportTaskReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1320,6 +1762,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 创建导入任务，创建导入任务。支持导入为 doc、docx、sheet、bitable，参考[导入用户指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreateImportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreateImportTaskSample.java</a>
+     * ;
+     */
     public CreateImportTaskResp create(CreateImportTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1339,6 +1788,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 查询导入结果，根据创建导入任务返回的 ticket 查询导入结果。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetImportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetImportTaskSample.java</a>
+     * ;
+     */
     public GetImportTaskResp get(GetImportTaskReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -1360,6 +1816,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 查询导入结果，根据创建导入任务返回的 ticket 查询导入结果。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetImportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetImportTaskSample.java</a>
+     * ;
+     */
     public GetImportTaskResp get(GetImportTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1388,6 +1851,14 @@ public class DriveService {
       this.config = config;
     }
 
+    /**
+     * 获取素材临时下载链接，通过file_token获取素材临时下载链接，链接时效性是24小时，过期失效。
+     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/batch_get_tmp_download_url">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/batch_get_tmp_download_url</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//BatchGetTmpDownloadUrlMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//BatchGetTmpDownloadUrlMediaSample.java</a>
+     * ;
+     */
     public BatchGetTmpDownloadUrlMediaResp batchGetTmpDownloadUrl(
         BatchGetTmpDownloadUrlMediaReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1410,6 +1881,14 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 获取素材临时下载链接，通过file_token获取素材临时下载链接，链接时效性是24小时，过期失效。
+     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/batch_get_tmp_download_url">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/batch_get_tmp_download_url</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//BatchGetTmpDownloadUrlMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//BatchGetTmpDownloadUrlMediaSample.java</a>
+     * ;
+     */
     public BatchGetTmpDownloadUrlMediaResp batchGetTmpDownloadUrl(
         BatchGetTmpDownloadUrlMediaReq req) throws Exception {
       // 请求参数选项
@@ -1430,6 +1909,14 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 下载素材，使用该接口可以下载素材。素材表示在各种创作容器里的文件，如Doc文档内的图片，文件均属于素材。支持range下载。
+     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/download</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DownloadMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DownloadMediaSample.java</a>
+     * ;
+     */
     public DownloadMediaResp download(DownloadMediaReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1462,6 +1949,14 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 下载素材，使用该接口可以下载素材。素材表示在各种创作容器里的文件，如Doc文档内的图片，文件均属于素材。支持range下载。
+     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/download</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DownloadMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DownloadMediaSample.java</a>
+     * ;
+     */
     public DownloadMediaResp download(DownloadMediaReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1492,6 +1987,16 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 上传素材，将文件、图片、视频等素材文件上传到指定云文档中。素材文件在云空间中不会显示，只会显示在对应云文档中。
+     * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/multipart-upload-media/introduction)。
+     * ;
+     * <p> 该接口支持调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadAllMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadAllMediaSample.java</a>
+     * ;
+     */
     public UploadAllMediaResp uploadAll(UploadAllMediaReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1515,6 +2020,16 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 上传素材，将文件、图片、视频等素材文件上传到指定云文档中。素材文件在云空间中不会显示，只会显示在对应云文档中。
+     * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/multipart-upload-media/introduction)。
+     * ;
+     * <p> 该接口支持调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadAllMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadAllMediaSample.java</a>
+     * ;
+     */
     public UploadAllMediaResp uploadAll(UploadAllMediaReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1535,6 +2050,14 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 分片上传素材（完成上传），触发完成上传。
+     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadFinishMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadFinishMediaSample.java</a>
+     * ;
+     */
     public UploadFinishMediaResp uploadFinish(UploadFinishMediaReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1557,6 +2080,14 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 分片上传素材（完成上传），触发完成上传。
+     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_finish</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadFinishMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadFinishMediaSample.java</a>
+     * ;
+     */
     public UploadFinishMediaResp uploadFinish(UploadFinishMediaReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1576,6 +2107,14 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 分片上传素材（上传分片），上传对应的文件块。
+     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadPartMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadPartMediaSample.java</a>
+     * ;
+     */
     public UploadPartMediaResp uploadPart(UploadPartMediaReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1599,6 +2138,14 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 分片上传素材（上传分片），上传对应的文件块。
+     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_part</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadPartMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadPartMediaSample.java</a>
+     * ;
+     */
     public UploadPartMediaResp uploadPart(UploadPartMediaReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1619,6 +2166,15 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 分片上传素材（预上传），发送初始化请求获取上传事务ID和分块策略，目前是以4MB大小进行定长分片。
+     * <p> 您在24小时内可保存上传事务ID和上传进度，以便可以恢复上传 ;
+     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadPrepareMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadPrepareMediaSample.java</a>
+     * ;
+     */
     public UploadPrepareMediaResp uploadPrepare(UploadPrepareMediaReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1641,6 +2197,15 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 分片上传素材（预上传），发送初始化请求获取上传事务ID和分块策略，目前是以4MB大小进行定长分片。
+     * <p> 您在24小时内可保存上传事务ID和上传进度，以便可以恢复上传 ;
+     * <p> 该接口不支持太高的并发，且调用频率上限为5QPS ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_prepare</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadPrepareMediaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UploadPrepareMediaSample.java</a>
+     * ;
+     */
     public UploadPrepareMediaResp uploadPrepare(UploadPrepareMediaReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1669,6 +2234,13 @@ public class DriveService {
       this.config = config;
     }
 
+    /**
+     * 获取文档元数据，该接口用于根据 token 获取各类文件的元数据
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/meta/batch_query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/meta/batch_query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//BatchQueryMetaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//BatchQueryMetaSample.java</a>
+     * ;
+     */
     public BatchQueryMetaResp batchQuery(BatchQueryMetaReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1691,6 +2263,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 获取文档元数据，该接口用于根据 token 获取各类文件的元数据
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/meta/batch_query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/meta/batch_query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//BatchQueryMetaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//BatchQueryMetaSample.java</a>
+     * ;
+     */
     public BatchQueryMetaResp batchQuery(BatchQueryMetaReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1719,6 +2298,13 @@ public class DriveService {
       this.config = config;
     }
 
+    /**
+     * 增加协作者权限，该接口用于根据 filetoken 给用户增加文档的权限。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreatePermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreatePermissionMemberSample.java</a>
+     * ;
+     */
     public CreatePermissionMemberResp create(CreatePermissionMemberReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1741,6 +2327,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 增加协作者权限，该接口用于根据 filetoken 给用户增加文档的权限。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreatePermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//CreatePermissionMemberSample.java</a>
+     * ;
+     */
     public CreatePermissionMemberResp create(CreatePermissionMemberReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1760,6 +2353,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 移除协作者权限，该接口用于根据 filetoken 移除文档协作者的权限。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DeletePermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DeletePermissionMemberSample.java</a>
+     * ;
+     */
     public DeletePermissionMemberResp delete(DeletePermissionMemberReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1782,6 +2382,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 移除协作者权限，该接口用于根据 filetoken 移除文档协作者的权限。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DeletePermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//DeletePermissionMemberSample.java</a>
+     * ;
+     */
     public DeletePermissionMemberResp delete(DeletePermissionMemberReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1801,6 +2408,15 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 更新协作者权限，该接口用于根据 filetoken 更新文档协作者的权限。
+     * <p> 该接口要求文档协作者已存在，如还未对文档协作者授权请先调用[「增加权限」 ](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create)接口进行授权。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UpdatePermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UpdatePermissionMemberSample.java</a>
+     * ;
+     */
     public UpdatePermissionMemberResp update(UpdatePermissionMemberReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1823,6 +2439,15 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 更新协作者权限，该接口用于根据 filetoken 更新文档协作者的权限。
+     * <p> 该接口要求文档协作者已存在，如还未对文档协作者授权请先调用[「增加权限」 ](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create)接口进行授权。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UpdatePermissionMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//UpdatePermissionMemberSample.java</a>
+     * ;
+     */
     public UpdatePermissionMemberResp update(UpdatePermissionMemberReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1851,6 +2476,13 @@ public class DriveService {
       this.config = config;
     }
 
+    /**
+     * 获取云文档权限设置，该接口用于根据 filetoken 获取云文档的权限设置。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetPermissionPublicSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetPermissionPublicSample.java</a>
+     * ;
+     */
     public GetPermissionPublicResp get(GetPermissionPublicReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1873,6 +2505,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 获取云文档权限设置，该接口用于根据 filetoken 获取云文档的权限设置。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetPermissionPublicSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//GetPermissionPublicSample.java</a>
+     * ;
+     */
     public GetPermissionPublicResp get(GetPermissionPublicReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1892,6 +2531,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 更新云文档权限设置，该接口用于根据 filetoken 更新云文档的权限设置。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//PatchPermissionPublicSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//PatchPermissionPublicSample.java</a>
+     * ;
+     */
     public PatchPermissionPublicResp patch(PatchPermissionPublicReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1914,6 +2560,13 @@ public class DriveService {
       return resp;
     }
 
+    /**
+     * 更新云文档权限设置，该接口用于根据 filetoken 更新云文档的权限设置。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//PatchPermissionPublicSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1//PatchPermissionPublicSample.java</a>
+     * ;
+     */
     public PatchPermissionPublicResp patch(PatchPermissionPublicReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();

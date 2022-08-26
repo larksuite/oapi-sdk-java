@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.bitable.v1.model.DeleteAppRoleReq;
 import com.lark.oapi.service.bitable.v1.model.DeleteAppRoleResp;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/roles/:role_id"
+// DELETE /open-apis/bitable/v1/apps/:app_token/roles/:role_id
 public class DeleteAppRoleSample {
 
   public static void main(String arg[]) throws Exception {

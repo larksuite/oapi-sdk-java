@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetFileStatistics {
 
+  /**
+   * 文件 token
+   * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
+   */
   @SerializedName("file_token")
   private String fileToken;
+  /**
+   * 文件类型
+   * <p> 示例值：doc
+   */
   @SerializedName("file_type")
   private String fileType;
+  /**
+   * 文件统计信息
+   * <p> 示例值：
+   */
   @SerializedName("statistics")
   private FileStatistics statistics;
 

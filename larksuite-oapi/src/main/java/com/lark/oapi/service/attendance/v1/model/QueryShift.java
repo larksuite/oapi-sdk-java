@@ -17,22 +17,64 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryShift {
 
+  /**
+   * 班次Id
+   * <p> 示例值：6919358778597097404
+   */
   @SerializedName("shift_id")
   private String shiftId;
+  /**
+   * 班次名称
+   * <p> 示例值：早班
+   */
   @SerializedName("shift_name")
   private String shiftName;
+  /**
+   * 打卡次数
+   * <p> 示例值：1
+   */
   @SerializedName("punch_times")
   private Integer punchTimes;
+  /**
+   * 是否弹性打卡
+   * <p> 示例值：false
+   */
   @SerializedName("is_flexible")
   private Boolean isFlexible;
+  /**
+   * 弹性打卡时间，设置【上班最多可晚到】与【下班最多可早走】时间，如果不设置flexible_rule则生效
+   * <p> 示例值：60
+   */
   @SerializedName("flexible_minutes")
   private Integer flexibleMinutes;
+  /**
+   * 弹性打卡时间设置
+   * <p> 示例值：
+   */
+  @SerializedName("flexible_rule")
+  private FlexibleRule[] flexibleRule;
+  /**
+   * 不需要打下班卡
+   * <p> 示例值：true
+   */
   @SerializedName("no_need_off")
   private Boolean noNeedOff;
+  /**
+   * 打卡规则
+   * <p> 示例值：
+   */
   @SerializedName("punch_time_rule")
   private PunchTimeRule[] punchTimeRule;
+  /**
+   * 晚走晚到规则
+   * <p> 示例值：
+   */
   @SerializedName("late_off_late_on_rule")
   private LateOffLateOnRule[] lateOffLateOnRule;
+  /**
+   * 休息规则
+   * <p> 示例值：
+   */
   @SerializedName("rest_time_rule")
   private RestRule[] restTimeRule;
 
@@ -74,6 +116,14 @@ public class QueryShift {
 
   public void setFlexibleMinutes(Integer flexibleMinutes) {
     this.flexibleMinutes = flexibleMinutes;
+  }
+
+  public FlexibleRule[] getFlexibleRule() {
+    return this.flexibleRule;
+  }
+
+  public void setFlexibleRule(FlexibleRule[] flexibleRule) {
+    this.flexibleRule = flexibleRule;
   }
 
   public Boolean getNoNeedOff() {

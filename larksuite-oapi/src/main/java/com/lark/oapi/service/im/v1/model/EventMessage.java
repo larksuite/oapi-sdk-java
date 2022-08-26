@@ -17,22 +17,58 @@ import com.google.gson.annotations.SerializedName;
 
 public class EventMessage {
 
+  /**
+   * 消息的 open_message_id
+   * <p> 示例值：om_5ce6d572455d361153b7cb51da133945
+   */
   @SerializedName("message_id")
   private String messageId;
+  /**
+   * 回复消息 根 id
+   * <p> 示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
+   */
   @SerializedName("root_id")
   private String rootId;
+  /**
+   * 回复消息 父 id
+   * <p> 示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
+   */
   @SerializedName("parent_id")
   private String parentId;
+  /**
+   * 消息发送时间 毫秒
+   * <p> 示例值：1609073151345
+   */
   @SerializedName("create_time")
   private String createTime;
+  /**
+   * 消息所在的群组 id
+   * <p> 示例值：oc_5ce6d572455d361153b7xx51da133945
+   */
   @SerializedName("chat_id")
   private String chatId;
+  /**
+   * 消息所在的群组类型，单聊（p2p）或群聊（group）
+   * <p> 示例值：group
+   */
   @SerializedName("chat_type")
   private String chatType;
+  /**
+   * 消息类型
+   * <p> 示例值：text
+   */
   @SerializedName("message_type")
   private String messageType;
+  /**
+   * 消息内容, json 格式 ;[各类型消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)
+   * <p> 示例值：{\"text\":\"@_user_1 hello\"}
+   */
   @SerializedName("content")
   private String content;
+  /**
+   * 被提及用户的信息
+   * <p> 示例值：
+   */
   @SerializedName("mentions")
   private MentionEvent[] mentions;
 
@@ -41,14 +77,50 @@ public class EventMessage {
   }
 
   public EventMessage(Builder builder) {
+    /**
+     * 消息的 open_message_id
+     * <p> 示例值：om_5ce6d572455d361153b7cb51da133945
+     */
     this.messageId = builder.messageId;
+    /**
+     * 回复消息 根 id
+     * <p> 示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
+     */
     this.rootId = builder.rootId;
+    /**
+     * 回复消息 父 id
+     * <p> 示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
+     */
     this.parentId = builder.parentId;
+    /**
+     * 消息发送时间 毫秒
+     * <p> 示例值：1609073151345
+     */
     this.createTime = builder.createTime;
+    /**
+     * 消息所在的群组 id
+     * <p> 示例值：oc_5ce6d572455d361153b7xx51da133945
+     */
     this.chatId = builder.chatId;
+    /**
+     * 消息所在的群组类型，单聊（p2p）或群聊（group）
+     * <p> 示例值：group
+     */
     this.chatType = builder.chatType;
+    /**
+     * 消息类型
+     * <p> 示例值：text
+     */
     this.messageType = builder.messageType;
+    /**
+     * 消息内容, json 格式 ;[各类型消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)
+     * <p> 示例值：{\"text\":\"@_user_1 hello\"}
+     */
     this.content = builder.content;
+    /**
+     * 被提及用户的信息
+     * <p> 示例值：
+     */
     this.mentions = builder.mentions;
   }
 
@@ -130,56 +202,163 @@ public class EventMessage {
 
   public static class Builder {
 
+    /**
+     * 消息的 open_message_id
+     * <p> 示例值：om_5ce6d572455d361153b7cb51da133945
+     */
     private String messageId;
+    /**
+     * 回复消息 根 id
+     * <p> 示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
+     */
     private String rootId;
+    /**
+     * 回复消息 父 id
+     * <p> 示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
+     */
     private String parentId;
+    /**
+     * 消息发送时间 毫秒
+     * <p> 示例值：1609073151345
+     */
     private String createTime;
+    /**
+     * 消息所在的群组 id
+     * <p> 示例值：oc_5ce6d572455d361153b7xx51da133945
+     */
     private String chatId;
+    /**
+     * 消息所在的群组类型，单聊（p2p）或群聊（group）
+     * <p> 示例值：group
+     */
     private String chatType;
+    /**
+     * 消息类型
+     * <p> 示例值：text
+     */
     private String messageType;
+    /**
+     * 消息内容, json 格式 ;[各类型消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)
+     * <p> 示例值：{\"text\":\"@_user_1 hello\"}
+     */
     private String content;
+    /**
+     * 被提及用户的信息
+     * <p> 示例值：
+     */
     private MentionEvent[] mentions;
 
+    /**
+     * 消息的 open_message_id
+     * <p> 示例值：om_5ce6d572455d361153b7cb51da133945
+     *
+     * @param messageId
+     * @return
+     */
     public Builder messageId(String messageId) {
       this.messageId = messageId;
       return this;
     }
 
+
+    /**
+     * 回复消息 根 id
+     * <p> 示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
+     *
+     * @param rootId
+     * @return
+     */
     public Builder rootId(String rootId) {
       this.rootId = rootId;
       return this;
     }
 
+
+    /**
+     * 回复消息 父 id
+     * <p> 示例值：om_5ce6d572455d361153b7cb5xxfsdfsdfdsf
+     *
+     * @param parentId
+     * @return
+     */
     public Builder parentId(String parentId) {
       this.parentId = parentId;
       return this;
     }
 
+
+    /**
+     * 消息发送时间 毫秒
+     * <p> 示例值：1609073151345
+     *
+     * @param createTime
+     * @return
+     */
     public Builder createTime(String createTime) {
       this.createTime = createTime;
       return this;
     }
 
+
+    /**
+     * 消息所在的群组 id
+     * <p> 示例值：oc_5ce6d572455d361153b7xx51da133945
+     *
+     * @param chatId
+     * @return
+     */
     public Builder chatId(String chatId) {
       this.chatId = chatId;
       return this;
     }
 
+
+    /**
+     * 消息所在的群组类型，单聊（p2p）或群聊（group）
+     * <p> 示例值：group
+     *
+     * @param chatType
+     * @return
+     */
     public Builder chatType(String chatType) {
       this.chatType = chatType;
       return this;
     }
 
+
+    /**
+     * 消息类型
+     * <p> 示例值：text
+     *
+     * @param messageType
+     * @return
+     */
     public Builder messageType(String messageType) {
       this.messageType = messageType;
       return this;
     }
 
+
+    /**
+     * 消息内容, json 格式 ;[各类型消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)
+     * <p> 示例值：{\"text\":\"@_user_1 hello\"}
+     *
+     * @param content
+     * @return
+     */
     public Builder content(String content) {
       this.content = content;
       return this;
     }
 
+
+    /**
+     * 被提及用户的信息
+     * <p> 示例值：
+     *
+     * @param mentions
+     * @return
+     */
     public Builder mentions(MentionEvent[] mentions) {
       this.mentions = mentions;
       return this;

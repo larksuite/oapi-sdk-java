@@ -7,7 +7,7 @@ import com.lark.oapi.service.helpdesk.v1.model.CreateAgentScheduleReq;
 import com.lark.oapi.service.helpdesk.v1.model.CreateAgentScheduleReqBody;
 import com.lark.oapi.service.helpdesk.v1.model.CreateAgentScheduleResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/agent_schedules"
+// POST /open-apis/helpdesk/v1/agent_schedules
 public class CreateAgentScheduleSample {
 
   public static void main(String arg[]) throws Exception {

@@ -17,16 +17,40 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2AccessRecordCreatedV1Data {
 
+  /**
+   * 门禁记录 ID
+   * <p> 示例值：6939433228970082591
+   */
   @SerializedName("access_record_id")
   private String accessRecordId;
+  /**
+   * 用户 ID
+   * <p> 示例值：
+   */
   @SerializedName("user_id")
   private UserId userId;
+  /**
+   * 设备 ID
+   * <p> 示例值：6939433228970082593
+   */
   @SerializedName("device_id")
   private String deviceId;
+  /**
+   * 是否打卡
+   * <p> 示例值：true
+   */
   @SerializedName("is_clock_in")
   private Boolean isClockIn;
+  /**
+   * 是否开门
+   * <p> 示例值：true
+   */
   @SerializedName("is_door_open")
   private Boolean isDoorOpen;
+  /**
+   * 识别时间 （单位：秒）
+   * <p> 示例值：1624520221
+   */
   @SerializedName("access_time")
   private String accessTime;
 

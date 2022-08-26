@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.im.v1.model.SearchChatReq;
 import com.lark.oapi.service.im.v1.model.SearchChatResp;
 
-// HTTP PATH: /open-apis/im/v1/chats/search"
+// GET /open-apis/im/v1/chats/search
 public class SearchChatSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,8 @@ public class SearchChatSample {
     SearchChatReq req = SearchChatReq.newBuilder()
         .userIdType("user_id")
         .query("abc")
-        .pageToken("")
+        .pageToken(
+            "dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==")
         .pageSize(20)
         .build();
 

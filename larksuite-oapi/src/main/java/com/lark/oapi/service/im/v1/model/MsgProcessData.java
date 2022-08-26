@@ -17,42 +17,118 @@ import com.google.gson.annotations.SerializedName;
 
 public class MsgProcessData {
 
+  /**
+   * 分区日期
+   * <p> 示例值：2022-02-02
+   */
   @SerializedName("p_date")
   private String pDate;
+  /**
+   * 部门id
+   * <p> 示例值：123456
+   */
   @SerializedName("department_id")
   private String departmentId;
+  /**
+   * 部门路径
+   * <p> 示例值：test/subtest
+   */
   @SerializedName("department_path")
   private String departmentPath;
+  /**
+   * 人均重要消息 12 小时阅读率
+   * <p> 示例值：0.50
+   */
   @SerializedName("avg_imp_msg_read_rate_12h")
   private Double avgImpMsgReadRate12h;
+  /**
+   * 人均 12 小时阅读率
+   * <p> 示例值：0.50
+   */
   @SerializedName("msg_read_rate_12h")
   private Double msgReadRate12h;
+  /**
+   * 人均接收消息数
+   * <p> 示例值：50
+   */
   @SerializedName("avg_receive_msg_cnt")
   private Double avgReceiveMsgCnt;
+  /**
+   * 人均阅读消息数
+   * <p> 示例值：50
+   */
   @SerializedName("avg_read_msg_cnt")
   private Double avgReadMsgCnt;
+  /**
+   * 人均重要消息阅读数
+   * <p> 示例值：50
+   */
   @SerializedName("avg_imp_read_msg_cnt")
   private Double avgImpReadMsgCnt;
+  /**
+   * 人均重要消息接收数
+   * <p> 示例值：50
+   */
   @SerializedName("avg_imp_receive_msg_cnt")
   private Double avgImpReceiveMsgCnt;
+  /**
+   * 信息高负载员工占比
+   * <p> 示例值：0.50
+   */
   @SerializedName("high_load_rate")
   private Double highLoadRate;
+  /**
+   * 大群（100人以上）消息占比
+   * <p> 示例值：0.50
+   */
   @SerializedName("big_group_msg_rate")
   private Double bigGroupMsgRate;
+  /**
+   * 大群消息中话题消息占比
+   * <p> 示例值：0.50
+   */
   @SerializedName("big_group_topic_msg_rate")
   private Double bigGroupTopicMsgRate;
+  /**
+   * 人均接收 bot 消息数
+   * <p> 示例值：0.50
+   */
   @SerializedName("avg_receive_bot_msg_cnt")
   private Double avgReceiveBotMsgCnt;
+  /**
+   * 重要 bot 消息 12 小时阅读率
+   * <p> 示例值：0.50
+   */
   @SerializedName("avg_bot_imp_msg_read_rate_12h")
   private Double avgBotImpMsgReadRate12h;
+  /**
+   * 接收 bot 消息占比
+   * <p> 示例值：0.50
+   */
   @SerializedName("receive_bot_msg_rate")
   private Double receiveBotMsgRate;
+  /**
+   * 会话盒子使用率
+   * <p> 示例值：0.50
+   */
   @SerializedName("use_chat_box_rate")
   private Double useChatBoxRate;
+  /**
+   * 接收消息中 mute 消息占比
+   * <p> 示例值：0.50
+   */
   @SerializedName("receive_mute_msg_rate")
   private Double receiveMuteMsgRate;
+  /**
+   * 阅读消息中 mute 消息占比
+   * <p> 示例值：0.50
+   */
   @SerializedName("read_mute_msg_rate")
   private Double readMuteMsgRate;
+  /**
+   * 人均有重要消息的会话数
+   * <p> 示例值：50
+   */
   @SerializedName("avg_receive_imp_msg_chat_cnt")
   private Double avgReceiveImpMsgChatCnt;
 
@@ -61,24 +137,100 @@ public class MsgProcessData {
   }
 
   public MsgProcessData(Builder builder) {
+    /**
+     * 分区日期
+     * <p> 示例值：2022-02-02
+     */
     this.pDate = builder.pDate;
+    /**
+     * 部门id
+     * <p> 示例值：123456
+     */
     this.departmentId = builder.departmentId;
+    /**
+     * 部门路径
+     * <p> 示例值：test/subtest
+     */
     this.departmentPath = builder.departmentPath;
+    /**
+     * 人均重要消息 12 小时阅读率
+     * <p> 示例值：0.50
+     */
     this.avgImpMsgReadRate12h = builder.avgImpMsgReadRate12h;
+    /**
+     * 人均 12 小时阅读率
+     * <p> 示例值：0.50
+     */
     this.msgReadRate12h = builder.msgReadRate12h;
+    /**
+     * 人均接收消息数
+     * <p> 示例值：50
+     */
     this.avgReceiveMsgCnt = builder.avgReceiveMsgCnt;
+    /**
+     * 人均阅读消息数
+     * <p> 示例值：50
+     */
     this.avgReadMsgCnt = builder.avgReadMsgCnt;
+    /**
+     * 人均重要消息阅读数
+     * <p> 示例值：50
+     */
     this.avgImpReadMsgCnt = builder.avgImpReadMsgCnt;
+    /**
+     * 人均重要消息接收数
+     * <p> 示例值：50
+     */
     this.avgImpReceiveMsgCnt = builder.avgImpReceiveMsgCnt;
+    /**
+     * 信息高负载员工占比
+     * <p> 示例值：0.50
+     */
     this.highLoadRate = builder.highLoadRate;
+    /**
+     * 大群（100人以上）消息占比
+     * <p> 示例值：0.50
+     */
     this.bigGroupMsgRate = builder.bigGroupMsgRate;
+    /**
+     * 大群消息中话题消息占比
+     * <p> 示例值：0.50
+     */
     this.bigGroupTopicMsgRate = builder.bigGroupTopicMsgRate;
+    /**
+     * 人均接收 bot 消息数
+     * <p> 示例值：0.50
+     */
     this.avgReceiveBotMsgCnt = builder.avgReceiveBotMsgCnt;
+    /**
+     * 重要 bot 消息 12 小时阅读率
+     * <p> 示例值：0.50
+     */
     this.avgBotImpMsgReadRate12h = builder.avgBotImpMsgReadRate12h;
+    /**
+     * 接收 bot 消息占比
+     * <p> 示例值：0.50
+     */
     this.receiveBotMsgRate = builder.receiveBotMsgRate;
+    /**
+     * 会话盒子使用率
+     * <p> 示例值：0.50
+     */
     this.useChatBoxRate = builder.useChatBoxRate;
+    /**
+     * 接收消息中 mute 消息占比
+     * <p> 示例值：0.50
+     */
     this.receiveMuteMsgRate = builder.receiveMuteMsgRate;
+    /**
+     * 阅读消息中 mute 消息占比
+     * <p> 示例值：0.50
+     */
     this.readMuteMsgRate = builder.readMuteMsgRate;
+    /**
+     * 人均有重要消息的会话数
+     * <p> 示例值：50
+     */
     this.avgReceiveImpMsgChatCnt = builder.avgReceiveImpMsgChatCnt;
   }
 
@@ -240,116 +392,343 @@ public class MsgProcessData {
 
   public static class Builder {
 
+    /**
+     * 分区日期
+     * <p> 示例值：2022-02-02
+     */
     private String pDate;
+    /**
+     * 部门id
+     * <p> 示例值：123456
+     */
     private String departmentId;
+    /**
+     * 部门路径
+     * <p> 示例值：test/subtest
+     */
     private String departmentPath;
+    /**
+     * 人均重要消息 12 小时阅读率
+     * <p> 示例值：0.50
+     */
     private Double avgImpMsgReadRate12h;
+    /**
+     * 人均 12 小时阅读率
+     * <p> 示例值：0.50
+     */
     private Double msgReadRate12h;
+    /**
+     * 人均接收消息数
+     * <p> 示例值：50
+     */
     private Double avgReceiveMsgCnt;
+    /**
+     * 人均阅读消息数
+     * <p> 示例值：50
+     */
     private Double avgReadMsgCnt;
+    /**
+     * 人均重要消息阅读数
+     * <p> 示例值：50
+     */
     private Double avgImpReadMsgCnt;
+    /**
+     * 人均重要消息接收数
+     * <p> 示例值：50
+     */
     private Double avgImpReceiveMsgCnt;
+    /**
+     * 信息高负载员工占比
+     * <p> 示例值：0.50
+     */
     private Double highLoadRate;
+    /**
+     * 大群（100人以上）消息占比
+     * <p> 示例值：0.50
+     */
     private Double bigGroupMsgRate;
+    /**
+     * 大群消息中话题消息占比
+     * <p> 示例值：0.50
+     */
     private Double bigGroupTopicMsgRate;
+    /**
+     * 人均接收 bot 消息数
+     * <p> 示例值：0.50
+     */
     private Double avgReceiveBotMsgCnt;
+    /**
+     * 重要 bot 消息 12 小时阅读率
+     * <p> 示例值：0.50
+     */
     private Double avgBotImpMsgReadRate12h;
+    /**
+     * 接收 bot 消息占比
+     * <p> 示例值：0.50
+     */
     private Double receiveBotMsgRate;
+    /**
+     * 会话盒子使用率
+     * <p> 示例值：0.50
+     */
     private Double useChatBoxRate;
+    /**
+     * 接收消息中 mute 消息占比
+     * <p> 示例值：0.50
+     */
     private Double receiveMuteMsgRate;
+    /**
+     * 阅读消息中 mute 消息占比
+     * <p> 示例值：0.50
+     */
     private Double readMuteMsgRate;
+    /**
+     * 人均有重要消息的会话数
+     * <p> 示例值：50
+     */
     private Double avgReceiveImpMsgChatCnt;
 
+    /**
+     * 分区日期
+     * <p> 示例值：2022-02-02
+     *
+     * @param pDate
+     * @return
+     */
     public Builder pDate(String pDate) {
       this.pDate = pDate;
       return this;
     }
 
+
+    /**
+     * 部门id
+     * <p> 示例值：123456
+     *
+     * @param departmentId
+     * @return
+     */
     public Builder departmentId(String departmentId) {
       this.departmentId = departmentId;
       return this;
     }
 
+
+    /**
+     * 部门路径
+     * <p> 示例值：test/subtest
+     *
+     * @param departmentPath
+     * @return
+     */
     public Builder departmentPath(String departmentPath) {
       this.departmentPath = departmentPath;
       return this;
     }
 
+
+    /**
+     * 人均重要消息 12 小时阅读率
+     * <p> 示例值：0.50
+     *
+     * @param avgImpMsgReadRate12h
+     * @return
+     */
     public Builder avgImpMsgReadRate12h(Double avgImpMsgReadRate12h) {
       this.avgImpMsgReadRate12h = avgImpMsgReadRate12h;
       return this;
     }
 
+
+    /**
+     * 人均 12 小时阅读率
+     * <p> 示例值：0.50
+     *
+     * @param msgReadRate12h
+     * @return
+     */
     public Builder msgReadRate12h(Double msgReadRate12h) {
       this.msgReadRate12h = msgReadRate12h;
       return this;
     }
 
+
+    /**
+     * 人均接收消息数
+     * <p> 示例值：50
+     *
+     * @param avgReceiveMsgCnt
+     * @return
+     */
     public Builder avgReceiveMsgCnt(Double avgReceiveMsgCnt) {
       this.avgReceiveMsgCnt = avgReceiveMsgCnt;
       return this;
     }
 
+
+    /**
+     * 人均阅读消息数
+     * <p> 示例值：50
+     *
+     * @param avgReadMsgCnt
+     * @return
+     */
     public Builder avgReadMsgCnt(Double avgReadMsgCnt) {
       this.avgReadMsgCnt = avgReadMsgCnt;
       return this;
     }
 
+
+    /**
+     * 人均重要消息阅读数
+     * <p> 示例值：50
+     *
+     * @param avgImpReadMsgCnt
+     * @return
+     */
     public Builder avgImpReadMsgCnt(Double avgImpReadMsgCnt) {
       this.avgImpReadMsgCnt = avgImpReadMsgCnt;
       return this;
     }
 
+
+    /**
+     * 人均重要消息接收数
+     * <p> 示例值：50
+     *
+     * @param avgImpReceiveMsgCnt
+     * @return
+     */
     public Builder avgImpReceiveMsgCnt(Double avgImpReceiveMsgCnt) {
       this.avgImpReceiveMsgCnt = avgImpReceiveMsgCnt;
       return this;
     }
 
+
+    /**
+     * 信息高负载员工占比
+     * <p> 示例值：0.50
+     *
+     * @param highLoadRate
+     * @return
+     */
     public Builder highLoadRate(Double highLoadRate) {
       this.highLoadRate = highLoadRate;
       return this;
     }
 
+
+    /**
+     * 大群（100人以上）消息占比
+     * <p> 示例值：0.50
+     *
+     * @param bigGroupMsgRate
+     * @return
+     */
     public Builder bigGroupMsgRate(Double bigGroupMsgRate) {
       this.bigGroupMsgRate = bigGroupMsgRate;
       return this;
     }
 
+
+    /**
+     * 大群消息中话题消息占比
+     * <p> 示例值：0.50
+     *
+     * @param bigGroupTopicMsgRate
+     * @return
+     */
     public Builder bigGroupTopicMsgRate(Double bigGroupTopicMsgRate) {
       this.bigGroupTopicMsgRate = bigGroupTopicMsgRate;
       return this;
     }
 
+
+    /**
+     * 人均接收 bot 消息数
+     * <p> 示例值：0.50
+     *
+     * @param avgReceiveBotMsgCnt
+     * @return
+     */
     public Builder avgReceiveBotMsgCnt(Double avgReceiveBotMsgCnt) {
       this.avgReceiveBotMsgCnt = avgReceiveBotMsgCnt;
       return this;
     }
 
+
+    /**
+     * 重要 bot 消息 12 小时阅读率
+     * <p> 示例值：0.50
+     *
+     * @param avgBotImpMsgReadRate12h
+     * @return
+     */
     public Builder avgBotImpMsgReadRate12h(Double avgBotImpMsgReadRate12h) {
       this.avgBotImpMsgReadRate12h = avgBotImpMsgReadRate12h;
       return this;
     }
 
+
+    /**
+     * 接收 bot 消息占比
+     * <p> 示例值：0.50
+     *
+     * @param receiveBotMsgRate
+     * @return
+     */
     public Builder receiveBotMsgRate(Double receiveBotMsgRate) {
       this.receiveBotMsgRate = receiveBotMsgRate;
       return this;
     }
 
+
+    /**
+     * 会话盒子使用率
+     * <p> 示例值：0.50
+     *
+     * @param useChatBoxRate
+     * @return
+     */
     public Builder useChatBoxRate(Double useChatBoxRate) {
       this.useChatBoxRate = useChatBoxRate;
       return this;
     }
 
+
+    /**
+     * 接收消息中 mute 消息占比
+     * <p> 示例值：0.50
+     *
+     * @param receiveMuteMsgRate
+     * @return
+     */
     public Builder receiveMuteMsgRate(Double receiveMuteMsgRate) {
       this.receiveMuteMsgRate = receiveMuteMsgRate;
       return this;
     }
 
+
+    /**
+     * 阅读消息中 mute 消息占比
+     * <p> 示例值：0.50
+     *
+     * @param readMuteMsgRate
+     * @return
+     */
     public Builder readMuteMsgRate(Double readMuteMsgRate) {
       this.readMuteMsgRate = readMuteMsgRate;
       return this;
     }
 
+
+    /**
+     * 人均有重要消息的会话数
+     * <p> 示例值：50
+     *
+     * @param avgReceiveImpMsgChatCnt
+     * @return
+     */
     public Builder avgReceiveImpMsgChatCnt(Double avgReceiveImpMsgChatCnt) {
       this.avgReceiveImpMsgChatCnt = avgReceiveImpMsgChatCnt;
       return this;

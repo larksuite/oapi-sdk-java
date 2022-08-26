@@ -17,21 +17,67 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryUserApprovalReqBody {
 
+  /**
+   * employee_no 或 employee_id 列表
+   * <p> 示例值：["abd754f7"]
+   */
   @SerializedName("user_ids")
   private String[] userIds;
+  /**
+   * 查询的起始工作日
+   * <p> 示例值：20190817
+   */
   @SerializedName("check_date_from")
   private Integer checkDateFrom;
+  /**
+   * 查询的结束工作日，与 check_date_from 的时间间隔不超过 30 天
+   * <p> 示例值：20190820
+   */
   @SerializedName("check_date_to")
   private Integer checkDateTo;
+  /**
+   * 查询依据的时间类型（不填默认依据PeriodTime）
+   * <p> 示例值：PeriodTime
+   */
+  @SerializedName("check_date_type")
+  private String checkDateType;
+  /**
+   * 查询状态（不填默认查询已通过状态）
+   * <p> 示例值：2
+   */
+  @SerializedName("status")
+  private Integer status;
 
   // builder 开始
   public QueryUserApprovalReqBody() {
   }
 
   public QueryUserApprovalReqBody(Builder builder) {
+    /**
+     * employee_no 或 employee_id 列表
+     * <p> 示例值：["abd754f7"]
+     */
     this.userIds = builder.userIds;
+    /**
+     * 查询的起始工作日
+     * <p> 示例值：20190817
+     */
     this.checkDateFrom = builder.checkDateFrom;
+    /**
+     * 查询的结束工作日，与 check_date_from 的时间间隔不超过 30 天
+     * <p> 示例值：20190820
+     */
     this.checkDateTo = builder.checkDateTo;
+    /**
+     * 查询依据的时间类型（不填默认依据PeriodTime）
+     * <p> 示例值：PeriodTime
+     */
+    this.checkDateType = builder.checkDateType;
+    /**
+     * 查询状态（不填默认查询已通过状态）
+     * <p> 示例值：2
+     */
+    this.status = builder.status;
   }
 
   public static Builder newBuilder() {
@@ -62,24 +108,137 @@ public class QueryUserApprovalReqBody {
     this.checkDateTo = checkDateTo;
   }
 
+  public String getCheckDateType() {
+    return this.checkDateType;
+  }
+
+  public void setCheckDateType(String checkDateType) {
+    this.checkDateType = checkDateType;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
   public static class Builder {
 
+    /**
+     * employee_no 或 employee_id 列表
+     * <p> 示例值：["abd754f7"]
+     */
     private String[] userIds;
+    /**
+     * 查询的起始工作日
+     * <p> 示例值：20190817
+     */
     private Integer checkDateFrom;
+    /**
+     * 查询的结束工作日，与 check_date_from 的时间间隔不超过 30 天
+     * <p> 示例值：20190820
+     */
     private Integer checkDateTo;
+    /**
+     * 查询依据的时间类型（不填默认依据PeriodTime）
+     * <p> 示例值：PeriodTime
+     */
+    private String checkDateType;
+    /**
+     * 查询状态（不填默认查询已通过状态）
+     * <p> 示例值：2
+     */
+    private Integer status;
 
+    /**
+     * employee_no 或 employee_id 列表
+     * <p> 示例值：["abd754f7"]
+     *
+     * @param userIds
+     * @return
+     */
     public Builder userIds(String[] userIds) {
       this.userIds = userIds;
       return this;
     }
 
+
+    /**
+     * 查询的起始工作日
+     * <p> 示例值：20190817
+     *
+     * @param checkDateFrom
+     * @return
+     */
     public Builder checkDateFrom(Integer checkDateFrom) {
       this.checkDateFrom = checkDateFrom;
       return this;
     }
 
+
+    /**
+     * 查询的结束工作日，与 check_date_from 的时间间隔不超过 30 天
+     * <p> 示例值：20190820
+     *
+     * @param checkDateTo
+     * @return
+     */
     public Builder checkDateTo(Integer checkDateTo) {
       this.checkDateTo = checkDateTo;
+      return this;
+    }
+
+
+    /**
+     * 查询依据的时间类型（不填默认依据PeriodTime）
+     * <p> 示例值：PeriodTime
+     *
+     * @param checkDateType
+     * @return
+     */
+    public Builder checkDateType(String checkDateType) {
+      this.checkDateType = checkDateType;
+      return this;
+    }
+
+    /**
+     * 查询依据的时间类型（不填默认依据PeriodTime）
+     * <p> 示例值：PeriodTime
+     *
+     * @param checkDateType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserApprovalCheckDateTypeEnum}
+     * @return
+     */
+    public Builder checkDateType(
+        com.lark.oapi.service.attendance.v1.enums.QueryUserApprovalCheckDateTypeEnum checkDateType) {
+      this.checkDateType = checkDateType.getValue();
+      return this;
+    }
+
+
+    /**
+     * 查询状态（不填默认查询已通过状态）
+     * <p> 示例值：2
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
+    }
+
+    /**
+     * 查询状态（不填默认查询已通过状态）
+     * <p> 示例值：2
+     *
+     * @param status {@link com.lark.oapi.service.attendance.v1.enums.QueryUserApprovalApprovalStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.attendance.v1.enums.QueryUserApprovalApprovalStatusEnum status) {
+      this.status = status.getValue();
       return this;
     }
 

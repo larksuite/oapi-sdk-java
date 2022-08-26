@@ -19,15 +19,31 @@ import com.lark.oapi.core.annotation.Query;
 
 public class ListSpaceNodeReq {
 
+  /**
+   * 分页大小
+   * <p> 示例值：10
+   */
   @Query
   @SerializedName("page_size")
   private Integer pageSize;
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   * <p> 示例值：6946843325487456878
+   */
   @Query
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 父节点token
+   * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8VN6kVf
+   */
   @Query
   @SerializedName("parent_node_token")
   private String parentNodeToken;
+  /**
+   * 知识空间id
+   * <p> 示例值：6946843325487906839
+   */
   @Path
   @SerializedName("space_id")
   private String spaceId;
@@ -37,9 +53,25 @@ public class ListSpaceNodeReq {
   }
 
   public ListSpaceNodeReq(Builder builder) {
+    /**
+     * 分页大小
+     * <p> 示例值：10
+     */
     this.pageSize = builder.pageSize;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：6946843325487456878
+     */
     this.pageToken = builder.pageToken;
+    /**
+     * 父节点token
+     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8VN6kVf
+     */
     this.parentNodeToken = builder.parentNodeToken;
+    /**
+     * 知识空间id
+     * <p> 示例值：6946843325487906839
+     */
     this.spaceId = builder.spaceId;
   }
 
@@ -81,26 +113,54 @@ public class ListSpaceNodeReq {
 
   public static class Builder {
 
-    private Integer pageSize;
-    private String pageToken;
-    private String parentNodeToken;
-    private String spaceId;
+    private Integer pageSize; // 分页大小
+    private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+    private String parentNodeToken; // 父节点token
+    private String spaceId; // 知识空间id
 
+    /**
+     * 分页大小
+     * <p> 示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
     public Builder pageSize(Integer pageSize) {
       this.pageSize = pageSize;
       return this;
     }
 
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：6946843325487456878
+     *
+     * @param pageToken
+     * @return
+     */
     public Builder pageToken(String pageToken) {
       this.pageToken = pageToken;
       return this;
     }
 
+    /**
+     * 父节点token
+     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8VN6kVf
+     *
+     * @param parentNodeToken
+     * @return
+     */
     public Builder parentNodeToken(String parentNodeToken) {
       this.parentNodeToken = parentNodeToken;
       return this;
     }
 
+    /**
+     * 知识空间id
+     * <p> 示例值：6946843325487906839
+     *
+     * @param spaceId
+     * @return
+     */
     public Builder spaceId(String spaceId) {
       this.spaceId = spaceId;
       return this;

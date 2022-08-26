@@ -18,6 +18,9 @@ import com.lark.oapi.event.model.BaseEventV2;
 
 public class P2ChatUpdatedV1 extends BaseEventV2 {
 
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("event")
   private P2ChatUpdatedV1Data event;
 

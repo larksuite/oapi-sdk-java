@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class GetApprovalReq {
 
+  /**
+   * 语言可选值
+   * <p> 示例值：zh-CN
+   */
   @Query
   @SerializedName("locale")
   private String locale;
+  /**
+   * 审批定义 Code
+   * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+   */
   @Path
   @SerializedName("approval_code")
   private String approvalCode;
@@ -31,7 +39,15 @@ public class GetApprovalReq {
   }
 
   public GetApprovalReq(Builder builder) {
+    /**
+     * 语言可选值
+     * <p> 示例值：zh-CN
+     */
     this.locale = builder.locale;
+    /**
+     * 审批定义 Code
+     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     */
     this.approvalCode = builder.approvalCode;
   }
 
@@ -57,19 +73,40 @@ public class GetApprovalReq {
 
   public static class Builder {
 
-    private String locale;
-    private String approvalCode;
+    private String locale; // 语言可选值
+    private String approvalCode; // 审批定义 Code
 
+    /**
+     * 语言可选值
+     * <p> 示例值：zh-CN
+     *
+     * @param locale
+     * @return
+     */
     public Builder locale(String locale) {
       this.locale = locale;
       return this;
     }
 
-    public Builder locale(com.lark.oapi.service.approval.v4.enums.LocaleEnum locale) {
+    /**
+     * 语言可选值
+     * <p> 示例值：zh-CN
+     *
+     * @param locale {@link com.lark.oapi.service.approval.v4.enums.GetApprovalLocaleEnum}
+     * @return
+     */
+    public Builder locale(com.lark.oapi.service.approval.v4.enums.GetApprovalLocaleEnum locale) {
       this.locale = locale.getValue();
       return this;
     }
 
+    /**
+     * 审批定义 Code
+     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     *
+     * @param approvalCode
+     * @return
+     */
     public Builder approvalCode(String approvalCode) {
       this.approvalCode = approvalCode;
       return this;

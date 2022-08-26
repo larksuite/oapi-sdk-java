@@ -7,7 +7,7 @@ import com.lark.oapi.service.vc.v1.model.SetHostMeetingReq;
 import com.lark.oapi.service.vc.v1.model.SetHostMeetingReqBody;
 import com.lark.oapi.service.vc.v1.model.SetHostMeetingResp;
 
-// HTTP PATH: /open-apis/vc/v1/meetings/:meeting_id/set_host"
+// PATCH /open-apis/vc/v1/meetings/:meeting_id/set_host
 public class SetHostMeetingSample {
 
   public static void main(String arg[]) throws Exception {

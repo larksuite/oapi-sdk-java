@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.bitable.v1.model.GetAppReq;
 import com.lark.oapi.service.bitable.v1.model.GetAppResp;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token"
+// GET /open-apis/bitable/v1/apps/:app_token
 public class GetAppSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class GetAppSample {
 
     // 创建请求对象
     GetAppReq req = GetAppReq.newBuilder()
-        .appToken("")
+        .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
         .build();
 
     // 发起请求

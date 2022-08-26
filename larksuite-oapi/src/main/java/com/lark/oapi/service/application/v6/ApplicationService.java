@@ -65,22 +65,47 @@ public class ApplicationService {
     this.applicationVisibility = new ApplicationVisibility(config);
   }
 
+  /**
+   * 应用
+   *
+   * @return
+   */
   public Application application() {
     return application;
   }
 
+  /**
+   * 应用使用情况
+   *
+   * @return
+   */
   public ApplicationAppUsage applicationAppUsage() {
     return applicationAppUsage;
   }
 
+  /**
+   * 应用
+   *
+   * @return
+   */
   public ApplicationAppVersion applicationAppVersion() {
     return applicationAppVersion;
   }
 
+  /**
+   * 应用反馈
+   *
+   * @return
+   */
   public ApplicationFeedback applicationFeedback() {
     return applicationFeedback;
   }
 
+  /**
+   * 应用管理
+   *
+   * @return
+   */
   public ApplicationVisibility applicationVisibility() {
     return applicationVisibility;
   }
@@ -93,6 +118,13 @@ public class ApplicationService {
       this.config = config;
     }
 
+    /**
+     * 获取应用信息，根据app_id获取应用的基础信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//GetApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//GetApplicationSample.java</a>
+     * ;
+     */
     public GetApplicationResp get(GetApplicationReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -115,6 +147,13 @@ public class ApplicationService {
       return resp;
     }
 
+    /**
+     * 获取应用信息，根据app_id获取应用的基础信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//GetApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//GetApplicationSample.java</a>
+     * ;
+     */
     public GetApplicationResp get(GetApplicationReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -134,6 +173,13 @@ public class ApplicationService {
       return resp;
     }
 
+    /**
+     * 更新应用分组信息，更新应用的分组信息（分组会影响应用在工作台中的分类情况，请谨慎更新）
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationSample.java</a>
+     * ;
+     */
     public PatchApplicationResp patch(PatchApplicationReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -156,6 +202,13 @@ public class ApplicationService {
       return resp;
     }
 
+    /**
+     * 更新应用分组信息，更新应用的分组信息（分组会影响应用在工作台中的分类情况，请谨慎更新）
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationSample.java</a>
+     * ;
+     */
     public PatchApplicationResp patch(PatchApplicationReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -175,6 +228,13 @@ public class ApplicationService {
       return resp;
     }
 
+    /**
+     * 查看待审核的应用列表，查看本企业下所有待审核的自建应用列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/underauditlist">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/underauditlist</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//UnderauditlistApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//UnderauditlistApplicationSample.java</a>
+     * ;
+     */
     public UnderauditlistApplicationResp underauditlist(UnderauditlistApplicationReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -197,6 +257,13 @@ public class ApplicationService {
       return resp;
     }
 
+    /**
+     * 查看待审核的应用列表，查看本企业下所有待审核的自建应用列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/underauditlist">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/underauditlist</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//UnderauditlistApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//UnderauditlistApplicationSample.java</a>
+     * ;
+     */
     public UnderauditlistApplicationResp underauditlist(UnderauditlistApplicationReq req)
         throws Exception {
       // 请求参数选项
@@ -226,6 +293,16 @@ public class ApplicationService {
       this.config = config;
     }
 
+    /**
+     * 获取应用使用概览，查看应用在某一天/某一周/某一个月的使用数据，可以查看租户整体对应用的使用情况，也可以分部门查看。
+     * <p> 1. 仅支持企业版/旗舰版租户使用;2. 一般每天早上10点产出前一天的数据;3. 已经支持的指标包括：应用的活跃用户数、累计用户数、新增用户数、访问页面数、打开次数;4.
+     * 数据从飞书4.10版本开始统计，使用飞书版本4.10及以下版本的用户数据不会被统计到;5. 按照部门查看数据时，会展示当前部门以及其子部门的整体使用情况;6. 调用频控为100次/分
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_usage/overview">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_usage/overview</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//OverviewApplicationAppUsageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//OverviewApplicationAppUsageSample.java</a>
+     * ;
+     */
     public OverviewApplicationAppUsageResp overview(OverviewApplicationAppUsageReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -248,6 +325,16 @@ public class ApplicationService {
       return resp;
     }
 
+    /**
+     * 获取应用使用概览，查看应用在某一天/某一周/某一个月的使用数据，可以查看租户整体对应用的使用情况，也可以分部门查看。
+     * <p> 1. 仅支持企业版/旗舰版租户使用;2. 一般每天早上10点产出前一天的数据;3. 已经支持的指标包括：应用的活跃用户数、累计用户数、新增用户数、访问页面数、打开次数;4.
+     * 数据从飞书4.10版本开始统计，使用飞书版本4.10及以下版本的用户数据不会被统计到;5. 按照部门查看数据时，会展示当前部门以及其子部门的整体使用情况;6. 调用频控为100次/分
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_usage/overview">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_usage/overview</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//OverviewApplicationAppUsageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//OverviewApplicationAppUsageSample.java</a>
+     * ;
+     */
     public OverviewApplicationAppUsageResp overview(OverviewApplicationAppUsageReq req)
         throws Exception {
       // 请求参数选项
@@ -277,6 +364,13 @@ public class ApplicationService {
       this.config = config;
     }
 
+    /**
+     * 获取应用版本信息，根据 app_id，version_id 获取对应应用版本的信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//GetApplicationAppVersionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//GetApplicationAppVersionSample.java</a>
+     * ;
+     */
     public GetApplicationAppVersionResp get(GetApplicationAppVersionReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -299,6 +393,13 @@ public class ApplicationService {
       return resp;
     }
 
+    /**
+     * 获取应用版本信息，根据 app_id，version_id 获取对应应用版本的信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//GetApplicationAppVersionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//GetApplicationAppVersionSample.java</a>
+     * ;
+     */
     public GetApplicationAppVersionResp get(GetApplicationAppVersionReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -318,6 +419,13 @@ public class ApplicationService {
       return resp;
     }
 
+    /**
+     * 更新应用审核状态，通过接口来更新应用版本的审核结果：通过后应用可以直接上架；拒绝后则开发者可以看到拒绝理由，并在修改后再次申请发布。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationAppVersionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationAppVersionSample.java</a>
+     * ;
+     */
     public PatchApplicationAppVersionResp patch(PatchApplicationAppVersionReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -340,6 +448,13 @@ public class ApplicationService {
       return resp;
     }
 
+    /**
+     * 更新应用审核状态，通过接口来更新应用版本的审核结果：通过后应用可以直接上架；拒绝后则开发者可以看到拒绝理由，并在修改后再次申请发布。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationAppVersionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationAppVersionSample.java</a>
+     * ;
+     */
     public PatchApplicationAppVersionResp patch(PatchApplicationAppVersionReq req)
         throws Exception {
       // 请求参数选项
@@ -369,6 +484,13 @@ public class ApplicationService {
       this.config = config;
     }
 
+    /**
+     * 获取应用反馈列表，查询应用的反馈数据
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-feedback/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-feedback/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//ListApplicationFeedbackSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//ListApplicationFeedbackSample.java</a>
+     * ;
+     */
     public ListApplicationFeedbackResp list(ListApplicationFeedbackReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -391,6 +513,13 @@ public class ApplicationService {
       return resp;
     }
 
+    /**
+     * 获取应用反馈列表，查询应用的反馈数据
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-feedback/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-feedback/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//ListApplicationFeedbackSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//ListApplicationFeedbackSample.java</a>
+     * ;
+     */
     public ListApplicationFeedbackResp list(ListApplicationFeedbackReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -410,6 +539,13 @@ public class ApplicationService {
       return resp;
     }
 
+    /**
+     * 更新应用反馈，更新应用的反馈数据
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-feedback/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-feedback/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationFeedbackSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationFeedbackSample.java</a>
+     * ;
+     */
     public PatchApplicationFeedbackResp patch(PatchApplicationFeedbackReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -432,6 +568,13 @@ public class ApplicationService {
       return resp;
     }
 
+    /**
+     * 更新应用反馈，更新应用的反馈数据
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-feedback/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-feedback/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationFeedbackSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationFeedbackSample.java</a>
+     * ;
+     */
     public PatchApplicationFeedbackResp patch(PatchApplicationFeedbackReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();

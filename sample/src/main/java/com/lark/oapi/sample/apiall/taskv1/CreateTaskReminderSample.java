@@ -6,7 +6,7 @@ import com.lark.oapi.service.task.v1.model.CreateTaskReminderReq;
 import com.lark.oapi.service.task.v1.model.CreateTaskReminderResp;
 import com.lark.oapi.service.task.v1.model.Reminder;
 
-// HTTP PATH: /open-apis/task/v1/tasks/:task_id/reminders"
+// POST /open-apis/task/v1/tasks/:task_id/reminders
 public class CreateTaskReminderSample {
 
   public static void main(String arg[]) throws Exception {

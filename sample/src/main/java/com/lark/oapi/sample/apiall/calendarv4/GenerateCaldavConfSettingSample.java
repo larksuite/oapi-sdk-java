@@ -6,7 +6,7 @@ import com.lark.oapi.service.calendar.v4.model.GenerateCaldavConfSettingReq;
 import com.lark.oapi.service.calendar.v4.model.GenerateCaldavConfSettingReqBody;
 import com.lark.oapi.service.calendar.v4.model.GenerateCaldavConfSettingResp;
 
-// HTTP PATH: /open-apis/calendar/v4/settings/generate_caldav_conf"
+// POST /open-apis/calendar/v4/settings/generate_caldav_conf
 public class GenerateCaldavConfSettingSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class GenerateCaldavConfSettingSample {
     // 创建请求对象
     GenerateCaldavConfSettingReq req = GenerateCaldavConfSettingReq.newBuilder()
         .generateCaldavConfSettingReqBody(GenerateCaldavConfSettingReqBody.newBuilder()
-            .deviceName("")
+            .deviceName("iPhone")
             .build())
         .build();
 

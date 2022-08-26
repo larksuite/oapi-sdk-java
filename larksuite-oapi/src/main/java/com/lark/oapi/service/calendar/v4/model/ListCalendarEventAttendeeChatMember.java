@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListCalendarEventAttendeeChatMember {
 
+  /**
+   * 群中的群成员，当type为chat时有效；群成员不支持编辑
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private CalendarEventAttendeeChatMember[] items;
+  /**
+   * 是否有下一页数据
+   * <p> 示例值：false
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 下次请求需要带上的分页标记
+   * <p> 示例值：73TyueXXXXX
+   */
   @SerializedName("page_token")
   private String pageToken;
 

@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Term {
 
+  /**
+   * 原文
+   * <p> 示例值：飞书
+   */
   @SerializedName("from")
   private String from;
+  /**
+   * 译文
+   * <p> 示例值：Lark
+   */
   @SerializedName("to")
   private String to;
 
@@ -27,7 +35,15 @@ public class Term {
   }
 
   public Term(Builder builder) {
+    /**
+     * 原文
+     * <p> 示例值：飞书
+     */
     this.from = builder.from;
+    /**
+     * 译文
+     * <p> 示例值：Lark
+     */
     this.to = builder.to;
   }
 
@@ -53,14 +69,37 @@ public class Term {
 
   public static class Builder {
 
+    /**
+     * 原文
+     * <p> 示例值：飞书
+     */
     private String from;
+    /**
+     * 译文
+     * <p> 示例值：Lark
+     */
     private String to;
 
+    /**
+     * 原文
+     * <p> 示例值：飞书
+     *
+     * @param from
+     * @return
+     */
     public Builder from(String from) {
       this.from = from;
       return this;
     }
 
+
+    /**
+     * 译文
+     * <p> 示例值：Lark
+     *
+     * @param to
+     * @return
+     */
     public Builder to(String to) {
       this.to = to;
       return this;

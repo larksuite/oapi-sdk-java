@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class TimeInfo {
 
+  /**
+   * 仅全天日程使用该字段，如2018-09-01。需满足 RFC3339 格式。不能与 timestamp 同时指定
+   * <p> 示例值：2018-09-01
+   */
   @SerializedName("date")
   private String date;
+  /**
+   * 秒级时间戳，如1602504000(表示2020/10/12 20:0:00 +8时区)
+   * <p> 示例值：1602504000
+   */
   @SerializedName("timestamp")
   private String timestamp;
+  /**
+   * 时区名称，使用IANA Time Zone Database标准，如Asia/Shanghai；全天日程时区固定为UTC，非全天日程时区默认为Asia/Shanghai
+   * <p> 示例值：Asia/Shanghai
+   */
   @SerializedName("timezone")
   private String timezone;
 
@@ -29,8 +41,20 @@ public class TimeInfo {
   }
 
   public TimeInfo(Builder builder) {
+    /**
+     * 仅全天日程使用该字段，如2018-09-01。需满足 RFC3339 格式。不能与 timestamp 同时指定
+     * <p> 示例值：2018-09-01
+     */
     this.date = builder.date;
+    /**
+     * 秒级时间戳，如1602504000(表示2020/10/12 20:0:00 +8时区)
+     * <p> 示例值：1602504000
+     */
     this.timestamp = builder.timestamp;
+    /**
+     * 时区名称，使用IANA Time Zone Database标准，如Asia/Shanghai；全天日程时区固定为UTC，非全天日程时区默认为Asia/Shanghai
+     * <p> 示例值：Asia/Shanghai
+     */
     this.timezone = builder.timezone;
   }
 
@@ -64,20 +88,55 @@ public class TimeInfo {
 
   public static class Builder {
 
+    /**
+     * 仅全天日程使用该字段，如2018-09-01。需满足 RFC3339 格式。不能与 timestamp 同时指定
+     * <p> 示例值：2018-09-01
+     */
     private String date;
+    /**
+     * 秒级时间戳，如1602504000(表示2020/10/12 20:0:00 +8时区)
+     * <p> 示例值：1602504000
+     */
     private String timestamp;
+    /**
+     * 时区名称，使用IANA Time Zone Database标准，如Asia/Shanghai；全天日程时区固定为UTC，非全天日程时区默认为Asia/Shanghai
+     * <p> 示例值：Asia/Shanghai
+     */
     private String timezone;
 
+    /**
+     * 仅全天日程使用该字段，如2018-09-01。需满足 RFC3339 格式。不能与 timestamp 同时指定
+     * <p> 示例值：2018-09-01
+     *
+     * @param date
+     * @return
+     */
     public Builder date(String date) {
       this.date = date;
       return this;
     }
 
+
+    /**
+     * 秒级时间戳，如1602504000(表示2020/10/12 20:0:00 +8时区)
+     * <p> 示例值：1602504000
+     *
+     * @param timestamp
+     * @return
+     */
     public Builder timestamp(String timestamp) {
       this.timestamp = timestamp;
       return this;
     }
 
+
+    /**
+     * 时区名称，使用IANA Time Zone Database标准，如Asia/Shanghai；全天日程时区固定为UTC，非全天日程时区默认为Asia/Shanghai
+     * <p> 示例值：Asia/Shanghai
+     *
+     * @param timezone
+     * @return
+     */
     public Builder timezone(String timezone) {
       this.timezone = timezone;
       return this;

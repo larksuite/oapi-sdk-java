@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryUserFlow {
 
+  /**
+   * 打卡记录列表
+   * <p> 示例值：
+   */
   @SerializedName("user_flow_results")
   private UserFlow[] userFlowResults;
 

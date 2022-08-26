@@ -7,7 +7,7 @@ import com.lark.oapi.service.attendance.v1.model.UploadFileReqBody;
 import com.lark.oapi.service.attendance.v1.model.UploadFileResp;
 import java.io.File;
 
-// HTTP PATH: /open-apis/attendance/v1/files/upload"
+// POST /open-apis/attendance/v1/files/upload
 public class UploadFileSample {
 
   public static void main(String arg[]) throws Exception {
@@ -17,7 +17,7 @@ public class UploadFileSample {
     // 创建请求对象
     File file = new File("filepath");
     UploadFileReq req = UploadFileReq.newBuilder()
-        .fileName("测试视频.mp4")
+        .fileName("人脸照片.jpg")
         .uploadFileReqBody(UploadFileReqBody.newBuilder()
             .file(file)
             .build())

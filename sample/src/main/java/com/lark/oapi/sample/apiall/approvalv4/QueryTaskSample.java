@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.approval.v4.model.QueryTaskReq;
 import com.lark.oapi.service.approval.v4.model.QueryTaskResp;
 
-// HTTP PATH: /open-apis/approval/v4/tasks/query"
+// GET /open-apis/approval/v4/tasks/query
 public class QueryTaskSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class QueryTaskSample {
     // 创建请求对象
     QueryTaskReq req = QueryTaskReq.newBuilder()
         .pageSize(100)
-        .pageToken("")
+        .pageToken("1")
         .userId("example_user_id")
         .topic("1")
         .userIdType("user_id")

@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class ApplyMemberRequest {
 
+  /**
+   * 需要申请的权限，权限值："view"，"edit"
+   * <p> 示例值：view
+   */
   @SerializedName("perm")
   private String perm;
+  /**
+   * 申请权限备注
+   * <p> 示例值：apply_remark
+   */
   @SerializedName("remark")
   private String remark;
 
@@ -27,7 +35,15 @@ public class ApplyMemberRequest {
   }
 
   public ApplyMemberRequest(Builder builder) {
+    /**
+     * 需要申请的权限，权限值："view"，"edit"
+     * <p> 示例值：view
+     */
     this.perm = builder.perm;
+    /**
+     * 申请权限备注
+     * <p> 示例值：apply_remark
+     */
     this.remark = builder.remark;
   }
 
@@ -53,19 +69,49 @@ public class ApplyMemberRequest {
 
   public static class Builder {
 
+    /**
+     * 需要申请的权限，权限值："view"，"edit"
+     * <p> 示例值：view
+     */
     private String perm;
+    /**
+     * 申请权限备注
+     * <p> 示例值：apply_remark
+     */
     private String remark;
 
+    /**
+     * 需要申请的权限，权限值："view"，"edit"
+     * <p> 示例值：view
+     *
+     * @param perm
+     * @return
+     */
     public Builder perm(String perm) {
       this.perm = perm;
       return this;
     }
 
-    public Builder perm(com.lark.oapi.service.drive.v1.enums.PermEnum perm) {
+    /**
+     * 需要申请的权限，权限值："view"，"edit"
+     * <p> 示例值：view
+     *
+     * @param perm {@link com.lark.oapi.service.drive.v1.enums.ApplyMemberRequestPermEnum}
+     * @return
+     */
+    public Builder perm(com.lark.oapi.service.drive.v1.enums.ApplyMemberRequestPermEnum perm) {
       this.perm = perm.getValue();
       return this;
     }
 
+
+    /**
+     * 申请权限备注
+     * <p> 示例值：apply_remark
+     *
+     * @param remark
+     * @return
+     */
     public Builder remark(String remark) {
       this.remark = remark;
       return this;

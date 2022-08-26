@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListScope {
 
+  /**
+   * 已授权部门列表，授权范围为全员可见时返回的是当前企业的所有一级部门列表
+   * <p> 示例值：od-8756c536552a91988b1b64559356c5a4
+   */
   @SerializedName("department_ids")
   private String[] departmentIds;
+  /**
+   * 已授权用户列表，应用申请了获取用户user_id 权限时返回；当授权范围为全员可见时返回的是当前企业所有顶级部门用户列表
+   * <p> 示例值：ou_5f3e2df282bf5aaeeaa2ea71ab9f1229
+   */
   @SerializedName("user_ids")
   private String[] userIds;
+  /**
+   * 已授权的用户组，授权范围为全员可见时返回的是当前企业所有用户组
+   * <p> 示例值：["g193821"]
+   */
   @SerializedName("group_ids")
   private String[] groupIds;
+  /**
+   * 是否还有更多项
+   * <p> 示例值：true
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token
+   * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
+   */
   @SerializedName("page_token")
   private String pageToken;
 

@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Richtext {
 
+  /**
+   * 内容
+   * <p> 示例值：我的答案
+   */
   @SerializedName("content")
   private String content;
+  /**
+   * 类型
+   * <p> 示例值：text
+   */
   @SerializedName("type")
   private String type;
 
@@ -27,7 +35,15 @@ public class Richtext {
   }
 
   public Richtext(Builder builder) {
+    /**
+     * 内容
+     * <p> 示例值：我的答案
+     */
     this.content = builder.content;
+    /**
+     * 类型
+     * <p> 示例值：text
+     */
     this.type = builder.type;
   }
 
@@ -53,14 +69,37 @@ public class Richtext {
 
   public static class Builder {
 
+    /**
+     * 内容
+     * <p> 示例值：我的答案
+     */
     private String content;
+    /**
+     * 类型
+     * <p> 示例值：text
+     */
     private String type;
 
+    /**
+     * 内容
+     * <p> 示例值：我的答案
+     *
+     * @param content
+     * @return
+     */
     public Builder content(String content) {
       this.content = content;
       return this;
     }
 
+
+    /**
+     * 类型
+     * <p> 示例值：text
+     *
+     * @param type
+     * @return
+     */
     public Builder type(String type) {
       this.type = type;
       return this;

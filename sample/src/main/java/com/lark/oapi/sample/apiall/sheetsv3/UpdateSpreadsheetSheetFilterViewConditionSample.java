@@ -6,7 +6,7 @@ import com.lark.oapi.service.sheets.v3.model.FilterViewCondition;
 import com.lark.oapi.service.sheets.v3.model.UpdateSpreadsheetSheetFilterViewConditionReq;
 import com.lark.oapi.service.sheets.v3.model.UpdateSpreadsheetSheetFilterViewConditionResp;
 
-// HTTP PATH: /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id"
+// PUT /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions/:condition_id
 public class UpdateSpreadsheetSheetFilterViewConditionSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,10 +15,10 @@ public class UpdateSpreadsheetSheetFilterViewConditionSample {
 
     // 创建请求对象
     UpdateSpreadsheetSheetFilterViewConditionReq req = UpdateSpreadsheetSheetFilterViewConditionReq.newBuilder()
-        .spreadsheetToken("")
-        .sheetId("")
-        .filterViewId("")
-        .conditionId("")
+        .spreadsheetToken("shtcnmBA*****yGehy8")
+        .sheetId("0b**12")
+        .filterViewId("pH9hbVcCXA")
+        .conditionId("E")
         .filterViewCondition(FilterViewCondition.newBuilder()
             .filterType("")
             .compareType("")

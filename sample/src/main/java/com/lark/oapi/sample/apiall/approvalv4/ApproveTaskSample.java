@@ -6,7 +6,7 @@ import com.lark.oapi.service.approval.v4.model.ApproveTaskReq;
 import com.lark.oapi.service.approval.v4.model.ApproveTaskResp;
 import com.lark.oapi.service.approval.v4.model.TaskApprove;
 
-// HTTP PATH: /open-apis/approval/v4/tasks/approve"
+// POST /open-apis/approval/v4/tasks/approve
 public class ApproveTaskSample {
 
   public static void main(String arg[]) throws Exception {
@@ -22,6 +22,7 @@ public class ApproveTaskSample {
             .userId("f7cb567e")
             .comment("OK")
             .taskId("12345")
+            .form("")
             .build())
         .build();
 

@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class ExternalInstanceTask {
 
+  /**
+   * 任务 id
+   * <p> 示例值：112253
+   */
   @SerializedName("task_id")
   private String taskId;
+  /**
+   * 任务最近更新时间
+   * <p> 示例值：1591603040000
+   */
   @SerializedName("update_time")
   private String updateTime;
 
@@ -27,7 +35,15 @@ public class ExternalInstanceTask {
   }
 
   public ExternalInstanceTask(Builder builder) {
+    /**
+     * 任务 id
+     * <p> 示例值：112253
+     */
     this.taskId = builder.taskId;
+    /**
+     * 任务最近更新时间
+     * <p> 示例值：1591603040000
+     */
     this.updateTime = builder.updateTime;
   }
 
@@ -53,14 +69,37 @@ public class ExternalInstanceTask {
 
   public static class Builder {
 
+    /**
+     * 任务 id
+     * <p> 示例值：112253
+     */
     private String taskId;
+    /**
+     * 任务最近更新时间
+     * <p> 示例值：1591603040000
+     */
     private String updateTime;
 
+    /**
+     * 任务 id
+     * <p> 示例值：112253
+     *
+     * @param taskId
+     * @return
+     */
     public Builder taskId(String taskId) {
       this.taskId = taskId;
       return this;
     }
 
+
+    /**
+     * 任务最近更新时间
+     * <p> 示例值：1591603040000
+     *
+     * @param updateTime
+     * @return
+     */
     public Builder updateTime(String updateTime) {
       this.updateTime = updateTime;
       return this;

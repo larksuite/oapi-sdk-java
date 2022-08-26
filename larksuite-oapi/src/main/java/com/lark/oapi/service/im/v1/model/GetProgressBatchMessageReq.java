@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class GetProgressBatchMessageReq {
 
+  /**
+   * 待查询的批量消息的ID
+   * <p> 示例值：bm-0b3d5d1b2df7c6d5dbd1abe2c91e2217
+   */
   @Path
   @SerializedName("batch_message_id")
   private String batchMessageId;
@@ -27,6 +31,10 @@ public class GetProgressBatchMessageReq {
   }
 
   public GetProgressBatchMessageReq(Builder builder) {
+    /**
+     * 待查询的批量消息的ID
+     * <p> 示例值：bm-0b3d5d1b2df7c6d5dbd1abe2c91e2217
+     */
     this.batchMessageId = builder.batchMessageId;
   }
 
@@ -44,8 +52,15 @@ public class GetProgressBatchMessageReq {
 
   public static class Builder {
 
-    private String batchMessageId;
+    private String batchMessageId; // 待查询的批量消息的ID
 
+    /**
+     * 待查询的批量消息的ID
+     * <p> 示例值：bm-0b3d5d1b2df7c6d5dbd1abe2c91e2217
+     *
+     * @param batchMessageId
+     * @return
+     */
     public Builder batchMessageId(String batchMessageId) {
       this.batchMessageId = batchMessageId;
       return this;

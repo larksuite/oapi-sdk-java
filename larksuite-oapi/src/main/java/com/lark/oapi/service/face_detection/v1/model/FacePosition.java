@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class FacePosition {
 
+  /**
+   * 人脸框的左上角坐标
+   * <p> 示例值：
+   */
   @SerializedName("upper_left")
   private Point upperLeft;
+  /**
+   * 人脸框的右下角坐标
+   * <p> 示例值：
+   */
   @SerializedName("lower_right")
   private Point lowerRight;
 
@@ -27,7 +35,15 @@ public class FacePosition {
   }
 
   public FacePosition(Builder builder) {
+    /**
+     * 人脸框的左上角坐标
+     * <p> 示例值：
+     */
     this.upperLeft = builder.upperLeft;
+    /**
+     * 人脸框的右下角坐标
+     * <p> 示例值：
+     */
     this.lowerRight = builder.lowerRight;
   }
 
@@ -53,14 +69,37 @@ public class FacePosition {
 
   public static class Builder {
 
+    /**
+     * 人脸框的左上角坐标
+     * <p> 示例值：
+     */
     private Point upperLeft;
+    /**
+     * 人脸框的右下角坐标
+     * <p> 示例值：
+     */
     private Point lowerRight;
 
+    /**
+     * 人脸框的左上角坐标
+     * <p> 示例值：
+     *
+     * @param upperLeft
+     * @return
+     */
     public Builder upperLeft(Point upperLeft) {
       this.upperLeft = upperLeft;
       return this;
     }
 
+
+    /**
+     * 人脸框的右下角坐标
+     * <p> 示例值：
+     *
+     * @param lowerRight
+     * @return
+     */
     public Builder lowerRight(Point lowerRight) {
       this.lowerRight = lowerRight;
       return this;

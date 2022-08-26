@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchCreateAppTableReqBody {
 
+  /**
+   * tables
+   * <p> 示例值：
+   */
   @SerializedName("tables")
   private ReqTable[] tables;
 
@@ -25,6 +29,10 @@ public class BatchCreateAppTableReqBody {
   }
 
   public BatchCreateAppTableReqBody(Builder builder) {
+    /**
+     * tables
+     * <p> 示例值：
+     */
     this.tables = builder.tables;
   }
 
@@ -42,8 +50,19 @@ public class BatchCreateAppTableReqBody {
 
   public static class Builder {
 
+    /**
+     * tables
+     * <p> 示例值：
+     */
     private ReqTable[] tables;
 
+    /**
+     * tables
+     * <p> 示例值：
+     *
+     * @param tables
+     * @return
+     */
     public Builder tables(ReqTable[] tables) {
       this.tables = tables;
       return this;

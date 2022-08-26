@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class AppScope {
 
+  /**
+   * 应用权限
+   * <p> 示例值：contact:user.base
+   */
   @SerializedName("scope")
   private String scope;
+  /**
+   * 应用权限的国际化描述
+   * <p> 示例值：获取应用信息
+   */
   @SerializedName("description")
   private String description;
+  /**
+   * 权限等级描述
+   * <p> 示例值：1
+   */
   @SerializedName("level")
   private Integer level;
 
@@ -29,8 +41,20 @@ public class AppScope {
   }
 
   public AppScope(Builder builder) {
+    /**
+     * 应用权限
+     * <p> 示例值：contact:user.base
+     */
     this.scope = builder.scope;
+    /**
+     * 应用权限的国际化描述
+     * <p> 示例值：获取应用信息
+     */
     this.description = builder.description;
+    /**
+     * 权限等级描述
+     * <p> 示例值：1
+     */
     this.level = builder.level;
   }
 
@@ -64,26 +88,68 @@ public class AppScope {
 
   public static class Builder {
 
+    /**
+     * 应用权限
+     * <p> 示例值：contact:user.base
+     */
     private String scope;
+    /**
+     * 应用权限的国际化描述
+     * <p> 示例值：获取应用信息
+     */
     private String description;
+    /**
+     * 权限等级描述
+     * <p> 示例值：1
+     */
     private Integer level;
 
+    /**
+     * 应用权限
+     * <p> 示例值：contact:user.base
+     *
+     * @param scope
+     * @return
+     */
     public Builder scope(String scope) {
       this.scope = scope;
       return this;
     }
 
+
+    /**
+     * 应用权限的国际化描述
+     * <p> 示例值：获取应用信息
+     *
+     * @param description
+     * @return
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
+
+    /**
+     * 权限等级描述
+     * <p> 示例值：1
+     *
+     * @param level
+     * @return
+     */
     public Builder level(Integer level) {
       this.level = level;
       return this;
     }
 
-    public Builder level(com.lark.oapi.service.application.v6.enums.ScopeLevelEnum level) {
+    /**
+     * 权限等级描述
+     * <p> 示例值：1
+     *
+     * @param level {@link com.lark.oapi.service.application.v6.enums.AppScopeScopeLevelEnum}
+     * @return
+     */
+    public Builder level(com.lark.oapi.service.application.v6.enums.AppScopeScopeLevelEnum level) {
       this.level = level.getValue();
       return this;
     }

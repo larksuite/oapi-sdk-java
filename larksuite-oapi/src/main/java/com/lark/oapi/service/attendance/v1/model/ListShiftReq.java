@@ -18,9 +18,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class ListShiftReq {
 
+  /**
+   * 分页大小
+   * <p> 示例值：10
+   */
   @Query
   @SerializedName("page_size")
   private Integer pageSize;
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   * <p> 示例值：YrkvQ1wGaPVta45tkxuGiQ==
+   */
   @Query
   @SerializedName("page_token")
   private String pageToken;
@@ -30,7 +38,15 @@ public class ListShiftReq {
   }
 
   public ListShiftReq(Builder builder) {
+    /**
+     * 分页大小
+     * <p> 示例值：10
+     */
     this.pageSize = builder.pageSize;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：YrkvQ1wGaPVta45tkxuGiQ==
+     */
     this.pageToken = builder.pageToken;
   }
 
@@ -56,14 +72,30 @@ public class ListShiftReq {
 
   public static class Builder {
 
-    private Integer pageSize;
-    private String pageToken;
+    private Integer pageSize; // 分页大小
+    private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
 
+
+    /**
+     * 分页大小
+     * <p> 示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
     public Builder pageSize(Integer pageSize) {
       this.pageSize = pageSize;
       return this;
     }
 
+
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：YrkvQ1wGaPVta45tkxuGiQ==
+     *
+     * @param pageToken
+     * @return
+     */
     public Builder pageToken(String pageToken) {
       this.pageToken = pageToken;
       return this;

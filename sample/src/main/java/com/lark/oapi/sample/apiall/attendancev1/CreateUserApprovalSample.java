@@ -7,7 +7,7 @@ import com.lark.oapi.service.attendance.v1.model.CreateUserApprovalReqBody;
 import com.lark.oapi.service.attendance.v1.model.CreateUserApprovalResp;
 import com.lark.oapi.service.attendance.v1.model.UserApproval;
 
-// HTTP PATH: /open-apis/attendance/v1/user_approvals"
+// POST /open-apis/attendance/v1/user_approvals
 public class CreateUserApprovalSample {
 
   public static void main(String arg[]) throws Exception {

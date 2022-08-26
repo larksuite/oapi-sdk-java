@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class SpecialFocus {
 
+  /**
+   * 用户id
+   * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * id open_id/user_id/union_id/app_id
+   * <p> 示例值：
+   */
   @SerializedName("id_type")
   private String idType;
 
@@ -27,7 +35,15 @@ public class SpecialFocus {
   }
 
   public SpecialFocus(Builder builder) {
+    /**
+     * 用户id
+     * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+     */
     this.id = builder.id;
+    /**
+     * id open_id/user_id/union_id/app_id
+     * <p> 示例值：
+     */
     this.idType = builder.idType;
   }
 
@@ -53,20 +69,50 @@ public class SpecialFocus {
 
   public static class Builder {
 
+    /**
+     * 用户id
+     * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+     */
     private String id;
+    /**
+     * id open_id/user_id/union_id/app_id
+     * <p> 示例值：
+     */
     private String idType;
 
+    /**
+     * 用户id
+     * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * id open_id/user_id/union_id/app_id
+     * <p> 示例值：
+     *
+     * @param idType
+     * @return
+     */
     public Builder idType(String idType) {
       this.idType = idType;
       return this;
     }
 
-    public Builder idType(com.lark.oapi.service.im.v1.enums.IdTypeEnum idType) {
+    /**
+     * id open_id/user_id/union_id/app_id
+     * <p> 示例值：
+     *
+     * @param idType {@link com.lark.oapi.service.im.v1.enums.SpecialFocusIdTypeEnum}
+     * @return
+     */
+    public Builder idType(com.lark.oapi.service.im.v1.enums.SpecialFocusIdTypeEnum idType) {
       this.idType = idType.getValue();
       return this;
     }

@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class AppRoleMemberId {
 
+  /**
+   * 协作者 ID 类型
+   * <p> 示例值：open_id
+   */
   @SerializedName("type")
   private String type;
+  /**
+   * 协作者 ID
+   * <p> 示例值：ou_35990a9d9052051a2fae9b2f1afabcef
+   */
   @SerializedName("id")
   private String id;
 
@@ -27,7 +35,15 @@ public class AppRoleMemberId {
   }
 
   public AppRoleMemberId(Builder builder) {
+    /**
+     * 协作者 ID 类型
+     * <p> 示例值：open_id
+     */
     this.type = builder.type;
+    /**
+     * 协作者 ID
+     * <p> 示例值：ou_35990a9d9052051a2fae9b2f1afabcef
+     */
     this.id = builder.id;
   }
 
@@ -53,19 +69,50 @@ public class AppRoleMemberId {
 
   public static class Builder {
 
+    /**
+     * 协作者 ID 类型
+     * <p> 示例值：open_id
+     */
     private String type;
+    /**
+     * 协作者 ID
+     * <p> 示例值：ou_35990a9d9052051a2fae9b2f1afabcef
+     */
     private String id;
 
+    /**
+     * 协作者 ID 类型
+     * <p> 示例值：open_id
+     *
+     * @param type
+     * @return
+     */
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public Builder type(com.lark.oapi.service.bitable.v1.enums.RoleMemberIdTypeEnum type) {
+    /**
+     * 协作者 ID 类型
+     * <p> 示例值：open_id
+     *
+     * @param type {@link com.lark.oapi.service.bitable.v1.enums.AppRoleMemberIdRoleMemberIdTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.bitable.v1.enums.AppRoleMemberIdRoleMemberIdTypeEnum type) {
       this.type = type.getValue();
       return this;
     }
 
+
+    /**
+     * 协作者 ID
+     * <p> 示例值：ou_35990a9d9052051a2fae9b2f1afabcef
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;

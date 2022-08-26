@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UploadAllMedia {
 
+  /**
+   * 素材文件的 token。
+   * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+   */
   @SerializedName("file_token")
   private String fileToken;
 

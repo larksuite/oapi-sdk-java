@@ -6,7 +6,7 @@ import com.lark.oapi.service.attendance.v1.model.QueryUserFlowReq;
 import com.lark.oapi.service.attendance.v1.model.QueryUserFlowReqBody;
 import com.lark.oapi.service.attendance.v1.model.QueryUserFlowResp;
 
-// HTTP PATH: /open-apis/attendance/v1/user_flows/query"
+// POST /open-apis/attendance/v1/user_flows/query
 public class QueryUserFlowSample {
 
   public static void main(String arg[]) throws Exception {

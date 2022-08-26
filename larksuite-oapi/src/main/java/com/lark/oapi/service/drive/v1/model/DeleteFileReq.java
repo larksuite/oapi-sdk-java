@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class DeleteFileReq {
 
+  /**
+   * 被删除文件的类型
+   * <p> 示例值：file
+   */
   @Query
   @SerializedName("type")
   private String type;
+  /**
+   * 需要删除的文件token
+   * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+   */
   @Path
   @SerializedName("file_token")
   private String fileToken;
@@ -31,7 +39,15 @@ public class DeleteFileReq {
   }
 
   public DeleteFileReq(Builder builder) {
+    /**
+     * 被删除文件的类型
+     * <p> 示例值：file
+     */
     this.type = builder.type;
+    /**
+     * 需要删除的文件token
+     * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+     */
     this.fileToken = builder.fileToken;
   }
 
@@ -57,19 +73,40 @@ public class DeleteFileReq {
 
   public static class Builder {
 
-    private String type;
-    private String fileToken;
+    private String type; // 被删除文件的类型
+    private String fileToken; // 需要删除的文件token
 
+    /**
+     * 被删除文件的类型
+     * <p> 示例值：file
+     *
+     * @param type
+     * @return
+     */
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public Builder type(com.lark.oapi.service.drive.v1.enums.TypeEnum type) {
+    /**
+     * 被删除文件的类型
+     * <p> 示例值：file
+     *
+     * @param type {@link com.lark.oapi.service.drive.v1.enums.DeleteFileTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.drive.v1.enums.DeleteFileTypeEnum type) {
       this.type = type.getValue();
       return this;
     }
 
+    /**
+     * 需要删除的文件token
+     * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+     *
+     * @param fileToken
+     * @return
+     */
     public Builder fileToken(String fileToken) {
       this.fileToken = fileToken;
       return this;

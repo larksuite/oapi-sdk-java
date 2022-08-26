@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class SpecialFocusUnread {
 
+  /**
+   * 用户id
+   * <p> 示例值：
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * 进群成员id类型 open_id/user_id/union_id/app_id
+   * <p> 示例值：
+   */
   @SerializedName("id_type")
   private String idType;
+  /**
+   * 未读数
+   * <p> 示例值：
+   */
   @SerializedName("unread_count")
   private String unreadCount;
 
@@ -29,8 +41,20 @@ public class SpecialFocusUnread {
   }
 
   public SpecialFocusUnread(Builder builder) {
+    /**
+     * 用户id
+     * <p> 示例值：
+     */
     this.id = builder.id;
+    /**
+     * 进群成员id类型 open_id/user_id/union_id/app_id
+     * <p> 示例值：
+     */
     this.idType = builder.idType;
+    /**
+     * 未读数
+     * <p> 示例值：
+     */
     this.unreadCount = builder.unreadCount;
   }
 
@@ -64,25 +88,67 @@ public class SpecialFocusUnread {
 
   public static class Builder {
 
+    /**
+     * 用户id
+     * <p> 示例值：
+     */
     private String id;
+    /**
+     * 进群成员id类型 open_id/user_id/union_id/app_id
+     * <p> 示例值：
+     */
     private String idType;
+    /**
+     * 未读数
+     * <p> 示例值：
+     */
     private String unreadCount;
 
+    /**
+     * 用户id
+     * <p> 示例值：
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 进群成员id类型 open_id/user_id/union_id/app_id
+     * <p> 示例值：
+     *
+     * @param idType
+     * @return
+     */
     public Builder idType(String idType) {
       this.idType = idType;
       return this;
     }
 
-    public Builder idType(com.lark.oapi.service.im.v1.enums.IdTypeEnum idType) {
+    /**
+     * 进群成员id类型 open_id/user_id/union_id/app_id
+     * <p> 示例值：
+     *
+     * @param idType {@link com.lark.oapi.service.im.v1.enums.SpecialFocusUnreadIdTypeEnum}
+     * @return
+     */
+    public Builder idType(com.lark.oapi.service.im.v1.enums.SpecialFocusUnreadIdTypeEnum idType) {
       this.idType = idType.getValue();
       return this;
     }
 
+
+    /**
+     * 未读数
+     * <p> 示例值：
+     *
+     * @param unreadCount
+     * @return
+     */
     public Builder unreadCount(String unreadCount) {
       this.unreadCount = unreadCount;
       return this;

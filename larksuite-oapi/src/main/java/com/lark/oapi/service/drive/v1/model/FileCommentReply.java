@@ -17,27 +17,78 @@ import com.google.gson.annotations.SerializedName;
 
 public class FileCommentReply {
 
+  /**
+   * 回复ID
+   * <p> 示例值：6916106822734512356
+   */
   @SerializedName("reply_id")
   private String replyId;
+  /**
+   * 用户ID
+   * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eab2abcef
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 创建时间
+   * <p> 示例值：1610281603
+   */
   @SerializedName("create_time")
   private Integer createTime;
+  /**
+   * 更新时间
+   * <p> 示例值：1610281603
+   */
   @SerializedName("update_time")
   private Integer updateTime;
+  /**
+   * 回复内容
+   * <p> 示例值：
+   */
   @SerializedName("content")
   private ReplyContent content;
+  /**
+   * 回复的其他内容，图片token等
+   * <p> 示例值：
+   */
+  @SerializedName("extra")
+  private ReplyExtra extra;
 
   // builder 开始
   public FileCommentReply() {
   }
 
   public FileCommentReply(Builder builder) {
+    /**
+     * 回复ID
+     * <p> 示例值：6916106822734512356
+     */
     this.replyId = builder.replyId;
+    /**
+     * 用户ID
+     * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eab2abcef
+     */
     this.userId = builder.userId;
+    /**
+     * 创建时间
+     * <p> 示例值：1610281603
+     */
     this.createTime = builder.createTime;
+    /**
+     * 更新时间
+     * <p> 示例值：1610281603
+     */
     this.updateTime = builder.updateTime;
+    /**
+     * 回复内容
+     * <p> 示例值：
+     */
     this.content = builder.content;
+    /**
+     * 回复的其他内容，图片token等
+     * <p> 示例值：
+     */
+    this.extra = builder.extra;
   }
 
   public static Builder newBuilder() {
@@ -84,36 +135,121 @@ public class FileCommentReply {
     this.content = content;
   }
 
+  public ReplyExtra getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(ReplyExtra extra) {
+    this.extra = extra;
+  }
+
   public static class Builder {
 
+    /**
+     * 回复ID
+     * <p> 示例值：6916106822734512356
+     */
     private String replyId;
+    /**
+     * 用户ID
+     * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eab2abcef
+     */
     private String userId;
+    /**
+     * 创建时间
+     * <p> 示例值：1610281603
+     */
     private Integer createTime;
+    /**
+     * 更新时间
+     * <p> 示例值：1610281603
+     */
     private Integer updateTime;
+    /**
+     * 回复内容
+     * <p> 示例值：
+     */
     private ReplyContent content;
+    /**
+     * 回复的其他内容，图片token等
+     * <p> 示例值：
+     */
+    private ReplyExtra extra;
 
+    /**
+     * 回复ID
+     * <p> 示例值：6916106822734512356
+     *
+     * @param replyId
+     * @return
+     */
     public Builder replyId(String replyId) {
       this.replyId = replyId;
       return this;
     }
 
+
+    /**
+     * 用户ID
+     * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eab2abcef
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 创建时间
+     * <p> 示例值：1610281603
+     *
+     * @param createTime
+     * @return
+     */
     public Builder createTime(Integer createTime) {
       this.createTime = createTime;
       return this;
     }
 
+
+    /**
+     * 更新时间
+     * <p> 示例值：1610281603
+     *
+     * @param updateTime
+     * @return
+     */
     public Builder updateTime(Integer updateTime) {
       this.updateTime = updateTime;
       return this;
     }
 
+
+    /**
+     * 回复内容
+     * <p> 示例值：
+     *
+     * @param content
+     * @return
+     */
     public Builder content(ReplyContent content) {
       this.content = content;
+      return this;
+    }
+
+
+    /**
+     * 回复的其他内容，图片token等
+     * <p> 示例值：
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(ReplyExtra extra) {
+      this.extra = extra;
       return this;
     }
 

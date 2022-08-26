@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class TextRun {
 
+  /**
+   * 回复 普通文本
+   * <p> 示例值：comment text
+   */
   @SerializedName("text")
   private String text;
 
@@ -25,6 +29,10 @@ public class TextRun {
   }
 
   public TextRun(Builder builder) {
+    /**
+     * 回复 普通文本
+     * <p> 示例值：comment text
+     */
     this.text = builder.text;
   }
 
@@ -42,8 +50,19 @@ public class TextRun {
 
   public static class Builder {
 
+    /**
+     * 回复 普通文本
+     * <p> 示例值：comment text
+     */
     private String text;
 
+    /**
+     * 回复 普通文本
+     * <p> 示例值：comment text
+     *
+     * @param text
+     * @return
+     */
     public Builder text(String text) {
       this.text = text;
       return this;

@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class OldDepartmentObject {
 
+  /**
+   * 部门状态
+   * <p> 示例值：
+   */
   @SerializedName("status")
   private DepartmentStatus status;
+  /**
+   * 部门open_id
+   * <p> 示例值：od-xxxxxxxx
+   */
   @SerializedName("open_department_id")
   private String openDepartmentId;
 
@@ -27,7 +35,15 @@ public class OldDepartmentObject {
   }
 
   public OldDepartmentObject(Builder builder) {
+    /**
+     * 部门状态
+     * <p> 示例值：
+     */
     this.status = builder.status;
+    /**
+     * 部门open_id
+     * <p> 示例值：od-xxxxxxxx
+     */
     this.openDepartmentId = builder.openDepartmentId;
   }
 
@@ -53,14 +69,37 @@ public class OldDepartmentObject {
 
   public static class Builder {
 
+    /**
+     * 部门状态
+     * <p> 示例值：
+     */
     private DepartmentStatus status;
+    /**
+     * 部门open_id
+     * <p> 示例值：od-xxxxxxxx
+     */
     private String openDepartmentId;
 
+    /**
+     * 部门状态
+     * <p> 示例值：
+     *
+     * @param status
+     * @return
+     */
     public Builder status(DepartmentStatus status) {
       this.status = status;
       return this;
     }
 
+
+    /**
+     * 部门open_id
+     * <p> 示例值：od-xxxxxxxx
+     *
+     * @param openDepartmentId
+     * @return
+     */
     public Builder openDepartmentId(String openDepartmentId) {
       this.openDepartmentId = openDepartmentId;
       return this;

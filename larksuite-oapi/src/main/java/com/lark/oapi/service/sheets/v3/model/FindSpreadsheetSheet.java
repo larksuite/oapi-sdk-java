@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class FindSpreadsheetSheet {
 
+  /**
+   * 查找返回符合条件的信息
+   * <p> 示例值：
+   */
   @SerializedName("find_result")
   private FindReplaceResult findResult;
 

@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class Phrase {
 
+  /**
+   * 识别到的关键词
+   * <p> 示例值：企业百科
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 对应的词条 ID
+   * <p> 示例值：
+   */
   @SerializedName("entity_ids")
   private String[] entityIds;
+  /**
+   * 词条所在位置
+   * <p> 示例值：
+   */
   @SerializedName("span")
   private Span span;
 
@@ -29,8 +41,20 @@ public class Phrase {
   }
 
   public Phrase(Builder builder) {
+    /**
+     * 识别到的关键词
+     * <p> 示例值：企业百科
+     */
     this.name = builder.name;
+    /**
+     * 对应的词条 ID
+     * <p> 示例值：
+     */
     this.entityIds = builder.entityIds;
+    /**
+     * 词条所在位置
+     * <p> 示例值：
+     */
     this.span = builder.span;
   }
 
@@ -64,20 +88,55 @@ public class Phrase {
 
   public static class Builder {
 
+    /**
+     * 识别到的关键词
+     * <p> 示例值：企业百科
+     */
     private String name;
+    /**
+     * 对应的词条 ID
+     * <p> 示例值：
+     */
     private String[] entityIds;
+    /**
+     * 词条所在位置
+     * <p> 示例值：
+     */
     private Span span;
 
+    /**
+     * 识别到的关键词
+     * <p> 示例值：企业百科
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 对应的词条 ID
+     * <p> 示例值：
+     *
+     * @param entityIds
+     * @return
+     */
     public Builder entityIds(String[] entityIds) {
       this.entityIds = entityIds;
       return this;
     }
 
+
+    /**
+     * 词条所在位置
+     * <p> 示例值：
+     *
+     * @param span
+     * @return
+     */
     public Builder span(Span span) {
       this.span = span;
       return this;

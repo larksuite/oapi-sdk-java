@@ -6,7 +6,7 @@ import com.lark.oapi.service.wiki.v2.model.CreateSpaceMemberReq;
 import com.lark.oapi.service.wiki.v2.model.CreateSpaceMemberResp;
 import com.lark.oapi.service.wiki.v2.model.Member;
 
-// HTTP PATH: /open-apis/wiki/v2/spaces/:space_id/members"
+// POST /open-apis/wiki/v2/spaces/:space_id/members
 public class CreateSpaceMemberSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class CreateSpaceMemberSample {
 
     // 创建请求对象
     CreateSpaceMemberReq req = CreateSpaceMemberReq.newBuilder()
-        .spaceId("7008061636015554580")
+        .spaceId("1565676577122621")
         .needNotification(false)
         .member(Member.newBuilder()
             .memberType("")

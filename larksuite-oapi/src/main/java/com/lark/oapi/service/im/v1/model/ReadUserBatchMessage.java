@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class ReadUserBatchMessage {
 
+  /**
+   * 批量发送消息的用户阅读情况
+   * <p> 示例值：
+   */
   @SerializedName("read_user")
   private BatchMessageReadUser readUser;
 

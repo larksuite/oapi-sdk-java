@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class ChatManagers {
 
+  /**
+   * 群管理员ID
+   * <p> 示例值：
+   */
   @SerializedName("manager_id")
   private String managerId;
 
@@ -25,6 +29,10 @@ public class ChatManagers {
   }
 
   public ChatManagers(Builder builder) {
+    /**
+     * 群管理员ID
+     * <p> 示例值：
+     */
     this.managerId = builder.managerId;
   }
 
@@ -42,8 +50,19 @@ public class ChatManagers {
 
   public static class Builder {
 
+    /**
+     * 群管理员ID
+     * <p> 示例值：
+     */
     private String managerId;
 
+    /**
+     * 群管理员ID
+     * <p> 示例值：
+     *
+     * @param managerId
+     * @return
+     */
     public Builder managerId(String managerId) {
       this.managerId = managerId;
       return this;

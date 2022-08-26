@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.contact.v3.model.DeleteGroupReq;
 import com.lark.oapi.service.contact.v3.model.DeleteGroupResp;
 
-// HTTP PATH: /open-apis/contact/v3/group/:group_id"
+// DELETE /open-apis/contact/v3/group/:group_id
 public class DeleteGroupSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class DeleteGroupSample {
 
     // 创建请求对象
     DeleteGroupReq req = DeleteGroupReq.newBuilder()
-        .groupId("")
+        .groupId("g1837191")
         .build();
 
     // 发起请求

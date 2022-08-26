@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class NativeRegion {
 
+  /**
+   * ISO 编码
+   * <p> 示例值：CHN-11
+   */
   @SerializedName("iso_code")
   private String isoCode;
+  /**
+   * 名称
+   * <p> 示例值：北京
+   */
   @SerializedName("name")
   private String name;
 
@@ -27,7 +35,15 @@ public class NativeRegion {
   }
 
   public NativeRegion(Builder builder) {
+    /**
+     * ISO 编码
+     * <p> 示例值：CHN-11
+     */
     this.isoCode = builder.isoCode;
+    /**
+     * 名称
+     * <p> 示例值：北京
+     */
     this.name = builder.name;
   }
 
@@ -53,14 +69,37 @@ public class NativeRegion {
 
   public static class Builder {
 
+    /**
+     * ISO 编码
+     * <p> 示例值：CHN-11
+     */
     private String isoCode;
+    /**
+     * 名称
+     * <p> 示例值：北京
+     */
     private String name;
 
+    /**
+     * ISO 编码
+     * <p> 示例值：CHN-11
+     *
+     * @param isoCode
+     * @return
+     */
     public Builder isoCode(String isoCode) {
       this.isoCode = isoCode;
       return this;
     }
 
+
+    /**
+     * 名称
+     * <p> 示例值：北京
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;

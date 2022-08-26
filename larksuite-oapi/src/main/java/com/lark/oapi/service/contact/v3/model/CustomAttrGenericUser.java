@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class CustomAttrGenericUser {
 
+  /**
+   * 用户的user_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * <p> 示例值：9b2fabg5
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * 用户类型    1：用户
+   * <p> 示例值：1
+   */
   @SerializedName("type")
   private Integer type;
 
@@ -27,7 +35,15 @@ public class CustomAttrGenericUser {
   }
 
   public CustomAttrGenericUser(Builder builder) {
+    /**
+     * 用户的user_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * <p> 示例值：9b2fabg5
+     */
     this.id = builder.id;
+    /**
+     * 用户类型    1：用户
+     * <p> 示例值：1
+     */
     this.type = builder.type;
   }
 
@@ -53,14 +69,37 @@ public class CustomAttrGenericUser {
 
   public static class Builder {
 
+    /**
+     * 用户的user_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * <p> 示例值：9b2fabg5
+     */
     private String id;
+    /**
+     * 用户类型    1：用户
+     * <p> 示例值：1
+     */
     private Integer type;
 
+    /**
+     * 用户的user_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * <p> 示例值：9b2fabg5
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 用户类型    1：用户
+     * <p> 示例值：1
+     *
+     * @param type
+     * @return
+     */
     public Builder type(Integer type) {
       this.type = type;
       return this;

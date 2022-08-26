@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class MoveFile {
 
+  /**
+   * 异步任务id，移动文件夹时返回
+   * <p> 示例值：12345
+   */
   @SerializedName("task_id")
   private String taskId;
 

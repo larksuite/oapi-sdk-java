@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class InstanceSearchApprovalExternal {
 
+  /**
+   * 是否支持批量读
+   * <p> 示例值：false
+   */
   @SerializedName("batch_cc_read")
   private Boolean batchCcRead;
 
@@ -25,6 +29,10 @@ public class InstanceSearchApprovalExternal {
   }
 
   public InstanceSearchApprovalExternal(Builder builder) {
+    /**
+     * 是否支持批量读
+     * <p> 示例值：false
+     */
     this.batchCcRead = builder.batchCcRead;
   }
 
@@ -42,8 +50,19 @@ public class InstanceSearchApprovalExternal {
 
   public static class Builder {
 
+    /**
+     * 是否支持批量读
+     * <p> 示例值：false
+     */
     private Boolean batchCcRead;
 
+    /**
+     * 是否支持批量读
+     * <p> 示例值：false
+     *
+     * @param batchCcRead
+     * @return
+     */
     public Builder batchCcRead(Boolean batchCcRead) {
       this.batchCcRead = batchCcRead;
       return this;

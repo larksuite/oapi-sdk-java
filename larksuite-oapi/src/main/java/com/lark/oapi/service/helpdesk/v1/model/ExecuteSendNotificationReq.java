@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class ExecuteSendNotificationReq {
 
+  /**
+   * 创建接口返回的唯一id
+   * <p> 示例值：6985032626234982420
+   */
   @Path
   @SerializedName("notification_id")
   private String notificationId;
@@ -30,6 +34,10 @@ public class ExecuteSendNotificationReq {
   }
 
   public ExecuteSendNotificationReq(Builder builder) {
+    /**
+     * 创建接口返回的唯一id
+     * <p> 示例值：6985032626234982420
+     */
     this.notificationId = builder.notificationId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class ExecuteSendNotificationReq {
 
   public static class Builder {
 
-    private String notificationId;
+    private String notificationId; // 创建接口返回的唯一id
     private ExecuteSendNotificationReqBody body;
 
+    /**
+     * 创建接口返回的唯一id
+     * <p> 示例值：6985032626234982420
+     *
+     * @param notificationId
+     * @return
+     */
     public Builder notificationId(String notificationId) {
       this.notificationId = notificationId;
       return this;
@@ -68,6 +83,12 @@ public class ExecuteSendNotificationReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder executeSendNotificationReqBody(ExecuteSendNotificationReqBody body) {
       this.body = body;
       return this;

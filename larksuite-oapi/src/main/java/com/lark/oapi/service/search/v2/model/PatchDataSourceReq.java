@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class PatchDataSourceReq {
 
+  /**
+   * 数据源的唯一标识
+   * <p> 示例值：service_ticket
+   */
   @Path
   @SerializedName("data_source_id")
   private String dataSourceId;
@@ -30,6 +34,10 @@ public class PatchDataSourceReq {
   }
 
   public PatchDataSourceReq(Builder builder) {
+    /**
+     * 数据源的唯一标识
+     * <p> 示例值：service_ticket
+     */
     this.dataSourceId = builder.dataSourceId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class PatchDataSourceReq {
 
   public static class Builder {
 
-    private String dataSourceId;
+    private String dataSourceId; // 数据源的唯一标识
     private PatchDataSourceReqBody body;
 
+    /**
+     * 数据源的唯一标识
+     * <p> 示例值：service_ticket
+     *
+     * @param dataSourceId
+     * @return
+     */
     public Builder dataSourceId(String dataSourceId) {
       this.dataSourceId = dataSourceId;
       return this;
@@ -68,6 +83,12 @@ public class PatchDataSourceReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder patchDataSourceReqBody(PatchDataSourceReqBody body) {
       this.body = body;
       return this;

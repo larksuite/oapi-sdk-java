@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2ScopeUpdatedV3Data {
 
+  /**
+   * 当通讯录范围权限变更时，新增的对象
+   * <p> 示例值：
+   */
   @SerializedName("added")
   private Scope added;
+  /**
+   * 当通讯录范围权限发生变更时，移除的对象
+   * <p> 示例值：
+   */
   @SerializedName("removed")
   private Scope removed;
 

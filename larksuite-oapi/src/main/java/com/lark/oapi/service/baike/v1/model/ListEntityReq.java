@@ -18,15 +18,31 @@ import com.lark.oapi.core.annotation.Query;
 
 public class ListEntityReq {
 
+  /**
+   * 分页大小
+   * <p> 示例值：20
+   */
   @Query
   @SerializedName("page_size")
   private Integer pageSize;
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   * <p> 示例值：b152fa6e6f62a291019a04c3a93f365f8ac641910506ff15ff4cad6534e087cb4ed8fa2c
+   */
   @Query
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 相关外部系统【可用来过滤词条数据】
+   * <p> 示例值：星云
+   */
   @Query
   @SerializedName("provider")
   private String provider;
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
@@ -36,9 +52,25 @@ public class ListEntityReq {
   }
 
   public ListEntityReq(Builder builder) {
+    /**
+     * 分页大小
+     * <p> 示例值：20
+     */
     this.pageSize = builder.pageSize;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：b152fa6e6f62a291019a04c3a93f365f8ac641910506ff15ff4cad6534e087cb4ed8fa2c
+     */
     this.pageToken = builder.pageToken;
+    /**
+     * 相关外部系统【可用来过滤词条数据】
+     * <p> 示例值：星云
+     */
     this.provider = builder.provider;
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
   }
 
@@ -80,32 +112,72 @@ public class ListEntityReq {
 
   public static class Builder {
 
-    private Integer pageSize;
-    private String pageToken;
-    private String provider;
-    private String userIdType;
+    private Integer pageSize; // 分页大小
+    private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+    private String provider; // 相关外部系统【可用来过滤词条数据】
+    private String userIdType; // 此次调用中使用的用户ID的类型
 
+
+    /**
+     * 分页大小
+     * <p> 示例值：20
+     *
+     * @param pageSize
+     * @return
+     */
     public Builder pageSize(Integer pageSize) {
       this.pageSize = pageSize;
       return this;
     }
 
+
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：b152fa6e6f62a291019a04c3a93f365f8ac641910506ff15ff4cad6534e087cb4ed8fa2c
+     *
+     * @param pageToken
+     * @return
+     */
     public Builder pageToken(String pageToken) {
       this.pageToken = pageToken;
       return this;
     }
 
+
+    /**
+     * 相关外部系统【可用来过滤词条数据】
+     * <p> 示例值：星云
+     *
+     * @param provider
+     * @return
+     */
     public Builder provider(String provider) {
       this.provider = provider;
       return this;
     }
 
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.baike.v1.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.baike.v1.enums.ListEntityUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.baike.v1.enums.ListEntityUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }

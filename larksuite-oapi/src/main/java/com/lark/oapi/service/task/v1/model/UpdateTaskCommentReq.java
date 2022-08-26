@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Path;
 
 public class UpdateTaskCommentReq {
 
+  /**
+   * 任务ID
+   * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+   */
   @Path
   @SerializedName("task_id")
   private String taskId;
+  /**
+   * 评论 ID
+   * <p> 示例值：6937231762296684564
+   */
   @Path
   @SerializedName("comment_id")
   private String commentId;
@@ -33,7 +41,15 @@ public class UpdateTaskCommentReq {
   }
 
   public UpdateTaskCommentReq(Builder builder) {
+    /**
+     * 任务ID
+     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     */
     this.taskId = builder.taskId;
+    /**
+     * 评论 ID
+     * <p> 示例值：6937231762296684564
+     */
     this.commentId = builder.commentId;
     this.body = builder.body;
   }
@@ -68,15 +84,29 @@ public class UpdateTaskCommentReq {
 
   public static class Builder {
 
-    private String taskId;
-    private String commentId;
+    private String taskId; // 任务ID
+    private String commentId; // 评论 ID
     private UpdateTaskCommentReqBody body;
 
+    /**
+     * 任务ID
+     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     *
+     * @param taskId
+     * @return
+     */
     public Builder taskId(String taskId) {
       this.taskId = taskId;
       return this;
     }
 
+    /**
+     * 评论 ID
+     * <p> 示例值：6937231762296684564
+     *
+     * @param commentId
+     * @return
+     */
     public Builder commentId(String commentId) {
       this.commentId = commentId;
       return this;
@@ -86,6 +116,12 @@ public class UpdateTaskCommentReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder updateTaskCommentReqBody(UpdateTaskCommentReqBody body) {
       this.body = body;
       return this;

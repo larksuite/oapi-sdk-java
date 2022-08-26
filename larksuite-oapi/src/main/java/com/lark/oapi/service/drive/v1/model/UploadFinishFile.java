@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UploadFinishFile {
 
+  /**
+   * 新创建的文件token
+   * <p> 示例值：
+   */
   @SerializedName("file_token")
   private String fileToken;
 

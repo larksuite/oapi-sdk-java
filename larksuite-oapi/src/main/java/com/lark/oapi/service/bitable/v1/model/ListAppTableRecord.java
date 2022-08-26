@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListAppTableRecord {
 
+  /**
+   * 是否有下一页数据
+   * <p> 示例值：
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 下一页分页的token
+   * <p> 示例值：
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 总数
+   * <p> 示例值：
+   */
   @SerializedName("total")
   private Integer total;
+  /**
+   * 记录信息
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private AppTableRecord[] items;
 

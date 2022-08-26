@@ -17,18 +17,46 @@ import com.google.gson.annotations.SerializedName;
 
 public class FloatImage {
 
+  /**
+   * 浮动图片 id
+   * <p> 示例值：ye06SS14ph
+   */
   @SerializedName("float_image_id")
   private String floatImageId;
+  /**
+   * 【更新时不用传，创建需要】浮动图片 token，需要先上传图片到表格获得此 token 之后再进行浮动图片的相关操作
+   * <p> 示例值：boxbcbQsaSqIXsxxxxx1HCPJFbh
+   */
   @SerializedName("float_image_token")
   private String floatImageToken;
+  /**
+   * 浮动图片的左上角单元格定位，只支持一个单元格
+   * <p> 示例值：0b**12!A1:A1
+   */
   @SerializedName("range")
   private String range;
+  /**
+   * 浮动图片的宽度，大于等于 20px
+   * <p> 示例值：100
+   */
   @SerializedName("width")
   private Double width;
+  /**
+   * 浮动图片的高度，大于等于 20px
+   * <p> 示例值：100
+   */
   @SerializedName("height")
   private Double height;
+  /**
+   * 浮动图片左上角所在位置相对于所在单元格左上角的横向偏移，大于等于0且小于所在单元格的宽度
+   * <p> 示例值：0
+   */
   @SerializedName("offset_x")
   private Double offsetX;
+  /**
+   * 浮动图片左上角所在位置相对于所在单元格左上角的纵向偏移，大于等于0且小于所在单元格的高度
+   * <p> 示例值：0
+   */
   @SerializedName("offset_y")
   private Double offsetY;
 
@@ -37,12 +65,40 @@ public class FloatImage {
   }
 
   public FloatImage(Builder builder) {
+    /**
+     * 浮动图片 id
+     * <p> 示例值：ye06SS14ph
+     */
     this.floatImageId = builder.floatImageId;
+    /**
+     * 【更新时不用传，创建需要】浮动图片 token，需要先上传图片到表格获得此 token 之后再进行浮动图片的相关操作
+     * <p> 示例值：boxbcbQsaSqIXsxxxxx1HCPJFbh
+     */
     this.floatImageToken = builder.floatImageToken;
+    /**
+     * 浮动图片的左上角单元格定位，只支持一个单元格
+     * <p> 示例值：0b**12!A1:A1
+     */
     this.range = builder.range;
+    /**
+     * 浮动图片的宽度，大于等于 20px
+     * <p> 示例值：100
+     */
     this.width = builder.width;
+    /**
+     * 浮动图片的高度，大于等于 20px
+     * <p> 示例值：100
+     */
     this.height = builder.height;
+    /**
+     * 浮动图片左上角所在位置相对于所在单元格左上角的横向偏移，大于等于0且小于所在单元格的宽度
+     * <p> 示例值：0
+     */
     this.offsetX = builder.offsetX;
+    /**
+     * 浮动图片左上角所在位置相对于所在单元格左上角的纵向偏移，大于等于0且小于所在单元格的高度
+     * <p> 示例值：0
+     */
     this.offsetY = builder.offsetY;
   }
 
@@ -108,44 +164,127 @@ public class FloatImage {
 
   public static class Builder {
 
+    /**
+     * 浮动图片 id
+     * <p> 示例值：ye06SS14ph
+     */
     private String floatImageId;
+    /**
+     * 【更新时不用传，创建需要】浮动图片 token，需要先上传图片到表格获得此 token 之后再进行浮动图片的相关操作
+     * <p> 示例值：boxbcbQsaSqIXsxxxxx1HCPJFbh
+     */
     private String floatImageToken;
+    /**
+     * 浮动图片的左上角单元格定位，只支持一个单元格
+     * <p> 示例值：0b**12!A1:A1
+     */
     private String range;
+    /**
+     * 浮动图片的宽度，大于等于 20px
+     * <p> 示例值：100
+     */
     private Double width;
+    /**
+     * 浮动图片的高度，大于等于 20px
+     * <p> 示例值：100
+     */
     private Double height;
+    /**
+     * 浮动图片左上角所在位置相对于所在单元格左上角的横向偏移，大于等于0且小于所在单元格的宽度
+     * <p> 示例值：0
+     */
     private Double offsetX;
+    /**
+     * 浮动图片左上角所在位置相对于所在单元格左上角的纵向偏移，大于等于0且小于所在单元格的高度
+     * <p> 示例值：0
+     */
     private Double offsetY;
 
+    /**
+     * 浮动图片 id
+     * <p> 示例值：ye06SS14ph
+     *
+     * @param floatImageId
+     * @return
+     */
     public Builder floatImageId(String floatImageId) {
       this.floatImageId = floatImageId;
       return this;
     }
 
+
+    /**
+     * 【更新时不用传，创建需要】浮动图片 token，需要先上传图片到表格获得此 token 之后再进行浮动图片的相关操作
+     * <p> 示例值：boxbcbQsaSqIXsxxxxx1HCPJFbh
+     *
+     * @param floatImageToken
+     * @return
+     */
     public Builder floatImageToken(String floatImageToken) {
       this.floatImageToken = floatImageToken;
       return this;
     }
 
+
+    /**
+     * 浮动图片的左上角单元格定位，只支持一个单元格
+     * <p> 示例值：0b**12!A1:A1
+     *
+     * @param range
+     * @return
+     */
     public Builder range(String range) {
       this.range = range;
       return this;
     }
 
+
+    /**
+     * 浮动图片的宽度，大于等于 20px
+     * <p> 示例值：100
+     *
+     * @param width
+     * @return
+     */
     public Builder width(Double width) {
       this.width = width;
       return this;
     }
 
+
+    /**
+     * 浮动图片的高度，大于等于 20px
+     * <p> 示例值：100
+     *
+     * @param height
+     * @return
+     */
     public Builder height(Double height) {
       this.height = height;
       return this;
     }
 
+
+    /**
+     * 浮动图片左上角所在位置相对于所在单元格左上角的横向偏移，大于等于0且小于所在单元格的宽度
+     * <p> 示例值：0
+     *
+     * @param offsetX
+     * @return
+     */
     public Builder offsetX(Double offsetX) {
       this.offsetX = offsetX;
       return this;
     }
 
+
+    /**
+     * 浮动图片左上角所在位置相对于所在单元格左上角的纵向偏移，大于等于0且小于所在单元格的高度
+     * <p> 示例值：0
+     *
+     * @param offsetY
+     * @return
+     */
     public Builder offsetY(Double offsetY) {
       this.offsetY = offsetY;
       return this;

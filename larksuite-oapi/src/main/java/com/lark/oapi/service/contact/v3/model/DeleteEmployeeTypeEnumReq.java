@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DeleteEmployeeTypeEnumReq {
 
+  /**
+   * 枚举值id
+   * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
+   */
   @Path
   @SerializedName("enum_id")
   private String enumId;
@@ -27,6 +31,10 @@ public class DeleteEmployeeTypeEnumReq {
   }
 
   public DeleteEmployeeTypeEnumReq(Builder builder) {
+    /**
+     * 枚举值id
+     * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
+     */
     this.enumId = builder.enumId;
   }
 
@@ -44,8 +52,15 @@ public class DeleteEmployeeTypeEnumReq {
 
   public static class Builder {
 
-    private String enumId;
+    private String enumId; // 枚举值id
 
+    /**
+     * 枚举值id
+     * <p> 示例值：exGeIjow7zIqWMy+ONkFxA==
+     *
+     * @param enumId
+     * @return
+     */
     public Builder enumId(String enumId) {
       this.enumId = enumId;
       return this;

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateDocument {
 
+  /**
+   * 新建文档的文档信息
+   * <p> 示例值：
+   */
   @SerializedName("document")
   private Document document;
 

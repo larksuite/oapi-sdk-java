@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class ReplyList {
 
+  /**
+   * 回复列表
+   * <p> 示例值：
+   */
   @SerializedName("replies")
   private FileCommentReply[] replies;
 
@@ -25,6 +29,10 @@ public class ReplyList {
   }
 
   public ReplyList(Builder builder) {
+    /**
+     * 回复列表
+     * <p> 示例值：
+     */
     this.replies = builder.replies;
   }
 
@@ -42,8 +50,19 @@ public class ReplyList {
 
   public static class Builder {
 
+    /**
+     * 回复列表
+     * <p> 示例值：
+     */
     private FileCommentReply[] replies;
 
+    /**
+     * 回复列表
+     * <p> 示例值：
+     *
+     * @param replies
+     * @return
+     */
     public Builder replies(FileCommentReply[] replies) {
       this.replies = replies;
       return this;

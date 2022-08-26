@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class SchemaSearchOptions {
 
+  /**
+   * 是否支持语义切词召回。默认不支持（推荐使用在长文本的场景）
+   * <p> 示例值：true
+   */
   @SerializedName("enable_semantic_match")
   private Boolean enableSemanticMatch;
+  /**
+   * 是否支持精确匹配。默认不支持（推荐使用在短文本、需要精确查找的场景）
+   * <p> 示例值：false
+   */
   @SerializedName("enable_exact_match")
   private Boolean enableExactMatch;
+  /**
+   * 是否支持前缀匹配（短文本的默认的分词/召回策略。前缀长度为 1-12）
+   * <p> 示例值：false
+   */
   @SerializedName("enable_prefix_match")
   private Boolean enablePrefixMatch;
+  /**
+   * 是否支持数据后缀匹配。默认不支持（推荐使用在短文本、有数字后缀查找的场景。后缀长度为3-12）
+   * <p> 示例值：false
+   */
   @SerializedName("enable_number_suffix_match")
   private Boolean enableNumberSuffixMatch;
+  /**
+   * 是否支持驼峰英文匹配。默认不支持（推荐使用在短文本，且包含驼峰形式英文的查找场景）
+   * <p> 示例值：false
+   */
   @SerializedName("enable_camel_match")
   private Boolean enableCamelMatch;
 
@@ -33,10 +53,30 @@ public class SchemaSearchOptions {
   }
 
   public SchemaSearchOptions(Builder builder) {
+    /**
+     * 是否支持语义切词召回。默认不支持（推荐使用在长文本的场景）
+     * <p> 示例值：true
+     */
     this.enableSemanticMatch = builder.enableSemanticMatch;
+    /**
+     * 是否支持精确匹配。默认不支持（推荐使用在短文本、需要精确查找的场景）
+     * <p> 示例值：false
+     */
     this.enableExactMatch = builder.enableExactMatch;
+    /**
+     * 是否支持前缀匹配（短文本的默认的分词/召回策略。前缀长度为 1-12）
+     * <p> 示例值：false
+     */
     this.enablePrefixMatch = builder.enablePrefixMatch;
+    /**
+     * 是否支持数据后缀匹配。默认不支持（推荐使用在短文本、有数字后缀查找的场景。后缀长度为3-12）
+     * <p> 示例值：false
+     */
     this.enableNumberSuffixMatch = builder.enableNumberSuffixMatch;
+    /**
+     * 是否支持驼峰英文匹配。默认不支持（推荐使用在短文本，且包含驼峰形式英文的查找场景）
+     * <p> 示例值：false
+     */
     this.enableCamelMatch = builder.enableCamelMatch;
   }
 
@@ -86,32 +126,91 @@ public class SchemaSearchOptions {
 
   public static class Builder {
 
+    /**
+     * 是否支持语义切词召回。默认不支持（推荐使用在长文本的场景）
+     * <p> 示例值：true
+     */
     private Boolean enableSemanticMatch;
+    /**
+     * 是否支持精确匹配。默认不支持（推荐使用在短文本、需要精确查找的场景）
+     * <p> 示例值：false
+     */
     private Boolean enableExactMatch;
+    /**
+     * 是否支持前缀匹配（短文本的默认的分词/召回策略。前缀长度为 1-12）
+     * <p> 示例值：false
+     */
     private Boolean enablePrefixMatch;
+    /**
+     * 是否支持数据后缀匹配。默认不支持（推荐使用在短文本、有数字后缀查找的场景。后缀长度为3-12）
+     * <p> 示例值：false
+     */
     private Boolean enableNumberSuffixMatch;
+    /**
+     * 是否支持驼峰英文匹配。默认不支持（推荐使用在短文本，且包含驼峰形式英文的查找场景）
+     * <p> 示例值：false
+     */
     private Boolean enableCamelMatch;
 
+    /**
+     * 是否支持语义切词召回。默认不支持（推荐使用在长文本的场景）
+     * <p> 示例值：true
+     *
+     * @param enableSemanticMatch
+     * @return
+     */
     public Builder enableSemanticMatch(Boolean enableSemanticMatch) {
       this.enableSemanticMatch = enableSemanticMatch;
       return this;
     }
 
+
+    /**
+     * 是否支持精确匹配。默认不支持（推荐使用在短文本、需要精确查找的场景）
+     * <p> 示例值：false
+     *
+     * @param enableExactMatch
+     * @return
+     */
     public Builder enableExactMatch(Boolean enableExactMatch) {
       this.enableExactMatch = enableExactMatch;
       return this;
     }
 
+
+    /**
+     * 是否支持前缀匹配（短文本的默认的分词/召回策略。前缀长度为 1-12）
+     * <p> 示例值：false
+     *
+     * @param enablePrefixMatch
+     * @return
+     */
     public Builder enablePrefixMatch(Boolean enablePrefixMatch) {
       this.enablePrefixMatch = enablePrefixMatch;
       return this;
     }
 
+
+    /**
+     * 是否支持数据后缀匹配。默认不支持（推荐使用在短文本、有数字后缀查找的场景。后缀长度为3-12）
+     * <p> 示例值：false
+     *
+     * @param enableNumberSuffixMatch
+     * @return
+     */
     public Builder enableNumberSuffixMatch(Boolean enableNumberSuffixMatch) {
       this.enableNumberSuffixMatch = enableNumberSuffixMatch;
       return this;
     }
 
+
+    /**
+     * 是否支持驼峰英文匹配。默认不支持（推荐使用在短文本，且包含驼峰形式英文的查找场景）
+     * <p> 示例值：false
+     *
+     * @param enableCamelMatch
+     * @return
+     */
     public Builder enableCamelMatch(Boolean enableCamelMatch) {
       this.enableCamelMatch = enableCamelMatch;
       return this;

@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class Sheet {
 
+  /**
+   * 电子表格 block 的 token
+   * <p> 示例值：shtbcW6ufcUtRRet7Hz6Iv4ytzg
+   */
   @SerializedName("token")
   private String token;
+  /**
+   * 电子表格行数量
+   * <p> 示例值：2
+   */
   @SerializedName("row_size")
   private Integer rowSize;
+  /**
+   * 电子表格列数量
+   * <p> 示例值：2
+   */
   @SerializedName("column_size")
   private Integer columnSize;
 
@@ -29,8 +41,20 @@ public class Sheet {
   }
 
   public Sheet(Builder builder) {
+    /**
+     * 电子表格 block 的 token
+     * <p> 示例值：shtbcW6ufcUtRRet7Hz6Iv4ytzg
+     */
     this.token = builder.token;
+    /**
+     * 电子表格行数量
+     * <p> 示例值：2
+     */
     this.rowSize = builder.rowSize;
+    /**
+     * 电子表格列数量
+     * <p> 示例值：2
+     */
     this.columnSize = builder.columnSize;
   }
 
@@ -64,20 +88,55 @@ public class Sheet {
 
   public static class Builder {
 
+    /**
+     * 电子表格 block 的 token
+     * <p> 示例值：shtbcW6ufcUtRRet7Hz6Iv4ytzg
+     */
     private String token;
+    /**
+     * 电子表格行数量
+     * <p> 示例值：2
+     */
     private Integer rowSize;
+    /**
+     * 电子表格列数量
+     * <p> 示例值：2
+     */
     private Integer columnSize;
 
+    /**
+     * 电子表格 block 的 token
+     * <p> 示例值：shtbcW6ufcUtRRet7Hz6Iv4ytzg
+     *
+     * @param token
+     * @return
+     */
     public Builder token(String token) {
       this.token = token;
       return this;
     }
 
+
+    /**
+     * 电子表格行数量
+     * <p> 示例值：2
+     *
+     * @param rowSize
+     * @return
+     */
     public Builder rowSize(Integer rowSize) {
       this.rowSize = rowSize;
       return this;
     }
 
+
+    /**
+     * 电子表格列数量
+     * <p> 示例值：2
+     *
+     * @param columnSize
+     * @return
+     */
     public Builder columnSize(Integer columnSize) {
       this.columnSize = columnSize;
       return this;

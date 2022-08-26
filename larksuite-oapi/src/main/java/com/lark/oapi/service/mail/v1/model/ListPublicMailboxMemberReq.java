@@ -19,15 +19,29 @@ import com.lark.oapi.core.annotation.Query;
 
 public class ListPublicMailboxMemberReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * <p> 示例值：xxx
+   */
   @Query
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * <p> 示例值：10
+   */
   @Query
   @SerializedName("page_size")
   private Integer pageSize;
+  /**
+   * The unique ID or email address of a public mailbox
+   * <p> 示例值：xxxxxxxxxxxxxxx or test_public_mailbox@xxx.xx
+   */
   @Path
   @SerializedName("public_mailbox_id")
   private String publicMailboxId;
@@ -37,9 +51,25 @@ public class ListPublicMailboxMemberReq {
   }
 
   public ListPublicMailboxMemberReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
+    /**
+     *
+     * <p> 示例值：xxx
+     */
     this.pageToken = builder.pageToken;
+    /**
+     *
+     * <p> 示例值：10
+     */
     this.pageSize = builder.pageSize;
+    /**
+     * The unique ID or email address of a public mailbox
+     * <p> 示例值：xxxxxxxxxxxxxxx or test_public_mailbox@xxx.xx
+     */
     this.publicMailboxId = builder.publicMailboxId;
   }
 
@@ -81,31 +111,65 @@ public class ListPublicMailboxMemberReq {
 
   public static class Builder {
 
-    private String userIdType;
-    private String pageToken;
-    private Integer pageSize;
-    private String publicMailboxId;
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String pageToken; //
+    private Integer pageSize; //
+    private String publicMailboxId; // The unique ID or email address of a public mailbox
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.mail.v1.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.ListPublicMailboxMemberUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.mail.v1.enums.ListPublicMailboxMemberUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+    /**
+     * <p> 示例值：xxx
+     *
+     * @param pageToken
+     * @return
+     */
     public Builder pageToken(String pageToken) {
       this.pageToken = pageToken;
       return this;
     }
 
+    /**
+     * <p> 示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
     public Builder pageSize(Integer pageSize) {
       this.pageSize = pageSize;
       return this;
     }
 
+    /**
+     * The unique ID or email address of a public mailbox
+     * <p> 示例值：xxxxxxxxxxxxxxx or test_public_mailbox@xxx.xx
+     *
+     * @param publicMailboxId
+     * @return
+     */
     public Builder publicMailboxId(String publicMailboxId) {
       this.publicMailboxId = publicMailboxId;
       return this;

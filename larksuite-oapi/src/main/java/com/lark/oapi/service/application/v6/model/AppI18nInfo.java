@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class AppI18nInfo {
 
+  /**
+   * 国际化语言的 key
+   * <p> 示例值：zh_cn
+   */
   @SerializedName("i18n_key")
   private String i18nKey;
+  /**
+   * 应用国际化名称
+   * <p> 示例值：应用名称
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 应用国际化描述（副标题）
+   * <p> 示例值：应用描述
+   */
   @SerializedName("description")
   private String description;
+  /**
+   * 帮助国际化文档链接
+   * <p> 示例值：https://www.example.com
+   */
   @SerializedName("help_use")
   private String helpUse;
 
@@ -31,9 +47,25 @@ public class AppI18nInfo {
   }
 
   public AppI18nInfo(Builder builder) {
+    /**
+     * 国际化语言的 key
+     * <p> 示例值：zh_cn
+     */
     this.i18nKey = builder.i18nKey;
+    /**
+     * 应用国际化名称
+     * <p> 示例值：应用名称
+     */
     this.name = builder.name;
+    /**
+     * 应用国际化描述（副标题）
+     * <p> 示例值：应用描述
+     */
     this.description = builder.description;
+    /**
+     * 帮助国际化文档链接
+     * <p> 示例值：https://www.example.com
+     */
     this.helpUse = builder.helpUse;
   }
 
@@ -75,31 +107,86 @@ public class AppI18nInfo {
 
   public static class Builder {
 
+    /**
+     * 国际化语言的 key
+     * <p> 示例值：zh_cn
+     */
     private String i18nKey;
+    /**
+     * 应用国际化名称
+     * <p> 示例值：应用名称
+     */
     private String name;
+    /**
+     * 应用国际化描述（副标题）
+     * <p> 示例值：应用描述
+     */
     private String description;
+    /**
+     * 帮助国际化文档链接
+     * <p> 示例值：https://www.example.com
+     */
     private String helpUse;
 
+    /**
+     * 国际化语言的 key
+     * <p> 示例值：zh_cn
+     *
+     * @param i18nKey
+     * @return
+     */
     public Builder i18nKey(String i18nKey) {
       this.i18nKey = i18nKey;
       return this;
     }
 
-    public Builder i18nKey(com.lark.oapi.service.application.v6.enums.I18nKeyEnum i18nKey) {
+    /**
+     * 国际化语言的 key
+     * <p> 示例值：zh_cn
+     *
+     * @param i18nKey {@link com.lark.oapi.service.application.v6.enums.AppI18nInfoI18nKeyEnum}
+     * @return
+     */
+    public Builder i18nKey(
+        com.lark.oapi.service.application.v6.enums.AppI18nInfoI18nKeyEnum i18nKey) {
       this.i18nKey = i18nKey.getValue();
       return this;
     }
 
+
+    /**
+     * 应用国际化名称
+     * <p> 示例值：应用名称
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 应用国际化描述（副标题）
+     * <p> 示例值：应用描述
+     *
+     * @param description
+     * @return
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
+
+    /**
+     * 帮助国际化文档链接
+     * <p> 示例值：https://www.example.com
+     *
+     * @param helpUse
+     * @return
+     */
     public Builder helpUse(String helpUse) {
       this.helpUse = helpUse;
       return this;

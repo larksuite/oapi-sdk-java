@@ -6,7 +6,7 @@ import com.lark.oapi.service.contact.v3.model.CreateUnitReq;
 import com.lark.oapi.service.contact.v3.model.CreateUnitReqBody;
 import com.lark.oapi.service.contact.v3.model.CreateUnitResp;
 
-// HTTP PATH: /open-apis/contact/v3/unit"
+// POST /open-apis/contact/v3/unit
 public class CreateUnitSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,9 +16,9 @@ public class CreateUnitSample {
     // 创建请求对象
     CreateUnitReq req = CreateUnitReq.newBuilder()
         .createUnitReqBody(CreateUnitReqBody.newBuilder()
-            .unitId("")
-            .name("")
-            .unitType("")
+            .unitId("BU121")
+            .name("消费者事业部")
+            .unitType("事业部")
             .build())
         .build();
 

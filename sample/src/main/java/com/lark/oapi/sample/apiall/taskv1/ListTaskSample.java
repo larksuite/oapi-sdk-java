@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.task.v1.model.ListTaskReq;
 import com.lark.oapi.service.task.v1.model.ListTaskResp;
 
-// HTTP PATH: /open-apis/task/v1/tasks"
+// GET /open-apis/task/v1/tasks
 public class ListTaskSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,10 +14,10 @@ public class ListTaskSample {
 
     // 创建请求对象
     ListTaskReq req = ListTaskReq.newBuilder()
-        .pageSize(0)
-        .pageToken("")
-        .startCreateTime("")
-        .endCreateTime("")
+        .pageSize(10)
+        .pageToken("MTYzMTg3ODUxNQ==")
+        .startCreateTime("1652323331")
+        .endCreateTime("1652323335")
         .taskCompleted(false)
         .userIdType("user_id")
         .build();

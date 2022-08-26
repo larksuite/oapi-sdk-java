@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class GetTaskReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * 任务 ID
+   * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+   */
   @Path
   @SerializedName("task_id")
   private String taskId;
@@ -31,7 +39,15 @@ public class GetTaskReq {
   }
 
   public GetTaskReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
+    /**
+     * 任务 ID
+     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     */
     this.taskId = builder.taskId;
   }
 
@@ -57,19 +73,41 @@ public class GetTaskReq {
 
   public static class Builder {
 
-    private String userIdType;
-    private String taskId;
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String taskId; // 任务 ID
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.task.v1.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.task.v1.enums.GetTaskUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.task.v1.enums.GetTaskUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+    /**
+     * 任务 ID
+     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     *
+     * @param taskId
+     * @return
+     */
     public Builder taskId(String taskId) {
       this.taskId = taskId;
       return this;

@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListAdminUserStat {
 
+  /**
+   * 是否有下一页数据
+   * <p> 示例值：true
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 下一页分页的token
+   * <p> 示例值：3
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 数据报表
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private AdminUserStat[] items;
 

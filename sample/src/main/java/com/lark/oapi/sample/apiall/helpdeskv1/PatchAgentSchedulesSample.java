@@ -7,7 +7,7 @@ import com.lark.oapi.service.helpdesk.v1.model.PatchAgentSchedulesReq;
 import com.lark.oapi.service.helpdesk.v1.model.PatchAgentSchedulesReqBody;
 import com.lark.oapi.service.helpdesk.v1.model.PatchAgentSchedulesResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/agents/:agent_id/schedules"
+// PATCH /open-apis/helpdesk/v1/agents/:agent_id/schedules
 public class PatchAgentSchedulesSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class PatchAgentSchedulesSample {
 
     // 创建请求对象
     PatchAgentSchedulesReq req = PatchAgentSchedulesReq.newBuilder()
-        .agentId("")
+        .agentId("123456")
         .patchAgentSchedulesReqBody(PatchAgentSchedulesReqBody.newBuilder()
             .agentSchedule(AgentScheduleUpdateInfo.newBuilder().build())
             .build())

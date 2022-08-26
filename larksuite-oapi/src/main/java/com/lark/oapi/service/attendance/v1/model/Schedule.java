@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Schedule {
 
+  /**
+   * 考勤组名称
+   * <p> 示例值：6919358778597097404
+   */
   @SerializedName("group_id")
   private String groupId;
+  /**
+   * 班次列表
+   * <p> 示例值：
+   */
   @SerializedName("shifts")
   private String[] shifts;
 
@@ -27,7 +35,15 @@ public class Schedule {
   }
 
   public Schedule(Builder builder) {
+    /**
+     * 考勤组名称
+     * <p> 示例值：6919358778597097404
+     */
     this.groupId = builder.groupId;
+    /**
+     * 班次列表
+     * <p> 示例值：
+     */
     this.shifts = builder.shifts;
   }
 
@@ -53,14 +69,37 @@ public class Schedule {
 
   public static class Builder {
 
+    /**
+     * 考勤组名称
+     * <p> 示例值：6919358778597097404
+     */
     private String groupId;
+    /**
+     * 班次列表
+     * <p> 示例值：
+     */
     private String[] shifts;
 
+    /**
+     * 考勤组名称
+     * <p> 示例值：6919358778597097404
+     *
+     * @param groupId
+     * @return
+     */
     public Builder groupId(String groupId) {
       this.groupId = groupId;
       return this;
     }
 
+
+    /**
+     * 班次列表
+     * <p> 示例值：
+     *
+     * @param shifts
+     * @return
+     */
     public Builder shifts(String[] shifts) {
       this.shifts = shifts;
       return this;

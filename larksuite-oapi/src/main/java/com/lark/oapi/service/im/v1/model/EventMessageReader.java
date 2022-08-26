@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class EventMessageReader {
 
+  /**
+   * 用户 ID
+   * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+   */
   @SerializedName("reader_id")
   private UserId readerId;
+  /**
+   * 阅读时间
+   * <p> 示例值：1609484183000
+   */
   @SerializedName("read_time")
   private String readTime;
+  /**
+   * tenant key
+   * <p> 示例值：736588c9260f175e
+   */
   @SerializedName("tenant_key")
   private String tenantKey;
 
@@ -29,8 +41,20 @@ public class EventMessageReader {
   }
 
   public EventMessageReader(Builder builder) {
+    /**
+     * 用户 ID
+     * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+     */
     this.readerId = builder.readerId;
+    /**
+     * 阅读时间
+     * <p> 示例值：1609484183000
+     */
     this.readTime = builder.readTime;
+    /**
+     * tenant key
+     * <p> 示例值：736588c9260f175e
+     */
     this.tenantKey = builder.tenantKey;
   }
 
@@ -64,20 +88,55 @@ public class EventMessageReader {
 
   public static class Builder {
 
+    /**
+     * 用户 ID
+     * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+     */
     private UserId readerId;
+    /**
+     * 阅读时间
+     * <p> 示例值：1609484183000
+     */
     private String readTime;
+    /**
+     * tenant key
+     * <p> 示例值：736588c9260f175e
+     */
     private String tenantKey;
 
+    /**
+     * 用户 ID
+     * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+     *
+     * @param readerId
+     * @return
+     */
     public Builder readerId(UserId readerId) {
       this.readerId = readerId;
       return this;
     }
 
+
+    /**
+     * 阅读时间
+     * <p> 示例值：1609484183000
+     *
+     * @param readTime
+     * @return
+     */
     public Builder readTime(String readTime) {
       this.readTime = readTime;
       return this;
     }
 
+
+    /**
+     * tenant key
+     * <p> 示例值：736588c9260f175e
+     *
+     * @param tenantKey
+     * @return
+     */
     public Builder tenantKey(String tenantKey) {
       this.tenantKey = tenantKey;
       return this;

@@ -6,7 +6,7 @@ import com.lark.oapi.service.helpdesk.v1.model.CancelSendNotificationReq;
 import com.lark.oapi.service.helpdesk.v1.model.CancelSendNotificationReqBody;
 import com.lark.oapi.service.helpdesk.v1.model.CancelSendNotificationResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/notifications/:notification_id/cancel_send"
+// POST /open-apis/helpdesk/v1/notifications/:notification_id/cancel_send
 public class CancelSendNotificationSample {
 
   public static void main(String arg[]) throws Exception {

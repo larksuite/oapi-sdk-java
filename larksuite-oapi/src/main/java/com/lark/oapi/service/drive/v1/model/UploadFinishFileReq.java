@@ -48,6 +48,12 @@ public class UploadFinishFileReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder uploadFinishFileReqBody(UploadFinishFileReqBody body) {
       this.body = body;
       return this;

@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class PutTopNoticeChatTopNoticeReq {
 
+  /**
+   * 待修改置顶的群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+   * <p> 示例值：oc_5ad11d72b830411d72b836c20
+   */
   @Path
   @SerializedName("chat_id")
   private String chatId;
@@ -30,6 +34,10 @@ public class PutTopNoticeChatTopNoticeReq {
   }
 
   public PutTopNoticeChatTopNoticeReq(Builder builder) {
+    /**
+     * 待修改置顶的群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * <p> 示例值：oc_5ad11d72b830411d72b836c20
+     */
     this.chatId = builder.chatId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class PutTopNoticeChatTopNoticeReq {
 
   public static class Builder {
 
-    private String chatId;
+    private String chatId; // 待修改置顶的群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
     private PutTopNoticeChatTopNoticeReqBody body;
 
+    /**
+     * 待修改置顶的群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * <p> 示例值：oc_5ad11d72b830411d72b836c20
+     *
+     * @param chatId
+     * @return
+     */
     public Builder chatId(String chatId) {
       this.chatId = chatId;
       return this;
@@ -68,6 +83,12 @@ public class PutTopNoticeChatTopNoticeReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder putTopNoticeChatTopNoticeReqBody(PutTopNoticeChatTopNoticeReqBody body) {
       this.body = body;
       return this;

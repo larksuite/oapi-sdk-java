@@ -31,6 +31,11 @@ public class EventService {
     this.outboundIp = new OutboundIp(config);
   }
 
+  /**
+   * 事件出口IP
+   *
+   * @return
+   */
   public OutboundIp outboundIp() {
     return outboundIp;
   }
@@ -43,6 +48,14 @@ public class EventService {
       this.config = config;
     }
 
+    /**
+     * 获取事件出口IP，飞书开放平台向应用配置的回调地址推送事件时，是通过特定的IP发送出去的。如果企业需要做防火墙配置，那么可以通过这个接口获取到所有相关的IP段。
+     * <p> IP段有变更可能，建议企业每隔6小时定时拉取IP段更新防火墙设置，这样因IP变更导致推送失败的事件还可以通过重试解决。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-v1/outbound_ip/list">https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-v1/outbound_ip/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/eventv1//ListOutboundIpSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/eventv1//ListOutboundIpSample.java</a>
+     * ;
+     */
     public ListOutboundIpResp list(ListOutboundIpReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -65,6 +78,14 @@ public class EventService {
       return resp;
     }
 
+    /**
+     * 获取事件出口IP，飞书开放平台向应用配置的回调地址推送事件时，是通过特定的IP发送出去的。如果企业需要做防火墙配置，那么可以通过这个接口获取到所有相关的IP段。
+     * <p> IP段有变更可能，建议企业每隔6小时定时拉取IP段更新防火墙设置，这样因IP变更导致推送失败的事件还可以通过重试解决。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-v1/outbound_ip/list">https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-v1/outbound_ip/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/eventv1//ListOutboundIpSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/eventv1//ListOutboundIpSample.java</a>
+     * ;
+     */
     public ListOutboundIpResp list(ListOutboundIpReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();

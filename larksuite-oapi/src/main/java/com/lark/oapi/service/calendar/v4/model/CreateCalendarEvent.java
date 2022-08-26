@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateCalendarEvent {
 
+  /**
+   * 新创建的日程实体
+   * <p> 示例值：
+   */
   @SerializedName("event")
   private CalendarEvent event;
 

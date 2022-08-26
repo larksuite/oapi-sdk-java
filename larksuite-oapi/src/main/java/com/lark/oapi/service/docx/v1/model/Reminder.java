@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class Reminder {
 
+  /**
+   * 创建者用户 ID
+   * <p> 示例值：0e2633a3-aa1a-4171-af9e-0768ff863566
+   */
   @SerializedName("create_user_id")
   private String createUserId;
+  /**
+   * 是否通知
+   * <p> 示例值：true
+   */
   @SerializedName("is_notify")
   private Boolean isNotify;
+  /**
+   * 是日期还是整点小时
+   * <p> 示例值：true
+   */
   @SerializedName("is_whole_day")
   private Boolean isWholeDay;
+  /**
+   * 事件发生的时间（毫秒级事件戳）
+   * <p> 示例值：1641967200000
+   */
   @SerializedName("expire_time")
   private String expireTime;
+  /**
+   * 触发通知的时间（毫秒级时间戳）
+   * <p> 示例值：1643166000000
+   */
   @SerializedName("notify_time")
   private String notifyTime;
 
@@ -33,10 +53,30 @@ public class Reminder {
   }
 
   public Reminder(Builder builder) {
+    /**
+     * 创建者用户 ID
+     * <p> 示例值：0e2633a3-aa1a-4171-af9e-0768ff863566
+     */
     this.createUserId = builder.createUserId;
+    /**
+     * 是否通知
+     * <p> 示例值：true
+     */
     this.isNotify = builder.isNotify;
+    /**
+     * 是日期还是整点小时
+     * <p> 示例值：true
+     */
     this.isWholeDay = builder.isWholeDay;
+    /**
+     * 事件发生的时间（毫秒级事件戳）
+     * <p> 示例值：1641967200000
+     */
     this.expireTime = builder.expireTime;
+    /**
+     * 触发通知的时间（毫秒级时间戳）
+     * <p> 示例值：1643166000000
+     */
     this.notifyTime = builder.notifyTime;
   }
 
@@ -86,32 +126,91 @@ public class Reminder {
 
   public static class Builder {
 
+    /**
+     * 创建者用户 ID
+     * <p> 示例值：0e2633a3-aa1a-4171-af9e-0768ff863566
+     */
     private String createUserId;
+    /**
+     * 是否通知
+     * <p> 示例值：true
+     */
     private Boolean isNotify;
+    /**
+     * 是日期还是整点小时
+     * <p> 示例值：true
+     */
     private Boolean isWholeDay;
+    /**
+     * 事件发生的时间（毫秒级事件戳）
+     * <p> 示例值：1641967200000
+     */
     private String expireTime;
+    /**
+     * 触发通知的时间（毫秒级时间戳）
+     * <p> 示例值：1643166000000
+     */
     private String notifyTime;
 
+    /**
+     * 创建者用户 ID
+     * <p> 示例值：0e2633a3-aa1a-4171-af9e-0768ff863566
+     *
+     * @param createUserId
+     * @return
+     */
     public Builder createUserId(String createUserId) {
       this.createUserId = createUserId;
       return this;
     }
 
+
+    /**
+     * 是否通知
+     * <p> 示例值：true
+     *
+     * @param isNotify
+     * @return
+     */
     public Builder isNotify(Boolean isNotify) {
       this.isNotify = isNotify;
       return this;
     }
 
+
+    /**
+     * 是日期还是整点小时
+     * <p> 示例值：true
+     *
+     * @param isWholeDay
+     * @return
+     */
     public Builder isWholeDay(Boolean isWholeDay) {
       this.isWholeDay = isWholeDay;
       return this;
     }
 
+
+    /**
+     * 事件发生的时间（毫秒级事件戳）
+     * <p> 示例值：1641967200000
+     *
+     * @param expireTime
+     * @return
+     */
     public Builder expireTime(String expireTime) {
       this.expireTime = expireTime;
       return this;
     }
 
+
+    /**
+     * 触发通知的时间（毫秒级时间戳）
+     * <p> 示例值：1643166000000
+     *
+     * @param notifyTime
+     * @return
+     */
     public Builder notifyTime(String notifyTime) {
       this.notifyTime = notifyTime;
       return this;

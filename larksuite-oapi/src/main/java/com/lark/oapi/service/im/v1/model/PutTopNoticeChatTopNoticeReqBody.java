@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class PutTopNoticeChatTopNoticeReqBody {
 
+  /**
+   * 要进行发布的群置顶
+   * <p> 示例值：
+   */
   @SerializedName("chat_top_notice")
   private ChatTopNotice[] chatTopNotice;
 
@@ -25,6 +29,10 @@ public class PutTopNoticeChatTopNoticeReqBody {
   }
 
   public PutTopNoticeChatTopNoticeReqBody(Builder builder) {
+    /**
+     * 要进行发布的群置顶
+     * <p> 示例值：
+     */
     this.chatTopNotice = builder.chatTopNotice;
   }
 
@@ -42,8 +50,19 @@ public class PutTopNoticeChatTopNoticeReqBody {
 
   public static class Builder {
 
+    /**
+     * 要进行发布的群置顶
+     * <p> 示例值：
+     */
     private ChatTopNotice[] chatTopNotice;
 
+    /**
+     * 要进行发布的群置顶
+     * <p> 示例值：
+     *
+     * @param chatTopNotice
+     * @return
+     */
     public Builder chatTopNotice(ChatTopNotice[] chatTopNotice) {
       this.chatTopNotice = chatTopNotice;
       return this;

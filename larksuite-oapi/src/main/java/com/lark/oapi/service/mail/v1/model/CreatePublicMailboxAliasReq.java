@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class CreatePublicMailboxAliasReq {
 
+  /**
+   * 公共邮箱id或公共邮箱地址
+   * <p> 示例值：xxxxxx 或 xxx@xx.xxx
+   */
   @Path
   @SerializedName("public_mailbox_id")
   private String publicMailboxId;
@@ -30,6 +34,10 @@ public class CreatePublicMailboxAliasReq {
   }
 
   public CreatePublicMailboxAliasReq(Builder builder) {
+    /**
+     * 公共邮箱id或公共邮箱地址
+     * <p> 示例值：xxxxxx 或 xxx@xx.xxx
+     */
     this.publicMailboxId = builder.publicMailboxId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class CreatePublicMailboxAliasReq {
 
   public static class Builder {
 
-    private String publicMailboxId;
+    private String publicMailboxId; // 公共邮箱id或公共邮箱地址
     private EmailAlias body;
 
+    /**
+     * 公共邮箱id或公共邮箱地址
+     * <p> 示例值：xxxxxx 或 xxx@xx.xxx
+     *
+     * @param publicMailboxId
+     * @return
+     */
     public Builder publicMailboxId(String publicMailboxId) {
       this.publicMailboxId = publicMailboxId;
       return this;
@@ -68,6 +83,12 @@ public class CreatePublicMailboxAliasReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder emailAlias(EmailAlias body) {
       this.body = body;
       return this;

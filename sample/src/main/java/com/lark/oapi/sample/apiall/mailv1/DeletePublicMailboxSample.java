@@ -14,7 +14,7 @@ public class DeletePublicMailboxSample {
 
     // 创建请求对象
     DeletePublicMailboxReq req = DeletePublicMailboxReq.newBuilder()
-        .publicMailboxId("xxxxxxxxxxxxxxx")
+        .publicMailboxId("xxxxxx@abc.com")
         .build();
 
     // 发起请求

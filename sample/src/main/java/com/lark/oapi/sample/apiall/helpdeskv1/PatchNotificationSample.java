@@ -9,7 +9,7 @@ import com.lark.oapi.service.helpdesk.v1.model.NotificationUser;
 import com.lark.oapi.service.helpdesk.v1.model.PatchNotificationReq;
 import com.lark.oapi.service.helpdesk.v1.model.PatchNotificationResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/notifications/:notification_id"
+// PATCH /open-apis/helpdesk/v1/notifications/:notification_id
 public class PatchNotificationSample {
 
   public static void main(String arg[]) throws Exception {

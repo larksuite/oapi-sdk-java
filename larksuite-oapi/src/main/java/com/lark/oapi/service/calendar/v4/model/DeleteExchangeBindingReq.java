@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DeleteExchangeBindingReq {
 
+  /**
+   * exchange绑定唯一标识id。参见[exchange绑定ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
+   * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
+   */
   @Path
   @SerializedName("exchange_binding_id")
   private String exchangeBindingId;
@@ -27,6 +31,10 @@ public class DeleteExchangeBindingReq {
   }
 
   public DeleteExchangeBindingReq(Builder builder) {
+    /**
+     * exchange绑定唯一标识id。参见[exchange绑定ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
+     * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
+     */
     this.exchangeBindingId = builder.exchangeBindingId;
   }
 
@@ -44,8 +52,15 @@ public class DeleteExchangeBindingReq {
 
   public static class Builder {
 
-    private String exchangeBindingId;
+    private String exchangeBindingId; // exchange绑定唯一标识id。参见[exchange绑定ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
 
+    /**
+     * exchange绑定唯一标识id。参见[exchange绑定ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
+     * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
+     *
+     * @param exchangeBindingId
+     * @return
+     */
     public Builder exchangeBindingId(String exchangeBindingId) {
       this.exchangeBindingId = exchangeBindingId;
       return this;

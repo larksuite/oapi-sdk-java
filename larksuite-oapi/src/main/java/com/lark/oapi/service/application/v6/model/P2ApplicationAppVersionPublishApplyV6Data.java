@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2ApplicationAppVersionPublishApplyV6Data {
 
+  /**
+   * 用户 ID
+   * <p> 示例值：
+   */
   @SerializedName("operator_id")
   private UserId operatorId;
+  /**
+   * 当前线上版本信息
+   * <p> 示例值：
+   */
   @SerializedName("online_version")
   private ApplicationAppVersionEvent onlineVersion;
+  /**
+   * 当前线上版本信息
+   * <p> 示例值：
+   */
   @SerializedName("under_audit_version")
   private ApplicationAppVersionEvent underAuditVersion;
+  /**
+   * 应用状态
+   * <p> 示例值：1
+   */
   @SerializedName("app_status")
   private Integer appStatus;
 

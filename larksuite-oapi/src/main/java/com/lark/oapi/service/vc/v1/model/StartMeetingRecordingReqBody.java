@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class StartMeetingRecordingReqBody {
 
+  /**
+   * 录制文件时间显示使用的时区[-12,12]
+   * <p> 示例值：8
+   */
   @SerializedName("timezone")
   private Integer timezone;
 
@@ -25,6 +29,10 @@ public class StartMeetingRecordingReqBody {
   }
 
   public StartMeetingRecordingReqBody(Builder builder) {
+    /**
+     * 录制文件时间显示使用的时区[-12,12]
+     * <p> 示例值：8
+     */
     this.timezone = builder.timezone;
   }
 
@@ -42,8 +50,19 @@ public class StartMeetingRecordingReqBody {
 
   public static class Builder {
 
+    /**
+     * 录制文件时间显示使用的时区[-12,12]
+     * <p> 示例值：8
+     */
     private Integer timezone;
 
+    /**
+     * 录制文件时间显示使用的时区[-12,12]
+     * <p> 示例值：8
+     *
+     * @param timezone
+     * @return
+     */
     public Builder timezone(Integer timezone) {
       this.timezone = timezone;
       return this;

@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Statistics {
 
+  /**
+   * 累计点赞
+   * <p> 示例值：55
+   */
   @SerializedName("like_count")
   private Integer likeCount;
+  /**
+   * 当前词条版本收到的负反馈数量
+   * <p> 示例值：3
+   */
   @SerializedName("dislike_count")
   private Integer dislikeCount;
 
@@ -27,7 +35,15 @@ public class Statistics {
   }
 
   public Statistics(Builder builder) {
+    /**
+     * 累计点赞
+     * <p> 示例值：55
+     */
     this.likeCount = builder.likeCount;
+    /**
+     * 当前词条版本收到的负反馈数量
+     * <p> 示例值：3
+     */
     this.dislikeCount = builder.dislikeCount;
   }
 
@@ -53,14 +69,37 @@ public class Statistics {
 
   public static class Builder {
 
+    /**
+     * 累计点赞
+     * <p> 示例值：55
+     */
     private Integer likeCount;
+    /**
+     * 当前词条版本收到的负反馈数量
+     * <p> 示例值：3
+     */
     private Integer dislikeCount;
 
+    /**
+     * 累计点赞
+     * <p> 示例值：55
+     *
+     * @param likeCount
+     * @return
+     */
     public Builder likeCount(Integer likeCount) {
       this.likeCount = likeCount;
       return this;
     }
 
+
+    /**
+     * 当前词条版本收到的负反馈数量
+     * <p> 示例值：3
+     *
+     * @param dislikeCount
+     * @return
+     */
     public Builder dislikeCount(Integer dislikeCount) {
       this.dislikeCount = dislikeCount;
       return this;

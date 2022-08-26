@@ -7,7 +7,7 @@ import com.lark.oapi.service.drive.v1.model.BatchQueryMetaResp;
 import com.lark.oapi.service.drive.v1.model.MetaRequest;
 import com.lark.oapi.service.drive.v1.model.RequestDoc;
 
-// HTTP PATH: /open-apis/drive/v1/metas/batch_query"
+// POST /open-apis/drive/v1/metas/batch_query
 public class BatchQueryMetaSample {
 
   public static void main(String arg[]) throws Exception {

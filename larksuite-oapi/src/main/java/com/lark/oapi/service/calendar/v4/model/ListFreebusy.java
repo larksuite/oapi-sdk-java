@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListFreebusy {
 
+  /**
+   * 日历上请求时间区间内的忙碌时间段信息。
+   * <p> 示例值：
+   */
   @SerializedName("freebusy_list")
   private Freebusy[] freebusyList;
 

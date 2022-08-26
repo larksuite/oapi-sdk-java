@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class PatchAgentReqBody {
 
+  /**
+   * agent status
+   * <p> 示例值：1：在线；2：离线
+   */
   @SerializedName("status")
   private Integer status;
 
@@ -25,6 +29,10 @@ public class PatchAgentReqBody {
   }
 
   public PatchAgentReqBody(Builder builder) {
+    /**
+     * agent status
+     * <p> 示例值：1：在线；2：离线
+     */
     this.status = builder.status;
   }
 
@@ -42,8 +50,19 @@ public class PatchAgentReqBody {
 
   public static class Builder {
 
+    /**
+     * agent status
+     * <p> 示例值：1：在线；2：离线
+     */
     private Integer status;
 
+    /**
+     * agent status
+     * <p> 示例值：1：在线；2：离线
+     *
+     * @param status
+     * @return
+     */
     public Builder status(Integer status) {
       this.status = status;
       return this;

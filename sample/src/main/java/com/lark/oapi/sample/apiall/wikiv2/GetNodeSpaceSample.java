@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.wiki.v2.model.GetNodeSpaceReq;
 import com.lark.oapi.service.wiki.v2.model.GetNodeSpaceResp;
 
-// HTTP PATH: /open-apis/wiki/v2/spaces/get_node"
+// GET /open-apis/wiki/v2/spaces/get_node
 public class GetNodeSpaceSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class GetNodeSpaceSample {
 
     // 创建请求对象
     GetNodeSpaceReq req = GetNodeSpaceReq.newBuilder()
-        .token("")
+        .token("wikcnKQ1k3pcuo5uSK4t8VN6kVf")
         .build();
 
     // 发起请求

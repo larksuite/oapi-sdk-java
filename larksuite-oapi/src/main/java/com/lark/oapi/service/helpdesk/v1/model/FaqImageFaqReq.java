@@ -18,9 +18,17 @@ import com.lark.oapi.core.annotation.Path;
 
 public class FaqImageFaqReq {
 
+  /**
+   * 知识库ID
+   * <p> 示例值：12345
+   */
   @Path
   @SerializedName("id")
   private String id;
+  /**
+   * 图像key
+   * <p> 示例值：img_b07ffac0-19c1-48a3-afca-599f8ea825fj
+   */
   @Path
   @SerializedName("image_key")
   private String imageKey;
@@ -30,7 +38,15 @@ public class FaqImageFaqReq {
   }
 
   public FaqImageFaqReq(Builder builder) {
+    /**
+     * 知识库ID
+     * <p> 示例值：12345
+     */
     this.id = builder.id;
+    /**
+     * 图像key
+     * <p> 示例值：img_b07ffac0-19c1-48a3-afca-599f8ea825fj
+     */
     this.imageKey = builder.imageKey;
   }
 
@@ -56,14 +72,29 @@ public class FaqImageFaqReq {
 
   public static class Builder {
 
-    private String id;
-    private String imageKey;
+    private String id; // 知识库ID
+    private String imageKey; // 图像key
 
+    /**
+     * 知识库ID
+     * <p> 示例值：12345
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 图像key
+     * <p> 示例值：img_b07ffac0-19c1-48a3-afca-599f8ea825fj
+     *
+     * @param imageKey
+     * @return
+     */
     public Builder imageKey(String imageKey) {
       this.imageKey = imageKey;
       return this;

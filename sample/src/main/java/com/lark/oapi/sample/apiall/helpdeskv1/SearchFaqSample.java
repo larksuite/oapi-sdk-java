@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.SearchFaqReq;
 import com.lark.oapi.service.helpdesk.v1.model.SearchFaqResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/faqs/search"
+// GET /open-apis/helpdesk/v1/faqs/search
 public class SearchFaqSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,9 +14,9 @@ public class SearchFaqSample {
 
     // 创建请求对象
     SearchFaqReq req = SearchFaqReq.newBuilder()
-        .query("")
-        .base64("")
-        .pageToken("")
+        .query("wifi")
+        .base64("5bel5Y2V")
+        .pageToken("6936004780707807251")
         .pageSize(20)
         .build();
 

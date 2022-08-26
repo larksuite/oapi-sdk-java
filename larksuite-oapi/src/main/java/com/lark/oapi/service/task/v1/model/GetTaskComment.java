@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetTaskComment {
 
+  /**
+   * 返回新的任务评论详情
+   * <p> 示例值：
+   */
   @SerializedName("comment")
   private Comment comment;
 

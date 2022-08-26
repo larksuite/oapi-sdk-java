@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListAgentSchedule {
 
+  /**
+   * 客服列表
+   * <p> 示例值：
+   */
   @SerializedName("agent_schedules")
   private AgentSchedule[] agentSchedules;
 

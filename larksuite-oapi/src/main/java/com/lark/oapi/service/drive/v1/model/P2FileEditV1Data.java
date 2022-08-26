@@ -17,14 +17,36 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2FileEditV1Data {
 
+  /**
+   * 文档类型
+   * <p> 示例值：
+   */
   @SerializedName("file_type")
   private String fileType;
+  /**
+   * 文档token
+   * <p> 示例值：
+   */
   @SerializedName("file_token")
   private String fileToken;
+  /**
+   * 操作者id列表
+   * <p> 示例值：
+   */
   @SerializedName("operator_id_list")
   private UserId[] operatorIdList;
+  /**
+   * 订阅用户id列表
+   * <p> 示例值：
+   */
   @SerializedName("subscriber_id_list")
   private UserId[] subscriberIdList;
+  /**
+   * 表格的子SheetID，当表格发生编辑时将会包含此字段
+   * <p> 示例值：
+   */
+  @SerializedName("sheet_id")
+  private String sheetId;
 
   public String getFileType() {
     return this.fileType;
@@ -56,6 +78,14 @@ public class P2FileEditV1Data {
 
   public void setSubscriberIdList(UserId[] subscriberIdList) {
     this.subscriberIdList = subscriberIdList;
+  }
+
+  public String getSheetId() {
+    return this.sheetId;
+  }
+
+  public void setSheetId(String sheetId) {
+    this.sheetId = sheetId;
   }
 
 }

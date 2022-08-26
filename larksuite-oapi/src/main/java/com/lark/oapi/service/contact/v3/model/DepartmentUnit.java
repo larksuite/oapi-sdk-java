@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class DepartmentUnit {
 
+  /**
+   * 部门单元自定义ID
+   * <p> 示例值：
+   */
   @SerializedName("unit_id")
   private String unitId;
+  /**
+   * 部门单元类型
+   * <p> 示例值：
+   */
   @SerializedName("unit_type")
   private String unitType;
+  /**
+   * 部门单元名称
+   * <p> 示例值：
+   */
   @SerializedName("unit_name")
   private String unitName;
 
@@ -29,8 +41,20 @@ public class DepartmentUnit {
   }
 
   public DepartmentUnit(Builder builder) {
+    /**
+     * 部门单元自定义ID
+     * <p> 示例值：
+     */
     this.unitId = builder.unitId;
+    /**
+     * 部门单元类型
+     * <p> 示例值：
+     */
     this.unitType = builder.unitType;
+    /**
+     * 部门单元名称
+     * <p> 示例值：
+     */
     this.unitName = builder.unitName;
   }
 
@@ -64,25 +88,68 @@ public class DepartmentUnit {
 
   public static class Builder {
 
+    /**
+     * 部门单元自定义ID
+     * <p> 示例值：
+     */
     private String unitId;
+    /**
+     * 部门单元类型
+     * <p> 示例值：
+     */
     private String unitType;
+    /**
+     * 部门单元名称
+     * <p> 示例值：
+     */
     private String unitName;
 
+    /**
+     * 部门单元自定义ID
+     * <p> 示例值：
+     *
+     * @param unitId
+     * @return
+     */
     public Builder unitId(String unitId) {
       this.unitId = unitId;
       return this;
     }
 
+
+    /**
+     * 部门单元类型
+     * <p> 示例值：
+     *
+     * @param unitType
+     * @return
+     */
     public Builder unitType(String unitType) {
       this.unitType = unitType;
       return this;
     }
 
-    public Builder unitType(com.lark.oapi.service.contact.v3.enums.UnitTypeEnum unitType) {
+    /**
+     * 部门单元类型
+     * <p> 示例值：
+     *
+     * @param unitType {@link com.lark.oapi.service.contact.v3.enums.DepartmentUnitUnitTypeEnum}
+     * @return
+     */
+    public Builder unitType(
+        com.lark.oapi.service.contact.v3.enums.DepartmentUnitUnitTypeEnum unitType) {
       this.unitType = unitType.getValue();
       return this;
     }
 
+
+    /**
+     * 部门单元名称
+     * <p> 示例值：
+     *
+     * @param unitName
+     * @return
+     */
     public Builder unitName(String unitName) {
       this.unitName = unitName;
       return this;

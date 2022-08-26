@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.contact.v3.model.ListCustomAttrReq;
 import com.lark.oapi.service.contact.v3.model.ListCustomAttrResp;
 
-// HTTP PATH: /open-apis/contact/v3/custom_attrs"
+// GET /open-apis/contact/v3/custom_attrs
 public class ListCustomAttrSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class ListCustomAttrSample {
     // 创建请求对象
     ListCustomAttrReq req = ListCustomAttrReq.newBuilder()
         .pageSize(20)
-        .pageToken("")
+        .pageToken("AQD9/Rn9eij9Pm39ED40/RYU5lvOM4s6zgbeeNNaWd%2BVKwAsoreeRWk0J2noGvJy")
         .build();
 
     // 发起请求

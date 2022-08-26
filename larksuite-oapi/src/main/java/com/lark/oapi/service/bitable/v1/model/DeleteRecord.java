@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class DeleteRecord {
 
+  /**
+   * 是否成功删除
+   * <p> 示例值：true
+   */
   @SerializedName("deleted")
   private Boolean deleted;
+  /**
+   * 删除的记录 ID
+   * <p> 示例值：recpCsf4ME
+   */
   @SerializedName("record_id")
   private String recordId;
 
@@ -27,7 +35,15 @@ public class DeleteRecord {
   }
 
   public DeleteRecord(Builder builder) {
+    /**
+     * 是否成功删除
+     * <p> 示例值：true
+     */
     this.deleted = builder.deleted;
+    /**
+     * 删除的记录 ID
+     * <p> 示例值：recpCsf4ME
+     */
     this.recordId = builder.recordId;
   }
 
@@ -53,14 +69,37 @@ public class DeleteRecord {
 
   public static class Builder {
 
+    /**
+     * 是否成功删除
+     * <p> 示例值：true
+     */
     private Boolean deleted;
+    /**
+     * 删除的记录 ID
+     * <p> 示例值：recpCsf4ME
+     */
     private String recordId;
 
+    /**
+     * 是否成功删除
+     * <p> 示例值：true
+     *
+     * @param deleted
+     * @return
+     */
     public Builder deleted(Boolean deleted) {
       this.deleted = deleted;
       return this;
     }
 
+
+    /**
+     * 删除的记录 ID
+     * <p> 示例值：recpCsf4ME
+     *
+     * @param recordId
+     * @return
+     */
     public Builder recordId(String recordId) {
       this.recordId = recordId;
       return this;

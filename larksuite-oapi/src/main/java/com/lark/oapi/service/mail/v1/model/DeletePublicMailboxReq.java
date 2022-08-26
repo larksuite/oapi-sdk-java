@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DeletePublicMailboxReq {
 
+  /**
+   * 要释放的公共邮箱地址
+   * <p> 示例值：xxxxxx@abc.com
+   */
   @Path
   @SerializedName("public_mailbox_id")
   private String publicMailboxId;
@@ -27,6 +31,10 @@ public class DeletePublicMailboxReq {
   }
 
   public DeletePublicMailboxReq(Builder builder) {
+    /**
+     * 要释放的公共邮箱地址
+     * <p> 示例值：xxxxxx@abc.com
+     */
     this.publicMailboxId = builder.publicMailboxId;
   }
 
@@ -44,8 +52,15 @@ public class DeletePublicMailboxReq {
 
   public static class Builder {
 
-    private String publicMailboxId;
+    private String publicMailboxId; // 要释放的公共邮箱地址
 
+    /**
+     * 要释放的公共邮箱地址
+     * <p> 示例值：xxxxxx@abc.com
+     *
+     * @param publicMailboxId
+     * @return
+     */
     public Builder publicMailboxId(String publicMailboxId) {
       this.publicMailboxId = publicMailboxId;
       return this;

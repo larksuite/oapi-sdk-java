@@ -7,7 +7,7 @@ import com.lark.oapi.service.attendance.v1.model.ModifyUserSettingReqBody;
 import com.lark.oapi.service.attendance.v1.model.ModifyUserSettingResp;
 import com.lark.oapi.service.attendance.v1.model.UserSetting;
 
-// HTTP PATH: /open-apis/attendance/v1/user_settings/modify"
+// POST /open-apis/attendance/v1/user_settings/modify
 public class ModifyUserSettingSample {
 
   public static void main(String arg[]) throws Exception {

@@ -17,18 +17,46 @@ import com.google.gson.annotations.SerializedName;
 
 public class TicketUser {
 
+  /**
+   * 用户ID
+   * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * 用户头像url
+   * <p> 示例值：https://xxxx
+   */
   @SerializedName("avatar_url")
   private String avatarUrl;
+  /**
+   * 用户名
+   * <p> 示例值：abc
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 用户邮箱
+   * <p> 示例值：xxxx@abc.com
+   */
   @SerializedName("email")
   private String email;
+  /**
+   * 所在部门名称
+   * <p> 示例值：用户部门名称(有权限才展示)
+   */
   @SerializedName("department")
   private String department;
+  /**
+   * 城市
+   * <p> 示例值：城市
+   */
   @SerializedName("city")
   private String city;
+  /**
+   * 国家代号(CountryCode)，参考：http://www.mamicode.com/info-detail-2186501.html
+   * <p> 示例值：国家
+   */
   @SerializedName("country")
   private String country;
 
@@ -37,12 +65,40 @@ public class TicketUser {
   }
 
   public TicketUser(Builder builder) {
+    /**
+     * 用户ID
+     * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+     */
     this.id = builder.id;
+    /**
+     * 用户头像url
+     * <p> 示例值：https://xxxx
+     */
     this.avatarUrl = builder.avatarUrl;
+    /**
+     * 用户名
+     * <p> 示例值：abc
+     */
     this.name = builder.name;
+    /**
+     * 用户邮箱
+     * <p> 示例值：xxxx@abc.com
+     */
     this.email = builder.email;
+    /**
+     * 所在部门名称
+     * <p> 示例值：用户部门名称(有权限才展示)
+     */
     this.department = builder.department;
+    /**
+     * 城市
+     * <p> 示例值：城市
+     */
     this.city = builder.city;
+    /**
+     * 国家代号(CountryCode)，参考：http://www.mamicode.com/info-detail-2186501.html
+     * <p> 示例值：国家
+     */
     this.country = builder.country;
   }
 
@@ -108,44 +164,127 @@ public class TicketUser {
 
   public static class Builder {
 
+    /**
+     * 用户ID
+     * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+     */
     private String id;
+    /**
+     * 用户头像url
+     * <p> 示例值：https://xxxx
+     */
     private String avatarUrl;
+    /**
+     * 用户名
+     * <p> 示例值：abc
+     */
     private String name;
+    /**
+     * 用户邮箱
+     * <p> 示例值：xxxx@abc.com
+     */
     private String email;
+    /**
+     * 所在部门名称
+     * <p> 示例值：用户部门名称(有权限才展示)
+     */
     private String department;
+    /**
+     * 城市
+     * <p> 示例值：城市
+     */
     private String city;
+    /**
+     * 国家代号(CountryCode)，参考：http://www.mamicode.com/info-detail-2186501.html
+     * <p> 示例值：国家
+     */
     private String country;
 
+    /**
+     * 用户ID
+     * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 用户头像url
+     * <p> 示例值：https://xxxx
+     *
+     * @param avatarUrl
+     * @return
+     */
     public Builder avatarUrl(String avatarUrl) {
       this.avatarUrl = avatarUrl;
       return this;
     }
 
+
+    /**
+     * 用户名
+     * <p> 示例值：abc
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 用户邮箱
+     * <p> 示例值：xxxx@abc.com
+     *
+     * @param email
+     * @return
+     */
     public Builder email(String email) {
       this.email = email;
       return this;
     }
 
+
+    /**
+     * 所在部门名称
+     * <p> 示例值：用户部门名称(有权限才展示)
+     *
+     * @param department
+     * @return
+     */
     public Builder department(String department) {
       this.department = department;
       return this;
     }
 
+
+    /**
+     * 城市
+     * <p> 示例值：城市
+     *
+     * @param city
+     * @return
+     */
     public Builder city(String city) {
       this.city = city;
       return this;
     }
 
+
+    /**
+     * 国家代号(CountryCode)，参考：http://www.mamicode.com/info-detail-2186501.html
+     * <p> 示例值：国家
+     *
+     * @param country
+     * @return
+     */
     public Builder country(String country) {
       this.country = country;
       return this;

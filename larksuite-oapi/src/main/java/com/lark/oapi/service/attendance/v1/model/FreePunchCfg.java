@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class FreePunchCfg {
 
+  /**
+   * 自由班制打卡开始时间
+   * <p> 示例值：7:00
+   */
   @SerializedName("free_start_time")
   private String freeStartTime;
+  /**
+   * 自由班制打卡结束时间
+   * <p> 示例值：18:00
+   */
   @SerializedName("free_end_time")
   private String freeEndTime;
+  /**
+   * 打卡的时间，为 7 位数字，每一位依次代表周一到周日，0 为不上班，1 为上班
+   * <p> 示例值：1111100
+   */
   @SerializedName("punch_day")
   private Integer punchDay;
+  /**
+   * 工作日不打卡是否记为缺卡
+   * <p> 示例值：true
+   */
   @SerializedName("work_day_no_punch_as_lack")
   private Boolean workDayNoPunchAsLack;
 
@@ -31,9 +47,25 @@ public class FreePunchCfg {
   }
 
   public FreePunchCfg(Builder builder) {
+    /**
+     * 自由班制打卡开始时间
+     * <p> 示例值：7:00
+     */
     this.freeStartTime = builder.freeStartTime;
+    /**
+     * 自由班制打卡结束时间
+     * <p> 示例值：18:00
+     */
     this.freeEndTime = builder.freeEndTime;
+    /**
+     * 打卡的时间，为 7 位数字，每一位依次代表周一到周日，0 为不上班，1 为上班
+     * <p> 示例值：1111100
+     */
     this.punchDay = builder.punchDay;
+    /**
+     * 工作日不打卡是否记为缺卡
+     * <p> 示例值：true
+     */
     this.workDayNoPunchAsLack = builder.workDayNoPunchAsLack;
   }
 
@@ -75,26 +107,73 @@ public class FreePunchCfg {
 
   public static class Builder {
 
+    /**
+     * 自由班制打卡开始时间
+     * <p> 示例值：7:00
+     */
     private String freeStartTime;
+    /**
+     * 自由班制打卡结束时间
+     * <p> 示例值：18:00
+     */
     private String freeEndTime;
+    /**
+     * 打卡的时间，为 7 位数字，每一位依次代表周一到周日，0 为不上班，1 为上班
+     * <p> 示例值：1111100
+     */
     private Integer punchDay;
+    /**
+     * 工作日不打卡是否记为缺卡
+     * <p> 示例值：true
+     */
     private Boolean workDayNoPunchAsLack;
 
+    /**
+     * 自由班制打卡开始时间
+     * <p> 示例值：7:00
+     *
+     * @param freeStartTime
+     * @return
+     */
     public Builder freeStartTime(String freeStartTime) {
       this.freeStartTime = freeStartTime;
       return this;
     }
 
+
+    /**
+     * 自由班制打卡结束时间
+     * <p> 示例值：18:00
+     *
+     * @param freeEndTime
+     * @return
+     */
     public Builder freeEndTime(String freeEndTime) {
       this.freeEndTime = freeEndTime;
       return this;
     }
 
+
+    /**
+     * 打卡的时间，为 7 位数字，每一位依次代表周一到周日，0 为不上班，1 为上班
+     * <p> 示例值：1111100
+     *
+     * @param punchDay
+     * @return
+     */
     public Builder punchDay(Integer punchDay) {
       this.punchDay = punchDay;
       return this;
     }
 
+
+    /**
+     * 工作日不打卡是否记为缺卡
+     * <p> 示例值：true
+     *
+     * @param workDayNoPunchAsLack
+     * @return
+     */
     public Builder workDayNoPunchAsLack(Boolean workDayNoPunchAsLack) {
       this.workDayNoPunchAsLack = workDayNoPunchAsLack;
       return this;

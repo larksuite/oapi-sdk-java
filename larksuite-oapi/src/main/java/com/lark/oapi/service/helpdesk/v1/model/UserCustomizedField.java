@@ -17,30 +17,82 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserCustomizedField {
 
+  /**
+   * 字段ID
+   * <p> 示例值：6746384425543548981
+   */
   @SerializedName("user_customized_field_id")
   private String userCustomizedFieldId;
+  /**
+   * 旧字段ID，向后兼容用
+   * <p> 示例值：6746384425543548981
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * 服务台ID
+   * <p> 示例值：1542164574896126
+   */
   @SerializedName("helpdesk_id")
   private String helpdeskId;
+  /**
+   * 字段键
+   * <p> 示例值：company_id3
+   */
   @SerializedName("key_name")
   private String keyName;
+  /**
+   * 字段展示名称
+   * <p> 示例值：Company ID
+   */
   @SerializedName("display_name")
   private String displayName;
+  /**
+   * 字段在列表中的展示位置
+   * <p> 示例值：1
+   */
   @SerializedName("position")
   private String position;
+  /**
+   * 字段类型
+   * <p> 示例值：string
+   */
   @SerializedName("field_type")
   private String fieldType;
+  /**
+   * 字段描述信息
+   * <p> 示例值：租户ID
+   */
   @SerializedName("description")
   private String description;
+  /**
+   * 字段是否可见
+   * <p> 示例值：false
+   */
   @SerializedName("visible")
   private Boolean visible;
+  /**
+   * 字段是否可编辑
+   * <p> 示例值：false
+   */
   @SerializedName("editable")
   private Boolean editable;
+  /**
+   * 字段是否必填
+   * <p> 示例值：false
+   */
   @SerializedName("required")
   private Boolean required;
+  /**
+   * 字段创建时间
+   * <p> 示例值：1574040677000
+   */
   @SerializedName("created_at")
   private String createdAt;
+  /**
+   * 字段修改时间
+   * <p> 示例值：1574040677000
+   */
   @SerializedName("updated_at")
   private String updatedAt;
 
@@ -49,18 +101,70 @@ public class UserCustomizedField {
   }
 
   public UserCustomizedField(Builder builder) {
+    /**
+     * 字段ID
+     * <p> 示例值：6746384425543548981
+     */
     this.userCustomizedFieldId = builder.userCustomizedFieldId;
+    /**
+     * 旧字段ID，向后兼容用
+     * <p> 示例值：6746384425543548981
+     */
     this.id = builder.id;
+    /**
+     * 服务台ID
+     * <p> 示例值：1542164574896126
+     */
     this.helpdeskId = builder.helpdeskId;
+    /**
+     * 字段键
+     * <p> 示例值：company_id3
+     */
     this.keyName = builder.keyName;
+    /**
+     * 字段展示名称
+     * <p> 示例值：Company ID
+     */
     this.displayName = builder.displayName;
+    /**
+     * 字段在列表中的展示位置
+     * <p> 示例值：1
+     */
     this.position = builder.position;
+    /**
+     * 字段类型
+     * <p> 示例值：string
+     */
     this.fieldType = builder.fieldType;
+    /**
+     * 字段描述信息
+     * <p> 示例值：租户ID
+     */
     this.description = builder.description;
+    /**
+     * 字段是否可见
+     * <p> 示例值：false
+     */
     this.visible = builder.visible;
+    /**
+     * 字段是否可编辑
+     * <p> 示例值：false
+     */
     this.editable = builder.editable;
+    /**
+     * 字段是否必填
+     * <p> 示例值：false
+     */
     this.required = builder.required;
+    /**
+     * 字段创建时间
+     * <p> 示例值：1574040677000
+     */
     this.createdAt = builder.createdAt;
+    /**
+     * 字段修改时间
+     * <p> 示例值：1574040677000
+     */
     this.updatedAt = builder.updatedAt;
   }
 
@@ -174,80 +278,235 @@ public class UserCustomizedField {
 
   public static class Builder {
 
+    /**
+     * 字段ID
+     * <p> 示例值：6746384425543548981
+     */
     private String userCustomizedFieldId;
+    /**
+     * 旧字段ID，向后兼容用
+     * <p> 示例值：6746384425543548981
+     */
     private String id;
+    /**
+     * 服务台ID
+     * <p> 示例值：1542164574896126
+     */
     private String helpdeskId;
+    /**
+     * 字段键
+     * <p> 示例值：company_id3
+     */
     private String keyName;
+    /**
+     * 字段展示名称
+     * <p> 示例值：Company ID
+     */
     private String displayName;
+    /**
+     * 字段在列表中的展示位置
+     * <p> 示例值：1
+     */
     private String position;
+    /**
+     * 字段类型
+     * <p> 示例值：string
+     */
     private String fieldType;
+    /**
+     * 字段描述信息
+     * <p> 示例值：租户ID
+     */
     private String description;
+    /**
+     * 字段是否可见
+     * <p> 示例值：false
+     */
     private Boolean visible;
+    /**
+     * 字段是否可编辑
+     * <p> 示例值：false
+     */
     private Boolean editable;
+    /**
+     * 字段是否必填
+     * <p> 示例值：false
+     */
     private Boolean required;
+    /**
+     * 字段创建时间
+     * <p> 示例值：1574040677000
+     */
     private String createdAt;
+    /**
+     * 字段修改时间
+     * <p> 示例值：1574040677000
+     */
     private String updatedAt;
 
+    /**
+     * 字段ID
+     * <p> 示例值：6746384425543548981
+     *
+     * @param userCustomizedFieldId
+     * @return
+     */
     public Builder userCustomizedFieldId(String userCustomizedFieldId) {
       this.userCustomizedFieldId = userCustomizedFieldId;
       return this;
     }
 
+
+    /**
+     * 旧字段ID，向后兼容用
+     * <p> 示例值：6746384425543548981
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 服务台ID
+     * <p> 示例值：1542164574896126
+     *
+     * @param helpdeskId
+     * @return
+     */
     public Builder helpdeskId(String helpdeskId) {
       this.helpdeskId = helpdeskId;
       return this;
     }
 
+
+    /**
+     * 字段键
+     * <p> 示例值：company_id3
+     *
+     * @param keyName
+     * @return
+     */
     public Builder keyName(String keyName) {
       this.keyName = keyName;
       return this;
     }
 
+
+    /**
+     * 字段展示名称
+     * <p> 示例值：Company ID
+     *
+     * @param displayName
+     * @return
+     */
     public Builder displayName(String displayName) {
       this.displayName = displayName;
       return this;
     }
 
+
+    /**
+     * 字段在列表中的展示位置
+     * <p> 示例值：1
+     *
+     * @param position
+     * @return
+     */
     public Builder position(String position) {
       this.position = position;
       return this;
     }
 
+
+    /**
+     * 字段类型
+     * <p> 示例值：string
+     *
+     * @param fieldType
+     * @return
+     */
     public Builder fieldType(String fieldType) {
       this.fieldType = fieldType;
       return this;
     }
 
+
+    /**
+     * 字段描述信息
+     * <p> 示例值：租户ID
+     *
+     * @param description
+     * @return
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
+
+    /**
+     * 字段是否可见
+     * <p> 示例值：false
+     *
+     * @param visible
+     * @return
+     */
     public Builder visible(Boolean visible) {
       this.visible = visible;
       return this;
     }
 
+
+    /**
+     * 字段是否可编辑
+     * <p> 示例值：false
+     *
+     * @param editable
+     * @return
+     */
     public Builder editable(Boolean editable) {
       this.editable = editable;
       return this;
     }
 
+
+    /**
+     * 字段是否必填
+     * <p> 示例值：false
+     *
+     * @param required
+     * @return
+     */
     public Builder required(Boolean required) {
       this.required = required;
       return this;
     }
 
+
+    /**
+     * 字段创建时间
+     * <p> 示例值：1574040677000
+     *
+     * @param createdAt
+     * @return
+     */
     public Builder createdAt(String createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
+
+    /**
+     * 字段修改时间
+     * <p> 示例值：1574040677000
+     *
+     * @param updatedAt
+     * @return
+     */
     public Builder updatedAt(String updatedAt) {
       this.updatedAt = updatedAt;
       return this;

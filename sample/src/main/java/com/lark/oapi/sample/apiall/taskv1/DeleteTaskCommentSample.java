@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.task.v1.model.DeleteTaskCommentReq;
 import com.lark.oapi.service.task.v1.model.DeleteTaskCommentResp;
 
-// HTTP PATH: /open-apis/task/v1/tasks/:task_id/comments/:comment_id"
+// DELETE /open-apis/task/v1/tasks/:task_id/comments/:comment_id
 public class DeleteTaskCommentSample {
 
   public static void main(String arg[]) throws Exception {

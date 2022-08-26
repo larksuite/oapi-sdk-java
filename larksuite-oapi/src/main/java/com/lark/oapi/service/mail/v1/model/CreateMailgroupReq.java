@@ -48,6 +48,12 @@ public class CreateMailgroupReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder mailgroup(Mailgroup body) {
       this.body = body;
       return this;

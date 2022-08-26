@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class File {
 
+  /**
+   * 附件路径
+   * <p> 示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20220714/1/332f3596-0845-4746-a4bc-818d54ad435b.png~tplv-ottatrvjsm-image.image?x-expires=1659033558&x-signature=6edF3k%2BaHeAuvfcBRGOkbckoUl4%3D#.png
+   */
   @SerializedName("url")
   private String url;
+  /**
+   * 附件大小
+   * <p> 示例值：186823
+   */
   @SerializedName("file_size")
   private Integer fileSize;
+  /**
+   * 附件标题
+   * <p> 示例值：e018906140ed9388234bd03b0.png
+   */
   @SerializedName("title")
   private String title;
+  /**
+   * 附件类别
+   * <p> 示例值：image
+   */
   @SerializedName("type")
   private String type;
 
@@ -31,9 +47,25 @@ public class File {
   }
 
   public File(Builder builder) {
+    /**
+     * 附件路径
+     * <p> 示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20220714/1/332f3596-0845-4746-a4bc-818d54ad435b.png~tplv-ottatrvjsm-image.image?x-expires=1659033558&x-signature=6edF3k%2BaHeAuvfcBRGOkbckoUl4%3D#.png
+     */
     this.url = builder.url;
+    /**
+     * 附件大小
+     * <p> 示例值：186823
+     */
     this.fileSize = builder.fileSize;
+    /**
+     * 附件标题
+     * <p> 示例值：e018906140ed9388234bd03b0.png
+     */
     this.title = builder.title;
+    /**
+     * 附件类别
+     * <p> 示例值：image
+     */
     this.type = builder.type;
   }
 
@@ -75,26 +107,73 @@ public class File {
 
   public static class Builder {
 
+    /**
+     * 附件路径
+     * <p> 示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20220714/1/332f3596-0845-4746-a4bc-818d54ad435b.png~tplv-ottatrvjsm-image.image?x-expires=1659033558&x-signature=6edF3k%2BaHeAuvfcBRGOkbckoUl4%3D#.png
+     */
     private String url;
+    /**
+     * 附件大小
+     * <p> 示例值：186823
+     */
     private Integer fileSize;
+    /**
+     * 附件标题
+     * <p> 示例值：e018906140ed9388234bd03b0.png
+     */
     private String title;
+    /**
+     * 附件类别
+     * <p> 示例值：image
+     */
     private String type;
 
+    /**
+     * 附件路径
+     * <p> 示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20220714/1/332f3596-0845-4746-a4bc-818d54ad435b.png~tplv-ottatrvjsm-image.image?x-expires=1659033558&x-signature=6edF3k%2BaHeAuvfcBRGOkbckoUl4%3D#.png
+     *
+     * @param url
+     * @return
+     */
     public Builder url(String url) {
       this.url = url;
       return this;
     }
 
+
+    /**
+     * 附件大小
+     * <p> 示例值：186823
+     *
+     * @param fileSize
+     * @return
+     */
     public Builder fileSize(Integer fileSize) {
       this.fileSize = fileSize;
       return this;
     }
 
+
+    /**
+     * 附件标题
+     * <p> 示例值：e018906140ed9388234bd03b0.png
+     *
+     * @param title
+     * @return
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
+
+    /**
+     * 附件类别
+     * <p> 示例值：image
+     *
+     * @param type
+     * @return
+     */
     public Builder type(String type) {
       this.type = type;
       return this;

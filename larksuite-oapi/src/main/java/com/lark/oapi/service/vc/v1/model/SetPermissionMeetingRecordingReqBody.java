@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class SetPermissionMeetingRecordingReqBody {
 
+  /**
+   * 授权对象列表
+   * <p> 示例值：
+   */
   @SerializedName("permission_objects")
   private RecordingPermissionObject[] permissionObjects;
 
@@ -25,6 +29,10 @@ public class SetPermissionMeetingRecordingReqBody {
   }
 
   public SetPermissionMeetingRecordingReqBody(Builder builder) {
+    /**
+     * 授权对象列表
+     * <p> 示例值：
+     */
     this.permissionObjects = builder.permissionObjects;
   }
 
@@ -42,8 +50,19 @@ public class SetPermissionMeetingRecordingReqBody {
 
   public static class Builder {
 
+    /**
+     * 授权对象列表
+     * <p> 示例值：
+     */
     private RecordingPermissionObject[] permissionObjects;
 
+    /**
+     * 授权对象列表
+     * <p> 示例值：
+     *
+     * @param permissionObjects
+     * @return
+     */
     public Builder permissionObjects(RecordingPermissionObject[] permissionObjects) {
       this.permissionObjects = permissionObjects;
       return this;

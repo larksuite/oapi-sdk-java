@@ -70,6 +70,8 @@ import com.lark.oapi.service.approval.v4.model.RejectTaskReq;
 import com.lark.oapi.service.approval.v4.model.RejectTaskResp;
 import com.lark.oapi.service.approval.v4.model.RemoveInstanceCommentReq;
 import com.lark.oapi.service.approval.v4.model.RemoveInstanceCommentResp;
+import com.lark.oapi.service.approval.v4.model.ResubmitTaskReq;
+import com.lark.oapi.service.approval.v4.model.ResubmitTaskResp;
 import com.lark.oapi.service.approval.v4.model.SearchCcInstanceReq;
 import com.lark.oapi.service.approval.v4.model.SearchCcInstanceResp;
 import com.lark.oapi.service.approval.v4.model.SearchTaskReq;
@@ -103,30 +105,65 @@ public class ApprovalService {
     this.task = new Task(config);
   }
 
+  /**
+   * 审批定义
+   *
+   * @return
+   */
   public Approval approval() {
     return approval;
   }
 
+  /**
+   * 三方审批定义
+   *
+   * @return
+   */
   public ExternalApproval externalApproval() {
     return externalApproval;
   }
 
+  /**
+   * 三方审批实例
+   *
+   * @return
+   */
   public ExternalInstance externalInstance() {
     return externalInstance;
   }
 
+  /**
+   * 三方审批任务
+   *
+   * @return
+   */
   public ExternalTask externalTask() {
     return externalTask;
   }
 
+  /**
+   * 审批实例
+   *
+   * @return
+   */
   public Instance instance() {
     return instance;
   }
 
+  /**
+   * 评论
+   *
+   * @return
+   */
   public InstanceComment instanceComment() {
     return instanceComment;
   }
 
+  /**
+   * 审批任务
+   *
+   * @return
+   */
   public Task task() {
     return task;
   }
@@ -139,6 +176,14 @@ public class ApprovalService {
       this.config = config;
     }
 
+    /**
+     * 创建审批定义，用于通过接口创建简单的审批定义，可以灵活指定定义的基础信息、表单和流程等。创建成功后，不支持从审批管理后台删除该定义。不推荐企业自建应用使用，如有需要尽量联系管理员在审批管理后台创建定义。
+     * <p> 接口谨慎调用，创建后的审批定义无法停用/删除 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CreateApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CreateApprovalSample.java</a>
+     * ;
+     */
     public CreateApprovalResp create(CreateApprovalReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -161,6 +206,14 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 创建审批定义，用于通过接口创建简单的审批定义，可以灵活指定定义的基础信息、表单和流程等。创建成功后，不支持从审批管理后台删除该定义。不推荐企业自建应用使用，如有需要尽量联系管理员在审批管理后台创建定义。
+     * <p> 接口谨慎调用，创建后的审批定义无法停用/删除 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CreateApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CreateApprovalSample.java</a>
+     * ;
+     */
     public CreateApprovalResp create(CreateApprovalReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -180,6 +233,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 查看审批定义，根据 Approval Code 获取某个审批定义的详情，用于构造创建审批实例的请求。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//GetApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//GetApprovalSample.java</a>
+     * ;
+     */
     public GetApprovalResp get(GetApprovalReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -200,6 +260,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 查看审批定义，根据 Approval Code 获取某个审批定义的详情，用于构造创建审批实例的请求。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//GetApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//GetApprovalSample.java</a>
+     * ;
+     */
     public GetApprovalResp get(GetApprovalReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -218,6 +285,14 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 订阅审批事件，应用订阅 approval_code 后，该应用就可以收到该审批定义对应实例的事件通知。同一应用只需要订阅一次，无需重复订阅。;;当应用不希望再收到审批事件时，可以使用取消订阅接口进行取消，取消后将不再给应用推送消息。;;订阅和取消订阅都是应用维度的，多个应用可以同时订阅同一个
+     * approval_code，每个应用都能收到审批事件。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/subscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/subscribe</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//SubscribeApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//SubscribeApprovalSample.java</a>
+     * ;
+     */
     public SubscribeApprovalResp subscribe(SubscribeApprovalReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -240,6 +315,14 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 订阅审批事件，应用订阅 approval_code 后，该应用就可以收到该审批定义对应实例的事件通知。同一应用只需要订阅一次，无需重复订阅。;;当应用不希望再收到审批事件时，可以使用取消订阅接口进行取消，取消后将不再给应用推送消息。;;订阅和取消订阅都是应用维度的，多个应用可以同时订阅同一个
+     * approval_code，每个应用都能收到审批事件。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/subscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/subscribe</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//SubscribeApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//SubscribeApprovalSample.java</a>
+     * ;
+     */
     public SubscribeApprovalResp subscribe(SubscribeApprovalReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -259,6 +342,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 取消订阅审批事件，取消订阅 approval_code 后，无法再收到该审批定义对应实例的事件通知
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//UnsubscribeApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//UnsubscribeApprovalSample.java</a>
+     * ;
+     */
     public UnsubscribeApprovalResp unsubscribe(UnsubscribeApprovalReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -281,6 +371,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 取消订阅审批事件，取消订阅 approval_code 后，无法再收到该审批定义对应实例的事件通知
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//UnsubscribeApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//UnsubscribeApprovalSample.java</a>
+     * ;
+     */
     public UnsubscribeApprovalResp unsubscribe(UnsubscribeApprovalReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -309,6 +406,14 @@ public class ApprovalService {
       this.config = config;
     }
 
+    /**
+     * 三方审批定义创建，审批定义是审批的描述，包括审批名称、图标、描述等基础信息。创建好审批定义，用户就可以在审批应用的发起页中看到审批，如果用户点击发起，则会跳转到配置的发起三方系统地址去发起审批。;;另外，审批定义还配置了审批操作时的回调地址：审批人在待审批列表中进行【同意】【拒绝】操作时，审批中心会调用回调地址通知三方系统。
+     * <p> 注意，审批中心不负责审批流程的流转，只负责展示、操作、消息通知。因此审批定义创建时没有审批流程的信息。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CreateExternalApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CreateExternalApprovalSample.java</a>
+     * ;
+     */
     public CreateExternalApprovalResp create(CreateExternalApprovalReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -331,6 +436,14 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 三方审批定义创建，审批定义是审批的描述，包括审批名称、图标、描述等基础信息。创建好审批定义，用户就可以在审批应用的发起页中看到审批，如果用户点击发起，则会跳转到配置的发起三方系统地址去发起审批。;;另外，审批定义还配置了审批操作时的回调地址：审批人在待审批列表中进行【同意】【拒绝】操作时，审批中心会调用回调地址通知三方系统。
+     * <p> 注意，审批中心不负责审批流程的流转，只负责展示、操作、消息通知。因此审批定义创建时没有审批流程的信息。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CreateExternalApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CreateExternalApprovalSample.java</a>
+     * ;
+     */
     public CreateExternalApprovalResp create(CreateExternalApprovalReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -359,6 +472,14 @@ public class ApprovalService {
       this.config = config;
     }
 
+    /**
+     * 三方审批实例校验，校验三方审批实例数据，用于判断服务端数据是否为最新的。用户提交实例最新更新时间，如果服务端不存在该实例，或者服务端实例更新时间不是最新的，则返回对应实例
+     * id。;;例如，用户可以每隔5分钟，将最近5分钟产生的实例使用该接口进行对比。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/check">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/check</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CheckExternalInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CheckExternalInstanceSample.java</a>
+     * ;
+     */
     public CheckExternalInstanceResp check(CheckExternalInstanceReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -381,6 +502,14 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 三方审批实例校验，校验三方审批实例数据，用于判断服务端数据是否为最新的。用户提交实例最新更新时间，如果服务端不存在该实例，或者服务端实例更新时间不是最新的，则返回对应实例
+     * id。;;例如，用户可以每隔5分钟，将最近5分钟产生的实例使用该接口进行对比。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/check">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/check</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CheckExternalInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CheckExternalInstanceSample.java</a>
+     * ;
+     */
     public CheckExternalInstanceResp check(CheckExternalInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -400,6 +529,19 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 三方审批实例同步，审批中心不负责审批的流转，审批的流转在三方系统，三方系统在审批流转后生成的审批实例、审批任务、审批抄送数据同步到审批中心。;;用户可以在审批中心中浏览三方系统同步过来的实例、任务、抄送信息，并且可以跳转回三方系统进行更详细的查看和操作，其中实例信息在【已发起】列表，任务信息在【待审批】和【已审批】列表，抄送信息在【抄送我】列表;;:::html;<img
+     * src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/9dff4434afbeb0ef69de7f36b9a6e995_z5iwmTzEgg.png"
+     * alt="" style="zoom:17%;" />;;;<img src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/ca6e0e984a7a6d64e1b16a0bac4bf868_tfqjCiaJQM.png"
+     * alt="" style="zoom:17%;" />;;;<img src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/529377e238df78d391bbd22e962ad195_T7eefLI1GA.png"
+     * alt="" style="zoom:17%;" />;:::;;对于审批任务，三方系统也可以配置审批任务的回调接口，这样审批人可以在审批中心中直接进行审批操作，审批中心会回调三方系统，三方系统收到回调后更新任务信息，并将新的任务信息同步回审批中心，形成闭环。;;:::html;<img
+     * src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/721c35428bc1187db3318c572f9979ad_je75QpElcg.png"
+     * alt=""  style="zoom:25%;" />;:::;<br>
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CreateExternalInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CreateExternalInstanceSample.java</a>
+     * ;
+     */
     public CreateExternalInstanceResp create(CreateExternalInstanceReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -422,6 +564,19 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 三方审批实例同步，审批中心不负责审批的流转，审批的流转在三方系统，三方系统在审批流转后生成的审批实例、审批任务、审批抄送数据同步到审批中心。;;用户可以在审批中心中浏览三方系统同步过来的实例、任务、抄送信息，并且可以跳转回三方系统进行更详细的查看和操作，其中实例信息在【已发起】列表，任务信息在【待审批】和【已审批】列表，抄送信息在【抄送我】列表;;:::html;<img
+     * src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/9dff4434afbeb0ef69de7f36b9a6e995_z5iwmTzEgg.png"
+     * alt="" style="zoom:17%;" />;;;<img src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/ca6e0e984a7a6d64e1b16a0bac4bf868_tfqjCiaJQM.png"
+     * alt="" style="zoom:17%;" />;;;<img src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/529377e238df78d391bbd22e962ad195_T7eefLI1GA.png"
+     * alt="" style="zoom:17%;" />;:::;;对于审批任务，三方系统也可以配置审批任务的回调接口，这样审批人可以在审批中心中直接进行审批操作，审批中心会回调三方系统，三方系统收到回调后更新任务信息，并将新的任务信息同步回审批中心，形成闭环。;;:::html;<img
+     * src="//sf3-cn.feishucdn.com/obj/open-platform-opendoc/721c35428bc1187db3318c572f9979ad_je75QpElcg.png"
+     * alt=""  style="zoom:25%;" />;:::;<br>
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_instance/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CreateExternalInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CreateExternalInstanceSample.java</a>
+     * ;
+     */
     public CreateExternalInstanceResp create(CreateExternalInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -450,6 +605,14 @@ public class ApprovalService {
       this.config = config;
     }
 
+    /**
+     * 获取三方审批任务状态，该接口用于获取三方审批的状态。用户传入查询条件，接口返回满足条件的审批实例的状态。该接口支持多种参数的组合，包括如下组合：;;1.通过 instance_ids
+     * 获取指定实例的任务状态;;2.通过 user_ids 获取指定用户的任务状态;;3.通过 status 获取指定状态的所有任务;;4.通过page_token获取下一批数据
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_task/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_task/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//ListExternalTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//ListExternalTaskSample.java</a>
+     * ;
+     */
     public ListExternalTaskResp list(ListExternalTaskReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -472,6 +635,14 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 获取三方审批任务状态，该接口用于获取三方审批的状态。用户传入查询条件，接口返回满足条件的审批实例的状态。该接口支持多种参数的组合，包括如下组合：;;1.通过 instance_ids
+     * 获取指定实例的任务状态;;2.通过 user_ids 获取指定用户的任务状态;;3.通过 status 获取指定状态的所有任务;;4.通过page_token获取下一批数据
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_task/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_task/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//ListExternalTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//ListExternalTaskSample.java</a>
+     * ;
+     */
     public ListExternalTaskResp list(ListExternalTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -500,6 +671,13 @@ public class ApprovalService {
       this.config = config;
     }
 
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/ukTM5UjL5ETO14SOxkTN/approval-task-addsign">https://open.feishu.cn/document/ukTMukTMukTM/ukTM5UjL5ETO14SOxkTN/approval-task-addsign</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//AddSignInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//AddSignInstanceSample.java</a>
+     * ;
+     */
     public AddSignInstanceResp addSign(AddSignInstanceReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -522,6 +700,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/ukTM5UjL5ETO14SOxkTN/approval-task-addsign">https://open.feishu.cn/document/ukTMukTMukTM/ukTM5UjL5ETO14SOxkTN/approval-task-addsign</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//AddSignInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//AddSignInstanceSample.java</a>
+     * ;
+     */
     public AddSignInstanceResp addSign(AddSignInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -541,6 +726,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 审批实例撤回，对于状态为“审批中”的单个审批实例进行撤销操作，撤销后审批流程结束
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cancel">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cancel</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CancelInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CancelInstanceSample.java</a>
+     * ;
+     */
     public CancelInstanceResp cancel(CancelInstanceReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -563,6 +755,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 审批实例撤回，对于状态为“审批中”的单个审批实例进行撤销操作，撤销后审批流程结束
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cancel">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cancel</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CancelInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CancelInstanceSample.java</a>
+     * ;
+     */
     public CancelInstanceResp cancel(CancelInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -582,6 +781,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 审批实例抄送，通过接口可以将当前审批实例抄送给其他人。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cc">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cc</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CcInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CcInstanceSample.java</a>
+     * ;
+     */
     public CcInstanceResp cc(CcInstanceReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -602,6 +808,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 审批实例抄送，通过接口可以将当前审批实例抄送给其他人。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cc">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/cc</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CcInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CcInstanceSample.java</a>
+     * ;
+     */
     public CcInstanceResp cc(CcInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -620,6 +833,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 创建审批实例，创建一个审批实例，调用方需对审批定义的表单有详细了解，将按照定义的表单结构，将表单 Value 通过接口传入
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CreateInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CreateInstanceSample.java</a>
+     * ;
+     */
     public CreateInstanceResp create(CreateInstanceReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -642,6 +862,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 创建审批实例，创建一个审批实例，调用方需对审批定义的表单有详细了解，将按照定义的表单结构，将表单 Value 通过接口传入
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CreateInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CreateInstanceSample.java</a>
+     * ;
+     */
     public CreateInstanceResp create(CreateInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -661,6 +888,14 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 获取单个审批实例详情，通过审批实例 Instance Code  获取审批实例详情。Instance Code 由 [批量获取审批实例](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)
+     * 接口获取。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//GetInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//GetInstanceSample.java</a>
+     * ;
+     */
     public GetInstanceResp get(GetInstanceReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -681,6 +916,14 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 获取单个审批实例详情，通过审批实例 Instance Code  获取审批实例详情。Instance Code 由 [批量获取审批实例](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)
+     * 接口获取。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//GetInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//GetInstanceSample.java</a>
+     * ;
+     */
     public GetInstanceResp get(GetInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -699,6 +942,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 批量获取审批实例ID，根据 approval_code 批量获取审批实例的 instance_code，用于拉取租户下某个审批定义的全部审批实例。默认以审批创建时间排序
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//ListInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//ListInstanceSample.java</a>
+     * ;
+     */
     public ListInstanceResp list(ListInstanceReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -719,6 +969,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 批量获取审批实例ID，根据 approval_code 批量获取审批实例的 instance_code，用于拉取租户下某个审批定义的全部审批实例。默认以审批创建时间排序
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//ListInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//ListInstanceSample.java</a>
+     * ;
+     */
     public ListInstanceResp list(ListInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -737,6 +994,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/ukTM5UjL5ETO14SOxkTN/approval-preview">https://open.feishu.cn/document/ukTMukTMukTM/ukTM5UjL5ETO14SOxkTN/approval-preview</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//PreviewInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//PreviewInstanceSample.java</a>
+     * ;
+     */
     public PreviewInstanceResp preview(PreviewInstanceReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -759,6 +1023,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/ukTM5UjL5ETO14SOxkTN/approval-preview">https://open.feishu.cn/document/ukTMukTMukTM/ukTM5UjL5ETO14SOxkTN/approval-preview</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//PreviewInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//PreviewInstanceSample.java</a>
+     * ;
+     */
     public PreviewInstanceResp preview(PreviewInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -778,6 +1049,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 实例列表查询，该接口通过不同条件查询审批系统中符合条件的审批实例列表。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//QueryInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//QueryInstanceSample.java</a>
+     * ;
+     */
     public QueryInstanceResp query(QueryInstanceReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -800,6 +1078,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 实例列表查询，该接口通过不同条件查询审批系统中符合条件的审批实例列表。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//QueryInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//QueryInstanceSample.java</a>
+     * ;
+     */
     public QueryInstanceResp query(QueryInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -819,6 +1104,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 抄送列表查询接口，该接口通过不同条件查询审批系统中符合条件的审批抄送列表。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/search_cc">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/search_cc</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//SearchCcInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//SearchCcInstanceSample.java</a>
+     * ;
+     */
     public SearchCcInstanceResp searchCc(SearchCcInstanceReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -841,6 +1133,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 抄送列表查询接口，该接口通过不同条件查询审批系统中符合条件的审批抄送列表。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/search_cc">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/search_cc</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//SearchCcInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//SearchCcInstanceSample.java</a>
+     * ;
+     */
     public SearchCcInstanceResp searchCc(SearchCcInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -860,6 +1159,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 审批任务退回，从当前审批任务，退回到已审批的一个或多个任务节点。退回后，已审批节点重新生成审批任务
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/specified_rollback">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/specified_rollback</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//SpecifiedRollbackInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//SpecifiedRollbackInstanceSample.java</a>
+     * ;
+     */
     public SpecifiedRollbackInstanceResp specifiedRollback(SpecifiedRollbackInstanceReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -882,6 +1188,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 审批任务退回，从当前审批任务，退回到已审批的一个或多个任务节点。退回后，已审批节点重新生成审批任务
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/specified_rollback">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/specified_rollback</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//SpecifiedRollbackInstanceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//SpecifiedRollbackInstanceSample.java</a>
+     * ;
+     */
     public SpecifiedRollbackInstanceResp specifiedRollback(SpecifiedRollbackInstanceReq req)
         throws Exception {
       // 请求参数选项
@@ -911,6 +1224,13 @@ public class ApprovalService {
       this.config = config;
     }
 
+    /**
+     * 创建评论，在某审批实例下创建、修改评论或评论回复（不包含审批同意、拒绝、转交等附加的理由或意见）。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance-comment/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance-comment/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CreateInstanceCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CreateInstanceCommentSample.java</a>
+     * ;
+     */
     public CreateInstanceCommentResp create(CreateInstanceCommentReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -933,6 +1253,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 创建评论，在某审批实例下创建、修改评论或评论回复（不包含审批同意、拒绝、转交等附加的理由或意见）。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance-comment/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance-comment/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CreateInstanceCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//CreateInstanceCommentSample.java</a>
+     * ;
+     */
     public CreateInstanceCommentResp create(CreateInstanceCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -952,6 +1279,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 删除评论，逻辑删除某审批实例下的一条评论或评论回复（不包含审批同意、拒绝、转交等附加的理由或意见）。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance-comment/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance-comment/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//DeleteInstanceCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//DeleteInstanceCommentSample.java</a>
+     * ;
+     */
     public DeleteInstanceCommentResp delete(DeleteInstanceCommentReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -974,6 +1308,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 删除评论，逻辑删除某审批实例下的一条评论或评论回复（不包含审批同意、拒绝、转交等附加的理由或意见）。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance-comment/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance-comment/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//DeleteInstanceCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//DeleteInstanceCommentSample.java</a>
+     * ;
+     */
     public DeleteInstanceCommentResp delete(DeleteInstanceCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -993,6 +1334,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 获取评论，根据 Instance Code 获取某个审批实例下的全部评论与评论回复（不包含审批同意、拒绝、转交等附加的理由或意见）。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance-comment/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance-comment/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//ListInstanceCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//ListInstanceCommentSample.java</a>
+     * ;
+     */
     public ListInstanceCommentResp list(ListInstanceCommentReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1015,6 +1363,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 获取评论，根据 Instance Code 获取某个审批实例下的全部评论与评论回复（不包含审批同意、拒绝、转交等附加的理由或意见）。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance-comment/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance-comment/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//ListInstanceCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//ListInstanceCommentSample.java</a>
+     * ;
+     */
     public ListInstanceCommentResp list(ListInstanceCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1034,6 +1389,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 清空评论，删除某审批实例下的全部评论与评论回复。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance-comment/remove">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance-comment/remove</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//RemoveInstanceCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//RemoveInstanceCommentSample.java</a>
+     * ;
+     */
     public RemoveInstanceCommentResp remove(RemoveInstanceCommentReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1056,6 +1418,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 清空评论，删除某审批实例下的全部评论与评论回复。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance-comment/remove">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance-comment/remove</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//RemoveInstanceCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//RemoveInstanceCommentSample.java</a>
+     * ;
+     */
     public RemoveInstanceCommentResp remove(RemoveInstanceCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1084,6 +1453,13 @@ public class ApprovalService {
       this.config = config;
     }
 
+    /**
+     * 审批任务同意，对于单个审批任务进行同意操作。同意后审批流程会流转到下一个审批人。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/approve">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/approve</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//ApproveTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//ApproveTaskSample.java</a>
+     * ;
+     */
     public ApproveTaskResp approve(ApproveTaskReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -1104,6 +1480,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 审批任务同意，对于单个审批任务进行同意操作。同意后审批流程会流转到下一个审批人。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/approve">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/approve</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//ApproveTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//ApproveTaskSample.java</a>
+     * ;
+     */
     public ApproveTaskResp approve(ApproveTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1122,6 +1505,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 用户角度列出任务，根据用户和任务分组查询任务列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//QueryTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//QueryTaskSample.java</a>
+     * ;
+     */
     public QueryTaskResp query(QueryTaskReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -1142,6 +1532,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 用户角度列出任务，根据用户和任务分组查询任务列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//QueryTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//QueryTaskSample.java</a>
+     * ;
+     */
     public QueryTaskResp query(QueryTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1160,6 +1557,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 审批任务拒绝，对于单个审批任务进行拒绝操作。拒绝后审批流程结束。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/reject">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/reject</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//RejectTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//RejectTaskSample.java</a>
+     * ;
+     */
     public RejectTaskResp reject(RejectTaskReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -1180,6 +1584,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 审批任务拒绝，对于单个审批任务进行拒绝操作。拒绝后审批流程结束。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/reject">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/reject</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//RejectTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//RejectTaskSample.java</a>
+     * ;
+     */
     public RejectTaskResp reject(RejectTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1198,6 +1609,66 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 审批任务重新提交，对于单个退回到发起人的审批任务进行重新发起操作。发起后审批流程会流转到下一个审批人。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/resubmit">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/resubmit</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//ResubmitTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//ResubmitTaskSample.java</a>
+     * ;
+     */
+    public ResubmitTaskResp resubmit(ResubmitTaskReq req, RequestOptions reqOptions)
+        throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/approval/v4/tasks/resubmit"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      ResubmitTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ResubmitTaskResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 审批任务重新提交，对于单个退回到发起人的审批任务进行重新发起操作。发起后审批流程会流转到下一个审批人。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/resubmit">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/resubmit</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//ResubmitTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//ResubmitTaskSample.java</a>
+     * ;
+     */
+    public ResubmitTaskResp resubmit(ResubmitTaskReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/approval/v4/tasks/resubmit"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      ResubmitTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ResubmitTaskResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 任务列表查询，该接口通过不同条件查询审批系统中符合条件的审批任务列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/search">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/search</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//SearchTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//SearchTaskSample.java</a>
+     * ;
+     */
     public SearchTaskResp search(SearchTaskReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -1218,6 +1689,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 任务列表查询，该接口通过不同条件查询审批系统中符合条件的审批任务列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/search">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/search</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//SearchTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//SearchTaskSample.java</a>
+     * ;
+     */
     public SearchTaskResp search(SearchTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1236,6 +1714,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 审批任务转交，对于单个审批任务进行转交操作。转交后审批流程流转给被转交人。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/transfer">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/transfer</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//TransferTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//TransferTaskSample.java</a>
+     * ;
+     */
     public TransferTaskResp transfer(TransferTaskReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1257,6 +1742,13 @@ public class ApprovalService {
       return resp;
     }
 
+    /**
+     * 审批任务转交，对于单个审批任务进行转交操作。转交后审批流程流转给被转交人。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/transfer">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/transfer</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//TransferTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4//TransferTaskSample.java</a>
+     * ;
+     */
     public TransferTaskResp transfer(TransferTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();

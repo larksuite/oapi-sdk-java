@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class InsertGridColumnRequest {
 
+  /**
+   * 插入列索引，从 1 开始，如 1 表示在第一列后插入，注意不允许传 0（-1表示在最后一列后插入）
+   * <p> 示例值：1
+   */
   @SerializedName("column_index")
   private Integer columnIndex;
 
@@ -25,6 +29,10 @@ public class InsertGridColumnRequest {
   }
 
   public InsertGridColumnRequest(Builder builder) {
+    /**
+     * 插入列索引，从 1 开始，如 1 表示在第一列后插入，注意不允许传 0（-1表示在最后一列后插入）
+     * <p> 示例值：1
+     */
     this.columnIndex = builder.columnIndex;
   }
 
@@ -42,8 +50,19 @@ public class InsertGridColumnRequest {
 
   public static class Builder {
 
+    /**
+     * 插入列索引，从 1 开始，如 1 表示在第一列后插入，注意不允许传 0（-1表示在最后一列后插入）
+     * <p> 示例值：1
+     */
     private Integer columnIndex;
 
+    /**
+     * 插入列索引，从 1 开始，如 1 表示在第一列后插入，注意不允许传 0（-1表示在最后一列后插入）
+     * <p> 示例值：1
+     *
+     * @param columnIndex
+     * @return
+     */
     public Builder columnIndex(Integer columnIndex) {
       this.columnIndex = columnIndex;
       return this;

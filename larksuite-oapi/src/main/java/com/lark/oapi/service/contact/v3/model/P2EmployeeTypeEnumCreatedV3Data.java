@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2EmployeeTypeEnumCreatedV3Data {
 
+  /**
+   * 新枚举类型
+   * <p> 示例值：
+   */
   @SerializedName("new_enum")
   private EmployeeTypeEnum newEnum;
 

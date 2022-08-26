@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class File {
 
+  /**
+   * 附件 Token
+   * <p> 示例值：boxbcOj88GDkmWGm2zsTyCBqoLb
+   */
   @SerializedName("token")
   private String token;
+  /**
+   * 文件名
+   * <p> 示例值：文件名
+   */
   @SerializedName("name")
   private String name;
 
@@ -27,7 +35,15 @@ public class File {
   }
 
   public File(Builder builder) {
+    /**
+     * 附件 Token
+     * <p> 示例值：boxbcOj88GDkmWGm2zsTyCBqoLb
+     */
     this.token = builder.token;
+    /**
+     * 文件名
+     * <p> 示例值：文件名
+     */
     this.name = builder.name;
   }
 
@@ -53,14 +69,37 @@ public class File {
 
   public static class Builder {
 
+    /**
+     * 附件 Token
+     * <p> 示例值：boxbcOj88GDkmWGm2zsTyCBqoLb
+     */
     private String token;
+    /**
+     * 文件名
+     * <p> 示例值：文件名
+     */
     private String name;
 
+    /**
+     * 附件 Token
+     * <p> 示例值：boxbcOj88GDkmWGm2zsTyCBqoLb
+     *
+     * @param token
+     * @return
+     */
     public Builder token(String token) {
       this.token = token;
       return this;
     }
 
+
+    /**
+     * 文件名
+     * <p> 示例值：文件名
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;

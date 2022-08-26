@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class GetMotoReq {
 
+  /**
+   * desc
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("body_level")
   private String bodyLevel;
+  /**
+   * desc33333
+   * <p> 示例值：
+   */
   @Path
   @SerializedName("moto_id")
   private String motoId;
@@ -31,7 +39,15 @@ public class GetMotoReq {
   }
 
   public GetMotoReq(Builder builder) {
+    /**
+     * desc
+     * <p> 示例值：
+     */
     this.bodyLevel = builder.bodyLevel;
+    /**
+     * desc33333
+     * <p> 示例值：
+     */
     this.motoId = builder.motoId;
   }
 
@@ -57,14 +73,28 @@ public class GetMotoReq {
 
   public static class Builder {
 
-    private String bodyLevel;
-    private String motoId;
+    private String bodyLevel; // desc
+    private String motoId; // desc33333
 
+    /**
+     * desc
+     * <p> 示例值：
+     *
+     * @param bodyLevel
+     * @return
+     */
     public Builder bodyLevel(String bodyLevel) {
       this.bodyLevel = bodyLevel;
       return this;
     }
 
+    /**
+     * desc33333
+     * <p> 示例值：
+     *
+     * @param motoId
+     * @return
+     */
     public Builder motoId(String motoId) {
       this.motoId = motoId;
       return this;

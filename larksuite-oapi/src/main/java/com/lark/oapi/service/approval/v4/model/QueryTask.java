@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryTask {
 
+  /**
+   * 任务列表
+   * <p> 示例值：
+   */
   @SerializedName("tasks")
   private Task[] tasks;
+  /**
+   * 翻页 Token
+   * <p> 示例值：example_page_token
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 是否有更多任务可供拉取
+   * <p> 示例值：true
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 列表计数，只在分页第一页返回
+   * <p> 示例值：
+   */
   @SerializedName("count")
   private Count count;
 

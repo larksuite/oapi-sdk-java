@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreatePublicMailboxAlias {
 
+  /**
+   * 公共邮箱别名
+   * <p> 示例值：
+   */
   @SerializedName("public_mailbox_alias")
   private EmailAlias publicMailboxAlias;
 

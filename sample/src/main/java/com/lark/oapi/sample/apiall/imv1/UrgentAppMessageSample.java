@@ -6,7 +6,7 @@ import com.lark.oapi.service.im.v1.model.UrgentAppMessageReq;
 import com.lark.oapi.service.im.v1.model.UrgentAppMessageResp;
 import com.lark.oapi.service.im.v1.model.UrgentReceivers;
 
-// HTTP PATH: /open-apis/im/v1/messages/:message_id/urgent_app"
+// PATCH /open-apis/im/v1/messages/:message_id/urgent_app
 public class UrgentAppMessageSample {
 
   public static void main(String arg[]) throws Exception {

@@ -19,12 +19,25 @@ import com.lark.oapi.core.annotation.Query;
 
 public class GetApplicationReq {
 
+  /**
+   * 指定获取应用在该语言下的信息
+   * <p> 示例值：zh_cn
+   */
   @Query
   @SerializedName("lang")
   private String lang;
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * 应用的 app_id，需要查询其他应用信息时，必须申请[获取应用信息](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用信息时，可填入
+   * "me" 或者应用自身 app_id
+   * <p> 示例值：cli_9b445f5258795107
+   */
   @Path
   @SerializedName("app_id")
   private String appId;
@@ -34,8 +47,20 @@ public class GetApplicationReq {
   }
 
   public GetApplicationReq(Builder builder) {
+    /**
+     * 指定获取应用在该语言下的信息
+     * <p> 示例值：zh_cn
+     */
     this.lang = builder.lang;
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
+    /**
+     * 应用的 app_id，需要查询其他应用信息时，必须申请[获取应用信息](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用信息时，可填入 "me" 或者应用自身 app_id
+     * <p> 示例值：cli_9b445f5258795107
+     */
     this.appId = builder.appId;
   }
 
@@ -69,31 +94,67 @@ public class GetApplicationReq {
 
   public static class Builder {
 
-    private String lang;
-    private String userIdType;
-    private String appId;
+    private String lang; // 指定获取应用在该语言下的信息
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String appId; // 应用的 app_id，需要查询其他应用信息时，必须申请[获取应用信息](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用信息时，可填入 "me" 或者应用自身 app_id
 
+    /**
+     * 指定获取应用在该语言下的信息
+     * <p> 示例值：zh_cn
+     *
+     * @param lang
+     * @return
+     */
     public Builder lang(String lang) {
       this.lang = lang;
       return this;
     }
 
-    public Builder lang(com.lark.oapi.service.application.v6.enums.I18nKeyEnum lang) {
+    /**
+     * 指定获取应用在该语言下的信息
+     * <p> 示例值：zh_cn
+     *
+     * @param lang {@link com.lark.oapi.service.application.v6.enums.GetApplicationI18nKeyEnum}
+     * @return
+     */
+    public Builder lang(com.lark.oapi.service.application.v6.enums.GetApplicationI18nKeyEnum lang) {
       this.lang = lang.getValue();
       return this;
     }
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.application.v6.enums.GetApplicationUserIdTypeEnum}
+     * @return
+     */
     public Builder userIdType(
-        com.lark.oapi.service.application.v6.enums.UserIdTypeEnum userIdType) {
+        com.lark.oapi.service.application.v6.enums.GetApplicationUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+    /**
+     * 应用的 app_id，需要查询其他应用信息时，必须申请[获取应用信息](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用信息时，可填入
+     * "me" 或者应用自身 app_id
+     * <p> 示例值：cli_9b445f5258795107
+     *
+     * @param appId
+     * @return
+     */
     public Builder appId(String appId) {
       this.appId = appId;
       return this;

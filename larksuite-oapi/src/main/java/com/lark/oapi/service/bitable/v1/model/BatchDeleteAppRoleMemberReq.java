@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Path;
 
 public class BatchDeleteAppRoleMemberReq {
 
+  /**
+   * 多维表格文档 Token
+   * <p> 示例值：bascnnKKvcoUblgmmhZkYqabcef
+   */
   @Path
   @SerializedName("app_token")
   private String appToken;
+  /**
+   * 自定义角色 ID
+   * <p> 示例值：rolNGhPqks
+   */
   @Path
   @SerializedName("role_id")
   private String roleId;
@@ -33,7 +41,15 @@ public class BatchDeleteAppRoleMemberReq {
   }
 
   public BatchDeleteAppRoleMemberReq(Builder builder) {
+    /**
+     * 多维表格文档 Token
+     * <p> 示例值：bascnnKKvcoUblgmmhZkYqabcef
+     */
     this.appToken = builder.appToken;
+    /**
+     * 自定义角色 ID
+     * <p> 示例值：rolNGhPqks
+     */
     this.roleId = builder.roleId;
     this.body = builder.body;
   }
@@ -68,15 +84,29 @@ public class BatchDeleteAppRoleMemberReq {
 
   public static class Builder {
 
-    private String appToken;
-    private String roleId;
+    private String appToken; // 多维表格文档 Token
+    private String roleId; // 自定义角色 ID
     private BatchDeleteAppRoleMemberReqBody body;
 
+    /**
+     * 多维表格文档 Token
+     * <p> 示例值：bascnnKKvcoUblgmmhZkYqabcef
+     *
+     * @param appToken
+     * @return
+     */
     public Builder appToken(String appToken) {
       this.appToken = appToken;
       return this;
     }
 
+    /**
+     * 自定义角色 ID
+     * <p> 示例值：rolNGhPqks
+     *
+     * @param roleId
+     * @return
+     */
     public Builder roleId(String roleId) {
       this.roleId = roleId;
       return this;
@@ -86,6 +116,12 @@ public class BatchDeleteAppRoleMemberReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder batchDeleteAppRoleMemberReqBody(BatchDeleteAppRoleMemberReqBody body) {
       this.body = body;
       return this;

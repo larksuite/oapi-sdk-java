@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2CalendarEventChangedV4Data {
 
+  /**
+   * 日历id
+   * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+   */
   @SerializedName("calendar_id")
   private String calendarId;
+  /**
+   * 需要推送事件的用户列表
+   * <p> 示例值：
+   */
   @SerializedName("user_id_list")
   private UserId[] userIdList;
 

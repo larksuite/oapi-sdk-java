@@ -7,7 +7,7 @@ import com.lark.oapi.service.admin.v1.model.RuleDetail;
 import com.lark.oapi.service.admin.v1.model.UpdateBadgeGrantReq;
 import com.lark.oapi.service.admin.v1.model.UpdateBadgeGrantResp;
 
-// HTTP PATH: /open-apis/admin/v1/badges/:badge_id/grants/:grant_id"
+// PUT /open-apis/admin/v1/badges/:badge_id/grants/:grant_id
 public class UpdateBadgeGrantSample {
 
   public static void main(String arg[]) throws Exception {

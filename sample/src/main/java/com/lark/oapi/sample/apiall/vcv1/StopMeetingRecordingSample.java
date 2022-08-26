@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.vc.v1.model.StopMeetingRecordingReq;
 import com.lark.oapi.service.vc.v1.model.StopMeetingRecordingResp;
 
-// HTTP PATH: /open-apis/vc/v1/meetings/:meeting_id/recording/stop"
+// PATCH /open-apis/vc/v1/meetings/:meeting_id/recording/stop
 public class StopMeetingRecordingSample {
 
   public static void main(String arg[]) throws Exception {

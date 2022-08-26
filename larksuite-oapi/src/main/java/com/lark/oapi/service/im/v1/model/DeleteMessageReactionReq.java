@@ -18,9 +18,17 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DeleteMessageReactionReq {
 
+  /**
+   * 待删除reaction的消息ID
+   * <p> 示例值：om_8964d1b4*********2b31383276113
+   */
   @Path
   @SerializedName("message_id")
   private String messageId;
+  /**
+   * 待删除reaction的资源id
+   * <p> 示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_
+   */
   @Path
   @SerializedName("reaction_id")
   private String reactionId;
@@ -30,7 +38,15 @@ public class DeleteMessageReactionReq {
   }
 
   public DeleteMessageReactionReq(Builder builder) {
+    /**
+     * 待删除reaction的消息ID
+     * <p> 示例值：om_8964d1b4*********2b31383276113
+     */
     this.messageId = builder.messageId;
+    /**
+     * 待删除reaction的资源id
+     * <p> 示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_
+     */
     this.reactionId = builder.reactionId;
   }
 
@@ -56,14 +72,29 @@ public class DeleteMessageReactionReq {
 
   public static class Builder {
 
-    private String messageId;
-    private String reactionId;
+    private String messageId; // 待删除reaction的消息ID
+    private String reactionId; // 待删除reaction的资源id
 
+    /**
+     * 待删除reaction的消息ID
+     * <p> 示例值：om_8964d1b4*********2b31383276113
+     *
+     * @param messageId
+     * @return
+     */
     public Builder messageId(String messageId) {
       this.messageId = messageId;
       return this;
     }
 
+
+    /**
+     * 待删除reaction的资源id
+     * <p> 示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_
+     *
+     * @param reactionId
+     * @return
+     */
     public Builder reactionId(String reactionId) {
       this.reactionId = reactionId;
       return this;

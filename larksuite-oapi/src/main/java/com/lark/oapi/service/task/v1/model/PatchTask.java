@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class PatchTask {
 
+  /**
+   * 返回修改后的任务详情
+   * <p> 示例值：
+   */
   @SerializedName("task")
   private Task task;
 

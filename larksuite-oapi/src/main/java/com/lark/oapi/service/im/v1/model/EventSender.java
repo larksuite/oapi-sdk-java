@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class EventSender {
 
+  /**
+   * 用户 ID
+   * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+   */
   @SerializedName("sender_id")
   private UserId senderId;
+  /**
+   * 消息发送者类型。目前只支持用户(user)发送的消息。
+   * <p> 示例值：user
+   */
   @SerializedName("sender_type")
   private String senderType;
+  /**
+   * tenant key
+   * <p> 示例值：736588c9260f175e
+   */
   @SerializedName("tenant_key")
   private String tenantKey;
 
@@ -29,8 +41,20 @@ public class EventSender {
   }
 
   public EventSender(Builder builder) {
+    /**
+     * 用户 ID
+     * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+     */
     this.senderId = builder.senderId;
+    /**
+     * 消息发送者类型。目前只支持用户(user)发送的消息。
+     * <p> 示例值：user
+     */
     this.senderType = builder.senderType;
+    /**
+     * tenant key
+     * <p> 示例值：736588c9260f175e
+     */
     this.tenantKey = builder.tenantKey;
   }
 
@@ -64,20 +88,55 @@ public class EventSender {
 
   public static class Builder {
 
+    /**
+     * 用户 ID
+     * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+     */
     private UserId senderId;
+    /**
+     * 消息发送者类型。目前只支持用户(user)发送的消息。
+     * <p> 示例值：user
+     */
     private String senderType;
+    /**
+     * tenant key
+     * <p> 示例值：736588c9260f175e
+     */
     private String tenantKey;
 
+    /**
+     * 用户 ID
+     * <p> 示例值：ou_5ad573a6411d72b8305fda3a9c15c70e
+     *
+     * @param senderId
+     * @return
+     */
     public Builder senderId(UserId senderId) {
       this.senderId = senderId;
       return this;
     }
 
+
+    /**
+     * 消息发送者类型。目前只支持用户(user)发送的消息。
+     * <p> 示例值：user
+     *
+     * @param senderType
+     * @return
+     */
     public Builder senderType(String senderType) {
       this.senderType = senderType;
       return this;
     }
 
+
+    /**
+     * tenant key
+     * <p> 示例值：736588c9260f175e
+     *
+     * @param tenantKey
+     * @return
+     */
     public Builder tenantKey(String tenantKey) {
       this.tenantKey = tenantKey;
       return this;

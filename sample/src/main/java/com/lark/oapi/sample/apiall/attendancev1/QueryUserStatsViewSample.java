@@ -6,7 +6,7 @@ import com.lark.oapi.service.attendance.v1.model.QueryUserStatsViewReq;
 import com.lark.oapi.service.attendance.v1.model.QueryUserStatsViewReqBody;
 import com.lark.oapi.service.attendance.v1.model.QueryUserStatsViewResp;
 
-// HTTP PATH: /open-apis/attendance/v1/user_stats_views/query"
+// POST /open-apis/attendance/v1/user_stats_views/query
 public class QueryUserStatsViewSample {
 
   public static void main(String arg[]) throws Exception {
@@ -17,7 +17,7 @@ public class QueryUserStatsViewSample {
     QueryUserStatsViewReq req = QueryUserStatsViewReq.newBuilder()
         .employeeType("employee_id")
         .queryUserStatsViewReqBody(QueryUserStatsViewReqBody.newBuilder()
-            .locale("en")
+            .locale("zh")
             .statsType("daily")
             .userId("dd31248a")
             .build())

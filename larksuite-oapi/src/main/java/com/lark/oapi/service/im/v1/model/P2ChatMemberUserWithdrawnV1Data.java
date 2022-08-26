@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2ChatMemberUserWithdrawnV1Data {
 
+  /**
+   * 群组 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+   * <p> 示例值：oc_413871888e0d5492e25b173f0812efb7
+   */
   @SerializedName("chat_id")
   private String chatId;
+  /**
+   * 用户 ID
+   * <p> 示例值：
+   */
   @SerializedName("operator_id")
   private UserId operatorId;
+  /**
+   * 是否是外部群
+   * <p> 示例值：false
+   */
   @SerializedName("external")
   private Boolean external;
+  /**
+   * operator tenant key
+   * <p> 示例值：879dsyud8
+   */
   @SerializedName("operator_tenant_key")
   private String operatorTenantKey;
+  /**
+   * 被撤销加群的用户列表
+   * <p> 示例值：
+   */
   @SerializedName("users")
   private ChatMemberUser[] users;
 

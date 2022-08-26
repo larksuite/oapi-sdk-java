@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class PatchFaqReqBody {
 
+  /**
+   * 修改的知识库内容
+   * <p> 示例值：
+   */
   @SerializedName("faq")
   private FaqUpdateInfo faq;
 
@@ -25,6 +29,10 @@ public class PatchFaqReqBody {
   }
 
   public PatchFaqReqBody(Builder builder) {
+    /**
+     * 修改的知识库内容
+     * <p> 示例值：
+     */
     this.faq = builder.faq;
   }
 
@@ -42,8 +50,19 @@ public class PatchFaqReqBody {
 
   public static class Builder {
 
+    /**
+     * 修改的知识库内容
+     * <p> 示例值：
+     */
     private FaqUpdateInfo faq;
 
+    /**
+     * 修改的知识库内容
+     * <p> 示例值：
+     *
+     * @param faq
+     * @return
+     */
     public Builder faq(FaqUpdateInfo faq) {
       this.faq = faq;
       return this;

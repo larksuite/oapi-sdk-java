@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class TextRun {
 
+  /**
+   * 文本内容
+   * <p> 示例值：文本
+   */
   @SerializedName("content")
   private String content;
+  /**
+   * 文本局部样式
+   * <p> 示例值：
+   */
   @SerializedName("text_element_style")
   private TextElementStyle textElementStyle;
 
@@ -27,7 +35,15 @@ public class TextRun {
   }
 
   public TextRun(Builder builder) {
+    /**
+     * 文本内容
+     * <p> 示例值：文本
+     */
     this.content = builder.content;
+    /**
+     * 文本局部样式
+     * <p> 示例值：
+     */
     this.textElementStyle = builder.textElementStyle;
   }
 
@@ -53,14 +69,37 @@ public class TextRun {
 
   public static class Builder {
 
+    /**
+     * 文本内容
+     * <p> 示例值：文本
+     */
     private String content;
+    /**
+     * 文本局部样式
+     * <p> 示例值：
+     */
     private TextElementStyle textElementStyle;
 
+    /**
+     * 文本内容
+     * <p> 示例值：文本
+     *
+     * @param content
+     * @return
+     */
     public Builder content(String content) {
       this.content = content;
       return this;
     }
 
+
+    /**
+     * 文本局部样式
+     * <p> 示例值：
+     *
+     * @param textElementStyle
+     * @return
+     */
     public Builder textElementStyle(TextElementStyle textElementStyle) {
       this.textElementStyle = textElementStyle;
       return this;

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryTenant {
 
+  /**
+   * 企业信息
+   * <p> 示例值：
+   */
   @SerializedName("tenant")
   private Tenant tenant;
 

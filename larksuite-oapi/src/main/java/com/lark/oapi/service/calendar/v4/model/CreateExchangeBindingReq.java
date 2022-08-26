@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Query;
 
 public class CreateExchangeBindingReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
@@ -30,6 +34,10 @@ public class CreateExchangeBindingReq {
   }
 
   public CreateExchangeBindingReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
     this.body = builder.body;
   }
@@ -56,15 +64,30 @@ public class CreateExchangeBindingReq {
 
   public static class Builder {
 
-    private String userIdType;
+    private String userIdType; // 此次调用中使用的用户ID的类型
     private ExchangeBinding body;
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.CreateExchangeBindingUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.calendar.v4.enums.CreateExchangeBindingUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
@@ -73,6 +96,12 @@ public class CreateExchangeBindingReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder exchangeBinding(ExchangeBinding body) {
       this.body = body;
       return this;

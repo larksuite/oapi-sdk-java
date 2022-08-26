@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class File {
 
+  /**
+   * 人脸图片内容
+   * <p> 示例值：jpg图片
+   */
   @SerializedName("files")
   private java.io.File files;
+  /**
+   * 文件类型,可选的类型有jpg,png
+   * <p> 示例值：jpg
+   */
   @SerializedName("file_type")
   private String fileType;
+  /**
+   * 带后缀的文件名
+   * <p> 示例值：efeqz12f.jpg
+   */
   @SerializedName("file_name")
   private String fileName;
 
@@ -29,8 +41,20 @@ public class File {
   }
 
   public File(Builder builder) {
+    /**
+     * 人脸图片内容
+     * <p> 示例值：jpg图片
+     */
     this.files = builder.files;
+    /**
+     * 文件类型,可选的类型有jpg,png
+     * <p> 示例值：jpg
+     */
     this.fileType = builder.fileType;
+    /**
+     * 带后缀的文件名
+     * <p> 示例值：efeqz12f.jpg
+     */
     this.fileName = builder.fileName;
   }
 
@@ -64,20 +88,55 @@ public class File {
 
   public static class Builder {
 
+    /**
+     * 人脸图片内容
+     * <p> 示例值：jpg图片
+     */
     private java.io.File files;
+    /**
+     * 文件类型,可选的类型有jpg,png
+     * <p> 示例值：jpg
+     */
     private String fileType;
+    /**
+     * 带后缀的文件名
+     * <p> 示例值：efeqz12f.jpg
+     */
     private String fileName;
 
+    /**
+     * 人脸图片内容
+     * <p> 示例值：jpg图片
+     *
+     * @param files
+     * @return
+     */
     public Builder files(java.io.File files) {
       this.files = files;
       return this;
     }
 
+
+    /**
+     * 文件类型,可选的类型有jpg,png
+     * <p> 示例值：jpg
+     *
+     * @param fileType
+     * @return
+     */
     public Builder fileType(String fileType) {
       this.fileType = fileType;
       return this;
     }
 
+
+    /**
+     * 带后缀的文件名
+     * <p> 示例值：efeqz12f.jpg
+     *
+     * @param fileName
+     * @return
+     */
     public Builder fileName(String fileName) {
       this.fileName = fileName;
       return this;

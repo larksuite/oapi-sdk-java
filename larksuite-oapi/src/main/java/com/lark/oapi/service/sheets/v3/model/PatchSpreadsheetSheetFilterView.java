@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class PatchSpreadsheetSheetFilterView {
 
+  /**
+   * 更新后的筛选视图的 id 、name、range
+   * <p> 示例值：
+   */
   @SerializedName("filter_view")
   private FilterView filterView;
 

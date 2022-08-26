@@ -6,7 +6,7 @@ import com.lark.oapi.service.wiki.v2.model.DeleteSpaceMemberReq;
 import com.lark.oapi.service.wiki.v2.model.DeleteSpaceMemberResp;
 import com.lark.oapi.service.wiki.v2.model.Member;
 
-// HTTP PATH: /open-apis/wiki/v2/spaces/:space_id/members/:member_id"
+// DELETE /open-apis/wiki/v2/spaces/:space_id/members/:member_id
 public class DeleteSpaceMemberSample {
 
   public static void main(String arg[]) throws Exception {

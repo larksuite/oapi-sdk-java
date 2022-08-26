@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetSchema {
 
+  /**
+   * 数据范式
+   * <p> 示例值：
+   */
   @SerializedName("schema")
   private Schema schema;
 

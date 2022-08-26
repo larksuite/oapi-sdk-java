@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class SchemaDisplayOption {
 
+  /**
+   * 对外展示的标签名
+   * <p> 示例值：
+   */
   @SerializedName("display_label")
   private String displayLabel;
+  /**
+   * 对外展示类型
+   * <p> 示例值：
+   */
   @SerializedName("display_type")
   private String displayType;
 
@@ -27,7 +35,15 @@ public class SchemaDisplayOption {
   }
 
   public SchemaDisplayOption(Builder builder) {
+    /**
+     * 对外展示的标签名
+     * <p> 示例值：
+     */
     this.displayLabel = builder.displayLabel;
+    /**
+     * 对外展示类型
+     * <p> 示例值：
+     */
     this.displayType = builder.displayType;
   }
 
@@ -53,20 +69,51 @@ public class SchemaDisplayOption {
 
   public static class Builder {
 
+    /**
+     * 对外展示的标签名
+     * <p> 示例值：
+     */
     private String displayLabel;
+    /**
+     * 对外展示类型
+     * <p> 示例值：
+     */
     private String displayType;
 
+    /**
+     * 对外展示的标签名
+     * <p> 示例值：
+     *
+     * @param displayLabel
+     * @return
+     */
     public Builder displayLabel(String displayLabel) {
       this.displayLabel = displayLabel;
       return this;
     }
 
+
+    /**
+     * 对外展示类型
+     * <p> 示例值：
+     *
+     * @param displayType
+     * @return
+     */
     public Builder displayType(String displayType) {
       this.displayType = displayType;
       return this;
     }
 
-    public Builder displayType(com.lark.oapi.service.search.v2.enums.DisplayTypeEnum displayType) {
+    /**
+     * 对外展示类型
+     * <p> 示例值：
+     *
+     * @param displayType {@link com.lark.oapi.service.search.v2.enums.SchemaDisplayOptionDisplayTypeEnum}
+     * @return
+     */
+    public Builder displayType(
+        com.lark.oapi.service.search.v2.enums.SchemaDisplayOptionDisplayTypeEnum displayType) {
       this.displayType = displayType.getValue();
       return this;
     }

@@ -7,7 +7,7 @@ import com.lark.oapi.service.helpdesk.v1.model.PatchAgentSkillReq;
 import com.lark.oapi.service.helpdesk.v1.model.PatchAgentSkillReqBody;
 import com.lark.oapi.service.helpdesk.v1.model.PatchAgentSkillResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/agent_skills/:agent_skill_id"
+// PATCH /open-apis/helpdesk/v1/agent_skills/:agent_skill_id
 public class PatchAgentSkillSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class PatchAgentSkillSample {
 
     // 创建请求对象
     PatchAgentSkillReq req = PatchAgentSkillReq.newBuilder()
-        .agentSkillId("")
+        .agentSkillId("test-skill-id")
         .patchAgentSkillReqBody(PatchAgentSkillReqBody.newBuilder()
             .agentSkill(AgentSkill.newBuilder().build())
             .build())

@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class PstnSipInfo {
 
+  /**
+   * 给pstn/sip用户设置的临时昵称
+   * <p> 示例值：dodo
+   */
   @SerializedName("nickname")
   private String nickname;
+  /**
+   * pstn/sip主机号，格式为：[国际冠字]-[电话区号][电话号码]，当前仅支持国内手机及固定电话号码
+   * <p> 示例值：+86-02187654321
+   */
   @SerializedName("main_address")
   private String mainAddress;
 
@@ -27,7 +35,15 @@ public class PstnSipInfo {
   }
 
   public PstnSipInfo(Builder builder) {
+    /**
+     * 给pstn/sip用户设置的临时昵称
+     * <p> 示例值：dodo
+     */
     this.nickname = builder.nickname;
+    /**
+     * pstn/sip主机号，格式为：[国际冠字]-[电话区号][电话号码]，当前仅支持国内手机及固定电话号码
+     * <p> 示例值：+86-02187654321
+     */
     this.mainAddress = builder.mainAddress;
   }
 
@@ -53,14 +69,37 @@ public class PstnSipInfo {
 
   public static class Builder {
 
+    /**
+     * 给pstn/sip用户设置的临时昵称
+     * <p> 示例值：dodo
+     */
     private String nickname;
+    /**
+     * pstn/sip主机号，格式为：[国际冠字]-[电话区号][电话号码]，当前仅支持国内手机及固定电话号码
+     * <p> 示例值：+86-02187654321
+     */
     private String mainAddress;
 
+    /**
+     * 给pstn/sip用户设置的临时昵称
+     * <p> 示例值：dodo
+     *
+     * @param nickname
+     * @return
+     */
     public Builder nickname(String nickname) {
       this.nickname = nickname;
       return this;
     }
 
+
+    /**
+     * pstn/sip主机号，格式为：[国际冠字]-[电话区号][电话号码]，当前仅支持国内手机及固定电话号码
+     * <p> 示例值：+86-02187654321
+     *
+     * @param mainAddress
+     * @return
+     */
     public Builder mainAddress(String mainAddress) {
       this.mainAddress = mainAddress;
       return this;

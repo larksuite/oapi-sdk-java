@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class CreateMailgroupAliasReq {
 
+  /**
+   * 邮件组id或邮件组邮箱地址
+   * <p> 示例值：xxxxxx 或者 xxx@xx.xxx
+   */
   @Path
   @SerializedName("mailgroup_id")
   private String mailgroupId;
@@ -30,6 +34,10 @@ public class CreateMailgroupAliasReq {
   }
 
   public CreateMailgroupAliasReq(Builder builder) {
+    /**
+     * 邮件组id或邮件组邮箱地址
+     * <p> 示例值：xxxxxx 或者 xxx@xx.xxx
+     */
     this.mailgroupId = builder.mailgroupId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class CreateMailgroupAliasReq {
 
   public static class Builder {
 
-    private String mailgroupId;
+    private String mailgroupId; // 邮件组id或邮件组邮箱地址
     private EmailAlias body;
 
+    /**
+     * 邮件组id或邮件组邮箱地址
+     * <p> 示例值：xxxxxx 或者 xxx@xx.xxx
+     *
+     * @param mailgroupId
+     * @return
+     */
     public Builder mailgroupId(String mailgroupId) {
       this.mailgroupId = mailgroupId;
       return this;
@@ -68,6 +83,12 @@ public class CreateMailgroupAliasReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder emailAlias(EmailAlias body) {
       this.body = body;
       return this;

@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2UserDeletedV3Data {
 
+  /**
+   * 员工信息
+   * <p> 示例值：
+   */
   @SerializedName("object")
   private UserEvent object;
+  /**
+   * 删除前信息
+   * <p> 示例值：
+   */
   @SerializedName("old_object")
   private OldUserObject oldObject;
 

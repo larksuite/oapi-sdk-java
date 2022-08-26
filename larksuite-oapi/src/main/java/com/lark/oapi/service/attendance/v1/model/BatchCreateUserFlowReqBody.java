@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchCreateUserFlowReqBody {
 
+  /**
+   * 打卡流水记录列表
+   * <p> 示例值：
+   */
   @SerializedName("flow_records")
   private UserFlow[] flowRecords;
 
@@ -25,6 +29,10 @@ public class BatchCreateUserFlowReqBody {
   }
 
   public BatchCreateUserFlowReqBody(Builder builder) {
+    /**
+     * 打卡流水记录列表
+     * <p> 示例值：
+     */
     this.flowRecords = builder.flowRecords;
   }
 
@@ -42,8 +50,19 @@ public class BatchCreateUserFlowReqBody {
 
   public static class Builder {
 
+    /**
+     * 打卡流水记录列表
+     * <p> 示例值：
+     */
     private UserFlow[] flowRecords;
 
+    /**
+     * 打卡流水记录列表
+     * <p> 示例值：
+     *
+     * @param flowRecords
+     * @return
+     */
     public Builder flowRecords(UserFlow[] flowRecords) {
       this.flowRecords = flowRecords;
       return this;

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateSpreadsheetSheetFilterViewCondition {
 
+  /**
+   * 创建的筛选条件
+   * <p> 示例值：
+   */
   @SerializedName("condition")
   private FilterViewCondition condition;
 

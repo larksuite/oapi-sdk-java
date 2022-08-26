@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class GetFileReq {
 
+  /**
+   * 文件的key
+   * <p> 示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
+   */
   @Path
   @SerializedName("file_key")
   private String fileKey;
@@ -27,6 +31,10 @@ public class GetFileReq {
   }
 
   public GetFileReq(Builder builder) {
+    /**
+     * 文件的key
+     * <p> 示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
+     */
     this.fileKey = builder.fileKey;
   }
 
@@ -44,8 +52,15 @@ public class GetFileReq {
 
   public static class Builder {
 
-    private String fileKey;
+    private String fileKey; // 文件的key
 
+    /**
+     * 文件的key
+     * <p> 示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
+     *
+     * @param fileKey
+     * @return
+     */
     public Builder fileKey(String fileKey) {
       this.fileKey = fileKey;
       return this;

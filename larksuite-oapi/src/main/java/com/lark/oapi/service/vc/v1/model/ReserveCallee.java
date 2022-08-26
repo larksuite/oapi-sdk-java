@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ReserveCallee {
 
+  /**
+   * 用户ID
+   * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * 用户类型，当前仅支持用户类型6(pstn用户)
+   * <p> 示例值：1
+   */
   @SerializedName("user_type")
   private Integer userType;
+  /**
+   * pstn/sip信息
+   * <p> 示例值：
+   */
   @SerializedName("pstn_sip_info")
   private PstnSipInfo pstnSipInfo;
 
@@ -29,8 +41,20 @@ public class ReserveCallee {
   }
 
   public ReserveCallee(Builder builder) {
+    /**
+     * 用户ID
+     * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     */
     this.id = builder.id;
+    /**
+     * 用户类型，当前仅支持用户类型6(pstn用户)
+     * <p> 示例值：1
+     */
     this.userType = builder.userType;
+    /**
+     * pstn/sip信息
+     * <p> 示例值：
+     */
     this.pstnSipInfo = builder.pstnSipInfo;
   }
 
@@ -64,25 +88,67 @@ public class ReserveCallee {
 
   public static class Builder {
 
+    /**
+     * 用户ID
+     * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     */
     private String id;
+    /**
+     * 用户类型，当前仅支持用户类型6(pstn用户)
+     * <p> 示例值：1
+     */
     private Integer userType;
+    /**
+     * pstn/sip信息
+     * <p> 示例值：
+     */
     private PstnSipInfo pstnSipInfo;
 
+    /**
+     * 用户ID
+     * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 用户类型，当前仅支持用户类型6(pstn用户)
+     * <p> 示例值：1
+     *
+     * @param userType
+     * @return
+     */
     public Builder userType(Integer userType) {
       this.userType = userType;
       return this;
     }
 
-    public Builder userType(com.lark.oapi.service.vc.v1.enums.UserTypeEnum userType) {
+    /**
+     * 用户类型，当前仅支持用户类型6(pstn用户)
+     * <p> 示例值：1
+     *
+     * @param userType {@link com.lark.oapi.service.vc.v1.enums.ReserveCalleeUserTypeEnum}
+     * @return
+     */
+    public Builder userType(com.lark.oapi.service.vc.v1.enums.ReserveCalleeUserTypeEnum userType) {
       this.userType = userType.getValue();
       return this;
     }
 
+
+    /**
+     * pstn/sip信息
+     * <p> 示例值：
+     *
+     * @param pstnSipInfo
+     * @return
+     */
     public Builder pstnSipInfo(PstnSipInfo pstnSipInfo) {
       this.pstnSipInfo = pstnSipInfo;
       return this;

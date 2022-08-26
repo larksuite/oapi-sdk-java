@@ -17,16 +17,40 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2MessageReactionCreatedV1Data {
 
+  /**
+   * 消息的 open_message_id
+   * <p> 示例值：om_dc1326***************51dba21dcf
+   */
   @SerializedName("message_id")
   private String messageId;
+  /**
+   * 表情回复的资源类型
+   * <p> 示例值：
+   */
   @SerializedName("reaction_type")
   private Emoji reactionType;
+  /**
+   * 操作人类型
+   * <p> 示例值：app/user
+   */
   @SerializedName("operator_type")
   private String operatorType;
+  /**
+   * 用户 ID
+   * <p> 示例值：
+   */
   @SerializedName("user_id")
   private UserId userId;
+  /**
+   * 应用 ID
+   * <p> 示例值：cli_9f53******712544
+   */
   @SerializedName("app_id")
   private String appId;
+  /**
+   * 添加表情回复时间戳（单位：ms）
+   * <p> 示例值：1627641418803
+   */
   @SerializedName("action_time")
   private String actionTime;
 

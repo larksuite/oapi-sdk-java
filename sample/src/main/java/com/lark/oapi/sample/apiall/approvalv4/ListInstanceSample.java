@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.approval.v4.model.ListInstanceReq;
 import com.lark.oapi.service.approval.v4.model.ListInstanceResp;
 
-// HTTP PATH: /open-apis/approval/v4/instances"
+// GET /open-apis/approval/v4/instances
 public class ListInstanceSample {
 
   public static void main(String arg[]) throws Exception {

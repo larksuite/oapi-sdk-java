@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchUpdateAppTableRecord {
 
+  /**
+   * 记录
+   * <p> 示例值：
+   */
   @SerializedName("records")
   private AppTableRecord[] records;
 

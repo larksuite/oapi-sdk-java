@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class WorkplaceWidget {
 
+  /**
+   * 最低兼容 lark 版本号
+   * <p> 示例值：1.0.0
+   */
   @SerializedName("min_lark_version")
   private String minLarkVersion;
 
@@ -25,6 +29,10 @@ public class WorkplaceWidget {
   }
 
   public WorkplaceWidget(Builder builder) {
+    /**
+     * 最低兼容 lark 版本号
+     * <p> 示例值：1.0.0
+     */
     this.minLarkVersion = builder.minLarkVersion;
   }
 
@@ -42,8 +50,19 @@ public class WorkplaceWidget {
 
   public static class Builder {
 
+    /**
+     * 最低兼容 lark 版本号
+     * <p> 示例值：1.0.0
+     */
     private String minLarkVersion;
 
+    /**
+     * 最低兼容 lark 版本号
+     * <p> 示例值：1.0.0
+     *
+     * @param minLarkVersion
+     * @return
+     */
     public Builder minLarkVersion(String minLarkVersion) {
       this.minLarkVersion = minLarkVersion;
       return this;

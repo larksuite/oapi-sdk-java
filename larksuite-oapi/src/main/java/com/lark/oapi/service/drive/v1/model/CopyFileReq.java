@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class CopyFileReq {
 
+  /**
+   * 被复制的文件token
+   * <p> 示例值：boxbc0dGSMu23m7QkC1bvabcef
+   */
   @Path
   @SerializedName("file_token")
   private String fileToken;
@@ -30,6 +34,10 @@ public class CopyFileReq {
   }
 
   public CopyFileReq(Builder builder) {
+    /**
+     * 被复制的文件token
+     * <p> 示例值：boxbc0dGSMu23m7QkC1bvabcef
+     */
     this.fileToken = builder.fileToken;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class CopyFileReq {
 
   public static class Builder {
 
-    private String fileToken;
+    private String fileToken; // 被复制的文件token
     private CopyFileReqBody body;
 
+    /**
+     * 被复制的文件token
+     * <p> 示例值：boxbc0dGSMu23m7QkC1bvabcef
+     *
+     * @param fileToken
+     * @return
+     */
     public Builder fileToken(String fileToken) {
       this.fileToken = fileToken;
       return this;
@@ -68,6 +83,12 @@ public class CopyFileReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder copyFileReqBody(CopyFileReqBody body) {
       this.body = body;
       return this;

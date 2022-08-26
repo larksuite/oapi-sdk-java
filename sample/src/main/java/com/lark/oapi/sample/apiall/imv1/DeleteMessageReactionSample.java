@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.im.v1.model.DeleteMessageReactionReq;
 import com.lark.oapi.service.im.v1.model.DeleteMessageReactionResp;
 
-// HTTP PATH: /open-apis/im/v1/messages/:message_id/reactions/:reaction_id"
+// DELETE /open-apis/im/v1/messages/:message_id/reactions/:reaction_id
 public class DeleteMessageReactionSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,8 +14,8 @@ public class DeleteMessageReactionSample {
 
     // 创建请求对象
     DeleteMessageReactionReq req = DeleteMessageReactionReq.newBuilder()
-        .messageId("")
-        .reactionId("")
+        .messageId("om_8964d1b4*********2b31383276113")
+        .reactionId("ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_")
         .build();
 
     // 发起请求

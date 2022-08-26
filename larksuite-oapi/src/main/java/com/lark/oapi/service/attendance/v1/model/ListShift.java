@@ -17,10 +17,20 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListShift {
 
+  /**
+   * 班次列表
+   * <p> 示例值：
+   */
   @SerializedName("shift_list")
   private Shift[] shiftList;
+  /**
+   * <p> 示例值：YrkvQ1wGaPVta45tkxuGiQ==
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * <p> 示例值：true
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
 

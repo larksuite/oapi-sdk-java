@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserStatsField {
 
+  /**
+   * 统计类型
+   * <p> 示例值：
+   */
   @SerializedName("stats_type")
   private String statsType;
+  /**
+   * 用户 ID
+   * <p> 示例值：
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 字段列表
+   * <p> 示例值：
+   */
   @SerializedName("fields")
   private Field[] fields;
 
@@ -29,8 +41,20 @@ public class UserStatsField {
   }
 
   public UserStatsField(Builder builder) {
+    /**
+     * 统计类型
+     * <p> 示例值：
+     */
     this.statsType = builder.statsType;
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     */
     this.userId = builder.userId;
+    /**
+     * 字段列表
+     * <p> 示例值：
+     */
     this.fields = builder.fields;
   }
 
@@ -64,25 +88,68 @@ public class UserStatsField {
 
   public static class Builder {
 
+    /**
+     * 统计类型
+     * <p> 示例值：
+     */
     private String statsType;
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     */
     private String userId;
+    /**
+     * 字段列表
+     * <p> 示例值：
+     */
     private Field[] fields;
 
+    /**
+     * 统计类型
+     * <p> 示例值：
+     *
+     * @param statsType
+     * @return
+     */
     public Builder statsType(String statsType) {
       this.statsType = statsType;
       return this;
     }
 
-    public Builder statsType(com.lark.oapi.service.attendance.v1.enums.StatsTypeEnum statsType) {
+    /**
+     * 统计类型
+     * <p> 示例值：
+     *
+     * @param statsType {@link com.lark.oapi.service.attendance.v1.enums.UserStatsFieldStatsTypeEnum}
+     * @return
+     */
+    public Builder statsType(
+        com.lark.oapi.service.attendance.v1.enums.UserStatsFieldStatsTypeEnum statsType) {
       this.statsType = statsType.getValue();
       return this;
     }
 
+
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 字段列表
+     * <p> 示例值：
+     *
+     * @param fields
+     * @return
+     */
     public Builder fields(Field[] fields) {
       this.fields = fields;
       return this;

@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2DepartmentDeletedV3Data {
 
+  /**
+   * 部门信息
+   * <p> 示例值：
+   */
   @SerializedName("object")
   private DepartmentEvent object;
+  /**
+   * 部门被删除前的信息
+   * <p> 示例值：
+   */
   @SerializedName("old_object")
   private OldDepartmentObject oldObject;
 

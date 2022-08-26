@@ -114,54 +114,119 @@ public class AttendanceService {
     this.userTaskRemedy = new UserTaskRemedy(config);
   }
 
+  /**
+   * 假勤审批
+   *
+   * @return
+   */
   public ApprovalInfo approvalInfo() {
     return approvalInfo;
   }
 
+  /**
+   * 文件
+   *
+   * @return
+   */
   public File file() {
     return file;
   }
 
+  /**
+   * 考勤组管理
+   *
+   * @return
+   */
   public Group group() {
     return group;
   }
 
+  /**
+   * 考勤班次
+   *
+   * @return
+   */
   public Shift shift() {
     return shift;
   }
 
+  /**
+   * 假勤审批
+   *
+   * @return
+   */
   public UserApproval userApproval() {
     return userApproval;
   }
 
+  /**
+   * 考勤排班
+   *
+   * @return
+   */
   public UserDailyShift userDailyShift() {
     return userDailyShift;
   }
 
+  /**
+   * 考勤记录
+   *
+   * @return
+   */
   public UserFlow userFlow() {
     return userFlow;
   }
 
+  /**
+   * 用户设置
+   *
+   * @return
+   */
   public UserSetting userSetting() {
     return userSetting;
   }
 
+  /**
+   * 考勤统计
+   *
+   * @return
+   */
   public UserStatsData userStatsData() {
     return userStatsData;
   }
 
+  /**
+   * 考勤统计
+   *
+   * @return
+   */
   public UserStatsField userStatsField() {
     return userStatsField;
   }
 
+  /**
+   * 考勤统计
+   *
+   * @return
+   */
   public UserStatsView userStatsView() {
     return userStatsView;
   }
 
+  /**
+   * 考勤记录
+   *
+   * @return
+   */
   public UserTask userTask() {
     return userTask;
   }
 
+  /**
+   * 考勤补卡
+   *
+   * @return
+   */
   public UserTaskRemedy userTaskRemedy() {
     return userTaskRemedy;
   }
@@ -174,6 +239,14 @@ public class AttendanceService {
       this.config = config;
     }
 
+    /**
+     * 通知审批状态更新，对于只使用飞书考勤系统而未使用飞书审批系统的企业，可以通过该接口更新写入飞书考勤系统中的三方系统审批状态，例如请假、加班、外出、出差、补卡等审批，状态包括通过、不通过、撤销等。
+     * <p> 发起状态的审批才可以被更新为通过、不通过，已经通过的审批才可以被更新为撤销。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/approval_info/process">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/approval_info/process</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//ProcessApprovalInfoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//ProcessApprovalInfoSample.java</a>
+     * ;
+     */
     public ProcessApprovalInfoResp process(ProcessApprovalInfoReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -196,6 +269,14 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 通知审批状态更新，对于只使用飞书考勤系统而未使用飞书审批系统的企业，可以通过该接口更新写入飞书考勤系统中的三方系统审批状态，例如请假、加班、外出、出差、补卡等审批，状态包括通过、不通过、撤销等。
+     * <p> 发起状态的审批才可以被更新为通过、不通过，已经通过的审批才可以被更新为撤销。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/approval_info/process">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/approval_info/process</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//ProcessApprovalInfoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//ProcessApprovalInfoSample.java</a>
+     * ;
+     */
     public ProcessApprovalInfoResp process(ProcessApprovalInfoReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -224,6 +305,13 @@ public class AttendanceService {
       this.config = config;
     }
 
+    /**
+     * 下载文件，通过文件 ID 下载指定的文件。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/download</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//DownloadFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//DownloadFileSample.java</a>
+     * ;
+     */
     public DownloadFileResp download(DownloadFileReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -255,6 +343,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 下载文件，通过文件 ID 下载指定的文件。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/download">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/download</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//DownloadFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//DownloadFileSample.java</a>
+     * ;
+     */
     public DownloadFileResp download(DownloadFileReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -284,6 +379,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 上传文件，上传文件并获取文件 ID，可用于“修改用户设置”接口中的 face_key 参数。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//UploadFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//UploadFileSample.java</a>
+     * ;
+     */
     public UploadFileResp upload(UploadFileReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -305,6 +407,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 上传文件，上传文件并获取文件 ID，可用于“修改用户设置”接口中的 face_key 参数。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//UploadFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//UploadFileSample.java</a>
+     * ;
+     */
     public UploadFileResp upload(UploadFileReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -333,6 +442,14 @@ public class AttendanceService {
       this.config = config;
     }
 
+    /**
+     * 创建或修改考勤组，考勤组，是对部门或者员工在某个特定场所及特定时间段内的出勤情况（包括上下班、迟到、早退、病假、婚假、丧假、公休、工作时间、加班情况等）的一种规则设定。;;通过设置考勤组，可以从部门、员工两个维度，来设定考勤方式、考勤时间、考勤地点等考勤规则。
+     * <p> 出于安全考虑，目前通过该接口只允许修改自己创建的考勤组。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//CreateGroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//CreateGroupSample.java</a>
+     * ;
+     */
     public CreateGroupResp create(CreateGroupReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -353,6 +470,14 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 创建或修改考勤组，考勤组，是对部门或者员工在某个特定场所及特定时间段内的出勤情况（包括上下班、迟到、早退、病假、婚假、丧假、公休、工作时间、加班情况等）的一种规则设定。;;通过设置考勤组，可以从部门、员工两个维度，来设定考勤方式、考勤时间、考勤地点等考勤规则。
+     * <p> 出于安全考虑，目前通过该接口只允许修改自己创建的考勤组。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//CreateGroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//CreateGroupSample.java</a>
+     * ;
+     */
     public CreateGroupResp create(CreateGroupReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -371,6 +496,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 删除考勤组，通过班次 ID 删除班次。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//DeleteGroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//DeleteGroupSample.java</a>
+     * ;
+     */
     public DeleteGroupResp delete(DeleteGroupReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -391,6 +523,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 删除考勤组，通过班次 ID 删除班次。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//DeleteGroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//DeleteGroupSample.java</a>
+     * ;
+     */
     public DeleteGroupResp delete(DeleteGroupReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -409,6 +548,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 获取考勤组详情，通过考勤组 ID 获取考勤组详情。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//GetGroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//GetGroupSample.java</a>
+     * ;
+     */
     public GetGroupResp get(GetGroupReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -429,6 +575,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 获取考勤组详情，通过考勤组 ID 获取考勤组详情。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//GetGroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//GetGroupSample.java</a>
+     * ;
+     */
     public GetGroupResp get(GetGroupReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -447,6 +600,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 获取考勤组列表，翻页获取所有考勤组列表。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//ListGroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//ListGroupSample.java</a>
+     * ;
+     */
     public ListGroupResp list(ListGroupReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -467,6 +627,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 获取考勤组列表，翻页获取所有考勤组列表。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//ListGroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//ListGroupSample.java</a>
+     * ;
+     */
     public ListGroupResp list(ListGroupReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -485,6 +652,14 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 按名称查询考勤组，按考勤组名称查询考勤组摘要信息。查询条件支持名称精确匹配和模糊匹配两种方式。查询结果按考勤组修改时间 desc 排序，且最大记录数为 10 条。
+     * <p> 该接口依赖的数据和考勤组主数据间存在数据同步延时（正常数据同步 2 秒以内），因此在使用该接口时需注意评估数据延迟潜在风险。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//SearchGroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//SearchGroupSample.java</a>
+     * ;
+     */
     public SearchGroupResp search(SearchGroupReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -505,6 +680,14 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 按名称查询考勤组，按考勤组名称查询考勤组摘要信息。查询条件支持名称精确匹配和模糊匹配两种方式。查询结果按考勤组修改时间 desc 排序，且最大记录数为 10 条。
+     * <p> 该接口依赖的数据和考勤组主数据间存在数据同步延时（正常数据同步 2 秒以内），因此在使用该接口时需注意评估数据延迟潜在风险。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//SearchGroupSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//SearchGroupSample.java</a>
+     * ;
+     */
     public SearchGroupResp search(SearchGroupReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -532,6 +715,15 @@ public class AttendanceService {
       this.config = config;
     }
 
+    /**
+     * 创建班次，班次是描述一次考勤任务时间规则的统称，比如一天打多少次卡，每次卡的上下班时间，晚到多长时间算迟到，晚到多长时间算缺卡等。
+     * <p> - 创建一个考勤组前，必须先创建一个或者多个班次。;- 一个公司内的班次是共享的，你可以直接引用他人创建的班次，但是需要注意的是，若他人修改了班次，会影响到你的考勤组及其考勤结果。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//CreateShiftSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//CreateShiftSample.java</a>
+     * ;
+     */
     public CreateShiftResp create(CreateShiftReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -552,6 +744,15 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 创建班次，班次是描述一次考勤任务时间规则的统称，比如一天打多少次卡，每次卡的上下班时间，晚到多长时间算迟到，晚到多长时间算缺卡等。
+     * <p> - 创建一个考勤组前，必须先创建一个或者多个班次。;- 一个公司内的班次是共享的，你可以直接引用他人创建的班次，但是需要注意的是，若他人修改了班次，会影响到你的考勤组及其考勤结果。
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//CreateShiftSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//CreateShiftSample.java</a>
+     * ;
+     */
     public CreateShiftResp create(CreateShiftReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -570,6 +771,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 删除班次，通过班次 ID 删除班次。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//DeleteShiftSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//DeleteShiftSample.java</a>
+     * ;
+     */
     public DeleteShiftResp delete(DeleteShiftReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -590,6 +798,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 删除班次，通过班次 ID 删除班次。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//DeleteShiftSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//DeleteShiftSample.java</a>
+     * ;
+     */
     public DeleteShiftResp delete(DeleteShiftReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -608,6 +823,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 获取班次详情，通过班次 ID 获取班次详情。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//GetShiftSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//GetShiftSample.java</a>
+     * ;
+     */
     public GetShiftResp get(GetShiftReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -628,6 +850,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 获取班次详情，通过班次 ID 获取班次详情。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//GetShiftSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//GetShiftSample.java</a>
+     * ;
+     */
     public GetShiftResp get(GetShiftReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -646,6 +875,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 获取班次列表，翻页获取所有班次列表。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//ListShiftSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//ListShiftSample.java</a>
+     * ;
+     */
     public ListShiftResp list(ListShiftReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -666,6 +902,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 获取班次列表，翻页获取所有班次列表。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//ListShiftSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//ListShiftSample.java</a>
+     * ;
+     */
     public ListShiftResp list(ListShiftReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -684,6 +927,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 按名称查询班次，通过班次的名称查询班次信息。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryShiftSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryShiftSample.java</a>
+     * ;
+     */
     public QueryShiftResp query(QueryShiftReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -704,6 +954,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 按名称查询班次，通过班次的名称查询班次信息。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryShiftSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryShiftSample.java</a>
+     * ;
+     */
     public QueryShiftResp query(QueryShiftReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -731,6 +988,14 @@ public class AttendanceService {
       this.config = config;
     }
 
+    /**
+     * 写入审批结果，由于部分企业使用的是自己的审批系统，而不是飞书审批系统，因此员工的请假、加班等数据无法流入到飞书考勤系统中，导致员工在请假时间段内依然收到打卡提醒，并且被记为缺卡。;;对于这些只使用飞书考勤系统，而未使用飞书审批系统的企业，可以通过考勤开放接口的形式，将三方审批结果数据回写到飞书考勤系统中。
+     * <p> 目前支持写入加班、请假、出差和外出这四种审批结果，写入只会追加(insert)，不会覆盖(update) ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//CreateUserApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//CreateUserApprovalSample.java</a>
+     * ;
+     */
     public CreateUserApprovalResp create(CreateUserApprovalReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -753,6 +1018,14 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 写入审批结果，由于部分企业使用的是自己的审批系统，而不是飞书审批系统，因此员工的请假、加班等数据无法流入到飞书考勤系统中，导致员工在请假时间段内依然收到打卡提醒，并且被记为缺卡。;;对于这些只使用飞书考勤系统，而未使用飞书审批系统的企业，可以通过考勤开放接口的形式，将三方审批结果数据回写到飞书考勤系统中。
+     * <p> 目前支持写入加班、请假、出差和外出这四种审批结果，写入只会追加(insert)，不会覆盖(update) ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//CreateUserApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//CreateUserApprovalSample.java</a>
+     * ;
+     */
     public CreateUserApprovalResp create(CreateUserApprovalReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -772,6 +1045,14 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 获取审批通过数据，获取员工在某段时间内的请假、加班、外出和出差四种审批的通过数据。
+     * <p> 请假的假期时长字段，暂未开放提供，待后续提供。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserApprovalSample.java</a>
+     * ;
+     */
     public QueryUserApprovalResp query(QueryUserApprovalReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -794,6 +1075,14 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 获取审批通过数据，获取员工在某段时间内的请假、加班、外出和出差四种审批的通过数据。
+     * <p> 请假的假期时长字段，暂未开放提供，待后续提供。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserApprovalSample.java</a>
+     * ;
+     */
     public QueryUserApprovalResp query(QueryUserApprovalReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -822,6 +1111,13 @@ public class AttendanceService {
       this.config = config;
     }
 
+    /**
+     * 创建或修改班表，班表是用来描述考勤组内人员每天按哪个班次进行上班。目前班表支持按一个整月对一位或多位人员进行排班。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_daily_shift/batch_create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_daily_shift/batch_create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//BatchCreateUserDailyShiftSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//BatchCreateUserDailyShiftSample.java</a>
+     * ;
+     */
     public BatchCreateUserDailyShiftResp batchCreate(BatchCreateUserDailyShiftReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -844,6 +1140,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 创建或修改班表，班表是用来描述考勤组内人员每天按哪个班次进行上班。目前班表支持按一个整月对一位或多位人员进行排班。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_daily_shift/batch_create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_daily_shift/batch_create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//BatchCreateUserDailyShiftSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//BatchCreateUserDailyShiftSample.java</a>
+     * ;
+     */
     public BatchCreateUserDailyShiftResp batchCreate(BatchCreateUserDailyShiftReq req)
         throws Exception {
       // 请求参数选项
@@ -864,6 +1167,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 查询班表信息，支持查询多个用户的排班情况，查询的时间跨度不能超过 30 天。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_daily_shift/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_daily_shift/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserDailyShiftSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserDailyShiftSample.java</a>
+     * ;
+     */
     public QueryUserDailyShiftResp query(QueryUserDailyShiftReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -886,6 +1196,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 查询班表信息，支持查询多个用户的排班情况，查询的时间跨度不能超过 30 天。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_daily_shift/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_daily_shift/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserDailyShiftSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserDailyShiftSample.java</a>
+     * ;
+     */
     public QueryUserDailyShiftResp query(QueryUserDailyShiftReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -914,6 +1231,14 @@ public class AttendanceService {
       this.config = config;
     }
 
+    /**
+     * 导入打卡流水记录，导入授权内员工的打卡流水记录。导入后，会根据员工所在的考勤组班次规则，计算最终的打卡状态与结果。
+     * <p> 适用于考勤机数据导入等场景。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//BatchCreateUserFlowSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//BatchCreateUserFlowSample.java</a>
+     * ;
+     */
     public BatchCreateUserFlowResp batchCreate(BatchCreateUserFlowReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -936,6 +1261,14 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 导入打卡流水记录，导入授权内员工的打卡流水记录。导入后，会根据员工所在的考勤组班次规则，计算最终的打卡状态与结果。
+     * <p> 适用于考勤机数据导入等场景。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//BatchCreateUserFlowSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//BatchCreateUserFlowSample.java</a>
+     * ;
+     */
     public BatchCreateUserFlowResp batchCreate(BatchCreateUserFlowReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -955,6 +1288,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 获取打卡流水记录，通过打卡记录 ID 获取用户的打卡流水记录。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//GetUserFlowSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//GetUserFlowSample.java</a>
+     * ;
+     */
     public GetUserFlowResp get(GetUserFlowReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -975,6 +1315,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 获取打卡流水记录，通过打卡记录 ID 获取用户的打卡流水记录。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//GetUserFlowSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//GetUserFlowSample.java</a>
+     * ;
+     */
     public GetUserFlowResp get(GetUserFlowReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -993,6 +1340,14 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 批量查询打卡流水记录，批量查询授权内员工的实际打卡流水记录。例如，企业给一个员工设定的班次是上午 9 点和下午 6 点各打一次上下班卡，但是该员工在这期间打了多次卡，该接口会把所有的打卡记录都返回。
+     * <p> 如果只需获取打卡结果，而不需要详细的打卡数据，可使用“获取打卡结果”的接口。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserFlowSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserFlowSample.java</a>
+     * ;
+     */
     public QueryUserFlowResp query(QueryUserFlowReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1015,6 +1370,14 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 批量查询打卡流水记录，批量查询授权内员工的实际打卡流水记录。例如，企业给一个员工设定的班次是上午 9 点和下午 6 点各打一次上下班卡，但是该员工在这期间打了多次卡，该接口会把所有的打卡记录都返回。
+     * <p> 如果只需获取打卡结果，而不需要详细的打卡数据，可使用“获取打卡结果”的接口。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserFlowSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserFlowSample.java</a>
+     * ;
+     */
     public QueryUserFlowResp query(QueryUserFlowReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1043,6 +1406,13 @@ public class AttendanceService {
       this.config = config;
     }
 
+    /**
+     * 修改用户设置，修改授权内员工的用户设置信息，包括人脸照片文件 ID。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_setting/modify">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_setting/modify</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//ModifyUserSettingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//ModifyUserSettingSample.java</a>
+     * ;
+     */
     public ModifyUserSettingResp modify(ModifyUserSettingReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1065,6 +1435,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 修改用户设置，修改授权内员工的用户设置信息，包括人脸照片文件 ID。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_setting/modify">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_setting/modify</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//ModifyUserSettingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//ModifyUserSettingSample.java</a>
+     * ;
+     */
     public ModifyUserSettingResp modify(ModifyUserSettingReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1084,6 +1461,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 批量查询用户设置，批量查询授权内员工的用户设置信息，包括人脸照片文件 ID、人脸照片更新时间。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_setting/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_setting/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserSettingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserSettingSample.java</a>
+     * ;
+     */
     public QueryUserSettingResp query(QueryUserSettingReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1106,6 +1490,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 批量查询用户设置，批量查询授权内员工的用户设置信息，包括人脸照片文件 ID、人脸照片更新时间。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_setting/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_setting/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserSettingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserSettingSample.java</a>
+     * ;
+     */
     public QueryUserSettingResp query(QueryUserSettingReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1134,6 +1525,13 @@ public class AttendanceService {
       this.config = config;
     }
 
+    /**
+     * 查询统计数据，查询日度统计或月度统计的统计数据。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_data/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_data/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserStatsDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserStatsDataSample.java</a>
+     * ;
+     */
     public QueryUserStatsDataResp query(QueryUserStatsDataReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1156,6 +1554,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 查询统计数据，查询日度统计或月度统计的统计数据。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_data/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_data/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserStatsDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserStatsDataSample.java</a>
+     * ;
+     */
     public QueryUserStatsDataResp query(QueryUserStatsDataReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1184,6 +1589,13 @@ public class AttendanceService {
       this.config = config;
     }
 
+    /**
+     * 查询统计表头，查询考勤统计支持的日度统计或月度统计的统计表头。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_field/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_field/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserStatsFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserStatsFieldSample.java</a>
+     * ;
+     */
     public QueryUserStatsFieldResp query(QueryUserStatsFieldReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1206,6 +1618,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 查询统计表头，查询考勤统计支持的日度统计或月度统计的统计表头。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_field/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_field/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserStatsFieldSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserStatsFieldSample.java</a>
+     * ;
+     */
     public QueryUserStatsFieldResp query(QueryUserStatsFieldReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1234,6 +1653,13 @@ public class AttendanceService {
       this.config = config;
     }
 
+    /**
+     * 查询统计设置，查询开发者定制的日度统计或月度统计的统计报表表头设置信息。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserStatsViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserStatsViewSample.java</a>
+     * ;
+     */
     public QueryUserStatsViewResp query(QueryUserStatsViewReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1256,6 +1682,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 查询统计设置，查询开发者定制的日度统计或月度统计的统计报表表头设置信息。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserStatsViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserStatsViewSample.java</a>
+     * ;
+     */
     public QueryUserStatsViewResp query(QueryUserStatsViewReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1275,6 +1708,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 更新统计设置，更新开发者定制的日度统计或月度统计的统计报表表头设置信息。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//UpdateUserStatsViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//UpdateUserStatsViewSample.java</a>
+     * ;
+     */
     public UpdateUserStatsViewResp update(UpdateUserStatsViewReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1297,6 +1737,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 更新统计设置，更新开发者定制的日度统计或月度统计的统计报表表头设置信息。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//UpdateUserStatsViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//UpdateUserStatsViewSample.java</a>
+     * ;
+     */
     public UpdateUserStatsViewResp update(UpdateUserStatsViewReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1325,6 +1772,15 @@ public class AttendanceService {
       this.config = config;
     }
 
+    /**
+     * 获取打卡结果，获取企业内员工的实际打卡结果，包括上班打卡结果和下班打卡结果。
+     * <p> - 如果企业给一个员工设定的班次是上午 9 点和下午 6 点各打一次上下班卡，即使员工在这期间打了多次卡，该接口也只会返回 1 条记录。;-
+     * 如果要获取打卡的详细数据，如打卡位置等信息，可使用“获取打卡流水记录”或“批量查询打卡流水记录”的接口。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserTaskSample.java</a>
+     * ;
+     */
     public QueryUserTaskResp query(QueryUserTaskReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1347,6 +1803,15 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 获取打卡结果，获取企业内员工的实际打卡结果，包括上班打卡结果和下班打卡结果。
+     * <p> - 如果企业给一个员工设定的班次是上午 9 点和下午 6 点各打一次上下班卡，即使员工在这期间打了多次卡，该接口也只会返回 1 条记录。;-
+     * 如果要获取打卡的详细数据，如打卡位置等信息，可使用“获取打卡流水记录”或“批量查询打卡流水记录”的接口。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserTaskSample.java</a>
+     * ;
+     */
     public QueryUserTaskResp query(QueryUserTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1375,6 +1840,14 @@ public class AttendanceService {
       this.config = config;
     }
 
+    /**
+     * 通知补卡审批发起，对于只使用飞书考勤系统而未使用飞书审批系统的企业，可以通过该接口，将在三方审批系统中发起的补卡审批数据，写入到飞书考勤系统中，状态为审批中。写入后可以由[通知审批状态更新](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/approval_info/process)
+     * 进行状态更新
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//CreateUserTaskRemedySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//CreateUserTaskRemedySample.java</a>
+     * ;
+     */
     public CreateUserTaskRemedyResp create(CreateUserTaskRemedyReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1397,6 +1870,14 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 通知补卡审批发起，对于只使用飞书考勤系统而未使用飞书审批系统的企业，可以通过该接口，将在三方审批系统中发起的补卡审批数据，写入到飞书考勤系统中，状态为审批中。写入后可以由[通知审批状态更新](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/approval_info/process)
+     * 进行状态更新
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//CreateUserTaskRemedySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//CreateUserTaskRemedySample.java</a>
+     * ;
+     */
     public CreateUserTaskRemedyResp create(CreateUserTaskRemedyReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1416,6 +1897,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 获取补卡记录，获取授权内员工的补卡记录。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserTaskRemedySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserTaskRemedySample.java</a>
+     * ;
+     */
     public QueryUserTaskRemedyResp query(QueryUserTaskRemedyReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -1438,6 +1926,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 获取补卡记录，获取授权内员工的补卡记录。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserTaskRemedySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserTaskRemedySample.java</a>
+     * ;
+     */
     public QueryUserTaskRemedyResp query(QueryUserTaskRemedyReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -1457,6 +1952,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 获取用户可补卡时间，获取用户某天可以补的第几次上 / 下班卡的时间。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/query_user_allowed_remedys">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/query_user_allowed_remedys</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserAllowedRemedysUserTaskRemedySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserAllowedRemedysUserTaskRemedySample.java</a>
+     * ;
+     */
     public QueryUserAllowedRemedysUserTaskRemedyResp queryUserAllowedRemedys(
         QueryUserAllowedRemedysUserTaskRemedyReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1479,6 +1981,13 @@ public class AttendanceService {
       return resp;
     }
 
+    /**
+     * 获取用户可补卡时间，获取用户某天可以补的第几次上 / 下班卡的时间。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/query_user_allowed_remedys">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/query_user_allowed_remedys</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserAllowedRemedysUserTaskRemedySample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/attendancev1//QueryUserAllowedRemedysUserTaskRemedySample.java</a>
+     * ;
+     */
     public QueryUserAllowedRemedysUserTaskRemedyResp queryUserAllowedRemedys(
         QueryUserAllowedRemedysUserTaskRemedyReq req) throws Exception {
       // 请求参数选项

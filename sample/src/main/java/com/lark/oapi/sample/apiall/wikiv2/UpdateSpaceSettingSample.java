@@ -6,7 +6,7 @@ import com.lark.oapi.service.wiki.v2.model.Setting;
 import com.lark.oapi.service.wiki.v2.model.UpdateSpaceSettingReq;
 import com.lark.oapi.service.wiki.v2.model.UpdateSpaceSettingResp;
 
-// HTTP PATH: /open-apis/wiki/v2/spaces/:space_id/setting"
+// PUT /open-apis/wiki/v2/spaces/:space_id/setting
 public class UpdateSpaceSettingSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class UpdateSpaceSettingSample {
 
     // 创建请求对象
     UpdateSpaceSettingReq req = UpdateSpaceSettingReq.newBuilder()
-        .spaceId("")
+        .spaceId("1565676577122621")
         .setting(Setting.newBuilder()
             .createSetting("")
             .securitySetting("")

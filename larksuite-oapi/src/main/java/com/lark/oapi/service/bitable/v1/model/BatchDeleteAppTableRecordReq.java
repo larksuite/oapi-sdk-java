@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Path;
 
 public class BatchDeleteAppTableRecordReq {
 
+  /**
+   * bitable app token
+   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+   */
   @Path
   @SerializedName("app_token")
   private String appToken;
+  /**
+   * table id
+   * <p> 示例值：tblsRc9GRRXKqhvW
+   */
   @Path
   @SerializedName("table_id")
   private String tableId;
@@ -33,7 +41,15 @@ public class BatchDeleteAppTableRecordReq {
   }
 
   public BatchDeleteAppTableRecordReq(Builder builder) {
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     */
     this.appToken = builder.appToken;
+    /**
+     * table id
+     * <p> 示例值：tblsRc9GRRXKqhvW
+     */
     this.tableId = builder.tableId;
     this.body = builder.body;
   }
@@ -68,15 +84,29 @@ public class BatchDeleteAppTableRecordReq {
 
   public static class Builder {
 
-    private String appToken;
-    private String tableId;
+    private String appToken; // bitable app token
+    private String tableId; // table id
     private BatchDeleteAppTableRecordReqBody body;
 
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     *
+     * @param appToken
+     * @return
+     */
     public Builder appToken(String appToken) {
       this.appToken = appToken;
       return this;
     }
 
+    /**
+     * table id
+     * <p> 示例值：tblsRc9GRRXKqhvW
+     *
+     * @param tableId
+     * @return
+     */
     public Builder tableId(String tableId) {
       this.tableId = tableId;
       return this;
@@ -86,6 +116,12 @@ public class BatchDeleteAppTableRecordReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder batchDeleteAppTableRecordReqBody(BatchDeleteAppTableRecordReqBody body) {
       this.body = body;
       return this;

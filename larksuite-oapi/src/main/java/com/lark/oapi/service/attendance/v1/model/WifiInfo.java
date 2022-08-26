@@ -17,6 +17,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class WifiInfo {
 
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("status")
   private Integer status;
 
@@ -25,6 +28,10 @@ public class WifiInfo {
   }
 
   public WifiInfo(Builder builder) {
+    /**
+     *
+     * <p> 示例值：
+     */
     this.status = builder.status;
   }
 
@@ -42,8 +49,17 @@ public class WifiInfo {
 
   public static class Builder {
 
+    /**
+     * <p> 示例值：
+     */
     private Integer status;
 
+    /**
+     * <p> 示例值：
+     *
+     * @param status
+     * @return
+     */
     public Builder status(Integer status) {
       this.status = status;
       return this;

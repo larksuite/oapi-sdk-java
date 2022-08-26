@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Href {
 
+  /**
+   * 具体链接地址
+   * <p> 示例值：https://support.feishu.com/internal/foo-bar
+   */
   @SerializedName("url")
   private String url;
+  /**
+   * 链接对应的标题
+   * <p> 示例值：反馈一个问题，需要协助排查
+   */
   @SerializedName("title")
   private String title;
 
@@ -27,7 +35,15 @@ public class Href {
   }
 
   public Href(Builder builder) {
+    /**
+     * 具体链接地址
+     * <p> 示例值：https://support.feishu.com/internal/foo-bar
+     */
     this.url = builder.url;
+    /**
+     * 链接对应的标题
+     * <p> 示例值：反馈一个问题，需要协助排查
+     */
     this.title = builder.title;
   }
 
@@ -53,14 +69,37 @@ public class Href {
 
   public static class Builder {
 
+    /**
+     * 具体链接地址
+     * <p> 示例值：https://support.feishu.com/internal/foo-bar
+     */
     private String url;
+    /**
+     * 链接对应的标题
+     * <p> 示例值：反馈一个问题，需要协助排查
+     */
     private String title;
 
+    /**
+     * 具体链接地址
+     * <p> 示例值：https://support.feishu.com/internal/foo-bar
+     *
+     * @param url
+     * @return
+     */
     public Builder url(String url) {
       this.url = url;
       return this;
     }
 
+
+    /**
+     * 链接对应的标题
+     * <p> 示例值：反馈一个问题，需要协助排查
+     *
+     * @param title
+     * @return
+     */
     public Builder title(String title) {
       this.title = title;
       return this;

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.task.v1.model.UncompleteTaskReq;
 import com.lark.oapi.service.task.v1.model.UncompleteTaskResp;
 
-// HTTP PATH: /open-apis/task/v1/tasks/:task_id/uncomplete"
+// POST /open-apis/task/v1/tasks/:task_id/uncomplete
 public class UncompleteTaskSample {
 
   public static void main(String arg[]) throws Exception {

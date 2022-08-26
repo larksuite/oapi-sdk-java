@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.application.v6.model.UnderauditlistApplicationReq;
 import com.lark.oapi.service.application.v6.model.UnderauditlistApplicationResp;
 
-// HTTP PATH: /open-apis/application/v6/applications/underauditlist"
+// GET /open-apis/application/v6/applications/underauditlist
 public class UnderauditlistApplicationSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class UnderauditlistApplicationSample {
     // 创建请求对象
     UnderauditlistApplicationReq req = UnderauditlistApplicationReq.newBuilder()
         .lang("zh_cn")
-        .pageToken("")
+        .pageToken("new-e3c5a0627cdf0c2e057da7257b90376a")
         .pageSize(20)
         .userIdType("user_id")
         .build();

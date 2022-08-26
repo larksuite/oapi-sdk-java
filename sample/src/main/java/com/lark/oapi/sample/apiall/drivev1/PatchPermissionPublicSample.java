@@ -6,7 +6,7 @@ import com.lark.oapi.service.drive.v1.model.PatchPermissionPublicReq;
 import com.lark.oapi.service.drive.v1.model.PatchPermissionPublicResp;
 import com.lark.oapi.service.drive.v1.model.PermissionPublicRequest;
 
-// HTTP PATH: /open-apis/drive/v1/permissions/:token/public"
+// PATCH /open-apis/drive/v1/permissions/:token/public
 public class PatchPermissionPublicSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class PatchPermissionPublicSample {
 
     // 创建请求对象
     PatchPermissionPublicReq req = PatchPermissionPublicReq.newBuilder()
-        .token("")
+        .token("doccnBKgoMyY5OMbUG6FioTXuBe")
         .type("doc")
         .permissionPublicRequest(PermissionPublicRequest.newBuilder()
             .externalAccess(true)

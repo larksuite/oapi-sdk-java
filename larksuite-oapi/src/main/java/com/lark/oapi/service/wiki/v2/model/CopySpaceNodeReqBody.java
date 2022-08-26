@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class CopySpaceNodeReqBody {
 
+  /**
+   * 目标父节点token
+   * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+   */
   @SerializedName("target_parent_token")
   private String targetParentToken;
+  /**
+   * 目标知识空间id
+   * <p> 示例值：6946843325487912356
+   */
   @SerializedName("target_space_id")
   private String targetSpaceId;
+  /**
+   * 复制后的新标题。如果填空，则新标题为空。如果不填，则使用原节点标题。
+   * <p> 示例值：新标题
+   */
   @SerializedName("title")
   private String title;
 
@@ -29,8 +41,20 @@ public class CopySpaceNodeReqBody {
   }
 
   public CopySpaceNodeReqBody(Builder builder) {
+    /**
+     * 目标父节点token
+     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+     */
     this.targetParentToken = builder.targetParentToken;
+    /**
+     * 目标知识空间id
+     * <p> 示例值：6946843325487912356
+     */
     this.targetSpaceId = builder.targetSpaceId;
+    /**
+     * 复制后的新标题。如果填空，则新标题为空。如果不填，则使用原节点标题。
+     * <p> 示例值：新标题
+     */
     this.title = builder.title;
   }
 
@@ -64,20 +88,55 @@ public class CopySpaceNodeReqBody {
 
   public static class Builder {
 
+    /**
+     * 目标父节点token
+     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+     */
     private String targetParentToken;
+    /**
+     * 目标知识空间id
+     * <p> 示例值：6946843325487912356
+     */
     private String targetSpaceId;
+    /**
+     * 复制后的新标题。如果填空，则新标题为空。如果不填，则使用原节点标题。
+     * <p> 示例值：新标题
+     */
     private String title;
 
+    /**
+     * 目标父节点token
+     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+     *
+     * @param targetParentToken
+     * @return
+     */
     public Builder targetParentToken(String targetParentToken) {
       this.targetParentToken = targetParentToken;
       return this;
     }
 
+
+    /**
+     * 目标知识空间id
+     * <p> 示例值：6946843325487912356
+     *
+     * @param targetSpaceId
+     * @return
+     */
     public Builder targetSpaceId(String targetSpaceId) {
       this.targetSpaceId = targetSpaceId;
       return this;
     }
 
+
+    /**
+     * 复制后的新标题。如果填空，则新标题为空。如果不填，则使用原节点标题。
+     * <p> 示例值：新标题
+     *
+     * @param title
+     * @return
+     */
     public Builder title(String title) {
       this.title = title;
       return this;

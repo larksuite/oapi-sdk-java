@@ -17,18 +17,46 @@ import com.google.gson.annotations.SerializedName;
 
 public class RelatedMeta {
 
+  /**
+   * 相关联系人
+   * <p> 示例值：
+   */
   @SerializedName("users")
   private Referer[] users;
+  /**
+   * 相关服务中的相关公开群
+   * <p> 示例值：
+   */
   @SerializedName("chats")
   private Referer[] chats;
+  /**
+   * 相关云文档
+   * <p> 示例值：
+   */
   @SerializedName("docs")
   private Referer[] docs;
+  /**
+   * 相关服务中的相关值班号
+   * <p> 示例值：
+   */
   @SerializedName("oncalls")
   private Referer[] oncalls;
+  /**
+   * 相关链接
+   * <p> 示例值：
+   */
   @SerializedName("links")
   private Referer[] links;
+  /**
+   * 相关词条
+   * <p> 示例值：
+   */
   @SerializedName("abbreviations")
   private Abbreviation[] abbreviations;
+  /**
+   * 当前词条所属分类;词条只能属于二级分类，且每个一级分类下只能选择一个二级分类。
+   * <p> 示例值：
+   */
   @SerializedName("classifications")
   private Classification[] classifications;
 
@@ -37,12 +65,40 @@ public class RelatedMeta {
   }
 
   public RelatedMeta(Builder builder) {
+    /**
+     * 相关联系人
+     * <p> 示例值：
+     */
     this.users = builder.users;
+    /**
+     * 相关服务中的相关公开群
+     * <p> 示例值：
+     */
     this.chats = builder.chats;
+    /**
+     * 相关云文档
+     * <p> 示例值：
+     */
     this.docs = builder.docs;
+    /**
+     * 相关服务中的相关值班号
+     * <p> 示例值：
+     */
     this.oncalls = builder.oncalls;
+    /**
+     * 相关链接
+     * <p> 示例值：
+     */
     this.links = builder.links;
+    /**
+     * 相关词条
+     * <p> 示例值：
+     */
     this.abbreviations = builder.abbreviations;
+    /**
+     * 当前词条所属分类;词条只能属于二级分类，且每个一级分类下只能选择一个二级分类。
+     * <p> 示例值：
+     */
     this.classifications = builder.classifications;
   }
 
@@ -108,44 +164,127 @@ public class RelatedMeta {
 
   public static class Builder {
 
+    /**
+     * 相关联系人
+     * <p> 示例值：
+     */
     private Referer[] users;
+    /**
+     * 相关服务中的相关公开群
+     * <p> 示例值：
+     */
     private Referer[] chats;
+    /**
+     * 相关云文档
+     * <p> 示例值：
+     */
     private Referer[] docs;
+    /**
+     * 相关服务中的相关值班号
+     * <p> 示例值：
+     */
     private Referer[] oncalls;
+    /**
+     * 相关链接
+     * <p> 示例值：
+     */
     private Referer[] links;
+    /**
+     * 相关词条
+     * <p> 示例值：
+     */
     private Abbreviation[] abbreviations;
+    /**
+     * 当前词条所属分类;词条只能属于二级分类，且每个一级分类下只能选择一个二级分类。
+     * <p> 示例值：
+     */
     private Classification[] classifications;
 
+    /**
+     * 相关联系人
+     * <p> 示例值：
+     *
+     * @param users
+     * @return
+     */
     public Builder users(Referer[] users) {
       this.users = users;
       return this;
     }
 
+
+    /**
+     * 相关服务中的相关公开群
+     * <p> 示例值：
+     *
+     * @param chats
+     * @return
+     */
     public Builder chats(Referer[] chats) {
       this.chats = chats;
       return this;
     }
 
+
+    /**
+     * 相关云文档
+     * <p> 示例值：
+     *
+     * @param docs
+     * @return
+     */
     public Builder docs(Referer[] docs) {
       this.docs = docs;
       return this;
     }
 
+
+    /**
+     * 相关服务中的相关值班号
+     * <p> 示例值：
+     *
+     * @param oncalls
+     * @return
+     */
     public Builder oncalls(Referer[] oncalls) {
       this.oncalls = oncalls;
       return this;
     }
 
+
+    /**
+     * 相关链接
+     * <p> 示例值：
+     *
+     * @param links
+     * @return
+     */
     public Builder links(Referer[] links) {
       this.links = links;
       return this;
     }
 
+
+    /**
+     * 相关词条
+     * <p> 示例值：
+     *
+     * @param abbreviations
+     * @return
+     */
     public Builder abbreviations(Abbreviation[] abbreviations) {
       this.abbreviations = abbreviations;
       return this;
     }
 
+
+    /**
+     * 当前词条所属分类;词条只能属于二级分类，且每个一级分类下只能选择一个二级分类。
+     * <p> 示例值：
+     *
+     * @param classifications
+     * @return
+     */
     public Builder classifications(Classification[] classifications) {
       this.classifications = classifications;
       return this;

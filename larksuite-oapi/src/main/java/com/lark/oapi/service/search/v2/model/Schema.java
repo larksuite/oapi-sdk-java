@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class Schema {
 
+  /**
+   * 数据范式的属性定义
+   * <p> 示例值：
+   */
   @SerializedName("properties")
   private SchemaProperty[] properties;
+  /**
+   * 数据展示相关配置
+   * <p> 示例值：
+   */
   @SerializedName("display")
   private SchemaDisplay display;
+  /**
+   * 用户自定义数据范式的唯一标识
+   * <p> 示例值：jira_schema
+   */
   @SerializedName("schema_id")
   private String schemaId;
 
@@ -29,8 +41,20 @@ public class Schema {
   }
 
   public Schema(Builder builder) {
+    /**
+     * 数据范式的属性定义
+     * <p> 示例值：
+     */
     this.properties = builder.properties;
+    /**
+     * 数据展示相关配置
+     * <p> 示例值：
+     */
     this.display = builder.display;
+    /**
+     * 用户自定义数据范式的唯一标识
+     * <p> 示例值：jira_schema
+     */
     this.schemaId = builder.schemaId;
   }
 
@@ -64,20 +88,55 @@ public class Schema {
 
   public static class Builder {
 
+    /**
+     * 数据范式的属性定义
+     * <p> 示例值：
+     */
     private SchemaProperty[] properties;
+    /**
+     * 数据展示相关配置
+     * <p> 示例值：
+     */
     private SchemaDisplay display;
+    /**
+     * 用户自定义数据范式的唯一标识
+     * <p> 示例值：jira_schema
+     */
     private String schemaId;
 
+    /**
+     * 数据范式的属性定义
+     * <p> 示例值：
+     *
+     * @param properties
+     * @return
+     */
     public Builder properties(SchemaProperty[] properties) {
       this.properties = properties;
       return this;
     }
 
+
+    /**
+     * 数据展示相关配置
+     * <p> 示例值：
+     *
+     * @param display
+     * @return
+     */
     public Builder display(SchemaDisplay display) {
       this.display = display;
       return this;
     }
 
+
+    /**
+     * 用户自定义数据范式的唯一标识
+     * <p> 示例值：jira_schema
+     *
+     * @param schemaId
+     * @return
+     */
     public Builder schemaId(String schemaId) {
       this.schemaId = schemaId;
       return this;

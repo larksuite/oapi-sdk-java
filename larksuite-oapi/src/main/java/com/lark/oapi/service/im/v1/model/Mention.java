@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class Mention {
 
+  /**
+   * 被@的用户或机器人的序号。例如，第3个被@到的成员，值为“@_user_3”
+   * <p> 示例值：@_user_1
+   */
   @SerializedName("key")
   private String key;
+  /**
+   * 被@的用户或者机器人的open_id
+   * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * 被@的用户或机器人 id 类型，目前仅支持 `open_id` ([什么是 Open ID？](/ssl:ttdoc/home/user-identity-introduction/open-id))
+   * <p> 示例值：open_id
+   */
   @SerializedName("id_type")
   private String idType;
+  /**
+   * 被@的用户或机器人的姓名
+   * <p> 示例值：Tom
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
+   * <p> 示例值：736588c9260f175e
+   */
   @SerializedName("tenant_key")
   private String tenantKey;
 
@@ -33,10 +53,30 @@ public class Mention {
   }
 
   public Mention(Builder builder) {
+    /**
+     * 被@的用户或机器人的序号。例如，第3个被@到的成员，值为“@_user_3”
+     * <p> 示例值：@_user_1
+     */
     this.key = builder.key;
+    /**
+     * 被@的用户或者机器人的open_id
+     * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+     */
     this.id = builder.id;
+    /**
+     * 被@的用户或机器人 id 类型，目前仅支持 `open_id` ([什么是 Open ID？](/ssl:ttdoc/home/user-identity-introduction/open-id))
+     * <p> 示例值：open_id
+     */
     this.idType = builder.idType;
+    /**
+     * 被@的用户或机器人的姓名
+     * <p> 示例值：Tom
+     */
     this.name = builder.name;
+    /**
+     * 为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
+     * <p> 示例值：736588c9260f175e
+     */
     this.tenantKey = builder.tenantKey;
   }
 
@@ -86,32 +126,91 @@ public class Mention {
 
   public static class Builder {
 
+    /**
+     * 被@的用户或机器人的序号。例如，第3个被@到的成员，值为“@_user_3”
+     * <p> 示例值：@_user_1
+     */
     private String key;
+    /**
+     * 被@的用户或者机器人的open_id
+     * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+     */
     private String id;
+    /**
+     * 被@的用户或机器人 id 类型，目前仅支持 `open_id` ([什么是 Open ID？](/ssl:ttdoc/home/user-identity-introduction/open-id))
+     * <p> 示例值：open_id
+     */
     private String idType;
+    /**
+     * 被@的用户或机器人的姓名
+     * <p> 示例值：Tom
+     */
     private String name;
+    /**
+     * 为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
+     * <p> 示例值：736588c9260f175e
+     */
     private String tenantKey;
 
+    /**
+     * 被@的用户或机器人的序号。例如，第3个被@到的成员，值为“@_user_3”
+     * <p> 示例值：@_user_1
+     *
+     * @param key
+     * @return
+     */
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
+
+    /**
+     * 被@的用户或者机器人的open_id
+     * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 被@的用户或机器人 id 类型，目前仅支持 `open_id` ([什么是 Open ID？](/ssl:ttdoc/home/user-identity-introduction/open-id))
+     * <p> 示例值：open_id
+     *
+     * @param idType
+     * @return
+     */
     public Builder idType(String idType) {
       this.idType = idType;
       return this;
     }
 
+
+    /**
+     * 被@的用户或机器人的姓名
+     * <p> 示例值：Tom
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 为租户在飞书上的唯一标识，用来换取对应的tenant_access_token，也可以用作租户在应用里面的唯一标识
+     * <p> 示例值：736588c9260f175e
+     *
+     * @param tenantKey
+     * @return
+     */
     public Builder tenantKey(String tenantKey) {
       this.tenantKey = tenantKey;
       return this;

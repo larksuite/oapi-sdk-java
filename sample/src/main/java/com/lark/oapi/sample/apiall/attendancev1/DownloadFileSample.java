@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.attendance.v1.model.DownloadFileReq;
 import com.lark.oapi.service.attendance.v1.model.DownloadFileResp;
 
-// HTTP PATH: /open-apis/attendance/v1/files/:file_id/download"
+// GET /open-apis/attendance/v1/files/:file_id/download
 public class DownloadFileSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class DownloadFileSample {
 
     // 创建请求对象
     DownloadFileReq req = DownloadFileReq.newBuilder()
-        .fileId("")
+        .fileId("xxxxxb306842b1c189bc5212eefxxxxx")
         .build();
 
     // 发起请求

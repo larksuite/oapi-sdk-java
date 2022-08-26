@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.task.v1.model.ListTaskCommentReq;
 import com.lark.oapi.service.task.v1.model.ListTaskCommentResp;
 
-// HTTP PATH: /open-apis/task/v1/tasks/:task_id/comments"
+// GET /open-apis/task/v1/tasks/:task_id/comments
 public class ListTaskCommentSample {
 
   public static void main(String arg[]) throws Exception {

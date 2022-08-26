@@ -17,16 +17,40 @@ import com.google.gson.annotations.SerializedName;
 
 public class ApprovalNode {
 
+  /**
+   * 节点 ID，开始节点的 ID 为 START，结束节点的 ID 为 END，开始和结束节点不需要指定 name、node_type 以及 approver
+   * <p> 示例值：START
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * 节点名称的国际化文案 Key，以 @i18n@ 开头，长度不得少于 9 个字符
+   * <p> 示例值：@i18n@node_name
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 审批类型枚举,当 node_type 为依次审批时，审批人必须为『发起人自选』
+   * <p> 示例值：AND
+   */
   @SerializedName("node_type")
   private String nodeType;
+  /**
+   * 审批人列表
+   * <p> 示例值：
+   */
   @SerializedName("approver")
   private ApprovalApproverCcer[] approver;
+  /**
+   * 抄送人列表
+   * <p> 示例值：
+   */
   @SerializedName("ccer")
   private ApprovalApproverCcer[] ccer;
+  /**
+   * 表单项的控件权限
+   * <p> 示例值：
+   */
   @SerializedName("privilege_field")
   private FieldGroup privilegeField;
 
@@ -35,11 +59,35 @@ public class ApprovalNode {
   }
 
   public ApprovalNode(Builder builder) {
+    /**
+     * 节点 ID，开始节点的 ID 为 START，结束节点的 ID 为 END，开始和结束节点不需要指定 name、node_type 以及 approver
+     * <p> 示例值：START
+     */
     this.id = builder.id;
+    /**
+     * 节点名称的国际化文案 Key，以 @i18n@ 开头，长度不得少于 9 个字符
+     * <p> 示例值：@i18n@node_name
+     */
     this.name = builder.name;
+    /**
+     * 审批类型枚举,当 node_type 为依次审批时，审批人必须为『发起人自选』
+     * <p> 示例值：AND
+     */
     this.nodeType = builder.nodeType;
+    /**
+     * 审批人列表
+     * <p> 示例值：
+     */
     this.approver = builder.approver;
+    /**
+     * 抄送人列表
+     * <p> 示例值：
+     */
     this.ccer = builder.ccer;
+    /**
+     * 表单项的控件权限
+     * <p> 示例值：
+     */
     this.privilegeField = builder.privilegeField;
   }
 
@@ -97,43 +145,122 @@ public class ApprovalNode {
 
   public static class Builder {
 
+    /**
+     * 节点 ID，开始节点的 ID 为 START，结束节点的 ID 为 END，开始和结束节点不需要指定 name、node_type 以及 approver
+     * <p> 示例值：START
+     */
     private String id;
+    /**
+     * 节点名称的国际化文案 Key，以 @i18n@ 开头，长度不得少于 9 个字符
+     * <p> 示例值：@i18n@node_name
+     */
     private String name;
+    /**
+     * 审批类型枚举,当 node_type 为依次审批时，审批人必须为『发起人自选』
+     * <p> 示例值：AND
+     */
     private String nodeType;
+    /**
+     * 审批人列表
+     * <p> 示例值：
+     */
     private ApprovalApproverCcer[] approver;
+    /**
+     * 抄送人列表
+     * <p> 示例值：
+     */
     private ApprovalApproverCcer[] ccer;
+    /**
+     * 表单项的控件权限
+     * <p> 示例值：
+     */
     private FieldGroup privilegeField;
 
+    /**
+     * 节点 ID，开始节点的 ID 为 START，结束节点的 ID 为 END，开始和结束节点不需要指定 name、node_type 以及 approver
+     * <p> 示例值：START
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 节点名称的国际化文案 Key，以 @i18n@ 开头，长度不得少于 9 个字符
+     * <p> 示例值：@i18n@node_name
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 审批类型枚举,当 node_type 为依次审批时，审批人必须为『发起人自选』
+     * <p> 示例值：AND
+     *
+     * @param nodeType
+     * @return
+     */
     public Builder nodeType(String nodeType) {
       this.nodeType = nodeType;
       return this;
     }
 
-    public Builder nodeType(com.lark.oapi.service.approval.v4.enums.NodeTypeEnum nodeType) {
+    /**
+     * 审批类型枚举,当 node_type 为依次审批时，审批人必须为『发起人自选』
+     * <p> 示例值：AND
+     *
+     * @param nodeType {@link com.lark.oapi.service.approval.v4.enums.ApprovalNodeNodeTypeEnum}
+     * @return
+     */
+    public Builder nodeType(
+        com.lark.oapi.service.approval.v4.enums.ApprovalNodeNodeTypeEnum nodeType) {
       this.nodeType = nodeType.getValue();
       return this;
     }
 
+
+    /**
+     * 审批人列表
+     * <p> 示例值：
+     *
+     * @param approver
+     * @return
+     */
     public Builder approver(ApprovalApproverCcer[] approver) {
       this.approver = approver;
       return this;
     }
 
+
+    /**
+     * 抄送人列表
+     * <p> 示例值：
+     *
+     * @param ccer
+     * @return
+     */
     public Builder ccer(ApprovalApproverCcer[] ccer) {
       this.ccer = ccer;
       return this;
     }
 
+
+    /**
+     * 表单项的控件权限
+     * <p> 示例值：
+     *
+     * @param privilegeField
+     * @return
+     */
     public Builder privilegeField(FieldGroup privilegeField) {
       this.privilegeField = privilegeField;
       return this;

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.vc.v1.model.GetTopUserReportReq;
 import com.lark.oapi.service.vc.v1.model.GetTopUserReportResp;
 
-// HTTP PATH: /open-apis/vc/v1/reports/get_top_user"
+// GET /open-apis/vc/v1/reports/get_top_user
 public class GetTopUserReportSample {
 
   public static void main(String arg[]) throws Exception {

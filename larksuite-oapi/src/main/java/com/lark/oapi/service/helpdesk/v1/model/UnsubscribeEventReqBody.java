@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UnsubscribeEventReqBody {
 
+  /**
+   * event list to unsubscribe
+   * <p> 示例值：
+   */
   @SerializedName("events")
   private Event[] events;
 
@@ -25,6 +29,10 @@ public class UnsubscribeEventReqBody {
   }
 
   public UnsubscribeEventReqBody(Builder builder) {
+    /**
+     * event list to unsubscribe
+     * <p> 示例值：
+     */
     this.events = builder.events;
   }
 
@@ -42,8 +50,19 @@ public class UnsubscribeEventReqBody {
 
   public static class Builder {
 
+    /**
+     * event list to unsubscribe
+     * <p> 示例值：
+     */
     private Event[] events;
 
+    /**
+     * event list to unsubscribe
+     * <p> 示例值：
+     *
+     * @param events
+     * @return
+     */
     public Builder events(Event[] events) {
       this.events = events;
       return this;

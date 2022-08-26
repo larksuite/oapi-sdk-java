@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateExchangeBinding {
 
+  /**
+   * admin账户
+   * <p> 示例值：
+   */
   @SerializedName("admin_account")
   private String adminAccount;
+  /**
+   * 用户绑定的Exchange账户
+   * <p> 示例值：
+   */
   @SerializedName("exchange_account")
   private String exchangeAccount;
+  /**
+   * Exchange账户绑定user唯一标识id
+   * <p> 示例值：
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * Exchange账户同步状态
+   * <p> 示例值：
+   */
   @SerializedName("status")
   private String status;
+  /**
+   * exchange绑定唯一标识id
+   * <p> 示例值：
+   */
   @SerializedName("exchange_binding_id")
   private String exchangeBindingId;
 

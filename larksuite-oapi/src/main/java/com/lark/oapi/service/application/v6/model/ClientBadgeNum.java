@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class ClientBadgeNum {
 
+  /**
+   * h5能力的badge数量
+   * <p> 示例值：
+   */
   @SerializedName("web_app")
   private Integer webApp;
+  /**
+   * 小程序能力的badge数量
+   * <p> 示例值：
+   */
   @SerializedName("gadget")
   private Integer gadget;
 
@@ -27,7 +35,15 @@ public class ClientBadgeNum {
   }
 
   public ClientBadgeNum(Builder builder) {
+    /**
+     * h5能力的badge数量
+     * <p> 示例值：
+     */
     this.webApp = builder.webApp;
+    /**
+     * 小程序能力的badge数量
+     * <p> 示例值：
+     */
     this.gadget = builder.gadget;
   }
 
@@ -53,14 +69,37 @@ public class ClientBadgeNum {
 
   public static class Builder {
 
+    /**
+     * h5能力的badge数量
+     * <p> 示例值：
+     */
     private Integer webApp;
+    /**
+     * 小程序能力的badge数量
+     * <p> 示例值：
+     */
     private Integer gadget;
 
+    /**
+     * h5能力的badge数量
+     * <p> 示例值：
+     *
+     * @param webApp
+     * @return
+     */
     public Builder webApp(Integer webApp) {
       this.webApp = webApp;
       return this;
     }
 
+
+    /**
+     * 小程序能力的badge数量
+     * <p> 示例值：
+     *
+     * @param gadget
+     * @return
+     */
     public Builder gadget(Integer gadget) {
       this.gadget = gadget;
       return this;

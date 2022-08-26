@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ApprovalCreateViewers {
 
+  /**
+   * 可见人类型
+   * <p> 示例值：USER
+   */
   @SerializedName("viewer_type")
   private String viewerType;
+  /**
+   * 当 view_type 是 USER，根据user_id_type填写用户id
+   * <p> 示例值：19a294c2
+   */
   @SerializedName("viewer_user_id")
   private String viewerUserId;
+  /**
+   * 当 view_type 为DEPARTMENT，根据department_id_type填写部门id
+   * <p> 示例值：od-ac9d697abfa990b715dcc33d58a62a9d
+   */
   @SerializedName("viewer_department_id")
   private String viewerDepartmentId;
 
@@ -29,8 +41,20 @@ public class ApprovalCreateViewers {
   }
 
   public ApprovalCreateViewers(Builder builder) {
+    /**
+     * 可见人类型
+     * <p> 示例值：USER
+     */
     this.viewerType = builder.viewerType;
+    /**
+     * 当 view_type 是 USER，根据user_id_type填写用户id
+     * <p> 示例值：19a294c2
+     */
     this.viewerUserId = builder.viewerUserId;
+    /**
+     * 当 view_type 为DEPARTMENT，根据department_id_type填写部门id
+     * <p> 示例值：od-ac9d697abfa990b715dcc33d58a62a9d
+     */
     this.viewerDepartmentId = builder.viewerDepartmentId;
   }
 
@@ -64,25 +88,68 @@ public class ApprovalCreateViewers {
 
   public static class Builder {
 
+    /**
+     * 可见人类型
+     * <p> 示例值：USER
+     */
     private String viewerType;
+    /**
+     * 当 view_type 是 USER，根据user_id_type填写用户id
+     * <p> 示例值：19a294c2
+     */
     private String viewerUserId;
+    /**
+     * 当 view_type 为DEPARTMENT，根据department_id_type填写部门id
+     * <p> 示例值：od-ac9d697abfa990b715dcc33d58a62a9d
+     */
     private String viewerDepartmentId;
 
+    /**
+     * 可见人类型
+     * <p> 示例值：USER
+     *
+     * @param viewerType
+     * @return
+     */
     public Builder viewerType(String viewerType) {
       this.viewerType = viewerType;
       return this;
     }
 
-    public Builder viewerType(com.lark.oapi.service.approval.v4.enums.ViewerTypeEnum viewerType) {
+    /**
+     * 可见人类型
+     * <p> 示例值：USER
+     *
+     * @param viewerType {@link com.lark.oapi.service.approval.v4.enums.ApprovalCreateViewersViewerTypeEnum}
+     * @return
+     */
+    public Builder viewerType(
+        com.lark.oapi.service.approval.v4.enums.ApprovalCreateViewersViewerTypeEnum viewerType) {
       this.viewerType = viewerType.getValue();
       return this;
     }
 
+
+    /**
+     * 当 view_type 是 USER，根据user_id_type填写用户id
+     * <p> 示例值：19a294c2
+     *
+     * @param viewerUserId
+     * @return
+     */
     public Builder viewerUserId(String viewerUserId) {
       this.viewerUserId = viewerUserId;
       return this;
     }
 
+
+    /**
+     * 当 view_type 为DEPARTMENT，根据department_id_type填写部门id
+     * <p> 示例值：od-ac9d697abfa990b715dcc33d58a62a9d
+     *
+     * @param viewerDepartmentId
+     * @return
+     */
     public Builder viewerDepartmentId(String viewerDepartmentId) {
       this.viewerDepartmentId = viewerDepartmentId;
       return this;

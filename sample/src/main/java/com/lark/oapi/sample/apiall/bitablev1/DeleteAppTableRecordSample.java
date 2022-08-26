@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.bitable.v1.model.DeleteAppTableRecordReq;
 import com.lark.oapi.service.bitable.v1.model.DeleteAppTableRecordResp;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
+// DELETE /open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id
 public class DeleteAppTableRecordSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,9 +14,9 @@ public class DeleteAppTableRecordSample {
 
     // 创建请求对象
     DeleteAppTableRecordReq req = DeleteAppTableRecordReq.newBuilder()
-        .appToken("")
-        .tableId("")
-        .recordId("")
+        .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
+        .tableId("tblsRc9GRRXKqhvW")
+        .recordId("recpCsf4ME")
         .build();
 
     // 发起请求

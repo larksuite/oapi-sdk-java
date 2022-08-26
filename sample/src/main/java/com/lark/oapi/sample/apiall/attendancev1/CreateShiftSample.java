@@ -4,12 +4,13 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.attendance.v1.model.CreateShiftReq;
 import com.lark.oapi.service.attendance.v1.model.CreateShiftResp;
+import com.lark.oapi.service.attendance.v1.model.FlexibleRule;
 import com.lark.oapi.service.attendance.v1.model.LateOffLateOnRule;
 import com.lark.oapi.service.attendance.v1.model.PunchTimeRule;
 import com.lark.oapi.service.attendance.v1.model.RestRule;
 import com.lark.oapi.service.attendance.v1.model.Shift;
 
-// HTTP PATH: /open-apis/attendance/v1/shifts"
+// POST /open-apis/attendance/v1/shifts
 public class CreateShiftSample {
 
   public static void main(String arg[]) throws Exception {
@@ -23,6 +24,7 @@ public class CreateShiftSample {
             .punchTimes(1)
             .isFlexible(false)
             .flexibleMinutes(60)
+            .flexibleRule(new FlexibleRule[]{})
             .noNeedOff(true)
             .punchTimeRule(new PunchTimeRule[]{})
             .lateOffLateOnRule(new LateOffLateOnRule[]{})

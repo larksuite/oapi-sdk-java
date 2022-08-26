@@ -20,29 +20,61 @@ import com.lark.oapi.core.annotation.Query;
 
 public class UpdatePermissionMemberReq {
 
+  /**
+   * 更新权限后是否通知对方;;**注意：** 使用`tenant_access_token`访问不支持该参数
+   * <p> 示例值：false
+   */
   @Query
   @SerializedName("need_notification")
   private Boolean needNotification;
+  /**
+   * 文件类型，放于query参数中，如：`?type=doc`
+   * <p> 示例值：doc
+   */
   @Query
   @SerializedName("type")
   private String type;
+  /**
+   * 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+   * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
+   */
   @Path
   @SerializedName("token")
   private String token;
+  /**
+   * 权限成员的ID，与`member_type`相对应
+   * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
   @Path
   @SerializedName("member_id")
   private String memberId;
   @Body
-  private Member body;
+  private BaseMember body;
 
   // builder 开始
   public UpdatePermissionMemberReq() {
   }
 
   public UpdatePermissionMemberReq(Builder builder) {
+    /**
+     * 更新权限后是否通知对方;;**注意：** 使用`tenant_access_token`访问不支持该参数
+     * <p> 示例值：false
+     */
     this.needNotification = builder.needNotification;
+    /**
+     * 文件类型，放于query参数中，如：`?type=doc`
+     * <p> 示例值：doc
+     */
     this.type = builder.type;
+    /**
+     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+     * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
+     */
     this.token = builder.token;
+    /**
+     * 权限成员的ID，与`member_type`相对应
+     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
     this.memberId = builder.memberId;
     this.body = builder.body;
   }
@@ -83,52 +115,94 @@ public class UpdatePermissionMemberReq {
     this.memberId = memberId;
   }
 
-  public Member getMember() {
+  public BaseMember getBaseMember() {
     return this.body;
   }
 
-  public void setMember(Member body) {
+  public void setBaseMember(BaseMember body) {
     this.body = body;
   }
 
   public static class Builder {
 
-    private Boolean needNotification;
-    private String type;
-    private String token;
-    private String memberId;
-    private Member body;
+    private Boolean needNotification; // 更新权限后是否通知对方;;**注意：** 使用`tenant_access_token`访问不支持该参数
+    private String type; // 文件类型，放于query参数中，如：`?type=doc`
+    private String token; // 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+    private String memberId; // 权限成员的ID，与`member_type`相对应
+    private BaseMember body;
 
+    /**
+     * 更新权限后是否通知对方;;**注意：** 使用`tenant_access_token`访问不支持该参数
+     * <p> 示例值：false
+     *
+     * @param needNotification
+     * @return
+     */
     public Builder needNotification(Boolean needNotification) {
       this.needNotification = needNotification;
       return this;
     }
 
+    /**
+     * 文件类型，放于query参数中，如：`?type=doc`
+     * <p> 示例值：doc
+     *
+     * @param type
+     * @return
+     */
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public Builder type(com.lark.oapi.service.drive.v1.enums.TokenTypeEnum type) {
+    /**
+     * 文件类型，放于query参数中，如：`?type=doc`
+     * <p> 示例值：doc
+     *
+     * @param type {@link com.lark.oapi.service.drive.v1.enums.UpdatePermissionMemberTokenTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.drive.v1.enums.UpdatePermissionMemberTokenTypeEnum type) {
       this.type = type.getValue();
       return this;
     }
 
+    /**
+     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+     * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
+     *
+     * @param token
+     * @return
+     */
     public Builder token(String token) {
       this.token = token;
       return this;
     }
 
+    /**
+     * 权限成员的ID，与`member_type`相对应
+     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param memberId
+     * @return
+     */
     public Builder memberId(String memberId) {
       this.memberId = memberId;
       return this;
     }
 
-    public Member getMember() {
+    public BaseMember getBaseMember() {
       return this.body;
     }
 
-    public Builder member(Member body) {
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder baseMember(BaseMember body) {
       this.body = body;
       return this;
     }

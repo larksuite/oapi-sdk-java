@@ -7,7 +7,7 @@ import com.lark.oapi.service.vc.v1.model.UpdateReserveReq;
 import com.lark.oapi.service.vc.v1.model.UpdateReserveReqBody;
 import com.lark.oapi.service.vc.v1.model.UpdateReserveResp;
 
-// HTTP PATH: /open-apis/vc/v1/reserves/:reserve_id"
+// PUT /open-apis/vc/v1/reserves/:reserve_id
 public class UpdateReserveSample {
 
   public static void main(String arg[]) throws Exception {

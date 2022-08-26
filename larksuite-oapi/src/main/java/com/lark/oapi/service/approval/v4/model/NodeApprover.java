@@ -17,8 +17,17 @@ import com.google.gson.annotations.SerializedName;
 
 public class NodeApprover {
 
+  /**
+   * node id 或 custom node id，通过 [查看审批定义](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
+   * 获取
+   * <p> 示例值：46e6d96cfa756980907209209ec03b64
+   */
   @SerializedName("key")
   private String key;
+  /**
+   * value: 审批人列表
+   * <p> 示例值：["f7cb567e"]
+   */
   @SerializedName("value")
   private String[] value;
 
@@ -27,7 +36,15 @@ public class NodeApprover {
   }
 
   public NodeApprover(Builder builder) {
+    /**
+     * node id 或 custom node id，通过 [查看审批定义](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
+     * <p> 示例值：46e6d96cfa756980907209209ec03b64
+     */
     this.key = builder.key;
+    /**
+     * value: 审批人列表
+     * <p> 示例值：["f7cb567e"]
+     */
     this.value = builder.value;
   }
 
@@ -53,14 +70,39 @@ public class NodeApprover {
 
   public static class Builder {
 
+    /**
+     * node id 或 custom node id，通过 [查看审批定义](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
+     * 获取
+     * <p> 示例值：46e6d96cfa756980907209209ec03b64
+     */
     private String key;
+    /**
+     * value: 审批人列表
+     * <p> 示例值：["f7cb567e"]
+     */
     private String[] value;
 
+    /**
+     * node id 或 custom node id，通过 [查看审批定义](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
+     * 获取
+     * <p> 示例值：46e6d96cfa756980907209209ec03b64
+     *
+     * @param key
+     * @return
+     */
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
+
+    /**
+     * value: 审批人列表
+     * <p> 示例值：["f7cb567e"]
+     *
+     * @param value
+     * @return
+     */
     public Builder value(String[] value) {
       this.value = value;
       return this;

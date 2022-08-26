@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class CommentAtInfo {
 
+  /**
+   * 被艾特人的ID
+   * <p> 示例值：579fd9c4
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 被艾特人的姓名
+   * <p> 示例值：张某
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 被艾特人在评论中的位置，从0开始
+   * <p> 示例值：1
+   */
   @SerializedName("offset")
   private String offset;
 
@@ -29,8 +41,20 @@ public class CommentAtInfo {
   }
 
   public CommentAtInfo(Builder builder) {
+    /**
+     * 被艾特人的ID
+     * <p> 示例值：579fd9c4
+     */
     this.userId = builder.userId;
+    /**
+     * 被艾特人的姓名
+     * <p> 示例值：张某
+     */
     this.name = builder.name;
+    /**
+     * 被艾特人在评论中的位置，从0开始
+     * <p> 示例值：1
+     */
     this.offset = builder.offset;
   }
 
@@ -64,20 +88,55 @@ public class CommentAtInfo {
 
   public static class Builder {
 
+    /**
+     * 被艾特人的ID
+     * <p> 示例值：579fd9c4
+     */
     private String userId;
+    /**
+     * 被艾特人的姓名
+     * <p> 示例值：张某
+     */
     private String name;
+    /**
+     * 被艾特人在评论中的位置，从0开始
+     * <p> 示例值：1
+     */
     private String offset;
 
+    /**
+     * 被艾特人的ID
+     * <p> 示例值：579fd9c4
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 被艾特人的姓名
+     * <p> 示例值：张某
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 被艾特人在评论中的位置，从0开始
+     * <p> 示例值：1
+     *
+     * @param offset
+     * @return
+     */
     public Builder offset(String offset) {
       this.offset = offset;
       return this;

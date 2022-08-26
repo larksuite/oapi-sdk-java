@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class GenerateCaldavConfSetting {
 
+  /**
+   * caldav密码
+   * <p> 示例值：A67h23sd8
+   */
   @SerializedName("password")
   private String password;
+  /**
+   * caldav用户名
+   * <p> 示例值：ZhangSan
+   */
   @SerializedName("user_name")
   private String userName;
+  /**
+   * 服务器地址
+   * <p> 示例值：caldav.domain.com
+   */
   @SerializedName("server_address")
   private String serverAddress;
+  /**
+   * 设备名
+   * <p> 示例值：iPhone
+   */
   @SerializedName("device_name")
   private String deviceName;
 

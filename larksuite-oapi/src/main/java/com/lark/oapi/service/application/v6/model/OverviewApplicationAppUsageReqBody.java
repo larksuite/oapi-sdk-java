@@ -17,12 +17,31 @@ import com.google.gson.annotations.SerializedName;
 
 public class OverviewApplicationAppUsageReqBody {
 
+  /**
+   * 查询日期，格式为yyyy-mm-dd，若cycle_type为1，date可以为任何自然日；若cycle_type为2，则输入的date必须为周一；
+   * 若cycle_type为3，则输入的date必须为每月1号
+   * <p> 示例值：2021-07-08
+   */
   @SerializedName("date")
   private String date;
+  /**
+   * 活跃周期的统计类型
+   * <p> 示例值：1
+   */
   @SerializedName("cycle_type")
   private Integer cycleType;
+  /**
+   * 查询的部门id，获取方法可参考[部门ID概述](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview);-
+   * 若部门id为空，则返回当前租户的使用数据；若填写部门id，则返回当前部门的使用数据（包含子部门的用户）； ;-  若路径参数中department_id_type为空或者为open_department_id，则此处应该填写部门的
+   * open_department_id；若路径参数中department_id_type为department_id，则此处应该填写部门的 department_id。
+   * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+   */
   @SerializedName("department_id")
   private String departmentId;
+  /**
+   * 能力类型，按能力类型进行筛选，返回对应能力的活跃数据
+   * <p> 示例值：app
+   */
   @SerializedName("ability")
   private String ability;
 
@@ -31,9 +50,25 @@ public class OverviewApplicationAppUsageReqBody {
   }
 
   public OverviewApplicationAppUsageReqBody(Builder builder) {
+    /**
+     * 查询日期，格式为yyyy-mm-dd，若cycle_type为1，date可以为任何自然日；若cycle_type为2，则输入的date必须为周一； 若cycle_type为3，则输入的date必须为每月1号
+     * <p> 示例值：2021-07-08
+     */
     this.date = builder.date;
+    /**
+     * 活跃周期的统计类型
+     * <p> 示例值：1
+     */
     this.cycleType = builder.cycleType;
+    /**
+     * 查询的部门id，获取方法可参考[部门ID概述](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview);-  若部门id为空，则返回当前租户的使用数据；若填写部门id，则返回当前部门的使用数据（包含子部门的用户）； ;-  若路径参数中department_id_type为空或者为open_department_id，则此处应该填写部门的 open_department_id；若路径参数中department_id_type为department_id，则此处应该填写部门的 department_id。
+     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     */
     this.departmentId = builder.departmentId;
+    /**
+     * 能力类型，按能力类型进行筛选，返回对应能力的活跃数据
+     * <p> 示例值：app
+     */
     this.ability = builder.ability;
   }
 
@@ -75,37 +110,106 @@ public class OverviewApplicationAppUsageReqBody {
 
   public static class Builder {
 
+    /**
+     * 查询日期，格式为yyyy-mm-dd，若cycle_type为1，date可以为任何自然日；若cycle_type为2，则输入的date必须为周一；
+     * 若cycle_type为3，则输入的date必须为每月1号
+     * <p> 示例值：2021-07-08
+     */
     private String date;
+    /**
+     * 活跃周期的统计类型
+     * <p> 示例值：1
+     */
     private Integer cycleType;
+    /**
+     * 查询的部门id，获取方法可参考[部门ID概述](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview);-
+     * 若部门id为空，则返回当前租户的使用数据；若填写部门id，则返回当前部门的使用数据（包含子部门的用户）； ;-  若路径参数中department_id_type为空或者为open_department_id，则此处应该填写部门的
+     * open_department_id；若路径参数中department_id_type为department_id，则此处应该填写部门的 department_id。
+     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     */
     private String departmentId;
+    /**
+     * 能力类型，按能力类型进行筛选，返回对应能力的活跃数据
+     * <p> 示例值：app
+     */
     private String ability;
 
+    /**
+     * 查询日期，格式为yyyy-mm-dd，若cycle_type为1，date可以为任何自然日；若cycle_type为2，则输入的date必须为周一；
+     * 若cycle_type为3，则输入的date必须为每月1号
+     * <p> 示例值：2021-07-08
+     *
+     * @param date
+     * @return
+     */
     public Builder date(String date) {
       this.date = date;
       return this;
     }
 
+
+    /**
+     * 活跃周期的统计类型
+     * <p> 示例值：1
+     *
+     * @param cycleType
+     * @return
+     */
     public Builder cycleType(Integer cycleType) {
       this.cycleType = cycleType;
       return this;
     }
 
-    public Builder cycleType(com.lark.oapi.service.application.v6.enums.CycleTypeEnum cycleType) {
+    /**
+     * 活跃周期的统计类型
+     * <p> 示例值：1
+     *
+     * @param cycleType {@link com.lark.oapi.service.application.v6.enums.OverviewApplicationAppUsageCycleTypeEnum}
+     * @return
+     */
+    public Builder cycleType(
+        com.lark.oapi.service.application.v6.enums.OverviewApplicationAppUsageCycleTypeEnum cycleType) {
       this.cycleType = cycleType.getValue();
       return this;
     }
 
+
+    /**
+     * 查询的部门id，获取方法可参考[部门ID概述](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview);-
+     * 若部门id为空，则返回当前租户的使用数据；若填写部门id，则返回当前部门的使用数据（包含子部门的用户）； ;-  若路径参数中department_id_type为空或者为open_department_id，则此处应该填写部门的
+     * open_department_id；若路径参数中department_id_type为department_id，则此处应该填写部门的 department_id。
+     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param departmentId
+     * @return
+     */
     public Builder departmentId(String departmentId) {
       this.departmentId = departmentId;
       return this;
     }
 
+
+    /**
+     * 能力类型，按能力类型进行筛选，返回对应能力的活跃数据
+     * <p> 示例值：app
+     *
+     * @param ability
+     * @return
+     */
     public Builder ability(String ability) {
       this.ability = ability;
       return this;
     }
 
-    public Builder ability(com.lark.oapi.service.application.v6.enums.AbilityEnum ability) {
+    /**
+     * 能力类型，按能力类型进行筛选，返回对应能力的活跃数据
+     * <p> 示例值：app
+     *
+     * @param ability {@link com.lark.oapi.service.application.v6.enums.OverviewApplicationAppUsageAbilityEnum}
+     * @return
+     */
+    public Builder ability(
+        com.lark.oapi.service.application.v6.enums.OverviewApplicationAppUsageAbilityEnum ability) {
       this.ability = ability.getValue();
       return this;
     }

@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class ChatTopNotice {
 
+  /**
+   * 置顶的类型
+   * <p> 示例值：1
+   */
   @SerializedName("action_type")
   private String actionType;
+  /**
+   * 消息id
+   * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+   */
   @SerializedName("message_id")
   private String messageId;
 
@@ -27,7 +35,15 @@ public class ChatTopNotice {
   }
 
   public ChatTopNotice(Builder builder) {
+    /**
+     * 置顶的类型
+     * <p> 示例值：1
+     */
     this.actionType = builder.actionType;
+    /**
+     * 消息id
+     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+     */
     this.messageId = builder.messageId;
   }
 
@@ -53,19 +69,50 @@ public class ChatTopNotice {
 
   public static class Builder {
 
+    /**
+     * 置顶的类型
+     * <p> 示例值：1
+     */
     private String actionType;
+    /**
+     * 消息id
+     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+     */
     private String messageId;
 
+    /**
+     * 置顶的类型
+     * <p> 示例值：1
+     *
+     * @param actionType
+     * @return
+     */
     public Builder actionType(String actionType) {
       this.actionType = actionType;
       return this;
     }
 
-    public Builder actionType(com.lark.oapi.service.im.v1.enums.ActionTypeEnum actionType) {
+    /**
+     * 置顶的类型
+     * <p> 示例值：1
+     *
+     * @param actionType {@link com.lark.oapi.service.im.v1.enums.ChatTopNoticeActionTypeEnum}
+     * @return
+     */
+    public Builder actionType(
+        com.lark.oapi.service.im.v1.enums.ChatTopNoticeActionTypeEnum actionType) {
       this.actionType = actionType.getValue();
       return this;
     }
 
+
+    /**
+     * 消息id
+     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+     *
+     * @param messageId
+     * @return
+     */
     public Builder messageId(String messageId) {
       this.messageId = messageId;
       return this;

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.calendar.v4.model.SubscribeCalendarReq;
 import com.lark.oapi.service.calendar.v4.model.SubscribeCalendarResp;
 
-// HTTP PATH: /open-apis/calendar/v4/calendars/:calendar_id/subscribe"
+// POST /open-apis/calendar/v4/calendars/:calendar_id/subscribe
 public class SubscribeCalendarSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class SubscribeCalendarSample {
 
     // 创建请求对象
     SubscribeCalendarReq req = SubscribeCalendarReq.newBuilder()
-        .calendarId("")
+        .calendarId("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn")
         .build();
 
     // 发起请求

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetDataSourceItem {
 
+  /**
+   * 数据项实例
+   * <p> 示例值：
+   */
   @SerializedName("item")
   private Item item;
 

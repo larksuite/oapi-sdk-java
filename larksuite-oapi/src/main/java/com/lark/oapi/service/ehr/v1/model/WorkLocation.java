@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class WorkLocation {
 
+  /**
+   * 工作地点 ID
+   * <p> 示例值：1695838220091399
+   */
   @SerializedName("id")
   private Long id;
+  /**
+   * 工作地点名称
+   * <p> 示例值：武汉
+   */
   @SerializedName("name")
   private String name;
 
@@ -27,7 +35,15 @@ public class WorkLocation {
   }
 
   public WorkLocation(Builder builder) {
+    /**
+     * 工作地点 ID
+     * <p> 示例值：1695838220091399
+     */
     this.id = builder.id;
+    /**
+     * 工作地点名称
+     * <p> 示例值：武汉
+     */
     this.name = builder.name;
   }
 
@@ -53,14 +69,37 @@ public class WorkLocation {
 
   public static class Builder {
 
+    /**
+     * 工作地点 ID
+     * <p> 示例值：1695838220091399
+     */
     private Long id;
+    /**
+     * 工作地点名称
+     * <p> 示例值：武汉
+     */
     private String name;
 
+    /**
+     * 工作地点 ID
+     * <p> 示例值：1695838220091399
+     *
+     * @param id
+     * @return
+     */
     public Builder id(Long id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 工作地点名称
+     * <p> 示例值：武汉
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;

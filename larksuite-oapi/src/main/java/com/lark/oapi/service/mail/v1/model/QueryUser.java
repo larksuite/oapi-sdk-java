@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryUser {
 
+  /**
+   * 邮箱地址以及其对应的类型类型和状态
+   * <p> 示例值：
+   */
   @SerializedName("user_list")
   private User[] userList;
 

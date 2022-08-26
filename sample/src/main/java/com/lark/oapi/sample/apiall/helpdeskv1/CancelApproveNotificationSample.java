@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.CancelApproveNotificationReq;
 import com.lark.oapi.service.helpdesk.v1.model.CancelApproveNotificationResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/notifications/:notification_id/cancel_approve"
+// POST /open-apis/helpdesk/v1/notifications/:notification_id/cancel_approve
 public class CancelApproveNotificationSample {
 
   public static void main(String arg[]) throws Exception {

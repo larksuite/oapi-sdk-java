@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Bitable {
 
+  /**
+   * 多维表格文档 Token
+   * <p> 示例值：basbcqH9FfRn3sWCCBOtdNVpCsb_tblSAh8fEwhuMXQg
+   */
   @SerializedName("token")
   private String token;
+  /**
+   * 类型
+   * <p> 示例值：1
+   */
   @SerializedName("view_type")
   private Integer viewType;
 
@@ -27,7 +35,15 @@ public class Bitable {
   }
 
   public Bitable(Builder builder) {
+    /**
+     * 多维表格文档 Token
+     * <p> 示例值：basbcqH9FfRn3sWCCBOtdNVpCsb_tblSAh8fEwhuMXQg
+     */
     this.token = builder.token;
+    /**
+     * 类型
+     * <p> 示例值：1
+     */
     this.viewType = builder.viewType;
   }
 
@@ -53,20 +69,51 @@ public class Bitable {
 
   public static class Builder {
 
+    /**
+     * 多维表格文档 Token
+     * <p> 示例值：basbcqH9FfRn3sWCCBOtdNVpCsb_tblSAh8fEwhuMXQg
+     */
     private String token;
+    /**
+     * 类型
+     * <p> 示例值：1
+     */
     private Integer viewType;
 
+    /**
+     * 多维表格文档 Token
+     * <p> 示例值：basbcqH9FfRn3sWCCBOtdNVpCsb_tblSAh8fEwhuMXQg
+     *
+     * @param token
+     * @return
+     */
     public Builder token(String token) {
       this.token = token;
       return this;
     }
 
+
+    /**
+     * 类型
+     * <p> 示例值：1
+     *
+     * @param viewType
+     * @return
+     */
     public Builder viewType(Integer viewType) {
       this.viewType = viewType;
       return this;
     }
 
-    public Builder viewType(com.lark.oapi.service.docx.v1.enums.BitableViewTypeEnum viewType) {
+    /**
+     * 类型
+     * <p> 示例值：1
+     *
+     * @param viewType {@link com.lark.oapi.service.docx.v1.enums.BitableBitableViewTypeEnum}
+     * @return
+     */
+    public Builder viewType(
+        com.lark.oapi.service.docx.v1.enums.BitableBitableViewTypeEnum viewType) {
       this.viewType = viewType.getValue();
       return this;
     }

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class MatchEntity {
 
+  /**
+   * 搜索结果
+   * <p> 示例值：
+   */
   @SerializedName("results")
   private MatchInfo[] results;
 

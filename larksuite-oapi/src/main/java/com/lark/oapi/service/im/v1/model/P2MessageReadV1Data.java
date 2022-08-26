@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2MessageReadV1Data {
 
+  /**
+   * -
+   * <p> 示例值：
+   */
   @SerializedName("reader")
   private EventMessageReader reader;
+  /**
+   * 消息列表
+   * <p> 示例值：
+   */
   @SerializedName("message_id_list")
   private String[] messageIdList;
 

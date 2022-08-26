@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DeleteBatchMessageReq {
 
+  /**
+   * 待撤回的批量消息的ID
+   * <p> 示例值：bm-dc13264520392913993dd051dba21dcf
+   */
   @Path
   @SerializedName("batch_message_id")
   private String batchMessageId;
@@ -27,6 +31,10 @@ public class DeleteBatchMessageReq {
   }
 
   public DeleteBatchMessageReq(Builder builder) {
+    /**
+     * 待撤回的批量消息的ID
+     * <p> 示例值：bm-dc13264520392913993dd051dba21dcf
+     */
     this.batchMessageId = builder.batchMessageId;
   }
 
@@ -44,8 +52,15 @@ public class DeleteBatchMessageReq {
 
   public static class Builder {
 
-    private String batchMessageId;
+    private String batchMessageId; // 待撤回的批量消息的ID
 
+    /**
+     * 待撤回的批量消息的ID
+     * <p> 示例值：bm-dc13264520392913993dd051dba21dcf
+     *
+     * @param batchMessageId
+     * @return
+     */
     public Builder batchMessageId(String batchMessageId) {
       this.batchMessageId = batchMessageId;
       return this;

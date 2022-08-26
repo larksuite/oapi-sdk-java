@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.search.v2.model.GetSchemaReq;
 import com.lark.oapi.service.search.v2.model.GetSchemaResp;
 
-// HTTP PATH: /open-apis/search/v2/schemas/:schema_id"
+// GET /open-apis/search/v2/schemas/:schema_id
 public class GetSchemaSample {
 
   public static void main(String arg[]) throws Exception {

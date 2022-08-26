@@ -7,7 +7,7 @@ import com.lark.oapi.service.contact.v3.model.CreateEmployeeTypeEnumResp;
 import com.lark.oapi.service.contact.v3.model.EmployeeTypeEnum;
 import com.lark.oapi.service.contact.v3.model.I18nContent;
 
-// HTTP PATH: /open-apis/contact/v3/employee_type_enums"
+// POST /open-apis/contact/v3/employee_type_enums
 public class CreateEmployeeTypeEnumSample {
 
   public static void main(String arg[]) throws Exception {

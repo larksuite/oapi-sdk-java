@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class MentionDoc {
 
+  /**
+   * 云文档 token
+   * <p> 示例值：doxbc873Y7cXD153gXqb76G1Y9b
+   */
   @SerializedName("token")
   private String token;
+  /**
+   * 云文档类型
+   * <p> 示例值：22
+   */
   @SerializedName("obj_type")
   private Integer objType;
+  /**
+   * 云文档链接（需要 url_encode)
+   * <p> 示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b
+   */
   @SerializedName("url")
   private String url;
+  /**
+   * 文档标题，只读属性
+   * <p> 示例值：undefined
+   */
   @SerializedName("title")
   private String title;
 
@@ -31,9 +47,25 @@ public class MentionDoc {
   }
 
   public MentionDoc(Builder builder) {
+    /**
+     * 云文档 token
+     * <p> 示例值：doxbc873Y7cXD153gXqb76G1Y9b
+     */
     this.token = builder.token;
+    /**
+     * 云文档类型
+     * <p> 示例值：22
+     */
     this.objType = builder.objType;
+    /**
+     * 云文档链接（需要 url_encode)
+     * <p> 示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b
+     */
     this.url = builder.url;
+    /**
+     * 文档标题，只读属性
+     * <p> 示例值：undefined
+     */
     this.title = builder.title;
   }
 
@@ -75,31 +107,86 @@ public class MentionDoc {
 
   public static class Builder {
 
+    /**
+     * 云文档 token
+     * <p> 示例值：doxbc873Y7cXD153gXqb76G1Y9b
+     */
     private String token;
+    /**
+     * 云文档类型
+     * <p> 示例值：22
+     */
     private Integer objType;
+    /**
+     * 云文档链接（需要 url_encode)
+     * <p> 示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b
+     */
     private String url;
+    /**
+     * 文档标题，只读属性
+     * <p> 示例值：undefined
+     */
     private String title;
 
+    /**
+     * 云文档 token
+     * <p> 示例值：doxbc873Y7cXD153gXqb76G1Y9b
+     *
+     * @param token
+     * @return
+     */
     public Builder token(String token) {
       this.token = token;
       return this;
     }
 
+
+    /**
+     * 云文档类型
+     * <p> 示例值：22
+     *
+     * @param objType
+     * @return
+     */
     public Builder objType(Integer objType) {
       this.objType = objType;
       return this;
     }
 
-    public Builder objType(com.lark.oapi.service.docx.v1.enums.MentionObjTypeEnum objType) {
+    /**
+     * 云文档类型
+     * <p> 示例值：22
+     *
+     * @param objType {@link com.lark.oapi.service.docx.v1.enums.MentionDocMentionObjTypeEnum}
+     * @return
+     */
+    public Builder objType(
+        com.lark.oapi.service.docx.v1.enums.MentionDocMentionObjTypeEnum objType) {
       this.objType = objType.getValue();
       return this;
     }
 
+
+    /**
+     * 云文档链接（需要 url_encode)
+     * <p> 示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b
+     *
+     * @param url
+     * @return
+     */
     public Builder url(String url) {
       this.url = url;
       return this;
     }
 
+
+    /**
+     * 文档标题，只读属性
+     * <p> 示例值：undefined
+     *
+     * @param title
+     * @return
+     */
     public Builder title(String title) {
       this.title = title;
       return this;

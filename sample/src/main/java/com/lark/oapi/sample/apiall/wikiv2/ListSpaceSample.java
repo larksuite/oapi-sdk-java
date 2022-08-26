@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.wiki.v2.model.ListSpaceReq;
 import com.lark.oapi.service.wiki.v2.model.ListSpaceResp;
 
-// HTTP PATH: /open-apis/wiki/v2/spaces"
+// GET /open-apis/wiki/v2/spaces
 public class ListSpaceSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,8 +14,8 @@ public class ListSpaceSample {
 
     // 创建请求对象
     ListSpaceReq req = ListSpaceReq.newBuilder()
-        .pageSize(0)
-        .pageToken("")
+        .pageSize(10)
+        .pageToken("1565676577122621")
         .build();
 
     // 发起请求

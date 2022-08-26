@@ -17,8 +17,17 @@ import com.google.gson.annotations.SerializedName;
 
 public class AppAdminUser {
 
+  /**
+   * 管理员类型列表，如果该管理员同时是超级管理员 又是管理员，则同时返回两个角色。 ""super_admin""：超级管理员 ""admin""：管理员
+   * 返回示例：[""super_admin"",""admin""]"
+   * <p> 示例值：["admin","super_admin"]
+   */
   @SerializedName("admin_type")
   private String[] adminType;
+  /**
+   * 反馈用户id，租户内用户的唯一标识 ，ID值与查询参数中的user_id_type对应
+   * <p> 示例值：6865121785549946899
+   */
   @SerializedName("user_id")
   private String userId;
 
@@ -27,7 +36,15 @@ public class AppAdminUser {
   }
 
   public AppAdminUser(Builder builder) {
+    /**
+     * 管理员类型列表，如果该管理员同时是超级管理员 又是管理员，则同时返回两个角色。 ""super_admin""：超级管理员 ""admin""：管理员 返回示例：[""super_admin"",""admin""]"
+     * <p> 示例值：["admin","super_admin"]
+     */
     this.adminType = builder.adminType;
+    /**
+     * 反馈用户id，租户内用户的唯一标识 ，ID值与查询参数中的user_id_type对应
+     * <p> 示例值：6865121785549946899
+     */
     this.userId = builder.userId;
   }
 
@@ -53,14 +70,39 @@ public class AppAdminUser {
 
   public static class Builder {
 
+    /**
+     * 管理员类型列表，如果该管理员同时是超级管理员 又是管理员，则同时返回两个角色。 ""super_admin""：超级管理员 ""admin""：管理员
+     * 返回示例：[""super_admin"",""admin""]"
+     * <p> 示例值：["admin","super_admin"]
+     */
     private String[] adminType;
+    /**
+     * 反馈用户id，租户内用户的唯一标识 ，ID值与查询参数中的user_id_type对应
+     * <p> 示例值：6865121785549946899
+     */
     private String userId;
 
+    /**
+     * 管理员类型列表，如果该管理员同时是超级管理员 又是管理员，则同时返回两个角色。 ""super_admin""：超级管理员 ""admin""：管理员
+     * 返回示例：[""super_admin"",""admin""]"
+     * <p> 示例值：["admin","super_admin"]
+     *
+     * @param adminType
+     * @return
+     */
     public Builder adminType(String[] adminType) {
       this.adminType = adminType;
       return this;
     }
 
+
+    /**
+     * 反馈用户id，租户内用户的唯一标识 ，ID值与查询参数中的user_id_type对应
+     * <p> 示例值：6865121785549946899
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;

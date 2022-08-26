@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class BlockI18nInfo {
 
+  /**
+   * 国际化语言的 key
+   * <p> 示例值：zh_cn
+   */
   @SerializedName("i18n_key")
   private String i18nKey;
+  /**
+   * 名称
+   * <p> 示例值：名称
+   */
   @SerializedName("name")
   private String name;
 
@@ -27,7 +35,15 @@ public class BlockI18nInfo {
   }
 
   public BlockI18nInfo(Builder builder) {
+    /**
+     * 国际化语言的 key
+     * <p> 示例值：zh_cn
+     */
     this.i18nKey = builder.i18nKey;
+    /**
+     * 名称
+     * <p> 示例值：名称
+     */
     this.name = builder.name;
   }
 
@@ -53,19 +69,50 @@ public class BlockI18nInfo {
 
   public static class Builder {
 
+    /**
+     * 国际化语言的 key
+     * <p> 示例值：zh_cn
+     */
     private String i18nKey;
+    /**
+     * 名称
+     * <p> 示例值：名称
+     */
     private String name;
 
+    /**
+     * 国际化语言的 key
+     * <p> 示例值：zh_cn
+     *
+     * @param i18nKey
+     * @return
+     */
     public Builder i18nKey(String i18nKey) {
       this.i18nKey = i18nKey;
       return this;
     }
 
-    public Builder i18nKey(com.lark.oapi.service.application.v6.enums.I18nKeyEnum i18nKey) {
+    /**
+     * 国际化语言的 key
+     * <p> 示例值：zh_cn
+     *
+     * @param i18nKey {@link com.lark.oapi.service.application.v6.enums.BlockI18nInfoI18nKeyEnum}
+     * @return
+     */
+    public Builder i18nKey(
+        com.lark.oapi.service.application.v6.enums.BlockI18nInfoI18nKeyEnum i18nKey) {
       this.i18nKey = i18nKey.getValue();
       return this;
     }
 
+
+    /**
+     * 名称
+     * <p> 示例值：名称
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;

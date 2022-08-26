@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.search.v2.model.ListDataSourceReq;
 import com.lark.oapi.service.search.v2.model.ListDataSourceResp;
 
-// HTTP PATH: /open-apis/search/v2/data_sources"
+// GET /open-apis/search/v2/data_sources
 public class ListDataSourceSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class ListDataSourceSample {
     // 创建请求对象
     ListDataSourceReq req = ListDataSourceReq.newBuilder()
         .view(0)
-        .pageToken("")
+        .pageToken("PxZFma9OIRhdBlT/dOYNiu2Ro8F2WAhcby7OhOijfljZ")
         .pageSize(20)
         .build();
 

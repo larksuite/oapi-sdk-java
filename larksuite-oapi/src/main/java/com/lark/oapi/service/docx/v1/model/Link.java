@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class Link {
 
+  /**
+   * 超链接指向的 url (需要 url_encode)
+   * <p> 示例值：https%3A%2F%2Fopen.feishu.cn%2F
+   */
   @SerializedName("url")
   private String url;
 
@@ -25,6 +29,10 @@ public class Link {
   }
 
   public Link(Builder builder) {
+    /**
+     * 超链接指向的 url (需要 url_encode)
+     * <p> 示例值：https%3A%2F%2Fopen.feishu.cn%2F
+     */
     this.url = builder.url;
   }
 
@@ -42,8 +50,19 @@ public class Link {
 
   public static class Builder {
 
+    /**
+     * 超链接指向的 url (需要 url_encode)
+     * <p> 示例值：https%3A%2F%2Fopen.feishu.cn%2F
+     */
     private String url;
 
+    /**
+     * 超链接指向的 url (需要 url_encode)
+     * <p> 示例值：https%3A%2F%2Fopen.feishu.cn%2F
+     *
+     * @param url
+     * @return
+     */
     public Builder url(String url) {
       this.url = url;
       return this;

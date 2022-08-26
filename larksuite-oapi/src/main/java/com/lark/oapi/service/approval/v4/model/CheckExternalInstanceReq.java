@@ -48,6 +48,12 @@ public class CheckExternalInstanceReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder checkExternalInstanceReqBody(CheckExternalInstanceReqBody body) {
       this.body = body;
       return this;

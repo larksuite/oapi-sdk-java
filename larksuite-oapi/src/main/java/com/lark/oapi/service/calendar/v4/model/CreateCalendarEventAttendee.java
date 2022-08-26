@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateCalendarEventAttendee {
 
+  /**
+   * 新增参与人后的日程所有参与人列表
+   * <p> 示例值：
+   */
   @SerializedName("attendees")
   private CalendarEventAttendee[] attendees;
 

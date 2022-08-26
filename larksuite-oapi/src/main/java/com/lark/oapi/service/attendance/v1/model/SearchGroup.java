@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class SearchGroup {
 
+  /**
+   * 考勤组列表
+   * <p> 示例值：
+   */
   @SerializedName("group_list")
   private GroupMeta[] groupList;
 

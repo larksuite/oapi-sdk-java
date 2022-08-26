@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class ReqView {
 
+  /**
+   * 视图名字
+   * <p> 示例值：表格视图1
+   */
   @SerializedName("view_name")
   private String viewName;
+  /**
+   * 视图类型
+   * <p> 示例值：grid
+   */
   @SerializedName("view_type")
   private String viewType;
 
@@ -27,7 +35,15 @@ public class ReqView {
   }
 
   public ReqView(Builder builder) {
+    /**
+     * 视图名字
+     * <p> 示例值：表格视图1
+     */
     this.viewName = builder.viewName;
+    /**
+     * 视图类型
+     * <p> 示例值：grid
+     */
     this.viewType = builder.viewType;
   }
 
@@ -53,20 +69,50 @@ public class ReqView {
 
   public static class Builder {
 
+    /**
+     * 视图名字
+     * <p> 示例值：表格视图1
+     */
     private String viewName;
+    /**
+     * 视图类型
+     * <p> 示例值：grid
+     */
     private String viewType;
 
+    /**
+     * 视图名字
+     * <p> 示例值：表格视图1
+     *
+     * @param viewName
+     * @return
+     */
     public Builder viewName(String viewName) {
       this.viewName = viewName;
       return this;
     }
 
+
+    /**
+     * 视图类型
+     * <p> 示例值：grid
+     *
+     * @param viewType
+     * @return
+     */
     public Builder viewType(String viewType) {
       this.viewType = viewType;
       return this;
     }
 
-    public Builder viewType(com.lark.oapi.service.bitable.v1.enums.ViewTypeEnum viewType) {
+    /**
+     * 视图类型
+     * <p> 示例值：grid
+     *
+     * @param viewType {@link com.lark.oapi.service.bitable.v1.enums.ReqViewViewTypeEnum}
+     * @return
+     */
+    public Builder viewType(com.lark.oapi.service.bitable.v1.enums.ReqViewViewTypeEnum viewType) {
       this.viewType = viewType.getValue();
       return this;
     }

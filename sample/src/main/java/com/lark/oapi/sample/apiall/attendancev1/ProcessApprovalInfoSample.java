@@ -6,7 +6,7 @@ import com.lark.oapi.service.attendance.v1.model.ProcessApprovalInfoReq;
 import com.lark.oapi.service.attendance.v1.model.ProcessApprovalInfoReqBody;
 import com.lark.oapi.service.attendance.v1.model.ProcessApprovalInfoResp;
 
-// HTTP PATH: /open-apis/attendance/v1/approval_infos/process"
+// POST /open-apis/attendance/v1/approval_infos/process
 public class ProcessApprovalInfoSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,9 +16,9 @@ public class ProcessApprovalInfoSample {
     // 创建请求对象
     ProcessApprovalInfoReq req = ProcessApprovalInfoReq.newBuilder()
         .processApprovalInfoReqBody(ProcessApprovalInfoReqBody.newBuilder()
-            .approvalId("")
+            .approvalId("6737202939523236113")
             .approvalType("remedy")
-            .status(0)
+            .status(4)
             .build())
         .build();
 

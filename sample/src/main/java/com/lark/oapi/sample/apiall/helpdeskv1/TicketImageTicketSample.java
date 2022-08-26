@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.TicketImageTicketReq;
 import com.lark.oapi.service.helpdesk.v1.model.TicketImageTicketResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/ticket_images"
+// GET /open-apis/helpdesk/v1/ticket_images
 public class TicketImageTicketSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,8 +14,8 @@ public class TicketImageTicketSample {
 
     // 创建请求对象
     TicketImageTicketReq req = TicketImageTicketReq.newBuilder()
-        .ticketId("")
-        .msgId("")
+        .ticketId("12345")
+        .msgId("12345")
         .index(0)
         .build();
 

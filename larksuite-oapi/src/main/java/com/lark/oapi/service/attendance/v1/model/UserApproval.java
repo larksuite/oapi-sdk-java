@@ -17,16 +17,40 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserApproval {
 
+  /**
+   * 审批用户 ID
+   * <p> 示例值：abd754f7
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 审批作用日期
+   * <p> 示例值：20210104
+   */
   @SerializedName("date")
   private String date;
+  /**
+   * 外出信息
+   * <p> 示例值：
+   */
   @SerializedName("outs")
   private UserOut[] outs;
+  /**
+   * 请假信息
+   * <p> 示例值：
+   */
   @SerializedName("leaves")
   private UserLeave[] leaves;
+  /**
+   * 加班信息
+   * <p> 示例值：
+   */
   @SerializedName("overtime_works")
   private UserOvertimeWork[] overtimeWorks;
+  /**
+   * 出差信息
+   * <p> 示例值：
+   */
   @SerializedName("trips")
   private UserTrip[] trips;
 
@@ -35,11 +59,35 @@ public class UserApproval {
   }
 
   public UserApproval(Builder builder) {
+    /**
+     * 审批用户 ID
+     * <p> 示例值：abd754f7
+     */
     this.userId = builder.userId;
+    /**
+     * 审批作用日期
+     * <p> 示例值：20210104
+     */
     this.date = builder.date;
+    /**
+     * 外出信息
+     * <p> 示例值：
+     */
     this.outs = builder.outs;
+    /**
+     * 请假信息
+     * <p> 示例值：
+     */
     this.leaves = builder.leaves;
+    /**
+     * 加班信息
+     * <p> 示例值：
+     */
     this.overtimeWorks = builder.overtimeWorks;
+    /**
+     * 出差信息
+     * <p> 示例值：
+     */
     this.trips = builder.trips;
   }
 
@@ -97,38 +145,109 @@ public class UserApproval {
 
   public static class Builder {
 
+    /**
+     * 审批用户 ID
+     * <p> 示例值：abd754f7
+     */
     private String userId;
+    /**
+     * 审批作用日期
+     * <p> 示例值：20210104
+     */
     private String date;
+    /**
+     * 外出信息
+     * <p> 示例值：
+     */
     private UserOut[] outs;
+    /**
+     * 请假信息
+     * <p> 示例值：
+     */
     private UserLeave[] leaves;
+    /**
+     * 加班信息
+     * <p> 示例值：
+     */
     private UserOvertimeWork[] overtimeWorks;
+    /**
+     * 出差信息
+     * <p> 示例值：
+     */
     private UserTrip[] trips;
 
+    /**
+     * 审批用户 ID
+     * <p> 示例值：abd754f7
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 审批作用日期
+     * <p> 示例值：20210104
+     *
+     * @param date
+     * @return
+     */
     public Builder date(String date) {
       this.date = date;
       return this;
     }
 
+
+    /**
+     * 外出信息
+     * <p> 示例值：
+     *
+     * @param outs
+     * @return
+     */
     public Builder outs(UserOut[] outs) {
       this.outs = outs;
       return this;
     }
 
+
+    /**
+     * 请假信息
+     * <p> 示例值：
+     *
+     * @param leaves
+     * @return
+     */
     public Builder leaves(UserLeave[] leaves) {
       this.leaves = leaves;
       return this;
     }
 
+
+    /**
+     * 加班信息
+     * <p> 示例值：
+     *
+     * @param overtimeWorks
+     * @return
+     */
     public Builder overtimeWorks(UserOvertimeWork[] overtimeWorks) {
       this.overtimeWorks = overtimeWorks;
       return this;
     }
 
+
+    /**
+     * 出差信息
+     * <p> 示例值：
+     *
+     * @param trips
+     * @return
+     */
     public Builder trips(UserTrip[] trips) {
       this.trips = trips;
       return this;

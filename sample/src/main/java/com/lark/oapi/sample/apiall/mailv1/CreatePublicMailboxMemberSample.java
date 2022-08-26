@@ -6,7 +6,7 @@ import com.lark.oapi.service.mail.v1.model.CreatePublicMailboxMemberReq;
 import com.lark.oapi.service.mail.v1.model.CreatePublicMailboxMemberResp;
 import com.lark.oapi.service.mail.v1.model.PublicMailboxMember;
 
-// HTTP PATH: /open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members"
+// POST /open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members
 public class CreatePublicMailboxMemberSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class CreatePublicMailboxMemberSample {
 
     // 创建请求对象
     CreatePublicMailboxMemberReq req = CreatePublicMailboxMemberReq.newBuilder()
-        .publicMailboxId("xxxxxxxxxxxxxxx or test_public_mailbox@xxx.xx")
+        .publicMailboxId("xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx")
         .userIdType("user_id")
         .publicMailboxMember(PublicMailboxMember.newBuilder()
             .userId("xxxxxxxxxx")

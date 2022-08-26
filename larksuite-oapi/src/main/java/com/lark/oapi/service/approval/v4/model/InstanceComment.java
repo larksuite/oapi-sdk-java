@@ -17,27 +17,78 @@ import com.google.gson.annotations.SerializedName;
 
 public class InstanceComment {
 
+  /**
+   * 评论 id
+   * <p> 示例值：1234
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * 发表评论用户
+   * <p> 示例值：f7cb567e
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 发表评论用户 open id
+   * <p> 示例值：ou_123456
+   */
   @SerializedName("open_id")
   private String openId;
+  /**
+   * 评论内容
+   * <p> 示例值：ok
+   */
   @SerializedName("comment")
   private String comment;
+  /**
+   * 1564590532967
+   * <p> 示例值：评论时间
+   */
   @SerializedName("create_time")
   private String createTime;
+  /**
+   * 评论附件
+   * <p> 示例值：
+   */
+  @SerializedName("files")
+  private File[] files;
 
   // builder 开始
   public InstanceComment() {
   }
 
   public InstanceComment(Builder builder) {
+    /**
+     * 评论 id
+     * <p> 示例值：1234
+     */
     this.id = builder.id;
+    /**
+     * 发表评论用户
+     * <p> 示例值：f7cb567e
+     */
     this.userId = builder.userId;
+    /**
+     * 发表评论用户 open id
+     * <p> 示例值：ou_123456
+     */
     this.openId = builder.openId;
+    /**
+     * 评论内容
+     * <p> 示例值：ok
+     */
     this.comment = builder.comment;
+    /**
+     * 1564590532967
+     * <p> 示例值：评论时间
+     */
     this.createTime = builder.createTime;
+    /**
+     * 评论附件
+     * <p> 示例值：
+     */
+    this.files = builder.files;
   }
 
   public static Builder newBuilder() {
@@ -84,36 +135,121 @@ public class InstanceComment {
     this.createTime = createTime;
   }
 
+  public File[] getFiles() {
+    return this.files;
+  }
+
+  public void setFiles(File[] files) {
+    this.files = files;
+  }
+
   public static class Builder {
 
+    /**
+     * 评论 id
+     * <p> 示例值：1234
+     */
     private String id;
+    /**
+     * 发表评论用户
+     * <p> 示例值：f7cb567e
+     */
     private String userId;
+    /**
+     * 发表评论用户 open id
+     * <p> 示例值：ou_123456
+     */
     private String openId;
+    /**
+     * 评论内容
+     * <p> 示例值：ok
+     */
     private String comment;
+    /**
+     * 1564590532967
+     * <p> 示例值：评论时间
+     */
     private String createTime;
+    /**
+     * 评论附件
+     * <p> 示例值：
+     */
+    private File[] files;
 
+    /**
+     * 评论 id
+     * <p> 示例值：1234
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 发表评论用户
+     * <p> 示例值：f7cb567e
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 发表评论用户 open id
+     * <p> 示例值：ou_123456
+     *
+     * @param openId
+     * @return
+     */
     public Builder openId(String openId) {
       this.openId = openId;
       return this;
     }
 
+
+    /**
+     * 评论内容
+     * <p> 示例值：ok
+     *
+     * @param comment
+     * @return
+     */
     public Builder comment(String comment) {
       this.comment = comment;
       return this;
     }
 
+
+    /**
+     * 1564590532967
+     * <p> 示例值：评论时间
+     *
+     * @param createTime
+     * @return
+     */
     public Builder createTime(String createTime) {
       this.createTime = createTime;
+      return this;
+    }
+
+
+    /**
+     * 评论附件
+     * <p> 示例值：
+     *
+     * @param files
+     * @return
+     */
+    public Builder files(File[] files) {
+      this.files = files;
       return this;
     }
 

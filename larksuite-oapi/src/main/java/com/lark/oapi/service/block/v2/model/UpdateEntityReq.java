@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class UpdateEntityReq {
 
+  /**
+   * block唯一标识
+   * <p> 示例值：7794641623571830467
+   */
   @Path
   @SerializedName("block_id")
   private String blockId;
@@ -30,6 +34,10 @@ public class UpdateEntityReq {
   }
 
   public UpdateEntityReq(Builder builder) {
+    /**
+     * block唯一标识
+     * <p> 示例值：7794641623571830467
+     */
     this.blockId = builder.blockId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class UpdateEntityReq {
 
   public static class Builder {
 
-    private String blockId;
+    private String blockId; // block唯一标识
     private Entity body;
 
+    /**
+     * block唯一标识
+     * <p> 示例值：7794641623571830467
+     *
+     * @param blockId
+     * @return
+     */
     public Builder blockId(String blockId) {
       this.blockId = blockId;
       return this;
@@ -68,6 +83,12 @@ public class UpdateEntityReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder entity(Entity body) {
       this.body = body;
       return this;

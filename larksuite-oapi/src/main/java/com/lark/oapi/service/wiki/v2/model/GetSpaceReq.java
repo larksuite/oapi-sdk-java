@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class GetSpaceReq {
 
+  /**
+   * 知识空间id
+   * <p> 示例值：6870403571079249922
+   */
   @Path
   @SerializedName("space_id")
   private String spaceId;
@@ -27,6 +31,10 @@ public class GetSpaceReq {
   }
 
   public GetSpaceReq(Builder builder) {
+    /**
+     * 知识空间id
+     * <p> 示例值：6870403571079249922
+     */
     this.spaceId = builder.spaceId;
   }
 
@@ -44,8 +52,15 @@ public class GetSpaceReq {
 
   public static class Builder {
 
-    private String spaceId;
+    private String spaceId; // 知识空间id
 
+    /**
+     * 知识空间id
+     * <p> 示例值：6870403571079249922
+     *
+     * @param spaceId
+     * @return
+     */
     public Builder spaceId(String spaceId) {
       this.spaceId = spaceId;
       return this;

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.docx.v1.model.RawContentDocumentReq;
 import com.lark.oapi.service.docx.v1.model.RawContentDocumentResp;
 
-// HTTP PATH: /open-apis/docx/v1/documents/:document_id/raw_content"
+// GET /open-apis/docx/v1/documents/:document_id/raw_content
 public class RawContentDocumentSample {
 
   public static void main(String arg[]) throws Exception {

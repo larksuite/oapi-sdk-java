@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class PatchGroupReq {
 
+  /**
+   * 用户组ID
+   * <p> 示例值：g187131
+   */
   @Path
   @SerializedName("group_id")
   private String groupId;
@@ -30,6 +34,10 @@ public class PatchGroupReq {
   }
 
   public PatchGroupReq(Builder builder) {
+    /**
+     * 用户组ID
+     * <p> 示例值：g187131
+     */
     this.groupId = builder.groupId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class PatchGroupReq {
 
   public static class Builder {
 
-    private String groupId;
+    private String groupId; // 用户组ID
     private PatchGroupReqBody body;
 
+    /**
+     * 用户组ID
+     * <p> 示例值：g187131
+     *
+     * @param groupId
+     * @return
+     */
     public Builder groupId(String groupId) {
       this.groupId = groupId;
       return this;
@@ -68,6 +83,12 @@ public class PatchGroupReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder patchGroupReqBody(PatchGroupReqBody body) {
       this.body = body;
       return this;

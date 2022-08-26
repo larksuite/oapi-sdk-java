@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.calendar.v4.model.DeleteExchangeBindingReq;
 import com.lark.oapi.service.calendar.v4.model.DeleteExchangeBindingResp;
 
-// HTTP PATH: /open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
+// DELETE /open-apis/calendar/v4/exchange_bindings/:exchange_binding_id
 public class DeleteExchangeBindingSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,8 @@ public class DeleteExchangeBindingSample {
 
     // 创建请求对象
     DeleteExchangeBindingReq req = DeleteExchangeBindingReq.newBuilder()
-        .exchangeBindingId("")
+        .exchangeBindingId(
+            "ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=")
         .build();
 
     // 发起请求

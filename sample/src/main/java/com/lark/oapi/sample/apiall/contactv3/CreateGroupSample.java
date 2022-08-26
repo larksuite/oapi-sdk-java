@@ -6,7 +6,7 @@ import com.lark.oapi.service.contact.v3.model.CreateGroupReq;
 import com.lark.oapi.service.contact.v3.model.CreateGroupReqBody;
 import com.lark.oapi.service.contact.v3.model.CreateGroupResp;
 
-// HTTP PATH: /open-apis/contact/v3/group"
+// POST /open-apis/contact/v3/group
 public class CreateGroupSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,9 +16,9 @@ public class CreateGroupSample {
     // 创建请求对象
     CreateGroupReq req = CreateGroupReq.newBuilder()
         .createGroupReqBody(CreateGroupReqBody.newBuilder()
-            .groupId("")
-            .name("")
-            .description("")
+            .groupId("g122817")
+            .name("IT 外包组")
+            .description("IT服务人员的集合")
             .type(1)
             .build())
         .build();

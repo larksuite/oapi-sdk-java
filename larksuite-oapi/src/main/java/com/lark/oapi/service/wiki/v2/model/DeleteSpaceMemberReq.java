@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DeleteSpaceMemberReq {
 
+  /**
+   * 知识空间id
+   * <p> 示例值：7008061636015554580
+   */
   @Path
   @SerializedName("space_id")
   private String spaceId;
+  /**
+   * 成员id
+   * <p> 示例值：g64fb7g7
+   */
   @Path
   @SerializedName("member_id")
   private String memberId;
@@ -33,7 +41,15 @@ public class DeleteSpaceMemberReq {
   }
 
   public DeleteSpaceMemberReq(Builder builder) {
+    /**
+     * 知识空间id
+     * <p> 示例值：7008061636015554580
+     */
     this.spaceId = builder.spaceId;
+    /**
+     * 成员id
+     * <p> 示例值：g64fb7g7
+     */
     this.memberId = builder.memberId;
     this.body = builder.body;
   }
@@ -68,15 +84,29 @@ public class DeleteSpaceMemberReq {
 
   public static class Builder {
 
-    private String spaceId;
-    private String memberId;
+    private String spaceId; // 知识空间id
+    private String memberId; // 成员id
     private Member body;
 
+    /**
+     * 知识空间id
+     * <p> 示例值：7008061636015554580
+     *
+     * @param spaceId
+     * @return
+     */
     public Builder spaceId(String spaceId) {
       this.spaceId = spaceId;
       return this;
     }
 
+    /**
+     * 成员id
+     * <p> 示例值：g64fb7g7
+     *
+     * @param memberId
+     * @return
+     */
     public Builder memberId(String memberId) {
       this.memberId = memberId;
       return this;
@@ -86,6 +116,12 @@ public class DeleteSpaceMemberReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder member(Member body) {
       this.body = body;
       return this;

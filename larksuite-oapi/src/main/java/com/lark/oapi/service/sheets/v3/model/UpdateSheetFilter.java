@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateSheetFilter {
 
+  /**
+   * 更新筛选条件的列
+   * <p> 示例值：E
+   */
   @SerializedName("col")
   private String col;
+  /**
+   * 筛选条件
+   * <p> 示例值：
+   */
   @SerializedName("condition")
   private Condition condition;
 
@@ -27,7 +35,15 @@ public class UpdateSheetFilter {
   }
 
   public UpdateSheetFilter(Builder builder) {
+    /**
+     * 更新筛选条件的列
+     * <p> 示例值：E
+     */
     this.col = builder.col;
+    /**
+     * 筛选条件
+     * <p> 示例值：
+     */
     this.condition = builder.condition;
   }
 
@@ -53,14 +69,37 @@ public class UpdateSheetFilter {
 
   public static class Builder {
 
+    /**
+     * 更新筛选条件的列
+     * <p> 示例值：E
+     */
     private String col;
+    /**
+     * 筛选条件
+     * <p> 示例值：
+     */
     private Condition condition;
 
+    /**
+     * 更新筛选条件的列
+     * <p> 示例值：E
+     *
+     * @param col
+     * @return
+     */
     public Builder col(String col) {
       this.col = col;
       return this;
     }
 
+
+    /**
+     * 筛选条件
+     * <p> 示例值：
+     *
+     * @param condition
+     * @return
+     */
     public Builder condition(Condition condition) {
       this.condition = condition;
       return this;

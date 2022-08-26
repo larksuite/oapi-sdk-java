@@ -6,7 +6,7 @@ import com.lark.oapi.service.drive.v1.model.CreateFolderFileReq;
 import com.lark.oapi.service.drive.v1.model.CreateFolderFileReqBody;
 import com.lark.oapi.service.drive.v1.model.CreateFolderFileResp;
 
-// HTTP PATH: /open-apis/drive/v1/files/create_folder"
+// POST /open-apis/drive/v1/files/create_folder
 public class CreateFolderFileSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,8 +16,8 @@ public class CreateFolderFileSample {
     // 创建请求对象
     CreateFolderFileReq req = CreateFolderFileReq.newBuilder()
         .createFolderFileReqBody(CreateFolderFileReqBody.newBuilder()
-            .name("")
-            .folderToken("")
+            .name("New Folder")
+            .folderToken("fldbcO1UuPz8VwnpPx5a92abcef")
             .build())
         .build();
 

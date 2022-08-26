@@ -17,20 +17,76 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateFileComment {
 
+  /**
+   * 评论ID
+   * <p> 示例值：
+   */
   @SerializedName("comment_id")
   private String commentId;
+  /**
+   * 用户ID
+   * <p> 示例值：
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 创建时间
+   * <p> 示例值：
+   */
   @SerializedName("create_time")
   private Integer createTime;
+  /**
+   * 更新时间
+   * <p> 示例值：
+   */
   @SerializedName("update_time")
   private Integer updateTime;
+  /**
+   * 是否已解决
+   * <p> 示例值：
+   */
   @SerializedName("is_solved")
   private Boolean isSolved;
+  /**
+   * 解决评论时间
+   * <p> 示例值：
+   */
   @SerializedName("solved_time")
   private Integer solvedTime;
+  /**
+   * 解决评论者的用户ID
+   * <p> 示例值：
+   */
   @SerializedName("solver_user_id")
   private String solverUserId;
+  /**
+   * 是否有更多回复
+   * <p> 示例值：
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
+  /**
+   * 回复分页标记
+   * <p> 示例值：
+   */
+  @SerializedName("page_token")
+  private String pageToken;
+  /**
+   * 是否是全文评论
+   * <p> 示例值：
+   */
+  @SerializedName("is_whole")
+  private Boolean isWhole;
+  /**
+   * 如果是局部评论，引用字段
+   * <p> 示例值：
+   */
+  @SerializedName("quote")
+  private String quote;
+  /**
+   * 评论里的回复列表
+   * <p> 示例值：
+   */
   @SerializedName("reply_list")
   private ReplyList replyList;
 
@@ -88,6 +144,38 @@ public class CreateFileComment {
 
   public void setSolverUserId(String solverUserId) {
     this.solverUserId = solverUserId;
+  }
+
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Boolean getIsWhole() {
+    return this.isWhole;
+  }
+
+  public void setIsWhole(Boolean isWhole) {
+    this.isWhole = isWhole;
+  }
+
+  public String getQuote() {
+    return this.quote;
+  }
+
+  public void setQuote(String quote) {
+    this.quote = quote;
   }
 
   public ReplyList getReplyList() {

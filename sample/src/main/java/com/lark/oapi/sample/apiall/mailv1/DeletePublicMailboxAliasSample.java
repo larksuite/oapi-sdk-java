@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.mail.v1.model.DeletePublicMailboxAliasReq;
 import com.lark.oapi.service.mail.v1.model.DeletePublicMailboxAliasResp;
 
-// HTTP PATH: /open-apis/mail/v1/public_mailboxes/:public_mailbox_id/aliases/:alias_id"
+// DELETE /open-apis/mail/v1/public_mailboxes/:public_mailbox_id/aliases/:alias_id
 public class DeletePublicMailboxAliasSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,8 +14,8 @@ public class DeletePublicMailboxAliasSample {
 
     // 创建请求对象
     DeletePublicMailboxAliasReq req = DeletePublicMailboxAliasReq.newBuilder()
-        .publicMailboxId("")
-        .aliasId("")
+        .publicMailboxId("xxxxxx 或 xxx@xx.xxx")
+        .aliasId("xxx@xx.xxx")
         .build();
 
     // 发起请求

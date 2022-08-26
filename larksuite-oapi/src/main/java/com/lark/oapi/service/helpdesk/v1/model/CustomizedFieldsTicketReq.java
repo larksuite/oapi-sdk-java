@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Query;
 
 public class CustomizedFieldsTicketReq {
 
+  /**
+   * visible only
+   * <p> 示例值：true
+   */
   @Query
   @SerializedName("visible_only")
   private Boolean visibleOnly;
@@ -27,6 +31,10 @@ public class CustomizedFieldsTicketReq {
   }
 
   public CustomizedFieldsTicketReq(Builder builder) {
+    /**
+     * visible only
+     * <p> 示例值：true
+     */
     this.visibleOnly = builder.visibleOnly;
   }
 
@@ -44,8 +52,16 @@ public class CustomizedFieldsTicketReq {
 
   public static class Builder {
 
-    private Boolean visibleOnly;
+    private Boolean visibleOnly; // visible only
 
+
+    /**
+     * visible only
+     * <p> 示例值：true
+     *
+     * @param visibleOnly
+     * @return
+     */
     public Builder visibleOnly(Boolean visibleOnly) {
       this.visibleOnly = visibleOnly;
       return this;

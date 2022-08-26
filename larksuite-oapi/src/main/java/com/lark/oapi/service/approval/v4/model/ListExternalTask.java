@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListExternalTask {
 
+  /**
+   * 返回数据
+   * <p> 示例值：
+   */
   @SerializedName("data")
   private ExternalTaskList[] data;
+  /**
+   * 翻页 Token
+   * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 是否有更多任务可供拉取
+   * <p> 示例值：false
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
 

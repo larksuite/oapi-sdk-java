@@ -17,24 +17,64 @@ import com.google.gson.annotations.SerializedName;
 
 public class InstanceSearch {
 
+  /**
+   * 根据x_user_type填写用户 id
+   * <p> 示例值：lwiu098wj
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 审批定义 code
+   * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942
+   */
   @SerializedName("approval_code")
   private String approvalCode;
+  /**
+   * 审批实例 code
+   * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
+   */
   @SerializedName("instance_code")
   private String instanceCode;
+  /**
+   * 审批实例第三方 id 注：和 approval_code 取并集
+   * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976
+   */
   @SerializedName("instance_external_id")
   private String instanceExternalId;
+  /**
+   * 审批定义分组第三方 id 注：和 instance_code 取并集
+   * <p> 示例值：1234567
+   */
   @SerializedName("group_external_id")
   private String groupExternalId;
+  /**
+   * 审批实例标题（只有第三方审批有）
+   * <p> 示例值：test
+   */
   @SerializedName("instance_title")
   private String instanceTitle;
+  /**
+   * 审批实例状态，注：若不设置，查询全部状态 若不在集合中，报错
+   * <p> 示例值：PENDING
+   */
   @SerializedName("instance_status")
   private String instanceStatus;
+  /**
+   * 实例查询开始时间（unix毫秒时间戳）
+   * <p> 示例值：1547654251506
+   */
   @SerializedName("instance_start_time_from")
   private String instanceStartTimeFrom;
+  /**
+   * 实例查询结束时间 (unix毫秒时间戳)
+   * <p> 示例值：1547654251506
+   */
   @SerializedName("instance_start_time_to")
   private String instanceStartTimeTo;
+  /**
+   * 地区
+   * <p> 示例值：zh-CN
+   */
   @SerializedName("locale")
   private String locale;
 
@@ -43,15 +83,55 @@ public class InstanceSearch {
   }
 
   public InstanceSearch(Builder builder) {
+    /**
+     * 根据x_user_type填写用户 id
+     * <p> 示例值：lwiu098wj
+     */
     this.userId = builder.userId;
+    /**
+     * 审批定义 code
+     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942
+     */
     this.approvalCode = builder.approvalCode;
+    /**
+     * 审批实例 code
+     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
+     */
     this.instanceCode = builder.instanceCode;
+    /**
+     * 审批实例第三方 id 注：和 approval_code 取并集
+     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976
+     */
     this.instanceExternalId = builder.instanceExternalId;
+    /**
+     * 审批定义分组第三方 id 注：和 instance_code 取并集
+     * <p> 示例值：1234567
+     */
     this.groupExternalId = builder.groupExternalId;
+    /**
+     * 审批实例标题（只有第三方审批有）
+     * <p> 示例值：test
+     */
     this.instanceTitle = builder.instanceTitle;
+    /**
+     * 审批实例状态，注：若不设置，查询全部状态 若不在集合中，报错
+     * <p> 示例值：PENDING
+     */
     this.instanceStatus = builder.instanceStatus;
+    /**
+     * 实例查询开始时间（unix毫秒时间戳）
+     * <p> 示例值：1547654251506
+     */
     this.instanceStartTimeFrom = builder.instanceStartTimeFrom;
+    /**
+     * 实例查询结束时间 (unix毫秒时间戳)
+     * <p> 示例值：1547654251506
+     */
     this.instanceStartTimeTo = builder.instanceStartTimeTo;
+    /**
+     * 地区
+     * <p> 示例值：zh-CN
+     */
     this.locale = builder.locale;
   }
 
@@ -141,74 +221,207 @@ public class InstanceSearch {
 
   public static class Builder {
 
+    /**
+     * 根据x_user_type填写用户 id
+     * <p> 示例值：lwiu098wj
+     */
     private String userId;
+    /**
+     * 审批定义 code
+     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942
+     */
     private String approvalCode;
+    /**
+     * 审批实例 code
+     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
+     */
     private String instanceCode;
+    /**
+     * 审批实例第三方 id 注：和 approval_code 取并集
+     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976
+     */
     private String instanceExternalId;
+    /**
+     * 审批定义分组第三方 id 注：和 instance_code 取并集
+     * <p> 示例值：1234567
+     */
     private String groupExternalId;
+    /**
+     * 审批实例标题（只有第三方审批有）
+     * <p> 示例值：test
+     */
     private String instanceTitle;
+    /**
+     * 审批实例状态，注：若不设置，查询全部状态 若不在集合中，报错
+     * <p> 示例值：PENDING
+     */
     private String instanceStatus;
+    /**
+     * 实例查询开始时间（unix毫秒时间戳）
+     * <p> 示例值：1547654251506
+     */
     private String instanceStartTimeFrom;
+    /**
+     * 实例查询结束时间 (unix毫秒时间戳)
+     * <p> 示例值：1547654251506
+     */
     private String instanceStartTimeTo;
+    /**
+     * 地区
+     * <p> 示例值：zh-CN
+     */
     private String locale;
 
+    /**
+     * 根据x_user_type填写用户 id
+     * <p> 示例值：lwiu098wj
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 审批定义 code
+     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942
+     *
+     * @param approvalCode
+     * @return
+     */
     public Builder approvalCode(String approvalCode) {
       this.approvalCode = approvalCode;
       return this;
     }
 
+
+    /**
+     * 审批实例 code
+     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
+     *
+     * @param instanceCode
+     * @return
+     */
     public Builder instanceCode(String instanceCode) {
       this.instanceCode = instanceCode;
       return this;
     }
 
+
+    /**
+     * 审批实例第三方 id 注：和 approval_code 取并集
+     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976
+     *
+     * @param instanceExternalId
+     * @return
+     */
     public Builder instanceExternalId(String instanceExternalId) {
       this.instanceExternalId = instanceExternalId;
       return this;
     }
 
+
+    /**
+     * 审批定义分组第三方 id 注：和 instance_code 取并集
+     * <p> 示例值：1234567
+     *
+     * @param groupExternalId
+     * @return
+     */
     public Builder groupExternalId(String groupExternalId) {
       this.groupExternalId = groupExternalId;
       return this;
     }
 
+
+    /**
+     * 审批实例标题（只有第三方审批有）
+     * <p> 示例值：test
+     *
+     * @param instanceTitle
+     * @return
+     */
     public Builder instanceTitle(String instanceTitle) {
       this.instanceTitle = instanceTitle;
       return this;
     }
 
+
+    /**
+     * 审批实例状态，注：若不设置，查询全部状态 若不在集合中，报错
+     * <p> 示例值：PENDING
+     *
+     * @param instanceStatus
+     * @return
+     */
     public Builder instanceStatus(String instanceStatus) {
       this.instanceStatus = instanceStatus;
       return this;
     }
 
+    /**
+     * 审批实例状态，注：若不设置，查询全部状态 若不在集合中，报错
+     * <p> 示例值：PENDING
+     *
+     * @param instanceStatus {@link com.lark.oapi.service.approval.v4.enums.InstanceSearchInstanceStatusEnum}
+     * @return
+     */
     public Builder instanceStatus(
-        com.lark.oapi.service.approval.v4.enums.InstanceStatusEnum instanceStatus) {
+        com.lark.oapi.service.approval.v4.enums.InstanceSearchInstanceStatusEnum instanceStatus) {
       this.instanceStatus = instanceStatus.getValue();
       return this;
     }
 
+
+    /**
+     * 实例查询开始时间（unix毫秒时间戳）
+     * <p> 示例值：1547654251506
+     *
+     * @param instanceStartTimeFrom
+     * @return
+     */
     public Builder instanceStartTimeFrom(String instanceStartTimeFrom) {
       this.instanceStartTimeFrom = instanceStartTimeFrom;
       return this;
     }
 
+
+    /**
+     * 实例查询结束时间 (unix毫秒时间戳)
+     * <p> 示例值：1547654251506
+     *
+     * @param instanceStartTimeTo
+     * @return
+     */
     public Builder instanceStartTimeTo(String instanceStartTimeTo) {
       this.instanceStartTimeTo = instanceStartTimeTo;
       return this;
     }
 
+
+    /**
+     * 地区
+     * <p> 示例值：zh-CN
+     *
+     * @param locale
+     * @return
+     */
     public Builder locale(String locale) {
       this.locale = locale;
       return this;
     }
 
-    public Builder locale(com.lark.oapi.service.approval.v4.enums.LocaleEnum locale) {
+    /**
+     * 地区
+     * <p> 示例值：zh-CN
+     *
+     * @param locale {@link com.lark.oapi.service.approval.v4.enums.InstanceSearchLocaleEnum}
+     * @return
+     */
+    public Builder locale(com.lark.oapi.service.approval.v4.enums.InstanceSearchLocaleEnum locale) {
       this.locale = locale.getValue();
       return this;
     }

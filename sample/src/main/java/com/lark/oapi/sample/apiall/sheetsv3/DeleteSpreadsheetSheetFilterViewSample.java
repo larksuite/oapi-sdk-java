@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.sheets.v3.model.DeleteSpreadsheetSheetFilterViewReq;
 import com.lark.oapi.service.sheets.v3.model.DeleteSpreadsheetSheetFilterViewResp;
 
-// HTTP PATH: /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
+// DELETE /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id
 public class DeleteSpreadsheetSheetFilterViewSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,9 +14,9 @@ public class DeleteSpreadsheetSheetFilterViewSample {
 
     // 创建请求对象
     DeleteSpreadsheetSheetFilterViewReq req = DeleteSpreadsheetSheetFilterViewReq.newBuilder()
-        .spreadsheetToken("")
-        .sheetId("")
-        .filterViewId("")
+        .spreadsheetToken("shtcnmBA*****yGehy8")
+        .sheetId("0b**12")
+        .filterViewId("pH9hbVcCXA")
         .build();
 
     // 发起请求

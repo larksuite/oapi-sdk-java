@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListUnit {
 
+  /**
+   * 单位列表
+   * <p> 示例值：
+   */
   @SerializedName("unitlist")
   private Unit[] unitlist;
+  /**
+   * 是否还有分页数据
+   * <p> 示例值：true
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 分页下次调用的page_token值
+   * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBudfdagatagdd=
+   */
   @SerializedName("page_token")
   private String pageToken;
 

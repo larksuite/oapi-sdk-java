@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateSpreadsheet {
 
+  /**
+   * 表格
+   * <p> 示例值：
+   */
   @SerializedName("spreadsheet")
   private Spreadsheet spreadsheet;
 

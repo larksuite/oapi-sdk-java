@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListEmployee {
 
+  /**
+   * 员工列表
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private Employee[] items;
+  /**
+   * 下次请求需要带上的分页标记
+   * <p> 示例值：10
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 是否有下一页数据
+   * <p> 示例值：true
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
 

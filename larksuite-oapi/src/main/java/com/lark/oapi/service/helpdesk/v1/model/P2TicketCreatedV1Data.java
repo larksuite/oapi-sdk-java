@@ -17,30 +17,81 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2TicketCreatedV1Data {
 
+  /**
+   * ticket id
+   * <p> 示例值：
+   */
   @SerializedName("ticket_id")
   private String ticketId;
+  /**
+   * helpdesk id
+   * <p> 示例值：
+   */
   @SerializedName("helpdesk_id")
   private String helpdeskId;
+  /**
+   * guest of this ticket
+   * <p> 示例值：
+   */
   @SerializedName("guest")
   private TicketUserEvent guest;
+  /**
+   * ticket stage
+   * <p> 示例值：
+   */
   @SerializedName("stage")
   private Integer stage;
+  /**
+   * ticket status
+   * <p> 示例值：
+   */
   @SerializedName("status")
   private Integer status;
+  /**
+   * ticket score
+   * <p> 示例值：
+   */
   @SerializedName("score")
   private Integer score;
+  /**
+   * the time when the ticket is created
+   * <p> 示例值：
+   */
   @SerializedName("created_at")
   private Integer createdAt;
+  /**
+   * the time when the ticket is updated
+   * <p> 示例值：
+   */
   @SerializedName("updated_at")
   private Integer updatedAt;
+  /**
+   * the time when the ticket is closed
+   * <p> 示例值：
+   */
   @SerializedName("closed_at")
   private Integer closedAt;
+  /**
+   * the ticket channel
+   * <p> 示例值：
+   */
   @SerializedName("channel")
   private Integer channel;
+  /**
+   * if ticket is solved
+   * <p> 示例值：
+   */
   @SerializedName("solve")
   private Integer solve;
+  /**
+   * ticket customized fields
+   * <p> 示例值：
+   */
   @SerializedName("customized_fields")
   private CustomizedFieldDisplayItem[] customizedFields;
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("chat_id")
   private String chatId;
 

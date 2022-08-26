@@ -19,12 +19,24 @@ import com.lark.oapi.core.annotation.Query;
 
 public class ListTaskReminderReq {
 
+  /**
+   * 分页大小
+   * <p> 示例值：50
+   */
   @Query
   @SerializedName("page_size")
   private Integer pageSize;
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   * <p> 示例值：「填写上次返回的page_token」
+   */
   @Query
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 任务 ID
+   * <p> 示例值：0d38e26e-190a-49e9-93a2-35067763ed1f
+   */
   @Path
   @SerializedName("task_id")
   private String taskId;
@@ -34,8 +46,20 @@ public class ListTaskReminderReq {
   }
 
   public ListTaskReminderReq(Builder builder) {
+    /**
+     * 分页大小
+     * <p> 示例值：50
+     */
     this.pageSize = builder.pageSize;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：「填写上次返回的page_token」
+     */
     this.pageToken = builder.pageToken;
+    /**
+     * 任务 ID
+     * <p> 示例值：0d38e26e-190a-49e9-93a2-35067763ed1f
+     */
     this.taskId = builder.taskId;
   }
 
@@ -69,20 +93,41 @@ public class ListTaskReminderReq {
 
   public static class Builder {
 
-    private Integer pageSize;
-    private String pageToken;
-    private String taskId;
+    private Integer pageSize; // 分页大小
+    private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+    private String taskId; // 任务 ID
 
+    /**
+     * 分页大小
+     * <p> 示例值：50
+     *
+     * @param pageSize
+     * @return
+     */
     public Builder pageSize(Integer pageSize) {
       this.pageSize = pageSize;
       return this;
     }
 
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：「填写上次返回的page_token」
+     *
+     * @param pageToken
+     * @return
+     */
     public Builder pageToken(String pageToken) {
       this.pageToken = pageToken;
       return this;
     }
 
+    /**
+     * 任务 ID
+     * <p> 示例值：0d38e26e-190a-49e9-93a2-35067763ed1f
+     *
+     * @param taskId
+     * @return
+     */
     public Builder taskId(String taskId) {
       this.taskId = taskId;
       return this;

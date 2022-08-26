@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GridColumn {
 
+  /**
+   * 当前分栏列占整个分栏的比例
+   * <p> 示例值：50
+   */
   @SerializedName("width_ratio")
   private Integer widthRatio;
 
@@ -25,6 +29,10 @@ public class GridColumn {
   }
 
   public GridColumn(Builder builder) {
+    /**
+     * 当前分栏列占整个分栏的比例
+     * <p> 示例值：50
+     */
     this.widthRatio = builder.widthRatio;
   }
 
@@ -42,8 +50,19 @@ public class GridColumn {
 
   public static class Builder {
 
+    /**
+     * 当前分栏列占整个分栏的比例
+     * <p> 示例值：50
+     */
     private Integer widthRatio;
 
+    /**
+     * 当前分栏列占整个分栏的比例
+     * <p> 示例值：50
+     *
+     * @param widthRatio
+     * @return
+     */
     public Builder widthRatio(Integer widthRatio) {
       this.widthRatio = widthRatio;
       return this;

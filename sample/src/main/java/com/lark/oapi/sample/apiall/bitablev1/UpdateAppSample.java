@@ -6,7 +6,7 @@ import com.lark.oapi.service.bitable.v1.model.UpdateAppReq;
 import com.lark.oapi.service.bitable.v1.model.UpdateAppReqBody;
 import com.lark.oapi.service.bitable.v1.model.UpdateAppResp;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token"
+// PUT /open-apis/bitable/v1/apps/:app_token
 public class UpdateAppSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,9 +15,9 @@ public class UpdateAppSample {
 
     // 创建请求对象
     UpdateAppReq req = UpdateAppReq.newBuilder()
-        .appToken("")
+        .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
         .updateAppReqBody(UpdateAppReqBody.newBuilder()
-            .name("bitable1")
+            .name("新的多维表格名字")
             .isAdvanced(false)
             .build())
         .build();

@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class CancelApproveNotificationReq {
 
+  /**
+   * 唯一ID
+   * <p> 示例值：6981801914270744596
+   */
   @Path
   @SerializedName("notification_id")
   private String notificationId;
@@ -27,6 +31,10 @@ public class CancelApproveNotificationReq {
   }
 
   public CancelApproveNotificationReq(Builder builder) {
+    /**
+     * 唯一ID
+     * <p> 示例值：6981801914270744596
+     */
     this.notificationId = builder.notificationId;
   }
 
@@ -44,8 +52,15 @@ public class CancelApproveNotificationReq {
 
   public static class Builder {
 
-    private String notificationId;
+    private String notificationId; // 唯一ID
 
+    /**
+     * 唯一ID
+     * <p> 示例值：6981801914270744596
+     *
+     * @param notificationId
+     * @return
+     */
     public Builder notificationId(String notificationId) {
       this.notificationId = notificationId;
       return this;

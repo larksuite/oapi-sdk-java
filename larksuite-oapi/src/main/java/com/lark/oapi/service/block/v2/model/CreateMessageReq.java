@@ -48,6 +48,12 @@ public class CreateMessageReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder message(Message body) {
       this.body = body;
       return this;

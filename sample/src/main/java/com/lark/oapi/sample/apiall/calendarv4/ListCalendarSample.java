@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.calendar.v4.model.ListCalendarReq;
 import com.lark.oapi.service.calendar.v4.model.ListCalendarResp;
 
-// HTTP PATH: /open-apis/calendar/v4/calendars"
+// GET /open-apis/calendar/v4/calendars
 public class ListCalendarSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,8 +15,8 @@ public class ListCalendarSample {
     // 创建请求对象
     ListCalendarReq req = ListCalendarReq.newBuilder()
         .pageSize(500)
-        .pageToken("")
-        .syncToken("")
+        .pageToken("ListCalendarsPageToken_xxx")
+        .syncToken("ListCalendarsSyncToken_xxx")
         .build();
 
     // 发起请求

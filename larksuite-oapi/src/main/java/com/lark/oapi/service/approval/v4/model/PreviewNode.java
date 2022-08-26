@@ -17,24 +17,64 @@ import com.google.gson.annotations.SerializedName;
 
 public class PreviewNode {
 
+  /**
+   * 节点id
+   * <p> 示例值：
+   */
   @SerializedName("node_id")
   private String nodeId;
+  /**
+   * 节点名称
+   * <p> 示例值：
+   */
   @SerializedName("node_name")
   private String nodeName;
+  /**
+   * 节点类型 “AND":会签  “OR”:或签
+   * <p> 示例值：
+   */
   @SerializedName("node_type")
   private String nodeType;
+  /**
+   * 节点描述
+   * <p> 示例值：
+   */
   @SerializedName("comments")
   private String[] comments;
+  /**
+   * 租户节点id
+   * <p> 示例值：
+   */
   @SerializedName("custom_node_id")
   private String customNodeId;
+  /**
+   * 审批人id列表
+   * <p> 示例值：
+   */
   @SerializedName("user_id_list")
   private String[] userIdList;
+  /**
+   * 节点结束抄送人id列表
+   * <p> 示例值：
+   */
   @SerializedName("end_cc_id_list")
   private String[] endCcIdList;
+  /**
+   * 审批人是否为空
+   * <p> 示例值：
+   */
   @SerializedName("is_empty_logic")
   private Boolean isEmptyLogic;
+  /**
+   * 是否是发起人自选类型
+   * <p> 示例值：
+   */
   @SerializedName("is_approver_type_free")
   private Boolean isApproverTypeFree;
+  /**
+   * 是否包含抄送人自选类型
+   * <p> 示例值：
+   */
   @SerializedName("has_cc_type_free")
   private Boolean hasCcTypeFree;
 
@@ -43,15 +83,55 @@ public class PreviewNode {
   }
 
   public PreviewNode(Builder builder) {
+    /**
+     * 节点id
+     * <p> 示例值：
+     */
     this.nodeId = builder.nodeId;
+    /**
+     * 节点名称
+     * <p> 示例值：
+     */
     this.nodeName = builder.nodeName;
+    /**
+     * 节点类型 “AND":会签  “OR”:或签
+     * <p> 示例值：
+     */
     this.nodeType = builder.nodeType;
+    /**
+     * 节点描述
+     * <p> 示例值：
+     */
     this.comments = builder.comments;
+    /**
+     * 租户节点id
+     * <p> 示例值：
+     */
     this.customNodeId = builder.customNodeId;
+    /**
+     * 审批人id列表
+     * <p> 示例值：
+     */
     this.userIdList = builder.userIdList;
+    /**
+     * 节点结束抄送人id列表
+     * <p> 示例值：
+     */
     this.endCcIdList = builder.endCcIdList;
+    /**
+     * 审批人是否为空
+     * <p> 示例值：
+     */
     this.isEmptyLogic = builder.isEmptyLogic;
+    /**
+     * 是否是发起人自选类型
+     * <p> 示例值：
+     */
     this.isApproverTypeFree = builder.isApproverTypeFree;
+    /**
+     * 是否包含抄送人自选类型
+     * <p> 示例值：
+     */
     this.hasCcTypeFree = builder.hasCcTypeFree;
   }
 
@@ -141,62 +221,181 @@ public class PreviewNode {
 
   public static class Builder {
 
+    /**
+     * 节点id
+     * <p> 示例值：
+     */
     private String nodeId;
+    /**
+     * 节点名称
+     * <p> 示例值：
+     */
     private String nodeName;
+    /**
+     * 节点类型 “AND":会签  “OR”:或签
+     * <p> 示例值：
+     */
     private String nodeType;
+    /**
+     * 节点描述
+     * <p> 示例值：
+     */
     private String[] comments;
+    /**
+     * 租户节点id
+     * <p> 示例值：
+     */
     private String customNodeId;
+    /**
+     * 审批人id列表
+     * <p> 示例值：
+     */
     private String[] userIdList;
+    /**
+     * 节点结束抄送人id列表
+     * <p> 示例值：
+     */
     private String[] endCcIdList;
+    /**
+     * 审批人是否为空
+     * <p> 示例值：
+     */
     private Boolean isEmptyLogic;
+    /**
+     * 是否是发起人自选类型
+     * <p> 示例值：
+     */
     private Boolean isApproverTypeFree;
+    /**
+     * 是否包含抄送人自选类型
+     * <p> 示例值：
+     */
     private Boolean hasCcTypeFree;
 
+    /**
+     * 节点id
+     * <p> 示例值：
+     *
+     * @param nodeId
+     * @return
+     */
     public Builder nodeId(String nodeId) {
       this.nodeId = nodeId;
       return this;
     }
 
+
+    /**
+     * 节点名称
+     * <p> 示例值：
+     *
+     * @param nodeName
+     * @return
+     */
     public Builder nodeName(String nodeName) {
       this.nodeName = nodeName;
       return this;
     }
 
+
+    /**
+     * 节点类型 “AND":会签  “OR”:或签
+     * <p> 示例值：
+     *
+     * @param nodeType
+     * @return
+     */
     public Builder nodeType(String nodeType) {
       this.nodeType = nodeType;
       return this;
     }
 
+
+    /**
+     * 节点描述
+     * <p> 示例值：
+     *
+     * @param comments
+     * @return
+     */
     public Builder comments(String[] comments) {
       this.comments = comments;
       return this;
     }
 
+
+    /**
+     * 租户节点id
+     * <p> 示例值：
+     *
+     * @param customNodeId
+     * @return
+     */
     public Builder customNodeId(String customNodeId) {
       this.customNodeId = customNodeId;
       return this;
     }
 
+
+    /**
+     * 审批人id列表
+     * <p> 示例值：
+     *
+     * @param userIdList
+     * @return
+     */
     public Builder userIdList(String[] userIdList) {
       this.userIdList = userIdList;
       return this;
     }
 
+
+    /**
+     * 节点结束抄送人id列表
+     * <p> 示例值：
+     *
+     * @param endCcIdList
+     * @return
+     */
     public Builder endCcIdList(String[] endCcIdList) {
       this.endCcIdList = endCcIdList;
       return this;
     }
 
+
+    /**
+     * 审批人是否为空
+     * <p> 示例值：
+     *
+     * @param isEmptyLogic
+     * @return
+     */
     public Builder isEmptyLogic(Boolean isEmptyLogic) {
       this.isEmptyLogic = isEmptyLogic;
       return this;
     }
 
+
+    /**
+     * 是否是发起人自选类型
+     * <p> 示例值：
+     *
+     * @param isApproverTypeFree
+     * @return
+     */
     public Builder isApproverTypeFree(Boolean isApproverTypeFree) {
       this.isApproverTypeFree = isApproverTypeFree;
       return this;
     }
 
+
+    /**
+     * 是否包含抄送人自选类型
+     * <p> 示例值：
+     *
+     * @param hasCcTypeFree
+     * @return
+     */
     public Builder hasCcTypeFree(Boolean hasCcTypeFree) {
       this.hasCcTypeFree = hasCcTypeFree;
       return this;

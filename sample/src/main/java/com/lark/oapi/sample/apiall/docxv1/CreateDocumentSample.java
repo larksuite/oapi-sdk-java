@@ -6,7 +6,7 @@ import com.lark.oapi.service.docx.v1.model.CreateDocumentReq;
 import com.lark.oapi.service.docx.v1.model.CreateDocumentReqBody;
 import com.lark.oapi.service.docx.v1.model.CreateDocumentResp;
 
-// HTTP PATH: /open-apis/docx/v1/documents"
+// POST /open-apis/docx/v1/documents
 public class CreateDocumentSample {
 
   public static void main(String arg[]) throws Exception {

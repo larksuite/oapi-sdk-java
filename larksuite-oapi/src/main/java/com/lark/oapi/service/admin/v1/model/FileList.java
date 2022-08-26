@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class FileList {
 
+  /**
+   * 文档token
+   * <p> 示例值：
+   */
   @SerializedName("files")
   private File[] files;
 
@@ -25,6 +29,10 @@ public class FileList {
   }
 
   public FileList(Builder builder) {
+    /**
+     * 文档token
+     * <p> 示例值：
+     */
     this.files = builder.files;
   }
 
@@ -42,8 +50,19 @@ public class FileList {
 
   public static class Builder {
 
+    /**
+     * 文档token
+     * <p> 示例值：
+     */
     private File[] files;
 
+    /**
+     * 文档token
+     * <p> 示例值：
+     *
+     * @param files
+     * @return
+     */
     public Builder files(File[] files) {
       this.files = files;
       return this;

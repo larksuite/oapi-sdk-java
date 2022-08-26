@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.wiki.v2.model.ListSpaceNodeReq;
 import com.lark.oapi.service.wiki.v2.model.ListSpaceNodeResp;
 
-// HTTP PATH: /open-apis/wiki/v2/spaces/:space_id/nodes"
+// GET /open-apis/wiki/v2/spaces/:space_id/nodes
 public class ListSpaceNodeSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,10 +14,10 @@ public class ListSpaceNodeSample {
 
     // 创建请求对象
     ListSpaceNodeReq req = ListSpaceNodeReq.newBuilder()
-        .spaceId("")
-        .pageSize(0)
-        .pageToken("")
-        .parentNodeToken("")
+        .spaceId("6946843325487906839")
+        .pageSize(10)
+        .pageToken("6946843325487456878")
+        .parentNodeToken("wikcnKQ1k3pcuo5uSK4t8VN6kVf")
         .build();
 
     // 发起请求

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetMeetingRecording {
 
+  /**
+   * 录制文件数据
+   * <p> 示例值：
+   */
   @SerializedName("recording")
   private MeetingRecording recording;
 

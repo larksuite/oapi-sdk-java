@@ -7,7 +7,7 @@ import com.lark.oapi.service.helpdesk.v1.model.CreateFaqReqBody;
 import com.lark.oapi.service.helpdesk.v1.model.CreateFaqResp;
 import com.lark.oapi.service.helpdesk.v1.model.FaqUpdateInfo;
 
-// HTTP PATH: /open-apis/helpdesk/v1/faqs"
+// POST /open-apis/helpdesk/v1/faqs
 public class CreateFaqSample {
 
   public static void main(String arg[]) throws Exception {

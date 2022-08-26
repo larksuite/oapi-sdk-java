@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DeleteTabsChatTabReq {
 
+  /**
+   * 群ID
+   * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+   */
   @Path
   @SerializedName("chat_id")
   private String chatId;
@@ -30,6 +34,10 @@ public class DeleteTabsChatTabReq {
   }
 
   public DeleteTabsChatTabReq(Builder builder) {
+    /**
+     * 群ID
+     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+     */
     this.chatId = builder.chatId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class DeleteTabsChatTabReq {
 
   public static class Builder {
 
-    private String chatId;
+    private String chatId; // 群ID
     private DeleteTabsChatTabReqBody body;
 
+    /**
+     * 群ID
+     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+     *
+     * @param chatId
+     * @return
+     */
     public Builder chatId(String chatId) {
       this.chatId = chatId;
       return this;
@@ -68,6 +83,12 @@ public class DeleteTabsChatTabReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder deleteTabsChatTabReqBody(DeleteTabsChatTabReqBody body) {
       this.body = body;
       return this;

@@ -85,26 +85,56 @@ public class SheetsService {
     this.spreadsheetSheetFloatImage = new SpreadsheetSheetFloatImage(config);
   }
 
+  /**
+   * 表格
+   *
+   * @return
+   */
   public Spreadsheet spreadsheet() {
     return spreadsheet;
   }
 
+  /**
+   * 工作表
+   *
+   * @return
+   */
   public SpreadsheetSheet spreadsheetSheet() {
     return spreadsheetSheet;
   }
 
+  /**
+   * 筛选
+   *
+   * @return
+   */
   public SpreadsheetSheetFilter spreadsheetSheetFilter() {
     return spreadsheetSheetFilter;
   }
 
+  /**
+   * 筛选视图
+   *
+   * @return
+   */
   public SpreadsheetSheetFilterView spreadsheetSheetFilterView() {
     return spreadsheetSheetFilterView;
   }
 
+  /**
+   * 筛选条件
+   *
+   * @return
+   */
   public SpreadsheetSheetFilterViewCondition spreadsheetSheetFilterViewCondition() {
     return spreadsheetSheetFilterViewCondition;
   }
 
+  /**
+   * 浮动图片
+   *
+   * @return
+   */
   public SpreadsheetSheetFloatImage spreadsheetSheetFloatImage() {
     return spreadsheetSheetFloatImage;
   }
@@ -117,6 +147,13 @@ public class SheetsService {
       this.config = config;
     }
 
+    /**
+     * 创建表格，使用该接口可以在指定的目录下创建在线表格。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//CreateSpreadsheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//CreateSpreadsheetSample.java</a>
+     * ;
+     */
     public CreateSpreadsheetResp create(CreateSpreadsheetReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -139,6 +176,13 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 创建表格，使用该接口可以在指定的目录下创建在线表格。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//CreateSpreadsheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//CreateSpreadsheetSample.java</a>
+     * ;
+     */
     public CreateSpreadsheetResp create(CreateSpreadsheetReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -167,6 +211,13 @@ public class SheetsService {
       this.config = config;
     }
 
+    /**
+     * 查找单元格，按照指定的条件查找子表的某个范围内的数据符合条件的单元格位置。请求体中的 range 和 find 字段为必填。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/find">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/find</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//FindSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//FindSpreadsheetSheetSample.java</a>
+     * ;
+     */
     public FindSpreadsheetSheetResp find(FindSpreadsheetSheetReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -189,6 +240,13 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 查找单元格，按照指定的条件查找子表的某个范围内的数据符合条件的单元格位置。请求体中的 range 和 find 字段为必填。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/find">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/find</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//FindSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//FindSpreadsheetSheetSample.java</a>
+     * ;
+     */
     public FindSpreadsheetSheetResp find(FindSpreadsheetSheetReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -208,6 +266,13 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 移动行列，该接口用于移动行列，行列被移动到目标位置后，原本在目标位置的行列会对应右移或下移。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/move_dimension">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/move_dimension</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//MoveDimensionSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//MoveDimensionSpreadsheetSheetSample.java</a>
+     * ;
+     */
     public MoveDimensionSpreadsheetSheetResp moveDimension(MoveDimensionSpreadsheetSheetReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -230,6 +295,13 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 移动行列，该接口用于移动行列，行列被移动到目标位置后，原本在目标位置的行列会对应右移或下移。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/move_dimension">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/move_dimension</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//MoveDimensionSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//MoveDimensionSpreadsheetSheetSample.java</a>
+     * ;
+     */
     public MoveDimensionSpreadsheetSheetResp moveDimension(MoveDimensionSpreadsheetSheetReq req)
         throws Exception {
       // 请求参数选项
@@ -250,6 +322,14 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 替换单元格，按照指定的条件查找子表的某个范围内的数据符合条件的单元格并替换值，返回替换成功的单元格位置。一次请求最多允许替换5000个单元格，如果超过请将range缩小范围再操作。请求体中的
+     * range、find、replaccement 字段必填。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/replace">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/replace</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//ReplaceSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//ReplaceSpreadsheetSheetSample.java</a>
+     * ;
+     */
     public ReplaceSpreadsheetSheetResp replace(ReplaceSpreadsheetSheetReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -272,6 +352,14 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 替换单元格，按照指定的条件查找子表的某个范围内的数据符合条件的单元格并替换值，返回替换成功的单元格位置。一次请求最多允许替换5000个单元格，如果超过请将range缩小范围再操作。请求体中的
+     * range、find、replaccement 字段必填。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/replace">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/replace</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//ReplaceSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//ReplaceSpreadsheetSheetSample.java</a>
+     * ;
+     */
     public ReplaceSpreadsheetSheetResp replace(ReplaceSpreadsheetSheetReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -300,6 +388,15 @@ public class SheetsService {
       this.config = config;
     }
 
+    /**
+     * 创建筛选，在子表内创建筛选。
+     * <p> 参数值可参考[筛选指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//CreateSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//CreateSpreadsheetSheetFilterSample.java</a>
+     * ;
+     */
     public CreateSpreadsheetSheetFilterResp create(CreateSpreadsheetSheetFilterReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -322,6 +419,15 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 创建筛选，在子表内创建筛选。
+     * <p> 参数值可参考[筛选指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//CreateSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//CreateSpreadsheetSheetFilterSample.java</a>
+     * ;
+     */
     public CreateSpreadsheetSheetFilterResp create(CreateSpreadsheetSheetFilterReq req)
         throws Exception {
       // 请求参数选项
@@ -342,6 +448,13 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 删除筛选，删除子表的筛选
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//DeleteSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//DeleteSpreadsheetSheetFilterSample.java</a>
+     * ;
+     */
     public DeleteSpreadsheetSheetFilterResp delete(DeleteSpreadsheetSheetFilterReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -364,6 +477,13 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 删除筛选，删除子表的筛选
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//DeleteSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//DeleteSpreadsheetSheetFilterSample.java</a>
+     * ;
+     */
     public DeleteSpreadsheetSheetFilterResp delete(DeleteSpreadsheetSheetFilterReq req)
         throws Exception {
       // 请求参数选项
@@ -384,6 +504,13 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 获取筛选，获取子表的详细筛选信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//GetSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//GetSpreadsheetSheetFilterSample.java</a>
+     * ;
+     */
     public GetSpreadsheetSheetFilterResp get(GetSpreadsheetSheetFilterReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -406,6 +533,13 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 获取筛选，获取子表的详细筛选信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//GetSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//GetSpreadsheetSheetFilterSample.java</a>
+     * ;
+     */
     public GetSpreadsheetSheetFilterResp get(GetSpreadsheetSheetFilterReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -425,6 +559,15 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 更新筛选，更新子表筛选范围中的列筛选条件。
+     * <p> 参数值可参考[筛选指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//UpdateSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//UpdateSpreadsheetSheetFilterSample.java</a>
+     * ;
+     */
     public UpdateSpreadsheetSheetFilterResp update(UpdateSpreadsheetSheetFilterReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -447,6 +590,15 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 更新筛选，更新子表筛选范围中的列筛选条件。
+     * <p> 参数值可参考[筛选指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//UpdateSpreadsheetSheetFilterSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//UpdateSpreadsheetSheetFilterSample.java</a>
+     * ;
+     */
     public UpdateSpreadsheetSheetFilterResp update(UpdateSpreadsheetSheetFilterReq req)
         throws Exception {
       // 请求参数选项
@@ -476,6 +628,16 @@ public class SheetsService {
       this.config = config;
     }
 
+    /**
+     * 创建筛选视图，根据传入的参数创建一个筛选视图。Id 和 名字可选，不填的话会默认生成；range 必填。Id 长度为10，由 0-9、a-z、A-Z
+     * 组合生成。名字长度不超过100。单个子表内的筛选视图个数不超过 150。
+     * <p> 筛选范围的设置参考：[筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//CreateSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//CreateSpreadsheetSheetFilterViewSample.java</a>
+     * ;
+     */
     public CreateSpreadsheetSheetFilterViewResp create(CreateSpreadsheetSheetFilterViewReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -498,6 +660,16 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 创建筛选视图，根据传入的参数创建一个筛选视图。Id 和 名字可选，不填的话会默认生成；range 必填。Id 长度为10，由 0-9、a-z、A-Z
+     * 组合生成。名字长度不超过100。单个子表内的筛选视图个数不超过 150。
+     * <p> 筛选范围的设置参考：[筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//CreateSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//CreateSpreadsheetSheetFilterViewSample.java</a>
+     * ;
+     */
     public CreateSpreadsheetSheetFilterViewResp create(CreateSpreadsheetSheetFilterViewReq req)
         throws Exception {
       // 请求参数选项
@@ -518,6 +690,13 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 删除筛选视图，删除指定 id 对应的筛选视图。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//DeleteSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//DeleteSpreadsheetSheetFilterViewSample.java</a>
+     * ;
+     */
     public DeleteSpreadsheetSheetFilterViewResp delete(DeleteSpreadsheetSheetFilterViewReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -541,6 +720,13 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 删除筛选视图，删除指定 id 对应的筛选视图。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//DeleteSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//DeleteSpreadsheetSheetFilterViewSample.java</a>
+     * ;
+     */
     public DeleteSpreadsheetSheetFilterViewResp delete(DeleteSpreadsheetSheetFilterViewReq req)
         throws Exception {
       // 请求参数选项
@@ -562,6 +748,13 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 获取筛选视图，获取指定筛选视图 id 的名字和筛选范围。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//GetSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//GetSpreadsheetSheetFilterViewSample.java</a>
+     * ;
+     */
     public GetSpreadsheetSheetFilterViewResp get(GetSpreadsheetSheetFilterViewReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -585,6 +778,13 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 获取筛选视图，获取指定筛选视图 id 的名字和筛选范围。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//GetSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//GetSpreadsheetSheetFilterViewSample.java</a>
+     * ;
+     */
     public GetSpreadsheetSheetFilterViewResp get(GetSpreadsheetSheetFilterViewReq req)
         throws Exception {
       // 请求参数选项
@@ -606,6 +806,15 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 更新筛选视图，更新筛选视图的名字或者筛选范围。名字长度不超过100，不能重复即子表内唯一；筛选范围不超过子表的最大范围。
+     * <p> 筛选范围的设置参考：[筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//PatchSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//PatchSpreadsheetSheetFilterViewSample.java</a>
+     * ;
+     */
     public PatchSpreadsheetSheetFilterViewResp patch(PatchSpreadsheetSheetFilterViewReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -629,6 +838,15 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 更新筛选视图，更新筛选视图的名字或者筛选范围。名字长度不超过100，不能重复即子表内唯一；筛选范围不超过子表的最大范围。
+     * <p> 筛选范围的设置参考：[筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//PatchSpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//PatchSpreadsheetSheetFilterViewSample.java</a>
+     * ;
+     */
     public PatchSpreadsheetSheetFilterViewResp patch(PatchSpreadsheetSheetFilterViewReq req)
         throws Exception {
       // 请求参数选项
@@ -650,6 +868,13 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 查询筛选视图，查询子表内所有的筛选视图基本信息，包括 id、name 和 range
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//QuerySpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//QuerySpreadsheetSheetFilterViewSample.java</a>
+     * ;
+     */
     public QuerySpreadsheetSheetFilterViewResp query(QuerySpreadsheetSheetFilterViewReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -673,6 +898,13 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 查询筛选视图，查询子表内所有的筛选视图基本信息，包括 id、name 和 range
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//QuerySpreadsheetSheetFilterViewSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//QuerySpreadsheetSheetFilterViewSample.java</a>
+     * ;
+     */
     public QuerySpreadsheetSheetFilterViewResp query(QuerySpreadsheetSheetFilterViewReq req)
         throws Exception {
       // 请求参数选项
@@ -703,6 +935,15 @@ public class SheetsService {
       this.config = config;
     }
 
+    /**
+     * 创建筛选条件，在筛选视图的筛选范围的某一列创建筛选条件。
+     * <p> 筛选条件参考 [筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//CreateSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//CreateSpreadsheetSheetFilterViewConditionSample.java</a>
+     * ;
+     */
     public CreateSpreadsheetSheetFilterViewConditionResp create(
         CreateSpreadsheetSheetFilterViewConditionReq req, RequestOptions reqOptions)
         throws Exception {
@@ -727,6 +968,15 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 创建筛选条件，在筛选视图的筛选范围的某一列创建筛选条件。
+     * <p> 筛选条件参考 [筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//CreateSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//CreateSpreadsheetSheetFilterViewConditionSample.java</a>
+     * ;
+     */
     public CreateSpreadsheetSheetFilterViewConditionResp create(
         CreateSpreadsheetSheetFilterViewConditionReq req) throws Exception {
       // 请求参数选项
@@ -748,6 +998,13 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 删除筛选条件，删除筛选视图的筛选范围某一列的筛选条件。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//DeleteSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//DeleteSpreadsheetSheetFilterViewConditionSample.java</a>
+     * ;
+     */
     public DeleteSpreadsheetSheetFilterViewConditionResp delete(
         DeleteSpreadsheetSheetFilterViewConditionReq req, RequestOptions reqOptions)
         throws Exception {
@@ -772,6 +1029,13 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 删除筛选条件，删除筛选视图的筛选范围某一列的筛选条件。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//DeleteSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//DeleteSpreadsheetSheetFilterViewConditionSample.java</a>
+     * ;
+     */
     public DeleteSpreadsheetSheetFilterViewConditionResp delete(
         DeleteSpreadsheetSheetFilterViewConditionReq req) throws Exception {
       // 请求参数选项
@@ -793,6 +1057,15 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 获取筛选条件，获取筛选视图某列的筛选条件信息。
+     * <p> 筛选条件含义参考 [筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//GetSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//GetSpreadsheetSheetFilterViewConditionSample.java</a>
+     * ;
+     */
     public GetSpreadsheetSheetFilterViewConditionResp get(
         GetSpreadsheetSheetFilterViewConditionReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -816,6 +1089,15 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 获取筛选条件，获取筛选视图某列的筛选条件信息。
+     * <p> 筛选条件含义参考 [筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//GetSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//GetSpreadsheetSheetFilterViewConditionSample.java</a>
+     * ;
+     */
     public GetSpreadsheetSheetFilterViewConditionResp get(
         GetSpreadsheetSheetFilterViewConditionReq req) throws Exception {
       // 请求参数选项
@@ -837,6 +1119,15 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 查询筛选条件，查询一个筛选视图的所有筛选条件，返回筛选视图的筛选范围内的筛选条件。
+     * <p> 筛选条件含义可参考 [筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//QuerySpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//QuerySpreadsheetSheetFilterViewConditionSample.java</a>
+     * ;
+     */
     public QuerySpreadsheetSheetFilterViewConditionResp query(
         QuerySpreadsheetSheetFilterViewConditionReq req, RequestOptions reqOptions)
         throws Exception {
@@ -861,6 +1152,15 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 查询筛选条件，查询一个筛选视图的所有筛选条件，返回筛选视图的筛选范围内的筛选条件。
+     * <p> 筛选条件含义可参考 [筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//QuerySpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//QuerySpreadsheetSheetFilterViewConditionSample.java</a>
+     * ;
+     */
     public QuerySpreadsheetSheetFilterViewConditionResp query(
         QuerySpreadsheetSheetFilterViewConditionReq req) throws Exception {
       // 请求参数选项
@@ -882,6 +1182,15 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 更新筛选条件，更新筛选视图范围的某列的筛选条件，condition id 即为列的字母号。
+     * <p> 筛选条件参数可参考 [筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//UpdateSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//UpdateSpreadsheetSheetFilterViewConditionSample.java</a>
+     * ;
+     */
     public UpdateSpreadsheetSheetFilterViewConditionResp update(
         UpdateSpreadsheetSheetFilterViewConditionReq req, RequestOptions reqOptions)
         throws Exception {
@@ -906,6 +1215,15 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 更新筛选条件，更新筛选视图范围的某列的筛选条件，condition id 即为列的字母号。
+     * <p> 筛选条件参数可参考 [筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//UpdateSpreadsheetSheetFilterViewConditionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//UpdateSpreadsheetSheetFilterViewConditionSample.java</a>
+     * ;
+     */
     public UpdateSpreadsheetSheetFilterViewConditionResp update(
         UpdateSpreadsheetSheetFilterViewConditionReq req) throws Exception {
       // 请求参数选项
@@ -936,6 +1254,17 @@ public class SheetsService {
       this.config = config;
     }
 
+    /**
+     * 创建浮动图片，根据传入的参数创建一张浮动图片。Float_image_token （[上传图片至表格后得到](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)）和range（只支持一个单元格）
+     * 必填。Float_image_id 可选，不填的话会默认生成，长度为10，由 0-9、a-z、A-Z 组合生成。表格内不重复的图片（浮动图片+单元格图片）总数不超过4000。width
+     * 和 height 为图片展示的宽高，可选，不填的话会使用图片的真实宽高。offset_x 和 offset_y 为图片左上角距离所在单元格左上角的偏移，可选，默认为 0。
+     * <p> 浮动图片的设置参考：[浮动图片指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//CreateSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//CreateSpreadsheetSheetFloatImageSample.java</a>
+     * ;
+     */
     public CreateSpreadsheetSheetFloatImageResp create(CreateSpreadsheetSheetFloatImageReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -958,6 +1287,17 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 创建浮动图片，根据传入的参数创建一张浮动图片。Float_image_token （[上传图片至表格后得到](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)）和range（只支持一个单元格）
+     * 必填。Float_image_id 可选，不填的话会默认生成，长度为10，由 0-9、a-z、A-Z 组合生成。表格内不重复的图片（浮动图片+单元格图片）总数不超过4000。width
+     * 和 height 为图片展示的宽高，可选，不填的话会使用图片的真实宽高。offset_x 和 offset_y 为图片左上角距离所在单元格左上角的偏移，可选，默认为 0。
+     * <p> 浮动图片的设置参考：[浮动图片指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//CreateSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//CreateSpreadsheetSheetFloatImageSample.java</a>
+     * ;
+     */
     public CreateSpreadsheetSheetFloatImageResp create(CreateSpreadsheetSheetFloatImageReq req)
         throws Exception {
       // 请求参数选项
@@ -978,6 +1318,13 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 删除浮动图片，删除 float_image_id 对应的浮动图片。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//DeleteSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//DeleteSpreadsheetSheetFloatImageSample.java</a>
+     * ;
+     */
     public DeleteSpreadsheetSheetFloatImageResp delete(DeleteSpreadsheetSheetFloatImageReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1001,6 +1348,13 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 删除浮动图片，删除 float_image_id 对应的浮动图片。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//DeleteSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//DeleteSpreadsheetSheetFloatImageSample.java</a>
+     * ;
+     */
     public DeleteSpreadsheetSheetFloatImageResp delete(DeleteSpreadsheetSheetFloatImageReq req)
         throws Exception {
       // 请求参数选项
@@ -1022,6 +1376,15 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 获取浮动图片，根据 float_image_id 获取对应浮动图片的信息。
+     * <p> 浮动图片参考：[浮动图片指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//GetSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//GetSpreadsheetSheetFloatImageSample.java</a>
+     * ;
+     */
     public GetSpreadsheetSheetFloatImageResp get(GetSpreadsheetSheetFloatImageReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1045,6 +1408,15 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 获取浮动图片，根据 float_image_id 获取对应浮动图片的信息。
+     * <p> 浮动图片参考：[浮动图片指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//GetSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//GetSpreadsheetSheetFloatImageSample.java</a>
+     * ;
+     */
     public GetSpreadsheetSheetFloatImageResp get(GetSpreadsheetSheetFloatImageReq req)
         throws Exception {
       // 请求参数选项
@@ -1066,6 +1438,16 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 更新浮动图片，更新已有的浮动图片位置和宽高，包括 range、width、height、offset_x 和 offset_y，不包括 float_image_id 和
+     * float_image_token。
+     * <p> 浮动图片更新参考：[浮动图片指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//PatchSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//PatchSpreadsheetSheetFloatImageSample.java</a>
+     * ;
+     */
     public PatchSpreadsheetSheetFloatImageResp patch(PatchSpreadsheetSheetFloatImageReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1089,6 +1471,16 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 更新浮动图片，更新已有的浮动图片位置和宽高，包括 range、width、height、offset_x 和 offset_y，不包括 float_image_id 和
+     * float_image_token。
+     * <p> 浮动图片更新参考：[浮动图片指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//PatchSpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//PatchSpreadsheetSheetFloatImageSample.java</a>
+     * ;
+     */
     public PatchSpreadsheetSheetFloatImageResp patch(PatchSpreadsheetSheetFloatImageReq req)
         throws Exception {
       // 请求参数选项
@@ -1110,6 +1502,15 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 查询浮动图片，返回子表内所有的浮动图片信息。
+     * <p> 浮动图片参考：[浮动图片指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//QuerySpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//QuerySpreadsheetSheetFloatImageSample.java</a>
+     * ;
+     */
     public QuerySpreadsheetSheetFloatImageResp query(QuerySpreadsheetSheetFloatImageReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -1133,6 +1534,15 @@ public class SheetsService {
       return resp;
     }
 
+    /**
+     * 查询浮动图片，返回子表内所有的浮动图片信息。
+     * <p> 浮动图片参考：[浮动图片指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
+     * ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//QuerySpreadsheetSheetFloatImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3//QuerySpreadsheetSheetFloatImageSample.java</a>
+     * ;
+     */
     public QuerySpreadsheetSheetFloatImageResp query(QuerySpreadsheetSheetFloatImageReq req)
         throws Exception {
       // 请求参数选项

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.im.v1.model.GetChatAnnouncementReq;
 import com.lark.oapi.service.im.v1.model.GetChatAnnouncementResp;
 
-// HTTP PATH: /open-apis/im/v1/chats/:chat_id/announcement"
+// GET /open-apis/im/v1/chats/:chat_id/announcement
 public class GetChatAnnouncementSample {
 
   public static void main(String arg[]) throws Exception {

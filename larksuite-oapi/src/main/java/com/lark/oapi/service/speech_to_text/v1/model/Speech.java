@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Speech {
 
+  /**
+   * pcm格式音频文件（文件识别）或音频分片（流式识别）经base64编码后的内容
+   * <p> 示例值：PdmrfE267Cd/Z9KpmNFh71A2PSJZxSp7+8upCg==
+   */
   @SerializedName("speech")
   private String speech;
+  /**
+   * 上传到 drive 存储平台后获取到的 key （暂不支持）
+   * <p> 示例值：
+   */
   @SerializedName("speech_key")
   private String speechKey;
 
@@ -27,7 +35,15 @@ public class Speech {
   }
 
   public Speech(Builder builder) {
+    /**
+     * pcm格式音频文件（文件识别）或音频分片（流式识别）经base64编码后的内容
+     * <p> 示例值：PdmrfE267Cd/Z9KpmNFh71A2PSJZxSp7+8upCg==
+     */
     this.speech = builder.speech;
+    /**
+     * 上传到 drive 存储平台后获取到的 key （暂不支持）
+     * <p> 示例值：
+     */
     this.speechKey = builder.speechKey;
   }
 
@@ -53,14 +69,37 @@ public class Speech {
 
   public static class Builder {
 
+    /**
+     * pcm格式音频文件（文件识别）或音频分片（流式识别）经base64编码后的内容
+     * <p> 示例值：PdmrfE267Cd/Z9KpmNFh71A2PSJZxSp7+8upCg==
+     */
     private String speech;
+    /**
+     * 上传到 drive 存储平台后获取到的 key （暂不支持）
+     * <p> 示例值：
+     */
     private String speechKey;
 
+    /**
+     * pcm格式音频文件（文件识别）或音频分片（流式识别）经base64编码后的内容
+     * <p> 示例值：PdmrfE267Cd/Z9KpmNFh71A2PSJZxSp7+8upCg==
+     *
+     * @param speech
+     * @return
+     */
     public Builder speech(String speech) {
       this.speech = speech;
       return this;
     }
 
+
+    /**
+     * 上传到 drive 存储平台后获取到的 key （暂不支持）
+     * <p> 示例值：
+     *
+     * @param speechKey
+     * @return
+     */
     public Builder speechKey(String speechKey) {
       this.speechKey = speechKey;
       return this;

@@ -6,7 +6,7 @@ import com.lark.oapi.service.helpdesk.v1.model.PatchAgentReq;
 import com.lark.oapi.service.helpdesk.v1.model.PatchAgentReqBody;
 import com.lark.oapi.service.helpdesk.v1.model.PatchAgentResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/agents/:agent_id"
+// PATCH /open-apis/helpdesk/v1/agents/:agent_id
 public class PatchAgentSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class PatchAgentSample {
 
     // 创建请求对象
     PatchAgentReq req = PatchAgentReq.newBuilder()
-        .agentId("")
+        .agentId("ou_14777d82ffef0f707de5a8c7ff2c5ebe")
         .patchAgentReqBody(PatchAgentReqBody.newBuilder()
             .status(0)
             .build())

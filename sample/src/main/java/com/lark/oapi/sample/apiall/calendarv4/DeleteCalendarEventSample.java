@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.calendar.v4.model.DeleteCalendarEventReq;
 import com.lark.oapi.service.calendar.v4.model.DeleteCalendarEventResp;
 
-// HTTP PATH: /open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
+// DELETE /open-apis/calendar/v4/calendars/:calendar_id/events/:event_id
 public class DeleteCalendarEventSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,9 +14,9 @@ public class DeleteCalendarEventSample {
 
     // 创建请求对象
     DeleteCalendarEventReq req = DeleteCalendarEventReq.newBuilder()
-        .calendarId("")
-        .eventId("")
-        .needNotification(true)
+        .calendarId("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn")
+        .eventId("xxxxxxxxx_0")
+        .needNotification(false)
         .build();
 
     // 发起请求

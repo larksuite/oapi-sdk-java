@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CheckExternalInstanceReqBody {
 
+  /**
+   * 校验的实例信息
+   * <p> 示例值：
+   */
   @SerializedName("instances")
   private ExteranlInstanceCheck[] instances;
 
@@ -25,6 +29,10 @@ public class CheckExternalInstanceReqBody {
   }
 
   public CheckExternalInstanceReqBody(Builder builder) {
+    /**
+     * 校验的实例信息
+     * <p> 示例值：
+     */
     this.instances = builder.instances;
   }
 
@@ -42,8 +50,19 @@ public class CheckExternalInstanceReqBody {
 
   public static class Builder {
 
+    /**
+     * 校验的实例信息
+     * <p> 示例值：
+     */
     private ExteranlInstanceCheck[] instances;
 
+    /**
+     * 校验的实例信息
+     * <p> 示例值：
+     *
+     * @param instances
+     * @return
+     */
     public Builder instances(ExteranlInstanceCheck[] instances) {
       this.instances = instances;
       return this;

@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class MoveDocsToWikiSpaceNode {
 
+  /**
+   * 移动后的知识库token
+   * <p> 示例值：
+   */
   @SerializedName("wiki_token")
   private String wikiToken;
+  /**
+   * 任务id
+   * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+   */
   @SerializedName("task_id")
   private String taskId;
+  /**
+   * 是否提交了文档迁入申请
+   * <p> 示例值：
+   */
   @SerializedName("applied")
   private Boolean applied;
 

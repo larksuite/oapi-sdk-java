@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.GetNotificationReq;
 import com.lark.oapi.service.helpdesk.v1.model.GetNotificationResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/notifications/:notification_id"
+// GET /open-apis/helpdesk/v1/notifications/:notification_id
 public class GetNotificationSample {
 
   public static void main(String arg[]) throws Exception {

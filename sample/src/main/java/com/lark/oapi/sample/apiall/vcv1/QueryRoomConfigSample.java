@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.vc.v1.model.QueryRoomConfigReq;
 import com.lark.oapi.service.vc.v1.model.QueryRoomConfigResp;
 
-// HTTP PATH: /open-apis/vc/v1/room_configs/query"
+// GET /open-apis/vc/v1/room_configs/query
 public class QueryRoomConfigSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,9 +15,9 @@ public class QueryRoomConfigSample {
     // 创建请求对象
     QueryRoomConfigReq req = QueryRoomConfigReq.newBuilder()
         .scope(5)
-        .countryId("1")
-        .districtId("2")
-        .buildingId("3")
+        .countryId("086")
+        .districtId("001")
+        .buildingId("22")
         .floorName("4")
         .roomId("6383786266263")
         .userIdType("user_id")

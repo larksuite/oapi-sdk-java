@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class MentionUser {
 
+  /**
+   * 用户 OpenID
+   * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
+   */
   @SerializedName("user_id")
   private String userId;
 
@@ -25,6 +29,10 @@ public class MentionUser {
   }
 
   public MentionUser(Builder builder) {
+    /**
+     * 用户 OpenID
+     * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
+     */
     this.userId = builder.userId;
   }
 
@@ -42,8 +50,19 @@ public class MentionUser {
 
   public static class Builder {
 
+    /**
+     * 用户 OpenID
+     * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
+     */
     private String userId;
 
+    /**
+     * 用户 OpenID
+     * <p> 示例值：ou_3bbe8a09c20e89cce9bff989ed840674
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;

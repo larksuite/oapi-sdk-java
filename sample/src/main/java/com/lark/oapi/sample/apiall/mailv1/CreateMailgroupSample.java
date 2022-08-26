@@ -6,7 +6,7 @@ import com.lark.oapi.service.mail.v1.model.CreateMailgroupReq;
 import com.lark.oapi.service.mail.v1.model.CreateMailgroupResp;
 import com.lark.oapi.service.mail.v1.model.Mailgroup;
 
-// HTTP PATH: /open-apis/mail/v1/mailgroups"
+// POST /open-apis/mail/v1/mailgroups
 public class CreateMailgroupSample {
 
   public static void main(String arg[]) throws Exception {

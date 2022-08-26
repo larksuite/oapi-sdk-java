@@ -48,6 +48,12 @@ public class UnsubscribeEventReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder unsubscribeEventReqBody(UnsubscribeEventReqBody body) {
       this.body = body;
       return this;

@@ -21,6 +21,10 @@ import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Sets;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
 import com.lark.oapi.event.IEventHandler;
+import com.lark.oapi.service.task.v1.model.BatchDeleteCollaboratorTaskReq;
+import com.lark.oapi.service.task.v1.model.BatchDeleteCollaboratorTaskResp;
+import com.lark.oapi.service.task.v1.model.BatchDeleteFollowerTaskReq;
+import com.lark.oapi.service.task.v1.model.BatchDeleteFollowerTaskResp;
 import com.lark.oapi.service.task.v1.model.CompleteTaskReq;
 import com.lark.oapi.service.task.v1.model.CompleteTaskResp;
 import com.lark.oapi.service.task.v1.model.CreateTaskCollaboratorReq;
@@ -83,22 +87,47 @@ public class TaskService {
     this.taskReminder = new TaskReminder(config);
   }
 
+  /**
+   * 任务
+   *
+   * @return
+   */
   public Task task() {
     return task;
   }
 
+  /**
+   * 执行者
+   *
+   * @return
+   */
   public TaskCollaborator taskCollaborator() {
     return taskCollaborator;
   }
 
+  /**
+   * 评论
+   *
+   * @return
+   */
   public TaskComment taskComment() {
     return taskComment;
   }
 
+  /**
+   * 关注人
+   *
+   * @return
+   */
   public TaskFollower taskFollower() {
     return taskFollower;
   }
 
+  /**
+   * 提醒
+   *
+   * @return
+   */
   public TaskReminder taskReminder() {
     return taskReminder;
   }
@@ -111,6 +140,125 @@ public class TaskService {
       this.config = config;
     }
 
+    /**
+     * 批量删除执行者，该接口用于批量删除执行者
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_collaborator">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_collaborator</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//BatchDeleteCollaboratorTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//BatchDeleteCollaboratorTaskSample.java</a>
+     * ;
+     */
+    public BatchDeleteCollaboratorTaskResp batchDeleteCollaborator(
+        BatchDeleteCollaboratorTaskReq req, RequestOptions reqOptions) throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/task/v1/tasks/:task_id/batch_delete_collaborator"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      BatchDeleteCollaboratorTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          BatchDeleteCollaboratorTaskResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 批量删除执行者，该接口用于批量删除执行者
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_collaborator">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_collaborator</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//BatchDeleteCollaboratorTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//BatchDeleteCollaboratorTaskSample.java</a>
+     * ;
+     */
+    public BatchDeleteCollaboratorTaskResp batchDeleteCollaborator(
+        BatchDeleteCollaboratorTaskReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/task/v1/tasks/:task_id/batch_delete_collaborator"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      BatchDeleteCollaboratorTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          BatchDeleteCollaboratorTaskResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 批量删除关注人，该接口用于批量删除关注人
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_follower">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_follower</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//BatchDeleteFollowerTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//BatchDeleteFollowerTaskSample.java</a>
+     * ;
+     */
+    public BatchDeleteFollowerTaskResp batchDeleteFollower(BatchDeleteFollowerTaskReq req,
+        RequestOptions reqOptions) throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/task/v1/tasks/:task_id/batch_delete_follower"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      BatchDeleteFollowerTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          BatchDeleteFollowerTaskResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 批量删除关注人，该接口用于批量删除关注人
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_follower">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/batch_delete_follower</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//BatchDeleteFollowerTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//BatchDeleteFollowerTaskSample.java</a>
+     * ;
+     */
+    public BatchDeleteFollowerTaskResp batchDeleteFollower(BatchDeleteFollowerTaskReq req)
+        throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/task/v1/tasks/:task_id/batch_delete_follower"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      BatchDeleteFollowerTaskResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          BatchDeleteFollowerTaskResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 完成任务，该接口用于将任务状态修改为”已完成“
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/complete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/complete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CompleteTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CompleteTaskSample.java</a>
+     * ;
+     */
     public CompleteTaskResp complete(CompleteTaskReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -132,6 +280,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 完成任务，该接口用于将任务状态修改为”已完成“
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/complete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/complete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CompleteTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CompleteTaskSample.java</a>
+     * ;
+     */
     public CompleteTaskResp complete(CompleteTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -150,6 +305,14 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 创建任务，该接口可以创建一个任务（基本信息），如果需要绑定协作者等需要调用别的资源管理接口。其中查询字段 user_id_type 是用于控制返回体中 creator_id
+     * 的类型，不传时默认返回 open_id。当使用tenant_access_token 调用接口时，如果user_id_type为user_id，则不会返回creator_id。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CreateTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CreateTaskSample.java</a>
+     * ;
+     */
     public CreateTaskResp create(CreateTaskReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -170,6 +333,14 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 创建任务，该接口可以创建一个任务（基本信息），如果需要绑定协作者等需要调用别的资源管理接口。其中查询字段 user_id_type 是用于控制返回体中 creator_id
+     * 的类型，不传时默认返回 open_id。当使用tenant_access_token 调用接口时，如果user_id_type为user_id，则不会返回creator_id。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CreateTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CreateTaskSample.java</a>
+     * ;
+     */
     public CreateTaskResp create(CreateTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -188,6 +359,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 删除任务，该接口用于删除任务
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//DeleteTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//DeleteTaskSample.java</a>
+     * ;
+     */
     public DeleteTaskResp delete(DeleteTaskReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -208,6 +386,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 删除任务，该接口用于删除任务
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//DeleteTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//DeleteTaskSample.java</a>
+     * ;
+     */
     public DeleteTaskResp delete(DeleteTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -226,6 +411,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 获取任务详情，该接口用于获取任务详情，包括任务标题、描述、时间、来源等信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//GetTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//GetTaskSample.java</a>
+     * ;
+     */
     public GetTaskResp get(GetTaskReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -246,6 +438,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 获取任务详情，该接口用于获取任务详情，包括任务标题、描述、时间、来源等信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//GetTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//GetTaskSample.java</a>
+     * ;
+     */
     public GetTaskResp get(GetTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -264,6 +463,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 获取任务列表，以分页的方式获取任务列表。当使用user_access_token时，获取与该用户身份相关的所有任务。当使用tenant_access_token时，获取以该应用身份通过“创建任务“接口创建的所有任务（并非获取该应用所在租户下所有用户创建的任务）。;本接口支持通过任务创建时间以及任务的完成状态对任务进行过滤。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//ListTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//ListTaskSample.java</a>
+     * ;
+     */
     public ListTaskResp list(ListTaskReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -284,6 +490,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 获取任务列表，以分页的方式获取任务列表。当使用user_access_token时，获取与该用户身份相关的所有任务。当使用tenant_access_token时，获取以该应用身份通过“创建任务“接口创建的所有任务（并非获取该应用所在租户下所有用户创建的任务）。;本接口支持通过任务创建时间以及任务的完成状态对任务进行过滤。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//ListTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//ListTaskSample.java</a>
+     * ;
+     */
     public ListTaskResp list(ListTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -302,6 +515,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 更新任务，该接口用于修改任务的标题、描述、时间、来源等相关信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//PatchTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//PatchTaskSample.java</a>
+     * ;
+     */
     public PatchTaskResp patch(PatchTaskReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -322,6 +542,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 更新任务，该接口用于修改任务的标题、描述、时间、来源等相关信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//PatchTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//PatchTaskSample.java</a>
+     * ;
+     */
     public PatchTaskResp patch(PatchTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -340,6 +567,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 取消完成任务，该接口用于取消任务的已完成状态
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/uncomplete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/uncomplete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//UncompleteTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//UncompleteTaskSample.java</a>
+     * ;
+     */
     public UncompleteTaskResp uncomplete(UncompleteTaskReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -362,6 +596,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 取消完成任务，该接口用于取消任务的已完成状态
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/uncomplete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/uncomplete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//UncompleteTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//UncompleteTaskSample.java</a>
+     * ;
+     */
     public UncompleteTaskResp uncomplete(UncompleteTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -390,6 +631,13 @@ public class TaskService {
       this.config = config;
     }
 
+    /**
+     * 新增执行者，该接口用于新增任务执行者，一次性可以添加多个执行者。新增的执行者必须是表示是用户的ID。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CreateTaskCollaboratorSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CreateTaskCollaboratorSample.java</a>
+     * ;
+     */
     public CreateTaskCollaboratorResp create(CreateTaskCollaboratorReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -412,6 +660,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 新增执行者，该接口用于新增任务执行者，一次性可以添加多个执行者。新增的执行者必须是表示是用户的ID。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CreateTaskCollaboratorSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CreateTaskCollaboratorSample.java</a>
+     * ;
+     */
     public CreateTaskCollaboratorResp create(CreateTaskCollaboratorReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -431,6 +686,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 删除执行者，该接口用于删除任务执行者
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//DeleteTaskCollaboratorSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//DeleteTaskCollaboratorSample.java</a>
+     * ;
+     */
     public DeleteTaskCollaboratorResp delete(DeleteTaskCollaboratorReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -453,6 +715,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 删除执行者，该接口用于删除任务执行者
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//DeleteTaskCollaboratorSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//DeleteTaskCollaboratorSample.java</a>
+     * ;
+     */
     public DeleteTaskCollaboratorResp delete(DeleteTaskCollaboratorReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -472,6 +741,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 获取一个任务的执行者列表，该接口用于查询任务执行者列表，支持分页，最大值为50
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//ListTaskCollaboratorSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//ListTaskCollaboratorSample.java</a>
+     * ;
+     */
     public ListTaskCollaboratorResp list(ListTaskCollaboratorReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -494,6 +770,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 获取一个任务的执行者列表，该接口用于查询任务执行者列表，支持分页，最大值为50
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-collaborator/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//ListTaskCollaboratorSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//ListTaskCollaboratorSample.java</a>
+     * ;
+     */
     public ListTaskCollaboratorResp list(ListTaskCollaboratorReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -522,6 +805,13 @@ public class TaskService {
       this.config = config;
     }
 
+    /**
+     * 创建评论，该接口用于创建和回复任务的评论。当parent_id字段为0时，为创建评论；当parent_id不为0时，为回复某条评论
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CreateTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CreateTaskCommentSample.java</a>
+     * ;
+     */
     public CreateTaskCommentResp create(CreateTaskCommentReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -544,6 +834,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 创建评论，该接口用于创建和回复任务的评论。当parent_id字段为0时，为创建评论；当parent_id不为0时，为回复某条评论
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CreateTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CreateTaskCommentSample.java</a>
+     * ;
+     */
     public CreateTaskCommentResp create(CreateTaskCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -563,6 +860,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 删除评论，该接口用于通过评论ID删除评论
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//DeleteTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//DeleteTaskCommentSample.java</a>
+     * ;
+     */
     public DeleteTaskCommentResp delete(DeleteTaskCommentReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -585,6 +889,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 删除评论，该接口用于通过评论ID删除评论
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//DeleteTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//DeleteTaskCommentSample.java</a>
+     * ;
+     */
     public DeleteTaskCommentResp delete(DeleteTaskCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -604,6 +915,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 获取评论详情，该接口用于通过评论ID获取评论详情
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//GetTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//GetTaskCommentSample.java</a>
+     * ;
+     */
     public GetTaskCommentResp get(GetTaskCommentReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -626,6 +944,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 获取评论详情，该接口用于通过评论ID获取评论详情
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//GetTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//GetTaskCommentSample.java</a>
+     * ;
+     */
     public GetTaskCommentResp get(GetTaskCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -645,6 +970,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 获取评论列表，该接口用于查询任务评论列表，支持分页，最大值为100
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//ListTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//ListTaskCommentSample.java</a>
+     * ;
+     */
     public ListTaskCommentResp list(ListTaskCommentReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -667,6 +999,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 获取评论列表，该接口用于查询任务评论列表，支持分页，最大值为100
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//ListTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//ListTaskCommentSample.java</a>
+     * ;
+     */
     public ListTaskCommentResp list(ListTaskCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -686,6 +1025,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 更新评论，该接口用于更新评论内容
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//UpdateTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//UpdateTaskCommentSample.java</a>
+     * ;
+     */
     public UpdateTaskCommentResp update(UpdateTaskCommentReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -708,6 +1054,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 更新评论，该接口用于更新评论内容
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-comment/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//UpdateTaskCommentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//UpdateTaskCommentSample.java</a>
+     * ;
+     */
     public UpdateTaskCommentResp update(UpdateTaskCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -736,6 +1089,13 @@ public class TaskService {
       this.config = config;
     }
 
+    /**
+     * 新增关注人，该接口用于创建任务关注人。可以一次性添加多位关注人。关注人ID要使用表示用户的ID。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CreateTaskFollowerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CreateTaskFollowerSample.java</a>
+     * ;
+     */
     public CreateTaskFollowerResp create(CreateTaskFollowerReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -758,6 +1118,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 新增关注人，该接口用于创建任务关注人。可以一次性添加多位关注人。关注人ID要使用表示用户的ID。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CreateTaskFollowerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CreateTaskFollowerSample.java</a>
+     * ;
+     */
     public CreateTaskFollowerResp create(CreateTaskFollowerReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -777,6 +1144,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 删除关注人，该接口用于删除任务关注人
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//DeleteTaskFollowerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//DeleteTaskFollowerSample.java</a>
+     * ;
+     */
     public DeleteTaskFollowerResp delete(DeleteTaskFollowerReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -799,6 +1173,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 删除关注人，该接口用于删除任务关注人
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//DeleteTaskFollowerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//DeleteTaskFollowerSample.java</a>
+     * ;
+     */
     public DeleteTaskFollowerResp delete(DeleteTaskFollowerReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -818,6 +1199,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 获取任务关注人列表，该接口用于查询任务关注人列表，支持分页，最大值为50
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//ListTaskFollowerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//ListTaskFollowerSample.java</a>
+     * ;
+     */
     public ListTaskFollowerResp list(ListTaskFollowerReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -840,6 +1228,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 获取任务关注人列表，该接口用于查询任务关注人列表，支持分页，最大值为50
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-follower/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//ListTaskFollowerSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//ListTaskFollowerSample.java</a>
+     * ;
+     */
     public ListTaskFollowerResp list(ListTaskFollowerReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -868,6 +1263,13 @@ public class TaskService {
       this.config = config;
     }
 
+    /**
+     * 新增提醒时间，该接口用于创建任务的提醒时间。提醒时间在截止时间基础上做偏移，但是偏移后的结果不能早于当前时间。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CreateTaskReminderSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CreateTaskReminderSample.java</a>
+     * ;
+     */
     public CreateTaskReminderResp create(CreateTaskReminderReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -890,6 +1292,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 新增提醒时间，该接口用于创建任务的提醒时间。提醒时间在截止时间基础上做偏移，但是偏移后的结果不能早于当前时间。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CreateTaskReminderSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//CreateTaskReminderSample.java</a>
+     * ;
+     */
     public CreateTaskReminderResp create(CreateTaskReminderReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -909,6 +1318,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 删除提醒时间，删除提醒时间，返回结果状态
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//DeleteTaskReminderSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//DeleteTaskReminderSample.java</a>
+     * ;
+     */
     public DeleteTaskReminderResp delete(DeleteTaskReminderReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -931,6 +1347,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 删除提醒时间，删除提醒时间，返回结果状态
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//DeleteTaskReminderSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//DeleteTaskReminderSample.java</a>
+     * ;
+     */
     public DeleteTaskReminderResp delete(DeleteTaskReminderReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -950,6 +1373,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 查询提醒时间列表，返回提醒时间列表，支持分页，最大值为50
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//ListTaskReminderSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//ListTaskReminderSample.java</a>
+     * ;
+     */
     public ListTaskReminderResp list(ListTaskReminderReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -972,6 +1402,13 @@ public class TaskService {
       return resp;
     }
 
+    /**
+     * 查询提醒时间列表，返回提醒时间列表，支持分页，最大值为50
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task-reminder/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//ListTaskReminderSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv1//ListTaskReminderSample.java</a>
+     * ;
+     */
     public ListTaskReminderResp list(ListTaskReminderReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();

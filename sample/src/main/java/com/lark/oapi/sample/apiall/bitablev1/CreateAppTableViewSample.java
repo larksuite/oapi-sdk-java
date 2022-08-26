@@ -6,7 +6,7 @@ import com.lark.oapi.service.bitable.v1.model.CreateAppTableViewReq;
 import com.lark.oapi.service.bitable.v1.model.CreateAppTableViewResp;
 import com.lark.oapi.service.bitable.v1.model.ReqView;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/tables/:table_id/views"
+// POST /open-apis/bitable/v1/apps/:app_token/tables/:table_id/views
 public class CreateAppTableViewSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,8 +15,8 @@ public class CreateAppTableViewSample {
 
     // 创建请求对象
     CreateAppTableViewReq req = CreateAppTableViewReq.newBuilder()
-        .appToken("")
-        .tableId("")
+        .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
+        .tableId("tblsRc9GRRXKqhvW")
         .reqView(ReqView.newBuilder()
             .viewName("表格视图1")
             .viewType("grid")

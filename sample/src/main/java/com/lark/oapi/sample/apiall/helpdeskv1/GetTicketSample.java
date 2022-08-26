@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.GetTicketReq;
 import com.lark.oapi.service.helpdesk.v1.model.GetTicketResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/tickets/:ticket_id"
+// GET /open-apis/helpdesk/v1/tickets/:ticket_id
 public class GetTicketSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class GetTicketSample {
 
     // 创建请求对象
     GetTicketReq req = GetTicketReq.newBuilder()
-        .ticketId("")
+        .ticketId("123456")
         .build();
 
     // 发起请求

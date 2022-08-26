@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.drive.v1.model.DeletePermissionMemberReq;
 import com.lark.oapi.service.drive.v1.model.DeletePermissionMemberResp;
 
-// HTTP PATH: /open-apis/drive/v1/permissions/:token/members/:member_id"
+// DELETE /open-apis/drive/v1/permissions/:token/members/:member_id
 public class DeletePermissionMemberSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,10 +14,10 @@ public class DeletePermissionMemberSample {
 
     // 创建请求对象
     DeletePermissionMemberReq req = DeletePermissionMemberReq.newBuilder()
-        .token("")
-        .memberId("")
+        .token("doccnBKgoMyY5OMbUG6FioTXuBe")
+        .memberId("ou_7dab8a3d3cdcc9da365777c7ad535d62")
         .type("doc")
-        .memberType("userid")
+        .memberType("openid")
         .build();
 
     // 发起请求

@@ -18,18 +18,38 @@ import com.lark.oapi.core.annotation.Query;
 
 public class MemberBelongGroupReq {
 
+  /**
+   * 成员ID
+   * <p> 示例值：u287xj12
+   */
   @Query
   @SerializedName("member_id")
   private String memberId;
+  /**
+   * 成员ID类型
+   * <p> 示例值：open_id
+   */
   @Query
   @SerializedName("member_id_type")
   private String memberIdType;
+  /**
+   * 欲获取的用户组类型
+   * <p> 示例值：1
+   */
   @Query
   @SerializedName("group_type")
   private Integer groupType;
+  /**
+   * 分页查询大小
+   * <p> 示例值：500
+   */
   @Query
   @SerializedName("page_size")
   private Integer pageSize;
+  /**
+   * 分页查询Token
+   * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
+   */
   @Query
   @SerializedName("page_token")
   private String pageToken;
@@ -39,10 +59,30 @@ public class MemberBelongGroupReq {
   }
 
   public MemberBelongGroupReq(Builder builder) {
+    /**
+     * 成员ID
+     * <p> 示例值：u287xj12
+     */
     this.memberId = builder.memberId;
+    /**
+     * 成员ID类型
+     * <p> 示例值：open_id
+     */
     this.memberIdType = builder.memberIdType;
+    /**
+     * 欲获取的用户组类型
+     * <p> 示例值：1
+     */
     this.groupType = builder.groupType;
+    /**
+     * 分页查询大小
+     * <p> 示例值：500
+     */
     this.pageSize = builder.pageSize;
+    /**
+     * 分页查询Token
+     * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
+     */
     this.pageToken = builder.pageToken;
   }
 
@@ -92,43 +132,98 @@ public class MemberBelongGroupReq {
 
   public static class Builder {
 
-    private String memberId;
-    private String memberIdType;
-    private Integer groupType;
-    private Integer pageSize;
-    private String pageToken;
+    private String memberId; // 成员ID
+    private String memberIdType; // 成员ID类型
+    private Integer groupType; // 欲获取的用户组类型
+    private Integer pageSize; // 分页查询大小
+    private String pageToken; // 分页查询Token
 
+
+    /**
+     * 成员ID
+     * <p> 示例值：u287xj12
+     *
+     * @param memberId
+     * @return
+     */
     public Builder memberId(String memberId) {
       this.memberId = memberId;
       return this;
     }
 
+
+    /**
+     * 成员ID类型
+     * <p> 示例值：open_id
+     *
+     * @param memberIdType
+     * @return
+     */
     public Builder memberIdType(String memberIdType) {
       this.memberIdType = memberIdType;
       return this;
     }
 
+    /**
+     * 成员ID类型
+     * <p> 示例值：open_id
+     *
+     * @param memberIdType {@link com.lark.oapi.service.contact.v3.enums.MemberBelongGroupMemberIdTypeEnum}
+     * @return
+     */
     public Builder memberIdType(
-        com.lark.oapi.service.contact.v3.enums.MemberIdTypeEnum memberIdType) {
+        com.lark.oapi.service.contact.v3.enums.MemberBelongGroupMemberIdTypeEnum memberIdType) {
       this.memberIdType = memberIdType.getValue();
       return this;
     }
 
+
+    /**
+     * 欲获取的用户组类型
+     * <p> 示例值：1
+     *
+     * @param groupType
+     * @return
+     */
     public Builder groupType(Integer groupType) {
       this.groupType = groupType;
       return this;
     }
 
-    public Builder groupType(com.lark.oapi.service.contact.v3.enums.GroupTypeEnum groupType) {
+    /**
+     * 欲获取的用户组类型
+     * <p> 示例值：1
+     *
+     * @param groupType {@link com.lark.oapi.service.contact.v3.enums.MemberBelongGroupGroupTypeEnum}
+     * @return
+     */
+    public Builder groupType(
+        com.lark.oapi.service.contact.v3.enums.MemberBelongGroupGroupTypeEnum groupType) {
       this.groupType = groupType.getValue();
       return this;
     }
 
+
+    /**
+     * 分页查询大小
+     * <p> 示例值：500
+     *
+     * @param pageSize
+     * @return
+     */
     public Builder pageSize(Integer pageSize) {
       this.pageSize = pageSize;
       return this;
     }
 
+
+    /**
+     * 分页查询Token
+     * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
+     *
+     * @param pageToken
+     * @return
+     */
     public Builder pageToken(String pageToken) {
       this.pageToken = pageToken;
       return this;

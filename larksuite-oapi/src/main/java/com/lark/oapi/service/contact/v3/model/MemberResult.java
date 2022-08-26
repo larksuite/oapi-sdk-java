@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class MemberResult {
 
+  /**
+   * 成员ID
+   * <p> 示例值：u287xj12
+   */
   @SerializedName("member_id")
   private String memberId;
+  /**
+   * 结果响应码，0表示成功
+   * <p> 示例值：0
+   */
   @SerializedName("code")
   private Integer code;
 
@@ -27,7 +35,15 @@ public class MemberResult {
   }
 
   public MemberResult(Builder builder) {
+    /**
+     * 成员ID
+     * <p> 示例值：u287xj12
+     */
     this.memberId = builder.memberId;
+    /**
+     * 结果响应码，0表示成功
+     * <p> 示例值：0
+     */
     this.code = builder.code;
   }
 
@@ -53,14 +69,37 @@ public class MemberResult {
 
   public static class Builder {
 
+    /**
+     * 成员ID
+     * <p> 示例值：u287xj12
+     */
     private String memberId;
+    /**
+     * 结果响应码，0表示成功
+     * <p> 示例值：0
+     */
     private Integer code;
 
+    /**
+     * 成员ID
+     * <p> 示例值：u287xj12
+     *
+     * @param memberId
+     * @return
+     */
     public Builder memberId(String memberId) {
       this.memberId = memberId;
       return this;
     }
 
+
+    /**
+     * 结果响应码，0表示成功
+     * <p> 示例值：0
+     *
+     * @param code
+     * @return
+     */
     public Builder code(Integer code) {
       this.code = code;
       return this;

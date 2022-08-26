@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListCalendar {
 
+  /**
+   * 是否还有更多数据
+   * <p> 示例值：false
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 下次请求需要带上的分页标记，90 天有效期
+   * <p> 示例值：ListCalendarsPageToken_xxx
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 下次请求需要带上的增量同步标记，90 天有效期
+   * <p> 示例值：ListCalendarsSyncToken_xxx
+   */
   @SerializedName("sync_token")
   private String syncToken;
+  /**
+   * 分页加载的日历数据列表
+   * <p> 示例值：
+   */
   @SerializedName("calendar_list")
   private Calendar[] calendarList;
 

@@ -7,7 +7,7 @@ import com.lark.oapi.service.im.v1.model.UpdateTabsChatTabReq;
 import com.lark.oapi.service.im.v1.model.UpdateTabsChatTabReqBody;
 import com.lark.oapi.service.im.v1.model.UpdateTabsChatTabResp;
 
-// HTTP PATH: /open-apis/im/v1/chats/:chat_id/chat_tabs/update_tabs"
+// POST /open-apis/im/v1/chats/:chat_id/chat_tabs/update_tabs
 public class UpdateTabsChatTabSample {
 
   public static void main(String arg[]) throws Exception {

@@ -6,7 +6,7 @@ import com.lark.oapi.service.attendance.v1.model.QueryUserStatsFieldReq;
 import com.lark.oapi.service.attendance.v1.model.QueryUserStatsFieldReqBody;
 import com.lark.oapi.service.attendance.v1.model.QueryUserStatsFieldResp;
 
-// HTTP PATH: /open-apis/attendance/v1/user_stats_fields/query"
+// POST /open-apis/attendance/v1/user_stats_fields/query
 public class QueryUserStatsFieldSample {
 
   public static void main(String arg[]) throws Exception {
@@ -17,10 +17,10 @@ public class QueryUserStatsFieldSample {
     QueryUserStatsFieldReq req = QueryUserStatsFieldReq.newBuilder()
         .employeeType("employee_id")
         .queryUserStatsFieldReqBody(QueryUserStatsFieldReqBody.newBuilder()
-            .locale("en")
+            .locale("zh")
             .statsType("daily")
-            .startDate(0)
-            .endDate(0)
+            .startDate(20210316)
+            .endDate(20210323)
             .build())
         .build();
 

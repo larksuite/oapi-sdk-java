@@ -17,20 +17,52 @@ import com.google.gson.annotations.SerializedName;
 
 public class TextElementStyle {
 
+  /**
+   * 加粗
+   * <p> 示例值：true
+   */
   @SerializedName("bold")
   private Boolean bold;
+  /**
+   * 斜体
+   * <p> 示例值：true
+   */
   @SerializedName("italic")
   private Boolean italic;
+  /**
+   * 删除线
+   * <p> 示例值：true
+   */
   @SerializedName("strikethrough")
   private Boolean strikethrough;
+  /**
+   * 下划线
+   * <p> 示例值：true
+   */
   @SerializedName("underline")
   private Boolean underline;
+  /**
+   * inline 代码
+   * <p> 示例值：true
+   */
   @SerializedName("inline_code")
   private Boolean inlineCode;
+  /**
+   * 背景色
+   * <p> 示例值：1
+   */
   @SerializedName("background_color")
   private Integer backgroundColor;
+  /**
+   * 字体颜色
+   * <p> 示例值：1
+   */
   @SerializedName("text_color")
   private Integer textColor;
+  /**
+   * 链接
+   * <p> 示例值：
+   */
   @SerializedName("link")
   private Link link;
 
@@ -39,13 +71,45 @@ public class TextElementStyle {
   }
 
   public TextElementStyle(Builder builder) {
+    /**
+     * 加粗
+     * <p> 示例值：true
+     */
     this.bold = builder.bold;
+    /**
+     * 斜体
+     * <p> 示例值：true
+     */
     this.italic = builder.italic;
+    /**
+     * 删除线
+     * <p> 示例值：true
+     */
     this.strikethrough = builder.strikethrough;
+    /**
+     * 下划线
+     * <p> 示例值：true
+     */
     this.underline = builder.underline;
+    /**
+     * inline 代码
+     * <p> 示例值：true
+     */
     this.inlineCode = builder.inlineCode;
+    /**
+     * 背景色
+     * <p> 示例值：1
+     */
     this.backgroundColor = builder.backgroundColor;
+    /**
+     * 字体颜色
+     * <p> 示例值：1
+     */
     this.textColor = builder.textColor;
+    /**
+     * 链接
+     * <p> 示例值：
+     */
     this.link = builder.link;
   }
 
@@ -119,61 +183,171 @@ public class TextElementStyle {
 
   public static class Builder {
 
+    /**
+     * 加粗
+     * <p> 示例值：true
+     */
     private Boolean bold;
+    /**
+     * 斜体
+     * <p> 示例值：true
+     */
     private Boolean italic;
+    /**
+     * 删除线
+     * <p> 示例值：true
+     */
     private Boolean strikethrough;
+    /**
+     * 下划线
+     * <p> 示例值：true
+     */
     private Boolean underline;
+    /**
+     * inline 代码
+     * <p> 示例值：true
+     */
     private Boolean inlineCode;
+    /**
+     * 背景色
+     * <p> 示例值：1
+     */
     private Integer backgroundColor;
+    /**
+     * 字体颜色
+     * <p> 示例值：1
+     */
     private Integer textColor;
+    /**
+     * 链接
+     * <p> 示例值：
+     */
     private Link link;
 
+    /**
+     * 加粗
+     * <p> 示例值：true
+     *
+     * @param bold
+     * @return
+     */
     public Builder bold(Boolean bold) {
       this.bold = bold;
       return this;
     }
 
+
+    /**
+     * 斜体
+     * <p> 示例值：true
+     *
+     * @param italic
+     * @return
+     */
     public Builder italic(Boolean italic) {
       this.italic = italic;
       return this;
     }
 
+
+    /**
+     * 删除线
+     * <p> 示例值：true
+     *
+     * @param strikethrough
+     * @return
+     */
     public Builder strikethrough(Boolean strikethrough) {
       this.strikethrough = strikethrough;
       return this;
     }
 
+
+    /**
+     * 下划线
+     * <p> 示例值：true
+     *
+     * @param underline
+     * @return
+     */
     public Builder underline(Boolean underline) {
       this.underline = underline;
       return this;
     }
 
+
+    /**
+     * inline 代码
+     * <p> 示例值：true
+     *
+     * @param inlineCode
+     * @return
+     */
     public Builder inlineCode(Boolean inlineCode) {
       this.inlineCode = inlineCode;
       return this;
     }
 
+
+    /**
+     * 背景色
+     * <p> 示例值：1
+     *
+     * @param backgroundColor
+     * @return
+     */
     public Builder backgroundColor(Integer backgroundColor) {
       this.backgroundColor = backgroundColor;
       return this;
     }
 
+    /**
+     * 背景色
+     * <p> 示例值：1
+     *
+     * @param backgroundColor {@link com.lark.oapi.service.docx.v1.enums.TextElementStyleFontBackgroundColorEnum}
+     * @return
+     */
     public Builder backgroundColor(
-        com.lark.oapi.service.docx.v1.enums.FontBackgroundColorEnum backgroundColor) {
+        com.lark.oapi.service.docx.v1.enums.TextElementStyleFontBackgroundColorEnum backgroundColor) {
       this.backgroundColor = backgroundColor.getValue();
       return this;
     }
 
+
+    /**
+     * 字体颜色
+     * <p> 示例值：1
+     *
+     * @param textColor
+     * @return
+     */
     public Builder textColor(Integer textColor) {
       this.textColor = textColor;
       return this;
     }
 
-    public Builder textColor(com.lark.oapi.service.docx.v1.enums.FontColorEnum textColor) {
+    /**
+     * 字体颜色
+     * <p> 示例值：1
+     *
+     * @param textColor {@link com.lark.oapi.service.docx.v1.enums.TextElementStyleFontColorEnum}
+     * @return
+     */
+    public Builder textColor(
+        com.lark.oapi.service.docx.v1.enums.TextElementStyleFontColorEnum textColor) {
       this.textColor = textColor.getValue();
       return this;
     }
 
+
+    /**
+     * 链接
+     * <p> 示例值：
+     *
+     * @param link
+     * @return
+     */
     public Builder link(Link link) {
       this.link = link;
       return this;

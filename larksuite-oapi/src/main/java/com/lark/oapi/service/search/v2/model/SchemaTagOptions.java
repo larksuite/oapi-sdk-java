@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class SchemaTagOptions {
 
+  /**
+   * tag 对应的枚举值名称
+   * <p> 示例值：status
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 标签对应的颜色
+   * <p> 示例值：blue
+   */
   @SerializedName("color")
   private String color;
+  /**
+   * 标签中展示的文本
+   * <p> 示例值：PASS
+   */
   @SerializedName("text")
   private String text;
 
@@ -29,8 +41,20 @@ public class SchemaTagOptions {
   }
 
   public SchemaTagOptions(Builder builder) {
+    /**
+     * tag 对应的枚举值名称
+     * <p> 示例值：status
+     */
     this.name = builder.name;
+    /**
+     * 标签对应的颜色
+     * <p> 示例值：blue
+     */
     this.color = builder.color;
+    /**
+     * 标签中展示的文本
+     * <p> 示例值：PASS
+     */
     this.text = builder.text;
   }
 
@@ -64,25 +88,67 @@ public class SchemaTagOptions {
 
   public static class Builder {
 
+    /**
+     * tag 对应的枚举值名称
+     * <p> 示例值：status
+     */
     private String name;
+    /**
+     * 标签对应的颜色
+     * <p> 示例值：blue
+     */
     private String color;
+    /**
+     * 标签中展示的文本
+     * <p> 示例值：PASS
+     */
     private String text;
 
+    /**
+     * tag 对应的枚举值名称
+     * <p> 示例值：status
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 标签对应的颜色
+     * <p> 示例值：blue
+     *
+     * @param color
+     * @return
+     */
     public Builder color(String color) {
       this.color = color;
       return this;
     }
 
-    public Builder color(com.lark.oapi.service.search.v2.enums.TagColorEnum color) {
+    /**
+     * 标签对应的颜色
+     * <p> 示例值：blue
+     *
+     * @param color {@link com.lark.oapi.service.search.v2.enums.SchemaTagOptionsTagColorEnum}
+     * @return
+     */
+    public Builder color(com.lark.oapi.service.search.v2.enums.SchemaTagOptionsTagColorEnum color) {
       this.color = color.getValue();
       return this;
     }
 
+
+    /**
+     * 标签中展示的文本
+     * <p> 示例值：PASS
+     *
+     * @param text
+     * @return
+     */
     public Builder text(String text) {
       this.text = text;
       return this;

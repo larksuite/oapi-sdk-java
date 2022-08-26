@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryUserStatsFieldReqBody {
 
+  /**
+   * 语言类型
+   * <p> 示例值：zh
+   */
   @SerializedName("locale")
   private String locale;
+  /**
+   * 统计类型
+   * <p> 示例值：daily
+   */
   @SerializedName("stats_type")
   private String statsType;
+  /**
+   * 开始时间
+   * <p> 示例值：20210316
+   */
   @SerializedName("start_date")
   private Integer startDate;
+  /**
+   * 结束时间（时间间隔不超过 40 天）
+   * <p> 示例值：20210323
+   */
   @SerializedName("end_date")
   private Integer endDate;
 
@@ -31,9 +47,25 @@ public class QueryUserStatsFieldReqBody {
   }
 
   public QueryUserStatsFieldReqBody(Builder builder) {
+    /**
+     * 语言类型
+     * <p> 示例值：zh
+     */
     this.locale = builder.locale;
+    /**
+     * 统计类型
+     * <p> 示例值：daily
+     */
     this.statsType = builder.statsType;
+    /**
+     * 开始时间
+     * <p> 示例值：20210316
+     */
     this.startDate = builder.startDate;
+    /**
+     * 结束时间（时间间隔不超过 40 天）
+     * <p> 示例值：20210323
+     */
     this.endDate = builder.endDate;
   }
 
@@ -75,36 +107,99 @@ public class QueryUserStatsFieldReqBody {
 
   public static class Builder {
 
+    /**
+     * 语言类型
+     * <p> 示例值：zh
+     */
     private String locale;
+    /**
+     * 统计类型
+     * <p> 示例值：daily
+     */
     private String statsType;
+    /**
+     * 开始时间
+     * <p> 示例值：20210316
+     */
     private Integer startDate;
+    /**
+     * 结束时间（时间间隔不超过 40 天）
+     * <p> 示例值：20210323
+     */
     private Integer endDate;
 
+    /**
+     * 语言类型
+     * <p> 示例值：zh
+     *
+     * @param locale
+     * @return
+     */
     public Builder locale(String locale) {
       this.locale = locale;
       return this;
     }
 
-    public Builder locale(com.lark.oapi.service.attendance.v1.enums.LocaleEnum locale) {
+    /**
+     * 语言类型
+     * <p> 示例值：zh
+     *
+     * @param locale {@link com.lark.oapi.service.attendance.v1.enums.QueryUserStatsFieldLocaleEnum}
+     * @return
+     */
+    public Builder locale(
+        com.lark.oapi.service.attendance.v1.enums.QueryUserStatsFieldLocaleEnum locale) {
       this.locale = locale.getValue();
       return this;
     }
 
+
+    /**
+     * 统计类型
+     * <p> 示例值：daily
+     *
+     * @param statsType
+     * @return
+     */
     public Builder statsType(String statsType) {
       this.statsType = statsType;
       return this;
     }
 
-    public Builder statsType(com.lark.oapi.service.attendance.v1.enums.StatsTypeEnum statsType) {
+    /**
+     * 统计类型
+     * <p> 示例值：daily
+     *
+     * @param statsType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserStatsFieldStatsTypeEnum}
+     * @return
+     */
+    public Builder statsType(
+        com.lark.oapi.service.attendance.v1.enums.QueryUserStatsFieldStatsTypeEnum statsType) {
       this.statsType = statsType.getValue();
       return this;
     }
 
+
+    /**
+     * 开始时间
+     * <p> 示例值：20210316
+     *
+     * @param startDate
+     * @return
+     */
     public Builder startDate(Integer startDate) {
       this.startDate = startDate;
       return this;
     }
 
+
+    /**
+     * 结束时间（时间间隔不超过 40 天）
+     * <p> 示例值：20210323
+     *
+     * @param endDate
+     * @return
+     */
     public Builder endDate(Integer endDate) {
       this.endDate = endDate;
       return this;

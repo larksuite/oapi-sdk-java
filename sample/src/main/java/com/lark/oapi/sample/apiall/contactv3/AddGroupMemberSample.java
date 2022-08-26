@@ -6,7 +6,7 @@ import com.lark.oapi.service.contact.v3.model.AddGroupMemberReq;
 import com.lark.oapi.service.contact.v3.model.AddGroupMemberReqBody;
 import com.lark.oapi.service.contact.v3.model.AddGroupMemberResp;
 
-// HTTP PATH: /open-apis/contact/v3/group/:group_id/member/add"
+// POST /open-apis/contact/v3/group/:group_id/member/add
 public class AddGroupMemberSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,11 +15,11 @@ public class AddGroupMemberSample {
 
     // 创建请求对象
     AddGroupMemberReq req = AddGroupMemberReq.newBuilder()
-        .groupId("")
+        .groupId("g281721")
         .addGroupMemberReqBody(AddGroupMemberReqBody.newBuilder()
             .memberType("user")
             .memberIdType("open_id")
-            .memberId("")
+            .memberId("ou_7dab8a3d3cdcc9da365777c7ad535d62")
             .build())
         .build();
 

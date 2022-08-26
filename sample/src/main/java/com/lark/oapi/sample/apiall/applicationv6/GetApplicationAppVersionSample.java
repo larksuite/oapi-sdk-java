@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.application.v6.model.GetApplicationAppVersionReq;
 import com.lark.oapi.service.application.v6.model.GetApplicationAppVersionResp;
 
-// HTTP PATH: /open-apis/application/v6/applications/:app_id/app_versions/:version_id"
+// GET /open-apis/application/v6/applications/:app_id/app_versions/:version_id
 public class GetApplicationAppVersionSample {
 
   public static void main(String arg[]) throws Exception {

@@ -48,6 +48,12 @@ public class CreateImportTaskReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder importTask(ImportTask body) {
       this.body = body;
       return this;

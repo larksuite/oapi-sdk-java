@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ChatTabContent {
 
+  /**
+   * URL类型
+   * <p> 示例值：https://www.feishu.cn
+   */
   @SerializedName("url")
   private String url;
+  /**
+   * Doc链接
+   * <p> 示例值：https://bytedance.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz
+   */
   @SerializedName("doc")
   private String doc;
+  /**
+   * 会议纪要
+   * <p> 示例值：https://bytedance.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
+   */
   @SerializedName("meeting_minute")
   private String meetingMinute;
 
@@ -29,8 +41,20 @@ public class ChatTabContent {
   }
 
   public ChatTabContent(Builder builder) {
+    /**
+     * URL类型
+     * <p> 示例值：https://www.feishu.cn
+     */
     this.url = builder.url;
+    /**
+     * Doc链接
+     * <p> 示例值：https://bytedance.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz
+     */
     this.doc = builder.doc;
+    /**
+     * 会议纪要
+     * <p> 示例值：https://bytedance.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
+     */
     this.meetingMinute = builder.meetingMinute;
   }
 
@@ -64,20 +88,55 @@ public class ChatTabContent {
 
   public static class Builder {
 
+    /**
+     * URL类型
+     * <p> 示例值：https://www.feishu.cn
+     */
     private String url;
+    /**
+     * Doc链接
+     * <p> 示例值：https://bytedance.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz
+     */
     private String doc;
+    /**
+     * 会议纪要
+     * <p> 示例值：https://bytedance.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
+     */
     private String meetingMinute;
 
+    /**
+     * URL类型
+     * <p> 示例值：https://www.feishu.cn
+     *
+     * @param url
+     * @return
+     */
     public Builder url(String url) {
       this.url = url;
       return this;
     }
 
+
+    /**
+     * Doc链接
+     * <p> 示例值：https://bytedance.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz
+     *
+     * @param doc
+     * @return
+     */
     public Builder doc(String doc) {
       this.doc = doc;
       return this;
     }
 
+
+    /**
+     * 会议纪要
+     * <p> 示例值：https://bytedance.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
+     *
+     * @param meetingMinute
+     * @return
+     */
     public Builder meetingMinute(String meetingMinute) {
       this.meetingMinute = meetingMinute;
       return this;

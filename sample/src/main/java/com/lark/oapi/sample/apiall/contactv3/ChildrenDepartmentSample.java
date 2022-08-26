@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.contact.v3.model.ChildrenDepartmentReq;
 import com.lark.oapi.service.contact.v3.model.ChildrenDepartmentResp;
 
-// HTTP PATH: /open-apis/contact/v3/departments/:department_id/children"
+// GET /open-apis/contact/v3/departments/:department_id/children
 public class ChildrenDepartmentSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,12 +14,13 @@ public class ChildrenDepartmentSample {
 
     // 创建请求对象
     ChildrenDepartmentReq req = ChildrenDepartmentReq.newBuilder()
-        .departmentId("")
+        .departmentId("od-4e6ac4d14bcd5071a37a39de902c7141")
         .userIdType("open_id")
         .departmentIdType("open_department_id")
         .fetchChild(false)
         .pageSize(10)
-        .pageToken("")
+        .pageToken(
+            "AQD9/Rn9eij9Pm39ED40/RD/cIFmu77WxpxPB/2oHfQLZ+G8JG6tK7+ZnHiT7COhD2hMSICh/eBl7cpzU6JEC3J7COKNe4jrQ8ExwBCR")
         .build();
 
     // 发起请求

@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class AuditWebContext {
 
+  /**
+   * UA信息
+   * <p> 示例值：
+   */
   @SerializedName("user_agent")
   private String userAgent;
+  /**
+   * 本机IP
+   * <p> 示例值：
+   */
   @SerializedName("IP")
   private String iP;
 
@@ -27,7 +35,15 @@ public class AuditWebContext {
   }
 
   public AuditWebContext(Builder builder) {
+    /**
+     * UA信息
+     * <p> 示例值：
+     */
     this.userAgent = builder.userAgent;
+    /**
+     * 本机IP
+     * <p> 示例值：
+     */
     this.iP = builder.iP;
   }
 
@@ -53,14 +69,37 @@ public class AuditWebContext {
 
   public static class Builder {
 
+    /**
+     * UA信息
+     * <p> 示例值：
+     */
     private String userAgent;
+    /**
+     * 本机IP
+     * <p> 示例值：
+     */
     private String iP;
 
+    /**
+     * UA信息
+     * <p> 示例值：
+     *
+     * @param userAgent
+     * @return
+     */
     public Builder userAgent(String userAgent) {
       this.userAgent = userAgent;
       return this;
     }
 
+
+    /**
+     * 本机IP
+     * <p> 示例值：
+     *
+     * @param iP
+     * @return
+     */
     public Builder iP(String iP) {
       this.iP = iP;
       return this;

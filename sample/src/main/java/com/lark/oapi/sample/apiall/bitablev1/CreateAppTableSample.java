@@ -7,7 +7,7 @@ import com.lark.oapi.service.bitable.v1.model.CreateAppTableReqBody;
 import com.lark.oapi.service.bitable.v1.model.CreateAppTableResp;
 import com.lark.oapi.service.bitable.v1.model.ReqTable;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/tables"
+// POST /open-apis/bitable/v1/apps/:app_token/tables
 public class CreateAppTableSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class CreateAppTableSample {
 
     // 创建请求对象
     CreateAppTableReq req = CreateAppTableReq.newBuilder()
-        .appToken("")
+        .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
         .userIdType("user_id")
         .createAppTableReqBody(CreateAppTableReqBody.newBuilder()
             .table(ReqTable.newBuilder().build())

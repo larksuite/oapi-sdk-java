@@ -17,8 +17,17 @@ import com.google.gson.annotations.SerializedName;
 
 public class Origin {
 
+  /**
+   * 任务导入来源的名称，用于在任务中心详情页展示。请提供一个字典，多种语言名称映射。支持的各地区语言名：it_it, th_th, ko_kr, es_es, ja_jp, zh_cn,
+   * id_id, zh_hk, pt_br, de_de, fr_fr, zh_tw, ru_ru, en_us, hi_in, vi_vn
+   * <p> 示例值：{\"zh_cn\": \"IT 工作台\", \"en_us\": \"IT Workspace\"}
+   */
   @SerializedName("platform_i18n_name")
   private String platformI18nName;
+  /**
+   * 任务关联的来源平台详情页链接
+   * <p> 示例值：
+   */
   @SerializedName("href")
   private Href href;
 
@@ -27,7 +36,15 @@ public class Origin {
   }
 
   public Origin(Builder builder) {
+    /**
+     * 任务导入来源的名称，用于在任务中心详情页展示。请提供一个字典，多种语言名称映射。支持的各地区语言名：it_it, th_th, ko_kr, es_es, ja_jp, zh_cn, id_id, zh_hk, pt_br, de_de, fr_fr, zh_tw, ru_ru, en_us, hi_in, vi_vn
+     * <p> 示例值：{\"zh_cn\": \"IT 工作台\", \"en_us\": \"IT Workspace\"}
+     */
     this.platformI18nName = builder.platformI18nName;
+    /**
+     * 任务关联的来源平台详情页链接
+     * <p> 示例值：
+     */
     this.href = builder.href;
   }
 
@@ -53,14 +70,39 @@ public class Origin {
 
   public static class Builder {
 
+    /**
+     * 任务导入来源的名称，用于在任务中心详情页展示。请提供一个字典，多种语言名称映射。支持的各地区语言名：it_it, th_th, ko_kr, es_es, ja_jp, zh_cn,
+     * id_id, zh_hk, pt_br, de_de, fr_fr, zh_tw, ru_ru, en_us, hi_in, vi_vn
+     * <p> 示例值：{\"zh_cn\": \"IT 工作台\", \"en_us\": \"IT Workspace\"}
+     */
     private String platformI18nName;
+    /**
+     * 任务关联的来源平台详情页链接
+     * <p> 示例值：
+     */
     private Href href;
 
+    /**
+     * 任务导入来源的名称，用于在任务中心详情页展示。请提供一个字典，多种语言名称映射。支持的各地区语言名：it_it, th_th, ko_kr, es_es, ja_jp, zh_cn,
+     * id_id, zh_hk, pt_br, de_de, fr_fr, zh_tw, ru_ru, en_us, hi_in, vi_vn
+     * <p> 示例值：{\"zh_cn\": \"IT 工作台\", \"en_us\": \"IT Workspace\"}
+     *
+     * @param platformI18nName
+     * @return
+     */
     public Builder platformI18nName(String platformI18nName) {
       this.platformI18nName = platformI18nName;
       return this;
     }
 
+
+    /**
+     * 任务关联的来源平台详情页链接
+     * <p> 示例值：
+     *
+     * @param href
+     * @return
+     */
     public Builder href(Href href) {
       this.href = href;
       return this;

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateAppTableReqBody {
 
+  /**
+   * 数据表
+   * <p> 示例值：
+   */
   @SerializedName("table")
   private ReqTable table;
 
@@ -25,6 +29,10 @@ public class CreateAppTableReqBody {
   }
 
   public CreateAppTableReqBody(Builder builder) {
+    /**
+     * 数据表
+     * <p> 示例值：
+     */
     this.table = builder.table;
   }
 
@@ -42,8 +50,19 @@ public class CreateAppTableReqBody {
 
   public static class Builder {
 
+    /**
+     * 数据表
+     * <p> 示例值：
+     */
     private ReqTable table;
 
+    /**
+     * 数据表
+     * <p> 示例值：
+     *
+     * @param table
+     * @return
+     */
     public Builder table(ReqTable table) {
       this.table = table;
       return this;

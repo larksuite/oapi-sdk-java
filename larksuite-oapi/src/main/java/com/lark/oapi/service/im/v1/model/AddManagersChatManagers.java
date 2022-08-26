@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class AddManagersChatManagers {
 
+  /**
+   * 群目前用户类型的管理员 id
+   * <p> 示例值：
+   */
   @SerializedName("chat_managers")
   private String[] chatManagers;
+  /**
+   * 群目前机器人类型的管理员 id
+   * <p> 示例值：
+   */
   @SerializedName("chat_bot_managers")
   private String[] chatBotManagers;
 

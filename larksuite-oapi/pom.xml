@@ -82,6 +82,7 @@
         <configuration>
           <charset>UTF-8</charset>
           <docencoding>UTF-8</docencoding>
+          <doclint>none</doclint>
           <encoding>UTF-8</encoding>
           <links>
             <link>http://docs.oracle.com/javase/8/docs/api</link>
@@ -231,5 +232,5 @@
 
   <url>https://github.com/larksuite/oapi-sdk-java</url>
 
-  <version>2.0.0-rc10</version>
+  <version>2.0.1</version>
 </project>

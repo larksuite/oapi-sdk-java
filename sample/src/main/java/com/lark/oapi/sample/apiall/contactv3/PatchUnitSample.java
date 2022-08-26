@@ -6,7 +6,7 @@ import com.lark.oapi.service.contact.v3.model.PatchUnitReq;
 import com.lark.oapi.service.contact.v3.model.PatchUnitReqBody;
 import com.lark.oapi.service.contact.v3.model.PatchUnitResp;
 
-// HTTP PATH: /open-apis/contact/v3/unit/:unit_id"
+// PATCH /open-apis/contact/v3/unit/:unit_id
 public class PatchUnitSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,9 +15,9 @@ public class PatchUnitSample {
 
     // 创建请求对象
     PatchUnitReq req = PatchUnitReq.newBuilder()
-        .unitId("")
+        .unitId("BU121")
         .patchUnitReqBody(PatchUnitReqBody.newBuilder()
-            .name("")
+            .name("消费者事业部")
             .build())
         .build();
 

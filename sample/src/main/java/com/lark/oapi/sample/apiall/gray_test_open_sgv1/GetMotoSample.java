@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.gray_test_open_sg.v1.model.GetMotoReq;
 import com.lark.oapi.service.gray_test_open_sg.v1.model.GetMotoResp;
 
-// HTTP PATH: /open-apis/gray_test_open_sg/v1/motos/:moto_id"
+// GET /open-apis/gray_test_open_sg/v1/motos/:moto_id
 public class GetMotoSample {
 
   public static void main(String arg[]) throws Exception {

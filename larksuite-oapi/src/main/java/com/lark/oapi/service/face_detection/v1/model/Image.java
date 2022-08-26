@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Image {
 
+  /**
+   * 图片的宽度
+   * <p> 示例值：400
+   */
   @SerializedName("width")
   private Integer width;
+  /**
+   * 图片的高度
+   * <p> 示例值：500
+   */
   @SerializedName("height")
   private Integer height;
 
@@ -27,7 +35,15 @@ public class Image {
   }
 
   public Image(Builder builder) {
+    /**
+     * 图片的宽度
+     * <p> 示例值：400
+     */
     this.width = builder.width;
+    /**
+     * 图片的高度
+     * <p> 示例值：500
+     */
     this.height = builder.height;
   }
 
@@ -53,14 +69,37 @@ public class Image {
 
   public static class Builder {
 
+    /**
+     * 图片的宽度
+     * <p> 示例值：400
+     */
     private Integer width;
+    /**
+     * 图片的高度
+     * <p> 示例值：500
+     */
     private Integer height;
 
+    /**
+     * 图片的宽度
+     * <p> 示例值：400
+     *
+     * @param width
+     * @return
+     */
     public Builder width(Integer width) {
       this.width = width;
       return this;
     }
 
+
+    /**
+     * 图片的高度
+     * <p> 示例值：500
+     *
+     * @param height
+     * @return
+     */
     public Builder height(Integer height) {
       this.height = height;
       return this;

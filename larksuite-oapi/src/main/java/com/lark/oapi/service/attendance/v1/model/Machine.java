@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Machine {
 
+  /**
+   * 考勤机序列号
+   * <p> 示例值：FS0701
+   */
   @SerializedName("machine_sn")
   private String machineSn;
+  /**
+   * 考勤机名称
+   * <p> 示例值：创实 9 楼
+   */
   @SerializedName("machine_name")
   private String machineName;
 
@@ -27,7 +35,15 @@ public class Machine {
   }
 
   public Machine(Builder builder) {
+    /**
+     * 考勤机序列号
+     * <p> 示例值：FS0701
+     */
     this.machineSn = builder.machineSn;
+    /**
+     * 考勤机名称
+     * <p> 示例值：创实 9 楼
+     */
     this.machineName = builder.machineName;
   }
 
@@ -53,14 +69,37 @@ public class Machine {
 
   public static class Builder {
 
+    /**
+     * 考勤机序列号
+     * <p> 示例值：FS0701
+     */
     private String machineSn;
+    /**
+     * 考勤机名称
+     * <p> 示例值：创实 9 楼
+     */
     private String machineName;
 
+    /**
+     * 考勤机序列号
+     * <p> 示例值：FS0701
+     *
+     * @param machineSn
+     * @return
+     */
     public Builder machineSn(String machineSn) {
       this.machineSn = machineSn;
       return this;
     }
 
+
+    /**
+     * 考勤机名称
+     * <p> 示例值：创实 9 楼
+     *
+     * @param machineName
+     * @return
+     */
     public Builder machineName(String machineName) {
       this.machineName = machineName;
       return this;

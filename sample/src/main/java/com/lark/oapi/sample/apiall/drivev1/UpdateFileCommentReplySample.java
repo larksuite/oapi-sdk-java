@@ -7,7 +7,7 @@ import com.lark.oapi.service.drive.v1.model.UpdateFileCommentReplyReq;
 import com.lark.oapi.service.drive.v1.model.UpdateFileCommentReplyReqBody;
 import com.lark.oapi.service.drive.v1.model.UpdateFileCommentReplyResp;
 
-// HTTP PATH: /open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id"
+// PUT /open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id
 public class UpdateFileCommentReplySample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,9 +16,9 @@ public class UpdateFileCommentReplySample {
 
     // 创建请求对象
     UpdateFileCommentReplyReq req = UpdateFileCommentReplyReq.newBuilder()
-        .fileToken("")
-        .commentId("")
-        .replyId("")
+        .fileToken("doccnHh7U87HOFpii5u5G*****")
+        .commentId("6916106822734578184")
+        .replyId("6916106822734594568")
         .fileType("doc")
         .userIdType("user_id")
         .updateFileCommentReplyReqBody(UpdateFileCommentReplyReqBody.newBuilder()

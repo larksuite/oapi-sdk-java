@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class Bot {
 
+  /**
+   * 消息卡片回调地址
+   * <p> 示例值：https://www.example.com
+   */
   @SerializedName("card_request_url")
   private String cardRequestUrl;
 
@@ -25,6 +29,10 @@ public class Bot {
   }
 
   public Bot(Builder builder) {
+    /**
+     * 消息卡片回调地址
+     * <p> 示例值：https://www.example.com
+     */
     this.cardRequestUrl = builder.cardRequestUrl;
   }
 
@@ -42,8 +50,19 @@ public class Bot {
 
   public static class Builder {
 
+    /**
+     * 消息卡片回调地址
+     * <p> 示例值：https://www.example.com
+     */
     private String cardRequestUrl;
 
+    /**
+     * 消息卡片回调地址
+     * <p> 示例值：https://www.example.com
+     *
+     * @param cardRequestUrl
+     * @return
+     */
     public Builder cardRequestUrl(String cardRequestUrl) {
       this.cardRequestUrl = cardRequestUrl;
       return this;

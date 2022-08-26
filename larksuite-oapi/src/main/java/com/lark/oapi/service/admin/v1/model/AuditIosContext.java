@@ -17,34 +17,94 @@ import com.google.gson.annotations.SerializedName;
 
 public class AuditIosContext {
 
+  /**
+   * UDID
+   * <p> 示例值：
+   */
   @SerializedName("udid")
   private String udid;
+  /**
+   * 设备ID
+   * <p> 示例值：
+   */
   @SerializedName("did")
   private String did;
+  /**
+   * app的版本
+   * <p> 示例值：
+   */
   @SerializedName("app_ver")
   private String appVer;
+  /**
+   * SecSDK版本
+   * <p> 示例值：
+   */
   @SerializedName("ver")
   private String ver;
+  /**
+   * 系统类型及版本
+   * <p> 示例值：
+   */
   @SerializedName("os")
   private String os;
+  /**
+   * 系统时区
+   * <p> 示例值：
+   */
   @SerializedName("STZone")
   private String sTZone;
+  /**
+   * 当前语言
+   * <p> 示例值：
+   */
   @SerializedName("ML")
   private String mL;
+  /**
+   * 是否越狱
+   * <p> 示例值：
+   */
   @SerializedName("sjd")
   private String sjd;
+  /**
+   * 代理ip
+   * <p> 示例值：
+   */
   @SerializedName("proxyip")
   private String proxyip;
+  /**
+   * wifi ip
+   * <p> 示例值：
+   */
   @SerializedName("wifip")
   private String wifip;
+  /**
+   * GPS经纬度
+   * <p> 示例值：
+   */
   @SerializedName("location")
   private String location;
+  /**
+   * 当前设备活跃ip
+   * <p> 示例值：
+   */
   @SerializedName("active_ip")
   private String activeIp;
+  /**
+   * 当前设备活跃ip对应网卡类型
+   * <p> 示例值：
+   */
   @SerializedName("active_ip_detail")
   private String activeIpDetail;
+  /**
+   * 基站信息
+   * <p> 示例值：
+   */
   @SerializedName("cell_base_station")
   private String cellBaseStation;
+  /**
+   * 公网ip
+   * <p> 示例值：
+   */
   @SerializedName("IP")
   private String iP;
 
@@ -53,20 +113,80 @@ public class AuditIosContext {
   }
 
   public AuditIosContext(Builder builder) {
+    /**
+     * UDID
+     * <p> 示例值：
+     */
     this.udid = builder.udid;
+    /**
+     * 设备ID
+     * <p> 示例值：
+     */
     this.did = builder.did;
+    /**
+     * app的版本
+     * <p> 示例值：
+     */
     this.appVer = builder.appVer;
+    /**
+     * SecSDK版本
+     * <p> 示例值：
+     */
     this.ver = builder.ver;
+    /**
+     * 系统类型及版本
+     * <p> 示例值：
+     */
     this.os = builder.os;
+    /**
+     * 系统时区
+     * <p> 示例值：
+     */
     this.sTZone = builder.sTZone;
+    /**
+     * 当前语言
+     * <p> 示例值：
+     */
     this.mL = builder.mL;
+    /**
+     * 是否越狱
+     * <p> 示例值：
+     */
     this.sjd = builder.sjd;
+    /**
+     * 代理ip
+     * <p> 示例值：
+     */
     this.proxyip = builder.proxyip;
+    /**
+     * wifi ip
+     * <p> 示例值：
+     */
     this.wifip = builder.wifip;
+    /**
+     * GPS经纬度
+     * <p> 示例值：
+     */
     this.location = builder.location;
+    /**
+     * 当前设备活跃ip
+     * <p> 示例值：
+     */
     this.activeIp = builder.activeIp;
+    /**
+     * 当前设备活跃ip对应网卡类型
+     * <p> 示例值：
+     */
     this.activeIpDetail = builder.activeIpDetail;
+    /**
+     * 基站信息
+     * <p> 示例值：
+     */
     this.cellBaseStation = builder.cellBaseStation;
+    /**
+     * 公网ip
+     * <p> 示例值：
+     */
     this.iP = builder.iP;
   }
 
@@ -196,92 +316,271 @@ public class AuditIosContext {
 
   public static class Builder {
 
+    /**
+     * UDID
+     * <p> 示例值：
+     */
     private String udid;
+    /**
+     * 设备ID
+     * <p> 示例值：
+     */
     private String did;
+    /**
+     * app的版本
+     * <p> 示例值：
+     */
     private String appVer;
+    /**
+     * SecSDK版本
+     * <p> 示例值：
+     */
     private String ver;
+    /**
+     * 系统类型及版本
+     * <p> 示例值：
+     */
     private String os;
+    /**
+     * 系统时区
+     * <p> 示例值：
+     */
     private String sTZone;
+    /**
+     * 当前语言
+     * <p> 示例值：
+     */
     private String mL;
+    /**
+     * 是否越狱
+     * <p> 示例值：
+     */
     private String sjd;
+    /**
+     * 代理ip
+     * <p> 示例值：
+     */
     private String proxyip;
+    /**
+     * wifi ip
+     * <p> 示例值：
+     */
     private String wifip;
+    /**
+     * GPS经纬度
+     * <p> 示例值：
+     */
     private String location;
+    /**
+     * 当前设备活跃ip
+     * <p> 示例值：
+     */
     private String activeIp;
+    /**
+     * 当前设备活跃ip对应网卡类型
+     * <p> 示例值：
+     */
     private String activeIpDetail;
+    /**
+     * 基站信息
+     * <p> 示例值：
+     */
     private String cellBaseStation;
+    /**
+     * 公网ip
+     * <p> 示例值：
+     */
     private String iP;
 
+    /**
+     * UDID
+     * <p> 示例值：
+     *
+     * @param udid
+     * @return
+     */
     public Builder udid(String udid) {
       this.udid = udid;
       return this;
     }
 
+
+    /**
+     * 设备ID
+     * <p> 示例值：
+     *
+     * @param did
+     * @return
+     */
     public Builder did(String did) {
       this.did = did;
       return this;
     }
 
+
+    /**
+     * app的版本
+     * <p> 示例值：
+     *
+     * @param appVer
+     * @return
+     */
     public Builder appVer(String appVer) {
       this.appVer = appVer;
       return this;
     }
 
+
+    /**
+     * SecSDK版本
+     * <p> 示例值：
+     *
+     * @param ver
+     * @return
+     */
     public Builder ver(String ver) {
       this.ver = ver;
       return this;
     }
 
+
+    /**
+     * 系统类型及版本
+     * <p> 示例值：
+     *
+     * @param os
+     * @return
+     */
     public Builder os(String os) {
       this.os = os;
       return this;
     }
 
+
+    /**
+     * 系统时区
+     * <p> 示例值：
+     *
+     * @param sTZone
+     * @return
+     */
     public Builder sTZone(String sTZone) {
       this.sTZone = sTZone;
       return this;
     }
 
+
+    /**
+     * 当前语言
+     * <p> 示例值：
+     *
+     * @param mL
+     * @return
+     */
     public Builder mL(String mL) {
       this.mL = mL;
       return this;
     }
 
+
+    /**
+     * 是否越狱
+     * <p> 示例值：
+     *
+     * @param sjd
+     * @return
+     */
     public Builder sjd(String sjd) {
       this.sjd = sjd;
       return this;
     }
 
+
+    /**
+     * 代理ip
+     * <p> 示例值：
+     *
+     * @param proxyip
+     * @return
+     */
     public Builder proxyip(String proxyip) {
       this.proxyip = proxyip;
       return this;
     }
 
+
+    /**
+     * wifi ip
+     * <p> 示例值：
+     *
+     * @param wifip
+     * @return
+     */
     public Builder wifip(String wifip) {
       this.wifip = wifip;
       return this;
     }
 
+
+    /**
+     * GPS经纬度
+     * <p> 示例值：
+     *
+     * @param location
+     * @return
+     */
     public Builder location(String location) {
       this.location = location;
       return this;
     }
 
+
+    /**
+     * 当前设备活跃ip
+     * <p> 示例值：
+     *
+     * @param activeIp
+     * @return
+     */
     public Builder activeIp(String activeIp) {
       this.activeIp = activeIp;
       return this;
     }
 
+
+    /**
+     * 当前设备活跃ip对应网卡类型
+     * <p> 示例值：
+     *
+     * @param activeIpDetail
+     * @return
+     */
     public Builder activeIpDetail(String activeIpDetail) {
       this.activeIpDetail = activeIpDetail;
       return this;
     }
 
+
+    /**
+     * 基站信息
+     * <p> 示例值：
+     *
+     * @param cellBaseStation
+     * @return
+     */
     public Builder cellBaseStation(String cellBaseStation) {
       this.cellBaseStation = cellBaseStation;
       return this;
     }
 
+
+    /**
+     * 公网ip
+     * <p> 示例值：
+     *
+     * @param iP
+     * @return
+     */
     public Builder iP(String iP) {
       this.iP = iP;
       return this;

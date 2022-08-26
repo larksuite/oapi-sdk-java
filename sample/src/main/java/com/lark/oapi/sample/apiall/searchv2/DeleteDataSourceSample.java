@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.search.v2.model.DeleteDataSourceReq;
 import com.lark.oapi.service.search.v2.model.DeleteDataSourceResp;
 
-// HTTP PATH: /open-apis/search/v2/data_sources/:data_source_id"
+// DELETE /open-apis/search/v2/data_sources/:data_source_id
 public class DeleteDataSourceSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class DeleteDataSourceSample {
 
     // 创建请求对象
     DeleteDataSourceReq req = DeleteDataSourceReq.newBuilder()
-        .dataSourceId("")
+        .dataSourceId("6953903108179099667")
         .build();
 
     // 发起请求

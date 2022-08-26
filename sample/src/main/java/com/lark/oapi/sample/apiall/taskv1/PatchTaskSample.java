@@ -7,7 +7,7 @@ import com.lark.oapi.service.task.v1.model.PatchTaskReqBody;
 import com.lark.oapi.service.task.v1.model.PatchTaskResp;
 import com.lark.oapi.service.task.v1.model.Task;
 
-// HTTP PATH: /open-apis/task/v1/tasks/:task_id"
+// PATCH /open-apis/task/v1/tasks/:task_id
 public class PatchTaskSample {
 
   public static void main(String arg[]) throws Exception {

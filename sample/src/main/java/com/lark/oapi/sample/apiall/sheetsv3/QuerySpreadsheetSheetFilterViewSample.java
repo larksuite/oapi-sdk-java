@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.sheets.v3.model.QuerySpreadsheetSheetFilterViewReq;
 import com.lark.oapi.service.sheets.v3.model.QuerySpreadsheetSheetFilterViewResp;
 
-// HTTP PATH: /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/query"
+// GET /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/query
 public class QuerySpreadsheetSheetFilterViewSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,8 +14,8 @@ public class QuerySpreadsheetSheetFilterViewSample {
 
     // 创建请求对象
     QuerySpreadsheetSheetFilterViewReq req = QuerySpreadsheetSheetFilterViewReq.newBuilder()
-        .spreadsheetToken("")
-        .sheetId("")
+        .spreadsheetToken("shtcnmBA*****yGehy8")
+        .sheetId("0b**12")
         .build();
 
     // 发起请求

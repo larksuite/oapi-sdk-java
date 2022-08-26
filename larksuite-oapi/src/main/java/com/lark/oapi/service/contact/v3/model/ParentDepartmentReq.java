@@ -18,18 +18,36 @@ import com.lark.oapi.core.annotation.Query;
 
 public class ParentDepartmentReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * 此次调用中使用的部门ID的类型
+   * <p> 示例值：open_department_id
+   */
   @Query
   @SerializedName("department_id_type")
   private String departmentIdType;
+  /**
+   * 部门ID
+   * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+   */
   @Query
   @SerializedName("department_id")
   private String departmentId;
+  /**
+   * <p> 示例值：AQD9/Rn9eij9Pm39ED40/RD/cIFmu77WxpxPB/2oHfQLZ%2BG8JG6tK7%2BZnHiT7COhD2hMSICh/eBl7cpzU6JEC3J7COKNe4jrQ8ExwBCR
+   */
   @Query
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * <p> 示例值：10
+   */
   @Query
   @SerializedName("page_size")
   private Integer pageSize;
@@ -39,10 +57,30 @@ public class ParentDepartmentReq {
   }
 
   public ParentDepartmentReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
+    /**
+     * 此次调用中使用的部门ID的类型
+     * <p> 示例值：open_department_id
+     */
     this.departmentIdType = builder.departmentIdType;
+    /**
+     * 部门ID
+     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     */
     this.departmentId = builder.departmentId;
+    /**
+     *
+     * <p> 示例值：AQD9/Rn9eij9Pm39ED40/RD/cIFmu77WxpxPB/2oHfQLZ%2BG8JG6tK7%2BZnHiT7COhD2hMSICh/eBl7cpzU6JEC3J7COKNe4jrQ8ExwBCR
+     */
     this.pageToken = builder.pageToken;
+    /**
+     *
+     * <p> 示例值：10
+     */
     this.pageSize = builder.pageSize;
   }
 
@@ -92,43 +130,96 @@ public class ParentDepartmentReq {
 
   public static class Builder {
 
-    private String userIdType;
-    private String departmentIdType;
-    private String departmentId;
-    private String pageToken;
-    private Integer pageSize;
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String departmentIdType; // 此次调用中使用的部门ID的类型
+    private String departmentId; // 部门ID
+    private String pageToken; //
+    private Integer pageSize; //
 
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.contact.v3.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.ParentDepartmentUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.contact.v3.enums.ParentDepartmentUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+
+    /**
+     * 此次调用中使用的部门ID的类型
+     * <p> 示例值：open_department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
     public Builder departmentIdType(String departmentIdType) {
       this.departmentIdType = departmentIdType;
       return this;
     }
 
+    /**
+     * 此次调用中使用的部门ID的类型
+     * <p> 示例值：open_department_id
+     *
+     * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.ParentDepartmentDepartmentIdTypeEnum}
+     * @return
+     */
     public Builder departmentIdType(
-        com.lark.oapi.service.contact.v3.enums.DepartmentIdTypeEnum departmentIdType) {
+        com.lark.oapi.service.contact.v3.enums.ParentDepartmentDepartmentIdTypeEnum departmentIdType) {
       this.departmentIdType = departmentIdType.getValue();
       return this;
     }
 
+
+    /**
+     * 部门ID
+     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param departmentId
+     * @return
+     */
     public Builder departmentId(String departmentId) {
       this.departmentId = departmentId;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：AQD9/Rn9eij9Pm39ED40/RD/cIFmu77WxpxPB/2oHfQLZ%2BG8JG6tK7%2BZnHiT7COhD2hMSICh/eBl7cpzU6JEC3J7COKNe4jrQ8ExwBCR
+     *
+     * @param pageToken
+     * @return
+     */
     public Builder pageToken(String pageToken) {
       this.pageToken = pageToken;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
     public Builder pageSize(Integer pageSize) {
       this.pageSize = pageSize;
       return this;

@@ -14,12 +14,19 @@
 package com.lark.oapi.service.bitable.v1.model;
 
 import com.google.gson.annotations.SerializedName;
-import java.util.Objects;
 
 public class Url {
 
+  /**
+   * url text
+   * <p> 示例值：
+   */
   @SerializedName("text")
   private String text;
+  /**
+   * url link
+   * <p> 示例值：
+   */
   @SerializedName("link")
   private String link;
 
@@ -28,7 +35,15 @@ public class Url {
   }
 
   public Url(Builder builder) {
+    /**
+     * url text
+     * <p> 示例值：
+     */
     this.text = builder.text;
+    /**
+     * url link
+     * <p> 示例值：
+     */
     this.link = builder.link;
   }
 
@@ -52,41 +67,39 @@ public class Url {
     this.link = link;
   }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Url url = (Url) o;
-    return Objects.equals(text, url.text) && Objects.equals(link, url.link);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(text, link);
-  }
-
-  @Override
-  public String toString() {
-    return "Url{" +
-        "text='" + text + '\'' +
-        ", link='" + link + '\'' +
-        '}';
-  }
-
   public static class Builder {
 
+    /**
+     * url text
+     * <p> 示例值：
+     */
     private String text;
+    /**
+     * url link
+     * <p> 示例值：
+     */
     private String link;
 
+    /**
+     * url text
+     * <p> 示例值：
+     *
+     * @param text
+     * @return
+     */
     public Builder text(String text) {
       this.text = text;
       return this;
     }
 
+
+    /**
+     * url link
+     * <p> 示例值：
+     *
+     * @param link
+     * @return
+     */
     public Builder link(String link) {
       this.link = link;
       return this;

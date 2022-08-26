@@ -9,7 +9,7 @@ import com.lark.oapi.service.approval.v4.model.CreateExternalApprovalResp;
 import com.lark.oapi.service.approval.v4.model.ExternalApproval;
 import com.lark.oapi.service.approval.v4.model.I18nResource;
 
-// HTTP PATH: /open-apis/approval/v4/external_approvals"
+// POST /open-apis/approval/v4/external_approvals
 public class CreateExternalApprovalSample {
 
   public static void main(String arg[]) throws Exception {
@@ -29,6 +29,7 @@ public class CreateExternalApprovalSample {
             .external(ApprovalCreateExternal.newBuilder().build())
             .viewers(new ApprovalCreateViewers[]{})
             .i18nResources(new I18nResource[]{})
+            .managers(new String[]{})
             .build())
         .build();
 

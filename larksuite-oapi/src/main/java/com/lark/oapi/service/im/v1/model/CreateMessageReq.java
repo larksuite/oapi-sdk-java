@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Query;
 
 public class CreateMessageReq {
 
+  /**
+   * 消息接收者id类型 open_id/user_id/union_id/email/chat_id
+   * <p> 示例值：open_id
+   */
   @Query
   @SerializedName("receive_id_type")
   private String receiveIdType;
@@ -30,6 +34,10 @@ public class CreateMessageReq {
   }
 
   public CreateMessageReq(Builder builder) {
+    /**
+     * 消息接收者id类型 open_id/user_id/union_id/email/chat_id
+     * <p> 示例值：open_id
+     */
     this.receiveIdType = builder.receiveIdType;
     this.body = builder.body;
   }
@@ -56,16 +64,30 @@ public class CreateMessageReq {
 
   public static class Builder {
 
-    private String receiveIdType;
+    private String receiveIdType; // 消息接收者id类型 open_id/user_id/union_id/email/chat_id
     private CreateMessageReqBody body;
 
+    /**
+     * 消息接收者id类型 open_id/user_id/union_id/email/chat_id
+     * <p> 示例值：open_id
+     *
+     * @param receiveIdType
+     * @return
+     */
     public Builder receiveIdType(String receiveIdType) {
       this.receiveIdType = receiveIdType;
       return this;
     }
 
+    /**
+     * 消息接收者id类型 open_id/user_id/union_id/email/chat_id
+     * <p> 示例值：open_id
+     *
+     * @param receiveIdType {@link com.lark.oapi.service.im.v1.enums.CreateMessageReceiveIdTypeEnum}
+     * @return
+     */
     public Builder receiveIdType(
-        com.lark.oapi.service.im.v1.enums.ReceiveIdTypeEnum receiveIdType) {
+        com.lark.oapi.service.im.v1.enums.CreateMessageReceiveIdTypeEnum receiveIdType) {
       this.receiveIdType = receiveIdType.getValue();
       return this;
     }
@@ -74,6 +96,12 @@ public class CreateMessageReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder createMessageReqBody(CreateMessageReqBody body) {
       this.body = body;
       return this;

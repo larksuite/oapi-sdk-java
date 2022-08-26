@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class CreateChatReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * 如果选择了设置群主为指定用户，可以选择是否同时设置创建此群的机器人为管理员，此标志位用于标记是否设置创建群的机器人为管理员
+   * <p> 示例值：false
+   */
   @Query
   @SerializedName("set_bot_manager")
   private Boolean setBotManager;
@@ -33,7 +41,15 @@ public class CreateChatReq {
   }
 
   public CreateChatReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
+    /**
+     * 如果选择了设置群主为指定用户，可以选择是否同时设置创建此群的机器人为管理员，此标志位用于标记是否设置创建群的机器人为管理员
+     * <p> 示例值：false
+     */
     this.setBotManager = builder.setBotManager;
     this.body = builder.body;
   }
@@ -68,20 +84,42 @@ public class CreateChatReq {
 
   public static class Builder {
 
-    private String userIdType;
-    private Boolean setBotManager;
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private Boolean setBotManager; // 如果选择了设置群主为指定用户，可以选择是否同时设置创建此群的机器人为管理员，此标志位用于标记是否设置创建群的机器人为管理员
     private CreateChatReqBody body;
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.im.v1.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.im.v1.enums.CreateChatUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.im.v1.enums.CreateChatUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+    /**
+     * 如果选择了设置群主为指定用户，可以选择是否同时设置创建此群的机器人为管理员，此标志位用于标记是否设置创建群的机器人为管理员
+     * <p> 示例值：false
+     *
+     * @param setBotManager
+     * @return
+     */
     public Builder setBotManager(Boolean setBotManager) {
       this.setBotManager = setBotManager;
       return this;
@@ -91,6 +129,12 @@ public class CreateChatReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder createChatReqBody(CreateChatReqBody body) {
       this.body = body;
       return this;

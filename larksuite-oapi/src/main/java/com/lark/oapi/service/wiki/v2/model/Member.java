@@ -17,10 +17,23 @@ import com.google.gson.annotations.SerializedName;
 
 public class Member {
 
+  /**
+   * “openchat” - 群id ;;“userid” - 用户id;;“email” - 邮箱;;“opendepartmentid” - 部门id;;“openid” -
+   * 应用openid;;“unionid” - unionid
+   * <p> 示例值：userid
+   */
   @SerializedName("member_type")
   private String memberType;
+  /**
+   * 用户id
+   * <p> 示例值：1565676577122621
+   */
   @SerializedName("member_id")
   private String memberId;
+  /**
+   * 角色:;;“admin” - 管理员;;“member” - 成员
+   * <p> 示例值：admin
+   */
   @SerializedName("member_role")
   private String memberRole;
 
@@ -29,8 +42,20 @@ public class Member {
   }
 
   public Member(Builder builder) {
+    /**
+     * “openchat” - 群id ;;“userid” - 用户id;;“email” - 邮箱;;“opendepartmentid” - 部门id;;“openid” - 应用openid;;“unionid” - unionid
+     * <p> 示例值：userid
+     */
     this.memberType = builder.memberType;
+    /**
+     * 用户id
+     * <p> 示例值：1565676577122621
+     */
     this.memberId = builder.memberId;
+    /**
+     * 角色:;;“admin” - 管理员;;“member” - 成员
+     * <p> 示例值：admin
+     */
     this.memberRole = builder.memberRole;
   }
 
@@ -64,20 +89,57 @@ public class Member {
 
   public static class Builder {
 
+    /**
+     * “openchat” - 群id ;;“userid” - 用户id;;“email” - 邮箱;;“opendepartmentid” - 部门id;;“openid” -
+     * 应用openid;;“unionid” - unionid
+     * <p> 示例值：userid
+     */
     private String memberType;
+    /**
+     * 用户id
+     * <p> 示例值：1565676577122621
+     */
     private String memberId;
+    /**
+     * 角色:;;“admin” - 管理员;;“member” - 成员
+     * <p> 示例值：admin
+     */
     private String memberRole;
 
+    /**
+     * “openchat” - 群id ;;“userid” - 用户id;;“email” - 邮箱;;“opendepartmentid” - 部门id;;“openid” -
+     * 应用openid;;“unionid” - unionid
+     * <p> 示例值：userid
+     *
+     * @param memberType
+     * @return
+     */
     public Builder memberType(String memberType) {
       this.memberType = memberType;
       return this;
     }
 
+
+    /**
+     * 用户id
+     * <p> 示例值：1565676577122621
+     *
+     * @param memberId
+     * @return
+     */
     public Builder memberId(String memberId) {
       this.memberId = memberId;
       return this;
     }
 
+
+    /**
+     * 角色:;;“admin” - 管理员;;“member” - 成员
+     * <p> 示例值：admin
+     *
+     * @param memberRole
+     * @return
+     */
     public Builder memberRole(String memberRole) {
       this.memberRole = memberRole;
       return this;

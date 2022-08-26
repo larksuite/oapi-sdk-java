@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class MoveDocsToWikiSpaceNodeReqBody {
 
+  /**
+   * 节点的父亲token
+   * <p> 示例值：wikbcOHIFxB0PJS2UTd2kF2SP6c
+   */
   @SerializedName("parent_wiki_token")
   private String parentWikiToken;
+  /**
+   * 文档类型
+   * <p> 示例值：doc
+   */
   @SerializedName("obj_type")
   private String objType;
+  /**
+   * 文档token
+   * <p> 示例值：docbc6e1qBqt1O5mCBVA1QUKVEg
+   */
   @SerializedName("obj_token")
   private String objToken;
+  /**
+   * 没有权限时，是否申请迁入文档
+   * <p> 示例值：true
+   */
   @SerializedName("apply")
   private Boolean apply;
 
@@ -31,9 +47,25 @@ public class MoveDocsToWikiSpaceNodeReqBody {
   }
 
   public MoveDocsToWikiSpaceNodeReqBody(Builder builder) {
+    /**
+     * 节点的父亲token
+     * <p> 示例值：wikbcOHIFxB0PJS2UTd2kF2SP6c
+     */
     this.parentWikiToken = builder.parentWikiToken;
+    /**
+     * 文档类型
+     * <p> 示例值：doc
+     */
     this.objType = builder.objType;
+    /**
+     * 文档token
+     * <p> 示例值：docbc6e1qBqt1O5mCBVA1QUKVEg
+     */
     this.objToken = builder.objToken;
+    /**
+     * 没有权限时，是否申请迁入文档
+     * <p> 示例值：true
+     */
     this.apply = builder.apply;
   }
 
@@ -75,31 +107,86 @@ public class MoveDocsToWikiSpaceNodeReqBody {
 
   public static class Builder {
 
+    /**
+     * 节点的父亲token
+     * <p> 示例值：wikbcOHIFxB0PJS2UTd2kF2SP6c
+     */
     private String parentWikiToken;
+    /**
+     * 文档类型
+     * <p> 示例值：doc
+     */
     private String objType;
+    /**
+     * 文档token
+     * <p> 示例值：docbc6e1qBqt1O5mCBVA1QUKVEg
+     */
     private String objToken;
+    /**
+     * 没有权限时，是否申请迁入文档
+     * <p> 示例值：true
+     */
     private Boolean apply;
 
+    /**
+     * 节点的父亲token
+     * <p> 示例值：wikbcOHIFxB0PJS2UTd2kF2SP6c
+     *
+     * @param parentWikiToken
+     * @return
+     */
     public Builder parentWikiToken(String parentWikiToken) {
       this.parentWikiToken = parentWikiToken;
       return this;
     }
 
+
+    /**
+     * 文档类型
+     * <p> 示例值：doc
+     *
+     * @param objType
+     * @return
+     */
     public Builder objType(String objType) {
       this.objType = objType;
       return this;
     }
 
-    public Builder objType(com.lark.oapi.service.wiki.v2.enums.MoveDocsToWikiObjTypeEnum objType) {
+    /**
+     * 文档类型
+     * <p> 示例值：doc
+     *
+     * @param objType {@link com.lark.oapi.service.wiki.v2.enums.MoveDocsToWikiSpaceNodeMoveDocsToWikiObjTypeEnum}
+     * @return
+     */
+    public Builder objType(
+        com.lark.oapi.service.wiki.v2.enums.MoveDocsToWikiSpaceNodeMoveDocsToWikiObjTypeEnum objType) {
       this.objType = objType.getValue();
       return this;
     }
 
+
+    /**
+     * 文档token
+     * <p> 示例值：docbc6e1qBqt1O5mCBVA1QUKVEg
+     *
+     * @param objToken
+     * @return
+     */
     public Builder objToken(String objToken) {
       this.objToken = objToken;
       return this;
     }
 
+
+    /**
+     * 没有权限时，是否申请迁入文档
+     * <p> 示例值：true
+     *
+     * @param apply
+     * @return
+     */
     public Builder apply(Boolean apply) {
       this.apply = apply;
       return this;

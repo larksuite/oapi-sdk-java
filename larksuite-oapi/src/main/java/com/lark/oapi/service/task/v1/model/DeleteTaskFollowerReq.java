@@ -15,12 +15,28 @@ package com.lark.oapi.service.task.v1.model;
 
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
 
 public class DeleteTaskFollowerReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+  /**
+   * 任务 ID
+   * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+   */
   @Path
   @SerializedName("task_id")
   private String taskId;
+  /**
+   * 任务关注人 ID（Open ID或User ID，由user_id_type指定）
+   * <p> 示例值：ou_87e1a581b36ecc4862cbfbce473f346a
+   */
   @Path
   @SerializedName("follower_id")
   private String followerId;
@@ -30,12 +46,33 @@ public class DeleteTaskFollowerReq {
   }
 
   public DeleteTaskFollowerReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
+    this.userIdType = builder.userIdType;
+    /**
+     * 任务 ID
+     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     */
     this.taskId = builder.taskId;
+    /**
+     * 任务关注人 ID（Open ID或User ID，由user_id_type指定）
+     * <p> 示例值：ou_87e1a581b36ecc4862cbfbce473f346a
+     */
     this.followerId = builder.followerId;
   }
 
   public static Builder newBuilder() {
     return new Builder();
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
   }
 
   public String getTaskId() {
@@ -56,14 +93,55 @@ public class DeleteTaskFollowerReq {
 
   public static class Builder {
 
-    private String taskId;
-    private String followerId;
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String taskId; // 任务 ID
+    private String followerId; // 任务关注人 ID（Open ID或User ID，由user_id_type指定）
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.task.v1.enums.DeleteTaskFollowerUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.task.v1.enums.DeleteTaskFollowerUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    /**
+     * 任务 ID
+     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     *
+     * @param taskId
+     * @return
+     */
     public Builder taskId(String taskId) {
       this.taskId = taskId;
       return this;
     }
 
+
+    /**
+     * 任务关注人 ID（Open ID或User ID，由user_id_type指定）
+     * <p> 示例值：ou_87e1a581b36ecc4862cbfbce473f346a
+     *
+     * @param followerId
+     * @return
+     */
     public Builder followerId(String followerId) {
       this.followerId = followerId;
       return this;

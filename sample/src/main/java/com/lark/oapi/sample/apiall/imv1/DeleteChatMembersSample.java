@@ -6,7 +6,7 @@ import com.lark.oapi.service.im.v1.model.DeleteChatMembersReq;
 import com.lark.oapi.service.im.v1.model.DeleteChatMembersReqBody;
 import com.lark.oapi.service.im.v1.model.DeleteChatMembersResp;
 
-// HTTP PATH: /open-apis/im/v1/chats/:chat_id/members"
+// DELETE /open-apis/im/v1/chats/:chat_id/members
 public class DeleteChatMembersSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class DeleteChatMembersSample {
     // 创建请求对象
     DeleteChatMembersReq req = DeleteChatMembersReq.newBuilder()
         .chatId("oc_a0553eda9014c201e6969b478895c230")
-        .memberIdType("user_id")
+        .memberIdType("open_id")
         .deleteChatMembersReqBody(DeleteChatMembersReqBody.newBuilder()
             .idList(new String[]{})
             .build())

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetNodeSpace {
 
+  /**
+   * 节点信息
+   * <p> 示例值：
+   */
   @SerializedName("node")
   private Node node;
 

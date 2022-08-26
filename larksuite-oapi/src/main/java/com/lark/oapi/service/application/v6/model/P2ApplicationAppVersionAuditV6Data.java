@@ -17,18 +17,46 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2ApplicationAppVersionAuditV6Data {
 
+  /**
+   * 通过 / 拒绝应用审核的管理员 id
+   * <p> 示例值：
+   */
   @SerializedName("operator_id")
   private UserId operatorId;
+  /**
+   * 被审核的应用版本 id
+   * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
+   */
   @SerializedName("version_id")
   private String versionId;
+  /**
+   * 应用创建者的 id
+   * <p> 示例值：
+   */
   @SerializedName("creator_id")
   private UserId creatorId;
+  /**
+   * 撤回应用的 id
+   * <p> 示例值：cli_9b445f5258795107
+   */
   @SerializedName("app_id")
   private String appId;
+  /**
+   * 审核通过 / 拒绝
+   * <p> 示例值：audited
+   */
   @SerializedName("operation")
   private String operation;
+  /**
+   * 审核信息，当审核拒绝时，管理员填写的拒绝理由
+   * <p> 示例值：拒绝理由
+   */
   @SerializedName("remark")
   private String remark;
+  /**
+   * 应用审核的方式
+   * <p> 示例值：administrator
+   */
   @SerializedName("audit_source")
   private String auditSource;
 

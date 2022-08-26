@@ -65,26 +65,56 @@ public class AdminService {
     this.password = new Password(config);
   }
 
+  /**
+   * 部门维度的数据报表
+   *
+   * @return
+   */
   public AdminDeptStat adminDeptStat() {
     return adminDeptStat;
   }
 
+  /**
+   * 用户维度的数据报表
+   *
+   * @return
+   */
   public AdminUserStat adminUserStat() {
     return adminUserStat;
   }
 
+  /**
+   * 勋章
+   *
+   * @return
+   */
   public Badge badge() {
     return badge;
   }
 
+  /**
+   * 勋章授予名单
+   *
+   * @return
+   */
   public BadgeGrant badgeGrant() {
     return badgeGrant;
   }
 
+  /**
+   * 勋章图片
+   *
+   * @return
+   */
   public BadgeImage badgeImage() {
     return badgeImage;
   }
 
+  /**
+   * 密码
+   *
+   * @return
+   */
   public Password password() {
     return password;
   }
@@ -97,6 +127,14 @@ public class AdminService {
       this.config = config;
     }
 
+    /**
+     * 获取部门维度的用户活跃和功能使用数据，该接口用于获取部门维度的用户活跃和功能使用数据，即IM（即时通讯）、日历、云文档、音视频会议功能的使用数据。
+     * <p> - 只有企业自建应用才有权限调用此接口;;- 当天的数据会在第二天的早上九点半产出（UTC+8） ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/admin_dept_stat/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/admin_dept_stat/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//ListAdminDeptStatSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//ListAdminDeptStatSample.java</a>
+     * ;
+     */
     public ListAdminDeptStatResp list(ListAdminDeptStatReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -119,6 +157,14 @@ public class AdminService {
       return resp;
     }
 
+    /**
+     * 获取部门维度的用户活跃和功能使用数据，该接口用于获取部门维度的用户活跃和功能使用数据，即IM（即时通讯）、日历、云文档、音视频会议功能的使用数据。
+     * <p> - 只有企业自建应用才有权限调用此接口;;- 当天的数据会在第二天的早上九点半产出（UTC+8） ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/admin_dept_stat/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/admin_dept_stat/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//ListAdminDeptStatSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//ListAdminDeptStatSample.java</a>
+     * ;
+     */
     public ListAdminDeptStatResp list(ListAdminDeptStatReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -147,6 +193,14 @@ public class AdminService {
       this.config = config;
     }
 
+    /**
+     * 获取用户维度的用户活跃和功能使用数据，用于获取用户维度的用户活跃和功能使用数据，即IM（即时通讯）、日历、云文档、音视频会议功能的使用数据。
+     * <p> - 只有企业自建应用才有权限调用此接口;;- 当天的数据会在第二天的早上九点半产出（UTC+8） ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/admin_user_stat/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/admin_user_stat/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//ListAdminUserStatSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//ListAdminUserStatSample.java</a>
+     * ;
+     */
     public ListAdminUserStatResp list(ListAdminUserStatReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -169,6 +223,14 @@ public class AdminService {
       return resp;
     }
 
+    /**
+     * 获取用户维度的用户活跃和功能使用数据，用于获取用户维度的用户活跃和功能使用数据，即IM（即时通讯）、日历、云文档、音视频会议功能的使用数据。
+     * <p> - 只有企业自建应用才有权限调用此接口;;- 当天的数据会在第二天的早上九点半产出（UTC+8） ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/admin_user_stat/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/admin_user_stat/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//ListAdminUserStatSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//ListAdminUserStatSample.java</a>
+     * ;
+     */
     public ListAdminUserStatResp list(ListAdminUserStatReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -197,6 +259,13 @@ public class AdminService {
       this.config = config;
     }
 
+    /**
+     * 创建勋章，使用该接口可以创建一枚完整的勋章信息，一个租户下最多可创建1000枚勋章。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//CreateBadgeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//CreateBadgeSample.java</a>
+     * ;
+     */
     public CreateBadgeResp create(CreateBadgeReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -217,6 +286,13 @@ public class AdminService {
       return resp;
     }
 
+    /**
+     * 创建勋章，使用该接口可以创建一枚完整的勋章信息，一个租户下最多可创建1000枚勋章。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//CreateBadgeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//CreateBadgeSample.java</a>
+     * ;
+     */
     public CreateBadgeResp create(CreateBadgeReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -235,6 +311,13 @@ public class AdminService {
       return resp;
     }
 
+    /**
+     * 获取勋章详情，可以通过该接口查询勋章的详情
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//GetBadgeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//GetBadgeSample.java</a>
+     * ;
+     */
     public GetBadgeResp get(GetBadgeReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -255,6 +338,13 @@ public class AdminService {
       return resp;
     }
 
+    /**
+     * 获取勋章详情，可以通过该接口查询勋章的详情
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//GetBadgeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//GetBadgeSample.java</a>
+     * ;
+     */
     public GetBadgeResp get(GetBadgeReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -273,6 +363,13 @@ public class AdminService {
       return resp;
     }
 
+    /**
+     * 获取勋章列表，可以通过该接口列出租户下所有的勋章，勋章的排列顺序是按照创建时间倒序排列。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//ListBadgeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//ListBadgeSample.java</a>
+     * ;
+     */
     public ListBadgeResp list(ListBadgeReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -293,6 +390,13 @@ public class AdminService {
       return resp;
     }
 
+    /**
+     * 获取勋章列表，可以通过该接口列出租户下所有的勋章，勋章的排列顺序是按照创建时间倒序排列。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//ListBadgeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//ListBadgeSample.java</a>
+     * ;
+     */
     public ListBadgeResp list(ListBadgeReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -311,6 +415,13 @@ public class AdminService {
       return resp;
     }
 
+    /**
+     * 修改勋章信息，通过该接口可以修改勋章的信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//UpdateBadgeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//UpdateBadgeSample.java</a>
+     * ;
+     */
     public UpdateBadgeResp update(UpdateBadgeReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -331,6 +442,13 @@ public class AdminService {
       return resp;
     }
 
+    /**
+     * 修改勋章信息，通过该接口可以修改勋章的信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//UpdateBadgeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//UpdateBadgeSample.java</a>
+     * ;
+     */
     public UpdateBadgeResp update(UpdateBadgeReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -358,6 +476,13 @@ public class AdminService {
       this.config = config;
     }
 
+    /**
+     * 创建勋章的授予名单，通过该接口可以为特定勋章创建一份授予名单，一枚勋章下最多可创建1000份授予名单。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge-grant/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge-grant/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//CreateBadgeGrantSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//CreateBadgeGrantSample.java</a>
+     * ;
+     */
     public CreateBadgeGrantResp create(CreateBadgeGrantReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -380,6 +505,13 @@ public class AdminService {
       return resp;
     }
 
+    /**
+     * 创建勋章的授予名单，通过该接口可以为特定勋章创建一份授予名单，一枚勋章下最多可创建1000份授予名单。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge-grant/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge-grant/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//CreateBadgeGrantSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//CreateBadgeGrantSample.java</a>
+     * ;
+     */
     public CreateBadgeGrantResp create(CreateBadgeGrantReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -399,6 +531,13 @@ public class AdminService {
       return resp;
     }
 
+    /**
+     * 删除授予名单，通过该接口可以删除特定授予名单的信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge-grant/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge-grant/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//DeleteBadgeGrantSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//DeleteBadgeGrantSample.java</a>
+     * ;
+     */
     public DeleteBadgeGrantResp delete(DeleteBadgeGrantReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -421,6 +560,13 @@ public class AdminService {
       return resp;
     }
 
+    /**
+     * 删除授予名单，通过该接口可以删除特定授予名单的信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge-grant/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge-grant/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//DeleteBadgeGrantSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//DeleteBadgeGrantSample.java</a>
+     * ;
+     */
     public DeleteBadgeGrantResp delete(DeleteBadgeGrantReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -440,6 +586,13 @@ public class AdminService {
       return resp;
     }
 
+    /**
+     * 获取授予名单的信息，通过该接口可以获取特定授予名单的信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge-grant/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge-grant/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//GetBadgeGrantSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//GetBadgeGrantSample.java</a>
+     * ;
+     */
     public GetBadgeGrantResp get(GetBadgeGrantReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -461,6 +614,13 @@ public class AdminService {
       return resp;
     }
 
+    /**
+     * 获取授予名单的信息，通过该接口可以获取特定授予名单的信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge-grant/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge-grant/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//GetBadgeGrantSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//GetBadgeGrantSample.java</a>
+     * ;
+     */
     public GetBadgeGrantResp get(GetBadgeGrantReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -480,6 +640,13 @@ public class AdminService {
       return resp;
     }
 
+    /**
+     * 获取勋章的授予名单列表，通过该接口可以获取特定勋章下的授予名单列表，授予名单的排列顺序按照创建时间倒序排列。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge-grant/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge-grant/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//ListBadgeGrantSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//ListBadgeGrantSample.java</a>
+     * ;
+     */
     public ListBadgeGrantResp list(ListBadgeGrantReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -502,6 +669,13 @@ public class AdminService {
       return resp;
     }
 
+    /**
+     * 获取勋章的授予名单列表，通过该接口可以获取特定勋章下的授予名单列表，授予名单的排列顺序按照创建时间倒序排列。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge-grant/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge-grant/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//ListBadgeGrantSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//ListBadgeGrantSample.java</a>
+     * ;
+     */
     public ListBadgeGrantResp list(ListBadgeGrantReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -521,6 +695,13 @@ public class AdminService {
       return resp;
     }
 
+    /**
+     * 修改授予名单，通过该接口可以修改特定授予名单的相关信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge-grant/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge-grant/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//UpdateBadgeGrantSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//UpdateBadgeGrantSample.java</a>
+     * ;
+     */
     public UpdateBadgeGrantResp update(UpdateBadgeGrantReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -543,6 +724,13 @@ public class AdminService {
       return resp;
     }
 
+    /**
+     * 修改授予名单，通过该接口可以修改特定授予名单的相关信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge-grant/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge-grant/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//UpdateBadgeGrantSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//UpdateBadgeGrantSample.java</a>
+     * ;
+     */
     public UpdateBadgeGrantResp update(UpdateBadgeGrantReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -571,6 +759,13 @@ public class AdminService {
       this.config = config;
     }
 
+    /**
+     * 上传勋章图片，通过该接口可以上传勋章详情图、挂饰图的文件，获取对应的文件key
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge_image/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge_image/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//CreateBadgeImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//CreateBadgeImageSample.java</a>
+     * ;
+     */
     public CreateBadgeImageResp create(CreateBadgeImageReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -594,6 +789,13 @@ public class AdminService {
       return resp;
     }
 
+    /**
+     * 上传勋章图片，通过该接口可以上传勋章详情图、挂饰图的文件，获取对应的文件key
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge_image/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/badge_image/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//CreateBadgeImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//CreateBadgeImageSample.java</a>
+     * ;
+     */
     public CreateBadgeImageResp create(CreateBadgeImageReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -623,6 +825,13 @@ public class AdminService {
       this.config = config;
     }
 
+    /**
+     * 重置密码，重置用户的企业邮箱密码，仅当用户的邮箱和企业邮箱(别名)一致时生效，可用于处理飞书企业邮箱登录死锁的问题。;;邮箱死锁：当用户的登录凭证与飞书企业邮箱一致时，目前飞书登录流程要求用户输入验证码，由于飞书邮箱无单独的帐号体系，则未登录时无法收取邮箱验证码，即陷入死锁
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/password/reset">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/password/reset</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//ResetPasswordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//ResetPasswordSample.java</a>
+     * ;
+     */
     public ResetPasswordResp reset(ResetPasswordReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -645,6 +854,13 @@ public class AdminService {
       return resp;
     }
 
+    /**
+     * 重置密码，重置用户的企业邮箱密码，仅当用户的邮箱和企业邮箱(别名)一致时生效，可用于处理飞书企业邮箱登录死锁的问题。;;邮箱死锁：当用户的登录凭证与飞书企业邮箱一致时，目前飞书登录流程要求用户输入验证码，由于飞书邮箱无单独的帐号体系，则未登录时无法收取邮箱验证码，即陷入死锁
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/password/reset">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/admin-v1/password/reset</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//ResetPasswordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/adminv1//ResetPasswordSample.java</a>
+     * ;
+     */
     public ResetPasswordResp reset(ResetPasswordReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();

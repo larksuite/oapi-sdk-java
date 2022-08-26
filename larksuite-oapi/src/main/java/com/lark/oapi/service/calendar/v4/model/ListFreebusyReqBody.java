@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListFreebusyReqBody {
 
+  /**
+   * 查询时段开始时间，需要url编码
+   * <p> 示例值：2020-10-28T12:00:00+08:00
+   */
   @SerializedName("time_min")
   private String timeMin;
+  /**
+   * 查询时段结束时间，需要url编码
+   * <p> 示例值：2020-12-28T12:00:00+08:00
+   */
   @SerializedName("time_max")
   private String timeMax;
+  /**
+   * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * <p> 示例值：ou_xxxxxxxxxx
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 会议室room_id，输入时与 user_id 二选一
+   * <p> 示例值：omm_xxxxxxxxxx
+   */
   @SerializedName("room_id")
   private String roomId;
 
@@ -31,9 +47,25 @@ public class ListFreebusyReqBody {
   }
 
   public ListFreebusyReqBody(Builder builder) {
+    /**
+     * 查询时段开始时间，需要url编码
+     * <p> 示例值：2020-10-28T12:00:00+08:00
+     */
     this.timeMin = builder.timeMin;
+    /**
+     * 查询时段结束时间，需要url编码
+     * <p> 示例值：2020-12-28T12:00:00+08:00
+     */
     this.timeMax = builder.timeMax;
+    /**
+     * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * <p> 示例值：ou_xxxxxxxxxx
+     */
     this.userId = builder.userId;
+    /**
+     * 会议室room_id，输入时与 user_id 二选一
+     * <p> 示例值：omm_xxxxxxxxxx
+     */
     this.roomId = builder.roomId;
   }
 
@@ -75,26 +107,73 @@ public class ListFreebusyReqBody {
 
   public static class Builder {
 
+    /**
+     * 查询时段开始时间，需要url编码
+     * <p> 示例值：2020-10-28T12:00:00+08:00
+     */
     private String timeMin;
+    /**
+     * 查询时段结束时间，需要url编码
+     * <p> 示例值：2020-12-28T12:00:00+08:00
+     */
     private String timeMax;
+    /**
+     * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * <p> 示例值：ou_xxxxxxxxxx
+     */
     private String userId;
+    /**
+     * 会议室room_id，输入时与 user_id 二选一
+     * <p> 示例值：omm_xxxxxxxxxx
+     */
     private String roomId;
 
+    /**
+     * 查询时段开始时间，需要url编码
+     * <p> 示例值：2020-10-28T12:00:00+08:00
+     *
+     * @param timeMin
+     * @return
+     */
     public Builder timeMin(String timeMin) {
       this.timeMin = timeMin;
       return this;
     }
 
+
+    /**
+     * 查询时段结束时间，需要url编码
+     * <p> 示例值：2020-12-28T12:00:00+08:00
+     *
+     * @param timeMax
+     * @return
+     */
     public Builder timeMax(String timeMax) {
       this.timeMax = timeMax;
       return this;
     }
 
+
+    /**
+     * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * <p> 示例值：ou_xxxxxxxxxx
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 会议室room_id，输入时与 user_id 二选一
+     * <p> 示例值：omm_xxxxxxxxxx
+     *
+     * @param roomId
+     * @return
+     */
     public Builder roomId(String roomId) {
       this.roomId = roomId;
       return this;

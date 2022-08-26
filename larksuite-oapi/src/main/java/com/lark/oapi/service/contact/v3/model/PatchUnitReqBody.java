@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class PatchUnitReqBody {
 
+  /**
+   * 单位的名字
+   * <p> 示例值：消费者事业部
+   */
   @SerializedName("name")
   private String name;
 
@@ -25,6 +29,10 @@ public class PatchUnitReqBody {
   }
 
   public PatchUnitReqBody(Builder builder) {
+    /**
+     * 单位的名字
+     * <p> 示例值：消费者事业部
+     */
     this.name = builder.name;
   }
 
@@ -42,8 +50,19 @@ public class PatchUnitReqBody {
 
   public static class Builder {
 
+    /**
+     * 单位的名字
+     * <p> 示例值：消费者事业部
+     */
     private String name;
 
+    /**
+     * 单位的名字
+     * <p> 示例值：消费者事业部
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;

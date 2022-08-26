@@ -7,7 +7,7 @@ import com.lark.oapi.service.docx.v1.model.BatchUpdateDocumentBlockReqBody;
 import com.lark.oapi.service.docx.v1.model.BatchUpdateDocumentBlockResp;
 import com.lark.oapi.service.docx.v1.model.UpdateBlockRequest;
 
-// HTTP PATH: /open-apis/docx/v1/documents/:document_id/blocks/batch_update"
+// PATCH /open-apis/docx/v1/documents/:document_id/blocks/batch_update
 public class BatchUpdateDocumentBlockSample {
 
   public static void main(String arg[]) throws Exception {

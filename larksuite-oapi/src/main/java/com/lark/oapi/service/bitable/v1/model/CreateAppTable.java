@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateAppTable {
 
+  /**
+   * table id
+   * <p> 示例值：tblKz5D60T4JlfcT
+   */
   @SerializedName("table_id")
   private String tableId;
 

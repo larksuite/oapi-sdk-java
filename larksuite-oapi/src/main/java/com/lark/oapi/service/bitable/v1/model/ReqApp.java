@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class ReqApp {
 
+  /**
+   * 多维表格App名字
+   * <p> 示例值：一篇新的多维表格
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 多维表格App归属文件夹
+   * <p> 示例值：fldbcoh8O99CIMltVc
+   */
   @SerializedName("folder_token")
   private String folderToken;
 
@@ -27,7 +35,15 @@ public class ReqApp {
   }
 
   public ReqApp(Builder builder) {
+    /**
+     * 多维表格App名字
+     * <p> 示例值：一篇新的多维表格
+     */
     this.name = builder.name;
+    /**
+     * 多维表格App归属文件夹
+     * <p> 示例值：fldbcoh8O99CIMltVc
+     */
     this.folderToken = builder.folderToken;
   }
 
@@ -53,14 +69,37 @@ public class ReqApp {
 
   public static class Builder {
 
+    /**
+     * 多维表格App名字
+     * <p> 示例值：一篇新的多维表格
+     */
     private String name;
+    /**
+     * 多维表格App归属文件夹
+     * <p> 示例值：fldbcoh8O99CIMltVc
+     */
     private String folderToken;
 
+    /**
+     * 多维表格App名字
+     * <p> 示例值：一篇新的多维表格
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 多维表格App归属文件夹
+     * <p> 示例值：fldbcoh8O99CIMltVc
+     *
+     * @param folderToken
+     * @return
+     */
     public Builder folderToken(String folderToken) {
       this.folderToken = folderToken;
       return this;

@@ -17,14 +17,18 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreatePermissionMember {
 
+  /**
+   * 本次添加权限的用户信息
+   * <p> 示例值：
+   */
   @SerializedName("member")
-  private Member member;
+  private BaseMember member;
 
-  public Member getMember() {
+  public BaseMember getMember() {
     return this.member;
   }
 
-  public void setMember(Member member) {
+  public void setMember(BaseMember member) {
     this.member = member;
   }
 

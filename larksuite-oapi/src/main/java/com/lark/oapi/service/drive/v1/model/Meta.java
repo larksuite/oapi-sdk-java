@@ -17,20 +17,52 @@ import com.google.gson.annotations.SerializedName;
 
 public class Meta {
 
+  /**
+   * 文件token
+   * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
+   */
   @SerializedName("doc_token")
   private String docToken;
+  /**
+   * 文件类型
+   * <p> 示例值：doc
+   */
   @SerializedName("doc_type")
   private String docType;
+  /**
+   * 标题
+   * <p> 示例值：sampletitle
+   */
   @SerializedName("title")
   private String title;
+  /**
+   * 文件所有者
+   * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+   */
   @SerializedName("owner_id")
   private String ownerId;
+  /**
+   * 创建时间（Unix时间戳）
+   * <p> 示例值：1652066345
+   */
   @SerializedName("create_time")
   private String createTime;
+  /**
+   * 最后编辑者
+   * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+   */
   @SerializedName("latest_modify_user")
   private String latestModifyUser;
+  /**
+   * 最后编辑时间（Unix时间戳）
+   * <p> 示例值：1652066345
+   */
   @SerializedName("latest_modify_time")
   private String latestModifyTime;
+  /**
+   * 文档链接
+   * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
+   */
   @SerializedName("url")
   private String url;
 
@@ -39,13 +71,45 @@ public class Meta {
   }
 
   public Meta(Builder builder) {
+    /**
+     * 文件token
+     * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
+     */
     this.docToken = builder.docToken;
+    /**
+     * 文件类型
+     * <p> 示例值：doc
+     */
     this.docType = builder.docType;
+    /**
+     * 标题
+     * <p> 示例值：sampletitle
+     */
     this.title = builder.title;
+    /**
+     * 文件所有者
+     * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+     */
     this.ownerId = builder.ownerId;
+    /**
+     * 创建时间（Unix时间戳）
+     * <p> 示例值：1652066345
+     */
     this.createTime = builder.createTime;
+    /**
+     * 最后编辑者
+     * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+     */
     this.latestModifyUser = builder.latestModifyUser;
+    /**
+     * 最后编辑时间（Unix时间戳）
+     * <p> 示例值：1652066345
+     */
     this.latestModifyTime = builder.latestModifyTime;
+    /**
+     * 文档链接
+     * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
+     */
     this.url = builder.url;
   }
 
@@ -119,50 +183,145 @@ public class Meta {
 
   public static class Builder {
 
+    /**
+     * 文件token
+     * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
+     */
     private String docToken;
+    /**
+     * 文件类型
+     * <p> 示例值：doc
+     */
     private String docType;
+    /**
+     * 标题
+     * <p> 示例值：sampletitle
+     */
     private String title;
+    /**
+     * 文件所有者
+     * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+     */
     private String ownerId;
+    /**
+     * 创建时间（Unix时间戳）
+     * <p> 示例值：1652066345
+     */
     private String createTime;
+    /**
+     * 最后编辑者
+     * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+     */
     private String latestModifyUser;
+    /**
+     * 最后编辑时间（Unix时间戳）
+     * <p> 示例值：1652066345
+     */
     private String latestModifyTime;
+    /**
+     * 文档链接
+     * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
+     */
     private String url;
 
+    /**
+     * 文件token
+     * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
+     *
+     * @param docToken
+     * @return
+     */
     public Builder docToken(String docToken) {
       this.docToken = docToken;
       return this;
     }
 
+
+    /**
+     * 文件类型
+     * <p> 示例值：doc
+     *
+     * @param docType
+     * @return
+     */
     public Builder docType(String docType) {
       this.docType = docType;
       return this;
     }
 
+
+    /**
+     * 标题
+     * <p> 示例值：sampletitle
+     *
+     * @param title
+     * @return
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
+
+    /**
+     * 文件所有者
+     * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+     *
+     * @param ownerId
+     * @return
+     */
     public Builder ownerId(String ownerId) {
       this.ownerId = ownerId;
       return this;
     }
 
+
+    /**
+     * 创建时间（Unix时间戳）
+     * <p> 示例值：1652066345
+     *
+     * @param createTime
+     * @return
+     */
     public Builder createTime(String createTime) {
       this.createTime = createTime;
       return this;
     }
 
+
+    /**
+     * 最后编辑者
+     * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+     *
+     * @param latestModifyUser
+     * @return
+     */
     public Builder latestModifyUser(String latestModifyUser) {
       this.latestModifyUser = latestModifyUser;
       return this;
     }
 
+
+    /**
+     * 最后编辑时间（Unix时间戳）
+     * <p> 示例值：1652066345
+     *
+     * @param latestModifyTime
+     * @return
+     */
     public Builder latestModifyTime(String latestModifyTime) {
       this.latestModifyTime = latestModifyTime;
       return this;
     }
 
+
+    /**
+     * 文档链接
+     * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
+     *
+     * @param url
+     * @return
+     */
     public Builder url(String url) {
       this.url = url;
       return this;

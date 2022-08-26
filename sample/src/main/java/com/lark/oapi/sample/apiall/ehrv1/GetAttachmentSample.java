@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.ehr.v1.model.GetAttachmentReq;
 import com.lark.oapi.service.ehr.v1.model.GetAttachmentResp;
 
-// HTTP PATH: /open-apis/ehr/v1/attachments/:token"
+// GET /open-apis/ehr/v1/attachments/:token
 public class GetAttachmentSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class GetAttachmentSample {
 
     // 创建请求对象
     GetAttachmentReq req = GetAttachmentReq.newBuilder()
-        .token("")
+        .token("09bf7b924f9a4a69875788891b5970d8")
         .build();
 
     // 发起请求

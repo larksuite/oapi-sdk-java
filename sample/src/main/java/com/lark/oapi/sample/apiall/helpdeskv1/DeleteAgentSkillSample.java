@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.DeleteAgentSkillReq;
 import com.lark.oapi.service.helpdesk.v1.model.DeleteAgentSkillResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/agent_skills/:agent_skill_id"
+// DELETE /open-apis/helpdesk/v1/agent_skills/:agent_skill_id
 public class DeleteAgentSkillSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class DeleteAgentSkillSample {
 
     // 创建请求对象
     DeleteAgentSkillReq req = DeleteAgentSkillReq.newBuilder()
-        .agentSkillId("")
+        .agentSkillId("test-skill-id")
         .build();
 
     // 发起请求

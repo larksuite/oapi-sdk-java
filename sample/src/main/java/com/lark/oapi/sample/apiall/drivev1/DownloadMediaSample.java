@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.drive.v1.model.DownloadMediaReq;
 import com.lark.oapi.service.drive.v1.model.DownloadMediaResp;
 
-// HTTP PATH: /open-apis/drive/v1/medias/:file_token/download"
+// GET /open-apis/drive/v1/medias/:file_token/download
 public class DownloadMediaSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,8 +14,9 @@ public class DownloadMediaSample {
 
     // 创建请求对象
     DownloadMediaReq req = DownloadMediaReq.newBuilder()
-        .fileToken("")
-        .extra("")
+        .fileToken("boxcnrHpsg1QDqXAAAyachabcef")
+        .extra(
+            "[请参考-上传点类型及对应Extra说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)")
         .build();
 
     // 发起请求

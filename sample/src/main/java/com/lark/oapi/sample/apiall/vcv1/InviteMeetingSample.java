@@ -7,7 +7,7 @@ import com.lark.oapi.service.vc.v1.model.InviteMeetingReqBody;
 import com.lark.oapi.service.vc.v1.model.InviteMeetingResp;
 import com.lark.oapi.service.vc.v1.model.MeetingUser;
 
-// HTTP PATH: /open-apis/vc/v1/meetings/:meeting_id/invite"
+// PATCH /open-apis/vc/v1/meetings/:meeting_id/invite
 public class InviteMeetingSample {
 
   public static void main(String arg[]) throws Exception {

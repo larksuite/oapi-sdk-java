@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListDepartmentUnit {
 
+  /**
+   * 单位绑定的部门列表
+   * <p> 示例值：
+   */
   @SerializedName("departmentlist")
   private UnitDepartment[] departmentlist;
+  /**
+   * 是否还有分页数据
+   * <p> 示例值：true
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 下次分页请求标记
+   * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JdtW=
+   */
   @SerializedName("page_token")
   private String pageToken;
 

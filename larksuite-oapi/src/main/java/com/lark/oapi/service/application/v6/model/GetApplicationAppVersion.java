@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetApplicationAppVersion {
 
+  /**
+   * 应用版本信息
+   * <p> 示例值：
+   */
   @SerializedName("app_version")
   private ApplicationAppVersion appVersion;
 

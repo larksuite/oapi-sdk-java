@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2MeetingEndedV1Data {
 
+  /**
+   * 会议数据
+   * <p> 示例值：
+   */
   @SerializedName("meeting")
   private MeetingEventMeeting meeting;
+  /**
+   * 事件操作人
+   * <p> 示例值：
+   */
   @SerializedName("operator")
   private MeetingEventUser operator;
 

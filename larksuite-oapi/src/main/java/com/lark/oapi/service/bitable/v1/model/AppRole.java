@@ -17,21 +17,56 @@ import com.google.gson.annotations.SerializedName;
 
 public class AppRole {
 
+  /**
+   * 自定义角色的名字
+   * <p> 示例值：自定义角色1
+   */
   @SerializedName("role_name")
   private String roleName;
+  /**
+   * 自定义角色的id
+   * <p> 示例值：roljRpwIUt
+   */
   @SerializedName("role_id")
   private String roleId;
+  /**
+   * 数据表角色
+   * <p> 示例值：
+   */
   @SerializedName("table_roles")
   private AppRoleTableRole[] tableRoles;
+  /**
+   * block权限
+   * <p> 示例值：
+   */
+  @SerializedName("block_roles")
+  private AppRoleBlockRole[] blockRoles;
 
   // builder 开始
   public AppRole() {
   }
 
   public AppRole(Builder builder) {
+    /**
+     * 自定义角色的名字
+     * <p> 示例值：自定义角色1
+     */
     this.roleName = builder.roleName;
+    /**
+     * 自定义角色的id
+     * <p> 示例值：roljRpwIUt
+     */
     this.roleId = builder.roleId;
+    /**
+     * 数据表角色
+     * <p> 示例值：
+     */
     this.tableRoles = builder.tableRoles;
+    /**
+     * block权限
+     * <p> 示例值：
+     */
+    this.blockRoles = builder.blockRoles;
   }
 
   public static Builder newBuilder() {
@@ -62,24 +97,85 @@ public class AppRole {
     this.tableRoles = tableRoles;
   }
 
+  public AppRoleBlockRole[] getBlockRoles() {
+    return this.blockRoles;
+  }
+
+  public void setBlockRoles(AppRoleBlockRole[] blockRoles) {
+    this.blockRoles = blockRoles;
+  }
+
   public static class Builder {
 
+    /**
+     * 自定义角色的名字
+     * <p> 示例值：自定义角色1
+     */
     private String roleName;
+    /**
+     * 自定义角色的id
+     * <p> 示例值：roljRpwIUt
+     */
     private String roleId;
+    /**
+     * 数据表角色
+     * <p> 示例值：
+     */
     private AppRoleTableRole[] tableRoles;
+    /**
+     * block权限
+     * <p> 示例值：
+     */
+    private AppRoleBlockRole[] blockRoles;
 
+    /**
+     * 自定义角色的名字
+     * <p> 示例值：自定义角色1
+     *
+     * @param roleName
+     * @return
+     */
     public Builder roleName(String roleName) {
       this.roleName = roleName;
       return this;
     }
 
+
+    /**
+     * 自定义角色的id
+     * <p> 示例值：roljRpwIUt
+     *
+     * @param roleId
+     * @return
+     */
     public Builder roleId(String roleId) {
       this.roleId = roleId;
       return this;
     }
 
+
+    /**
+     * 数据表角色
+     * <p> 示例值：
+     *
+     * @param tableRoles
+     * @return
+     */
     public Builder tableRoles(AppRoleTableRole[] tableRoles) {
       this.tableRoles = tableRoles;
+      return this;
+    }
+
+
+    /**
+     * block权限
+     * <p> 示例值：
+     *
+     * @param blockRoles
+     * @return
+     */
+    public Builder blockRoles(AppRoleBlockRole[] blockRoles) {
+      this.blockRoles = blockRoles;
       return this;
     }
 

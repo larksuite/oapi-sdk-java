@@ -9,7 +9,7 @@ import com.lark.oapi.service.baike.v1.model.OuterInfo;
 import com.lark.oapi.service.baike.v1.model.RelatedMeta;
 import com.lark.oapi.service.baike.v1.model.Term;
 
-// HTTP PATH: /open-apis/baike/v1/drafts"
+// POST /open-apis/baike/v1/drafts
 public class CreateDraftSample {
 
   public static void main(String arg[]) throws Exception {

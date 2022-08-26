@@ -7,7 +7,7 @@ import com.lark.oapi.service.bitable.v1.model.BatchDeleteAppRoleMemberReq;
 import com.lark.oapi.service.bitable.v1.model.BatchDeleteAppRoleMemberReqBody;
 import com.lark.oapi.service.bitable.v1.model.BatchDeleteAppRoleMemberResp;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/roles/:role_id/members/batch_delete"
+// POST /open-apis/bitable/v1/apps/:app_token/roles/:role_id/members/batch_delete
 public class BatchDeleteAppRoleMemberSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,8 +16,8 @@ public class BatchDeleteAppRoleMemberSample {
 
     // 创建请求对象
     BatchDeleteAppRoleMemberReq req = BatchDeleteAppRoleMemberReq.newBuilder()
-        .appToken("")
-        .roleId("")
+        .appToken("bascnnKKvcoUblgmmhZkYqabcef")
+        .roleId("rolNGhPqks")
         .batchDeleteAppRoleMemberReqBody(BatchDeleteAppRoleMemberReqBody.newBuilder()
             .memberList(new AppRoleMemberId[]{})
             .build())

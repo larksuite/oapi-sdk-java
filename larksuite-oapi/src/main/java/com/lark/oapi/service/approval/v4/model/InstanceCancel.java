@@ -17,24 +17,45 @@ import com.google.gson.annotations.SerializedName;
 
 public class InstanceCancel {
 
+  /**
+   * 审批定义Code
+   * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+   */
   @SerializedName("approval_code")
   private String approvalCode;
+  /**
+   * 审批实例Code
+   * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+   */
   @SerializedName("instance_code")
   private String instanceCode;
+  /**
+   * 操作用户, 根据user_id_type填写
+   * <p> 示例值：f7cb567e
+   */
   @SerializedName("user_id")
   private String userId;
-  @SerializedName("notify_starter")
-  private Boolean notifyStarter;
 
   // builder 开始
   public InstanceCancel() {
   }
 
   public InstanceCancel(Builder builder) {
+    /**
+     * 审批定义Code
+     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     */
     this.approvalCode = builder.approvalCode;
+    /**
+     * 审批实例Code
+     * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+     */
     this.instanceCode = builder.instanceCode;
+    /**
+     * 操作用户, 根据user_id_type填写
+     * <p> 示例值：f7cb567e
+     */
     this.userId = builder.userId;
-    this.notifyStarter = builder.notifyStarter;
   }
 
   public static Builder newBuilder() {
@@ -65,38 +86,59 @@ public class InstanceCancel {
     this.userId = userId;
   }
 
-  public Boolean getNotifyStarter() {
-    return this.notifyStarter;
-  }
-
-  public void setNotifyStarter(Boolean notifyStarter) {
-    this.notifyStarter = notifyStarter;
-  }
-
   public static class Builder {
 
+    /**
+     * 审批定义Code
+     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     */
     private String approvalCode;
+    /**
+     * 审批实例Code
+     * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+     */
     private String instanceCode;
+    /**
+     * 操作用户, 根据user_id_type填写
+     * <p> 示例值：f7cb567e
+     */
     private String userId;
-    private Boolean notifyStarter;
 
+    /**
+     * 审批定义Code
+     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     *
+     * @param approvalCode
+     * @return
+     */
     public Builder approvalCode(String approvalCode) {
       this.approvalCode = approvalCode;
       return this;
     }
 
+
+    /**
+     * 审批实例Code
+     * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+     *
+     * @param instanceCode
+     * @return
+     */
     public Builder instanceCode(String instanceCode) {
       this.instanceCode = instanceCode;
       return this;
     }
 
+
+    /**
+     * 操作用户, 根据user_id_type填写
+     * <p> 示例值：f7cb567e
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
-      return this;
-    }
-
-    public Builder notifyStarter(Boolean notifyStarter) {
-      this.notifyStarter = notifyStarter;
       return this;
     }
 

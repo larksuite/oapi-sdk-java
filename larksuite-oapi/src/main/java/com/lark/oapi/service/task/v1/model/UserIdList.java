@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserIdList {
 
+  /**
+   * 用户 ID 列表
+   * <p> 示例值：
+   */
   @SerializedName("user_id_list")
   private UserId[] userIdList;
 
@@ -25,6 +29,10 @@ public class UserIdList {
   }
 
   public UserIdList(Builder builder) {
+    /**
+     * 用户 ID 列表
+     * <p> 示例值：
+     */
     this.userIdList = builder.userIdList;
   }
 
@@ -42,8 +50,19 @@ public class UserIdList {
 
   public static class Builder {
 
+    /**
+     * 用户 ID 列表
+     * <p> 示例值：
+     */
     private UserId[] userIdList;
 
+    /**
+     * 用户 ID 列表
+     * <p> 示例值：
+     *
+     * @param userIdList
+     * @return
+     */
     public Builder userIdList(UserId[] userIdList) {
       this.userIdList = userIdList;
       return this;

@@ -16,7 +16,7 @@ public class CreateChatMembersSample {
     // 创建请求对象
     CreateChatMembersReq req = CreateChatMembersReq.newBuilder()
         .chatId("oc_a0553eda9014c201e6969b478895c230")
-        .memberIdType("user_id")
+        .memberIdType("open_id")
         .succeedType(0)
         .createChatMembersReqBody(CreateChatMembersReqBody.newBuilder()
             .idList(new String[]{})

@@ -48,6 +48,12 @@ public class CreateUnitReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder createUnitReqBody(CreateUnitReqBody body) {
       this.body = body;
       return this;

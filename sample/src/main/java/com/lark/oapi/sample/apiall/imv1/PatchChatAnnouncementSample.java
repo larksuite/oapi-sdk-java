@@ -6,7 +6,7 @@ import com.lark.oapi.service.im.v1.model.PatchChatAnnouncementReq;
 import com.lark.oapi.service.im.v1.model.PatchChatAnnouncementReqBody;
 import com.lark.oapi.service.im.v1.model.PatchChatAnnouncementResp;
 
-// HTTP PATH: /open-apis/im/v1/chats/:chat_id/announcement"
+// PATCH /open-apis/im/v1/chats/:chat_id/announcement
 public class PatchChatAnnouncementSample {
 
   public static void main(String arg[]) throws Exception {

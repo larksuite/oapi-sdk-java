@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateTitleSpaceNodeReqBody {
 
+  /**
+   * 节点新标题
+   * <p> 示例值：新标题
+   */
   @SerializedName("title")
   private String title;
 
@@ -25,6 +29,10 @@ public class UpdateTitleSpaceNodeReqBody {
   }
 
   public UpdateTitleSpaceNodeReqBody(Builder builder) {
+    /**
+     * 节点新标题
+     * <p> 示例值：新标题
+     */
     this.title = builder.title;
   }
 
@@ -42,8 +50,19 @@ public class UpdateTitleSpaceNodeReqBody {
 
   public static class Builder {
 
+    /**
+     * 节点新标题
+     * <p> 示例值：新标题
+     */
     private String title;
 
+    /**
+     * 节点新标题
+     * <p> 示例值：新标题
+     *
+     * @param title
+     * @return
+     */
     public Builder title(String title) {
       this.title = title;
       return this;

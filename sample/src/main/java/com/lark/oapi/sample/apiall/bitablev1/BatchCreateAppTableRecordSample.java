@@ -7,7 +7,7 @@ import com.lark.oapi.service.bitable.v1.model.BatchCreateAppTableRecordReq;
 import com.lark.oapi.service.bitable.v1.model.BatchCreateAppTableRecordReqBody;
 import com.lark.oapi.service.bitable.v1.model.BatchCreateAppTableRecordResp;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_create"
+// POST /open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_create
 public class BatchCreateAppTableRecordSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,8 +16,8 @@ public class BatchCreateAppTableRecordSample {
 
     // 创建请求对象
     BatchCreateAppTableRecordReq req = BatchCreateAppTableRecordReq.newBuilder()
-        .appToken("")
-        .tableId("")
+        .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
+        .tableId("tblsRc9GRRXKqhvW")
         .userIdType("user_id")
         .batchCreateAppTableRecordReqBody(BatchCreateAppTableRecordReqBody.newBuilder()
             .records(new AppTableRecord[]{})

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateExternalInstance {
 
+  /**
+   * 同步的实例数据
+   * <p> 示例值：
+   */
   @SerializedName("data")
   private ExternalInstance data;
 

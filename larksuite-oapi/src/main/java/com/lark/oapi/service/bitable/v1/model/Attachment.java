@@ -14,20 +14,43 @@
 package com.lark.oapi.service.bitable.v1.model;
 
 import com.google.gson.annotations.SerializedName;
-import java.util.Objects;
 
 public class Attachment {
 
+  /**
+   * attachment token
+   * <p> 示例值：
+   */
   @SerializedName("file_token")
   private String fileToken;
+  /**
+   * attachment name
+   * <p> 示例值：
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * attachment type
+   * <p> 示例值：
+   */
   @SerializedName("type")
   private String type;
+  /**
+   * attachment size
+   * <p> 示例值：
+   */
   @SerializedName("size")
   private Integer size;
+  /**
+   * download url
+   * <p> 示例值：
+   */
   @SerializedName("url")
   private String url;
+  /**
+   * temporary download url
+   * <p> 示例值：
+   */
   @SerializedName("tmp_url")
   private String tmpUrl;
 
@@ -36,11 +59,35 @@ public class Attachment {
   }
 
   public Attachment(Builder builder) {
+    /**
+     * attachment token
+     * <p> 示例值：
+     */
     this.fileToken = builder.fileToken;
+    /**
+     * attachment name
+     * <p> 示例值：
+     */
     this.name = builder.name;
+    /**
+     * attachment type
+     * <p> 示例值：
+     */
     this.type = builder.type;
+    /**
+     * attachment size
+     * <p> 示例值：
+     */
     this.size = builder.size;
+    /**
+     * download url
+     * <p> 示例值：
+     */
     this.url = builder.url;
+    /**
+     * temporary download url
+     * <p> 示例值：
+     */
     this.tmpUrl = builder.tmpUrl;
   }
 
@@ -96,72 +143,111 @@ public class Attachment {
     this.tmpUrl = tmpUrl;
   }
 
-  @Override
-  public String toString() {
-    return "Attachment{" +
-        "fileToken='" + fileToken + '\'' +
-        ", name='" + name + '\'' +
-        ", type='" + type + '\'' +
-        ", size=" + size +
-        ", url='" + url + '\'' +
-        ", tmpUrl='" + tmpUrl + '\'' +
-        '}';
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Attachment that = (Attachment) o;
-    return Objects.equals(fileToken, that.fileToken) && Objects.equals(name,
-        that.name) && Objects.equals(type, that.type) && Objects.equals(size,
-        that.size) && Objects.equals(url, that.url) && Objects.equals(tmpUrl,
-        that.tmpUrl);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(fileToken, name, type, size, url, tmpUrl);
-  }
-
   public static class Builder {
 
+    /**
+     * attachment token
+     * <p> 示例值：
+     */
     private String fileToken;
+    /**
+     * attachment name
+     * <p> 示例值：
+     */
     private String name;
+    /**
+     * attachment type
+     * <p> 示例值：
+     */
     private String type;
+    /**
+     * attachment size
+     * <p> 示例值：
+     */
     private Integer size;
+    /**
+     * download url
+     * <p> 示例值：
+     */
     private String url;
+    /**
+     * temporary download url
+     * <p> 示例值：
+     */
     private String tmpUrl;
 
+    /**
+     * attachment token
+     * <p> 示例值：
+     *
+     * @param fileToken
+     * @return
+     */
     public Builder fileToken(String fileToken) {
       this.fileToken = fileToken;
       return this;
     }
 
+
+    /**
+     * attachment name
+     * <p> 示例值：
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * attachment type
+     * <p> 示例值：
+     *
+     * @param type
+     * @return
+     */
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
+
+    /**
+     * attachment size
+     * <p> 示例值：
+     *
+     * @param size
+     * @return
+     */
     public Builder size(Integer size) {
       this.size = size;
       return this;
     }
 
+
+    /**
+     * download url
+     * <p> 示例值：
+     *
+     * @param url
+     * @return
+     */
     public Builder url(String url) {
       this.url = url;
       return this;
     }
 
+
+    /**
+     * temporary download url
+     * <p> 示例值：
+     *
+     * @param tmpUrl
+     * @return
+     */
     public Builder tmpUrl(String tmpUrl) {
       this.tmpUrl = tmpUrl;
       return this;

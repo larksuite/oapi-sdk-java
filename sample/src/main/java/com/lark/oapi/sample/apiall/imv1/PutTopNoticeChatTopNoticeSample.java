@@ -7,7 +7,7 @@ import com.lark.oapi.service.im.v1.model.PutTopNoticeChatTopNoticeReq;
 import com.lark.oapi.service.im.v1.model.PutTopNoticeChatTopNoticeReqBody;
 import com.lark.oapi.service.im.v1.model.PutTopNoticeChatTopNoticeResp;
 
-// HTTP PATH: /open-apis/im/v1/chats/:chat_id/top_notice/put_top_notice"
+// POST /open-apis/im/v1/chats/:chat_id/top_notice/put_top_notice
 public class PutTopNoticeChatTopNoticeSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class PutTopNoticeChatTopNoticeSample {
 
     // 创建请求对象
     PutTopNoticeChatTopNoticeReq req = PutTopNoticeChatTopNoticeReq.newBuilder()
-        .chatId("")
+        .chatId("oc_5ad11d72b830411d72b836c20")
         .putTopNoticeChatTopNoticeReqBody(PutTopNoticeChatTopNoticeReqBody.newBuilder()
             .chatTopNotice(new ChatTopNotice[]{})
             .build())

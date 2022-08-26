@@ -19,15 +19,31 @@ import com.lark.oapi.core.annotation.Query;
 
 public class DeletePermissionMemberReq {
 
+  /**
+   * 文件类型，放于query参数中，如：`?type=doc`
+   * <p> 示例值：doc
+   */
   @Query
   @SerializedName("type")
   private String type;
+  /**
+   * 权限成员类型，放于query参数中，如：`?member_type=openid`
+   * <p> 示例值：openid
+   */
   @Query
   @SerializedName("member_type")
   private String memberType;
+  /**
+   * 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+   * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
+   */
   @Path
   @SerializedName("token")
   private String token;
+  /**
+   * 权限成员的ID，与`member_type`相对应
+   * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
   @Path
   @SerializedName("member_id")
   private String memberId;
@@ -37,9 +53,25 @@ public class DeletePermissionMemberReq {
   }
 
   public DeletePermissionMemberReq(Builder builder) {
+    /**
+     * 文件类型，放于query参数中，如：`?type=doc`
+     * <p> 示例值：doc
+     */
     this.type = builder.type;
+    /**
+     * 权限成员类型，放于query参数中，如：`?member_type=openid`
+     * <p> 示例值：openid
+     */
     this.memberType = builder.memberType;
+    /**
+     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+     * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
+     */
     this.token = builder.token;
+    /**
+     * 权限成员的ID，与`member_type`相对应
+     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
     this.memberId = builder.memberId;
   }
 
@@ -81,36 +113,81 @@ public class DeletePermissionMemberReq {
 
   public static class Builder {
 
-    private String type;
-    private String memberType;
-    private String token;
-    private String memberId;
+    private String type; // 文件类型，放于query参数中，如：`?type=doc`
+    private String memberType; // 权限成员类型，放于query参数中，如：`?member_type=openid`
+    private String token; // 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+    private String memberId; // 权限成员的ID，与`member_type`相对应
 
+    /**
+     * 文件类型，放于query参数中，如：`?type=doc`
+     * <p> 示例值：doc
+     *
+     * @param type
+     * @return
+     */
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public Builder type(com.lark.oapi.service.drive.v1.enums.TokenTypeV2Enum type) {
+    /**
+     * 文件类型，放于query参数中，如：`?type=doc`
+     * <p> 示例值：doc
+     *
+     * @param type {@link com.lark.oapi.service.drive.v1.enums.DeletePermissionMemberTokenTypeV2Enum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.drive.v1.enums.DeletePermissionMemberTokenTypeV2Enum type) {
       this.type = type.getValue();
       return this;
     }
 
+    /**
+     * 权限成员类型，放于query参数中，如：`?member_type=openid`
+     * <p> 示例值：openid
+     *
+     * @param memberType
+     * @return
+     */
     public Builder memberType(String memberType) {
       this.memberType = memberType;
       return this;
     }
 
-    public Builder memberType(com.lark.oapi.service.drive.v1.enums.MemberTypeEnum memberType) {
+    /**
+     * 权限成员类型，放于query参数中，如：`?member_type=openid`
+     * <p> 示例值：openid
+     *
+     * @param memberType {@link com.lark.oapi.service.drive.v1.enums.DeletePermissionMemberMemberTypeEnum}
+     * @return
+     */
+    public Builder memberType(
+        com.lark.oapi.service.drive.v1.enums.DeletePermissionMemberMemberTypeEnum memberType) {
       this.memberType = memberType.getValue();
       return this;
     }
 
+    /**
+     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+     * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
+     *
+     * @param token
+     * @return
+     */
     public Builder token(String token) {
       this.token = token;
       return this;
     }
 
+
+    /**
+     * 权限成员的ID，与`member_type`相对应
+     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param memberId
+     * @return
+     */
     public Builder memberId(String memberId) {
       this.memberId = memberId;
       return this;

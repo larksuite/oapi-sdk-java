@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class UnmergeTableCellsRequest {
 
+  /**
+   * table 行索引
+   * <p> 示例值：0
+   */
   @SerializedName("row_index")
   private Integer rowIndex;
+  /**
+   * table 列索引
+   * <p> 示例值：0
+   */
   @SerializedName("column_index")
   private Integer columnIndex;
 
@@ -27,7 +35,15 @@ public class UnmergeTableCellsRequest {
   }
 
   public UnmergeTableCellsRequest(Builder builder) {
+    /**
+     * table 行索引
+     * <p> 示例值：0
+     */
     this.rowIndex = builder.rowIndex;
+    /**
+     * table 列索引
+     * <p> 示例值：0
+     */
     this.columnIndex = builder.columnIndex;
   }
 
@@ -53,14 +69,37 @@ public class UnmergeTableCellsRequest {
 
   public static class Builder {
 
+    /**
+     * table 行索引
+     * <p> 示例值：0
+     */
     private Integer rowIndex;
+    /**
+     * table 列索引
+     * <p> 示例值：0
+     */
     private Integer columnIndex;
 
+    /**
+     * table 行索引
+     * <p> 示例值：0
+     *
+     * @param rowIndex
+     * @return
+     */
     public Builder rowIndex(Integer rowIndex) {
       this.rowIndex = rowIndex;
       return this;
     }
 
+
+    /**
+     * table 列索引
+     * <p> 示例值：0
+     *
+     * @param columnIndex
+     * @return
+     */
     public Builder columnIndex(Integer columnIndex) {
       this.columnIndex = columnIndex;
       return this;

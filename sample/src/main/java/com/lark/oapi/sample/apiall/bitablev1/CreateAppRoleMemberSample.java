@@ -6,7 +6,7 @@ import com.lark.oapi.service.bitable.v1.model.AppRoleMember;
 import com.lark.oapi.service.bitable.v1.model.CreateAppRoleMemberReq;
 import com.lark.oapi.service.bitable.v1.model.CreateAppRoleMemberResp;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/roles/:role_id/members"
+// POST /open-apis/bitable/v1/apps/:app_token/roles/:role_id/members
 public class CreateAppRoleMemberSample {
 
   public static void main(String arg[]) throws Exception {

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListTicketCustomizedFieldReqBody {
 
+  /**
+   * 是否可见
+   * <p> 示例值：true
+   */
   @SerializedName("visible")
   private Boolean visible;
 
@@ -25,6 +29,10 @@ public class ListTicketCustomizedFieldReqBody {
   }
 
   public ListTicketCustomizedFieldReqBody(Builder builder) {
+    /**
+     * 是否可见
+     * <p> 示例值：true
+     */
     this.visible = builder.visible;
   }
 
@@ -42,8 +50,19 @@ public class ListTicketCustomizedFieldReqBody {
 
   public static class Builder {
 
+    /**
+     * 是否可见
+     * <p> 示例值：true
+     */
     private Boolean visible;
 
+    /**
+     * 是否可见
+     * <p> 示例值：true
+     *
+     * @param visible
+     * @return
+     */
     public Builder visible(Boolean visible) {
       this.visible = visible;
       return this;

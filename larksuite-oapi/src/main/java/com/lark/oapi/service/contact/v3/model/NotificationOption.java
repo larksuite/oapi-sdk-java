@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class NotificationOption {
 
+  /**
+   * 通道列表，枚举值，可多选：;- `sms`：短信邀请;- `email`：邮件邀请
+   * <p> 示例值：["sms", "email"]
+   */
   @SerializedName("channels")
   private String[] channels;
+  /**
+   * 语言类型
+   * <p> 示例值：zh-CN
+   */
   @SerializedName("language")
   private String language;
 
@@ -27,7 +35,15 @@ public class NotificationOption {
   }
 
   public NotificationOption(Builder builder) {
+    /**
+     * 通道列表，枚举值，可多选：;- `sms`：短信邀请;- `email`：邮件邀请
+     * <p> 示例值：["sms", "email"]
+     */
     this.channels = builder.channels;
+    /**
+     * 语言类型
+     * <p> 示例值：zh-CN
+     */
     this.language = builder.language;
   }
 
@@ -53,20 +69,51 @@ public class NotificationOption {
 
   public static class Builder {
 
+    /**
+     * 通道列表，枚举值，可多选：;- `sms`：短信邀请;- `email`：邮件邀请
+     * <p> 示例值：["sms", "email"]
+     */
     private String[] channels;
+    /**
+     * 语言类型
+     * <p> 示例值：zh-CN
+     */
     private String language;
 
+    /**
+     * 通道列表，枚举值，可多选：;- `sms`：短信邀请;- `email`：邮件邀请
+     * <p> 示例值：["sms", "email"]
+     *
+     * @param channels
+     * @return
+     */
     public Builder channels(String[] channels) {
       this.channels = channels;
       return this;
     }
 
+
+    /**
+     * 语言类型
+     * <p> 示例值：zh-CN
+     *
+     * @param language
+     * @return
+     */
     public Builder language(String language) {
       this.language = language;
       return this;
     }
 
-    public Builder language(com.lark.oapi.service.contact.v3.enums.LanguageEnum language) {
+    /**
+     * 语言类型
+     * <p> 示例值：zh-CN
+     *
+     * @param language {@link com.lark.oapi.service.contact.v3.enums.NotificationOptionLanguageEnum}
+     * @return
+     */
+    public Builder language(
+        com.lark.oapi.service.contact.v3.enums.NotificationOptionLanguageEnum language) {
       this.language = language.getValue();
       return this;
     }

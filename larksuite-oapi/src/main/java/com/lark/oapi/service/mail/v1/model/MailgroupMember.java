@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class MailgroupMember {
 
+  /**
+   * 邮件组内成员唯一标识
+   * <p> 示例值：xxxxxxxxxxxxxxx
+   */
   @SerializedName("member_id")
   private String memberId;
+  /**
+   * 成员邮箱地址（当成员类型是EXTERNAL_USER/MAIL_GROUP/OTHER_MEMBER时有值）
+   * <p> 示例值：test_memeber@xxx.xx
+   */
   @SerializedName("email")
   private String email;
+  /**
+   * 租户内用户的唯一标识（当成员类型是USER时有值）
+   * <p> 示例值：xxxxxxxxxx
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 租户内部门的唯一标识（当成员类型是DEPARTMENT时有值）
+   * <p> 示例值：xxxxxxxxxx
+   */
   @SerializedName("department_id")
   private String departmentId;
+  /**
+   * 成员类型
+   * <p> 示例值：USER
+   */
   @SerializedName("type")
   private String type;
 
@@ -33,10 +53,30 @@ public class MailgroupMember {
   }
 
   public MailgroupMember(Builder builder) {
+    /**
+     * 邮件组内成员唯一标识
+     * <p> 示例值：xxxxxxxxxxxxxxx
+     */
     this.memberId = builder.memberId;
+    /**
+     * 成员邮箱地址（当成员类型是EXTERNAL_USER/MAIL_GROUP/OTHER_MEMBER时有值）
+     * <p> 示例值：test_memeber@xxx.xx
+     */
     this.email = builder.email;
+    /**
+     * 租户内用户的唯一标识（当成员类型是USER时有值）
+     * <p> 示例值：xxxxxxxxxx
+     */
     this.userId = builder.userId;
+    /**
+     * 租户内部门的唯一标识（当成员类型是DEPARTMENT时有值）
+     * <p> 示例值：xxxxxxxxxx
+     */
     this.departmentId = builder.departmentId;
+    /**
+     * 成员类型
+     * <p> 示例值：USER
+     */
     this.type = builder.type;
   }
 
@@ -86,38 +126,104 @@ public class MailgroupMember {
 
   public static class Builder {
 
+    /**
+     * 邮件组内成员唯一标识
+     * <p> 示例值：xxxxxxxxxxxxxxx
+     */
     private String memberId;
+    /**
+     * 成员邮箱地址（当成员类型是EXTERNAL_USER/MAIL_GROUP/OTHER_MEMBER时有值）
+     * <p> 示例值：test_memeber@xxx.xx
+     */
     private String email;
+    /**
+     * 租户内用户的唯一标识（当成员类型是USER时有值）
+     * <p> 示例值：xxxxxxxxxx
+     */
     private String userId;
+    /**
+     * 租户内部门的唯一标识（当成员类型是DEPARTMENT时有值）
+     * <p> 示例值：xxxxxxxxxx
+     */
     private String departmentId;
+    /**
+     * 成员类型
+     * <p> 示例值：USER
+     */
     private String type;
 
+    /**
+     * 邮件组内成员唯一标识
+     * <p> 示例值：xxxxxxxxxxxxxxx
+     *
+     * @param memberId
+     * @return
+     */
     public Builder memberId(String memberId) {
       this.memberId = memberId;
       return this;
     }
 
+
+    /**
+     * 成员邮箱地址（当成员类型是EXTERNAL_USER/MAIL_GROUP/OTHER_MEMBER时有值）
+     * <p> 示例值：test_memeber@xxx.xx
+     *
+     * @param email
+     * @return
+     */
     public Builder email(String email) {
       this.email = email;
       return this;
     }
 
+
+    /**
+     * 租户内用户的唯一标识（当成员类型是USER时有值）
+     * <p> 示例值：xxxxxxxxxx
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 租户内部门的唯一标识（当成员类型是DEPARTMENT时有值）
+     * <p> 示例值：xxxxxxxxxx
+     *
+     * @param departmentId
+     * @return
+     */
     public Builder departmentId(String departmentId) {
       this.departmentId = departmentId;
       return this;
     }
 
+
+    /**
+     * 成员类型
+     * <p> 示例值：USER
+     *
+     * @param type
+     * @return
+     */
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public Builder type(com.lark.oapi.service.mail.v1.enums.TypeEnum type) {
+    /**
+     * 成员类型
+     * <p> 示例值：USER
+     *
+     * @param type {@link com.lark.oapi.service.mail.v1.enums.MailgroupMemberTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.mail.v1.enums.MailgroupMemberTypeEnum type) {
       this.type = type.getValue();
       return this;
     }

@@ -7,7 +7,7 @@ import com.lark.oapi.service.helpdesk.v1.model.UnsubscribeEventReq;
 import com.lark.oapi.service.helpdesk.v1.model.UnsubscribeEventReqBody;
 import com.lark.oapi.service.helpdesk.v1.model.UnsubscribeEventResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/events/unsubscribe"
+// POST /open-apis/helpdesk/v1/events/unsubscribe
 public class UnsubscribeEventSample {
 
   public static void main(String arg[]) throws Exception {

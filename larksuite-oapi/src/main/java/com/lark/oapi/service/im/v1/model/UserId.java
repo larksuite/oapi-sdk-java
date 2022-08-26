@@ -17,10 +17,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserId {
 
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("open_id")
   private String openId;
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("union_id")
   private String unionId;
 
@@ -29,8 +38,20 @@ public class UserId {
   }
 
   public UserId(Builder builder) {
+    /**
+     *
+     * <p> 示例值：
+     */
     this.userId = builder.userId;
+    /**
+     *
+     * <p> 示例值：
+     */
     this.openId = builder.openId;
+    /**
+     *
+     * <p> 示例值：
+     */
     this.unionId = builder.unionId;
   }
 
@@ -64,20 +85,49 @@ public class UserId {
 
   public static class Builder {
 
+    /**
+     * <p> 示例值：
+     */
     private String userId;
+    /**
+     * <p> 示例值：
+     */
     private String openId;
+    /**
+     * <p> 示例值：
+     */
     private String unionId;
 
+    /**
+     * <p> 示例值：
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：
+     *
+     * @param openId
+     * @return
+     */
     public Builder openId(String openId) {
       this.openId = openId;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：
+     *
+     * @param unionId
+     * @return
+     */
     public Builder unionId(String unionId) {
       this.unionId = unionId;
       return this;

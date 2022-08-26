@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetFaq {
 
+  /**
+   * 知识库详情
+   * <p> 示例值：
+   */
   @SerializedName("faq")
   private Faq faq;
 

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetTicket {
 
+  /**
+   * 工单详情
+   * <p> 示例值：
+   */
   @SerializedName("ticket")
   private Ticket ticket;
 

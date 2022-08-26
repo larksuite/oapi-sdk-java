@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.DeleteAgentSchedulesReq;
 import com.lark.oapi.service.helpdesk.v1.model.DeleteAgentSchedulesResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/agents/:agent_id/schedules"
+// DELETE /open-apis/helpdesk/v1/agents/:agent_id/schedules
 public class DeleteAgentSchedulesSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class DeleteAgentSchedulesSample {
 
     // 创建请求对象
     DeleteAgentSchedulesReq req = DeleteAgentSchedulesReq.newBuilder()
-        .agentId("")
+        .agentId("12345")
         .build();
 
     // 发起请求

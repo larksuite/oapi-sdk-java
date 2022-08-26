@@ -17,10 +17,21 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListCustomAttr {
 
+  /**
+   * 自定义字段定义
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private CustomAttr[] items;
+  /**
+   * <p> 示例值：AQD9/Rn9eij9Pm39ED40/RYU5lvOM4s6zgbeeNNaWd%2BVKwAsoreeRWk0J2noGvJy
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 是否还有下一页
+   * <p> 示例值：true
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
 

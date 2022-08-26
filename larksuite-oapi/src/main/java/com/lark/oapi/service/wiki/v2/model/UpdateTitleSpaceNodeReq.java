@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Path;
 
 public class UpdateTitleSpaceNodeReq {
 
+  /**
+   * 知识空间ID
+   * <p> 示例值：6946843325487912356
+   */
   @Path
   @SerializedName("space_id")
   private String spaceId;
+  /**
+   * 节点token
+   * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+   */
   @Path
   @SerializedName("node_token")
   private String nodeToken;
@@ -33,7 +41,15 @@ public class UpdateTitleSpaceNodeReq {
   }
 
   public UpdateTitleSpaceNodeReq(Builder builder) {
+    /**
+     * 知识空间ID
+     * <p> 示例值：6946843325487912356
+     */
     this.spaceId = builder.spaceId;
+    /**
+     * 节点token
+     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+     */
     this.nodeToken = builder.nodeToken;
     this.body = builder.body;
   }
@@ -68,15 +84,29 @@ public class UpdateTitleSpaceNodeReq {
 
   public static class Builder {
 
-    private String spaceId;
-    private String nodeToken;
+    private String spaceId; // 知识空间ID
+    private String nodeToken; // 节点token
     private UpdateTitleSpaceNodeReqBody body;
 
+    /**
+     * 知识空间ID
+     * <p> 示例值：6946843325487912356
+     *
+     * @param spaceId
+     * @return
+     */
     public Builder spaceId(String spaceId) {
       this.spaceId = spaceId;
       return this;
     }
 
+    /**
+     * 节点token
+     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+     *
+     * @param nodeToken
+     * @return
+     */
     public Builder nodeToken(String nodeToken) {
       this.nodeToken = nodeToken;
       return this;
@@ -86,6 +116,12 @@ public class UpdateTitleSpaceNodeReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder updateTitleSpaceNodeReqBody(UpdateTitleSpaceNodeReqBody body) {
       this.body = body;
       return this;

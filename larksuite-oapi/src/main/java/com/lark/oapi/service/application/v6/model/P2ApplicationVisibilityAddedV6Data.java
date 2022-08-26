@@ -17,8 +17,14 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2ApplicationVisibilityAddedV6Data {
 
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("users")
   private User[] users;
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("source")
   private Integer source;
 

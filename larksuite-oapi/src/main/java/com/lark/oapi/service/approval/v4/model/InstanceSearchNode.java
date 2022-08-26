@@ -17,24 +17,64 @@ import com.google.gson.annotations.SerializedName;
 
 public class InstanceSearchNode {
 
+  /**
+   * 审批实例 code
+   * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
+   */
   @SerializedName("code")
   private String code;
+  /**
+   * 审批实例外部 id
+   * <p> 示例值：0004_3ED52DC1-AA6C
+   */
   @SerializedName("external_id")
   private String externalId;
+  /**
+   * 审批实例发起人 id
+   * <p> 示例值：lwiu098wj
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 审批实例开始时间
+   * <p> 示例值：1547654251506
+   */
   @SerializedName("start_time")
   private String startTime;
+  /**
+   * 审批实例结束时间
+   * <p> 示例值：1547654251506
+   */
   @SerializedName("end_time")
   private String endTime;
+  /**
+   * 审批实例状态
+   * <p> 示例值：pending
+   */
   @SerializedName("status")
   private String status;
+  /**
+   * 审批实例名称（只有第三方审批有）
+   * <p> 示例值：test
+   */
   @SerializedName("title")
   private String title;
+  /**
+   * 审批实例扩展字段，string型json
+   * <p> 示例值：{}
+   */
   @SerializedName("extra")
   private String extra;
+  /**
+   * 审批流水号
+   * <p> 示例值：201902020001
+   */
   @SerializedName("serial_id")
   private String serialId;
+  /**
+   * 审批实例链接（只有第三方审批有）
+   * <p> 示例值：
+   */
   @SerializedName("link")
   private InstanceSearchLink link;
 
@@ -43,15 +83,55 @@ public class InstanceSearchNode {
   }
 
   public InstanceSearchNode(Builder builder) {
+    /**
+     * 审批实例 code
+     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
+     */
     this.code = builder.code;
+    /**
+     * 审批实例外部 id
+     * <p> 示例值：0004_3ED52DC1-AA6C
+     */
     this.externalId = builder.externalId;
+    /**
+     * 审批实例发起人 id
+     * <p> 示例值：lwiu098wj
+     */
     this.userId = builder.userId;
+    /**
+     * 审批实例开始时间
+     * <p> 示例值：1547654251506
+     */
     this.startTime = builder.startTime;
+    /**
+     * 审批实例结束时间
+     * <p> 示例值：1547654251506
+     */
     this.endTime = builder.endTime;
+    /**
+     * 审批实例状态
+     * <p> 示例值：pending
+     */
     this.status = builder.status;
+    /**
+     * 审批实例名称（只有第三方审批有）
+     * <p> 示例值：test
+     */
     this.title = builder.title;
+    /**
+     * 审批实例扩展字段，string型json
+     * <p> 示例值：{}
+     */
     this.extra = builder.extra;
+    /**
+     * 审批流水号
+     * <p> 示例值：201902020001
+     */
     this.serialId = builder.serialId;
+    /**
+     * 审批实例链接（只有第三方审批有）
+     * <p> 示例值：
+     */
     this.link = builder.link;
   }
 
@@ -141,67 +221,194 @@ public class InstanceSearchNode {
 
   public static class Builder {
 
+    /**
+     * 审批实例 code
+     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
+     */
     private String code;
+    /**
+     * 审批实例外部 id
+     * <p> 示例值：0004_3ED52DC1-AA6C
+     */
     private String externalId;
+    /**
+     * 审批实例发起人 id
+     * <p> 示例值：lwiu098wj
+     */
     private String userId;
+    /**
+     * 审批实例开始时间
+     * <p> 示例值：1547654251506
+     */
     private String startTime;
+    /**
+     * 审批实例结束时间
+     * <p> 示例值：1547654251506
+     */
     private String endTime;
+    /**
+     * 审批实例状态
+     * <p> 示例值：pending
+     */
     private String status;
+    /**
+     * 审批实例名称（只有第三方审批有）
+     * <p> 示例值：test
+     */
     private String title;
+    /**
+     * 审批实例扩展字段，string型json
+     * <p> 示例值：{}
+     */
     private String extra;
+    /**
+     * 审批流水号
+     * <p> 示例值：201902020001
+     */
     private String serialId;
+    /**
+     * 审批实例链接（只有第三方审批有）
+     * <p> 示例值：
+     */
     private InstanceSearchLink link;
 
+    /**
+     * 审批实例 code
+     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
+     *
+     * @param code
+     * @return
+     */
     public Builder code(String code) {
       this.code = code;
       return this;
     }
 
+
+    /**
+     * 审批实例外部 id
+     * <p> 示例值：0004_3ED52DC1-AA6C
+     *
+     * @param externalId
+     * @return
+     */
     public Builder externalId(String externalId) {
       this.externalId = externalId;
       return this;
     }
 
+
+    /**
+     * 审批实例发起人 id
+     * <p> 示例值：lwiu098wj
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 审批实例开始时间
+     * <p> 示例值：1547654251506
+     *
+     * @param startTime
+     * @return
+     */
     public Builder startTime(String startTime) {
       this.startTime = startTime;
       return this;
     }
 
+
+    /**
+     * 审批实例结束时间
+     * <p> 示例值：1547654251506
+     *
+     * @param endTime
+     * @return
+     */
     public Builder endTime(String endTime) {
       this.endTime = endTime;
       return this;
     }
 
+
+    /**
+     * 审批实例状态
+     * <p> 示例值：pending
+     *
+     * @param status
+     * @return
+     */
     public Builder status(String status) {
       this.status = status;
       return this;
     }
 
-    public Builder status(com.lark.oapi.service.approval.v4.enums.StatusEnum status) {
+    /**
+     * 审批实例状态
+     * <p> 示例值：pending
+     *
+     * @param status {@link com.lark.oapi.service.approval.v4.enums.InstanceSearchNodeStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.approval.v4.enums.InstanceSearchNodeStatusEnum status) {
       this.status = status.getValue();
       return this;
     }
 
+
+    /**
+     * 审批实例名称（只有第三方审批有）
+     * <p> 示例值：test
+     *
+     * @param title
+     * @return
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
+
+    /**
+     * 审批实例扩展字段，string型json
+     * <p> 示例值：{}
+     *
+     * @param extra
+     * @return
+     */
     public Builder extra(String extra) {
       this.extra = extra;
       return this;
     }
 
+
+    /**
+     * 审批流水号
+     * <p> 示例值：201902020001
+     *
+     * @param serialId
+     * @return
+     */
     public Builder serialId(String serialId) {
       this.serialId = serialId;
       return this;
     }
 
+
+    /**
+     * 审批实例链接（只有第三方审批有）
+     * <p> 示例值：
+     *
+     * @param link
+     * @return
+     */
     public Builder link(InstanceSearchLink link) {
       this.link = link;
       return this;

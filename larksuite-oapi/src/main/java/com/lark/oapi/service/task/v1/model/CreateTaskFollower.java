@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateTaskFollower {
 
+  /**
+   * 创建后的任务关注者
+   * <p> 示例值：
+   */
   @SerializedName("follower")
   private Follower follower;
 

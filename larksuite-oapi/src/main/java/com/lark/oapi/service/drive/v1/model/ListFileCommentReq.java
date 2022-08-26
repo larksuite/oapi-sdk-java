@@ -19,21 +19,43 @@ import com.lark.oapi.core.annotation.Query;
 
 public class ListFileCommentReq {
 
+  /**
+   * 文档类型
+   * <p> 示例值：doc
+   */
   @Query
   @SerializedName("file_type")
   private String fileType;
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * 是否已解决（可选）
+   * <p> 示例值：false
+   */
   @Query
   @SerializedName("is_solved")
   private Boolean isSolved;
+  /**
+   * <p> 示例值：6916106822734578184
+   */
   @Query
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * <p> 示例值：10
+   */
   @Query
   @SerializedName("page_size")
   private Integer pageSize;
+  /**
+   * 文档token
+   * <p> 示例值：doccnHh7U87HOFpii5u5G*****
+   */
   @Path
   @SerializedName("file_token")
   private String fileToken;
@@ -43,11 +65,35 @@ public class ListFileCommentReq {
   }
 
   public ListFileCommentReq(Builder builder) {
+    /**
+     * 文档类型
+     * <p> 示例值：doc
+     */
     this.fileType = builder.fileType;
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
+    /**
+     * 是否已解决（可选）
+     * <p> 示例值：false
+     */
     this.isSolved = builder.isSolved;
+    /**
+     *
+     * <p> 示例值：6916106822734578184
+     */
     this.pageToken = builder.pageToken;
+    /**
+     *
+     * <p> 示例值：10
+     */
     this.pageSize = builder.pageSize;
+    /**
+     * 文档token
+     * <p> 示例值：doccnHh7U87HOFpii5u5G*****
+     */
     this.fileToken = builder.fileToken;
   }
 
@@ -105,48 +151,104 @@ public class ListFileCommentReq {
 
   public static class Builder {
 
-    private String fileType;
-    private String userIdType;
-    private Boolean isSolved;
-    private String pageToken;
-    private Integer pageSize;
-    private String fileToken;
+    private String fileType; // 文档类型
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private Boolean isSolved; // 是否已解决（可选）
+    private String pageToken; //
+    private Integer pageSize; //
+    private String fileToken; // 文档token
 
+    /**
+     * 文档类型
+     * <p> 示例值：doc
+     *
+     * @param fileType
+     * @return
+     */
     public Builder fileType(String fileType) {
       this.fileType = fileType;
       return this;
     }
 
-    public Builder fileType(com.lark.oapi.service.drive.v1.enums.FileTypeEnum fileType) {
+    /**
+     * 文档类型
+     * <p> 示例值：doc
+     *
+     * @param fileType {@link com.lark.oapi.service.drive.v1.enums.ListFileCommentFileTypeEnum}
+     * @return
+     */
+    public Builder fileType(
+        com.lark.oapi.service.drive.v1.enums.ListFileCommentFileTypeEnum fileType) {
       this.fileType = fileType.getValue();
       return this;
     }
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.drive.v1.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.drive.v1.enums.ListFileCommentUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.drive.v1.enums.ListFileCommentUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+    /**
+     * 是否已解决（可选）
+     * <p> 示例值：false
+     *
+     * @param isSolved
+     * @return
+     */
     public Builder isSolved(Boolean isSolved) {
       this.isSolved = isSolved;
       return this;
     }
 
+    /**
+     * <p> 示例值：6916106822734578184
+     *
+     * @param pageToken
+     * @return
+     */
     public Builder pageToken(String pageToken) {
       this.pageToken = pageToken;
       return this;
     }
 
+    /**
+     * <p> 示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
     public Builder pageSize(Integer pageSize) {
       this.pageSize = pageSize;
       return this;
     }
 
+    /**
+     * 文档token
+     * <p> 示例值：doccnHh7U87HOFpii5u5G*****
+     *
+     * @param fileToken
+     * @return
+     */
     public Builder fileToken(String fileToken) {
       this.fileToken = fileToken;
       return this;

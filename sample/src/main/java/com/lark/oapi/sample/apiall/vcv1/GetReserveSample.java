@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.vc.v1.model.GetReserveReq;
 import com.lark.oapi.service.vc.v1.model.GetReserveResp;
 
-// HTTP PATH: /open-apis/vc/v1/reserves/:reserve_id"
+// GET /open-apis/vc/v1/reserves/:reserve_id
 public class GetReserveSample {
 
   public static void main(String arg[]) throws Exception {

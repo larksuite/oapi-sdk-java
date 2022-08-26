@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class PublicMailbox {
 
+  /**
+   * 公共邮箱唯一标识
+   * <p> 示例值：xxxxxxxxxxxxxxx
+   */
   @SerializedName("public_mailbox_id")
   private String publicMailboxId;
+  /**
+   * 公共邮箱地址
+   * <p> 示例值：test_public_mailbox@xxx.xx
+   */
   @SerializedName("email")
   private String email;
+  /**
+   * 公共邮箱名称
+   * <p> 示例值：test public mailbox
+   */
   @SerializedName("name")
   private String name;
 
@@ -29,8 +41,20 @@ public class PublicMailbox {
   }
 
   public PublicMailbox(Builder builder) {
+    /**
+     * 公共邮箱唯一标识
+     * <p> 示例值：xxxxxxxxxxxxxxx
+     */
     this.publicMailboxId = builder.publicMailboxId;
+    /**
+     * 公共邮箱地址
+     * <p> 示例值：test_public_mailbox@xxx.xx
+     */
     this.email = builder.email;
+    /**
+     * 公共邮箱名称
+     * <p> 示例值：test public mailbox
+     */
     this.name = builder.name;
   }
 
@@ -64,20 +88,55 @@ public class PublicMailbox {
 
   public static class Builder {
 
+    /**
+     * 公共邮箱唯一标识
+     * <p> 示例值：xxxxxxxxxxxxxxx
+     */
     private String publicMailboxId;
+    /**
+     * 公共邮箱地址
+     * <p> 示例值：test_public_mailbox@xxx.xx
+     */
     private String email;
+    /**
+     * 公共邮箱名称
+     * <p> 示例值：test public mailbox
+     */
     private String name;
 
+    /**
+     * 公共邮箱唯一标识
+     * <p> 示例值：xxxxxxxxxxxxxxx
+     *
+     * @param publicMailboxId
+     * @return
+     */
     public Builder publicMailboxId(String publicMailboxId) {
       this.publicMailboxId = publicMailboxId;
       return this;
     }
 
+
+    /**
+     * 公共邮箱地址
+     * <p> 示例值：test_public_mailbox@xxx.xx
+     *
+     * @param email
+     * @return
+     */
     public Builder email(String email) {
       this.email = email;
       return this;
     }
 
+
+    /**
+     * 公共邮箱名称
+     * <p> 示例值：test public mailbox
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;

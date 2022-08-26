@@ -18,15 +18,29 @@ import com.lark.oapi.core.annotation.Query;
 
 public class ListMailgroupReq {
 
+  /**
+   * 邮件组管理员用户ID，用于获取该用户有管理权限的邮件组
+   * <p> 示例值：ou_xxxxxx
+   */
   @Query
   @SerializedName("manager_user_id")
   private String managerUserId;
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * <p> 示例值：xxx
+   */
   @Query
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * <p> 示例值：10
+   */
   @Query
   @SerializedName("page_size")
   private Integer pageSize;
@@ -36,9 +50,25 @@ public class ListMailgroupReq {
   }
 
   public ListMailgroupReq(Builder builder) {
+    /**
+     * 邮件组管理员用户ID，用于获取该用户有管理权限的邮件组
+     * <p> 示例值：ou_xxxxxx
+     */
     this.managerUserId = builder.managerUserId;
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
+    /**
+     *
+     * <p> 示例值：xxx
+     */
     this.pageToken = builder.pageToken;
+    /**
+     *
+     * <p> 示例值：10
+     */
     this.pageSize = builder.pageSize;
   }
 
@@ -80,31 +110,69 @@ public class ListMailgroupReq {
 
   public static class Builder {
 
-    private String managerUserId;
-    private String userIdType;
-    private String pageToken;
-    private Integer pageSize;
+    private String managerUserId; // 邮件组管理员用户ID，用于获取该用户有管理权限的邮件组
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String pageToken; //
+    private Integer pageSize; //
 
+
+    /**
+     * 邮件组管理员用户ID，用于获取该用户有管理权限的邮件组
+     * <p> 示例值：ou_xxxxxx
+     *
+     * @param managerUserId
+     * @return
+     */
     public Builder managerUserId(String managerUserId) {
       this.managerUserId = managerUserId;
       return this;
     }
 
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.mail.v1.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.ListMailgroupUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.mail.v1.enums.ListMailgroupUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+
+    /**
+     * <p> 示例值：xxx
+     *
+     * @param pageToken
+     * @return
+     */
     public Builder pageToken(String pageToken) {
       this.pageToken = pageToken;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
     public Builder pageSize(Integer pageSize) {
       this.pageSize = pageSize;
       return this;

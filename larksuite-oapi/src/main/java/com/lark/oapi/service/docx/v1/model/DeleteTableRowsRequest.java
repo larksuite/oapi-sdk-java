@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class DeleteTableRowsRequest {
 
+  /**
+   * 行开始索引（区间左闭右开）
+   * <p> 示例值：0
+   */
   @SerializedName("row_start_index")
   private Integer rowStartIndex;
+  /**
+   * 行结束索引（区间左闭右开）
+   * <p> 示例值：1
+   */
   @SerializedName("row_end_index")
   private Integer rowEndIndex;
 
@@ -27,7 +35,15 @@ public class DeleteTableRowsRequest {
   }
 
   public DeleteTableRowsRequest(Builder builder) {
+    /**
+     * 行开始索引（区间左闭右开）
+     * <p> 示例值：0
+     */
     this.rowStartIndex = builder.rowStartIndex;
+    /**
+     * 行结束索引（区间左闭右开）
+     * <p> 示例值：1
+     */
     this.rowEndIndex = builder.rowEndIndex;
   }
 
@@ -53,14 +69,37 @@ public class DeleteTableRowsRequest {
 
   public static class Builder {
 
+    /**
+     * 行开始索引（区间左闭右开）
+     * <p> 示例值：0
+     */
     private Integer rowStartIndex;
+    /**
+     * 行结束索引（区间左闭右开）
+     * <p> 示例值：1
+     */
     private Integer rowEndIndex;
 
+    /**
+     * 行开始索引（区间左闭右开）
+     * <p> 示例值：0
+     *
+     * @param rowStartIndex
+     * @return
+     */
     public Builder rowStartIndex(Integer rowStartIndex) {
       this.rowStartIndex = rowStartIndex;
       return this;
     }
 
+
+    /**
+     * 行结束索引（区间左闭右开）
+     * <p> 示例值：1
+     *
+     * @param rowEndIndex
+     * @return
+     */
     public Builder rowEndIndex(Integer rowEndIndex) {
       this.rowEndIndex = rowEndIndex;
       return this;

@@ -7,7 +7,7 @@ import com.lark.oapi.service.contact.v3.model.BatchRemoveGroupMemberReqBody;
 import com.lark.oapi.service.contact.v3.model.BatchRemoveGroupMemberResp;
 import com.lark.oapi.service.contact.v3.model.Memberlist;
 
-// HTTP PATH: /open-apis/contact/v3/group/:group_id/member/batch_remove"
+// POST /open-apis/contact/v3/group/:group_id/member/batch_remove
 public class BatchRemoveGroupMemberSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class BatchRemoveGroupMemberSample {
 
     // 创建请求对象
     BatchRemoveGroupMemberReq req = BatchRemoveGroupMemberReq.newBuilder()
-        .groupId("")
+        .groupId("test_group")
         .batchRemoveGroupMemberReqBody(BatchRemoveGroupMemberReqBody.newBuilder()
             .members(new Memberlist[]{})
             .build())

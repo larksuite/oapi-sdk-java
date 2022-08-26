@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateApp {
 
+  /**
+   * 多维表格元数据
+   * <p> 示例值：
+   */
   @SerializedName("app")
   private DisplayAppV2 app;
 

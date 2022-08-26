@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class I18nNames {
 
+  /**
+   * 中文名
+   * <p> 示例值：群聊
+   */
   @SerializedName("zh_cn")
   private String zhCn;
+  /**
+   * 英文名
+   * <p> 示例值：group chat
+   */
   @SerializedName("en_us")
   private String enUs;
+  /**
+   * 日文名
+   * <p> 示例值：グループチャット
+   */
   @SerializedName("ja_jp")
   private String jaJp;
 
@@ -29,8 +41,20 @@ public class I18nNames {
   }
 
   public I18nNames(Builder builder) {
+    /**
+     * 中文名
+     * <p> 示例值：群聊
+     */
     this.zhCn = builder.zhCn;
+    /**
+     * 英文名
+     * <p> 示例值：group chat
+     */
     this.enUs = builder.enUs;
+    /**
+     * 日文名
+     * <p> 示例值：グループチャット
+     */
     this.jaJp = builder.jaJp;
   }
 
@@ -64,20 +88,55 @@ public class I18nNames {
 
   public static class Builder {
 
+    /**
+     * 中文名
+     * <p> 示例值：群聊
+     */
     private String zhCn;
+    /**
+     * 英文名
+     * <p> 示例值：group chat
+     */
     private String enUs;
+    /**
+     * 日文名
+     * <p> 示例值：グループチャット
+     */
     private String jaJp;
 
+    /**
+     * 中文名
+     * <p> 示例值：群聊
+     *
+     * @param zhCn
+     * @return
+     */
     public Builder zhCn(String zhCn) {
       this.zhCn = zhCn;
       return this;
     }
 
+
+    /**
+     * 英文名
+     * <p> 示例值：group chat
+     *
+     * @param enUs
+     * @return
+     */
     public Builder enUs(String enUs) {
       this.enUs = enUs;
       return this;
     }
 
+
+    /**
+     * 日文名
+     * <p> 示例值：グループチャット
+     *
+     * @param jaJp
+     * @return
+     */
     public Builder jaJp(String jaJp) {
       this.jaJp = jaJp;
       return this;

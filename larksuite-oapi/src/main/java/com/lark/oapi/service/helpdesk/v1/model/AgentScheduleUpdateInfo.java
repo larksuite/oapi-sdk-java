@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class AgentScheduleUpdateInfo {
 
+  /**
+   * 客服id;;[可以以普通用户身份在服务台发起工单，从工单详情里面获取用户guest.id](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)
+   * <p> 示例值：agent-id
+   */
   @SerializedName("agent_id")
   private String agentId;
+  /**
+   * 工作日程列表
+   * <p> 示例值：
+   */
   @SerializedName("schedule")
   private WeekdaySchedule[] schedule;
+  /**
+   * 客服技能 ids
+   * <p> 示例值：[]
+   */
   @SerializedName("agent_skill_ids")
   private String[] agentSkillIds;
 
@@ -29,8 +41,20 @@ public class AgentScheduleUpdateInfo {
   }
 
   public AgentScheduleUpdateInfo(Builder builder) {
+    /**
+     * 客服id;;[可以以普通用户身份在服务台发起工单，从工单详情里面获取用户guest.id](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)
+     * <p> 示例值：agent-id
+     */
     this.agentId = builder.agentId;
+    /**
+     * 工作日程列表
+     * <p> 示例值：
+     */
     this.schedule = builder.schedule;
+    /**
+     * 客服技能 ids
+     * <p> 示例值：[]
+     */
     this.agentSkillIds = builder.agentSkillIds;
   }
 
@@ -64,20 +88,55 @@ public class AgentScheduleUpdateInfo {
 
   public static class Builder {
 
+    /**
+     * 客服id;;[可以以普通用户身份在服务台发起工单，从工单详情里面获取用户guest.id](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)
+     * <p> 示例值：agent-id
+     */
     private String agentId;
+    /**
+     * 工作日程列表
+     * <p> 示例值：
+     */
     private WeekdaySchedule[] schedule;
+    /**
+     * 客服技能 ids
+     * <p> 示例值：[]
+     */
     private String[] agentSkillIds;
 
+    /**
+     * 客服id;;[可以以普通用户身份在服务台发起工单，从工单详情里面获取用户guest.id](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)
+     * <p> 示例值：agent-id
+     *
+     * @param agentId
+     * @return
+     */
     public Builder agentId(String agentId) {
       this.agentId = agentId;
       return this;
     }
 
+
+    /**
+     * 工作日程列表
+     * <p> 示例值：
+     *
+     * @param schedule
+     * @return
+     */
     public Builder schedule(WeekdaySchedule[] schedule) {
       this.schedule = schedule;
       return this;
     }
 
+
+    /**
+     * 客服技能 ids
+     * <p> 示例值：[]
+     *
+     * @param agentSkillIds
+     * @return
+     */
     public Builder agentSkillIds(String[] agentSkillIds) {
       this.agentSkillIds = agentSkillIds;
       return this;

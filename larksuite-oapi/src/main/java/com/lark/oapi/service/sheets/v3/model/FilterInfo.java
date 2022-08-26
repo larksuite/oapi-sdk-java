@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class FilterInfo {
 
+  /**
+   * 设置了筛选条件的列
+   * <p> 示例值：E
+   */
   @SerializedName("col")
   private String col;
+  /**
+   * 筛选条件
+   * <p> 示例值：
+   */
   @SerializedName("conditions")
   private Condition[] conditions;
 
@@ -27,7 +35,15 @@ public class FilterInfo {
   }
 
   public FilterInfo(Builder builder) {
+    /**
+     * 设置了筛选条件的列
+     * <p> 示例值：E
+     */
     this.col = builder.col;
+    /**
+     * 筛选条件
+     * <p> 示例值：
+     */
     this.conditions = builder.conditions;
   }
 
@@ -53,14 +69,37 @@ public class FilterInfo {
 
   public static class Builder {
 
+    /**
+     * 设置了筛选条件的列
+     * <p> 示例值：E
+     */
     private String col;
+    /**
+     * 筛选条件
+     * <p> 示例值：
+     */
     private Condition[] conditions;
 
+    /**
+     * 设置了筛选条件的列
+     * <p> 示例值：E
+     *
+     * @param col
+     * @return
+     */
     public Builder col(String col) {
       this.col = col;
       return this;
     }
 
+
+    /**
+     * 筛选条件
+     * <p> 示例值：
+     *
+     * @param conditions
+     * @return
+     */
     public Builder conditions(Condition[] conditions) {
       this.conditions = conditions;
       return this;

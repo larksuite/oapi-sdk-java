@@ -6,7 +6,7 @@ import com.lark.oapi.service.attendance.v1.model.QueryUserTaskRemedyReq;
 import com.lark.oapi.service.attendance.v1.model.QueryUserTaskRemedyReqBody;
 import com.lark.oapi.service.attendance.v1.model.QueryUserTaskRemedyResp;
 
-// HTTP PATH: /open-apis/attendance/v1/user_task_remedys/query"
+// POST /open-apis/attendance/v1/user_task_remedys/query
 public class QueryUserTaskRemedySample {
 
   public static void main(String arg[]) throws Exception {
@@ -20,6 +20,8 @@ public class QueryUserTaskRemedySample {
             .userIds(new String[]{})
             .checkTimeFrom("1566641088")
             .checkTimeTo("1592561088")
+            .checkDateType("PeriodTime")
+            .status(2)
             .build())
         .build();
 

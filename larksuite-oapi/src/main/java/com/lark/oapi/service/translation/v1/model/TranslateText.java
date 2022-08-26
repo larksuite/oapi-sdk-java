@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class TranslateText {
 
+  /**
+   * 翻译后的文本
+   * <p> 示例值：Try to use Lark
+   */
   @SerializedName("text")
   private String text;
 

@@ -7,7 +7,7 @@ import com.lark.oapi.service.sheets.v3.model.CreateSheetFilter;
 import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFilterReq;
 import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFilterResp;
 
-// HTTP PATH: /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
+// POST /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter
 public class CreateSpreadsheetSheetFilterSample {
 
   public static void main(String arg[]) throws Exception {

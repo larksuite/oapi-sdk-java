@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchCreateUserFlow {
 
+  /**
+   * 打卡流水记录列表
+   * <p> 示例值：
+   */
   @SerializedName("flow_records")
   private UserFlow[] flowRecords;
 

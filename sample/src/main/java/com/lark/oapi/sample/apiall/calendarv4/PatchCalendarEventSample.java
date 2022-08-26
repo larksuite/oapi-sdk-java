@@ -11,7 +11,7 @@ import com.lark.oapi.service.calendar.v4.model.Schema;
 import com.lark.oapi.service.calendar.v4.model.TimeInfo;
 import com.lark.oapi.service.calendar.v4.model.Vchat;
 
-// HTTP PATH: /open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
+// PATCH /open-apis/calendar/v4/calendars/:calendar_id/events/:event_id
 public class PatchCalendarEventSample {
 
   public static void main(String arg[]) throws Exception {
@@ -20,8 +20,8 @@ public class PatchCalendarEventSample {
 
     // 创建请求对象
     PatchCalendarEventReq req = PatchCalendarEventReq.newBuilder()
-        .calendarId("")
-        .eventId("")
+        .calendarId("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn")
+        .eventId("00592a0e-7edf-4678-bc9d-1b77383ef08e_0")
         .calendarEvent(CalendarEvent.newBuilder()
             .summary("")
             .description("")

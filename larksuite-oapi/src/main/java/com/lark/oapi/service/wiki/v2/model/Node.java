@@ -17,34 +17,94 @@ import com.google.gson.annotations.SerializedName;
 
 public class Node {
 
+  /**
+   * 知识库id
+   * <p> 示例值：6946843325487912356
+   */
   @SerializedName("space_id")
   private String spaceId;
+  /**
+   * 节点token
+   * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+   */
   @SerializedName("node_token")
   private String nodeToken;
+  /**
+   * 文档token，可以根据obj_type判断是属于doc、sheet还是mindnote的token(对于快捷方式，该字段是对应的实体的obj_token)
+   * <p> 示例值：doccnzAaODNqykc8g9hOWabcdef
+   */
   @SerializedName("obj_token")
   private String objToken;
+  /**
+   * 文档类型，对于快捷方式，该字段是对应的实体的obj_type
+   * <p> 示例值：doc/sheet/mindnote
+   */
   @SerializedName("obj_type")
   private String objType;
+  /**
+   * 节点的父亲token。当节点为一级节点时，父亲token为空。
+   * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+   */
   @SerializedName("parent_node_token")
   private String parentNodeToken;
+  /**
+   * 节点类型
+   * <p> 示例值：origin/shortcut
+   */
   @SerializedName("node_type")
   private String nodeType;
+  /**
+   * 快捷方式对应的实体node_token，当创建节点为快捷方式时，需要传该值
+   * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+   */
   @SerializedName("origin_node_token")
   private String originNodeToken;
+  /**
+   * 快捷方式对应的实体所在的spaceid
+   * <p> 示例值：6946843325487912356
+   */
   @SerializedName("origin_space_id")
   private String originSpaceId;
+  /**
+   * 是否有子节点
+   * <p> 示例值：false
+   */
   @SerializedName("has_child")
   private Boolean hasChild;
+  /**
+   * 文档标题
+   * <p> 示例值：标题
+   */
   @SerializedName("title")
   private String title;
+  /**
+   * 文档创建时间
+   * <p> 示例值：1642402428
+   */
   @SerializedName("obj_create_time")
   private String objCreateTime;
+  /**
+   * 文档最近编辑时间
+   * <p> 示例值：1642402428
+   */
   @SerializedName("obj_edit_time")
   private String objEditTime;
+  /**
+   * 节点创建时间
+   * <p> 示例值：1642402428
+   */
   @SerializedName("node_create_time")
   private String nodeCreateTime;
+  /**
+   * 节点创建者
+   * <p> 示例值：ou_xxxxx
+   */
   @SerializedName("creator")
   private String creator;
+  /**
+   * 节点所有者
+   * <p> 示例值：ou_xxxxx
+   */
   @SerializedName("owner")
   private String owner;
 
@@ -53,20 +113,80 @@ public class Node {
   }
 
   public Node(Builder builder) {
+    /**
+     * 知识库id
+     * <p> 示例值：6946843325487912356
+     */
     this.spaceId = builder.spaceId;
+    /**
+     * 节点token
+     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+     */
     this.nodeToken = builder.nodeToken;
+    /**
+     * 文档token，可以根据obj_type判断是属于doc、sheet还是mindnote的token(对于快捷方式，该字段是对应的实体的obj_token)
+     * <p> 示例值：doccnzAaODNqykc8g9hOWabcdef
+     */
     this.objToken = builder.objToken;
+    /**
+     * 文档类型，对于快捷方式，该字段是对应的实体的obj_type
+     * <p> 示例值：doc/sheet/mindnote
+     */
     this.objType = builder.objType;
+    /**
+     * 节点的父亲token。当节点为一级节点时，父亲token为空。
+     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+     */
     this.parentNodeToken = builder.parentNodeToken;
+    /**
+     * 节点类型
+     * <p> 示例值：origin/shortcut
+     */
     this.nodeType = builder.nodeType;
+    /**
+     * 快捷方式对应的实体node_token，当创建节点为快捷方式时，需要传该值
+     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+     */
     this.originNodeToken = builder.originNodeToken;
+    /**
+     * 快捷方式对应的实体所在的spaceid
+     * <p> 示例值：6946843325487912356
+     */
     this.originSpaceId = builder.originSpaceId;
+    /**
+     * 是否有子节点
+     * <p> 示例值：false
+     */
     this.hasChild = builder.hasChild;
+    /**
+     * 文档标题
+     * <p> 示例值：标题
+     */
     this.title = builder.title;
+    /**
+     * 文档创建时间
+     * <p> 示例值：1642402428
+     */
     this.objCreateTime = builder.objCreateTime;
+    /**
+     * 文档最近编辑时间
+     * <p> 示例值：1642402428
+     */
     this.objEditTime = builder.objEditTime;
+    /**
+     * 节点创建时间
+     * <p> 示例值：1642402428
+     */
     this.nodeCreateTime = builder.nodeCreateTime;
+    /**
+     * 节点创建者
+     * <p> 示例值：ou_xxxxx
+     */
     this.creator = builder.creator;
+    /**
+     * 节点所有者
+     * <p> 示例值：ou_xxxxx
+     */
     this.owner = builder.owner;
   }
 
@@ -196,102 +316,295 @@ public class Node {
 
   public static class Builder {
 
+    /**
+     * 知识库id
+     * <p> 示例值：6946843325487912356
+     */
     private String spaceId;
+    /**
+     * 节点token
+     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+     */
     private String nodeToken;
+    /**
+     * 文档token，可以根据obj_type判断是属于doc、sheet还是mindnote的token(对于快捷方式，该字段是对应的实体的obj_token)
+     * <p> 示例值：doccnzAaODNqykc8g9hOWabcdef
+     */
     private String objToken;
+    /**
+     * 文档类型，对于快捷方式，该字段是对应的实体的obj_type
+     * <p> 示例值：doc/sheet/mindnote
+     */
     private String objType;
+    /**
+     * 节点的父亲token。当节点为一级节点时，父亲token为空。
+     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+     */
     private String parentNodeToken;
+    /**
+     * 节点类型
+     * <p> 示例值：origin/shortcut
+     */
     private String nodeType;
+    /**
+     * 快捷方式对应的实体node_token，当创建节点为快捷方式时，需要传该值
+     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+     */
     private String originNodeToken;
+    /**
+     * 快捷方式对应的实体所在的spaceid
+     * <p> 示例值：6946843325487912356
+     */
     private String originSpaceId;
+    /**
+     * 是否有子节点
+     * <p> 示例值：false
+     */
     private Boolean hasChild;
+    /**
+     * 文档标题
+     * <p> 示例值：标题
+     */
     private String title;
+    /**
+     * 文档创建时间
+     * <p> 示例值：1642402428
+     */
     private String objCreateTime;
+    /**
+     * 文档最近编辑时间
+     * <p> 示例值：1642402428
+     */
     private String objEditTime;
+    /**
+     * 节点创建时间
+     * <p> 示例值：1642402428
+     */
     private String nodeCreateTime;
+    /**
+     * 节点创建者
+     * <p> 示例值：ou_xxxxx
+     */
     private String creator;
+    /**
+     * 节点所有者
+     * <p> 示例值：ou_xxxxx
+     */
     private String owner;
 
+    /**
+     * 知识库id
+     * <p> 示例值：6946843325487912356
+     *
+     * @param spaceId
+     * @return
+     */
     public Builder spaceId(String spaceId) {
       this.spaceId = spaceId;
       return this;
     }
 
+
+    /**
+     * 节点token
+     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+     *
+     * @param nodeToken
+     * @return
+     */
     public Builder nodeToken(String nodeToken) {
       this.nodeToken = nodeToken;
       return this;
     }
 
+
+    /**
+     * 文档token，可以根据obj_type判断是属于doc、sheet还是mindnote的token(对于快捷方式，该字段是对应的实体的obj_token)
+     * <p> 示例值：doccnzAaODNqykc8g9hOWabcdef
+     *
+     * @param objToken
+     * @return
+     */
     public Builder objToken(String objToken) {
       this.objToken = objToken;
       return this;
     }
 
+
+    /**
+     * 文档类型，对于快捷方式，该字段是对应的实体的obj_type
+     * <p> 示例值：doc/sheet/mindnote
+     *
+     * @param objType
+     * @return
+     */
     public Builder objType(String objType) {
       this.objType = objType;
       return this;
     }
 
-    public Builder objType(com.lark.oapi.service.wiki.v2.enums.ObjTypeEnum objType) {
+    /**
+     * 文档类型，对于快捷方式，该字段是对应的实体的obj_type
+     * <p> 示例值：doc/sheet/mindnote
+     *
+     * @param objType {@link com.lark.oapi.service.wiki.v2.enums.NodeObjTypeEnum}
+     * @return
+     */
+    public Builder objType(com.lark.oapi.service.wiki.v2.enums.NodeObjTypeEnum objType) {
       this.objType = objType.getValue();
       return this;
     }
 
+
+    /**
+     * 节点的父亲token。当节点为一级节点时，父亲token为空。
+     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+     *
+     * @param parentNodeToken
+     * @return
+     */
     public Builder parentNodeToken(String parentNodeToken) {
       this.parentNodeToken = parentNodeToken;
       return this;
     }
 
+
+    /**
+     * 节点类型
+     * <p> 示例值：origin/shortcut
+     *
+     * @param nodeType
+     * @return
+     */
     public Builder nodeType(String nodeType) {
       this.nodeType = nodeType;
       return this;
     }
 
-    public Builder nodeType(com.lark.oapi.service.wiki.v2.enums.NodeTypeEnum nodeType) {
+    /**
+     * 节点类型
+     * <p> 示例值：origin/shortcut
+     *
+     * @param nodeType {@link com.lark.oapi.service.wiki.v2.enums.NodeNodeTypeEnum}
+     * @return
+     */
+    public Builder nodeType(com.lark.oapi.service.wiki.v2.enums.NodeNodeTypeEnum nodeType) {
       this.nodeType = nodeType.getValue();
       return this;
     }
 
+
+    /**
+     * 快捷方式对应的实体node_token，当创建节点为快捷方式时，需要传该值
+     * <p> 示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef
+     *
+     * @param originNodeToken
+     * @return
+     */
     public Builder originNodeToken(String originNodeToken) {
       this.originNodeToken = originNodeToken;
       return this;
     }
 
+
+    /**
+     * 快捷方式对应的实体所在的spaceid
+     * <p> 示例值：6946843325487912356
+     *
+     * @param originSpaceId
+     * @return
+     */
     public Builder originSpaceId(String originSpaceId) {
       this.originSpaceId = originSpaceId;
       return this;
     }
 
+
+    /**
+     * 是否有子节点
+     * <p> 示例值：false
+     *
+     * @param hasChild
+     * @return
+     */
     public Builder hasChild(Boolean hasChild) {
       this.hasChild = hasChild;
       return this;
     }
 
+
+    /**
+     * 文档标题
+     * <p> 示例值：标题
+     *
+     * @param title
+     * @return
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
+
+    /**
+     * 文档创建时间
+     * <p> 示例值：1642402428
+     *
+     * @param objCreateTime
+     * @return
+     */
     public Builder objCreateTime(String objCreateTime) {
       this.objCreateTime = objCreateTime;
       return this;
     }
 
+
+    /**
+     * 文档最近编辑时间
+     * <p> 示例值：1642402428
+     *
+     * @param objEditTime
+     * @return
+     */
     public Builder objEditTime(String objEditTime) {
       this.objEditTime = objEditTime;
       return this;
     }
 
+
+    /**
+     * 节点创建时间
+     * <p> 示例值：1642402428
+     *
+     * @param nodeCreateTime
+     * @return
+     */
     public Builder nodeCreateTime(String nodeCreateTime) {
       this.nodeCreateTime = nodeCreateTime;
       return this;
     }
 
+
+    /**
+     * 节点创建者
+     * <p> 示例值：ou_xxxxx
+     *
+     * @param creator
+     * @return
+     */
     public Builder creator(String creator) {
       this.creator = creator;
       return this;
     }
 
+
+    /**
+     * 节点所有者
+     * <p> 示例值：ou_xxxxx
+     *
+     * @param owner
+     * @return
+     */
     public Builder owner(String owner) {
       this.owner = owner;
       return this;

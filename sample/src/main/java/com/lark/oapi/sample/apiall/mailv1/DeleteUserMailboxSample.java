@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.mail.v1.model.DeleteUserMailboxReq;
 import com.lark.oapi.service.mail.v1.model.DeleteUserMailboxResp;
 
-// HTTP PATH: /open-apis/mail/v1/user_mailboxes/:user_mailbox_id"
+// DELETE /open-apis/mail/v1/user_mailboxes/:user_mailbox_id
 public class DeleteUserMailboxSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,8 +14,8 @@ public class DeleteUserMailboxSample {
 
     // 创建请求对象
     DeleteUserMailboxReq req = DeleteUserMailboxReq.newBuilder()
-        .userMailboxId("")
-        .transferMailbox("")
+        .userMailboxId("111111@abc.com")
+        .transferMailbox("888888@abc.com")
         .build();
 
     // 发起请求

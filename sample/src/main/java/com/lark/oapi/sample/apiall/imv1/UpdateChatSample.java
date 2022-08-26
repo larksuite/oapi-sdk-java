@@ -7,7 +7,7 @@ import com.lark.oapi.service.im.v1.model.UpdateChatReq;
 import com.lark.oapi.service.im.v1.model.UpdateChatReqBody;
 import com.lark.oapi.service.im.v1.model.UpdateChatResp;
 
-// HTTP PATH: /open-apis/im/v1/chats/:chat_id"
+// PUT /open-apis/im/v1/chats/:chat_id
 public class UpdateChatSample {
 
   public static void main(String arg[]) throws Exception {
@@ -20,17 +20,17 @@ public class UpdateChatSample {
         .userIdType("user_id")
         .updateChatReqBody(UpdateChatReqBody.newBuilder()
             .avatar("default-avatar_44ae0ca3-e140-494b-956f-78091e348435")
-            .name("测试群名称")
+            .name("群聊")
             .description("测试群描述")
             .i18nNames(I18nNames.newBuilder().build())
-            .addMemberPermission("all members")
+            .addMemberPermission("all_members")
             .shareCardPermission("allowed")
-            .atAllPermission("all members")
-            .editPermission("all members")
+            .atAllPermission("all_members")
+            .editPermission("all_members")
             .ownerId("4d7a3c6g")
-            .joinMessageVisibility("only_owner/all_members/not_anyone")
-            .leaveMessageVisibility("only_owner/all_members/not_anyone")
-            .membershipApproval("no_approval_required/approval_required")
+            .joinMessageVisibility("only_owner")
+            .leaveMessageVisibility("only_owner")
+            .membershipApproval("no_approval_required")
             .build())
         .build();
 

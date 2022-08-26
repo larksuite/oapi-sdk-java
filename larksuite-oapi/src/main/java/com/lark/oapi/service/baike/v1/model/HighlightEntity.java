@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class HighlightEntity {
 
+  /**
+   * 识别到的词条信息
+   * <p> 示例值：
+   */
   @SerializedName("phrases")
   private Phrase[] phrases;
 

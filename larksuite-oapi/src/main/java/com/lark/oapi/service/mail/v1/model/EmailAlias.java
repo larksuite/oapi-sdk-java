@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class EmailAlias {
 
+  /**
+   * 主邮箱地址
+   * <p> 示例值：xxx@xx.xxx
+   */
   @SerializedName("primary_email")
   private String primaryEmail;
+  /**
+   * 邮箱别名
+   * <p> 示例值：xxx@xx.xxx
+   */
   @SerializedName("email_alias")
   private String emailAlias;
 
@@ -27,7 +35,15 @@ public class EmailAlias {
   }
 
   public EmailAlias(Builder builder) {
+    /**
+     * 主邮箱地址
+     * <p> 示例值：xxx@xx.xxx
+     */
     this.primaryEmail = builder.primaryEmail;
+    /**
+     * 邮箱别名
+     * <p> 示例值：xxx@xx.xxx
+     */
     this.emailAlias = builder.emailAlias;
   }
 
@@ -53,14 +69,37 @@ public class EmailAlias {
 
   public static class Builder {
 
+    /**
+     * 主邮箱地址
+     * <p> 示例值：xxx@xx.xxx
+     */
     private String primaryEmail;
+    /**
+     * 邮箱别名
+     * <p> 示例值：xxx@xx.xxx
+     */
     private String emailAlias;
 
+    /**
+     * 主邮箱地址
+     * <p> 示例值：xxx@xx.xxx
+     *
+     * @param primaryEmail
+     * @return
+     */
     public Builder primaryEmail(String primaryEmail) {
       this.primaryEmail = primaryEmail;
       return this;
     }
 
+
+    /**
+     * 邮箱别名
+     * <p> 示例值：xxx@xx.xxx
+     *
+     * @param emailAlias
+     * @return
+     */
     public Builder emailAlias(String emailAlias) {
       this.emailAlias = emailAlias;
       return this;

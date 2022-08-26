@@ -17,18 +17,46 @@ import com.google.gson.annotations.SerializedName;
 
 public class UploadAllMediaReqBody {
 
+  /**
+   * 文件名。
+   * <p> 示例值：demo.jpeg
+   */
   @SerializedName("file_name")
   private String fileName;
+  /**
+   * 上传点类型。
+   * <p> 示例值：doc_image
+   */
   @SerializedName("parent_type")
   private String parentType;
+  /**
+   * 上传点的token。
+   * <p> 示例值：doccnFivLCfJfblZjGZtxgabcef
+   */
   @SerializedName("parent_node")
   private String parentNode;
+  /**
+   * 文件大小（以字节为单位）。
+   * <p> 示例值：1024
+   */
   @SerializedName("size")
   private Integer size;
+  /**
+   * 文件adler32校验和（可选）。
+   * <p> 示例值：12345678
+   */
   @SerializedName("checksum")
   private String checksum;
+  /**
+   * 扩展信息(可选)。
+   * <p> 示例值：{"test":"test"}
+   */
   @SerializedName("extra")
   private String extra;
+  /**
+   * 文件二进制内容。
+   * <p> 示例值：file binary
+   */
   @SerializedName("file")
   private java.io.File file;
 
@@ -37,12 +65,40 @@ public class UploadAllMediaReqBody {
   }
 
   public UploadAllMediaReqBody(Builder builder) {
+    /**
+     * 文件名。
+     * <p> 示例值：demo.jpeg
+     */
     this.fileName = builder.fileName;
+    /**
+     * 上传点类型。
+     * <p> 示例值：doc_image
+     */
     this.parentType = builder.parentType;
+    /**
+     * 上传点的token。
+     * <p> 示例值：doccnFivLCfJfblZjGZtxgabcef
+     */
     this.parentNode = builder.parentNode;
+    /**
+     * 文件大小（以字节为单位）。
+     * <p> 示例值：1024
+     */
     this.size = builder.size;
+    /**
+     * 文件adler32校验和（可选）。
+     * <p> 示例值：12345678
+     */
     this.checksum = builder.checksum;
+    /**
+     * 扩展信息(可选)。
+     * <p> 示例值：{"test":"test"}
+     */
     this.extra = builder.extra;
+    /**
+     * 文件二进制内容。
+     * <p> 示例值：file binary
+     */
     this.file = builder.file;
   }
 
@@ -108,49 +164,140 @@ public class UploadAllMediaReqBody {
 
   public static class Builder {
 
+    /**
+     * 文件名。
+     * <p> 示例值：demo.jpeg
+     */
     private String fileName;
+    /**
+     * 上传点类型。
+     * <p> 示例值：doc_image
+     */
     private String parentType;
+    /**
+     * 上传点的token。
+     * <p> 示例值：doccnFivLCfJfblZjGZtxgabcef
+     */
     private String parentNode;
+    /**
+     * 文件大小（以字节为单位）。
+     * <p> 示例值：1024
+     */
     private Integer size;
+    /**
+     * 文件adler32校验和（可选）。
+     * <p> 示例值：12345678
+     */
     private String checksum;
+    /**
+     * 扩展信息(可选)。
+     * <p> 示例值：{"test":"test"}
+     */
     private String extra;
+    /**
+     * 文件二进制内容。
+     * <p> 示例值：file binary
+     */
     private java.io.File file;
 
+    /**
+     * 文件名。
+     * <p> 示例值：demo.jpeg
+     *
+     * @param fileName
+     * @return
+     */
     public Builder fileName(String fileName) {
       this.fileName = fileName;
       return this;
     }
 
+
+    /**
+     * 上传点类型。
+     * <p> 示例值：doc_image
+     *
+     * @param parentType
+     * @return
+     */
     public Builder parentType(String parentType) {
       this.parentType = parentType;
       return this;
     }
 
-    public Builder parentType(com.lark.oapi.service.drive.v1.enums.ParentTypeEnum parentType) {
+    /**
+     * 上传点类型。
+     * <p> 示例值：doc_image
+     *
+     * @param parentType {@link com.lark.oapi.service.drive.v1.enums.UploadAllMediaParentTypeEnum}
+     * @return
+     */
+    public Builder parentType(
+        com.lark.oapi.service.drive.v1.enums.UploadAllMediaParentTypeEnum parentType) {
       this.parentType = parentType.getValue();
       return this;
     }
 
+
+    /**
+     * 上传点的token。
+     * <p> 示例值：doccnFivLCfJfblZjGZtxgabcef
+     *
+     * @param parentNode
+     * @return
+     */
     public Builder parentNode(String parentNode) {
       this.parentNode = parentNode;
       return this;
     }
 
+
+    /**
+     * 文件大小（以字节为单位）。
+     * <p> 示例值：1024
+     *
+     * @param size
+     * @return
+     */
     public Builder size(Integer size) {
       this.size = size;
       return this;
     }
 
+
+    /**
+     * 文件adler32校验和（可选）。
+     * <p> 示例值：12345678
+     *
+     * @param checksum
+     * @return
+     */
     public Builder checksum(String checksum) {
       this.checksum = checksum;
       return this;
     }
 
+
+    /**
+     * 扩展信息(可选)。
+     * <p> 示例值：{"test":"test"}
+     *
+     * @param extra
+     * @return
+     */
     public Builder extra(String extra) {
       this.extra = extra;
       return this;
     }
 
+
+    /**
+     * 文件二进制内容。
+     * <p> 示例值：file binary
+     *
+     * @param file
+     * @return
+     */
     public Builder file(java.io.File file) {
       this.file = file;
       return this;

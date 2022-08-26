@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.contact.v3.model.ListDepartmentReq;
 import com.lark.oapi.service.contact.v3.model.ListDepartmentResp;
 
-// HTTP PATH: /open-apis/contact/v3/departments"
+// GET /open-apis/contact/v3/departments
 public class ListDepartmentSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,9 +16,10 @@ public class ListDepartmentSample {
     ListDepartmentReq req = ListDepartmentReq.newBuilder()
         .userIdType("open_id")
         .departmentIdType("open_department_id")
-        .parentDepartmentId("")
+        .parentDepartmentId("od-4e6ac4d14bcd5071a37a39de902c7141")
         .fetchChild(false)
-        .pageToken("")
+        .pageToken(
+            "AQD9/Rn9eij9Pm39ED40/RD/cIFmu77WxpxPB/2oHfQLZ%2BG8JG6tK7%2BZnHiT7COhD2hMSICh/eBl7cpzU6JEC3J7COKNe4jrQ8ExwBCR")
         .pageSize(20)
         .build();
 

@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class CreateTaskReminderReq {
 
+  /**
+   * 任务 ID
+   * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+   */
   @Path
   @SerializedName("task_id")
   private String taskId;
@@ -30,6 +34,10 @@ public class CreateTaskReminderReq {
   }
 
   public CreateTaskReminderReq(Builder builder) {
+    /**
+     * 任务 ID
+     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     */
     this.taskId = builder.taskId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class CreateTaskReminderReq {
 
   public static class Builder {
 
-    private String taskId;
+    private String taskId; // 任务 ID
     private Reminder body;
 
+    /**
+     * 任务 ID
+     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     *
+     * @param taskId
+     * @return
+     */
     public Builder taskId(String taskId) {
       this.taskId = taskId;
       return this;
@@ -68,6 +83,12 @@ public class CreateTaskReminderReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder reminder(Reminder body) {
       this.body = body;
       return this;

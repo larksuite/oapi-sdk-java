@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class DeleteTableColumnsRequest {
 
+  /**
+   * 列开始索引（区间左闭右开）
+   * <p> 示例值：0
+   */
   @SerializedName("column_start_index")
   private Integer columnStartIndex;
+  /**
+   * 列结束索引（区间左闭右开）
+   * <p> 示例值：1
+   */
   @SerializedName("column_end_index")
   private Integer columnEndIndex;
 
@@ -27,7 +35,15 @@ public class DeleteTableColumnsRequest {
   }
 
   public DeleteTableColumnsRequest(Builder builder) {
+    /**
+     * 列开始索引（区间左闭右开）
+     * <p> 示例值：0
+     */
     this.columnStartIndex = builder.columnStartIndex;
+    /**
+     * 列结束索引（区间左闭右开）
+     * <p> 示例值：1
+     */
     this.columnEndIndex = builder.columnEndIndex;
   }
 
@@ -53,14 +69,37 @@ public class DeleteTableColumnsRequest {
 
   public static class Builder {
 
+    /**
+     * 列开始索引（区间左闭右开）
+     * <p> 示例值：0
+     */
     private Integer columnStartIndex;
+    /**
+     * 列结束索引（区间左闭右开）
+     * <p> 示例值：1
+     */
     private Integer columnEndIndex;
 
+    /**
+     * 列开始索引（区间左闭右开）
+     * <p> 示例值：0
+     *
+     * @param columnStartIndex
+     * @return
+     */
     public Builder columnStartIndex(Integer columnStartIndex) {
       this.columnStartIndex = columnStartIndex;
       return this;
     }
 
+
+    /**
+     * 列结束索引（区间左闭右开）
+     * <p> 示例值：1
+     *
+     * @param columnEndIndex
+     * @return
+     */
     public Builder columnEndIndex(Integer columnEndIndex) {
       this.columnEndIndex = columnEndIndex;
       return this;

@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class FileConfig {
 
+  /**
+   * 仅包含字母数字和下划线的 16 位字符串作为文件的标识，用户生成
+   * <p> 示例值：qwe12dd34567890w
+   */
   @SerializedName("file_id")
   private String fileId;
+  /**
+   * 语音格式，目前仅支持：pcm
+   * <p> 示例值：pcm
+   */
   @SerializedName("format")
   private String format;
+  /**
+   * 引擎类型，目前仅支持：16k_auto 中英混合
+   * <p> 示例值：16k_auto
+   */
   @SerializedName("engine_type")
   private String engineType;
 
@@ -29,8 +41,20 @@ public class FileConfig {
   }
 
   public FileConfig(Builder builder) {
+    /**
+     * 仅包含字母数字和下划线的 16 位字符串作为文件的标识，用户生成
+     * <p> 示例值：qwe12dd34567890w
+     */
     this.fileId = builder.fileId;
+    /**
+     * 语音格式，目前仅支持：pcm
+     * <p> 示例值：pcm
+     */
     this.format = builder.format;
+    /**
+     * 引擎类型，目前仅支持：16k_auto 中英混合
+     * <p> 示例值：16k_auto
+     */
     this.engineType = builder.engineType;
   }
 
@@ -64,20 +88,55 @@ public class FileConfig {
 
   public static class Builder {
 
+    /**
+     * 仅包含字母数字和下划线的 16 位字符串作为文件的标识，用户生成
+     * <p> 示例值：qwe12dd34567890w
+     */
     private String fileId;
+    /**
+     * 语音格式，目前仅支持：pcm
+     * <p> 示例值：pcm
+     */
     private String format;
+    /**
+     * 引擎类型，目前仅支持：16k_auto 中英混合
+     * <p> 示例值：16k_auto
+     */
     private String engineType;
 
+    /**
+     * 仅包含字母数字和下划线的 16 位字符串作为文件的标识，用户生成
+     * <p> 示例值：qwe12dd34567890w
+     *
+     * @param fileId
+     * @return
+     */
     public Builder fileId(String fileId) {
       this.fileId = fileId;
       return this;
     }
 
+
+    /**
+     * 语音格式，目前仅支持：pcm
+     * <p> 示例值：pcm
+     *
+     * @param format
+     * @return
+     */
     public Builder format(String format) {
       this.format = format;
       return this;
     }
 
+
+    /**
+     * 引擎类型，目前仅支持：16k_auto 中英混合
+     * <p> 示例值：16k_auto
+     *
+     * @param engineType
+     * @return
+     */
     public Builder engineType(String engineType) {
       this.engineType = engineType;
       return this;

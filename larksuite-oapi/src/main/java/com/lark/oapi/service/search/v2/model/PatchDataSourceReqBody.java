@@ -17,16 +17,41 @@ import com.google.gson.annotations.SerializedName;
 
 public class PatchDataSourceReqBody {
 
+  /**
+   * 数据源的展示名称
+   * <p> 示例值：客服工单
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 数据源状态，0-已上线，1-未上线
+   * <p> 示例值：0
+   */
   @SerializedName("state")
   private Integer state;
+  /**
+   * 对于数据源的描述
+   * <p> 示例值：搜索客服工单
+   */
   @SerializedName("description")
   private String description;
+  /**
+   * 数据源在 search tab 上的展示图标路径
+   * <p> 示例值：https://www.xxx.com/open.jpg
+   */
   @SerializedName("icon_url")
   private String iconUrl;
+  /**
+   * 数据源名称多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"测试数据源", "en_us":"Test DataSource"}
+   * <p> 示例值：
+   */
   @SerializedName("i18n_name")
-  private ItemMetadata i18nName;
+  private I18nMeta i18nName;
+  /**
+   * 数据源描述多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"搜索测试数据源相关数据", "en_us":"Search data from
+   * Test DataSource"}
+   * <p> 示例值：
+   */
   @SerializedName("i18n_description")
   private I18nMeta i18nDescription;
 
@@ -35,11 +60,35 @@ public class PatchDataSourceReqBody {
   }
 
   public PatchDataSourceReqBody(Builder builder) {
+    /**
+     * 数据源的展示名称
+     * <p> 示例值：客服工单
+     */
     this.name = builder.name;
+    /**
+     * 数据源状态，0-已上线，1-未上线
+     * <p> 示例值：0
+     */
     this.state = builder.state;
+    /**
+     * 对于数据源的描述
+     * <p> 示例值：搜索客服工单
+     */
     this.description = builder.description;
+    /**
+     * 数据源在 search tab 上的展示图标路径
+     * <p> 示例值：https://www.xxx.com/open.jpg
+     */
     this.iconUrl = builder.iconUrl;
+    /**
+     * 数据源名称多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"测试数据源", "en_us":"Test DataSource"}
+     * <p> 示例值：
+     */
     this.i18nName = builder.i18nName;
+    /**
+     * 数据源描述多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"搜索测试数据源相关数据", "en_us":"Search data from Test DataSource"}
+     * <p> 示例值：
+     */
     this.i18nDescription = builder.i18nDescription;
   }
 
@@ -79,11 +128,11 @@ public class PatchDataSourceReqBody {
     this.iconUrl = iconUrl;
   }
 
-  public ItemMetadata getI18nName() {
+  public I18nMeta getI18nName() {
     return this.i18nName;
   }
 
-  public void setI18nName(ItemMetadata i18nName) {
+  public void setI18nName(I18nMeta i18nName) {
     this.i18nName = i18nName;
   }
 
@@ -97,43 +146,123 @@ public class PatchDataSourceReqBody {
 
   public static class Builder {
 
+    /**
+     * 数据源的展示名称
+     * <p> 示例值：客服工单
+     */
     private String name;
+    /**
+     * 数据源状态，0-已上线，1-未上线
+     * <p> 示例值：0
+     */
     private Integer state;
+    /**
+     * 对于数据源的描述
+     * <p> 示例值：搜索客服工单
+     */
     private String description;
+    /**
+     * 数据源在 search tab 上的展示图标路径
+     * <p> 示例值：https://www.xxx.com/open.jpg
+     */
     private String iconUrl;
-    private ItemMetadata i18nName;
+    /**
+     * 数据源名称多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"测试数据源", "en_us":"Test DataSource"}
+     * <p> 示例值：
+     */
+    private I18nMeta i18nName;
+    /**
+     * 数据源描述多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"搜索测试数据源相关数据", "en_us":"Search data from
+     * Test DataSource"}
+     * <p> 示例值：
+     */
     private I18nMeta i18nDescription;
 
+    /**
+     * 数据源的展示名称
+     * <p> 示例值：客服工单
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 数据源状态，0-已上线，1-未上线
+     * <p> 示例值：0
+     *
+     * @param state
+     * @return
+     */
     public Builder state(Integer state) {
       this.state = state;
       return this;
     }
 
-    public Builder state(com.lark.oapi.service.search.v2.enums.StateEnum state) {
+    /**
+     * 数据源状态，0-已上线，1-未上线
+     * <p> 示例值：0
+     *
+     * @param state {@link com.lark.oapi.service.search.v2.enums.PatchDataSourceStateEnum}
+     * @return
+     */
+    public Builder state(com.lark.oapi.service.search.v2.enums.PatchDataSourceStateEnum state) {
       this.state = state.getValue();
       return this;
     }
 
+
+    /**
+     * 对于数据源的描述
+     * <p> 示例值：搜索客服工单
+     *
+     * @param description
+     * @return
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
+
+    /**
+     * 数据源在 search tab 上的展示图标路径
+     * <p> 示例值：https://www.xxx.com/open.jpg
+     *
+     * @param iconUrl
+     * @return
+     */
     public Builder iconUrl(String iconUrl) {
       this.iconUrl = iconUrl;
       return this;
     }
 
-    public Builder i18nName(ItemMetadata i18nName) {
+
+    /**
+     * 数据源名称多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"测试数据源", "en_us":"Test DataSource"}
+     * <p> 示例值：
+     *
+     * @param i18nName
+     * @return
+     */
+    public Builder i18nName(I18nMeta i18nName) {
       this.i18nName = i18nName;
       return this;
     }
 
+
+    /**
+     * 数据源描述多语言配置，json格式，key为语言locale，value为对应文案，例如{"zh_cn":"搜索测试数据源相关数据", "en_us":"Search data from
+     * Test DataSource"}
+     * <p> 示例值：
+     *
+     * @param i18nDescription
+     * @return
+     */
     public Builder i18nDescription(I18nMeta i18nDescription) {
       this.i18nDescription = i18nDescription;
       return this;

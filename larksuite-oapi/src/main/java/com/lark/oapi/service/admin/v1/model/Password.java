@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class Password {
 
+  /**
+   * 企业邮箱密码
+   * <p> 示例值：abcd*efg
+   */
   @SerializedName("ent_email_password")
   private String entEmailPassword;
 
@@ -25,6 +29,10 @@ public class Password {
   }
 
   public Password(Builder builder) {
+    /**
+     * 企业邮箱密码
+     * <p> 示例值：abcd*efg
+     */
     this.entEmailPassword = builder.entEmailPassword;
   }
 
@@ -42,8 +50,19 @@ public class Password {
 
   public static class Builder {
 
+    /**
+     * 企业邮箱密码
+     * <p> 示例值：abcd*efg
+     */
     private String entEmailPassword;
 
+    /**
+     * 企业邮箱密码
+     * <p> 示例值：abcd*efg
+     *
+     * @param entEmailPassword
+     * @return
+     */
     public Builder entEmailPassword(String entEmailPassword) {
       this.entEmailPassword = entEmailPassword;
       return this;

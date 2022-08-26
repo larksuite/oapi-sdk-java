@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class ReadUserBatchMessageReq {
 
+  /**
+   * 待查询的批量消息的ID
+   * <p> 示例值：bm_dc13264520392913993dd051dba21dcf
+   */
   @Path
   @SerializedName("batch_message_id")
   private String batchMessageId;
@@ -27,6 +31,10 @@ public class ReadUserBatchMessageReq {
   }
 
   public ReadUserBatchMessageReq(Builder builder) {
+    /**
+     * 待查询的批量消息的ID
+     * <p> 示例值：bm_dc13264520392913993dd051dba21dcf
+     */
     this.batchMessageId = builder.batchMessageId;
   }
 
@@ -44,8 +52,15 @@ public class ReadUserBatchMessageReq {
 
   public static class Builder {
 
-    private String batchMessageId;
+    private String batchMessageId; // 待查询的批量消息的ID
 
+    /**
+     * 待查询的批量消息的ID
+     * <p> 示例值：bm_dc13264520392913993dd051dba21dcf
+     *
+     * @param batchMessageId
+     * @return
+     */
     public Builder batchMessageId(String batchMessageId) {
       this.batchMessageId = batchMessageId;
       return this;

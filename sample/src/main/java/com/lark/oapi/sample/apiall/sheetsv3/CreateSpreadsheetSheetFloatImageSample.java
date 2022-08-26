@@ -6,7 +6,7 @@ import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFloatImageReq
 import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFloatImageResp;
 import com.lark.oapi.service.sheets.v3.model.FloatImage;
 
-// HTTP PATH: /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images"
+// POST /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images
 public class CreateSpreadsheetSheetFloatImageSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,8 +15,8 @@ public class CreateSpreadsheetSheetFloatImageSample {
 
     // 创建请求对象
     CreateSpreadsheetSheetFloatImageReq req = CreateSpreadsheetSheetFloatImageReq.newBuilder()
-        .spreadsheetToken("")
-        .sheetId("")
+        .spreadsheetToken("shtcnmBA*****yGehy8")
+        .sheetId("0b**12")
         .floatImage(FloatImage.newBuilder()
             .floatImageId("")
             .floatImageToken("")

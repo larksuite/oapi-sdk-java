@@ -48,6 +48,12 @@ public class CreateInstanceReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder instanceCreate(InstanceCreate body) {
       this.body = body;
       return this;

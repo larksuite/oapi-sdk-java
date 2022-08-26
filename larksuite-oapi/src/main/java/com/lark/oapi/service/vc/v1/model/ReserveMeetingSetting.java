@@ -17,24 +17,67 @@ import com.google.gson.annotations.SerializedName;
 
 public class ReserveMeetingSetting {
 
+  /**
+   * 会议主题
+   * <p> 示例值：my meeting
+   */
   @SerializedName("topic")
   private String topic;
+  /**
+   * 会议权限配置列表，如果存在相同的权限配置项则它们之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
+   * <p> 示例值：
+   */
   @SerializedName("action_permissions")
   private ReserveActionPermission[] actionPermissions;
+  /**
+   * 会议初始类型
+   * <p> 示例值：1
+   */
   @SerializedName("meeting_initial_type")
   private Integer meetingInitialType;
+  /**
+   * 1v1呼叫相关参数
+   * <p> 示例值：
+   */
   @SerializedName("call_setting")
   private ReserveCallSetting callSetting;
+  /**
+   * 使用飞书视频会议时，是否开启自动录制，默认false
+   * <p> 示例值：true
+   */
+  @SerializedName("auto_record")
+  private Boolean autoRecord;
 
   // builder 开始
   public ReserveMeetingSetting() {
   }
 
   public ReserveMeetingSetting(Builder builder) {
+    /**
+     * 会议主题
+     * <p> 示例值：my meeting
+     */
     this.topic = builder.topic;
+    /**
+     * 会议权限配置列表，如果存在相同的权限配置项则它们之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
+     * <p> 示例值：
+     */
     this.actionPermissions = builder.actionPermissions;
+    /**
+     * 会议初始类型
+     * <p> 示例值：1
+     */
     this.meetingInitialType = builder.meetingInitialType;
+    /**
+     * 1v1呼叫相关参数
+     * <p> 示例值：
+     */
     this.callSetting = builder.callSetting;
+    /**
+     * 使用飞书视频会议时，是否开启自动录制，默认false
+     * <p> 示例值：true
+     */
+    this.autoRecord = builder.autoRecord;
   }
 
   public static Builder newBuilder() {
@@ -73,36 +116,116 @@ public class ReserveMeetingSetting {
     this.callSetting = callSetting;
   }
 
+  public Boolean getAutoRecord() {
+    return this.autoRecord;
+  }
+
+  public void setAutoRecord(Boolean autoRecord) {
+    this.autoRecord = autoRecord;
+  }
+
   public static class Builder {
 
+    /**
+     * 会议主题
+     * <p> 示例值：my meeting
+     */
     private String topic;
+    /**
+     * 会议权限配置列表，如果存在相同的权限配置项则它们之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
+     * <p> 示例值：
+     */
     private ReserveActionPermission[] actionPermissions;
+    /**
+     * 会议初始类型
+     * <p> 示例值：1
+     */
     private Integer meetingInitialType;
+    /**
+     * 1v1呼叫相关参数
+     * <p> 示例值：
+     */
     private ReserveCallSetting callSetting;
+    /**
+     * 使用飞书视频会议时，是否开启自动录制，默认false
+     * <p> 示例值：true
+     */
+    private Boolean autoRecord;
 
+    /**
+     * 会议主题
+     * <p> 示例值：my meeting
+     *
+     * @param topic
+     * @return
+     */
     public Builder topic(String topic) {
       this.topic = topic;
       return this;
     }
 
+
+    /**
+     * 会议权限配置列表，如果存在相同的权限配置项则它们之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
+     * <p> 示例值：
+     *
+     * @param actionPermissions
+     * @return
+     */
     public Builder actionPermissions(ReserveActionPermission[] actionPermissions) {
       this.actionPermissions = actionPermissions;
       return this;
     }
 
+
+    /**
+     * 会议初始类型
+     * <p> 示例值：1
+     *
+     * @param meetingInitialType
+     * @return
+     */
     public Builder meetingInitialType(Integer meetingInitialType) {
       this.meetingInitialType = meetingInitialType;
       return this;
     }
 
+    /**
+     * 会议初始类型
+     * <p> 示例值：1
+     *
+     * @param meetingInitialType {@link com.lark.oapi.service.vc.v1.enums.ReserveMeetingSettingMeetingInitialTypeEnum}
+     * @return
+     */
     public Builder meetingInitialType(
-        com.lark.oapi.service.vc.v1.enums.MeetingInitialTypeEnum meetingInitialType) {
+        com.lark.oapi.service.vc.v1.enums.ReserveMeetingSettingMeetingInitialTypeEnum meetingInitialType) {
       this.meetingInitialType = meetingInitialType.getValue();
       return this;
     }
 
+
+    /**
+     * 1v1呼叫相关参数
+     * <p> 示例值：
+     *
+     * @param callSetting
+     * @return
+     */
     public Builder callSetting(ReserveCallSetting callSetting) {
       this.callSetting = callSetting;
+      return this;
+    }
+
+
+    /**
+     * 使用飞书视频会议时，是否开启自动录制，默认false
+     * <p> 示例值：true
+     *
+     * @param autoRecord
+     * @return
+     */
+    public Builder autoRecord(Boolean autoRecord) {
+      this.autoRecord = autoRecord;
       return this;
     }
 

@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DeleteMailgroupReq {
 
+  /**
+   * 邮件组ID或者邮件组地址
+   * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+   */
   @Path
   @SerializedName("mailgroup_id")
   private String mailgroupId;
@@ -27,6 +31,10 @@ public class DeleteMailgroupReq {
   }
 
   public DeleteMailgroupReq(Builder builder) {
+    /**
+     * 邮件组ID或者邮件组地址
+     * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+     */
     this.mailgroupId = builder.mailgroupId;
   }
 
@@ -44,8 +52,15 @@ public class DeleteMailgroupReq {
 
   public static class Builder {
 
-    private String mailgroupId;
+    private String mailgroupId; // 邮件组ID或者邮件组地址
 
+    /**
+     * 邮件组ID或者邮件组地址
+     * <p> 示例值：xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx
+     *
+     * @param mailgroupId
+     * @return
+     */
     public Builder mailgroupId(String mailgroupId) {
       this.mailgroupId = mailgroupId;
       return this;

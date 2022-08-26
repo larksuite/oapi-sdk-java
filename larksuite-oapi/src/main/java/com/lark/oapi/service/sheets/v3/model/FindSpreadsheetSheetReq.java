@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Path;
 
 public class FindSpreadsheetSheetReq {
 
+  /**
+   * 表格的 token
+   * <p> 示例值：shtcnmBA*****yGehy8
+   */
   @Path
   @SerializedName("spreadsheet_token")
   private String spreadsheetToken;
+  /**
+   * 子表的 id
+   * <p> 示例值：0b**12
+   */
   @Path
   @SerializedName("sheet_id")
   private String sheetId;
@@ -33,7 +41,15 @@ public class FindSpreadsheetSheetReq {
   }
 
   public FindSpreadsheetSheetReq(Builder builder) {
+    /**
+     * 表格的 token
+     * <p> 示例值：shtcnmBA*****yGehy8
+     */
     this.spreadsheetToken = builder.spreadsheetToken;
+    /**
+     * 子表的 id
+     * <p> 示例值：0b**12
+     */
     this.sheetId = builder.sheetId;
     this.body = builder.body;
   }
@@ -68,15 +84,29 @@ public class FindSpreadsheetSheetReq {
 
   public static class Builder {
 
-    private String spreadsheetToken;
-    private String sheetId;
+    private String spreadsheetToken; // 表格的 token
+    private String sheetId; // 子表的 id
     private Find body;
 
+    /**
+     * 表格的 token
+     * <p> 示例值：shtcnmBA*****yGehy8
+     *
+     * @param spreadsheetToken
+     * @return
+     */
     public Builder spreadsheetToken(String spreadsheetToken) {
       this.spreadsheetToken = spreadsheetToken;
       return this;
     }
 
+    /**
+     * 子表的 id
+     * <p> 示例值：0b**12
+     *
+     * @param sheetId
+     * @return
+     */
     public Builder sheetId(String sheetId) {
       this.sheetId = sheetId;
       return this;
@@ -86,6 +116,12 @@ public class FindSpreadsheetSheetReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder find(Find body) {
       this.body = body;
       return this;

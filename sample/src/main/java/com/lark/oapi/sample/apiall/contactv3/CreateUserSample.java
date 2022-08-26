@@ -8,7 +8,7 @@ import com.lark.oapi.service.contact.v3.model.User;
 import com.lark.oapi.service.contact.v3.model.UserCustomAttr;
 import com.lark.oapi.service.contact.v3.model.UserOrder;
 
-// HTTP PATH: /open-apis/contact/v3/users"
+// POST /open-apis/contact/v3/users
 public class CreateUserSample {
 
   public static void main(String arg[]) throws Exception {
@@ -19,7 +19,7 @@ public class CreateUserSample {
     CreateUserReq req = CreateUserReq.newBuilder()
         .userIdType("open_id")
         .departmentIdType("open_department_id")
-        .clientToken("")
+        .clientToken("xxxx-xxxxx-xxx")
         .user(User.newBuilder()
             .userId("")
             .name("")
@@ -42,7 +42,6 @@ public class CreateUserSample {
             .customAttrs(new UserCustomAttr[]{})
             .enterpriseEmail("")
             .jobTitle("")
-            .entEmailPassword("")
             .build())
         .build();
 

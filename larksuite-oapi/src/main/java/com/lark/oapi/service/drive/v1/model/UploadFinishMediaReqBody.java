@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class UploadFinishMediaReqBody {
 
+  /**
+   * 分片上传事务ID
+   * <p> 示例值：7111211691345512356
+   */
   @SerializedName("upload_id")
   private String uploadId;
+  /**
+   * 分片数量
+   * <p> 示例值：1
+   */
   @SerializedName("block_num")
   private Integer blockNum;
 
@@ -27,7 +35,15 @@ public class UploadFinishMediaReqBody {
   }
 
   public UploadFinishMediaReqBody(Builder builder) {
+    /**
+     * 分片上传事务ID
+     * <p> 示例值：7111211691345512356
+     */
     this.uploadId = builder.uploadId;
+    /**
+     * 分片数量
+     * <p> 示例值：1
+     */
     this.blockNum = builder.blockNum;
   }
 
@@ -53,14 +69,37 @@ public class UploadFinishMediaReqBody {
 
   public static class Builder {
 
+    /**
+     * 分片上传事务ID
+     * <p> 示例值：7111211691345512356
+     */
     private String uploadId;
+    /**
+     * 分片数量
+     * <p> 示例值：1
+     */
     private Integer blockNum;
 
+    /**
+     * 分片上传事务ID
+     * <p> 示例值：7111211691345512356
+     *
+     * @param uploadId
+     * @return
+     */
     public Builder uploadId(String uploadId) {
       this.uploadId = uploadId;
       return this;
     }
 
+
+    /**
+     * 分片数量
+     * <p> 示例值：1
+     *
+     * @param blockNum
+     * @return
+     */
     public Builder blockNum(Integer blockNum) {
       this.blockNum = blockNum;
       return this;

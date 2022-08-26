@@ -20,9 +20,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class CreatePublicMailboxMemberReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * 公共邮箱唯一标识或公共邮箱地址
+   * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
+   */
   @Path
   @SerializedName("public_mailbox_id")
   private String publicMailboxId;
@@ -34,7 +42,15 @@ public class CreatePublicMailboxMemberReq {
   }
 
   public CreatePublicMailboxMemberReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
+    /**
+     * 公共邮箱唯一标识或公共邮箱地址
+     * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
+     */
     this.publicMailboxId = builder.publicMailboxId;
     this.body = builder.body;
   }
@@ -69,20 +85,42 @@ public class CreatePublicMailboxMemberReq {
 
   public static class Builder {
 
-    private String userIdType;
-    private String publicMailboxId;
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String publicMailboxId; // 公共邮箱唯一标识或公共邮箱地址
     private PublicMailboxMember body;
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.mail.v1.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.mail.v1.enums.CreatePublicMailboxMemberUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.mail.v1.enums.CreatePublicMailboxMemberUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+    /**
+     * 公共邮箱唯一标识或公共邮箱地址
+     * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
+     *
+     * @param publicMailboxId
+     * @return
+     */
     public Builder publicMailboxId(String publicMailboxId) {
       this.publicMailboxId = publicMailboxId;
       return this;
@@ -92,6 +130,12 @@ public class CreatePublicMailboxMemberReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder publicMailboxMember(PublicMailboxMember body) {
       this.body = body;
       return this;

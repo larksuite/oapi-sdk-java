@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.baike.v1.model.GetEntityReq;
 import com.lark.oapi.service.baike.v1.model.GetEntityResp;
 
-// HTTP PATH: /open-apis/baike/v1/entities/:entity_id"
+// GET /open-apis/baike/v1/entities/:entity_id
 public class GetEntitySample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,9 +14,9 @@ public class GetEntitySample {
 
     // 创建请求对象
     GetEntityReq req = GetEntityReq.newBuilder()
-        .entityId("enterprise_0")
+        .entityId("enterprise_515879")
         .provider("星云")
-        .outerId("123aaa")
+        .outerId("12345")
         .userIdType("user_id")
         .build();
 

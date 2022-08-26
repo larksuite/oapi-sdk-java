@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateMailgroupAlias {
 
+  /**
+   * 邮件组别名
+   * <p> 示例值：
+   */
   @SerializedName("mailgroup_alias")
   private EmailAlias mailgroupAlias;
 

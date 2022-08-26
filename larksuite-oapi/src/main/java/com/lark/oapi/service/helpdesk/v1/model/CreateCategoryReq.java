@@ -48,6 +48,12 @@ public class CreateCategoryReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder category(Category body) {
       this.body = body;
       return this;

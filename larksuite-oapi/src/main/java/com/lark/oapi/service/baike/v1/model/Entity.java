@@ -17,26 +17,71 @@ import com.google.gson.annotations.SerializedName;
 
 public class Entity {
 
+  /**
+   * 词条 ID （需要更新某个词条时填写，若是创建新词条可不填写）
+   * <p> 示例值：enterprise_40217521
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * 词条名
+   * <p> 示例值：
+   */
   @SerializedName("main_keys")
   private Term[] mainKeys;
+  /**
+   * 别名
+   * <p> 示例值：
+   */
   @SerializedName("aliases")
   private Term[] aliases;
+  /**
+   * 词条释义（纯文本格式）
+   * <p> 示例值：企业百科是飞书提供的一款知识管理工具，通过企业百科可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通
+   */
   @SerializedName("description")
   private String description;
+  /**
+   * 词条创建时间
+   * <p> 示例值：1649318125
+   */
   @SerializedName("create_time")
   private String createTime;
+  /**
+   * 词条最近更新时间
+   * <p> 示例值：1649318125
+   */
   @SerializedName("update_time")
   private String updateTime;
+  /**
+   * 更多相关信息
+   * <p> 示例值：
+   */
   @SerializedName("related_meta")
   private RelatedMeta relatedMeta;
+  /**
+   * 词条标签
+   * <p> 示例值：
+   */
   @SerializedName("categories")
   private String[] categories;
+  /**
+   * 当前词条收到的反馈数据
+   * <p> 示例值：
+   */
   @SerializedName("statistics")
   private Statistics statistics;
+  /**
+   * 外部系统关联数据
+   * <p> 示例值：
+   */
   @SerializedName("outer_info")
   private OuterInfo outerInfo;
+  /**
+   * 富文本格式（当填写富文本内容时，description字段将会失效可不填写），支持的格式参考[企业百科指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/overview)中的释义部分
+   * <p> 示例值：&lt;b&gt;加粗&lt;/b&gt;&lt;i&gt;斜体&lt;/i&gt;&lt;p&gt;&lt;a
+   * href=\"https://feishu.cn\"&gt;链接&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;企业百科是飞书提供的一款知识管理工具，通过企业百科可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通&lt;/span&gt;&lt;/p&gt;
+   */
   @SerializedName("rich_text")
   private String richText;
 
@@ -45,16 +90,60 @@ public class Entity {
   }
 
   public Entity(Builder builder) {
+    /**
+     * 词条 ID （需要更新某个词条时填写，若是创建新词条可不填写）
+     * <p> 示例值：enterprise_40217521
+     */
     this.id = builder.id;
+    /**
+     * 词条名
+     * <p> 示例值：
+     */
     this.mainKeys = builder.mainKeys;
+    /**
+     * 别名
+     * <p> 示例值：
+     */
     this.aliases = builder.aliases;
+    /**
+     * 词条释义（纯文本格式）
+     * <p> 示例值：企业百科是飞书提供的一款知识管理工具，通过企业百科可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通
+     */
     this.description = builder.description;
+    /**
+     * 词条创建时间
+     * <p> 示例值：1649318125
+     */
     this.createTime = builder.createTime;
+    /**
+     * 词条最近更新时间
+     * <p> 示例值：1649318125
+     */
     this.updateTime = builder.updateTime;
+    /**
+     * 更多相关信息
+     * <p> 示例值：
+     */
     this.relatedMeta = builder.relatedMeta;
+    /**
+     * 词条标签
+     * <p> 示例值：
+     */
     this.categories = builder.categories;
+    /**
+     * 当前词条收到的反馈数据
+     * <p> 示例值：
+     */
     this.statistics = builder.statistics;
+    /**
+     * 外部系统关联数据
+     * <p> 示例值：
+     */
     this.outerInfo = builder.outerInfo;
+    /**
+     * 富文本格式（当填写富文本内容时，description字段将会失效可不填写），支持的格式参考[企业百科指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/overview)中的释义部分
+     * <p> 示例值：&lt;b&gt;加粗&lt;/b&gt;&lt;i&gt;斜体&lt;/i&gt;&lt;p&gt;&lt;a href=\"https://feishu.cn\"&gt;链接&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;企业百科是飞书提供的一款知识管理工具，通过企业百科可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通&lt;/span&gt;&lt;/p&gt;
+     */
     this.richText = builder.richText;
   }
 
@@ -152,69 +241,201 @@ public class Entity {
 
   public static class Builder {
 
+    /**
+     * 词条 ID （需要更新某个词条时填写，若是创建新词条可不填写）
+     * <p> 示例值：enterprise_40217521
+     */
     private String id;
+    /**
+     * 词条名
+     * <p> 示例值：
+     */
     private Term[] mainKeys;
+    /**
+     * 别名
+     * <p> 示例值：
+     */
     private Term[] aliases;
+    /**
+     * 词条释义（纯文本格式）
+     * <p> 示例值：企业百科是飞书提供的一款知识管理工具，通过企业百科可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通
+     */
     private String description;
+    /**
+     * 词条创建时间
+     * <p> 示例值：1649318125
+     */
     private String createTime;
+    /**
+     * 词条最近更新时间
+     * <p> 示例值：1649318125
+     */
     private String updateTime;
+    /**
+     * 更多相关信息
+     * <p> 示例值：
+     */
     private RelatedMeta relatedMeta;
+    /**
+     * 词条标签
+     * <p> 示例值：
+     */
     private String[] categories;
+    /**
+     * 当前词条收到的反馈数据
+     * <p> 示例值：
+     */
     private Statistics statistics;
+    /**
+     * 外部系统关联数据
+     * <p> 示例值：
+     */
     private OuterInfo outerInfo;
+    /**
+     * 富文本格式（当填写富文本内容时，description字段将会失效可不填写），支持的格式参考[企业百科指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/overview)中的释义部分
+     * <p> 示例值：&lt;b&gt;加粗&lt;/b&gt;&lt;i&gt;斜体&lt;/i&gt;&lt;p&gt;&lt;a
+     * href=\"https://feishu.cn\"&gt;链接&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;企业百科是飞书提供的一款知识管理工具，通过企业百科可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通&lt;/span&gt;&lt;/p&gt;
+     */
     private String richText;
 
+    /**
+     * 词条 ID （需要更新某个词条时填写，若是创建新词条可不填写）
+     * <p> 示例值：enterprise_40217521
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 词条名
+     * <p> 示例值：
+     *
+     * @param mainKeys
+     * @return
+     */
     public Builder mainKeys(Term[] mainKeys) {
       this.mainKeys = mainKeys;
       return this;
     }
 
 
+    /**
+     * 别名
+     * <p> 示例值：
+     *
+     * @param aliases
+     * @return
+     */
     public Builder aliases(Term[] aliases) {
       this.aliases = aliases;
       return this;
     }
 
+
+    /**
+     * 词条释义（纯文本格式）
+     * <p> 示例值：企业百科是飞书提供的一款知识管理工具，通过企业百科可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通
+     *
+     * @param description
+     * @return
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
+
+    /**
+     * 词条创建时间
+     * <p> 示例值：1649318125
+     *
+     * @param createTime
+     * @return
+     */
     public Builder createTime(String createTime) {
       this.createTime = createTime;
       return this;
     }
 
+
+    /**
+     * 词条最近更新时间
+     * <p> 示例值：1649318125
+     *
+     * @param updateTime
+     * @return
+     */
     public Builder updateTime(String updateTime) {
       this.updateTime = updateTime;
       return this;
     }
 
+
+    /**
+     * 更多相关信息
+     * <p> 示例值：
+     *
+     * @param relatedMeta
+     * @return
+     */
     public Builder relatedMeta(RelatedMeta relatedMeta) {
       this.relatedMeta = relatedMeta;
       return this;
     }
 
+
+    /**
+     * 词条标签
+     * <p> 示例值：
+     *
+     * @param categories
+     * @return
+     */
     public Builder categories(String[] categories) {
       this.categories = categories;
       return this;
     }
 
+
+    /**
+     * 当前词条收到的反馈数据
+     * <p> 示例值：
+     *
+     * @param statistics
+     * @return
+     */
     public Builder statistics(Statistics statistics) {
       this.statistics = statistics;
       return this;
     }
 
+
+    /**
+     * 外部系统关联数据
+     * <p> 示例值：
+     *
+     * @param outerInfo
+     * @return
+     */
     public Builder outerInfo(OuterInfo outerInfo) {
       this.outerInfo = outerInfo;
       return this;
     }
 
+
+    /**
+     * 富文本格式（当填写富文本内容时，description字段将会失效可不填写），支持的格式参考[企业百科指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/overview)中的释义部分
+     * <p> 示例值：&lt;b&gt;加粗&lt;/b&gt;&lt;i&gt;斜体&lt;/i&gt;&lt;p&gt;&lt;a
+     * href=\"https://feishu.cn\"&gt;链接&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;企业百科是飞书提供的一款知识管理工具，通过企业百科可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通&lt;/span&gt;&lt;/p&gt;
+     *
+     * @param richText
+     * @return
+     */
     public Builder richText(String richText) {
       this.richText = richText;
       return this;

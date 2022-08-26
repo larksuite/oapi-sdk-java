@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class SearchGroupReqBody {
 
+  /**
+   * 考勤组名称
+   * <p> 示例值：考勤组1
+   */
   @SerializedName("group_name")
   private String groupName;
+  /**
+   * 是否精准匹配，默认为 false：模糊匹配；true：精准匹配
+   * <p> 示例值：true
+   */
   @SerializedName("exactly_matched")
   private Boolean exactlyMatched;
 
@@ -27,7 +35,15 @@ public class SearchGroupReqBody {
   }
 
   public SearchGroupReqBody(Builder builder) {
+    /**
+     * 考勤组名称
+     * <p> 示例值：考勤组1
+     */
     this.groupName = builder.groupName;
+    /**
+     * 是否精准匹配，默认为 false：模糊匹配；true：精准匹配
+     * <p> 示例值：true
+     */
     this.exactlyMatched = builder.exactlyMatched;
   }
 
@@ -53,14 +69,37 @@ public class SearchGroupReqBody {
 
   public static class Builder {
 
+    /**
+     * 考勤组名称
+     * <p> 示例值：考勤组1
+     */
     private String groupName;
+    /**
+     * 是否精准匹配，默认为 false：模糊匹配；true：精准匹配
+     * <p> 示例值：true
+     */
     private Boolean exactlyMatched;
 
+    /**
+     * 考勤组名称
+     * <p> 示例值：考勤组1
+     *
+     * @param groupName
+     * @return
+     */
     public Builder groupName(String groupName) {
       this.groupName = groupName;
       return this;
     }
 
+
+    /**
+     * 是否精准匹配，默认为 false：模糊匹配；true：精准匹配
+     * <p> 示例值：true
+     *
+     * @param exactlyMatched
+     * @return
+     */
     public Builder exactlyMatched(Boolean exactlyMatched) {
       this.exactlyMatched = exactlyMatched;
       return this;

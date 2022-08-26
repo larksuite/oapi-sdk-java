@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class GetCategoryReq {
 
+  /**
+   * 知识库分类ID
+   * <p> 示例值：6948728206392295444
+   */
   @Path
   @SerializedName("id")
   private String id;
@@ -27,6 +31,10 @@ public class GetCategoryReq {
   }
 
   public GetCategoryReq(Builder builder) {
+    /**
+     * 知识库分类ID
+     * <p> 示例值：6948728206392295444
+     */
     this.id = builder.id;
   }
 
@@ -44,8 +52,15 @@ public class GetCategoryReq {
 
   public static class Builder {
 
-    private String id;
+    private String id; // 知识库分类ID
 
+    /**
+     * 知识库分类ID
+     * <p> 示例值：6948728206392295444
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;

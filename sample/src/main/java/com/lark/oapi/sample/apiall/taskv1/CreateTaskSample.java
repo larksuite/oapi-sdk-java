@@ -2,15 +2,13 @@ package com.lark.oapi.sample.apiall.taskv1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.service.task.v1.model.Collaborator;
 import com.lark.oapi.service.task.v1.model.CreateTaskReq;
 import com.lark.oapi.service.task.v1.model.CreateTaskResp;
 import com.lark.oapi.service.task.v1.model.Due;
-import com.lark.oapi.service.task.v1.model.Follower;
 import com.lark.oapi.service.task.v1.model.Origin;
 import com.lark.oapi.service.task.v1.model.Task;
 
-// HTTP PATH: /open-apis/task/v1/tasks"
+// POST /open-apis/task/v1/tasks
 public class CreateTaskSample {
 
   public static void main(String arg[]) throws Exception {
@@ -28,8 +26,11 @@ public class CreateTaskSample {
             .origin(Origin.newBuilder().build())
             .canEdit(false)
             .custom("")
-            .followers(new Follower[]{})
-            .collaborators(new Collaborator[]{})
+            .collaboratorIds(new String[]{})
+            .followerIds(new String[]{})
+            .repeatRule("FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR")
+            .richSummary("每天喝八杯水，保持身心愉悦[飞书开放平台](https://open.feishu.cn/)")
+            .richDescription("多吃水果，多运动，健康生活，快乐工作。[飞书开放平台](https://open.feishu.cn/)")
             .build())
         .build();
 

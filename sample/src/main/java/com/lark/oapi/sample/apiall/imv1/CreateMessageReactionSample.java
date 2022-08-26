@@ -7,7 +7,7 @@ import com.lark.oapi.service.im.v1.model.CreateMessageReactionReqBody;
 import com.lark.oapi.service.im.v1.model.CreateMessageReactionResp;
 import com.lark.oapi.service.im.v1.model.Emoji;
 
-// HTTP PATH: /open-apis/im/v1/messages/:message_id/reactions"
+// POST /open-apis/im/v1/messages/:message_id/reactions
 public class CreateMessageReactionSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class CreateMessageReactionSample {
 
     // 创建请求对象
     CreateMessageReactionReq req = CreateMessageReactionReq.newBuilder()
-        .messageId("")
+        .messageId("om_a8f2294b************a1a38afaac9d")
         .createMessageReactionReqBody(CreateMessageReactionReqBody.newBuilder()
             .reactionType(Emoji.newBuilder().build())
             .build())

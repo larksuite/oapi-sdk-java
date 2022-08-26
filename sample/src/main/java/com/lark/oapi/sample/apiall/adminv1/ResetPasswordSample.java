@@ -7,7 +7,7 @@ import com.lark.oapi.service.admin.v1.model.ResetPasswordReq;
 import com.lark.oapi.service.admin.v1.model.ResetPasswordReqBody;
 import com.lark.oapi.service.admin.v1.model.ResetPasswordResp;
 
-// HTTP PATH: /open-apis/admin/v1/password/reset"
+// POST /open-apis/admin/v1/password/reset
 public class ResetPasswordSample {
 
   public static void main(String arg[]) throws Exception {

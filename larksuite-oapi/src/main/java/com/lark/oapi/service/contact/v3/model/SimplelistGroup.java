@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class SimplelistGroup {
 
+  /**
+   * 用户组列表
+   * <p> 示例值：
+   */
   @SerializedName("grouplist")
   private Group[] grouplist;
+  /**
+   * 下次分页获取的page_token
+   * <p> 示例值：AQD9/Rn9556539ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JDTJJDDPw=
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 是否还需要分页获取
+   * <p> 示例值：true
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
 

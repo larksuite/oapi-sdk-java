@@ -17,8 +17,15 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserInfo {
 
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("open_id")
   private String openId;
+  /**
+   * 用户在ISV下的唯一标识，申请了"获取用户 user ID"权限后才会返回
+   * <p> 示例值：
+   */
   @SerializedName("user_id")
   private String userId;
 
@@ -27,7 +34,15 @@ public class UserInfo {
   }
 
   public UserInfo(Builder builder) {
+    /**
+     *
+     * <p> 示例值：
+     */
     this.openId = builder.openId;
+    /**
+     * 用户在ISV下的唯一标识，申请了"获取用户 user ID"权限后才会返回
+     * <p> 示例值：
+     */
     this.userId = builder.userId;
   }
 
@@ -53,14 +68,35 @@ public class UserInfo {
 
   public static class Builder {
 
+    /**
+     * <p> 示例值：
+     */
     private String openId;
+    /**
+     * 用户在ISV下的唯一标识，申请了"获取用户 user ID"权限后才会返回
+     * <p> 示例值：
+     */
     private String userId;
 
+    /**
+     * <p> 示例值：
+     *
+     * @param openId
+     * @return
+     */
     public Builder openId(String openId) {
       this.openId = openId;
       return this;
     }
 
+
+    /**
+     * 用户在ISV下的唯一标识，申请了"获取用户 user ID"权限后才会返回
+     * <p> 示例值：
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.DeleteCategoryReq;
 import com.lark.oapi.service.helpdesk.v1.model.DeleteCategoryResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/categories/:id"
+// DELETE /open-apis/helpdesk/v1/categories/:id
 public class DeleteCategorySample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class DeleteCategorySample {
 
     // 创建请求对象
     DeleteCategoryReq req = DeleteCategoryReq.newBuilder()
-        .id("")
+        .id("6948728206392295444")
         .build();
 
     // 发起请求

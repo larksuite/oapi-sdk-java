@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class ChatMember {
 
+  /**
+   * user_id
+   * <p> 示例值：
+   */
   @SerializedName("user_id")
   private String userId;
 
@@ -25,6 +29,10 @@ public class ChatMember {
   }
 
   public ChatMember(Builder builder) {
+    /**
+     * user_id
+     * <p> 示例值：
+     */
     this.userId = builder.userId;
   }
 
@@ -42,8 +50,19 @@ public class ChatMember {
 
   public static class Builder {
 
+    /**
+     * user_id
+     * <p> 示例值：
+     */
     private String userId;
 
+    /**
+     * user_id
+     * <p> 示例值：
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;

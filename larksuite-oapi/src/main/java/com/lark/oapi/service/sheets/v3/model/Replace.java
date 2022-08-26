@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class Replace {
 
+  /**
+   * 查找条件
+   * <p> 示例值：
+   */
   @SerializedName("find_condition")
   private FindCondition findCondition;
+  /**
+   * 查找的字符串
+   * <p> 示例值：hello
+   */
   @SerializedName("find")
   private String find;
+  /**
+   * 替换的字符串
+   * <p> 示例值：world
+   */
   @SerializedName("replacement")
   private String replacement;
 
@@ -29,8 +41,20 @@ public class Replace {
   }
 
   public Replace(Builder builder) {
+    /**
+     * 查找条件
+     * <p> 示例值：
+     */
     this.findCondition = builder.findCondition;
+    /**
+     * 查找的字符串
+     * <p> 示例值：hello
+     */
     this.find = builder.find;
+    /**
+     * 替换的字符串
+     * <p> 示例值：world
+     */
     this.replacement = builder.replacement;
   }
 
@@ -64,20 +88,55 @@ public class Replace {
 
   public static class Builder {
 
+    /**
+     * 查找条件
+     * <p> 示例值：
+     */
     private FindCondition findCondition;
+    /**
+     * 查找的字符串
+     * <p> 示例值：hello
+     */
     private String find;
+    /**
+     * 替换的字符串
+     * <p> 示例值：world
+     */
     private String replacement;
 
+    /**
+     * 查找条件
+     * <p> 示例值：
+     *
+     * @param findCondition
+     * @return
+     */
     public Builder findCondition(FindCondition findCondition) {
       this.findCondition = findCondition;
       return this;
     }
 
+
+    /**
+     * 查找的字符串
+     * <p> 示例值：hello
+     *
+     * @param find
+     * @return
+     */
     public Builder find(String find) {
       this.find = find;
       return this;
     }
 
+
+    /**
+     * 替换的字符串
+     * <p> 示例值：world
+     *
+     * @param replacement
+     * @return
+     */
     public Builder replacement(String replacement) {
       this.replacement = replacement;
       return this;

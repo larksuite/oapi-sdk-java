@@ -17,18 +17,46 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2ApplicationCreatedV6Data {
 
+  /**
+   * 用户 ID
+   * <p> 示例值：
+   */
   @SerializedName("operator_id")
   private UserId operatorId;
+  /**
+   * 应用 ID
+   * <p> 示例值：cli_9f5343c580712544
+   */
   @SerializedName("app_id")
   private String appId;
+  /**
+   * 应用名称
+   * <p> 示例值：应用名称
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 应用描述
+   * <p> 示例值：应用描述
+   */
   @SerializedName("description")
   private String description;
+  /**
+   * 应用图标链接
+   * <p> 示例值：https://s1-imfile.feishucdn.com/static-resource/v1/c1f2f629-65e5-462c-be6a-bf327f971edg
+   */
   @SerializedName("avatar")
   private String avatar;
+  /**
+   * 应用类型，0: 自建应用，1: 应用商店应用
+   * <p> 示例值：0
+   */
   @SerializedName("app_scene_type")
   private Integer appSceneType;
+  /**
+   * 应用主语言
+   * <p> 示例值：zh_cn
+   */
   @SerializedName("primary_language")
   private String primaryLanguage;
 

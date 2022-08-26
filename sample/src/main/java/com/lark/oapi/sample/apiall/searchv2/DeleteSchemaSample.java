@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.search.v2.model.DeleteSchemaReq;
 import com.lark.oapi.service.search.v2.model.DeleteSchemaResp;
 
-// HTTP PATH: /open-apis/search/v2/schemas/:schema_id"
+// DELETE /open-apis/search/v2/schemas/:schema_id
 public class DeleteSchemaSample {
 
   public static void main(String arg[]) throws Exception {

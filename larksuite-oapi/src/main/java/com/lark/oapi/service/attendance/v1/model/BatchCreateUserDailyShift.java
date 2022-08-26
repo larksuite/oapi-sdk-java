@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchCreateUserDailyShift {
 
+  /**
+   * 班表信息列表
+   * <p> 示例值：
+   */
   @SerializedName("user_daily_shifts")
   private UserDailyShift[] userDailyShifts;
 

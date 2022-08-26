@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class MaterialDeleteResult {
 
+  /**
+   * 文件上传drive后的token
+   * <p> 示例值：u8ajdjadau8wqu
+   */
   @SerializedName("file_token")
   private String fileToken;
+  /**
+   * 删除结果
+   * <p> 示例值：1
+   */
   @SerializedName("result")
   private Integer result;
 
@@ -27,7 +35,15 @@ public class MaterialDeleteResult {
   }
 
   public MaterialDeleteResult(Builder builder) {
+    /**
+     * 文件上传drive后的token
+     * <p> 示例值：u8ajdjadau8wqu
+     */
     this.fileToken = builder.fileToken;
+    /**
+     * 删除结果
+     * <p> 示例值：1
+     */
     this.result = builder.result;
   }
 
@@ -53,20 +69,51 @@ public class MaterialDeleteResult {
 
   public static class Builder {
 
+    /**
+     * 文件上传drive后的token
+     * <p> 示例值：u8ajdjadau8wqu
+     */
     private String fileToken;
+    /**
+     * 删除结果
+     * <p> 示例值：1
+     */
     private Integer result;
 
+    /**
+     * 文件上传drive后的token
+     * <p> 示例值：u8ajdjadau8wqu
+     *
+     * @param fileToken
+     * @return
+     */
     public Builder fileToken(String fileToken) {
       this.fileToken = fileToken;
       return this;
     }
 
+
+    /**
+     * 删除结果
+     * <p> 示例值：1
+     *
+     * @param result
+     * @return
+     */
     public Builder result(Integer result) {
       this.result = result;
       return this;
     }
 
-    public Builder result(com.lark.oapi.service.vc.v1.enums.DeleteResultEnum result) {
+    /**
+     * 删除结果
+     * <p> 示例值：1
+     *
+     * @param result {@link com.lark.oapi.service.vc.v1.enums.MaterialDeleteResultDeleteResultEnum}
+     * @return
+     */
+    public Builder result(
+        com.lark.oapi.service.vc.v1.enums.MaterialDeleteResultDeleteResultEnum result) {
       this.result = result.getValue();
       return this;
     }

@@ -48,6 +48,12 @@ public class UploadPrepareFileReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder fileUploadInfo(FileUploadInfo body) {
       this.body = body;
       return this;

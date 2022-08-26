@@ -7,7 +7,7 @@ import com.lark.oapi.service.vc.v1.model.KickoutMeetingReqBody;
 import com.lark.oapi.service.vc.v1.model.KickoutMeetingResp;
 import com.lark.oapi.service.vc.v1.model.MeetingUser;
 
-// HTTP PATH: /open-apis/vc/v1/meetings/:meeting_id/kickout"
+// POST /open-apis/vc/v1/meetings/:meeting_id/kickout
 public class KickoutMeetingSample {
 
   public static void main(String arg[]) throws Exception {

@@ -7,7 +7,7 @@ import com.lark.oapi.service.sheets.v3.model.UpdateSheetFilter;
 import com.lark.oapi.service.sheets.v3.model.UpdateSpreadsheetSheetFilterReq;
 import com.lark.oapi.service.sheets.v3.model.UpdateSpreadsheetSheetFilterResp;
 
-// HTTP PATH: /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter"
+// PUT /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter
 public class UpdateSpreadsheetSheetFilterSample {
 
   public static void main(String arg[]) throws Exception {

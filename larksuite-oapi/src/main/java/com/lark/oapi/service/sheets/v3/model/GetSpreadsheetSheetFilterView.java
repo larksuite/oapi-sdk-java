@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetSpreadsheetSheetFilterView {
 
+  /**
+   * 筛选视图信息，包括 id、name、range
+   * <p> 示例值：
+   */
   @SerializedName("filter_view")
   private FilterView filterView;
 

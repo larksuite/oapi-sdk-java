@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.ListTicketReq;
 import com.lark.oapi.service.helpdesk.v1.model.ListTicketResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/tickets"
+// GET /open-apis/helpdesk/v1/tickets
 public class ListTicketSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,19 +14,19 @@ public class ListTicketSample {
 
     // 创建请求对象
     ListTicketReq req = ListTicketReq.newBuilder()
-        .ticketId("")
-        .agentId("")
-        .closedById("")
-        .type(0)
+        .ticketId("123456")
+        .agentId("ou_b5de90429xxx")
+        .closedById("ou_b5de90429xxx")
+        .type(1)
         .channel(0)
-        .solved(0)
-        .score(0)
+        .solved(1)
+        .score(1)
         .statusList(new Integer[]{})
-        .guestName("")
-        .guestId("")
+        .guestName("abc")
+        .guestId("ou_b5de90429xxx")
         .tags(new String[]{})
-        .page(0)
-        .pageSize(0)
+        .page(1)
+        .pageSize(20)
         .createTimeStart(0)
         .createTimeEnd(0)
         .updateTimeStart(0)

@@ -6,7 +6,7 @@ import com.lark.oapi.service.attendance.v1.model.QueryUserTaskReq;
 import com.lark.oapi.service.attendance.v1.model.QueryUserTaskReqBody;
 import com.lark.oapi.service.attendance.v1.model.QueryUserTaskResp;
 
-// HTTP PATH: /open-apis/attendance/v1/user_tasks/query"
+// POST /open-apis/attendance/v1/user_tasks/query
 public class QueryUserTaskSample {
 
   public static void main(String arg[]) throws Exception {

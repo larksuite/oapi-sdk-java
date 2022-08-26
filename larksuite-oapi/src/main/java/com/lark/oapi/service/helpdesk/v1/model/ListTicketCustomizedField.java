@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListTicketCustomizedField {
 
+  /**
+   * whether there is more data
+   * <p> 示例值：true
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 下一分页标识
+   * <p> 示例值：6948728206392295444
+   */
   @SerializedName("next_page_token")
   private String nextPageToken;
+  /**
+   * 工单自定义字段列表
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private TicketCustomizedField[] items;
 

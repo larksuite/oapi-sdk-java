@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Query;
 
 public class UploadFileReq {
 
+  /**
+   * 带后缀的文件名
+   * <p> 示例值：人脸照片.jpg
+   */
   @Query
   @SerializedName("file_name")
   private String fileName;
@@ -30,6 +34,10 @@ public class UploadFileReq {
   }
 
   public UploadFileReq(Builder builder) {
+    /**
+     * 带后缀的文件名
+     * <p> 示例值：人脸照片.jpg
+     */
     this.fileName = builder.fileName;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class UploadFileReq {
 
   public static class Builder {
 
-    private String fileName;
+    private String fileName; // 带后缀的文件名
     private UploadFileReqBody body;
 
+    /**
+     * 带后缀的文件名
+     * <p> 示例值：人脸照片.jpg
+     *
+     * @param fileName
+     * @return
+     */
     public Builder fileName(String fileName) {
       this.fileName = fileName;
       return this;
@@ -68,6 +83,12 @@ public class UploadFileReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder uploadFileReqBody(UploadFileReqBody body) {
       this.body = body;
       return this;

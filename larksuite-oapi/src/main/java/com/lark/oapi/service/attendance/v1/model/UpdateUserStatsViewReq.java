@@ -20,9 +20,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class UpdateUserStatsViewReq {
 
+  /**
+   * 员工工号类型
+   * <p> 示例值：employee_id
+   */
   @Query
   @SerializedName("employee_type")
   private String employeeType;
+  /**
+   * 用户视图 ID，获取方式：1）[查询统计设置](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)
+   * <p> 示例值：TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09
+   */
   @Path
   @SerializedName("user_stats_view_id")
   private String userStatsViewId;
@@ -34,7 +42,15 @@ public class UpdateUserStatsViewReq {
   }
 
   public UpdateUserStatsViewReq(Builder builder) {
+    /**
+     * 员工工号类型
+     * <p> 示例值：employee_id
+     */
     this.employeeType = builder.employeeType;
+    /**
+     * 用户视图 ID，获取方式：1）[查询统计设置](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)
+     * <p> 示例值：TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09
+     */
     this.userStatsViewId = builder.userStatsViewId;
     this.body = builder.body;
   }
@@ -69,21 +85,42 @@ public class UpdateUserStatsViewReq {
 
   public static class Builder {
 
-    private String employeeType;
-    private String userStatsViewId;
+    private String employeeType; // 员工工号类型
+    private String userStatsViewId; // 用户视图 ID，获取方式：1）[查询统计设置](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)
     private UpdateUserStatsViewReqBody body;
 
+    /**
+     * 员工工号类型
+     * <p> 示例值：employee_id
+     *
+     * @param employeeType
+     * @return
+     */
     public Builder employeeType(String employeeType) {
       this.employeeType = employeeType;
       return this;
     }
 
+    /**
+     * 员工工号类型
+     * <p> 示例值：employee_id
+     *
+     * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.UpdateUserStatsViewEmployeeTypeEnum}
+     * @return
+     */
     public Builder employeeType(
-        com.lark.oapi.service.attendance.v1.enums.EmployeeTypeEnum employeeType) {
+        com.lark.oapi.service.attendance.v1.enums.UpdateUserStatsViewEmployeeTypeEnum employeeType) {
       this.employeeType = employeeType.getValue();
       return this;
     }
 
+    /**
+     * 用户视图 ID，获取方式：1）[查询统计设置](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)
+     * <p> 示例值：TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09
+     *
+     * @param userStatsViewId
+     * @return
+     */
     public Builder userStatsViewId(String userStatsViewId) {
       this.userStatsViewId = userStatsViewId;
       return this;
@@ -93,6 +130,12 @@ public class UpdateUserStatsViewReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder updateUserStatsViewReqBody(UpdateUserStatsViewReqBody body) {
       this.body = body;
       return this;

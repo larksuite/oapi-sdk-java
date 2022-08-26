@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class MentionEvent {
 
+  /**
+   * mention key
+   * <p> 示例值：@_user_1
+   */
   @SerializedName("key")
   private String key;
+  /**
+   * 用户 ID
+   * <p> 示例值：
+   */
   @SerializedName("id")
   private UserId id;
+  /**
+   * 用户姓名
+   * <p> 示例值：Tom
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * tenant key
+   * <p> 示例值：736588c9260f175e
+   */
   @SerializedName("tenant_key")
   private String tenantKey;
 
@@ -31,9 +47,25 @@ public class MentionEvent {
   }
 
   public MentionEvent(Builder builder) {
+    /**
+     * mention key
+     * <p> 示例值：@_user_1
+     */
     this.key = builder.key;
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     */
     this.id = builder.id;
+    /**
+     * 用户姓名
+     * <p> 示例值：Tom
+     */
     this.name = builder.name;
+    /**
+     * tenant key
+     * <p> 示例值：736588c9260f175e
+     */
     this.tenantKey = builder.tenantKey;
   }
 
@@ -75,26 +107,73 @@ public class MentionEvent {
 
   public static class Builder {
 
+    /**
+     * mention key
+     * <p> 示例值：@_user_1
+     */
     private String key;
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     */
     private UserId id;
+    /**
+     * 用户姓名
+     * <p> 示例值：Tom
+     */
     private String name;
+    /**
+     * tenant key
+     * <p> 示例值：736588c9260f175e
+     */
     private String tenantKey;
 
+    /**
+     * mention key
+     * <p> 示例值：@_user_1
+     *
+     * @param key
+     * @return
+     */
     public Builder key(String key) {
       this.key = key;
       return this;
     }
 
+
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     *
+     * @param id
+     * @return
+     */
     public Builder id(UserId id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 用户姓名
+     * <p> 示例值：Tom
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * tenant key
+     * <p> 示例值：736588c9260f175e
+     *
+     * @param tenantKey
+     * @return
+     */
     public Builder tenantKey(String tenantKey) {
       this.tenantKey = tenantKey;
       return this;

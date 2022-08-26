@@ -6,7 +6,7 @@ import com.lark.oapi.service.drive.v1.model.PatchFileCommentReq;
 import com.lark.oapi.service.drive.v1.model.PatchFileCommentReqBody;
 import com.lark.oapi.service.drive.v1.model.PatchFileCommentResp;
 
-// HTTP PATH: /open-apis/drive/v1/files/:file_token/comments/:comment_id"
+// PATCH /open-apis/drive/v1/files/:file_token/comments/:comment_id
 public class PatchFileCommentSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,11 +15,11 @@ public class PatchFileCommentSample {
 
     // 创建请求对象
     PatchFileCommentReq req = PatchFileCommentReq.newBuilder()
-        .fileToken("")
-        .commentId("")
+        .fileToken("doccnGp4UK1UskrOEJwBXd3****")
+        .commentId("6916106822734578184")
         .fileType("doc")
         .patchFileCommentReqBody(PatchFileCommentReqBody.newBuilder()
-            .isSolved(false)
+            .isSolved(true)
             .build())
         .build();
 

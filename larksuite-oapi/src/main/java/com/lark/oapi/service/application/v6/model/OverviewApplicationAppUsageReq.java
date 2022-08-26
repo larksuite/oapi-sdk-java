@@ -20,9 +20,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class OverviewApplicationAppUsageReq {
 
+  /**
+   * 调用中使用的部门ID的类型
+   * <p> 示例值：open_department_id
+   */
   @Query
   @SerializedName("department_id_type")
   private String departmentIdType;
+  /**
+   * 目标应用 ID
+   * <p> 示例值：cli_9f115af860f7901b
+   */
   @Path
   @SerializedName("app_id")
   private String appId;
@@ -34,7 +42,15 @@ public class OverviewApplicationAppUsageReq {
   }
 
   public OverviewApplicationAppUsageReq(Builder builder) {
+    /**
+     * 调用中使用的部门ID的类型
+     * <p> 示例值：open_department_id
+     */
     this.departmentIdType = builder.departmentIdType;
+    /**
+     * 目标应用 ID
+     * <p> 示例值：cli_9f115af860f7901b
+     */
     this.appId = builder.appId;
     this.body = builder.body;
   }
@@ -69,21 +85,42 @@ public class OverviewApplicationAppUsageReq {
 
   public static class Builder {
 
-    private String departmentIdType;
-    private String appId;
+    private String departmentIdType; // 调用中使用的部门ID的类型
+    private String appId; // 目标应用 ID
     private OverviewApplicationAppUsageReqBody body;
 
+    /**
+     * 调用中使用的部门ID的类型
+     * <p> 示例值：open_department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
     public Builder departmentIdType(String departmentIdType) {
       this.departmentIdType = departmentIdType;
       return this;
     }
 
+    /**
+     * 调用中使用的部门ID的类型
+     * <p> 示例值：open_department_id
+     *
+     * @param departmentIdType {@link com.lark.oapi.service.application.v6.enums.OverviewApplicationAppUsageDepartmentIdTypeEnum}
+     * @return
+     */
     public Builder departmentIdType(
-        com.lark.oapi.service.application.v6.enums.DepartmentIdTypeEnum departmentIdType) {
+        com.lark.oapi.service.application.v6.enums.OverviewApplicationAppUsageDepartmentIdTypeEnum departmentIdType) {
       this.departmentIdType = departmentIdType.getValue();
       return this;
     }
 
+    /**
+     * 目标应用 ID
+     * <p> 示例值：cli_9f115af860f7901b
+     *
+     * @param appId
+     * @return
+     */
     public Builder appId(String appId) {
       this.appId = appId;
       return this;
@@ -93,6 +130,12 @@ public class OverviewApplicationAppUsageReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder overviewApplicationAppUsageReqBody(OverviewApplicationAppUsageReqBody body) {
       this.body = body;
       return this;

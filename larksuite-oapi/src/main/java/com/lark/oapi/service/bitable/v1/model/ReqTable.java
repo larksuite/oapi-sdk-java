@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class ReqTable {
 
+  /**
+   * 数据表 名字
+   * <p> 示例值：table1
+   */
   @SerializedName("name")
   private String name;
 
@@ -25,6 +29,10 @@ public class ReqTable {
   }
 
   public ReqTable(Builder builder) {
+    /**
+     * 数据表 名字
+     * <p> 示例值：table1
+     */
     this.name = builder.name;
   }
 
@@ -42,8 +50,19 @@ public class ReqTable {
 
   public static class Builder {
 
+    /**
+     * 数据表 名字
+     * <p> 示例值：table1
+     */
     private String name;
 
+    /**
+     * 数据表 名字
+     * <p> 示例值：table1
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;

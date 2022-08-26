@@ -6,7 +6,7 @@ import com.lark.oapi.service.contact.v3.model.BindDepartmentUnitReq;
 import com.lark.oapi.service.contact.v3.model.BindDepartmentUnitReqBody;
 import com.lark.oapi.service.contact.v3.model.BindDepartmentUnitResp;
 
-// HTTP PATH: /open-apis/contact/v3/unit/bind_department"
+// POST /open-apis/contact/v3/unit/bind_department
 public class BindDepartmentUnitSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,8 +16,8 @@ public class BindDepartmentUnitSample {
     // 创建请求对象
     BindDepartmentUnitReq req = BindDepartmentUnitReq.newBuilder()
         .bindDepartmentUnitReqBody(BindDepartmentUnitReqBody.newBuilder()
-            .unitId("")
-            .departmentId("")
+            .unitId("BU121")
+            .departmentId("od-4e6ac4d14bcd5071a37a39de902c7141")
             .departmentIdType("open_department_id")
             .build())
         .build();

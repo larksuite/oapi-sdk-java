@@ -6,7 +6,7 @@ import com.lark.oapi.service.baike.v1.model.MatchEntityReq;
 import com.lark.oapi.service.baike.v1.model.MatchEntityReqBody;
 import com.lark.oapi.service.baike.v1.model.MatchEntityResp;
 
-// HTTP PATH: /open-apis/baike/v1/entities/match"
+// POST /open-apis/baike/v1/entities/match
 public class MatchEntitySample {
 
   public static void main(String arg[]) throws Exception {

@@ -6,7 +6,7 @@ import com.lark.oapi.service.approval.v4.model.InstanceSearch;
 import com.lark.oapi.service.approval.v4.model.QueryInstanceReq;
 import com.lark.oapi.service.approval.v4.model.QueryInstanceResp;
 
-// HTTP PATH: /open-apis/approval/v4/instances/query"
+// POST /open-apis/approval/v4/instances/query
 public class QueryInstanceSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class QueryInstanceSample {
 
     // 创建请求对象
     QueryInstanceReq req = QueryInstanceReq.newBuilder()
-        .pageSize(100)
+        .pageSize(10)
         .pageToken("nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU")
         .userIdType("user_id")
         .instanceSearch(InstanceSearch.newBuilder()

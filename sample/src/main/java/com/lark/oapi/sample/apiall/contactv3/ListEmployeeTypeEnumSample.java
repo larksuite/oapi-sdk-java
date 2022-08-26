@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.contact.v3.model.ListEmployeeTypeEnumReq;
 import com.lark.oapi.service.contact.v3.model.ListEmployeeTypeEnumResp;
 
-// HTTP PATH: /open-apis/contact/v3/employee_type_enums"
+// GET /open-apis/contact/v3/employee_type_enums
 public class ListEmployeeTypeEnumSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class ListEmployeeTypeEnumSample {
 
     // 创建请求对象
     ListEmployeeTypeEnumReq req = ListEmployeeTypeEnumReq.newBuilder()
-        .pageToken("")
+        .pageToken("3")
         .pageSize(20)
         .build();
 

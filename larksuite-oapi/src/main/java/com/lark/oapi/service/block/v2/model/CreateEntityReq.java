@@ -48,6 +48,12 @@ public class CreateEntityReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder createEntityReqBody(CreateEntityReqBody body) {
       this.body = body;
       return this;

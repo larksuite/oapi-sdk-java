@@ -48,6 +48,12 @@ public class CreateEmployeeTypeEnumReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder employeeTypeEnum(EmployeeTypeEnum body) {
       this.body = body;
       return this;

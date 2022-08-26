@@ -17,12 +17,29 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetMailgroupPermissionMember {
 
+  /**
+   * The unique ID of a member in this permission group
+   * <p> 示例值：xxxxxxxxxxxxxxx
+   */
   @SerializedName("permission_member_id")
   private String permissionMemberId;
+  /**
+   * The member's user id. Value is valid when type is USER
+   * <p> 示例值：xxxxxxxxxx
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * The member's department id. Value is valid when type is DEPARTMENT
+   * <p> 示例值：xxxxxxxxxx
+   */
   @SerializedName("department_id")
   private String departmentId;
+  /**
+   * The type of member. Possible values are:;- USER: internal user in the team;- DEPARTMENT: member
+   * is a department
+   * <p> 示例值：USER
+   */
   @SerializedName("type")
   private String type;
 

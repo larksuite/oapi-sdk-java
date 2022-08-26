@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.sheets.v3.model.QuerySpreadsheetSheetFloatImageReq;
 import com.lark.oapi.service.sheets.v3.model.QuerySpreadsheetSheetFloatImageResp;
 
-// HTTP PATH: /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/query"
+// GET /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/query
 public class QuerySpreadsheetSheetFloatImageSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,8 +14,8 @@ public class QuerySpreadsheetSheetFloatImageSample {
 
     // 创建请求对象
     QuerySpreadsheetSheetFloatImageReq req = QuerySpreadsheetSheetFloatImageReq.newBuilder()
-        .spreadsheetToken("")
-        .sheetId("")
+        .spreadsheetToken("shtcnmBA*****yGehy8")
+        .sheetId("0b**12")
         .build();
 
     // 发起请求

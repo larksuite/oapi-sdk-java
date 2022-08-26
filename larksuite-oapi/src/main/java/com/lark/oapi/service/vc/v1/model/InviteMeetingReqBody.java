@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class InviteMeetingReqBody {
 
+  /**
+   * 被邀请的用户列表
+   * <p> 示例值：
+   */
   @SerializedName("invitees")
   private MeetingUser[] invitees;
 
@@ -25,6 +29,10 @@ public class InviteMeetingReqBody {
   }
 
   public InviteMeetingReqBody(Builder builder) {
+    /**
+     * 被邀请的用户列表
+     * <p> 示例值：
+     */
     this.invitees = builder.invitees;
   }
 
@@ -42,8 +50,19 @@ public class InviteMeetingReqBody {
 
   public static class Builder {
 
+    /**
+     * 被邀请的用户列表
+     * <p> 示例值：
+     */
     private MeetingUser[] invitees;
 
+    /**
+     * 被邀请的用户列表
+     * <p> 示例值：
+     *
+     * @param invitees
+     * @return
+     */
     public Builder invitees(MeetingUser[] invitees) {
       this.invitees = invitees;
       return this;

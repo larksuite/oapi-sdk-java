@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class OverviewApplicationAppUsage {
 
+  /**
+   * 员工使用应用概览数据
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private ApplicationAppUsage[] items;
 

@@ -6,7 +6,7 @@ import com.lark.oapi.service.task.v1.model.Collaborator;
 import com.lark.oapi.service.task.v1.model.CreateTaskCollaboratorReq;
 import com.lark.oapi.service.task.v1.model.CreateTaskCollaboratorResp;
 
-// HTTP PATH: /open-apis/task/v1/tasks/:task_id/collaborators"
+// POST /open-apis/task/v1/tasks/:task_id/collaborators
 public class CreateTaskCollaboratorSample {
 
   public static void main(String arg[]) throws Exception {
@@ -19,6 +19,7 @@ public class CreateTaskCollaboratorSample {
         .userIdType("user_id")
         .collaborator(Collaborator.newBuilder()
             .id("ou_99e1a581b36ecc4862cbfbce473f1234")
+            .idList(new String[]{})
             .build())
         .build();
 

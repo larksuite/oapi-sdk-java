@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryUserReqBody {
 
+  /**
+   * 需要查询的邮箱地址列表
+   * <p> 示例值：["aaa@lark.com","bbb@lark.com"]
+   */
   @SerializedName("email_list")
   private String[] emailList;
 
@@ -25,6 +29,10 @@ public class QueryUserReqBody {
   }
 
   public QueryUserReqBody(Builder builder) {
+    /**
+     * 需要查询的邮箱地址列表
+     * <p> 示例值：["aaa@lark.com","bbb@lark.com"]
+     */
     this.emailList = builder.emailList;
   }
 
@@ -42,8 +50,19 @@ public class QueryUserReqBody {
 
   public static class Builder {
 
+    /**
+     * 需要查询的邮箱地址列表
+     * <p> 示例值：["aaa@lark.com","bbb@lark.com"]
+     */
     private String[] emailList;
 
+    /**
+     * 需要查询的邮箱地址列表
+     * <p> 示例值：["aaa@lark.com","bbb@lark.com"]
+     *
+     * @param emailList
+     * @return
+     */
     public Builder emailList(String[] emailList) {
       this.emailList = emailList;
       return this;

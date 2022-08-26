@@ -7,7 +7,7 @@ import com.lark.oapi.service.bitable.v1.model.CreateAppTableRecordReq;
 import com.lark.oapi.service.bitable.v1.model.CreateAppTableRecordResp;
 import java.util.HashMap;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/tables/:table_id/records"
+// POST /open-apis/bitable/v1/apps/:app_token/tables/:table_id/records
 public class CreateAppTableRecordSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,8 +16,8 @@ public class CreateAppTableRecordSample {
 
     // 创建请求对象
     CreateAppTableRecordReq req = CreateAppTableRecordReq.newBuilder()
-        .appToken("")
-        .tableId("")
+        .appToken("bascng7vrxcxpig7geggXiCtadY")
+        .tableId("tblUa9vcYjWQYJCj")
         .userIdType("user_id")
         .appTableRecord(AppTableRecord.newBuilder()
             .fields(new HashMap<String, Object>())

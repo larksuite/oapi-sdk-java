@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.mail.v1.model.ListPublicMailboxMemberReq;
 import com.lark.oapi.service.mail.v1.model.ListPublicMailboxMemberResp;
 
-// HTTP PATH: /open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members"
+// GET /open-apis/mail/v1/public_mailboxes/:public_mailbox_id/members
 public class ListPublicMailboxMemberSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class ListPublicMailboxMemberSample {
     ListPublicMailboxMemberReq req = ListPublicMailboxMemberReq.newBuilder()
         .publicMailboxId("xxxxxxxxxxxxxxx or test_public_mailbox@xxx.xx")
         .userIdType("user_id")
-        .pageToken("")
+        .pageToken("xxx")
         .pageSize(20)
         .build();
 

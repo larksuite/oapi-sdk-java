@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryUserApproval {
 
+  /**
+   * 审批结果列表
+   * <p> 示例值：
+   */
   @SerializedName("user_approvals")
   private UserApproval[] userApprovals;
 

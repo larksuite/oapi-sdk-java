@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.task.v1.model.ListTaskReminderReq;
 import com.lark.oapi.service.task.v1.model.ListTaskReminderResp;
 
-// HTTP PATH: /open-apis/task/v1/tasks/:task_id/reminders"
+// GET /open-apis/task/v1/tasks/:task_id/reminders
 public class ListTaskReminderSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class ListTaskReminderSample {
     ListTaskReminderReq req = ListTaskReminderReq.newBuilder()
         .taskId("0d38e26e-190a-49e9-93a2-35067763ed1f")
         .pageSize(50)
-        .pageToken("")
+        .pageToken("「填写上次返回的page_token」")
         .build();
 
     // 发起请求

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.PreviewNotificationReq;
 import com.lark.oapi.service.helpdesk.v1.model.PreviewNotificationResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/notifications/:notification_id/preview"
+// POST /open-apis/helpdesk/v1/notifications/:notification_id/preview
 public class PreviewNotificationSample {
 
   public static void main(String arg[]) throws Exception {

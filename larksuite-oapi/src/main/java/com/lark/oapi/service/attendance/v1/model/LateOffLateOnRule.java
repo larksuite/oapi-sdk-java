@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class LateOffLateOnRule {
 
+  /**
+   * 晚走多久
+   * <p> 示例值：60
+   */
   @SerializedName("late_off_minutes")
   private Integer lateOffMinutes;
+  /**
+   * 晚到多久
+   * <p> 示例值：30
+   */
   @SerializedName("late_on_minutes")
   private Integer lateOnMinutes;
 
@@ -27,7 +35,15 @@ public class LateOffLateOnRule {
   }
 
   public LateOffLateOnRule(Builder builder) {
+    /**
+     * 晚走多久
+     * <p> 示例值：60
+     */
     this.lateOffMinutes = builder.lateOffMinutes;
+    /**
+     * 晚到多久
+     * <p> 示例值：30
+     */
     this.lateOnMinutes = builder.lateOnMinutes;
   }
 
@@ -53,14 +69,37 @@ public class LateOffLateOnRule {
 
   public static class Builder {
 
+    /**
+     * 晚走多久
+     * <p> 示例值：60
+     */
     private Integer lateOffMinutes;
+    /**
+     * 晚到多久
+     * <p> 示例值：30
+     */
     private Integer lateOnMinutes;
 
+    /**
+     * 晚走多久
+     * <p> 示例值：60
+     *
+     * @param lateOffMinutes
+     * @return
+     */
     public Builder lateOffMinutes(Integer lateOffMinutes) {
       this.lateOffMinutes = lateOffMinutes;
       return this;
     }
 
+
+    /**
+     * 晚到多久
+     * <p> 示例值：30
+     *
+     * @param lateOnMinutes
+     * @return
+     */
     public Builder lateOnMinutes(Integer lateOnMinutes) {
       this.lateOnMinutes = lateOnMinutes;
       return this;

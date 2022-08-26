@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class SearchCalendar {
 
+  /**
+   * 搜索命中的日历列表
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private Calendar[] items;
+  /**
+   * 下次请求需要带上的分页标记
+   * <p> 示例值：10
+   */
   @SerializedName("page_token")
   private String pageToken;
 

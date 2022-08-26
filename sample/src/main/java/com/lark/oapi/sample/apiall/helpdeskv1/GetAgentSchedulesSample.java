@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.GetAgentSchedulesReq;
 import com.lark.oapi.service.helpdesk.v1.model.GetAgentSchedulesResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/agents/:agent_id/schedules"
+// GET /open-apis/helpdesk/v1/agents/:agent_id/schedules
 public class GetAgentSchedulesSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class GetAgentSchedulesSample {
 
     // 创建请求对象
     GetAgentSchedulesReq req = GetAgentSchedulesReq.newBuilder()
-        .agentId("")
+        .agentId("	客服 id")
         .build();
 
     // 发起请求

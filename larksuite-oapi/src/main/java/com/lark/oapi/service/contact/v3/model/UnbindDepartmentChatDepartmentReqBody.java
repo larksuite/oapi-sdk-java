@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UnbindDepartmentChatDepartmentReqBody {
 
+  /**
+   * 部门ID
+   * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+   */
   @SerializedName("department_id")
   private String departmentId;
 
@@ -25,6 +29,10 @@ public class UnbindDepartmentChatDepartmentReqBody {
   }
 
   public UnbindDepartmentChatDepartmentReqBody(Builder builder) {
+    /**
+     * 部门ID
+     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     */
     this.departmentId = builder.departmentId;
   }
 
@@ -42,8 +50,19 @@ public class UnbindDepartmentChatDepartmentReqBody {
 
   public static class Builder {
 
+    /**
+     * 部门ID
+     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     */
     private String departmentId;
 
+    /**
+     * 部门ID
+     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param departmentId
+     * @return
+     */
     public Builder departmentId(String departmentId) {
       this.departmentId = departmentId;
       return this;

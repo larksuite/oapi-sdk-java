@@ -19,6 +19,9 @@ import com.lark.oapi.core.annotation.Query;
 
 public class ResetPasswordReq {
 
+  /**
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
@@ -30,6 +33,10 @@ public class ResetPasswordReq {
   }
 
   public ResetPasswordReq(Builder builder) {
+    /**
+     *
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
     this.body = builder.body;
   }
@@ -56,15 +63,28 @@ public class ResetPasswordReq {
 
   public static class Builder {
 
-    private String userIdType;
+    private String userIdType; //
     private ResetPasswordReqBody body;
 
+    /**
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.admin.v1.enums.UserIdTypeEnum userIdType) {
+    /**
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.admin.v1.enums.ResetPasswordUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.admin.v1.enums.ResetPasswordUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
@@ -73,6 +93,12 @@ public class ResetPasswordReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder resetPasswordReqBody(ResetPasswordReqBody body) {
       this.body = body;
       return this;

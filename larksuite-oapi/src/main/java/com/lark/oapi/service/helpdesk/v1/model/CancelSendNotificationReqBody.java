@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CancelSendNotificationReqBody {
 
+  /**
+   * 是否召回已发送的消息,新人入职消息同样适用
+   * <p> 示例值：true
+   */
   @SerializedName("is_recall")
   private Boolean isRecall;
 
@@ -25,6 +29,10 @@ public class CancelSendNotificationReqBody {
   }
 
   public CancelSendNotificationReqBody(Builder builder) {
+    /**
+     * 是否召回已发送的消息,新人入职消息同样适用
+     * <p> 示例值：true
+     */
     this.isRecall = builder.isRecall;
   }
 
@@ -42,8 +50,19 @@ public class CancelSendNotificationReqBody {
 
   public static class Builder {
 
+    /**
+     * 是否召回已发送的消息,新人入职消息同样适用
+     * <p> 示例值：true
+     */
     private Boolean isRecall;
 
+    /**
+     * 是否召回已发送的消息,新人入职消息同样适用
+     * <p> 示例值：true
+     *
+     * @param isRecall
+     * @return
+     */
     public Builder isRecall(Boolean isRecall) {
       this.isRecall = isRecall;
       return this;

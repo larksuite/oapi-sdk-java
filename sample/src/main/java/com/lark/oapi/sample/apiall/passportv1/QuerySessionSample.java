@@ -6,7 +6,7 @@ import com.lark.oapi.service.passport.v1.model.QuerySessionReq;
 import com.lark.oapi.service.passport.v1.model.QuerySessionReqBody;
 import com.lark.oapi.service.passport.v1.model.QuerySessionResp;
 
-// HTTP PATH: /open-apis/passport/v1/sessions/query"
+// POST /open-apis/passport/v1/sessions/query
 public class QuerySessionSample {
 
   public static void main(String arg[]) throws Exception {

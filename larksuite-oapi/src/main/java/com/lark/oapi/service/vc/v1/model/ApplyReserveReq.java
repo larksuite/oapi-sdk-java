@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Query;
 
 public class ApplyReserveReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
@@ -30,6 +34,10 @@ public class ApplyReserveReq {
   }
 
   public ApplyReserveReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
     this.body = builder.body;
   }
@@ -56,15 +64,30 @@ public class ApplyReserveReq {
 
   public static class Builder {
 
-    private String userIdType;
+    private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
     private ApplyReserveReqBody body;
 
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.vc.v1.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.ApplyReserveUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.vc.v1.enums.ApplyReserveUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
@@ -73,6 +96,12 @@ public class ApplyReserveReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder applyReserveReqBody(ApplyReserveReqBody body) {
       this.body = body;
       return this;

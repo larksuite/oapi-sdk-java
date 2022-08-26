@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListInstanceComment {
 
+  /**
+   * 评论数据列表
+   * <p> 示例值：
+   */
   @SerializedName("comments")
   private Comment[] comments;
 

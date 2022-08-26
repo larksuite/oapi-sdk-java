@@ -6,7 +6,7 @@ import com.lark.oapi.service.wiki.v2.model.CopySpaceNodeReq;
 import com.lark.oapi.service.wiki.v2.model.CopySpaceNodeReqBody;
 import com.lark.oapi.service.wiki.v2.model.CopySpaceNodeResp;
 
-// HTTP PATH: /open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/copy"
+// POST /open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/copy
 public class CopySpaceNodeSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,12 +15,12 @@ public class CopySpaceNodeSample {
 
     // 创建请求对象
     CopySpaceNodeReq req = CopySpaceNodeReq.newBuilder()
-        .spaceId("")
-        .nodeToken("")
+        .spaceId("6946843325487912356")
+        .nodeToken("wikcnKQ1k3pcuo5uSK4t8Vabcef")
         .copySpaceNodeReqBody(CopySpaceNodeReqBody.newBuilder()
-            .targetParentToken("")
-            .targetSpaceId("")
-            .title("")
+            .targetParentToken("wikcnKQ1k3pcuo5uSK4t8Vabcef")
+            .targetSpaceId("6946843325487912356")
+            .title("新标题")
             .build())
         .build();
 

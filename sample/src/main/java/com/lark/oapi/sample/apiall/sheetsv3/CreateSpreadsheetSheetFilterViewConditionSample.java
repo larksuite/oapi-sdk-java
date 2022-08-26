@@ -6,7 +6,7 @@ import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFilterViewCon
 import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetSheetFilterViewConditionResp;
 import com.lark.oapi.service.sheets.v3.model.FilterViewCondition;
 
-// HTTP PATH: /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions"
+// POST /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id/conditions
 public class CreateSpreadsheetSheetFilterViewConditionSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,9 +15,9 @@ public class CreateSpreadsheetSheetFilterViewConditionSample {
 
     // 创建请求对象
     CreateSpreadsheetSheetFilterViewConditionReq req = CreateSpreadsheetSheetFilterViewConditionReq.newBuilder()
-        .spreadsheetToken("")
-        .sheetId("")
-        .filterViewId("")
+        .spreadsheetToken("shtcnmBA*****yGehy8")
+        .sheetId("0b**12")
+        .filterViewId("pH9hbVcCXA")
         .filterViewCondition(FilterViewCondition.newBuilder()
             .conditionId("")
             .filterType("")

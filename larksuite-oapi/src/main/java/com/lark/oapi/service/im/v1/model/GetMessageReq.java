@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class GetMessageReq {
 
+  /**
+   * 待获取消息内容的消息的ID
+   * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+   */
   @Path
   @SerializedName("message_id")
   private String messageId;
@@ -27,6 +31,10 @@ public class GetMessageReq {
   }
 
   public GetMessageReq(Builder builder) {
+    /**
+     * 待获取消息内容的消息的ID
+     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+     */
     this.messageId = builder.messageId;
   }
 
@@ -44,8 +52,15 @@ public class GetMessageReq {
 
   public static class Builder {
 
-    private String messageId;
+    private String messageId; // 待获取消息内容的消息的ID
 
+    /**
+     * 待获取消息内容的消息的ID
+     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+     *
+     * @param messageId
+     * @return
+     */
     public Builder messageId(String messageId) {
       this.messageId = messageId;
       return this;

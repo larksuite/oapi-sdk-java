@@ -17,18 +17,46 @@ import com.google.gson.annotations.SerializedName;
 
 public class SetRoomConfigReqBody {
 
+  /**
+   * 设置节点范围
+   * <p> 示例值：5
+   */
   @SerializedName("scope")
   private Integer scope;
+  /**
+   * 国家/地区ID scope为2，3时需要此参数
+   * <p> 示例值：086
+   */
   @SerializedName("country_id")
   private String countryId;
+  /**
+   * 城市ID scope为3时需要此参数
+   * <p> 示例值：223
+   */
   @SerializedName("district_id")
   private String districtId;
+  /**
+   * 建筑ID scope为4，5时需要此参数
+   * <p> 示例值：66
+   */
   @SerializedName("building_id")
   private String buildingId;
+  /**
+   * 楼层 scope为5时需要此参数
+   * <p> 示例值：3
+   */
   @SerializedName("floor_name")
   private String floorName;
+  /**
+   * 会议室ID scope为6时需要此参数
+   * <p> 示例值：67687262867363
+   */
   @SerializedName("room_id")
   private String roomId;
+  /**
+   * 会议室设置
+   * <p> 示例值：
+   */
   @SerializedName("room_config")
   private RoomConfig roomConfig;
 
@@ -37,12 +65,40 @@ public class SetRoomConfigReqBody {
   }
 
   public SetRoomConfigReqBody(Builder builder) {
+    /**
+     * 设置节点范围
+     * <p> 示例值：5
+     */
     this.scope = builder.scope;
+    /**
+     * 国家/地区ID scope为2，3时需要此参数
+     * <p> 示例值：086
+     */
     this.countryId = builder.countryId;
+    /**
+     * 城市ID scope为3时需要此参数
+     * <p> 示例值：223
+     */
     this.districtId = builder.districtId;
+    /**
+     * 建筑ID scope为4，5时需要此参数
+     * <p> 示例值：66
+     */
     this.buildingId = builder.buildingId;
+    /**
+     * 楼层 scope为5时需要此参数
+     * <p> 示例值：3
+     */
     this.floorName = builder.floorName;
+    /**
+     * 会议室ID scope为6时需要此参数
+     * <p> 示例值：67687262867363
+     */
     this.roomId = builder.roomId;
+    /**
+     * 会议室设置
+     * <p> 示例值：
+     */
     this.roomConfig = builder.roomConfig;
   }
 
@@ -108,49 +164,139 @@ public class SetRoomConfigReqBody {
 
   public static class Builder {
 
+    /**
+     * 设置节点范围
+     * <p> 示例值：5
+     */
     private Integer scope;
+    /**
+     * 国家/地区ID scope为2，3时需要此参数
+     * <p> 示例值：086
+     */
     private String countryId;
+    /**
+     * 城市ID scope为3时需要此参数
+     * <p> 示例值：223
+     */
     private String districtId;
+    /**
+     * 建筑ID scope为4，5时需要此参数
+     * <p> 示例值：66
+     */
     private String buildingId;
+    /**
+     * 楼层 scope为5时需要此参数
+     * <p> 示例值：3
+     */
     private String floorName;
+    /**
+     * 会议室ID scope为6时需要此参数
+     * <p> 示例值：67687262867363
+     */
     private String roomId;
+    /**
+     * 会议室设置
+     * <p> 示例值：
+     */
     private RoomConfig roomConfig;
 
+    /**
+     * 设置节点范围
+     * <p> 示例值：5
+     *
+     * @param scope
+     * @return
+     */
     public Builder scope(Integer scope) {
       this.scope = scope;
       return this;
     }
 
-    public Builder scope(com.lark.oapi.service.vc.v1.enums.NodeScopeEnum scope) {
+    /**
+     * 设置节点范围
+     * <p> 示例值：5
+     *
+     * @param scope {@link com.lark.oapi.service.vc.v1.enums.SetRoomConfigNodeScopeEnum}
+     * @return
+     */
+    public Builder scope(com.lark.oapi.service.vc.v1.enums.SetRoomConfigNodeScopeEnum scope) {
       this.scope = scope.getValue();
       return this;
     }
 
+
+    /**
+     * 国家/地区ID scope为2，3时需要此参数
+     * <p> 示例值：086
+     *
+     * @param countryId
+     * @return
+     */
     public Builder countryId(String countryId) {
       this.countryId = countryId;
       return this;
     }
 
+
+    /**
+     * 城市ID scope为3时需要此参数
+     * <p> 示例值：223
+     *
+     * @param districtId
+     * @return
+     */
     public Builder districtId(String districtId) {
       this.districtId = districtId;
       return this;
     }
 
+
+    /**
+     * 建筑ID scope为4，5时需要此参数
+     * <p> 示例值：66
+     *
+     * @param buildingId
+     * @return
+     */
     public Builder buildingId(String buildingId) {
       this.buildingId = buildingId;
       return this;
     }
 
+
+    /**
+     * 楼层 scope为5时需要此参数
+     * <p> 示例值：3
+     *
+     * @param floorName
+     * @return
+     */
     public Builder floorName(String floorName) {
       this.floorName = floorName;
       return this;
     }
 
+
+    /**
+     * 会议室ID scope为6时需要此参数
+     * <p> 示例值：67687262867363
+     *
+     * @param roomId
+     * @return
+     */
     public Builder roomId(String roomId) {
       this.roomId = roomId;
       return this;
     }
 
+
+    /**
+     * 会议室设置
+     * <p> 示例值：
+     *
+     * @param roomConfig
+     * @return
+     */
     public Builder roomConfig(RoomConfig roomConfig) {
       this.roomConfig = roomConfig;
       return this;

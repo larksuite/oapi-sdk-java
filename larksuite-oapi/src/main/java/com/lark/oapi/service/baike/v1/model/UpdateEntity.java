@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateEntity {
 
+  /**
+   * 词条信息
+   * <p> 示例值：
+   */
   @SerializedName("entity")
   private Entity entity;
 

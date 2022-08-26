@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryUserSetting {
 
+  /**
+   * 用户设置信息列表
+   * <p> 示例值：
+   */
   @SerializedName("user_settings")
   private UserSetting[] userSettings;
 

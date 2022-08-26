@@ -65,22 +65,47 @@ public class WikiService {
     this.task = new Task(config);
   }
 
+  /**
+   * 节点
+   *
+   * @return
+   */
   public Space space() {
     return space;
   }
 
+  /**
+   * 空间成员
+   *
+   * @return
+   */
   public SpaceMember spaceMember() {
     return spaceMember;
   }
 
+  /**
+   * 节点
+   *
+   * @return
+   */
   public SpaceNode spaceNode() {
     return spaceNode;
   }
 
+  /**
+   * 空间设置
+   *
+   * @return
+   */
   public SpaceSetting spaceSetting() {
     return spaceSetting;
   }
 
+  /**
+   * 云文档
+   *
+   * @return
+   */
   public Task task() {
     return task;
   }
@@ -93,6 +118,14 @@ public class WikiService {
       this.config = config;
     }
 
+    /**
+     * 创建知识空间，此接口用于创建知识空间
+     * <p> 此接口不支持tenant access token（应用身份访问） ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//CreateSpaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//CreateSpaceSample.java</a>
+     * ;
+     */
     public CreateSpaceResp create(CreateSpaceReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -113,6 +146,14 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 创建知识空间，此接口用于创建知识空间
+     * <p> 此接口不支持tenant access token（应用身份访问） ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//CreateSpaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//CreateSpaceSample.java</a>
+     * ;
+     */
     public CreateSpaceResp create(CreateSpaceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -131,6 +172,16 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 获取知识空间信息，此接口用于根据知识空间ID来查询知识空间的信息。;;空间类型（type）：;- 个人空间：归个人管理。一人仅可拥有一个个人空间，无法添加其他管理员。;-
+     * 团队空间：归团队（多人)管理，可添加多个管理员。;;空间可见性（visibility）：;- 公开空间：租户所有用户可见，默认为成员权限。无法额外添加成员，但可以添加管理员。;-
+     * 私有空间：仅对知识空间管理员、成员可见，需要手动添加管理员、成员。
+     * <p> 本接口要求知识库权限：;- 需要为知识空间成员（管理员） ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//GetSpaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//GetSpaceSample.java</a>
+     * ;
+     */
     public GetSpaceResp get(GetSpaceReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -151,6 +202,16 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 获取知识空间信息，此接口用于根据知识空间ID来查询知识空间的信息。;;空间类型（type）：;- 个人空间：归个人管理。一人仅可拥有一个个人空间，无法添加其他管理员。;-
+     * 团队空间：归团队（多人)管理，可添加多个管理员。;;空间可见性（visibility）：;- 公开空间：租户所有用户可见，默认为成员权限。无法额外添加成员，但可以添加管理员。;-
+     * 私有空间：仅对知识空间管理员、成员可见，需要手动添加管理员、成员。
+     * <p> 本接口要求知识库权限：;- 需要为知识空间成员（管理员） ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//GetSpaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//GetSpaceSample.java</a>
+     * ;
+     */
     public GetSpaceResp get(GetSpaceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -169,6 +230,14 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 获取节点信息，获取节点信息
+     * <p> 知识库权限要求：;- 节点阅读权限 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//GetNodeSpaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//GetNodeSpaceSample.java</a>
+     * ;
+     */
     public GetNodeSpaceResp getNode(GetNodeSpaceReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -190,6 +259,14 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 获取节点信息，获取节点信息
+     * <p> 知识库权限要求：;- 节点阅读权限 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//GetNodeSpaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//GetNodeSpaceSample.java</a>
+     * ;
+     */
     public GetNodeSpaceResp getNode(GetNodeSpaceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -208,6 +285,14 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 获取知识空间列表，此接口用于获取有权限访问的知识空间列表。;;此接口为分页接口。由于权限过滤，可能返回列表为空，但分页标记（has_more）为true，可以继续分页请求。;;对于知识空间各项属性描述请参阅[获取知识空间信息](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get)
+     * <p> 使用tenant access token调用时，请确认应用/机器人拥有部分知识空间的访问权限，否则返回列表容易为空。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/list">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//ListSpaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//ListSpaceSample.java</a>
+     * ;
+     */
     public ListSpaceResp list(ListSpaceReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -228,6 +313,14 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 获取知识空间列表，此接口用于获取有权限访问的知识空间列表。;;此接口为分页接口。由于权限过滤，可能返回列表为空，但分页标记（has_more）为true，可以继续分页请求。;;对于知识空间各项属性描述请参阅[获取知识空间信息](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get)
+     * <p> 使用tenant access token调用时，请确认应用/机器人拥有部分知识空间的访问权限，否则返回列表容易为空。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/list">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//ListSpaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//ListSpaceSample.java</a>
+     * ;
+     */
     public ListSpaceResp list(ListSpaceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -255,6 +348,16 @@ public class WikiService {
       this.config = config;
     }
 
+    /**
+     * 添加知识空间成员，添加知识空间成员（管理员）。;;- 公开知识空间（visibility为public）对租户所有用户可见，因此不支持再添加成员，但可以添加管理员。;;
+     * 相关错误：131101 public wiki space can't create member.;- 个人知识空间 （type为person）为个人管理的知识空间，不支持添加其他管理员（包括应用/机器人）。但可以添加成员。;;
+     * 相关错误：131101 person wiki space can't create admin.
+     * <p> 知识库权限要求;- 为知识空间管理员 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-member/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-member/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//CreateSpaceMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//CreateSpaceMemberSample.java</a>
+     * ;
+     */
     public CreateSpaceMemberResp create(CreateSpaceMemberReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -277,6 +380,16 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 添加知识空间成员，添加知识空间成员（管理员）。;;- 公开知识空间（visibility为public）对租户所有用户可见，因此不支持再添加成员，但可以添加管理员。;;
+     * 相关错误：131101 public wiki space can't create member.;- 个人知识空间 （type为person）为个人管理的知识空间，不支持添加其他管理员（包括应用/机器人）。但可以添加成员。;;
+     * 相关错误：131101 person wiki space can't create admin.
+     * <p> 知识库权限要求;- 为知识空间管理员 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-member/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-member/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//CreateSpaceMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//CreateSpaceMemberSample.java</a>
+     * ;
+     */
     public CreateSpaceMemberResp create(CreateSpaceMemberReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -296,6 +409,15 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 删除知识空间成员，此接口用于删除知识空间成员。;;- 公开知识空间（visibility为public）对租户所有用户可见，因此不支持再删除成员，但可以删除管理员。;;- 个人知识空间
+     * （type为person）为个人管理的知识空间，不支持删除管理员。但可以删除成员。
+     * <p> 知识库权限要求;- 为知识空间管理员 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-member/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-member/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//DeleteSpaceMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//DeleteSpaceMemberSample.java</a>
+     * ;
+     */
     public DeleteSpaceMemberResp delete(DeleteSpaceMemberReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -318,6 +440,15 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 删除知识空间成员，此接口用于删除知识空间成员。;;- 公开知识空间（visibility为public）对租户所有用户可见，因此不支持再删除成员，但可以删除管理员。;;- 个人知识空间
+     * （type为person）为个人管理的知识空间，不支持删除管理员。但可以删除成员。
+     * <p> 知识库权限要求;- 为知识空间管理员 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-member/delete">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-member/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//DeleteSpaceMemberSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//DeleteSpaceMemberSample.java</a>
+     * ;
+     */
     public DeleteSpaceMemberResp delete(DeleteSpaceMemberReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -346,6 +477,13 @@ public class WikiService {
       this.config = config;
     }
 
+    /**
+     * 创建节点副本，此接口用于创建节点副本到指定地点。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/copy">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/copy</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//CopySpaceNodeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//CopySpaceNodeSample.java</a>
+     * ;
+     */
     public CopySpaceNodeResp copy(CopySpaceNodeReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -368,6 +506,13 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 创建节点副本，此接口用于创建节点副本到指定地点。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/copy">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/copy</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//CopySpaceNodeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//CopySpaceNodeSample.java</a>
+     * ;
+     */
     public CopySpaceNodeResp copy(CopySpaceNodeReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -387,6 +532,14 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 创建节点，此接口用于在知识库里创建节点。
+     * <p> 知识库权限要求：;- **父节点**容器编辑权限 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//CreateSpaceNodeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//CreateSpaceNodeSample.java</a>
+     * ;
+     */
     public CreateSpaceNodeResp create(CreateSpaceNodeReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -409,6 +562,14 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 创建节点，此接口用于在知识库里创建节点。
+     * <p> 知识库权限要求：;- **父节点**容器编辑权限 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//CreateSpaceNodeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//CreateSpaceNodeSample.java</a>
+     * ;
+     */
     public CreateSpaceNodeResp create(CreateSpaceNodeReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -428,6 +589,14 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 获取子节点列表，此接口用于分页获取Wiki节点的子节点列表。;;此接口为分页接口。由于权限过滤，可能返回列表为空，但分页标记（has_more）为true，可以继续分页请求。
+     * <p> 知识库权限要求：;- 父节点阅读权限 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/list">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//ListSpaceNodeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//ListSpaceNodeSample.java</a>
+     * ;
+     */
     public ListSpaceNodeResp list(ListSpaceNodeReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -450,6 +619,14 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 获取子节点列表，此接口用于分页获取Wiki节点的子节点列表。;;此接口为分页接口。由于权限过滤，可能返回列表为空，但分页标记（has_more）为true，可以继续分页请求。
+     * <p> 知识库权限要求：;- 父节点阅读权限 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/list">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//ListSpaceNodeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//ListSpaceNodeSample.java</a>
+     * ;
+     */
     public ListSpaceNodeResp list(ListSpaceNodeReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -469,6 +646,14 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 移动节点，此方法用于在Wiki内移动节点，支持跨知识空间移动。如果有子节点，会携带子节点一起移动。
+     * <p> 知识库权限要求：;- 节点编辑权限;- 原父节点容器编辑权限;- 目的父节点容器编辑权限 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//MoveSpaceNodeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//MoveSpaceNodeSample.java</a>
+     * ;
+     */
     public MoveSpaceNodeResp move(MoveSpaceNodeReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -491,6 +676,14 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 移动节点，此方法用于在Wiki内移动节点，支持跨知识空间移动。如果有子节点，会携带子节点一起移动。
+     * <p> 知识库权限要求：;- 节点编辑权限;- 原父节点容器编辑权限;- 目的父节点容器编辑权限 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//MoveSpaceNodeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//MoveSpaceNodeSample.java</a>
+     * ;
+     */
     public MoveSpaceNodeResp move(MoveSpaceNodeReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -510,6 +703,19 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 添加已有云文档至知识库，该接口允许添加已有云文档至知识库，并挂载在指定父页面下
+     * <p> ### 移动操作 ###;移动后，文档将从“我的空间”或“共享空间”转移至“知识库”，并将从以下功能入口消失：;- 云空间主页：最近访问、快速访问;- 我的空间;-
+     * 共享空间;-
+     * 收藏;;### 权限变更 ###;移动后，文档会向所有可查看“页面树”的用户显示，默认继承父页面的权限设置。;</md-alert ;
+     * <p> 仅支持文档所有者发起请求;;此接口为异步接口。若移动已完成（或节点已在Wiki中），则直接返回结果（Wiki token）。若尚未完成，则返回task
+     * id。请使用[获取任务结果](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/task/get)接口进行查询。;;知识库权限要求：;-
+     * 文档可管理权限;- 原文件夹编辑权限;- 目标父节点容器编辑权限 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move_docs_to_wiki">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move_docs_to_wiki</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//MoveDocsToWikiSpaceNodeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//MoveDocsToWikiSpaceNodeSample.java</a>
+     * ;
+     */
     public MoveDocsToWikiSpaceNodeResp moveDocsToWiki(MoveDocsToWikiSpaceNodeReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -532,6 +738,19 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 添加已有云文档至知识库，该接口允许添加已有云文档至知识库，并挂载在指定父页面下
+     * <p> ### 移动操作 ###;移动后，文档将从“我的空间”或“共享空间”转移至“知识库”，并将从以下功能入口消失：;- 云空间主页：最近访问、快速访问;- 我的空间;-
+     * 共享空间;-
+     * 收藏;;### 权限变更 ###;移动后，文档会向所有可查看“页面树”的用户显示，默认继承父页面的权限设置。;</md-alert ;
+     * <p> 仅支持文档所有者发起请求;;此接口为异步接口。若移动已完成（或节点已在Wiki中），则直接返回结果（Wiki token）。若尚未完成，则返回task
+     * id。请使用[获取任务结果](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/task/get)接口进行查询。;;知识库权限要求：;-
+     * 文档可管理权限;- 原文件夹编辑权限;- 目标父节点容器编辑权限 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move_docs_to_wiki">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move_docs_to_wiki</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//MoveDocsToWikiSpaceNodeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//MoveDocsToWikiSpaceNodeSample.java</a>
+     * ;
+     */
     public MoveDocsToWikiSpaceNodeResp moveDocsToWiki(MoveDocsToWikiSpaceNodeReq req)
         throws Exception {
       // 请求参数选项
@@ -552,6 +771,14 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 更新标题，此接口用于更新节点标题
+     * <p> 此接口目前仅支持文档(doc)、新版文档(docx)和快捷方式。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/update_title">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/update_title</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//UpdateTitleSpaceNodeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//UpdateTitleSpaceNodeSample.java</a>
+     * ;
+     */
     public UpdateTitleSpaceNodeResp updateTitle(UpdateTitleSpaceNodeReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -574,6 +801,14 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 更新标题，此接口用于更新节点标题
+     * <p> 此接口目前仅支持文档(doc)、新版文档(docx)和快捷方式。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/update_title">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/update_title</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//UpdateTitleSpaceNodeSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//UpdateTitleSpaceNodeSample.java</a>
+     * ;
+     */
     public UpdateTitleSpaceNodeResp updateTitle(UpdateTitleSpaceNodeReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -602,6 +837,14 @@ public class WikiService {
       this.config = config;
     }
 
+    /**
+     * 更新知识空间设置，根据space_id更新知识空间公共设置
+     * <p> 知识库权限要求：;- 为知识空间管理员 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-setting/update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-setting/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//UpdateSpaceSettingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//UpdateSpaceSettingSample.java</a>
+     * ;
+     */
     public UpdateSpaceSettingResp update(UpdateSpaceSettingReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -624,6 +867,14 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 更新知识空间设置，根据space_id更新知识空间公共设置
+     * <p> 知识库权限要求：;- 为知识空间管理员 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-setting/update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-setting/update</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//UpdateSpaceSettingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//UpdateSpaceSettingSample.java</a>
+     * ;
+     */
     public UpdateSpaceSettingResp update(UpdateSpaceSettingReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -652,6 +903,14 @@ public class WikiService {
       this.config = config;
     }
 
+    /**
+     * 获取任务结果，该方法用于获取wiki异步任务的结果
+     * <p> 知识库权限要求：;- 为任务创建者（用户或应用/机器人） ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/task/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/task/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//GetTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//GetTaskSample.java</a>
+     * ;
+     */
     public GetTaskResp get(GetTaskReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -672,6 +931,14 @@ public class WikiService {
       return resp;
     }
 
+    /**
+     * 获取任务结果，该方法用于获取wiki异步任务的结果
+     * <p> 知识库权限要求：;- 为任务创建者（用户或应用/机器人） ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/task/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/task/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//GetTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/wikiv2//GetTaskSample.java</a>
+     * ;
+     */
     public GetTaskResp get(GetTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();

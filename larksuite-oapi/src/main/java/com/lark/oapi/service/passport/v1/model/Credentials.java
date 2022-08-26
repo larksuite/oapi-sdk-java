@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class Credentials {
 
+  /**
+   * 邮箱
+   * <p> 示例值：q*****@qq.com
+   */
   @SerializedName("email")
   private String email;
+  /**
+   * 手机号
+   * <p> 示例值：186*****01
+   */
   @SerializedName("mobile")
   private String mobile;
+  /**
+   * 用户id
+   * <p> 示例值：
+   */
   @SerializedName("user_id")
   private String userId;
 
@@ -29,8 +41,20 @@ public class Credentials {
   }
 
   public Credentials(Builder builder) {
+    /**
+     * 邮箱
+     * <p> 示例值：q*****@qq.com
+     */
     this.email = builder.email;
+    /**
+     * 手机号
+     * <p> 示例值：186*****01
+     */
     this.mobile = builder.mobile;
+    /**
+     * 用户id
+     * <p> 示例值：
+     */
     this.userId = builder.userId;
   }
 
@@ -64,20 +88,55 @@ public class Credentials {
 
   public static class Builder {
 
+    /**
+     * 邮箱
+     * <p> 示例值：q*****@qq.com
+     */
     private String email;
+    /**
+     * 手机号
+     * <p> 示例值：186*****01
+     */
     private String mobile;
+    /**
+     * 用户id
+     * <p> 示例值：
+     */
     private String userId;
 
+    /**
+     * 邮箱
+     * <p> 示例值：q*****@qq.com
+     *
+     * @param email
+     * @return
+     */
     public Builder email(String email) {
       this.email = email;
       return this;
     }
 
+
+    /**
+     * 手机号
+     * <p> 示例值：186*****01
+     *
+     * @param mobile
+     * @return
+     */
     public Builder mobile(String mobile) {
       this.mobile = mobile;
       return this;
     }
 
+
+    /**
+     * 用户id
+     * <p> 示例值：
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;

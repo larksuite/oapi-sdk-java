@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class CreateMessageReactionReq {
 
+  /**
+   * 待添加reaction的消息ID
+   * <p> 示例值：om_a8f2294b************a1a38afaac9d
+   */
   @Path
   @SerializedName("message_id")
   private String messageId;
@@ -30,6 +34,10 @@ public class CreateMessageReactionReq {
   }
 
   public CreateMessageReactionReq(Builder builder) {
+    /**
+     * 待添加reaction的消息ID
+     * <p> 示例值：om_a8f2294b************a1a38afaac9d
+     */
     this.messageId = builder.messageId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class CreateMessageReactionReq {
 
   public static class Builder {
 
-    private String messageId;
+    private String messageId; // 待添加reaction的消息ID
     private CreateMessageReactionReqBody body;
 
+    /**
+     * 待添加reaction的消息ID
+     * <p> 示例值：om_a8f2294b************a1a38afaac9d
+     *
+     * @param messageId
+     * @return
+     */
     public Builder messageId(String messageId) {
       this.messageId = messageId;
       return this;
@@ -68,6 +83,12 @@ public class CreateMessageReactionReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder createMessageReactionReqBody(CreateMessageReactionReqBody body) {
       this.body = body;
       return this;

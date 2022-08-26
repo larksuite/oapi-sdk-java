@@ -17,28 +17,44 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryInstance {
 
-  @SerializedName("code")
-  private Integer code;
+  /**
+   * 查询返回条数
+   * <p> 示例值：10
+   */
+  @SerializedName("count")
+  private Integer count;
+  /**
+   * 审批实例列表
+   * <p> 示例值：
+   */
   @SerializedName("instance_list")
-  private InstanceSearchItem instanceList;
+  private InstanceSearchItem[] instanceList;
+  /**
+   * 翻页 Token
+   * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 是否有更多任务可供拉取
+   * <p> 示例值：false
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
 
-  public Integer getCode() {
-    return this.code;
+  public Integer getCount() {
+    return this.count;
   }
 
-  public void setCode(Integer code) {
-    this.code = code;
+  public void setCount(Integer count) {
+    this.count = count;
   }
 
-  public InstanceSearchItem getInstanceList() {
+  public InstanceSearchItem[] getInstanceList() {
     return this.instanceList;
   }
 
-  public void setInstanceList(InstanceSearchItem instanceList) {
+  public void setInstanceList(InstanceSearchItem[] instanceList) {
     this.instanceList = instanceList;
   }
 

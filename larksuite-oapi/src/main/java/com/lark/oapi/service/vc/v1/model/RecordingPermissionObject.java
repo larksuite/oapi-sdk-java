@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class RecordingPermissionObject {
 
+  /**
+   * 授权对象ID
+   * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * 授权对象类型
+   * <p> 示例值：1
+   */
   @SerializedName("type")
   private Integer type;
+  /**
+   * 权限
+   * <p> 示例值：1
+   */
   @SerializedName("permission")
   private Integer permission;
 
@@ -29,8 +41,20 @@ public class RecordingPermissionObject {
   }
 
   public RecordingPermissionObject(Builder builder) {
+    /**
+     * 授权对象ID
+     * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     */
     this.id = builder.id;
+    /**
+     * 授权对象类型
+     * <p> 示例值：1
+     */
     this.type = builder.type;
+    /**
+     * 权限
+     * <p> 示例值：1
+     */
     this.permission = builder.permission;
   }
 
@@ -64,31 +88,82 @@ public class RecordingPermissionObject {
 
   public static class Builder {
 
+    /**
+     * 授权对象ID
+     * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     */
     private String id;
+    /**
+     * 授权对象类型
+     * <p> 示例值：1
+     */
     private Integer type;
+    /**
+     * 权限
+     * <p> 示例值：1
+     */
     private Integer permission;
 
+    /**
+     * 授权对象ID
+     * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 授权对象类型
+     * <p> 示例值：1
+     *
+     * @param type
+     * @return
+     */
     public Builder type(Integer type) {
       this.type = type;
       return this;
     }
 
-    public Builder type(com.lark.oapi.service.vc.v1.enums.AuthTypeEnum type) {
+    /**
+     * 授权对象类型
+     * <p> 示例值：1
+     *
+     * @param type {@link com.lark.oapi.service.vc.v1.enums.RecordingPermissionObjectAuthTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.vc.v1.enums.RecordingPermissionObjectAuthTypeEnum type) {
       this.type = type.getValue();
       return this;
     }
 
+
+    /**
+     * 权限
+     * <p> 示例值：1
+     *
+     * @param permission
+     * @return
+     */
     public Builder permission(Integer permission) {
       this.permission = permission;
       return this;
     }
 
-    public Builder permission(com.lark.oapi.service.vc.v1.enums.PermTypeEnum permission) {
+    /**
+     * 权限
+     * <p> 示例值：1
+     *
+     * @param permission {@link com.lark.oapi.service.vc.v1.enums.RecordingPermissionObjectPermTypeEnum}
+     * @return
+     */
+    public Builder permission(
+        com.lark.oapi.service.vc.v1.enums.RecordingPermissionObjectPermTypeEnum permission) {
       this.permission = permission.getValue();
       return this;
     }

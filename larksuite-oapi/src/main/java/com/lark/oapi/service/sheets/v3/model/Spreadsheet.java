@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class Spreadsheet {
 
+  /**
+   * 表格标题
+   * <p> 示例值：title
+   */
   @SerializedName("title")
   private String title;
+  /**
+   * 文件夹token，获取方式见[概述](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+   * <p> 示例值：fldcnMsNb*****hIW9IjG1LVswg
+   */
   @SerializedName("folder_token")
   private String folderToken;
+  /**
+   * 文档url
+   * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
+   */
   @SerializedName("url")
   private String url;
+  /**
+   * 表格token
+   * <p> 示例值：shtcnmBA*****yGehy8
+   */
   @SerializedName("spreadsheet_token")
   private String spreadsheetToken;
 
@@ -31,9 +47,25 @@ public class Spreadsheet {
   }
 
   public Spreadsheet(Builder builder) {
+    /**
+     * 表格标题
+     * <p> 示例值：title
+     */
     this.title = builder.title;
+    /**
+     * 文件夹token，获取方式见[概述](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+     * <p> 示例值：fldcnMsNb*****hIW9IjG1LVswg
+     */
     this.folderToken = builder.folderToken;
+    /**
+     * 文档url
+     * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
+     */
     this.url = builder.url;
+    /**
+     * 表格token
+     * <p> 示例值：shtcnmBA*****yGehy8
+     */
     this.spreadsheetToken = builder.spreadsheetToken;
   }
 
@@ -75,26 +107,73 @@ public class Spreadsheet {
 
   public static class Builder {
 
+    /**
+     * 表格标题
+     * <p> 示例值：title
+     */
     private String title;
+    /**
+     * 文件夹token，获取方式见[概述](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+     * <p> 示例值：fldcnMsNb*****hIW9IjG1LVswg
+     */
     private String folderToken;
+    /**
+     * 文档url
+     * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
+     */
     private String url;
+    /**
+     * 表格token
+     * <p> 示例值：shtcnmBA*****yGehy8
+     */
     private String spreadsheetToken;
 
+    /**
+     * 表格标题
+     * <p> 示例值：title
+     *
+     * @param title
+     * @return
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
+
+    /**
+     * 文件夹token，获取方式见[概述](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+     * <p> 示例值：fldcnMsNb*****hIW9IjG1LVswg
+     *
+     * @param folderToken
+     * @return
+     */
     public Builder folderToken(String folderToken) {
       this.folderToken = folderToken;
       return this;
     }
 
+
+    /**
+     * 文档url
+     * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
+     *
+     * @param url
+     * @return
+     */
     public Builder url(String url) {
       this.url = url;
       return this;
     }
 
+
+    /**
+     * 表格token
+     * <p> 示例值：shtcnmBA*****yGehy8
+     *
+     * @param spreadsheetToken
+     * @return
+     */
     public Builder spreadsheetToken(String spreadsheetToken) {
       this.spreadsheetToken = spreadsheetToken;
       return this;

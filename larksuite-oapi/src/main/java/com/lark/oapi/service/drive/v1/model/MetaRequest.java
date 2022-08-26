@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class MetaRequest {
 
+  /**
+   * 请求文档,  一次不超过200个
+   * <p> 示例值：
+   */
   @SerializedName("request_docs")
   private RequestDoc[] requestDocs;
+  /**
+   * 是否获取文档链接
+   * <p> 示例值：false
+   */
   @SerializedName("with_url")
   private Boolean withUrl;
 
@@ -27,7 +35,15 @@ public class MetaRequest {
   }
 
   public MetaRequest(Builder builder) {
+    /**
+     * 请求文档,  一次不超过200个
+     * <p> 示例值：
+     */
     this.requestDocs = builder.requestDocs;
+    /**
+     * 是否获取文档链接
+     * <p> 示例值：false
+     */
     this.withUrl = builder.withUrl;
   }
 
@@ -53,14 +69,37 @@ public class MetaRequest {
 
   public static class Builder {
 
+    /**
+     * 请求文档,  一次不超过200个
+     * <p> 示例值：
+     */
     private RequestDoc[] requestDocs;
+    /**
+     * 是否获取文档链接
+     * <p> 示例值：false
+     */
     private Boolean withUrl;
 
+    /**
+     * 请求文档,  一次不超过200个
+     * <p> 示例值：
+     *
+     * @param requestDocs
+     * @return
+     */
     public Builder requestDocs(RequestDoc[] requestDocs) {
       this.requestDocs = requestDocs;
       return this;
     }
 
+
+    /**
+     * 是否获取文档链接
+     * <p> 示例值：false
+     *
+     * @param withUrl
+     * @return
+     */
     public Builder withUrl(Boolean withUrl) {
       this.withUrl = withUrl;
       return this;

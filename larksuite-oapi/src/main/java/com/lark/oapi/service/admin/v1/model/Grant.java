@@ -17,24 +17,64 @@ import com.google.gson.annotations.SerializedName;
 
 public class Grant {
 
+  /**
+   * 租户内授予名单的唯一标识，该值由系统随机生成。
+   * <p> 示例值：g_49Z7CQ
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * 企业勋章的唯一ID
+   * <p> 示例值：m_qTR2HM
+   */
   @SerializedName("badge_id")
   private String badgeId;
+  /**
+   * 勋章下唯一的授予事项，最多100个字符。
+   * <p> 示例值：激励勋章的授予名单
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 授予名单类型
+   * <p> 示例值：0
+   */
   @SerializedName("grant_type")
   private Integer grantType;
+  /**
+   * 授予名单的生效时间对应的时区，用于检查RuleDetail的时间戳的取值是否规范，取值范围为TZ database name
+   * <p> 示例值：Asia/Shanghai
+   */
   @SerializedName("time_zone")
   private String timeZone;
+  /**
+   * 规则详情
+   * <p> 示例值：
+   */
   @SerializedName("rule_detail")
   private RuleDetail ruleDetail;
+  /**
+   * 是否授予给全员。1.为false时，需要关联1~500个用户群体。2.为true时，不可关联用户、用户组、部门。
+   * <p> 示例值：false
+   */
   @SerializedName("is_grant_all")
   private Boolean isGrantAll;
+  /**
+   * 授予的用户ID列表，授予名单列表接口返回结果中不返回该字段，只在详情接口返回
+   * <p> 示例值：[u273y71]
+   */
   @SerializedName("user_ids")
   private String[] userIds;
+  /**
+   * 授予的部门ID列表，授予名单列表接口返回结果中不返回该字段，只在详情接口返回
+   * <p> 示例值：[h121921]
+   */
   @SerializedName("department_ids")
   private String[] departmentIds;
+  /**
+   * 授予的用户组ID列表，授予名单列表接口返回结果中不返回该字段，只在详情接口返回
+   * <p> 示例值：[g122817]
+   */
   @SerializedName("group_ids")
   private String[] groupIds;
 
@@ -43,15 +83,55 @@ public class Grant {
   }
 
   public Grant(Builder builder) {
+    /**
+     * 租户内授予名单的唯一标识，该值由系统随机生成。
+     * <p> 示例值：g_49Z7CQ
+     */
     this.id = builder.id;
+    /**
+     * 企业勋章的唯一ID
+     * <p> 示例值：m_qTR2HM
+     */
     this.badgeId = builder.badgeId;
+    /**
+     * 勋章下唯一的授予事项，最多100个字符。
+     * <p> 示例值：激励勋章的授予名单
+     */
     this.name = builder.name;
+    /**
+     * 授予名单类型
+     * <p> 示例值：0
+     */
     this.grantType = builder.grantType;
+    /**
+     * 授予名单的生效时间对应的时区，用于检查RuleDetail的时间戳的取值是否规范，取值范围为TZ database name
+     * <p> 示例值：Asia/Shanghai
+     */
     this.timeZone = builder.timeZone;
+    /**
+     * 规则详情
+     * <p> 示例值：
+     */
     this.ruleDetail = builder.ruleDetail;
+    /**
+     * 是否授予给全员。1.为false时，需要关联1~500个用户群体。2.为true时，不可关联用户、用户组、部门。
+     * <p> 示例值：false
+     */
     this.isGrantAll = builder.isGrantAll;
+    /**
+     * 授予的用户ID列表，授予名单列表接口返回结果中不返回该字段，只在详情接口返回
+     * <p> 示例值：[u273y71]
+     */
     this.userIds = builder.userIds;
+    /**
+     * 授予的部门ID列表，授予名单列表接口返回结果中不返回该字段，只在详情接口返回
+     * <p> 示例值：[h121921]
+     */
     this.departmentIds = builder.departmentIds;
+    /**
+     * 授予的用户组ID列表，授予名单列表接口返回结果中不返回该字段，只在详情接口返回
+     * <p> 示例值：[g122817]
+     */
     this.groupIds = builder.groupIds;
   }
 
@@ -141,67 +221,193 @@ public class Grant {
 
   public static class Builder {
 
+    /**
+     * 租户内授予名单的唯一标识，该值由系统随机生成。
+     * <p> 示例值：g_49Z7CQ
+     */
     private String id;
+    /**
+     * 企业勋章的唯一ID
+     * <p> 示例值：m_qTR2HM
+     */
     private String badgeId;
+    /**
+     * 勋章下唯一的授予事项，最多100个字符。
+     * <p> 示例值：激励勋章的授予名单
+     */
     private String name;
+    /**
+     * 授予名单类型
+     * <p> 示例值：0
+     */
     private Integer grantType;
+    /**
+     * 授予名单的生效时间对应的时区，用于检查RuleDetail的时间戳的取值是否规范，取值范围为TZ database name
+     * <p> 示例值：Asia/Shanghai
+     */
     private String timeZone;
+    /**
+     * 规则详情
+     * <p> 示例值：
+     */
     private RuleDetail ruleDetail;
+    /**
+     * 是否授予给全员。1.为false时，需要关联1~500个用户群体。2.为true时，不可关联用户、用户组、部门。
+     * <p> 示例值：false
+     */
     private Boolean isGrantAll;
+    /**
+     * 授予的用户ID列表，授予名单列表接口返回结果中不返回该字段，只在详情接口返回
+     * <p> 示例值：[u273y71]
+     */
     private String[] userIds;
+    /**
+     * 授予的部门ID列表，授予名单列表接口返回结果中不返回该字段，只在详情接口返回
+     * <p> 示例值：[h121921]
+     */
     private String[] departmentIds;
+    /**
+     * 授予的用户组ID列表，授予名单列表接口返回结果中不返回该字段，只在详情接口返回
+     * <p> 示例值：[g122817]
+     */
     private String[] groupIds;
 
+    /**
+     * 租户内授予名单的唯一标识，该值由系统随机生成。
+     * <p> 示例值：g_49Z7CQ
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 企业勋章的唯一ID
+     * <p> 示例值：m_qTR2HM
+     *
+     * @param badgeId
+     * @return
+     */
     public Builder badgeId(String badgeId) {
       this.badgeId = badgeId;
       return this;
     }
 
+
+    /**
+     * 勋章下唯一的授予事项，最多100个字符。
+     * <p> 示例值：激励勋章的授予名单
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 授予名单类型
+     * <p> 示例值：0
+     *
+     * @param grantType
+     * @return
+     */
     public Builder grantType(Integer grantType) {
       this.grantType = grantType;
       return this;
     }
 
-    public Builder grantType(com.lark.oapi.service.admin.v1.enums.GrantTypeEnum grantType) {
+    /**
+     * 授予名单类型
+     * <p> 示例值：0
+     *
+     * @param grantType {@link com.lark.oapi.service.admin.v1.enums.GrantGrantTypeEnum}
+     * @return
+     */
+    public Builder grantType(com.lark.oapi.service.admin.v1.enums.GrantGrantTypeEnum grantType) {
       this.grantType = grantType.getValue();
       return this;
     }
 
+
+    /**
+     * 授予名单的生效时间对应的时区，用于检查RuleDetail的时间戳的取值是否规范，取值范围为TZ database name
+     * <p> 示例值：Asia/Shanghai
+     *
+     * @param timeZone
+     * @return
+     */
     public Builder timeZone(String timeZone) {
       this.timeZone = timeZone;
       return this;
     }
 
+
+    /**
+     * 规则详情
+     * <p> 示例值：
+     *
+     * @param ruleDetail
+     * @return
+     */
     public Builder ruleDetail(RuleDetail ruleDetail) {
       this.ruleDetail = ruleDetail;
       return this;
     }
 
+
+    /**
+     * 是否授予给全员。1.为false时，需要关联1~500个用户群体。2.为true时，不可关联用户、用户组、部门。
+     * <p> 示例值：false
+     *
+     * @param isGrantAll
+     * @return
+     */
     public Builder isGrantAll(Boolean isGrantAll) {
       this.isGrantAll = isGrantAll;
       return this;
     }
 
+
+    /**
+     * 授予的用户ID列表，授予名单列表接口返回结果中不返回该字段，只在详情接口返回
+     * <p> 示例值：[u273y71]
+     *
+     * @param userIds
+     * @return
+     */
     public Builder userIds(String[] userIds) {
       this.userIds = userIds;
       return this;
     }
 
+
+    /**
+     * 授予的部门ID列表，授予名单列表接口返回结果中不返回该字段，只在详情接口返回
+     * <p> 示例值：[h121921]
+     *
+     * @param departmentIds
+     * @return
+     */
     public Builder departmentIds(String[] departmentIds) {
       this.departmentIds = departmentIds;
       return this;
     }
 
+
+    /**
+     * 授予的用户组ID列表，授予名单列表接口返回结果中不返回该字段，只在详情接口返回
+     * <p> 示例值：[g122817]
+     *
+     * @param groupIds
+     * @return
+     */
     public Builder groupIds(String[] groupIds) {
       this.groupIds = groupIds;
       return this;

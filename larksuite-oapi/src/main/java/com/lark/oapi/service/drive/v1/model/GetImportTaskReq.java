@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class GetImportTaskReq {
 
+  /**
+   * 导入任务ID
+   * <p> 示例值：6990281865xxxxxxxx7843
+   */
   @Path
   @SerializedName("ticket")
   private String ticket;
@@ -27,6 +31,10 @@ public class GetImportTaskReq {
   }
 
   public GetImportTaskReq(Builder builder) {
+    /**
+     * 导入任务ID
+     * <p> 示例值：6990281865xxxxxxxx7843
+     */
     this.ticket = builder.ticket;
   }
 
@@ -44,8 +52,15 @@ public class GetImportTaskReq {
 
   public static class Builder {
 
-    private String ticket;
+    private String ticket; // 导入任务ID
 
+    /**
+     * 导入任务ID
+     * <p> 示例值：6990281865xxxxxxxx7843
+     *
+     * @param ticket
+     * @return
+     */
     public Builder ticket(String ticket) {
       this.ticket = ticket;
       return this;

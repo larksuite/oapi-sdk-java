@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class InsertTableRowRequest {
 
+  /**
+   * 插入的行在表格中的索引。（-1表示在表格末尾插入一行）
+   * <p> 示例值：-1
+   */
   @SerializedName("row_index")
   private Integer rowIndex;
 
@@ -25,6 +29,10 @@ public class InsertTableRowRequest {
   }
 
   public InsertTableRowRequest(Builder builder) {
+    /**
+     * 插入的行在表格中的索引。（-1表示在表格末尾插入一行）
+     * <p> 示例值：-1
+     */
     this.rowIndex = builder.rowIndex;
   }
 
@@ -42,8 +50,19 @@ public class InsertTableRowRequest {
 
   public static class Builder {
 
+    /**
+     * 插入的行在表格中的索引。（-1表示在表格末尾插入一行）
+     * <p> 示例值：-1
+     */
     private Integer rowIndex;
 
+    /**
+     * 插入的行在表格中的索引。（-1表示在表格末尾插入一行）
+     * <p> 示例值：-1
+     *
+     * @param rowIndex
+     * @return
+     */
     public Builder rowIndex(Integer rowIndex) {
       this.rowIndex = rowIndex;
       return this;

@@ -57,14 +57,29 @@ public class SearchService {
     this.schema = new Schema(config);
   }
 
+  /**
+   * 数据源
+   *
+   * @return
+   */
   public DataSource dataSource() {
     return dataSource;
   }
 
+  /**
+   * 数据项
+   *
+   * @return
+   */
   public DataSourceItem dataSourceItem() {
     return dataSourceItem;
   }
 
+  /**
+   * 数据范式
+   *
+   * @return
+   */
   public Schema schema() {
     return schema;
   }
@@ -77,6 +92,13 @@ public class SearchService {
       this.config = config;
     }
 
+    /**
+     * 创建数据源，创建一个数据源
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//CreateDataSourceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//CreateDataSourceSample.java</a>
+     * ;
+     */
     public CreateDataSourceResp create(CreateDataSourceReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -99,6 +121,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 创建数据源，创建一个数据源
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//CreateDataSourceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//CreateDataSourceSample.java</a>
+     * ;
+     */
     public CreateDataSourceResp create(CreateDataSourceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -118,6 +147,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 删除数据源，删除一个已存在的数据源
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//DeleteDataSourceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//DeleteDataSourceSample.java</a>
+     * ;
+     */
     public DeleteDataSourceResp delete(DeleteDataSourceReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -140,6 +176,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 删除数据源，删除一个已存在的数据源
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//DeleteDataSourceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//DeleteDataSourceSample.java</a>
+     * ;
+     */
     public DeleteDataSourceResp delete(DeleteDataSourceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -159,6 +202,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 获取数据源，获取已经创建的数据源
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//GetDataSourceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//GetDataSourceSample.java</a>
+     * ;
+     */
     public GetDataSourceResp get(GetDataSourceReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -180,6 +230,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 获取数据源，获取已经创建的数据源
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//GetDataSourceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//GetDataSourceSample.java</a>
+     * ;
+     */
     public GetDataSourceResp get(GetDataSourceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -199,6 +256,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 批量获取数据源，批量获取创建的数据源信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//ListDataSourceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//ListDataSourceSample.java</a>
+     * ;
+     */
     public ListDataSourceResp list(ListDataSourceReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -221,6 +285,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 批量获取数据源，批量获取创建的数据源信息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//ListDataSourceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//ListDataSourceSample.java</a>
+     * ;
+     */
     public ListDataSourceResp list(ListDataSourceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -240,6 +311,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 修改数据源，更新一个已经存在的数据源
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//PatchDataSourceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//PatchDataSourceSample.java</a>
+     * ;
+     */
     public PatchDataSourceResp patch(PatchDataSourceReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -262,6 +340,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 修改数据源，更新一个已经存在的数据源
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//PatchDataSourceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//PatchDataSourceSample.java</a>
+     * ;
+     */
     public PatchDataSourceResp patch(PatchDataSourceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -290,6 +375,13 @@ public class SearchService {
       this.config = config;
     }
 
+    /**
+     * 索引数据项，索引一条数据记录
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source-item/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source-item/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//CreateDataSourceItemSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//CreateDataSourceItemSample.java</a>
+     * ;
+     */
     public CreateDataSourceItemResp create(CreateDataSourceItemReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -312,6 +404,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 索引数据项，索引一条数据记录
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source-item/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source-item/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//CreateDataSourceItemSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//CreateDataSourceItemSample.java</a>
+     * ;
+     */
     public CreateDataSourceItemResp create(CreateDataSourceItemReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -331,6 +430,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 删除数据项，删除数据项
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source-item/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source-item/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//DeleteDataSourceItemSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//DeleteDataSourceItemSample.java</a>
+     * ;
+     */
     public DeleteDataSourceItemResp delete(DeleteDataSourceItemReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -353,6 +459,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 删除数据项，删除数据项
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source-item/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source-item/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//DeleteDataSourceItemSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//DeleteDataSourceItemSample.java</a>
+     * ;
+     */
     public DeleteDataSourceItemResp delete(DeleteDataSourceItemReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -372,6 +485,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 获取数据项，获取单个数据记录
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source-item/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source-item/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//GetDataSourceItemSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//GetDataSourceItemSample.java</a>
+     * ;
+     */
     public GetDataSourceItemResp get(GetDataSourceItemReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -394,6 +514,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 获取数据项，获取单个数据记录
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source-item/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/data_source-item/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//GetDataSourceItemSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//GetDataSourceItemSample.java</a>
+     * ;
+     */
     public GetDataSourceItemResp get(GetDataSourceItemReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -422,6 +549,13 @@ public class SearchService {
       this.config = config;
     }
 
+    /**
+     * 创建数据范式，创建一个数据源
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/schema/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/schema/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//CreateSchemaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//CreateSchemaSample.java</a>
+     * ;
+     */
     public CreateSchemaResp create(CreateSchemaReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -443,6 +577,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 创建数据范式，创建一个数据源
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/schema/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/schema/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//CreateSchemaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//CreateSchemaSample.java</a>
+     * ;
+     */
     public CreateSchemaResp create(CreateSchemaReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -461,6 +602,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 删除数据范式，删除已存在的数据范式
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/schema/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/schema/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//DeleteSchemaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//DeleteSchemaSample.java</a>
+     * ;
+     */
     public DeleteSchemaResp delete(DeleteSchemaReq req, RequestOptions reqOptions)
         throws Exception {
       // 请求参数选项
@@ -482,6 +630,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 删除数据范式，删除已存在的数据范式
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/schema/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/schema/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//DeleteSchemaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//DeleteSchemaSample.java</a>
+     * ;
+     */
     public DeleteSchemaResp delete(DeleteSchemaReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -500,6 +655,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 获取数据范式，获取单个数据范式
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/schema/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/schema/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//GetSchemaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//GetSchemaSample.java</a>
+     * ;
+     */
     public GetSchemaResp get(GetSchemaReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -520,6 +682,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 获取数据范式，获取单个数据范式
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/schema/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/schema/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//GetSchemaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//GetSchemaSample.java</a>
+     * ;
+     */
     public GetSchemaResp get(GetSchemaReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
@@ -538,6 +707,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 修改数据范式，修改数据范式
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/schema/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/schema/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//PatchSchemaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//PatchSchemaSample.java</a>
+     * ;
+     */
     public PatchSchemaResp patch(PatchSchemaReq req, RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -558,6 +734,13 @@ public class SearchService {
       return resp;
     }
 
+    /**
+     * 修改数据范式，修改数据范式
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/schema/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/schema/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//PatchSchemaSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/searchv2//PatchSchemaSample.java</a>
+     * ;
+     */
     public PatchSchemaResp patch(PatchSchemaReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();

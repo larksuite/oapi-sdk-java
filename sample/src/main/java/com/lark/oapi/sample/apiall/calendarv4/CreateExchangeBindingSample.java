@@ -6,7 +6,7 @@ import com.lark.oapi.service.calendar.v4.model.CreateExchangeBindingReq;
 import com.lark.oapi.service.calendar.v4.model.CreateExchangeBindingResp;
 import com.lark.oapi.service.calendar.v4.model.ExchangeBinding;
 
-// HTTP PATH: /open-apis/calendar/v4/exchange_bindings"
+// POST /open-apis/calendar/v4/exchange_bindings
 public class CreateExchangeBindingSample {
 
   public static void main(String arg[]) throws Exception {

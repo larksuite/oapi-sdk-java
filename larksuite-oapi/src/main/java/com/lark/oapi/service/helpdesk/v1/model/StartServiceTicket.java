@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class StartServiceTicket {
 
+  /**
+   * 客服群open ID
+   * <p> 示例值：创建的 chat-id
+   */
   @SerializedName("chat_id")
   private String chatId;
 

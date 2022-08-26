@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class PatchAgentSkillReqBody {
 
+  /**
+   * 更新技能
+   * <p> 示例值：
+   */
   @SerializedName("agent_skill")
   private AgentSkill agentSkill;
 
@@ -25,6 +29,10 @@ public class PatchAgentSkillReqBody {
   }
 
   public PatchAgentSkillReqBody(Builder builder) {
+    /**
+     * 更新技能
+     * <p> 示例值：
+     */
     this.agentSkill = builder.agentSkill;
   }
 
@@ -42,8 +50,19 @@ public class PatchAgentSkillReqBody {
 
   public static class Builder {
 
+    /**
+     * 更新技能
+     * <p> 示例值：
+     */
     private AgentSkill agentSkill;
 
+    /**
+     * 更新技能
+     * <p> 示例值：
+     *
+     * @param agentSkill
+     * @return
+     */
     public Builder agentSkill(AgentSkill agentSkill) {
       this.agentSkill = agentSkill;
       return this;

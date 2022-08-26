@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class PatchAgentSchedulesReq {
 
+  /**
+   * 客服 id
+   * <p> 示例值：123456
+   */
   @Path
   @SerializedName("agent_id")
   private String agentId;
@@ -30,6 +34,10 @@ public class PatchAgentSchedulesReq {
   }
 
   public PatchAgentSchedulesReq(Builder builder) {
+    /**
+     * 客服 id
+     * <p> 示例值：123456
+     */
     this.agentId = builder.agentId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class PatchAgentSchedulesReq {
 
   public static class Builder {
 
-    private String agentId;
+    private String agentId; // 客服 id
     private PatchAgentSchedulesReqBody body;
 
+    /**
+     * 客服 id
+     * <p> 示例值：123456
+     *
+     * @param agentId
+     * @return
+     */
     public Builder agentId(String agentId) {
       this.agentId = agentId;
       return this;
@@ -68,6 +83,12 @@ public class PatchAgentSchedulesReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder patchAgentSchedulesReqBody(PatchAgentSchedulesReqBody body) {
       this.body = body;
       return this;

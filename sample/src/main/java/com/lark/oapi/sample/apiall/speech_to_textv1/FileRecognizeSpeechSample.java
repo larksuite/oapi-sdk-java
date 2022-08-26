@@ -8,7 +8,7 @@ import com.lark.oapi.service.speech_to_text.v1.model.FileRecognizeSpeechReqBody;
 import com.lark.oapi.service.speech_to_text.v1.model.FileRecognizeSpeechResp;
 import com.lark.oapi.service.speech_to_text.v1.model.Speech;
 
-// HTTP PATH: /open-apis/speech_to_text/v1/speech/file_recognize"
+// POST /open-apis/speech_to_text/v1/speech/file_recognize
 public class FileRecognizeSpeechSample {
 
   public static void main(String arg[]) throws Exception {

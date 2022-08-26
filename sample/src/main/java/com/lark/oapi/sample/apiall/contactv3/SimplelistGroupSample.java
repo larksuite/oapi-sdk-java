@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.contact.v3.model.SimplelistGroupReq;
 import com.lark.oapi.service.contact.v3.model.SimplelistGroupResp;
 
-// HTTP PATH: /open-apis/contact/v3/group/simplelist"
+// GET /open-apis/contact/v3/group/simplelist
 public class SimplelistGroupSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,8 @@ public class SimplelistGroupSample {
     // 创建请求对象
     SimplelistGroupReq req = SimplelistGroupReq.newBuilder()
         .pageSize(50)
-        .pageToken("")
+        .pageToken(
+            "AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=")
         .type(1)
         .build();
 

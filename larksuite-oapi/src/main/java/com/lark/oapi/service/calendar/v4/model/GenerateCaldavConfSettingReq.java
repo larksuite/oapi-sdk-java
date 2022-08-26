@@ -48,6 +48,12 @@ public class GenerateCaldavConfSettingReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder generateCaldavConfSettingReqBody(GenerateCaldavConfSettingReqBody body) {
       this.body = body;
       return this;

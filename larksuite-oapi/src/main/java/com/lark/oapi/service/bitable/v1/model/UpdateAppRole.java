@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateAppRole {
 
+  /**
+   * 自定义角色
+   * <p> 示例值：
+   */
   @SerializedName("role")
   private AppRole role;
 

@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchItemResult {
 
+  /**
+   * 数据项ID，对应一条索引数据的ID
+   * <p> 示例值：
+   */
   @SerializedName("item_id")
   private String itemId;
+  /**
+   * 判断单条数据是否成功
+   * <p> 示例值：
+   */
   @SerializedName("is_success")
   private Boolean isSuccess;
+  /**
+   * 如果单条数据失败，表示单条数据的错误信息；如果单条数据成功被索引，则err是空字符串
+   * <p> 示例值：
+   */
   @SerializedName("err")
   private String err;
 
@@ -29,8 +41,20 @@ public class BatchItemResult {
   }
 
   public BatchItemResult(Builder builder) {
+    /**
+     * 数据项ID，对应一条索引数据的ID
+     * <p> 示例值：
+     */
     this.itemId = builder.itemId;
+    /**
+     * 判断单条数据是否成功
+     * <p> 示例值：
+     */
     this.isSuccess = builder.isSuccess;
+    /**
+     * 如果单条数据失败，表示单条数据的错误信息；如果单条数据成功被索引，则err是空字符串
+     * <p> 示例值：
+     */
     this.err = builder.err;
   }
 
@@ -64,20 +88,55 @@ public class BatchItemResult {
 
   public static class Builder {
 
+    /**
+     * 数据项ID，对应一条索引数据的ID
+     * <p> 示例值：
+     */
     private String itemId;
+    /**
+     * 判断单条数据是否成功
+     * <p> 示例值：
+     */
     private Boolean isSuccess;
+    /**
+     * 如果单条数据失败，表示单条数据的错误信息；如果单条数据成功被索引，则err是空字符串
+     * <p> 示例值：
+     */
     private String err;
 
+    /**
+     * 数据项ID，对应一条索引数据的ID
+     * <p> 示例值：
+     *
+     * @param itemId
+     * @return
+     */
     public Builder itemId(String itemId) {
       this.itemId = itemId;
       return this;
     }
 
+
+    /**
+     * 判断单条数据是否成功
+     * <p> 示例值：
+     *
+     * @param isSuccess
+     * @return
+     */
     public Builder isSuccess(Boolean isSuccess) {
       this.isSuccess = isSuccess;
       return this;
     }
 
+
+    /**
+     * 如果单条数据失败，表示单条数据的错误信息；如果单条数据成功被索引，则err是空字符串
+     * <p> 示例值：
+     *
+     * @param err
+     * @return
+     */
     public Builder err(String err) {
       this.err = err;
       return this;

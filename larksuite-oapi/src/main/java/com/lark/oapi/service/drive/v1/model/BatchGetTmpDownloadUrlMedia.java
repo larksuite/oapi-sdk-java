@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchGetTmpDownloadUrlMedia {
 
+  /**
+   * 临时下载列表
+   * <p> 示例值：
+   */
   @SerializedName("tmp_download_urls")
   private TmpDownloadUrl[] tmpDownloadUrls;
 

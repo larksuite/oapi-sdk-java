@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchDeleteAppTableRecordReqBody {
 
+  /**
+   * 删除的多条记录id列表
+   * <p> 示例值：[;    "recIcJBbvC",;    "recvmiCORa";]
+   */
   @SerializedName("records")
   private String[] records;
 
@@ -25,6 +29,10 @@ public class BatchDeleteAppTableRecordReqBody {
   }
 
   public BatchDeleteAppTableRecordReqBody(Builder builder) {
+    /**
+     * 删除的多条记录id列表
+     * <p> 示例值：[;    "recIcJBbvC",;    "recvmiCORa";]
+     */
     this.records = builder.records;
   }
 
@@ -42,8 +50,19 @@ public class BatchDeleteAppTableRecordReqBody {
 
   public static class Builder {
 
+    /**
+     * 删除的多条记录id列表
+     * <p> 示例值：[;    "recIcJBbvC",;    "recvmiCORa";]
+     */
     private String[] records;
 
+    /**
+     * 删除的多条记录id列表
+     * <p> 示例值：[;    "recIcJBbvC",;    "recvmiCORa";]
+     *
+     * @param records
+     * @return
+     */
     public Builder records(String[] records) {
       this.records = records;
       return this;

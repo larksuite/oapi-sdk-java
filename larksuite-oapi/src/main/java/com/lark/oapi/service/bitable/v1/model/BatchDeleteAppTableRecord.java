@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchDeleteAppTableRecord {
 
+  /**
+   * 记录
+   * <p> 示例值：
+   */
   @SerializedName("records")
   private DeleteRecord[] records;
 

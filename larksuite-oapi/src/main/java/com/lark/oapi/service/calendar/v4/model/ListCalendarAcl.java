@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListCalendarAcl {
 
+  /**
+   * 入参日历对应的acl列表
+   * <p> 示例值：
+   */
   @SerializedName("acls")
   private CalendarAcl[] acls;
+  /**
+   * 是否有下一页数据
+   * <p> 示例值：false
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 下次请求需要带上的分页标记，90 天有效期
+   * <p> 示例值：xxx
+   */
   @SerializedName("page_token")
   private String pageToken;
 

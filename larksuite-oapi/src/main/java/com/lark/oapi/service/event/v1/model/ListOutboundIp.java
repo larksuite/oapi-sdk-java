@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListOutboundIp {
 
+  /**
+   * outbound ip
+   * <p> 示例值：1.1.1.1
+   */
   @SerializedName("ip_list")
   private String[] ipList;
+  /**
+   * 分页下次调用的page_token值
+   * <p> 示例值：xxx
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 是否还有分页数据
+   * <p> 示例值：false
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
 

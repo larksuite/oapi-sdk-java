@@ -2,11 +2,11 @@ package com.lark.oapi.sample.apiall.drivev1;
 
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
+import com.lark.oapi.service.drive.v1.model.BaseMember;
 import com.lark.oapi.service.drive.v1.model.CreatePermissionMemberReq;
 import com.lark.oapi.service.drive.v1.model.CreatePermissionMemberResp;
-import com.lark.oapi.service.drive.v1.model.Member;
 
-// HTTP PATH: /open-apis/drive/v1/permissions/:token/members"
+// POST /open-apis/drive/v1/permissions/:token/members
 public class CreatePermissionMemberSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,10 +15,10 @@ public class CreatePermissionMemberSample {
 
     // 创建请求对象
     CreatePermissionMemberReq req = CreatePermissionMemberReq.newBuilder()
-        .token("")
+        .token("doccnBKgoMyY5OMbUG6FioTXuBe")
         .type("doc")
         .needNotification(false)
-        .member(Member.newBuilder()
+        .baseMember(BaseMember.newBuilder()
             .memberType("openid")
             .memberId("string")
             .perm("view")

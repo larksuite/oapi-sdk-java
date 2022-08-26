@@ -17,36 +17,100 @@ import com.google.gson.annotations.SerializedName;
 
 public class TicketEvent {
 
+  /**
+   * 6626871355780366331
+   * <p> 示例值：6626871355780366331
+   */
   @SerializedName("ticket_id")
   private String ticketId;
+  /**
+   * 6626871355780366330
+   * <p> 示例值：6626871355780366330
+   */
   @SerializedName("helpdesk_id")
   private String helpdeskId;
+  /**
+   * abc
+   * <p> 示例值：
+   */
   @SerializedName("guest")
   private TicketUserEvent guest;
+  /**
+   * 1
+   * <p> 示例值：1
+   */
   @SerializedName("stage")
   private Integer stage;
+  /**
+   * 50
+   * <p> 示例值：1
+   */
   @SerializedName("status")
   private Integer status;
+  /**
+   * 1
+   * <p> 示例值：1
+   */
   @SerializedName("score")
   private Integer score;
+  /**
+   * 1616920429000
+   * <p> 示例值：1616920429000
+   */
   @SerializedName("created_at")
   private Integer createdAt;
+  /**
+   * 1616920429000
+   * <p> 示例值：1616920429000
+   */
   @SerializedName("updated_at")
   private Integer updatedAt;
+  /**
+   * 1616920429000
+   * <p> 示例值：1616920429000
+   */
   @SerializedName("closed_at")
   private Integer closedAt;
+  /**
+   * agents of this ticket
+   * <p> 示例值：
+   */
   @SerializedName("agents")
   private TicketUserEvent[] agents;
+  /**
+   * 0
+   * <p> 示例值：0
+   */
   @SerializedName("channel")
   private Integer channel;
+  /**
+   * 1
+   * <p> 示例值：1
+   */
   @SerializedName("solve")
   private Integer solve;
+  /**
+   * closed user of this ticket
+   * <p> 示例值：
+   */
   @SerializedName("closed_by")
   private TicketUserEvent closedBy;
+  /**
+   * collaborators of this ticket
+   * <p> 示例值：
+   */
   @SerializedName("collaborators")
   private TicketUserEvent[] collaborators;
+  /**
+   * []
+   * <p> 示例值：
+   */
   @SerializedName("customized_fields")
   private CustomizedFieldDisplayItem[] customizedFields;
+  /**
+   * oc_xxxxxxx
+   * <p> 示例值：oc_xxxxxxx
+   */
   @SerializedName("chat_id")
   private String chatId;
 
@@ -55,21 +119,85 @@ public class TicketEvent {
   }
 
   public TicketEvent(Builder builder) {
+    /**
+     * 6626871355780366331
+     * <p> 示例值：6626871355780366331
+     */
     this.ticketId = builder.ticketId;
+    /**
+     * 6626871355780366330
+     * <p> 示例值：6626871355780366330
+     */
     this.helpdeskId = builder.helpdeskId;
+    /**
+     * abc
+     * <p> 示例值：
+     */
     this.guest = builder.guest;
+    /**
+     * 1
+     * <p> 示例值：1
+     */
     this.stage = builder.stage;
+    /**
+     * 50
+     * <p> 示例值：1
+     */
     this.status = builder.status;
+    /**
+     * 1
+     * <p> 示例值：1
+     */
     this.score = builder.score;
+    /**
+     * 1616920429000
+     * <p> 示例值：1616920429000
+     */
     this.createdAt = builder.createdAt;
+    /**
+     * 1616920429000
+     * <p> 示例值：1616920429000
+     */
     this.updatedAt = builder.updatedAt;
+    /**
+     * 1616920429000
+     * <p> 示例值：1616920429000
+     */
     this.closedAt = builder.closedAt;
+    /**
+     * agents of this ticket
+     * <p> 示例值：
+     */
     this.agents = builder.agents;
+    /**
+     * 0
+     * <p> 示例值：0
+     */
     this.channel = builder.channel;
+    /**
+     * 1
+     * <p> 示例值：1
+     */
     this.solve = builder.solve;
+    /**
+     * closed user of this ticket
+     * <p> 示例值：
+     */
     this.closedBy = builder.closedBy;
+    /**
+     * collaborators of this ticket
+     * <p> 示例值：
+     */
     this.collaborators = builder.collaborators;
+    /**
+     * []
+     * <p> 示例值：
+     */
     this.customizedFields = builder.customizedFields;
+    /**
+     * oc_xxxxxxx
+     * <p> 示例值：oc_xxxxxxx
+     */
     this.chatId = builder.chatId;
   }
 
@@ -207,98 +335,289 @@ public class TicketEvent {
 
   public static class Builder {
 
+    /**
+     * 6626871355780366331
+     * <p> 示例值：6626871355780366331
+     */
     private String ticketId;
+    /**
+     * 6626871355780366330
+     * <p> 示例值：6626871355780366330
+     */
     private String helpdeskId;
+    /**
+     * abc
+     * <p> 示例值：
+     */
     private TicketUserEvent guest;
+    /**
+     * 1
+     * <p> 示例值：1
+     */
     private Integer stage;
+    /**
+     * 50
+     * <p> 示例值：1
+     */
     private Integer status;
+    /**
+     * 1
+     * <p> 示例值：1
+     */
     private Integer score;
+    /**
+     * 1616920429000
+     * <p> 示例值：1616920429000
+     */
     private Integer createdAt;
+    /**
+     * 1616920429000
+     * <p> 示例值：1616920429000
+     */
     private Integer updatedAt;
+    /**
+     * 1616920429000
+     * <p> 示例值：1616920429000
+     */
     private Integer closedAt;
+    /**
+     * agents of this ticket
+     * <p> 示例值：
+     */
     private TicketUserEvent[] agents;
+    /**
+     * 0
+     * <p> 示例值：0
+     */
     private Integer channel;
+    /**
+     * 1
+     * <p> 示例值：1
+     */
     private Integer solve;
+    /**
+     * closed user of this ticket
+     * <p> 示例值：
+     */
     private TicketUserEvent closedBy;
+    /**
+     * collaborators of this ticket
+     * <p> 示例值：
+     */
     private TicketUserEvent[] collaborators;
+    /**
+     * []
+     * <p> 示例值：
+     */
     private CustomizedFieldDisplayItem[] customizedFields;
+    /**
+     * oc_xxxxxxx
+     * <p> 示例值：oc_xxxxxxx
+     */
     private String chatId;
 
+    /**
+     * 6626871355780366331
+     * <p> 示例值：6626871355780366331
+     *
+     * @param ticketId
+     * @return
+     */
     public Builder ticketId(String ticketId) {
       this.ticketId = ticketId;
       return this;
     }
 
+
+    /**
+     * 6626871355780366330
+     * <p> 示例值：6626871355780366330
+     *
+     * @param helpdeskId
+     * @return
+     */
     public Builder helpdeskId(String helpdeskId) {
       this.helpdeskId = helpdeskId;
       return this;
     }
 
+
+    /**
+     * abc
+     * <p> 示例值：
+     *
+     * @param guest
+     * @return
+     */
     public Builder guest(TicketUserEvent guest) {
       this.guest = guest;
       return this;
     }
 
+
+    /**
+     * 1
+     * <p> 示例值：1
+     *
+     * @param stage
+     * @return
+     */
     public Builder stage(Integer stage) {
       this.stage = stage;
       return this;
     }
 
+
+    /**
+     * 50
+     * <p> 示例值：1
+     *
+     * @param status
+     * @return
+     */
     public Builder status(Integer status) {
       this.status = status;
       return this;
     }
 
+
+    /**
+     * 1
+     * <p> 示例值：1
+     *
+     * @param score
+     * @return
+     */
     public Builder score(Integer score) {
       this.score = score;
       return this;
     }
 
+
+    /**
+     * 1616920429000
+     * <p> 示例值：1616920429000
+     *
+     * @param createdAt
+     * @return
+     */
     public Builder createdAt(Integer createdAt) {
       this.createdAt = createdAt;
       return this;
     }
 
+
+    /**
+     * 1616920429000
+     * <p> 示例值：1616920429000
+     *
+     * @param updatedAt
+     * @return
+     */
     public Builder updatedAt(Integer updatedAt) {
       this.updatedAt = updatedAt;
       return this;
     }
 
+
+    /**
+     * 1616920429000
+     * <p> 示例值：1616920429000
+     *
+     * @param closedAt
+     * @return
+     */
     public Builder closedAt(Integer closedAt) {
       this.closedAt = closedAt;
       return this;
     }
 
+
+    /**
+     * agents of this ticket
+     * <p> 示例值：
+     *
+     * @param agents
+     * @return
+     */
     public Builder agents(TicketUserEvent[] agents) {
       this.agents = agents;
       return this;
     }
 
+
+    /**
+     * 0
+     * <p> 示例值：0
+     *
+     * @param channel
+     * @return
+     */
     public Builder channel(Integer channel) {
       this.channel = channel;
       return this;
     }
 
+
+    /**
+     * 1
+     * <p> 示例值：1
+     *
+     * @param solve
+     * @return
+     */
     public Builder solve(Integer solve) {
       this.solve = solve;
       return this;
     }
 
+
+    /**
+     * closed user of this ticket
+     * <p> 示例值：
+     *
+     * @param closedBy
+     * @return
+     */
     public Builder closedBy(TicketUserEvent closedBy) {
       this.closedBy = closedBy;
       return this;
     }
 
+
+    /**
+     * collaborators of this ticket
+     * <p> 示例值：
+     *
+     * @param collaborators
+     * @return
+     */
     public Builder collaborators(TicketUserEvent[] collaborators) {
       this.collaborators = collaborators;
       return this;
     }
 
+
+    /**
+     * []
+     * <p> 示例值：
+     *
+     * @param customizedFields
+     * @return
+     */
     public Builder customizedFields(CustomizedFieldDisplayItem[] customizedFields) {
       this.customizedFields = customizedFields;
       return this;
     }
 
+
+    /**
+     * oc_xxxxxxx
+     * <p> 示例值：oc_xxxxxxx
+     *
+     * @param chatId
+     * @return
+     */
     public Builder chatId(String chatId) {
       this.chatId = chatId;
       return this;

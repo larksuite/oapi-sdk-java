@@ -48,6 +48,12 @@ public class BindDepartmentUnitReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder bindDepartmentUnitReqBody(BindDepartmentUnitReqBody body) {
       this.body = body;
       return this;

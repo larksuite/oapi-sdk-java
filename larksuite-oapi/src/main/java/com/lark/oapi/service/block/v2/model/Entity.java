@@ -17,30 +17,82 @@ import com.google.gson.annotations.SerializedName;
 
 public class Entity {
 
+  /**
+   * block 唯一标识
+   * <p> 示例值：7794641623571830467
+   */
   @SerializedName("block_id")
   private String blockId;
+  /**
+   * 标题
+   * <p> 示例值：已阅 block
+   */
   @SerializedName("title")
   private String title;
+  /**
+   * block 类型ID
+   * <p> 示例值：blk_6204893fee000013739f5359
+   */
   @SerializedName("block_type_id")
   private String blockTypeId;
+  /**
+   * 业务数据 json
+   * <p> 示例值：{"data":"业务数据"}
+   */
   @SerializedName("source_data")
   private String sourceData;
+  /**
+   * 元数据 json
+   * <p> 示例值：{"bizId":"7094067849152430100"}
+   */
   @SerializedName("source_meta")
   private String sourceMeta;
+  /**
+   * 版本号(自增)
+   * <p> 示例值：1651716489253602
+   */
   @SerializedName("version")
   private String version;
+  /**
+   * 链接
+   * <p> 示例值：{}
+   */
   @SerializedName("source_link")
   private String sourceLink;
+  /**
+   * 总括
+   * <p> 示例值：{"cn":"这是一个block"}
+   */
   @SerializedName("summary")
   private String summary;
+  /**
+   * 预览
+   * <p> 示例值：{"cn":"这是一个block"}
+   */
   @SerializedName("preview")
   private String preview;
+  /**
+   * 综述 json
+   * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
+   */
   @SerializedName("i18n_summay")
   private String i18nSummay;
+  /**
+   * 预览 json
+   * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
+   */
   @SerializedName("i18n_preview")
   private String i18nPreview;
+  /**
+   * 所有者
+   * <p> 示例值：ou_fa7aa170f92d1615de63371ac425a767
+   */
   @SerializedName("owner")
   private String owner;
+  /**
+   * 扩展字段 json
+   * <p> 示例值：{}
+   */
   @SerializedName("extra")
   private String extra;
 
@@ -49,18 +101,70 @@ public class Entity {
   }
 
   public Entity(Builder builder) {
+    /**
+     * block 唯一标识
+     * <p> 示例值：7794641623571830467
+     */
     this.blockId = builder.blockId;
+    /**
+     * 标题
+     * <p> 示例值：已阅 block
+     */
     this.title = builder.title;
+    /**
+     * block 类型ID
+     * <p> 示例值：blk_6204893fee000013739f5359
+     */
     this.blockTypeId = builder.blockTypeId;
+    /**
+     * 业务数据 json
+     * <p> 示例值：{"data":"业务数据"}
+     */
     this.sourceData = builder.sourceData;
+    /**
+     * 元数据 json
+     * <p> 示例值：{"bizId":"7094067849152430100"}
+     */
     this.sourceMeta = builder.sourceMeta;
+    /**
+     * 版本号(自增)
+     * <p> 示例值：1651716489253602
+     */
     this.version = builder.version;
+    /**
+     * 链接
+     * <p> 示例值：{}
+     */
     this.sourceLink = builder.sourceLink;
+    /**
+     * 总括
+     * <p> 示例值：{"cn":"这是一个block"}
+     */
     this.summary = builder.summary;
+    /**
+     * 预览
+     * <p> 示例值：{"cn":"这是一个block"}
+     */
     this.preview = builder.preview;
+    /**
+     * 综述 json
+     * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
+     */
     this.i18nSummay = builder.i18nSummay;
+    /**
+     * 预览 json
+     * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
+     */
     this.i18nPreview = builder.i18nPreview;
+    /**
+     * 所有者
+     * <p> 示例值：ou_fa7aa170f92d1615de63371ac425a767
+     */
     this.owner = builder.owner;
+    /**
+     * 扩展字段 json
+     * <p> 示例值：{}
+     */
     this.extra = builder.extra;
   }
 
@@ -174,80 +278,235 @@ public class Entity {
 
   public static class Builder {
 
+    /**
+     * block 唯一标识
+     * <p> 示例值：7794641623571830467
+     */
     private String blockId;
+    /**
+     * 标题
+     * <p> 示例值：已阅 block
+     */
     private String title;
+    /**
+     * block 类型ID
+     * <p> 示例值：blk_6204893fee000013739f5359
+     */
     private String blockTypeId;
+    /**
+     * 业务数据 json
+     * <p> 示例值：{"data":"业务数据"}
+     */
     private String sourceData;
+    /**
+     * 元数据 json
+     * <p> 示例值：{"bizId":"7094067849152430100"}
+     */
     private String sourceMeta;
+    /**
+     * 版本号(自增)
+     * <p> 示例值：1651716489253602
+     */
     private String version;
+    /**
+     * 链接
+     * <p> 示例值：{}
+     */
     private String sourceLink;
+    /**
+     * 总括
+     * <p> 示例值：{"cn":"这是一个block"}
+     */
     private String summary;
+    /**
+     * 预览
+     * <p> 示例值：{"cn":"这是一个block"}
+     */
     private String preview;
+    /**
+     * 综述 json
+     * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
+     */
     private String i18nSummay;
+    /**
+     * 预览 json
+     * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
+     */
     private String i18nPreview;
+    /**
+     * 所有者
+     * <p> 示例值：ou_fa7aa170f92d1615de63371ac425a767
+     */
     private String owner;
+    /**
+     * 扩展字段 json
+     * <p> 示例值：{}
+     */
     private String extra;
 
+    /**
+     * block 唯一标识
+     * <p> 示例值：7794641623571830467
+     *
+     * @param blockId
+     * @return
+     */
     public Builder blockId(String blockId) {
       this.blockId = blockId;
       return this;
     }
 
+
+    /**
+     * 标题
+     * <p> 示例值：已阅 block
+     *
+     * @param title
+     * @return
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
+
+    /**
+     * block 类型ID
+     * <p> 示例值：blk_6204893fee000013739f5359
+     *
+     * @param blockTypeId
+     * @return
+     */
     public Builder blockTypeId(String blockTypeId) {
       this.blockTypeId = blockTypeId;
       return this;
     }
 
+
+    /**
+     * 业务数据 json
+     * <p> 示例值：{"data":"业务数据"}
+     *
+     * @param sourceData
+     * @return
+     */
     public Builder sourceData(String sourceData) {
       this.sourceData = sourceData;
       return this;
     }
 
+
+    /**
+     * 元数据 json
+     * <p> 示例值：{"bizId":"7094067849152430100"}
+     *
+     * @param sourceMeta
+     * @return
+     */
     public Builder sourceMeta(String sourceMeta) {
       this.sourceMeta = sourceMeta;
       return this;
     }
 
+
+    /**
+     * 版本号(自增)
+     * <p> 示例值：1651716489253602
+     *
+     * @param version
+     * @return
+     */
     public Builder version(String version) {
       this.version = version;
       return this;
     }
 
+
+    /**
+     * 链接
+     * <p> 示例值：{}
+     *
+     * @param sourceLink
+     * @return
+     */
     public Builder sourceLink(String sourceLink) {
       this.sourceLink = sourceLink;
       return this;
     }
 
+
+    /**
+     * 总括
+     * <p> 示例值：{"cn":"这是一个block"}
+     *
+     * @param summary
+     * @return
+     */
     public Builder summary(String summary) {
       this.summary = summary;
       return this;
     }
 
+
+    /**
+     * 预览
+     * <p> 示例值：{"cn":"这是一个block"}
+     *
+     * @param preview
+     * @return
+     */
     public Builder preview(String preview) {
       this.preview = preview;
       return this;
     }
 
+
+    /**
+     * 综述 json
+     * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
+     *
+     * @param i18nSummay
+     * @return
+     */
     public Builder i18nSummay(String i18nSummay) {
       this.i18nSummay = i18nSummay;
       return this;
     }
 
+
+    /**
+     * 预览 json
+     * <p> 示例值：{"cn":"这是一个block","va": "this is a block"}
+     *
+     * @param i18nPreview
+     * @return
+     */
     public Builder i18nPreview(String i18nPreview) {
       this.i18nPreview = i18nPreview;
       return this;
     }
 
+
+    /**
+     * 所有者
+     * <p> 示例值：ou_fa7aa170f92d1615de63371ac425a767
+     *
+     * @param owner
+     * @return
+     */
     public Builder owner(String owner) {
       this.owner = owner;
       return this;
     }
 
+
+    /**
+     * 扩展字段 json
+     * <p> 示例值：{}
+     *
+     * @param extra
+     * @return
+     */
     public Builder extra(String extra) {
       this.extra = extra;
       return this;

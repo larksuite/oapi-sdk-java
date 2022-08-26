@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListModerator {
 
+  /**
+   * 可发言用户 ID 类型
+   * <p> 示例值：user_id
+   */
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * 可发言用户 ID
+   * <p> 示例值：4d7a3c6g
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * tenant key
+   * <p> 示例值：2ca1d211f64f6438
+   */
   @SerializedName("tenant_key")
   private String tenantKey;
 
@@ -29,8 +41,20 @@ public class ListModerator {
   }
 
   public ListModerator(Builder builder) {
+    /**
+     * 可发言用户 ID 类型
+     * <p> 示例值：user_id
+     */
     this.userIdType = builder.userIdType;
+    /**
+     * 可发言用户 ID
+     * <p> 示例值：4d7a3c6g
+     */
     this.userId = builder.userId;
+    /**
+     * tenant key
+     * <p> 示例值：2ca1d211f64f6438
+     */
     this.tenantKey = builder.tenantKey;
   }
 
@@ -64,20 +88,55 @@ public class ListModerator {
 
   public static class Builder {
 
+    /**
+     * 可发言用户 ID 类型
+     * <p> 示例值：user_id
+     */
     private String userIdType;
+    /**
+     * 可发言用户 ID
+     * <p> 示例值：4d7a3c6g
+     */
     private String userId;
+    /**
+     * tenant key
+     * <p> 示例值：2ca1d211f64f6438
+     */
     private String tenantKey;
 
+    /**
+     * 可发言用户 ID 类型
+     * <p> 示例值：user_id
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
+
+    /**
+     * 可发言用户 ID
+     * <p> 示例值：4d7a3c6g
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * tenant key
+     * <p> 示例值：2ca1d211f64f6438
+     *
+     * @param tenantKey
+     * @return
+     */
     public Builder tenantKey(String tenantKey) {
       this.tenantKey = tenantKey;
       return this;

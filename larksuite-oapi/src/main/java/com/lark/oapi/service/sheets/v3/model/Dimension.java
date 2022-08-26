@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class Dimension {
 
+  /**
+   * 操作行还是列，取值：ROWS、COLUMNS
+   * <p> 示例值：ROWS
+   */
   @SerializedName("major_dimension")
   private String majorDimension;
+  /**
+   * 起始行或者列号
+   * <p> 示例值：0
+   */
   @SerializedName("start_index")
   private Integer startIndex;
+  /**
+   * 结束行或者列号
+   * <p> 示例值：1
+   */
   @SerializedName("end_index")
   private Integer endIndex;
 
@@ -29,8 +41,20 @@ public class Dimension {
   }
 
   public Dimension(Builder builder) {
+    /**
+     * 操作行还是列，取值：ROWS、COLUMNS
+     * <p> 示例值：ROWS
+     */
     this.majorDimension = builder.majorDimension;
+    /**
+     * 起始行或者列号
+     * <p> 示例值：0
+     */
     this.startIndex = builder.startIndex;
+    /**
+     * 结束行或者列号
+     * <p> 示例值：1
+     */
     this.endIndex = builder.endIndex;
   }
 
@@ -64,20 +88,55 @@ public class Dimension {
 
   public static class Builder {
 
+    /**
+     * 操作行还是列，取值：ROWS、COLUMNS
+     * <p> 示例值：ROWS
+     */
     private String majorDimension;
+    /**
+     * 起始行或者列号
+     * <p> 示例值：0
+     */
     private Integer startIndex;
+    /**
+     * 结束行或者列号
+     * <p> 示例值：1
+     */
     private Integer endIndex;
 
+    /**
+     * 操作行还是列，取值：ROWS、COLUMNS
+     * <p> 示例值：ROWS
+     *
+     * @param majorDimension
+     * @return
+     */
     public Builder majorDimension(String majorDimension) {
       this.majorDimension = majorDimension;
       return this;
     }
 
+
+    /**
+     * 起始行或者列号
+     * <p> 示例值：0
+     *
+     * @param startIndex
+     * @return
+     */
     public Builder startIndex(Integer startIndex) {
       this.startIndex = startIndex;
       return this;
     }
 
+
+    /**
+     * 结束行或者列号
+     * <p> 示例值：1
+     *
+     * @param endIndex
+     * @return
+     */
     public Builder endIndex(Integer endIndex) {
       this.endIndex = endIndex;
       return this;

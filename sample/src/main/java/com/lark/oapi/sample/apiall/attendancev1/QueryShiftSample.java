@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.attendance.v1.model.QueryShiftReq;
 import com.lark.oapi.service.attendance.v1.model.QueryShiftResp;
 
-// HTTP PATH: /open-apis/attendance/v1/shifts/query"
+// POST /open-apis/attendance/v1/shifts/query
 public class QueryShiftSample {
 
   public static void main(String arg[]) throws Exception {

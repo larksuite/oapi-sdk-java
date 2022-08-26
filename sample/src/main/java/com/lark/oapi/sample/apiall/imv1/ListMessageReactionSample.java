@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.im.v1.model.ListMessageReactionReq;
 import com.lark.oapi.service.im.v1.model.ListMessageReactionResp;
 
-// HTTP PATH: /open-apis/im/v1/messages/:message_id/reactions"
+// GET /open-apis/im/v1/messages/:message_id/reactions
 public class ListMessageReactionSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,10 +14,10 @@ public class ListMessageReactionSample {
 
     // 创建请求对象
     ListMessageReactionReq req = ListMessageReactionReq.newBuilder()
-        .messageId("")
-        .reactionType("")
-        .pageToken("")
-        .pageSize(0)
+        .messageId("om_8964d1b4*********2b31383276113")
+        .reactionType("LAUGH")
+        .pageToken("YhljsPiGfUgnVAg9urvRFd-BvSqRL20wMZNAWfa9xXkud6UKCybPuUgQ1vM26dj6")
+        .pageSize(10)
         .userIdType("open_id")
         .build();
 

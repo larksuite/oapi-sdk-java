@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class AuditRecipientDetail {
 
+  /**
+   * 修改权限协作者
+   * <p> 示例值：
+   */
   @SerializedName("permission_action_type")
   private String permissionActionType;
 
@@ -25,6 +29,10 @@ public class AuditRecipientDetail {
   }
 
   public AuditRecipientDetail(Builder builder) {
+    /**
+     * 修改权限协作者
+     * <p> 示例值：
+     */
     this.permissionActionType = builder.permissionActionType;
   }
 
@@ -42,8 +50,19 @@ public class AuditRecipientDetail {
 
   public static class Builder {
 
+    /**
+     * 修改权限协作者
+     * <p> 示例值：
+     */
     private String permissionActionType;
 
+    /**
+     * 修改权限协作者
+     * <p> 示例值：
+     *
+     * @param permissionActionType
+     * @return
+     */
     public Builder permissionActionType(String permissionActionType) {
       this.permissionActionType = permissionActionType;
       return this;

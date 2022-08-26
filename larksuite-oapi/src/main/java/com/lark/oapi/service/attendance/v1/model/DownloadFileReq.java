@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DownloadFileReq {
 
+  /**
+   * 文件 ID
+   * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
+   */
   @Path
   @SerializedName("file_id")
   private String fileId;
@@ -27,6 +31,10 @@ public class DownloadFileReq {
   }
 
   public DownloadFileReq(Builder builder) {
+    /**
+     * 文件 ID
+     * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
+     */
     this.fileId = builder.fileId;
   }
 
@@ -44,8 +52,15 @@ public class DownloadFileReq {
 
   public static class Builder {
 
-    private String fileId;
+    private String fileId; // 文件 ID
 
+    /**
+     * 文件 ID
+     * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
+     *
+     * @param fileId
+     * @return
+     */
     public Builder fileId(String fileId) {
       this.fileId = fileId;
       return this;

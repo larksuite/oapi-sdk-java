@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class SearchCalendarEventReqBody {
 
+  /**
+   * 搜索关键字
+   * <p> 示例值：query words
+   */
   @SerializedName("query")
   private String query;
+  /**
+   * 搜索过滤器
+   * <p> 示例值：
+   */
   @SerializedName("filter")
   private EventSearchFilter filter;
 
@@ -27,7 +35,15 @@ public class SearchCalendarEventReqBody {
   }
 
   public SearchCalendarEventReqBody(Builder builder) {
+    /**
+     * 搜索关键字
+     * <p> 示例值：query words
+     */
     this.query = builder.query;
+    /**
+     * 搜索过滤器
+     * <p> 示例值：
+     */
     this.filter = builder.filter;
   }
 
@@ -53,14 +69,37 @@ public class SearchCalendarEventReqBody {
 
   public static class Builder {
 
+    /**
+     * 搜索关键字
+     * <p> 示例值：query words
+     */
     private String query;
+    /**
+     * 搜索过滤器
+     * <p> 示例值：
+     */
     private EventSearchFilter filter;
 
+    /**
+     * 搜索关键字
+     * <p> 示例值：query words
+     *
+     * @param query
+     * @return
+     */
     public Builder query(String query) {
       this.query = query;
       return this;
     }
 
+
+    /**
+     * 搜索过滤器
+     * <p> 示例值：
+     *
+     * @param filter
+     * @return
+     */
     public Builder filter(EventSearchFilter filter) {
       this.filter = filter;
       return this;

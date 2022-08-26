@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2TaskCommentUpdatedV1Data {
 
+  /**
+   * 任务ID
+   * <p> 示例值：626cf808-4c26-4f27-9da8-01f2eb73d717
+   */
   @SerializedName("task_id")
   private String taskId;
+  /**
+   * 任务评论ID
+   * <p> 示例值：6994706512731963411
+   */
   @SerializedName("comment_id")
   private String commentId;
+  /**
+   * 任务评论父ID
+   * <p> 示例值：6994706512731965890
+   */
   @SerializedName("parent_id")
   private String parentId;
+  /**
+   * 通知类型（1：创建评论，2：回复评论，3：更新评论，4：删除评论）
+   * <p> 示例值：1
+   */
   @SerializedName("obj_type")
   private Integer objType;
 

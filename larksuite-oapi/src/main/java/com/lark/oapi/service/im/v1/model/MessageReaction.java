@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class MessageReaction {
 
+  /**
+   * reaction资源ID
+   * <p> 示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_
+   */
   @SerializedName("reaction_id")
   private String reactionId;
+  /**
+   * 添加reaction的操作人
+   * <p> 示例值：
+   */
   @SerializedName("operator")
   private Operator operator;
+  /**
+   * reaction动作的的unix timestamp(单位:ms)
+   * <p> 示例值：1626086391570
+   */
   @SerializedName("action_time")
   private String actionTime;
+  /**
+   * reaction资源类型
+   * <p> 示例值：
+   */
   @SerializedName("reaction_type")
   private Emoji reactionType;
 
@@ -31,9 +47,25 @@ public class MessageReaction {
   }
 
   public MessageReaction(Builder builder) {
+    /**
+     * reaction资源ID
+     * <p> 示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_
+     */
     this.reactionId = builder.reactionId;
+    /**
+     * 添加reaction的操作人
+     * <p> 示例值：
+     */
     this.operator = builder.operator;
+    /**
+     * reaction动作的的unix timestamp(单位:ms)
+     * <p> 示例值：1626086391570
+     */
     this.actionTime = builder.actionTime;
+    /**
+     * reaction资源类型
+     * <p> 示例值：
+     */
     this.reactionType = builder.reactionType;
   }
 
@@ -75,26 +107,73 @@ public class MessageReaction {
 
   public static class Builder {
 
+    /**
+     * reaction资源ID
+     * <p> 示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_
+     */
     private String reactionId;
+    /**
+     * 添加reaction的操作人
+     * <p> 示例值：
+     */
     private Operator operator;
+    /**
+     * reaction动作的的unix timestamp(单位:ms)
+     * <p> 示例值：1626086391570
+     */
     private String actionTime;
+    /**
+     * reaction资源类型
+     * <p> 示例值：
+     */
     private Emoji reactionType;
 
+    /**
+     * reaction资源ID
+     * <p> 示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_
+     *
+     * @param reactionId
+     * @return
+     */
     public Builder reactionId(String reactionId) {
       this.reactionId = reactionId;
       return this;
     }
 
+
+    /**
+     * 添加reaction的操作人
+     * <p> 示例值：
+     *
+     * @param operator
+     * @return
+     */
     public Builder operator(Operator operator) {
       this.operator = operator;
       return this;
     }
 
+
+    /**
+     * reaction动作的的unix timestamp(单位:ms)
+     * <p> 示例值：1626086391570
+     *
+     * @param actionTime
+     * @return
+     */
     public Builder actionTime(String actionTime) {
       this.actionTime = actionTime;
       return this;
     }
 
+
+    /**
+     * reaction资源类型
+     * <p> 示例值：
+     *
+     * @param reactionType
+     * @return
+     */
     public Builder reactionType(Emoji reactionType) {
       this.reactionType = reactionType;
       return this;

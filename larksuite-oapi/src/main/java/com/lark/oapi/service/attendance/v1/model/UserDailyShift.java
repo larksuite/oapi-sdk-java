@@ -17,14 +17,37 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserDailyShift {
 
+  /**
+   * 考勤组 ID，获取方式：1）[创建或修改考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create)
+   * 2）[按名称查询考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search)
+   * 3）[获取打卡结果](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
+   * <p> 示例值：6737202939523236110
+   */
   @SerializedName("group_id")
   private String groupId;
+  /**
+   * 班次 ID，获取方式：1）[按名称查询班次](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query)
+   * 2）[创建班次](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
+   * <p> 示例值：6753520403404030215
+   */
   @SerializedName("shift_id")
   private String shiftId;
+  /**
+   * 月份
+   * <p> 示例值：202101
+   */
   @SerializedName("month")
   private Integer month;
+  /**
+   * 用户 ID
+   * <p> 示例值：abd754f7
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 日期
+   * <p> 示例值：21
+   */
   @SerializedName("day_no")
   private Integer dayNo;
 
@@ -33,10 +56,30 @@ public class UserDailyShift {
   }
 
   public UserDailyShift(Builder builder) {
+    /**
+     * 考勤组 ID，获取方式：1）[创建或修改考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create) 2）[按名称查询考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search) 3）[获取打卡结果](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
+     * <p> 示例值：6737202939523236110
+     */
     this.groupId = builder.groupId;
+    /**
+     * 班次 ID，获取方式：1）[按名称查询班次](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 2）[创建班次](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
+     * <p> 示例值：6753520403404030215
+     */
     this.shiftId = builder.shiftId;
+    /**
+     * 月份
+     * <p> 示例值：202101
+     */
     this.month = builder.month;
+    /**
+     * 用户 ID
+     * <p> 示例值：abd754f7
+     */
     this.userId = builder.userId;
+    /**
+     * 日期
+     * <p> 示例值：21
+     */
     this.dayNo = builder.dayNo;
   }
 
@@ -86,32 +129,97 @@ public class UserDailyShift {
 
   public static class Builder {
 
+    /**
+     * 考勤组 ID，获取方式：1）[创建或修改考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create)
+     * 2）[按名称查询考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search)
+     * 3）[获取打卡结果](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
+     * <p> 示例值：6737202939523236110
+     */
     private String groupId;
+    /**
+     * 班次 ID，获取方式：1）[按名称查询班次](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query)
+     * 2）[创建班次](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
+     * <p> 示例值：6753520403404030215
+     */
     private String shiftId;
+    /**
+     * 月份
+     * <p> 示例值：202101
+     */
     private Integer month;
+    /**
+     * 用户 ID
+     * <p> 示例值：abd754f7
+     */
     private String userId;
+    /**
+     * 日期
+     * <p> 示例值：21
+     */
     private Integer dayNo;
 
+    /**
+     * 考勤组 ID，获取方式：1）[创建或修改考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create)
+     * 2）[按名称查询考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search)
+     * 3）[获取打卡结果](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
+     * <p> 示例值：6737202939523236110
+     *
+     * @param groupId
+     * @return
+     */
     public Builder groupId(String groupId) {
       this.groupId = groupId;
       return this;
     }
 
+
+    /**
+     * 班次 ID，获取方式：1）[按名称查询班次](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query)
+     * 2）[创建班次](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
+     * <p> 示例值：6753520403404030215
+     *
+     * @param shiftId
+     * @return
+     */
     public Builder shiftId(String shiftId) {
       this.shiftId = shiftId;
       return this;
     }
 
+
+    /**
+     * 月份
+     * <p> 示例值：202101
+     *
+     * @param month
+     * @return
+     */
     public Builder month(Integer month) {
       this.month = month;
       return this;
     }
 
+
+    /**
+     * 用户 ID
+     * <p> 示例值：abd754f7
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 日期
+     * <p> 示例值：21
+     *
+     * @param dayNo
+     * @return
+     */
     public Builder dayNo(Integer dayNo) {
       this.dayNo = dayNo;
       return this;

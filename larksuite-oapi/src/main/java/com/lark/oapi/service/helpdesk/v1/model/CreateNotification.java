@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateNotification {
 
+  /**
+   * 创建成功后的唯一id
+   * <p> 示例值：6985032626234982420
+   */
   @SerializedName("notification_id")
   private String notificationId;
+  /**
+   * 当前状态
+   * <p> 示例值：0
+   */
   @SerializedName("status")
   private Integer status;
 

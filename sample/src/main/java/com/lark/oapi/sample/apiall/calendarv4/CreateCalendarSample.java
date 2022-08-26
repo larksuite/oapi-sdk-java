@@ -6,7 +6,7 @@ import com.lark.oapi.service.calendar.v4.model.Calendar;
 import com.lark.oapi.service.calendar.v4.model.CreateCalendarReq;
 import com.lark.oapi.service.calendar.v4.model.CreateCalendarResp;
 
-// HTTP PATH: /open-apis/calendar/v4/calendars"
+// POST /open-apis/calendar/v4/calendars
 public class CreateCalendarSample {
 
   public static void main(String arg[]) throws Exception {

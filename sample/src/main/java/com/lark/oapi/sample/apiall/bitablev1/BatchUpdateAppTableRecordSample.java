@@ -7,7 +7,7 @@ import com.lark.oapi.service.bitable.v1.model.BatchUpdateAppTableRecordReq;
 import com.lark.oapi.service.bitable.v1.model.BatchUpdateAppTableRecordReqBody;
 import com.lark.oapi.service.bitable.v1.model.BatchUpdateAppTableRecordResp;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_update"
+// POST /open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_update
 public class BatchUpdateAppTableRecordSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,8 +16,8 @@ public class BatchUpdateAppTableRecordSample {
 
     // 创建请求对象
     BatchUpdateAppTableRecordReq req = BatchUpdateAppTableRecordReq.newBuilder()
-        .appToken("")
-        .tableId("")
+        .appToken("appbcbWCzen6D8dezhoCH2RpMAh")
+        .tableId("tblsRc9GRRXKqhvW")
         .userIdType("user_id")
         .batchUpdateAppTableRecordReqBody(BatchUpdateAppTableRecordReqBody.newBuilder()
             .records(new AppTableRecord[]{})

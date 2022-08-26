@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class AppScopeI18nInfo {
 
+  /**
+   * 国际化语言的 key
+   * <p> 示例值：zh_cn
+   */
   @SerializedName("i18n_key")
   private String i18nKey;
+  /**
+   * 应用权限的国际化描述
+   * <p> 示例值：获取应用信息
+   */
   @SerializedName("description")
   private String description;
 
@@ -27,7 +35,15 @@ public class AppScopeI18nInfo {
   }
 
   public AppScopeI18nInfo(Builder builder) {
+    /**
+     * 国际化语言的 key
+     * <p> 示例值：zh_cn
+     */
     this.i18nKey = builder.i18nKey;
+    /**
+     * 应用权限的国际化描述
+     * <p> 示例值：获取应用信息
+     */
     this.description = builder.description;
   }
 
@@ -53,19 +69,50 @@ public class AppScopeI18nInfo {
 
   public static class Builder {
 
+    /**
+     * 国际化语言的 key
+     * <p> 示例值：zh_cn
+     */
     private String i18nKey;
+    /**
+     * 应用权限的国际化描述
+     * <p> 示例值：获取应用信息
+     */
     private String description;
 
+    /**
+     * 国际化语言的 key
+     * <p> 示例值：zh_cn
+     *
+     * @param i18nKey
+     * @return
+     */
     public Builder i18nKey(String i18nKey) {
       this.i18nKey = i18nKey;
       return this;
     }
 
-    public Builder i18nKey(com.lark.oapi.service.application.v6.enums.I18nKeyEnum i18nKey) {
+    /**
+     * 国际化语言的 key
+     * <p> 示例值：zh_cn
+     *
+     * @param i18nKey {@link com.lark.oapi.service.application.v6.enums.AppScopeI18nInfoI18nKeyEnum}
+     * @return
+     */
+    public Builder i18nKey(
+        com.lark.oapi.service.application.v6.enums.AppScopeI18nInfoI18nKeyEnum i18nKey) {
       this.i18nKey = i18nKey.getValue();
       return this;
     }
 
+
+    /**
+     * 应用权限的国际化描述
+     * <p> 示例值：获取应用信息
+     *
+     * @param description
+     * @return
+     */
     public Builder description(String description) {
       this.description = description;
       return this;

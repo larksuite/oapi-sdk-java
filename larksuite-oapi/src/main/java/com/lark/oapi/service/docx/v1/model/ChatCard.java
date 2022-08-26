@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class ChatCard {
 
+  /**
+   * 群聊天会话 ID
+   * <p> 示例值：7052227140476993555
+   */
   @SerializedName("chat_id")
   private String chatId;
+  /**
+   * 对齐方式
+   * <p> 示例值：1
+   */
   @SerializedName("align")
   private Integer align;
 
@@ -27,7 +35,15 @@ public class ChatCard {
   }
 
   public ChatCard(Builder builder) {
+    /**
+     * 群聊天会话 ID
+     * <p> 示例值：7052227140476993555
+     */
     this.chatId = builder.chatId;
+    /**
+     * 对齐方式
+     * <p> 示例值：1
+     */
     this.align = builder.align;
   }
 
@@ -53,20 +69,50 @@ public class ChatCard {
 
   public static class Builder {
 
+    /**
+     * 群聊天会话 ID
+     * <p> 示例值：7052227140476993555
+     */
     private String chatId;
+    /**
+     * 对齐方式
+     * <p> 示例值：1
+     */
     private Integer align;
 
+    /**
+     * 群聊天会话 ID
+     * <p> 示例值：7052227140476993555
+     *
+     * @param chatId
+     * @return
+     */
     public Builder chatId(String chatId) {
       this.chatId = chatId;
       return this;
     }
 
+
+    /**
+     * 对齐方式
+     * <p> 示例值：1
+     *
+     * @param align
+     * @return
+     */
     public Builder align(Integer align) {
       this.align = align;
       return this;
     }
 
-    public Builder align(com.lark.oapi.service.docx.v1.enums.AlignEnum align) {
+    /**
+     * 对齐方式
+     * <p> 示例值：1
+     *
+     * @param align {@link com.lark.oapi.service.docx.v1.enums.ChatCardAlignEnum}
+     * @return
+     */
+    public Builder align(com.lark.oapi.service.docx.v1.enums.ChatCardAlignEnum align) {
       this.align = align.getValue();
       return this;
     }

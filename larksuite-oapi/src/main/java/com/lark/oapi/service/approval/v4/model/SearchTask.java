@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class SearchTask {
 
+  /**
+   * 查询返回条数
+   * <p> 示例值：10
+   */
   @SerializedName("count")
   private Integer count;
+  /**
+   * 审批任务列表
+   * <p> 示例值：
+   */
   @SerializedName("task_list")
-  private TaskSearchItem taskList;
+  private TaskSearchItem[] taskList;
+  /**
+   * 翻页 Token
+   * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 是否有更多任务可供拉取
+   * <p> 示例值：false
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
 
@@ -34,11 +50,11 @@ public class SearchTask {
     this.count = count;
   }
 
-  public TaskSearchItem getTaskList() {
+  public TaskSearchItem[] getTaskList() {
     return this.taskList;
   }
 
-  public void setTaskList(TaskSearchItem taskList) {
+  public void setTaskList(TaskSearchItem[] taskList) {
     this.taskList = taskList;
   }
 

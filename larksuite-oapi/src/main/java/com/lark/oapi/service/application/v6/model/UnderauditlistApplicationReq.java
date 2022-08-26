@@ -18,15 +18,29 @@ import com.lark.oapi.core.annotation.Query;
 
 public class UnderauditlistApplicationReq {
 
+  /**
+   * 指定返回的语言
+   * <p> 示例值：zh_cn
+   */
   @Query
   @SerializedName("lang")
   private String lang;
+  /**
+   * <p> 示例值：new-e3c5a0627cdf0c2e057da7257b90376a
+   */
   @Query
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * <p> 示例值：10
+   */
   @Query
   @SerializedName("page_size")
   private Integer pageSize;
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
@@ -36,9 +50,25 @@ public class UnderauditlistApplicationReq {
   }
 
   public UnderauditlistApplicationReq(Builder builder) {
+    /**
+     * 指定返回的语言
+     * <p> 示例值：zh_cn
+     */
     this.lang = builder.lang;
+    /**
+     *
+     * <p> 示例值：new-e3c5a0627cdf0c2e057da7257b90376a
+     */
     this.pageToken = builder.pageToken;
+    /**
+     *
+     * <p> 示例值：10
+     */
     this.pageSize = builder.pageSize;
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
   }
 
@@ -80,38 +110,83 @@ public class UnderauditlistApplicationReq {
 
   public static class Builder {
 
-    private String lang;
-    private String pageToken;
-    private Integer pageSize;
-    private String userIdType;
+    private String lang; // 指定返回的语言
+    private String pageToken; //
+    private Integer pageSize; //
+    private String userIdType; // 此次调用中使用的用户ID的类型
 
+
+    /**
+     * 指定返回的语言
+     * <p> 示例值：zh_cn
+     *
+     * @param lang
+     * @return
+     */
     public Builder lang(String lang) {
       this.lang = lang;
       return this;
     }
 
-    public Builder lang(com.lark.oapi.service.application.v6.enums.I18nKeyEnum lang) {
+    /**
+     * 指定返回的语言
+     * <p> 示例值：zh_cn
+     *
+     * @param lang {@link com.lark.oapi.service.application.v6.enums.UnderauditlistApplicationI18nKeyEnum}
+     * @return
+     */
+    public Builder lang(
+        com.lark.oapi.service.application.v6.enums.UnderauditlistApplicationI18nKeyEnum lang) {
       this.lang = lang.getValue();
       return this;
     }
 
+
+    /**
+     * <p> 示例值：new-e3c5a0627cdf0c2e057da7257b90376a
+     *
+     * @param pageToken
+     * @return
+     */
     public Builder pageToken(String pageToken) {
       this.pageToken = pageToken;
       return this;
     }
 
+
+    /**
+     * <p> 示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
     public Builder pageSize(Integer pageSize) {
       this.pageSize = pageSize;
       return this;
     }
 
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.application.v6.enums.UnderauditlistApplicationUserIdTypeEnum}
+     * @return
+     */
     public Builder userIdType(
-        com.lark.oapi.service.application.v6.enums.UserIdTypeEnum userIdType) {
+        com.lark.oapi.service.application.v6.enums.UnderauditlistApplicationUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }

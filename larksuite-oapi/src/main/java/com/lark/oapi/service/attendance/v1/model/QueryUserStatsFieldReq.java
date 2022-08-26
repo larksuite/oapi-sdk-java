@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Query;
 
 public class QueryUserStatsFieldReq {
 
+  /**
+   * 响应体中的 user_id 的员工工号类型
+   * <p> 示例值：employee_id
+   */
   @Query
   @SerializedName("employee_type")
   private String employeeType;
@@ -30,6 +34,10 @@ public class QueryUserStatsFieldReq {
   }
 
   public QueryUserStatsFieldReq(Builder builder) {
+    /**
+     * 响应体中的 user_id 的员工工号类型
+     * <p> 示例值：employee_id
+     */
     this.employeeType = builder.employeeType;
     this.body = builder.body;
   }
@@ -56,16 +64,30 @@ public class QueryUserStatsFieldReq {
 
   public static class Builder {
 
-    private String employeeType;
+    private String employeeType; // 响应体中的 user_id 的员工工号类型
     private QueryUserStatsFieldReqBody body;
 
+    /**
+     * 响应体中的 user_id 的员工工号类型
+     * <p> 示例值：employee_id
+     *
+     * @param employeeType
+     * @return
+     */
     public Builder employeeType(String employeeType) {
       this.employeeType = employeeType;
       return this;
     }
 
+    /**
+     * 响应体中的 user_id 的员工工号类型
+     * <p> 示例值：employee_id
+     *
+     * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserStatsFieldEmployeeTypeEnum}
+     * @return
+     */
     public Builder employeeType(
-        com.lark.oapi.service.attendance.v1.enums.EmployeeTypeEnum employeeType) {
+        com.lark.oapi.service.attendance.v1.enums.QueryUserStatsFieldEmployeeTypeEnum employeeType) {
       this.employeeType = employeeType.getValue();
       return this;
     }
@@ -74,6 +96,12 @@ public class QueryUserStatsFieldReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder queryUserStatsFieldReqBody(QueryUserStatsFieldReqBody body) {
       this.body = body;
       return this;

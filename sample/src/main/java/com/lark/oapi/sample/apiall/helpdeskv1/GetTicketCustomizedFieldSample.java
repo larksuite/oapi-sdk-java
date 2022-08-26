@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.GetTicketCustomizedFieldReq;
 import com.lark.oapi.service.helpdesk.v1.model.GetTicketCustomizedFieldResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
+// GET /open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id
 public class GetTicketCustomizedFieldSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class GetTicketCustomizedFieldSample {
 
     // 创建请求对象
     GetTicketCustomizedFieldReq req = GetTicketCustomizedFieldReq.newBuilder()
-        .ticketCustomizedFieldId("")
+        .ticketCustomizedFieldId("6948728206392295444")
         .build();
 
     // 发起请求

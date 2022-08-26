@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchSendProgress {
 
+  /**
+   * 发送成功的消息条数
+   * <p> 示例值：
+   */
   @SerializedName("send_count")
   private String sendCount;
+  /**
+   * 总的计划发送的消息条数
+   * <p> 示例值：
+   */
   @SerializedName("total_send_count")
   private String totalSendCount;
 
@@ -27,7 +35,15 @@ public class BatchSendProgress {
   }
 
   public BatchSendProgress(Builder builder) {
+    /**
+     * 发送成功的消息条数
+     * <p> 示例值：
+     */
     this.sendCount = builder.sendCount;
+    /**
+     * 总的计划发送的消息条数
+     * <p> 示例值：
+     */
     this.totalSendCount = builder.totalSendCount;
   }
 
@@ -53,14 +69,37 @@ public class BatchSendProgress {
 
   public static class Builder {
 
+    /**
+     * 发送成功的消息条数
+     * <p> 示例值：
+     */
     private String sendCount;
+    /**
+     * 总的计划发送的消息条数
+     * <p> 示例值：
+     */
     private String totalSendCount;
 
+    /**
+     * 发送成功的消息条数
+     * <p> 示例值：
+     *
+     * @param sendCount
+     * @return
+     */
     public Builder sendCount(String sendCount) {
       this.sendCount = sendCount;
       return this;
     }
 
+
+    /**
+     * 总的计划发送的消息条数
+     * <p> 示例值：
+     *
+     * @param totalSendCount
+     * @return
+     */
     public Builder totalSendCount(String totalSendCount) {
       this.totalSendCount = totalSendCount;
       return this;

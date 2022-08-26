@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Path;
 
 public class PatchFileSubscriptionReq {
 
+  /**
+   * 文档token
+   * <p> 示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
+   */
   @Path
   @SerializedName("file_token")
   private String fileToken;
+  /**
+   * 订阅关系ID
+   * <p> 示例值：1234567890987654321
+   */
   @Path
   @SerializedName("subscription_id")
   private String subscriptionId;
@@ -33,7 +41,15 @@ public class PatchFileSubscriptionReq {
   }
 
   public PatchFileSubscriptionReq(Builder builder) {
+    /**
+     * 文档token
+     * <p> 示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
+     */
     this.fileToken = builder.fileToken;
+    /**
+     * 订阅关系ID
+     * <p> 示例值：1234567890987654321
+     */
     this.subscriptionId = builder.subscriptionId;
     this.body = builder.body;
   }
@@ -68,15 +84,29 @@ public class PatchFileSubscriptionReq {
 
   public static class Builder {
 
-    private String fileToken;
-    private String subscriptionId;
+    private String fileToken; // 文档token
+    private String subscriptionId; // 订阅关系ID
     private PatchFileSubscriptionReqBody body;
 
+    /**
+     * 文档token
+     * <p> 示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
+     *
+     * @param fileToken
+     * @return
+     */
     public Builder fileToken(String fileToken) {
       this.fileToken = fileToken;
       return this;
     }
 
+    /**
+     * 订阅关系ID
+     * <p> 示例值：1234567890987654321
+     *
+     * @param subscriptionId
+     * @return
+     */
     public Builder subscriptionId(String subscriptionId) {
       this.subscriptionId = subscriptionId;
       return this;
@@ -86,6 +116,12 @@ public class PatchFileSubscriptionReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder patchFileSubscriptionReqBody(PatchFileSubscriptionReqBody body) {
       this.body = body;
       return this;

@@ -17,10 +17,20 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListChat {
 
+  /**
+   * chat 列表
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private ListChat[] items;
+  /**
+   * <p> 示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * <p> 示例值：false
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
 

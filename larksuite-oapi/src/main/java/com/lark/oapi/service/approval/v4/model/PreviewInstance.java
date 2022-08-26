@@ -17,6 +17,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class PreviewInstance {
 
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("preview_nodes")
   private PreviewNode[] previewNodes;
 

@@ -7,7 +7,7 @@ import com.lark.oapi.service.im.v1.model.CreateFileReqBody;
 import com.lark.oapi.service.im.v1.model.CreateFileResp;
 import java.io.File;
 
-// HTTP PATH: /open-apis/im/v1/files"
+// POST /open-apis/im/v1/files
 public class CreateFileSample {
 
   public static void main(String arg[]) throws Exception {
@@ -18,7 +18,7 @@ public class CreateFileSample {
     File file = new File("filepath");
     CreateFileReq req = CreateFileReq.newBuilder()
         .createFileReqBody(CreateFileReqBody.newBuilder()
-            .fileType("opus")
+            .fileType("mp4")
             .fileName("测试视频.mp4")
             .duration(3000)
             .file(file)

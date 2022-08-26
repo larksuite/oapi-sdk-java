@@ -17,6 +17,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2ApprovalUpdatedV4Data {
 
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("object")
   private ApprovalEvent object;
 

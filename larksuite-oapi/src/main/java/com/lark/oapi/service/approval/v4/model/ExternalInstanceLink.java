@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class ExternalInstanceLink {
 
+  /**
+   * pc 端的跳转链接，当用户使用飞书 pc 端时，使用该字段进行跳转
+   * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/detail?id=1234
+   */
   @SerializedName("pc_link")
   private String pcLink;
+  /**
+   * 移动端 跳转链接，当用户使用飞书 移动端时，使用该字段进行跳转
+   * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/detail?id=1234
+   */
   @SerializedName("mobile_link")
   private String mobileLink;
 
@@ -27,7 +35,15 @@ public class ExternalInstanceLink {
   }
 
   public ExternalInstanceLink(Builder builder) {
+    /**
+     * pc 端的跳转链接，当用户使用飞书 pc 端时，使用该字段进行跳转
+     * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/detail?id=1234
+     */
     this.pcLink = builder.pcLink;
+    /**
+     * 移动端 跳转链接，当用户使用飞书 移动端时，使用该字段进行跳转
+     * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/detail?id=1234
+     */
     this.mobileLink = builder.mobileLink;
   }
 
@@ -53,14 +69,37 @@ public class ExternalInstanceLink {
 
   public static class Builder {
 
+    /**
+     * pc 端的跳转链接，当用户使用飞书 pc 端时，使用该字段进行跳转
+     * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/detail?id=1234
+     */
     private String pcLink;
+    /**
+     * 移动端 跳转链接，当用户使用飞书 移动端时，使用该字段进行跳转
+     * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/detail?id=1234
+     */
     private String mobileLink;
 
+    /**
+     * pc 端的跳转链接，当用户使用飞书 pc 端时，使用该字段进行跳转
+     * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc/pages/detail?id=1234
+     *
+     * @param pcLink
+     * @return
+     */
     public Builder pcLink(String pcLink) {
       this.pcLink = pcLink;
       return this;
     }
 
+
+    /**
+     * 移动端 跳转链接，当用户使用飞书 移动端时，使用该字段进行跳转
+     * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages/detail?id=1234
+     *
+     * @param mobileLink
+     * @return
+     */
     public Builder mobileLink(String mobileLink) {
       this.mobileLink = mobileLink;
       return this;

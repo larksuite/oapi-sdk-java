@@ -18,9 +18,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class GetDailyReportReq {
 
+  /**
+   * 开始时间（unix时间，单位sec）
+   * <p> 示例值：1608888867
+   */
   @Query
   @SerializedName("start_time")
   private String startTime;
+  /**
+   * 结束时间（unix时间，单位sec）
+   * <p> 示例值：1608888966
+   */
   @Query
   @SerializedName("end_time")
   private String endTime;
@@ -30,7 +38,15 @@ public class GetDailyReportReq {
   }
 
   public GetDailyReportReq(Builder builder) {
+    /**
+     * 开始时间（unix时间，单位sec）
+     * <p> 示例值：1608888867
+     */
     this.startTime = builder.startTime;
+    /**
+     * 结束时间（unix时间，单位sec）
+     * <p> 示例值：1608888966
+     */
     this.endTime = builder.endTime;
   }
 
@@ -56,14 +72,30 @@ public class GetDailyReportReq {
 
   public static class Builder {
 
-    private String startTime;
-    private String endTime;
+    private String startTime; // 开始时间（unix时间，单位sec）
+    private String endTime; // 结束时间（unix时间，单位sec）
 
+
+    /**
+     * 开始时间（unix时间，单位sec）
+     * <p> 示例值：1608888867
+     *
+     * @param startTime
+     * @return
+     */
     public Builder startTime(String startTime) {
       this.startTime = startTime;
       return this;
     }
 
+
+    /**
+     * 结束时间（unix时间，单位sec）
+     * <p> 示例值：1608888966
+     *
+     * @param endTime
+     * @return
+     */
     public Builder endTime(String endTime) {
       this.endTime = endTime;
       return this;

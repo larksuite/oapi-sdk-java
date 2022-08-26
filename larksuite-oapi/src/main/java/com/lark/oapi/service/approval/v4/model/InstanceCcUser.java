@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class InstanceCcUser {
 
+  /**
+   * 抄送人 user id
+   * <p> 示例值：eea5gefe
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 审批实例内抄送唯一标识
+   * <p> 示例值：123445
+   */
   @SerializedName("cc_id")
   private String ccId;
+  /**
+   * 抄送人 open id
+   * <p> 示例值：ou_12345
+   */
   @SerializedName("open_id")
   private String openId;
 
@@ -29,8 +41,20 @@ public class InstanceCcUser {
   }
 
   public InstanceCcUser(Builder builder) {
+    /**
+     * 抄送人 user id
+     * <p> 示例值：eea5gefe
+     */
     this.userId = builder.userId;
+    /**
+     * 审批实例内抄送唯一标识
+     * <p> 示例值：123445
+     */
     this.ccId = builder.ccId;
+    /**
+     * 抄送人 open id
+     * <p> 示例值：ou_12345
+     */
     this.openId = builder.openId;
   }
 
@@ -64,20 +88,55 @@ public class InstanceCcUser {
 
   public static class Builder {
 
+    /**
+     * 抄送人 user id
+     * <p> 示例值：eea5gefe
+     */
     private String userId;
+    /**
+     * 审批实例内抄送唯一标识
+     * <p> 示例值：123445
+     */
     private String ccId;
+    /**
+     * 抄送人 open id
+     * <p> 示例值：ou_12345
+     */
     private String openId;
 
+    /**
+     * 抄送人 user id
+     * <p> 示例值：eea5gefe
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 审批实例内抄送唯一标识
+     * <p> 示例值：123445
+     *
+     * @param ccId
+     * @return
+     */
     public Builder ccId(String ccId) {
       this.ccId = ccId;
       return this;
     }
 
+
+    /**
+     * 抄送人 open id
+     * <p> 示例值：ou_12345
+     *
+     * @param openId
+     * @return
+     */
     public Builder openId(String openId) {
       this.openId = openId;
       return this;

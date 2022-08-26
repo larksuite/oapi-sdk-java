@@ -17,16 +17,40 @@ import com.google.gson.annotations.SerializedName;
 
 public class WorkExperience {
 
+  /**
+   * 公司
+   * <p> 示例值：XXXX公司
+   */
   @SerializedName("company")
   private String company;
+  /**
+   * 部门
+   * <p> 示例值：部门1
+   */
   @SerializedName("department")
   private String department;
+  /**
+   * 职位
+   * <p> 示例值：职位
+   */
   @SerializedName("job")
   private String job;
+  /**
+   * 开始日期
+   * <p> 示例值：2020-01-01
+   */
   @SerializedName("start")
   private String start;
+  /**
+   * 截止日期
+   * <p> 示例值：2020-01-01
+   */
   @SerializedName("end")
   private String end;
+  /**
+   * 工作描述
+   * <p> 示例值：工作描述
+   */
   @SerializedName("description")
   private String description;
 
@@ -35,11 +59,35 @@ public class WorkExperience {
   }
 
   public WorkExperience(Builder builder) {
+    /**
+     * 公司
+     * <p> 示例值：XXXX公司
+     */
     this.company = builder.company;
+    /**
+     * 部门
+     * <p> 示例值：部门1
+     */
     this.department = builder.department;
+    /**
+     * 职位
+     * <p> 示例值：职位
+     */
     this.job = builder.job;
+    /**
+     * 开始日期
+     * <p> 示例值：2020-01-01
+     */
     this.start = builder.start;
+    /**
+     * 截止日期
+     * <p> 示例值：2020-01-01
+     */
     this.end = builder.end;
+    /**
+     * 工作描述
+     * <p> 示例值：工作描述
+     */
     this.description = builder.description;
   }
 
@@ -97,38 +145,109 @@ public class WorkExperience {
 
   public static class Builder {
 
+    /**
+     * 公司
+     * <p> 示例值：XXXX公司
+     */
     private String company;
+    /**
+     * 部门
+     * <p> 示例值：部门1
+     */
     private String department;
+    /**
+     * 职位
+     * <p> 示例值：职位
+     */
     private String job;
+    /**
+     * 开始日期
+     * <p> 示例值：2020-01-01
+     */
     private String start;
+    /**
+     * 截止日期
+     * <p> 示例值：2020-01-01
+     */
     private String end;
+    /**
+     * 工作描述
+     * <p> 示例值：工作描述
+     */
     private String description;
 
+    /**
+     * 公司
+     * <p> 示例值：XXXX公司
+     *
+     * @param company
+     * @return
+     */
     public Builder company(String company) {
       this.company = company;
       return this;
     }
 
+
+    /**
+     * 部门
+     * <p> 示例值：部门1
+     *
+     * @param department
+     * @return
+     */
     public Builder department(String department) {
       this.department = department;
       return this;
     }
 
+
+    /**
+     * 职位
+     * <p> 示例值：职位
+     *
+     * @param job
+     * @return
+     */
     public Builder job(String job) {
       this.job = job;
       return this;
     }
 
+
+    /**
+     * 开始日期
+     * <p> 示例值：2020-01-01
+     *
+     * @param start
+     * @return
+     */
     public Builder start(String start) {
       this.start = start;
       return this;
     }
 
+
+    /**
+     * 截止日期
+     * <p> 示例值：2020-01-01
+     *
+     * @param end
+     * @return
+     */
     public Builder end(String end) {
       this.end = end;
       return this;
     }
 
+
+    /**
+     * 工作描述
+     * <p> 示例值：工作描述
+     *
+     * @param description
+     * @return
+     */
     public Builder description(String description) {
       this.description = description;
       return this;

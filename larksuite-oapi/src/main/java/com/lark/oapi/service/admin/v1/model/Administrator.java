@@ -17,10 +17,21 @@ import com.google.gson.annotations.SerializedName;
 
 public class Administrator {
 
+  /**
+   * <p> 示例值：
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 用户是否是超级管理员
+   * <p> 示例值：
+   */
   @SerializedName("is_super_administrator")
   private Boolean isSuperAdministrator;
+  /**
+   * 用户是否是管理员
+   * <p> 示例值：
+   */
   @SerializedName("is_administrator")
   private Boolean isAdministrator;
 
@@ -29,8 +40,20 @@ public class Administrator {
   }
 
   public Administrator(Builder builder) {
+    /**
+     *
+     * <p> 示例值：
+     */
     this.userId = builder.userId;
+    /**
+     * 用户是否是超级管理员
+     * <p> 示例值：
+     */
     this.isSuperAdministrator = builder.isSuperAdministrator;
+    /**
+     * 用户是否是管理员
+     * <p> 示例值：
+     */
     this.isAdministrator = builder.isAdministrator;
   }
 
@@ -64,20 +87,53 @@ public class Administrator {
 
   public static class Builder {
 
+    /**
+     * <p> 示例值：
+     */
     private String userId;
+    /**
+     * 用户是否是超级管理员
+     * <p> 示例值：
+     */
     private Boolean isSuperAdministrator;
+    /**
+     * 用户是否是管理员
+     * <p> 示例值：
+     */
     private Boolean isAdministrator;
 
+    /**
+     * <p> 示例值：
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 用户是否是超级管理员
+     * <p> 示例值：
+     *
+     * @param isSuperAdministrator
+     * @return
+     */
     public Builder isSuperAdministrator(Boolean isSuperAdministrator) {
       this.isSuperAdministrator = isSuperAdministrator;
       return this;
     }
 
+
+    /**
+     * 用户是否是管理员
+     * <p> 示例值：
+     *
+     * @param isAdministrator
+     * @return
+     */
     public Builder isAdministrator(Boolean isAdministrator) {
       this.isAdministrator = isAdministrator;
       return this;

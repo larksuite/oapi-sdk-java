@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2TaskUpdateTenantV1Data {
 
+  /**
+   * 用户 ID 列表
+   * <p> 示例值：
+   */
   @SerializedName("user_id_list")
   private UserIdList userIdList;
+  /**
+   * 任务的id
+   * <p> 示例值：24314cff-b7fe-438d-a232-b1a80a5f3371
+   */
   @SerializedName("task_id")
   private String taskId;
+  /**
+   * 变更的数据类型，可选值：;"task"，"collaborator"，"follower"
+   * <p> 示例值：task
+   */
   @SerializedName("object_type")
   private String objectType;
+  /**
+   * 事件类型，可选值：;"create"，"delete"，"update"
+   * <p> 示例值：update
+   */
   @SerializedName("event_type")
   private String eventType;
 

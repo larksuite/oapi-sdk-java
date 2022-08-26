@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.drive.v1.model.GetFileCommentReq;
 import com.lark.oapi.service.drive.v1.model.GetFileCommentResp;
 
-// HTTP PATH: /open-apis/drive/v1/files/:file_token/comments/:comment_id"
+// GET /open-apis/drive/v1/files/:file_token/comments/:comment_id
 public class GetFileCommentSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,8 +14,8 @@ public class GetFileCommentSample {
 
     // 创建请求对象
     GetFileCommentReq req = GetFileCommentReq.newBuilder()
-        .fileToken("")
-        .commentId("")
+        .fileToken("doccnHh7U87HOFpii5u5G*****")
+        .commentId("6916106822734578184")
         .fileType("doc")
         .userIdType("user_id")
         .build();

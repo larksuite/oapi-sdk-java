@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListAppTableView {
 
+  /**
+   * 视图信息
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private AppTableView[] items;
+  /**
+   * 下一页分页的token
+   * <p> 示例值：vewdHB3HyE
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 是否有下一页数据
+   * <p> 示例值：false
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 总数
+   * <p> 示例值：1
+   */
   @SerializedName("total")
   private Integer total;
 

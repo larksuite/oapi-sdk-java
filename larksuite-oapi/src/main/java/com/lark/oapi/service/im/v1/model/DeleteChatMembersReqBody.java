@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class DeleteChatMembersReqBody {
 
+  /**
+   * 成员列表
+   * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
+   */
   @SerializedName("id_list")
   private String[] idList;
 
@@ -25,6 +29,10 @@ public class DeleteChatMembersReqBody {
   }
 
   public DeleteChatMembersReqBody(Builder builder) {
+    /**
+     * 成员列表
+     * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
+     */
     this.idList = builder.idList;
   }
 
@@ -42,8 +50,19 @@ public class DeleteChatMembersReqBody {
 
   public static class Builder {
 
+    /**
+     * 成员列表
+     * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
+     */
     private String[] idList;
 
+    /**
+     * 成员列表
+     * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
+     *
+     * @param idList
+     * @return
+     */
     public Builder idList(String[] idList) {
       this.idList = idList;
       return this;

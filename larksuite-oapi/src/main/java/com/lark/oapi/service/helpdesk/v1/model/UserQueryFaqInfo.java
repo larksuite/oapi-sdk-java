@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserQueryFaqInfo {
 
+  /**
+   * faq服务台内唯一标识
+   * <p> 示例值：12345
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * faq匹配得分
+   * <p> 示例值：0.9
+   */
   @SerializedName("score")
   private Double score;
 
@@ -27,7 +35,15 @@ public class UserQueryFaqInfo {
   }
 
   public UserQueryFaqInfo(Builder builder) {
+    /**
+     * faq服务台内唯一标识
+     * <p> 示例值：12345
+     */
     this.id = builder.id;
+    /**
+     * faq匹配得分
+     * <p> 示例值：0.9
+     */
     this.score = builder.score;
   }
 
@@ -53,14 +69,37 @@ public class UserQueryFaqInfo {
 
   public static class Builder {
 
+    /**
+     * faq服务台内唯一标识
+     * <p> 示例值：12345
+     */
     private String id;
+    /**
+     * faq匹配得分
+     * <p> 示例值：0.9
+     */
     private Double score;
 
+    /**
+     * faq服务台内唯一标识
+     * <p> 示例值：12345
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * faq匹配得分
+     * <p> 示例值：0.9
+     *
+     * @param score
+     * @return
+     */
     public Builder score(Double score) {
       this.score = score;
       return this;

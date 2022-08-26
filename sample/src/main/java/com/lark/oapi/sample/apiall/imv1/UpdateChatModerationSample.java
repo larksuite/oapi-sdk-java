@@ -18,7 +18,7 @@ public class UpdateChatModerationSample {
         .chatId("oc_a0553eda9014c201e6969b478895c230")
         .userIdType("user_id")
         .updateChatModerationReqBody(UpdateChatModerationReqBody.newBuilder()
-            .moderationSetting("")
+            .moderationSetting("moderator_list")
             .moderatorAddedList(new String[]{})
             .moderatorRemovedList(new String[]{})
             .build())

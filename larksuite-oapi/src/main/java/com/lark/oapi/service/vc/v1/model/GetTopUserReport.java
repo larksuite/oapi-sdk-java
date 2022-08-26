@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetTopUserReport {
 
+  /**
+   * top用户列表
+   * <p> 示例值：
+   */
   @SerializedName("top_user_report")
   private ReportTopUser[] topUserReport;
 

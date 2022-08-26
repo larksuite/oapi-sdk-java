@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class I18nMeta {
 
+  /**
+   * 国际化字段：中文
+   * <p> 示例值：任务
+   */
   @SerializedName("zh_cn")
   private String zhCn;
+  /**
+   * 国际化字段：英文
+   * <p> 示例值：TODO
+   */
   @SerializedName("en_us")
   private String enUs;
+  /**
+   * 国际化字段：日文
+   * <p> 示例值：タスク
+   */
   @SerializedName("ja_jp")
   private String jaJp;
 
@@ -29,8 +41,20 @@ public class I18nMeta {
   }
 
   public I18nMeta(Builder builder) {
+    /**
+     * 国际化字段：中文
+     * <p> 示例值：任务
+     */
     this.zhCn = builder.zhCn;
+    /**
+     * 国际化字段：英文
+     * <p> 示例值：TODO
+     */
     this.enUs = builder.enUs;
+    /**
+     * 国际化字段：日文
+     * <p> 示例值：タスク
+     */
     this.jaJp = builder.jaJp;
   }
 
@@ -64,20 +88,55 @@ public class I18nMeta {
 
   public static class Builder {
 
+    /**
+     * 国际化字段：中文
+     * <p> 示例值：任务
+     */
     private String zhCn;
+    /**
+     * 国际化字段：英文
+     * <p> 示例值：TODO
+     */
     private String enUs;
+    /**
+     * 国际化字段：日文
+     * <p> 示例值：タスク
+     */
     private String jaJp;
 
+    /**
+     * 国际化字段：中文
+     * <p> 示例值：任务
+     *
+     * @param zhCn
+     * @return
+     */
     public Builder zhCn(String zhCn) {
       this.zhCn = zhCn;
       return this;
     }
 
+
+    /**
+     * 国际化字段：英文
+     * <p> 示例值：TODO
+     *
+     * @param enUs
+     * @return
+     */
     public Builder enUs(String enUs) {
       this.enUs = enUs;
       return this;
     }
 
+
+    /**
+     * 国际化字段：日文
+     * <p> 示例值：タスク
+     *
+     * @param jaJp
+     * @return
+     */
     public Builder jaJp(String jaJp) {
       this.jaJp = jaJp;
       return this;

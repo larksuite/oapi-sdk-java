@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class FieldGroup {
 
+  /**
+   * 可写权限的表单项的 id列表
+   * <p> 示例值：9293493
+   */
   @SerializedName("writable")
   private String[] writable;
+  /**
+   * 可读权限的表单项的 id列表
+   * <p> 示例值：9293493
+   */
   @SerializedName("readable")
   private String[] readable;
 
@@ -27,7 +35,15 @@ public class FieldGroup {
   }
 
   public FieldGroup(Builder builder) {
+    /**
+     * 可写权限的表单项的 id列表
+     * <p> 示例值：9293493
+     */
     this.writable = builder.writable;
+    /**
+     * 可读权限的表单项的 id列表
+     * <p> 示例值：9293493
+     */
     this.readable = builder.readable;
   }
 
@@ -53,14 +69,37 @@ public class FieldGroup {
 
   public static class Builder {
 
+    /**
+     * 可写权限的表单项的 id列表
+     * <p> 示例值：9293493
+     */
     private String[] writable;
+    /**
+     * 可读权限的表单项的 id列表
+     * <p> 示例值：9293493
+     */
     private String[] readable;
 
+    /**
+     * 可写权限的表单项的 id列表
+     * <p> 示例值：9293493
+     *
+     * @param writable
+     * @return
+     */
     public Builder writable(String[] writable) {
       this.writable = writable;
       return this;
     }
 
+
+    /**
+     * 可读权限的表单项的 id列表
+     * <p> 示例值：9293493
+     *
+     * @param readable
+     * @return
+     */
     public Builder readable(String[] readable) {
       this.readable = readable;
       return this;

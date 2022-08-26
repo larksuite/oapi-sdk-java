@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchUpdateDocumentBlockReqBody {
 
+  /**
+   * 批量更新 Block
+   * <p> 示例值：
+   */
   @SerializedName("requests")
   private UpdateBlockRequest[] requests;
 
@@ -25,6 +29,10 @@ public class BatchUpdateDocumentBlockReqBody {
   }
 
   public BatchUpdateDocumentBlockReqBody(Builder builder) {
+    /**
+     * 批量更新 Block
+     * <p> 示例值：
+     */
     this.requests = builder.requests;
   }
 
@@ -42,8 +50,19 @@ public class BatchUpdateDocumentBlockReqBody {
 
   public static class Builder {
 
+    /**
+     * 批量更新 Block
+     * <p> 示例值：
+     */
     private UpdateBlockRequest[] requests;
 
+    /**
+     * 批量更新 Block
+     * <p> 示例值：
+     *
+     * @param requests
+     * @return
+     */
     public Builder requests(UpdateBlockRequest[] requests) {
       this.requests = requests;
       return this;

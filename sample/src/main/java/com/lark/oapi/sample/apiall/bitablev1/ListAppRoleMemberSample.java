@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.bitable.v1.model.ListAppRoleMemberReq;
 import com.lark.oapi.service.bitable.v1.model.ListAppRoleMemberResp;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/roles/:role_id/members"
+// GET /open-apis/bitable/v1/apps/:app_token/roles/:role_id/members
 public class ListAppRoleMemberSample {
 
   public static void main(String arg[]) throws Exception {

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.task.v1.model.DeleteTaskCollaboratorReq;
 import com.lark.oapi.service.task.v1.model.DeleteTaskCollaboratorResp;
 
-// HTTP PATH: /open-apis/task/v1/tasks/:task_id/collaborators/:collaborator_id"
+// DELETE /open-apis/task/v1/tasks/:task_id/collaborators/:collaborator_id
 public class DeleteTaskCollaboratorSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,6 +16,7 @@ public class DeleteTaskCollaboratorSample {
     DeleteTaskCollaboratorReq req = DeleteTaskCollaboratorReq.newBuilder()
         .taskId("83912691-2e43-47fc-94a4-d512e03984fa")
         .collaboratorId("ou_99e1a581b36ecc4862cbfbce123f346a")
+        .userIdType("user_id")
         .build();
 
     // 发起请求

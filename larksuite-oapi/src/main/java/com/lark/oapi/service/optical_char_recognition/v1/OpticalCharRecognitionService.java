@@ -31,6 +31,11 @@ public class OpticalCharRecognitionService {
     this.image = new Image(config);
   }
 
+  /**
+   * 图片识别
+   *
+   * @return
+   */
   public Image image() {
     return image;
   }
@@ -43,6 +48,14 @@ public class OpticalCharRecognitionService {
       this.config = config;
     }
 
+    /**
+     * 基础图片识别 (OCR)，可识别图片中的文字，按图片中的区域划分，分段返回文本列表
+     * <p> 单租户限流：20QPS，同租户下的应用没有限流，共享本租户的 20QPS 限流 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/optical_char_recognition-v1/image/basic_recognize">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/optical_char_recognition-v1/image/basic_recognize</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/optical_char_recognitionv1//BasicRecognizeImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/optical_char_recognitionv1//BasicRecognizeImageSample.java</a>
+     * ;
+     */
     public BasicRecognizeImageResp basicRecognize(BasicRecognizeImageReq req,
         RequestOptions reqOptions) throws Exception {
       // 请求参数选项
@@ -65,6 +78,14 @@ public class OpticalCharRecognitionService {
       return resp;
     }
 
+    /**
+     * 基础图片识别 (OCR)，可识别图片中的文字，按图片中的区域划分，分段返回文本列表
+     * <p> 单租户限流：20QPS，同租户下的应用没有限流，共享本租户的 20QPS 限流 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/optical_char_recognition-v1/image/basic_recognize">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/optical_char_recognition-v1/image/basic_recognize</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/optical_char_recognitionv1//BasicRecognizeImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/optical_char_recognitionv1//BasicRecognizeImageSample.java</a>
+     * ;
+     */
     public BasicRecognizeImageResp basicRecognize(BasicRecognizeImageReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.admin.v1.model.ListBadgeReq;
 import com.lark.oapi.service.admin.v1.model.ListBadgeResp;
 
-// HTTP PATH: /open-apis/admin/v1/badges"
+// GET /open-apis/admin/v1/badges
 public class ListBadgeSample {
 
   public static void main(String arg[]) throws Exception {

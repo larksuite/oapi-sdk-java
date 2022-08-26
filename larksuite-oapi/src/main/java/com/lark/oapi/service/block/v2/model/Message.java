@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class Message {
 
+  /**
+   * 消息体
+   * <p> 示例值：{"id":"7094066727704592403","token":"test_123456789"}
+   */
   @SerializedName("body")
   private String body;
+  /**
+   * 版本号(自增)
+   * <p> 示例值：1637565292196
+   */
   @SerializedName("version")
   private String version;
+  /**
+   * entity实体ID
+   * <p> 示例值：8116040162664047375
+   */
   @SerializedName("block_id")
   private String blockId;
+  /**
+   * 业务来源
+   * <p> 示例值：read_block
+   */
   @SerializedName("resource")
   private String resource;
+  /**
+   * 推送用户列表
+   * <p> 示例值：["ou_fa7aa170f92d1615de63371ac425a767"]
+   */
   @SerializedName("open_ids")
   private String[] openIds;
 
@@ -33,10 +53,30 @@ public class Message {
   }
 
   public Message(Builder builder) {
+    /**
+     * 消息体
+     * <p> 示例值：{"id":"7094066727704592403","token":"test_123456789"}
+     */
     this.body = builder.body;
+    /**
+     * 版本号(自增)
+     * <p> 示例值：1637565292196
+     */
     this.version = builder.version;
+    /**
+     * entity实体ID
+     * <p> 示例值：8116040162664047375
+     */
     this.blockId = builder.blockId;
+    /**
+     * 业务来源
+     * <p> 示例值：read_block
+     */
     this.resource = builder.resource;
+    /**
+     * 推送用户列表
+     * <p> 示例值：["ou_fa7aa170f92d1615de63371ac425a767"]
+     */
     this.openIds = builder.openIds;
   }
 
@@ -86,32 +126,91 @@ public class Message {
 
   public static class Builder {
 
+    /**
+     * 消息体
+     * <p> 示例值：{"id":"7094066727704592403","token":"test_123456789"}
+     */
     private String body;
+    /**
+     * 版本号(自增)
+     * <p> 示例值：1637565292196
+     */
     private String version;
+    /**
+     * entity实体ID
+     * <p> 示例值：8116040162664047375
+     */
     private String blockId;
+    /**
+     * 业务来源
+     * <p> 示例值：read_block
+     */
     private String resource;
+    /**
+     * 推送用户列表
+     * <p> 示例值：["ou_fa7aa170f92d1615de63371ac425a767"]
+     */
     private String[] openIds;
 
+    /**
+     * 消息体
+     * <p> 示例值：{"id":"7094066727704592403","token":"test_123456789"}
+     *
+     * @param body
+     * @return
+     */
     public Builder body(String body) {
       this.body = body;
       return this;
     }
 
+
+    /**
+     * 版本号(自增)
+     * <p> 示例值：1637565292196
+     *
+     * @param version
+     * @return
+     */
     public Builder version(String version) {
       this.version = version;
       return this;
     }
 
+
+    /**
+     * entity实体ID
+     * <p> 示例值：8116040162664047375
+     *
+     * @param blockId
+     * @return
+     */
     public Builder blockId(String blockId) {
       this.blockId = blockId;
       return this;
     }
 
+
+    /**
+     * 业务来源
+     * <p> 示例值：read_block
+     *
+     * @param resource
+     * @return
+     */
     public Builder resource(String resource) {
       this.resource = resource;
       return this;
     }
 
+
+    /**
+     * 推送用户列表
+     * <p> 示例值：["ou_fa7aa170f92d1615de63371ac425a767"]
+     *
+     * @param openIds
+     * @return
+     */
     public Builder openIds(String[] openIds) {
       this.openIds = openIds;
       return this;

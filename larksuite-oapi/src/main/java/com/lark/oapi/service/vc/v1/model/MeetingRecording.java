@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class MeetingRecording {
 
+  /**
+   * 录制ID
+   * <p> 示例值：6911188411932033028
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * 会议ID
+   * <p> 示例值：6911188411932033028
+   */
   @SerializedName("meeting_id")
   private String meetingId;
+  /**
+   * 录制文件URL
+   * <p> 示例值：https://meetings.feishu.cn/minutes/obcn37dxcftoc3656rgyejm7
+   */
   @SerializedName("url")
   private String url;
+  /**
+   * 录制总时长（单位msec）
+   * <p> 示例值：30000
+   */
   @SerializedName("duration")
   private String duration;
 
@@ -31,9 +47,25 @@ public class MeetingRecording {
   }
 
   public MeetingRecording(Builder builder) {
+    /**
+     * 录制ID
+     * <p> 示例值：6911188411932033028
+     */
     this.id = builder.id;
+    /**
+     * 会议ID
+     * <p> 示例值：6911188411932033028
+     */
     this.meetingId = builder.meetingId;
+    /**
+     * 录制文件URL
+     * <p> 示例值：https://meetings.feishu.cn/minutes/obcn37dxcftoc3656rgyejm7
+     */
     this.url = builder.url;
+    /**
+     * 录制总时长（单位msec）
+     * <p> 示例值：30000
+     */
     this.duration = builder.duration;
   }
 
@@ -75,26 +107,73 @@ public class MeetingRecording {
 
   public static class Builder {
 
+    /**
+     * 录制ID
+     * <p> 示例值：6911188411932033028
+     */
     private String id;
+    /**
+     * 会议ID
+     * <p> 示例值：6911188411932033028
+     */
     private String meetingId;
+    /**
+     * 录制文件URL
+     * <p> 示例值：https://meetings.feishu.cn/minutes/obcn37dxcftoc3656rgyejm7
+     */
     private String url;
+    /**
+     * 录制总时长（单位msec）
+     * <p> 示例值：30000
+     */
     private String duration;
 
+    /**
+     * 录制ID
+     * <p> 示例值：6911188411932033028
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 会议ID
+     * <p> 示例值：6911188411932033028
+     *
+     * @param meetingId
+     * @return
+     */
     public Builder meetingId(String meetingId) {
       this.meetingId = meetingId;
       return this;
     }
 
+
+    /**
+     * 录制文件URL
+     * <p> 示例值：https://meetings.feishu.cn/minutes/obcn37dxcftoc3656rgyejm7
+     *
+     * @param url
+     * @return
+     */
     public Builder url(String url) {
       this.url = url;
       return this;
     }
 
+
+    /**
+     * 录制总时长（单位msec）
+     * <p> 示例值：30000
+     *
+     * @param duration
+     * @return
+     */
     public Builder duration(String duration) {
       this.duration = duration;
       return this;

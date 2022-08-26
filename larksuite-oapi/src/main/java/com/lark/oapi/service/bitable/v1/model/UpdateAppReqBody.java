@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateAppReqBody {
 
+  /**
+   * 新的多维表格名字
+   * <p> 示例值：新的多维表格名字
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 多维表格是否开启高级权限
+   * <p> 示例值：false
+   */
   @SerializedName("is_advanced")
   private Boolean isAdvanced;
 
@@ -27,7 +35,15 @@ public class UpdateAppReqBody {
   }
 
   public UpdateAppReqBody(Builder builder) {
+    /**
+     * 新的多维表格名字
+     * <p> 示例值：新的多维表格名字
+     */
     this.name = builder.name;
+    /**
+     * 多维表格是否开启高级权限
+     * <p> 示例值：false
+     */
     this.isAdvanced = builder.isAdvanced;
   }
 
@@ -53,14 +69,37 @@ public class UpdateAppReqBody {
 
   public static class Builder {
 
+    /**
+     * 新的多维表格名字
+     * <p> 示例值：新的多维表格名字
+     */
     private String name;
+    /**
+     * 多维表格是否开启高级权限
+     * <p> 示例值：false
+     */
     private Boolean isAdvanced;
 
+    /**
+     * 新的多维表格名字
+     * <p> 示例值：新的多维表格名字
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 多维表格是否开启高级权限
+     * <p> 示例值：false
+     *
+     * @param isAdvanced
+     * @return
+     */
     public Builder isAdvanced(Boolean isAdvanced) {
       this.isAdvanced = isAdvanced;
       return this;

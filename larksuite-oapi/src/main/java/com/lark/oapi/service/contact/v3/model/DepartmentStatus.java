@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class DepartmentStatus {
 
+  /**
+   * 是否被删除
+   * <p> 示例值：false
+   */
   @SerializedName("is_deleted")
   private Boolean isDeleted;
 
@@ -25,6 +29,10 @@ public class DepartmentStatus {
   }
 
   public DepartmentStatus(Builder builder) {
+    /**
+     * 是否被删除
+     * <p> 示例值：false
+     */
     this.isDeleted = builder.isDeleted;
   }
 
@@ -42,8 +50,19 @@ public class DepartmentStatus {
 
   public static class Builder {
 
+    /**
+     * 是否被删除
+     * <p> 示例值：false
+     */
     private Boolean isDeleted;
 
+    /**
+     * 是否被删除
+     * <p> 示例值：false
+     *
+     * @param isDeleted
+     * @return
+     */
     public Builder isDeleted(Boolean isDeleted) {
       this.isDeleted = isDeleted;
       return this;

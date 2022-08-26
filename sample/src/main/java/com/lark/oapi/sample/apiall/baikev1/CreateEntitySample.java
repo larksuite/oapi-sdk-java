@@ -9,7 +9,7 @@ import com.lark.oapi.service.baike.v1.model.OuterInfo;
 import com.lark.oapi.service.baike.v1.model.RelatedMeta;
 import com.lark.oapi.service.baike.v1.model.Term;
 
-// HTTP PATH: /open-apis/baike/v1/entities"
+// POST /open-apis/baike/v1/entities
 public class CreateEntitySample {
 
   public static void main(String arg[]) throws Exception {

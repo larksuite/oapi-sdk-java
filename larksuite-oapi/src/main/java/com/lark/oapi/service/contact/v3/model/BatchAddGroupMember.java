@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchAddGroupMember {
 
+  /**
+   * 成员添加操作结果
+   * <p> 示例值：
+   */
   @SerializedName("results")
   private MemberResult[] results;
 

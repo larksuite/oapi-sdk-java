@@ -7,7 +7,7 @@ import com.lark.oapi.service.calendar.v4.model.CalendarAcl;
 import com.lark.oapi.service.calendar.v4.model.CreateCalendarAclReq;
 import com.lark.oapi.service.calendar.v4.model.CreateCalendarAclResp;
 
-// HTTP PATH: /open-apis/calendar/v4/calendars/:calendar_id/acls"
+// POST /open-apis/calendar/v4/calendars/:calendar_id/acls
 public class CreateCalendarAclSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class CreateCalendarAclSample {
 
     // 创建请求对象
     CreateCalendarAclReq req = CreateCalendarAclReq.newBuilder()
-        .calendarId("")
+        .calendarId("feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn")
         .userIdType("user_id")
         .calendarAcl(CalendarAcl.newBuilder()
             .role("unknown")

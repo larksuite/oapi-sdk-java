@@ -7,7 +7,7 @@ import com.lark.oapi.service.admin.v1.model.CreateBadgeImageReqBody;
 import com.lark.oapi.service.admin.v1.model.CreateBadgeImageResp;
 import java.io.File;
 
-// HTTP PATH: /open-apis/admin/v1/badge_images"
+// POST /open-apis/admin/v1/badge_images
 public class CreateBadgeImageSample {
 
   public static void main(String arg[]) throws Exception {

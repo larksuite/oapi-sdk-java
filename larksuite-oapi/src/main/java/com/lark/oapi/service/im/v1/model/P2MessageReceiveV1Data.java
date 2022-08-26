@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2MessageReceiveV1Data {
 
+  /**
+   * 事件的发送者
+   * <p> 示例值：
+   */
   @SerializedName("sender")
   private EventSender sender;
+  /**
+   * 事件中包含的消息内容
+   * <p> 示例值：
+   */
   @SerializedName("message")
   private EventMessage message;
 

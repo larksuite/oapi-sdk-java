@@ -48,6 +48,12 @@ public class UploadPrepareMediaReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder mediaUploadInfo(MediaUploadInfo body) {
       this.body = body;
       return this;

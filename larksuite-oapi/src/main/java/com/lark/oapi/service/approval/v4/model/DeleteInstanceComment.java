@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class DeleteInstanceComment {
 
+  /**
+   * 删除的评论ID
+   * <p> 示例值：7081516627711606803
+   */
   @SerializedName("comment_id")
   private String commentId;
 

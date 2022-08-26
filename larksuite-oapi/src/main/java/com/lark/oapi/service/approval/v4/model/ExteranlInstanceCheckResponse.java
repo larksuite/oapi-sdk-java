@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ExteranlInstanceCheckResponse {
 
+  /**
+   * 审批实例 id
+   * <p> 示例值：1234234234242423
+   */
   @SerializedName("instance_id")
   private String instanceId;
+  /**
+   * 任务最近更新时间
+   * <p> 示例值：1591603040000
+   */
   @SerializedName("update_time")
   private String updateTime;
+  /**
+   * 任务信息
+   * <p> 示例值：
+   */
   @SerializedName("tasks")
   private ExternalInstanceTask[] tasks;
 
@@ -29,8 +41,20 @@ public class ExteranlInstanceCheckResponse {
   }
 
   public ExteranlInstanceCheckResponse(Builder builder) {
+    /**
+     * 审批实例 id
+     * <p> 示例值：1234234234242423
+     */
     this.instanceId = builder.instanceId;
+    /**
+     * 任务最近更新时间
+     * <p> 示例值：1591603040000
+     */
     this.updateTime = builder.updateTime;
+    /**
+     * 任务信息
+     * <p> 示例值：
+     */
     this.tasks = builder.tasks;
   }
 
@@ -64,20 +88,55 @@ public class ExteranlInstanceCheckResponse {
 
   public static class Builder {
 
+    /**
+     * 审批实例 id
+     * <p> 示例值：1234234234242423
+     */
     private String instanceId;
+    /**
+     * 任务最近更新时间
+     * <p> 示例值：1591603040000
+     */
     private String updateTime;
+    /**
+     * 任务信息
+     * <p> 示例值：
+     */
     private ExternalInstanceTask[] tasks;
 
+    /**
+     * 审批实例 id
+     * <p> 示例值：1234234234242423
+     *
+     * @param instanceId
+     * @return
+     */
     public Builder instanceId(String instanceId) {
       this.instanceId = instanceId;
       return this;
     }
 
+
+    /**
+     * 任务最近更新时间
+     * <p> 示例值：1591603040000
+     *
+     * @param updateTime
+     * @return
+     */
     public Builder updateTime(String updateTime) {
       this.updateTime = updateTime;
       return this;
     }
 
+
+    /**
+     * 任务信息
+     * <p> 示例值：
+     *
+     * @param tasks
+     * @return
+     */
     public Builder tasks(ExternalInstanceTask[] tasks) {
       this.tasks = tasks;
       return this;

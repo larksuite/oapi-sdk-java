@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateInstance {
 
+  /**
+   * 审批实例 Code
+   * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+   */
   @SerializedName("instance_code")
   private String instanceCode;
 

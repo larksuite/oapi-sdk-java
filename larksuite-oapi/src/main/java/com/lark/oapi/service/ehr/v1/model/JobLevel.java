@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class JobLevel {
 
+  /**
+   * 职级 ID
+   * <p> 示例值：1695838220091399
+   */
   @SerializedName("id")
   private Long id;
+  /**
+   * 职级名称
+   * <p> 示例值：CEO
+   */
   @SerializedName("name")
   private String name;
 
@@ -27,7 +35,15 @@ public class JobLevel {
   }
 
   public JobLevel(Builder builder) {
+    /**
+     * 职级 ID
+     * <p> 示例值：1695838220091399
+     */
     this.id = builder.id;
+    /**
+     * 职级名称
+     * <p> 示例值：CEO
+     */
     this.name = builder.name;
   }
 
@@ -53,14 +69,37 @@ public class JobLevel {
 
   public static class Builder {
 
+    /**
+     * 职级 ID
+     * <p> 示例值：1695838220091399
+     */
     private Long id;
+    /**
+     * 职级名称
+     * <p> 示例值：CEO
+     */
     private String name;
 
+    /**
+     * 职级 ID
+     * <p> 示例值：1695838220091399
+     *
+     * @param id
+     * @return
+     */
     public Builder id(Long id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 职级名称
+     * <p> 示例值：CEO
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;

@@ -6,7 +6,7 @@ import com.lark.oapi.service.approval.v4.model.RejectTaskReq;
 import com.lark.oapi.service.approval.v4.model.RejectTaskResp;
 import com.lark.oapi.service.approval.v4.model.TaskApprove;
 
-// HTTP PATH: /open-apis/approval/v4/tasks/reject"
+// POST /open-apis/approval/v4/tasks/reject
 public class RejectTaskSample {
 
   public static void main(String arg[]) throws Exception {
@@ -22,6 +22,7 @@ public class RejectTaskSample {
             .userId("f7cb567e")
             .comment("OK")
             .taskId("12345")
+            .form("")
             .build())
         .build();
 

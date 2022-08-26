@@ -6,7 +6,7 @@ import com.lark.oapi.service.attendance.v1.model.SearchGroupReq;
 import com.lark.oapi.service.attendance.v1.model.SearchGroupReqBody;
 import com.lark.oapi.service.attendance.v1.model.SearchGroupResp;
 
-// HTTP PATH: /open-apis/attendance/v1/groups/search"
+// POST /open-apis/attendance/v1/groups/search
 public class SearchGroupSample {
 
   public static void main(String arg[]) throws Exception {

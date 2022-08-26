@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListMailgroupMember {
 
+  /**
+   * 是否有下一页数据
+   * <p> 示例值：true
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 下一页分页的token
+   * <p> 示例值：xxx
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 邮件组成员列表
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private MailgroupMember[] items;
 

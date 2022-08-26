@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class GetGroupReq {
 
+  /**
+   * 用户组ID
+   * <p> 示例值：g193821
+   */
   @Path
   @SerializedName("group_id")
   private String groupId;
@@ -27,6 +31,10 @@ public class GetGroupReq {
   }
 
   public GetGroupReq(Builder builder) {
+    /**
+     * 用户组ID
+     * <p> 示例值：g193821
+     */
     this.groupId = builder.groupId;
   }
 
@@ -44,8 +52,15 @@ public class GetGroupReq {
 
   public static class Builder {
 
-    private String groupId;
+    private String groupId; // 用户组ID
 
+    /**
+     * 用户组ID
+     * <p> 示例值：g193821
+     *
+     * @param groupId
+     * @return
+     */
     public Builder groupId(String groupId) {
       this.groupId = groupId;
       return this;

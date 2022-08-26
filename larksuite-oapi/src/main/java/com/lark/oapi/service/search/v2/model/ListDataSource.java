@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListDataSource {
 
+  /**
+   * 是否有更多数据
+   * <p> 示例值：
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 取数据的凭证
+   * <p> 示例值：
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 数据源中的数据记录
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private DataSource[] items;
 

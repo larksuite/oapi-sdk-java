@@ -48,6 +48,12 @@ public class SubscribeEventReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder subscribeEventReqBody(SubscribeEventReqBody body) {
       this.body = body;
       return this;

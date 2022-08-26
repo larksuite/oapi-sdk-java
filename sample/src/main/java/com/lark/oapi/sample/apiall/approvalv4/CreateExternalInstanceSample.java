@@ -10,8 +10,9 @@ import com.lark.oapi.service.approval.v4.model.ExternalInstanceForm;
 import com.lark.oapi.service.approval.v4.model.ExternalInstanceLink;
 import com.lark.oapi.service.approval.v4.model.ExternalInstanceTaskNode;
 import com.lark.oapi.service.approval.v4.model.I18nResource;
+import com.lark.oapi.service.approval.v4.model.TrusteeshipUrls;
 
-// HTTP PATH: /open-apis/approval/v4/external_instances"
+// POST /open-apis/approval/v4/external_instances
 public class CreateExternalInstanceSample {
 
   public static void main(String arg[]) throws Exception {
@@ -41,6 +42,9 @@ public class CreateExternalInstanceSample {
             .taskList(new ExternalInstanceTaskNode[]{})
             .ccList(new CcNode[]{})
             .i18nResources(new I18nResource[]{})
+            .trusteeshipUrlToken("788981c886b1c28ac29d1e68efd60683d6d90dfce80938ee9453e2a5f3e9e306")
+            .trusteeshipUserIdType("user_id")
+            .trusteeshipUrls(TrusteeshipUrls.newBuilder().build())
             .build())
         .build();
 

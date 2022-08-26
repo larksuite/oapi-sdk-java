@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.admin.v1.model.DeleteBadgeGrantReq;
 import com.lark.oapi.service.admin.v1.model.DeleteBadgeGrantResp;
 
-// HTTP PATH: /open-apis/admin/v1/badges/:badge_id/grants/:grant_id"
+// DELETE /open-apis/admin/v1/badges/:badge_id/grants/:grant_id
 public class DeleteBadgeGrantSample {
 
   public static void main(String arg[]) throws Exception {

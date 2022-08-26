@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.drive.v1.model.GetFileStatisticsReq;
 import com.lark.oapi.service.drive.v1.model.GetFileStatisticsResp;
 
-// HTTP PATH: /open-apis/drive/v1/files/:file_token/statistics"
+// GET /open-apis/drive/v1/files/:file_token/statistics
 public class GetFileStatisticsSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class GetFileStatisticsSample {
 
     // 创建请求对象
     GetFileStatisticsReq req = GetFileStatisticsReq.newBuilder()
-        .fileToken("")
+        .fileToken("doccnfYZzTlvXqZIGTdAHKabcef")
         .fileType("doc")
         .build();
 

@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ChatMemberUser {
 
+  /**
+   * 用户名字
+   * <p> 示例值：user name
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 租户 Key
+   * <p> 示例值：3774yuu3743
+   */
   @SerializedName("tenant_key")
   private String tenantKey;
+  /**
+   * 用户 ID
+   * <p> 示例值：
+   */
   @SerializedName("user_id")
   private UserId userId;
 
@@ -29,8 +41,20 @@ public class ChatMemberUser {
   }
 
   public ChatMemberUser(Builder builder) {
+    /**
+     * 用户名字
+     * <p> 示例值：user name
+     */
     this.name = builder.name;
+    /**
+     * 租户 Key
+     * <p> 示例值：3774yuu3743
+     */
     this.tenantKey = builder.tenantKey;
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     */
     this.userId = builder.userId;
   }
 
@@ -64,20 +88,55 @@ public class ChatMemberUser {
 
   public static class Builder {
 
+    /**
+     * 用户名字
+     * <p> 示例值：user name
+     */
     private String name;
+    /**
+     * 租户 Key
+     * <p> 示例值：3774yuu3743
+     */
     private String tenantKey;
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     */
     private UserId userId;
 
+    /**
+     * 用户名字
+     * <p> 示例值：user name
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 租户 Key
+     * <p> 示例值：3774yuu3743
+     *
+     * @param tenantKey
+     * @return
+     */
     public Builder tenantKey(String tenantKey) {
       this.tenantKey = tenantKey;
       return this;
     }
 
+
+    /**
+     * 用户 ID
+     * <p> 示例值：
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(UserId userId) {
       this.userId = userId;
       return this;

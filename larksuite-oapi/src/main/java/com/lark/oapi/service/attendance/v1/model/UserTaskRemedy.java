@@ -17,28 +17,76 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserTaskRemedy {
 
+  /**
+   * 用户 ID
+   * <p> 示例值：abd754f7
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 补卡日期
+   * <p> 示例值：20210701
+   */
   @SerializedName("remedy_date")
   private Integer remedyDate;
+  /**
+   * 第几次上下班，0：第 1 次上下班，1：第 2 次上下班，2：第 3 次上下班，自由班制填 0
+   * <p> 示例值：0
+   */
   @SerializedName("punch_no")
   private Integer punchNo;
+  /**
+   * 上班 / 下班，1：上班，2：下班，自由班制填 0
+   * <p> 示例值：1
+   */
   @SerializedName("work_type")
   private Integer workType;
+  /**
+   * 审批 ID
+   * <p> 示例值：6737202939523236113
+   */
   @SerializedName("approval_id")
   private String approvalId;
+  /**
+   * 补卡时间，时间格式为 yyyy-MM-dd HH:mm
+   * <p> 示例值：2021-07-01 08:00
+   */
   @SerializedName("remedy_time")
   private String remedyTime;
+  /**
+   * 补卡状态（默认为审批中）
+   * <p> 示例值：2
+   */
   @SerializedName("status")
   private Integer status;
+  /**
+   * 补卡原因
+   * <p> 示例值：忘记打卡
+   */
   @SerializedName("reason")
   private String reason;
+  /**
+   * 补卡时间，精确到秒的时间戳
+   * <p> 示例值：1611476284
+   */
   @SerializedName("time")
   private String time;
+  /**
+   * 补卡时考勤组时区
+   * <p> 示例值：Asia/Shanghai
+   */
   @SerializedName("time_zone")
   private String timeZone;
+  /**
+   * 补卡发起时间，精确到秒的时间戳
+   * <p> 示例值：1611476284
+   */
   @SerializedName("create_time")
   private String createTime;
+  /**
+   * 补卡状态更新时间，精确到秒的时间戳
+   * <p> 示例值：1611476284
+   */
   @SerializedName("update_time")
   private String updateTime;
 
@@ -47,17 +95,65 @@ public class UserTaskRemedy {
   }
 
   public UserTaskRemedy(Builder builder) {
+    /**
+     * 用户 ID
+     * <p> 示例值：abd754f7
+     */
     this.userId = builder.userId;
+    /**
+     * 补卡日期
+     * <p> 示例值：20210701
+     */
     this.remedyDate = builder.remedyDate;
+    /**
+     * 第几次上下班，0：第 1 次上下班，1：第 2 次上下班，2：第 3 次上下班，自由班制填 0
+     * <p> 示例值：0
+     */
     this.punchNo = builder.punchNo;
+    /**
+     * 上班 / 下班，1：上班，2：下班，自由班制填 0
+     * <p> 示例值：1
+     */
     this.workType = builder.workType;
+    /**
+     * 审批 ID
+     * <p> 示例值：6737202939523236113
+     */
     this.approvalId = builder.approvalId;
+    /**
+     * 补卡时间，时间格式为 yyyy-MM-dd HH:mm
+     * <p> 示例值：2021-07-01 08:00
+     */
     this.remedyTime = builder.remedyTime;
+    /**
+     * 补卡状态（默认为审批中）
+     * <p> 示例值：2
+     */
     this.status = builder.status;
+    /**
+     * 补卡原因
+     * <p> 示例值：忘记打卡
+     */
     this.reason = builder.reason;
+    /**
+     * 补卡时间，精确到秒的时间戳
+     * <p> 示例值：1611476284
+     */
     this.time = builder.time;
+    /**
+     * 补卡时考勤组时区
+     * <p> 示例值：Asia/Shanghai
+     */
     this.timeZone = builder.timeZone;
+    /**
+     * 补卡发起时间，精确到秒的时间戳
+     * <p> 示例值：1611476284
+     */
     this.createTime = builder.createTime;
+    /**
+     * 补卡状态更新时间，精确到秒的时间戳
+     * <p> 示例值：1611476284
+     */
     this.updateTime = builder.updateTime;
   }
 
@@ -163,79 +259,230 @@ public class UserTaskRemedy {
 
   public static class Builder {
 
+    /**
+     * 用户 ID
+     * <p> 示例值：abd754f7
+     */
     private String userId;
+    /**
+     * 补卡日期
+     * <p> 示例值：20210701
+     */
     private Integer remedyDate;
+    /**
+     * 第几次上下班，0：第 1 次上下班，1：第 2 次上下班，2：第 3 次上下班，自由班制填 0
+     * <p> 示例值：0
+     */
     private Integer punchNo;
+    /**
+     * 上班 / 下班，1：上班，2：下班，自由班制填 0
+     * <p> 示例值：1
+     */
     private Integer workType;
+    /**
+     * 审批 ID
+     * <p> 示例值：6737202939523236113
+     */
     private String approvalId;
+    /**
+     * 补卡时间，时间格式为 yyyy-MM-dd HH:mm
+     * <p> 示例值：2021-07-01 08:00
+     */
     private String remedyTime;
+    /**
+     * 补卡状态（默认为审批中）
+     * <p> 示例值：2
+     */
     private Integer status;
+    /**
+     * 补卡原因
+     * <p> 示例值：忘记打卡
+     */
     private String reason;
+    /**
+     * 补卡时间，精确到秒的时间戳
+     * <p> 示例值：1611476284
+     */
     private String time;
+    /**
+     * 补卡时考勤组时区
+     * <p> 示例值：Asia/Shanghai
+     */
     private String timeZone;
+    /**
+     * 补卡发起时间，精确到秒的时间戳
+     * <p> 示例值：1611476284
+     */
     private String createTime;
+    /**
+     * 补卡状态更新时间，精确到秒的时间戳
+     * <p> 示例值：1611476284
+     */
     private String updateTime;
 
+    /**
+     * 用户 ID
+     * <p> 示例值：abd754f7
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 补卡日期
+     * <p> 示例值：20210701
+     *
+     * @param remedyDate
+     * @return
+     */
     public Builder remedyDate(Integer remedyDate) {
       this.remedyDate = remedyDate;
       return this;
     }
 
+
+    /**
+     * 第几次上下班，0：第 1 次上下班，1：第 2 次上下班，2：第 3 次上下班，自由班制填 0
+     * <p> 示例值：0
+     *
+     * @param punchNo
+     * @return
+     */
     public Builder punchNo(Integer punchNo) {
       this.punchNo = punchNo;
       return this;
     }
 
+
+    /**
+     * 上班 / 下班，1：上班，2：下班，自由班制填 0
+     * <p> 示例值：1
+     *
+     * @param workType
+     * @return
+     */
     public Builder workType(Integer workType) {
       this.workType = workType;
       return this;
     }
 
+
+    /**
+     * 审批 ID
+     * <p> 示例值：6737202939523236113
+     *
+     * @param approvalId
+     * @return
+     */
     public Builder approvalId(String approvalId) {
       this.approvalId = approvalId;
       return this;
     }
 
+
+    /**
+     * 补卡时间，时间格式为 yyyy-MM-dd HH:mm
+     * <p> 示例值：2021-07-01 08:00
+     *
+     * @param remedyTime
+     * @return
+     */
     public Builder remedyTime(String remedyTime) {
       this.remedyTime = remedyTime;
       return this;
     }
 
+
+    /**
+     * 补卡状态（默认为审批中）
+     * <p> 示例值：2
+     *
+     * @param status
+     * @return
+     */
     public Builder status(Integer status) {
       this.status = status;
       return this;
     }
 
-    public Builder status(com.lark.oapi.service.attendance.v1.enums.StatusEnum status) {
+    /**
+     * 补卡状态（默认为审批中）
+     * <p> 示例值：2
+     *
+     * @param status {@link com.lark.oapi.service.attendance.v1.enums.UserTaskRemedyStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.attendance.v1.enums.UserTaskRemedyStatusEnum status) {
       this.status = status.getValue();
       return this;
     }
 
+
+    /**
+     * 补卡原因
+     * <p> 示例值：忘记打卡
+     *
+     * @param reason
+     * @return
+     */
     public Builder reason(String reason) {
       this.reason = reason;
       return this;
     }
 
+
+    /**
+     * 补卡时间，精确到秒的时间戳
+     * <p> 示例值：1611476284
+     *
+     * @param time
+     * @return
+     */
     public Builder time(String time) {
       this.time = time;
       return this;
     }
 
+
+    /**
+     * 补卡时考勤组时区
+     * <p> 示例值：Asia/Shanghai
+     *
+     * @param timeZone
+     * @return
+     */
     public Builder timeZone(String timeZone) {
       this.timeZone = timeZone;
       return this;
     }
 
+
+    /**
+     * 补卡发起时间，精确到秒的时间戳
+     * <p> 示例值：1611476284
+     *
+     * @param createTime
+     * @return
+     */
     public Builder createTime(String createTime) {
       this.createTime = createTime;
       return this;
     }
 
+
+    /**
+     * 补卡状态更新时间，精确到秒的时间戳
+     * <p> 示例值：1611476284
+     *
+     * @param updateTime
+     * @return
+     */
     public Builder updateTime(String updateTime) {
       this.updateTime = updateTime;
       return this;

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.DeleteFaqReq;
 import com.lark.oapi.service.helpdesk.v1.model.DeleteFaqResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/faqs/:id"
+// DELETE /open-apis/helpdesk/v1/faqs/:id
 public class DeleteFaqSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class DeleteFaqSample {
 
     // 创建请求对象
     DeleteFaqReq req = DeleteFaqReq.newBuilder()
-        .id("")
+        .id("12345")
         .build();
 
     // 发起请求

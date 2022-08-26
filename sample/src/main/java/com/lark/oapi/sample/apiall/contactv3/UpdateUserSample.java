@@ -8,7 +8,7 @@ import com.lark.oapi.service.contact.v3.model.User;
 import com.lark.oapi.service.contact.v3.model.UserCustomAttr;
 import com.lark.oapi.service.contact.v3.model.UserOrder;
 
-// HTTP PATH: /open-apis/contact/v3/users/:user_id"
+// PUT /open-apis/contact/v3/users/:user_id
 public class UpdateUserSample {
 
   public static void main(String arg[]) throws Exception {
@@ -17,7 +17,7 @@ public class UpdateUserSample {
 
     // 创建请求对象
     UpdateUserReq req = UpdateUserReq.newBuilder()
-        .userId("")
+        .userId("ou_7dab8a3d3cdcc9da365777c7ad535d62")
         .userIdType("open_id")
         .departmentIdType("open_department_id")
         .user(User.newBuilder()
@@ -42,7 +42,6 @@ public class UpdateUserSample {
             .enterpriseEmail("")
             .jobTitle("")
             .isFrozen(false)
-            .entEmailPassword("")
             .build())
         .build();
 

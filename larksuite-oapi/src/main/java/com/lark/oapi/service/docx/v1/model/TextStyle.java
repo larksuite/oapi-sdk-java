@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class TextStyle {
 
+  /**
+   * 对齐方式
+   * <p> 示例值：1
+   */
   @SerializedName("align")
   private Integer align;
+  /**
+   * todo 的完成状态
+   * <p> 示例值：true
+   */
   @SerializedName("done")
   private Boolean done;
+  /**
+   * 文本的折叠状态
+   * <p> 示例值：true
+   */
   @SerializedName("folded")
   private Boolean folded;
+  /**
+   * 代码块语言
+   * <p> 示例值：1
+   */
   @SerializedName("language")
   private Integer language;
+  /**
+   * 代码块是否自动换行
+   * <p> 示例值：true
+   */
   @SerializedName("wrap")
   private Boolean wrap;
 
@@ -33,10 +53,30 @@ public class TextStyle {
   }
 
   public TextStyle(Builder builder) {
+    /**
+     * 对齐方式
+     * <p> 示例值：1
+     */
     this.align = builder.align;
+    /**
+     * todo 的完成状态
+     * <p> 示例值：true
+     */
     this.done = builder.done;
+    /**
+     * 文本的折叠状态
+     * <p> 示例值：true
+     */
     this.folded = builder.folded;
+    /**
+     * 代码块语言
+     * <p> 示例值：1
+     */
     this.language = builder.language;
+    /**
+     * 代码块是否自动换行
+     * <p> 示例值：true
+     */
     this.wrap = builder.wrap;
   }
 
@@ -86,42 +126,116 @@ public class TextStyle {
 
   public static class Builder {
 
+    /**
+     * 对齐方式
+     * <p> 示例值：1
+     */
     private Integer align;
+    /**
+     * todo 的完成状态
+     * <p> 示例值：true
+     */
     private Boolean done;
+    /**
+     * 文本的折叠状态
+     * <p> 示例值：true
+     */
     private Boolean folded;
+    /**
+     * 代码块语言
+     * <p> 示例值：1
+     */
     private Integer language;
+    /**
+     * 代码块是否自动换行
+     * <p> 示例值：true
+     */
     private Boolean wrap;
 
+    /**
+     * 对齐方式
+     * <p> 示例值：1
+     *
+     * @param align
+     * @return
+     */
     public Builder align(Integer align) {
       this.align = align;
       return this;
     }
 
-    public Builder align(com.lark.oapi.service.docx.v1.enums.AlignEnum align) {
+    /**
+     * 对齐方式
+     * <p> 示例值：1
+     *
+     * @param align {@link com.lark.oapi.service.docx.v1.enums.TextStyleAlignEnum}
+     * @return
+     */
+    public Builder align(com.lark.oapi.service.docx.v1.enums.TextStyleAlignEnum align) {
       this.align = align.getValue();
       return this;
     }
 
+
+    /**
+     * todo 的完成状态
+     * <p> 示例值：true
+     *
+     * @param done
+     * @return
+     */
     public Builder done(Boolean done) {
       this.done = done;
       return this;
     }
 
+
+    /**
+     * 文本的折叠状态
+     * <p> 示例值：true
+     *
+     * @param folded
+     * @return
+     */
     public Builder folded(Boolean folded) {
       this.folded = folded;
       return this;
     }
 
+
+    /**
+     * 代码块语言
+     * <p> 示例值：1
+     *
+     * @param language
+     * @return
+     */
     public Builder language(Integer language) {
       this.language = language;
       return this;
     }
 
-    public Builder language(com.lark.oapi.service.docx.v1.enums.CodeLanguageEnum language) {
+    /**
+     * 代码块语言
+     * <p> 示例值：1
+     *
+     * @param language {@link com.lark.oapi.service.docx.v1.enums.TextStyleCodeLanguageEnum}
+     * @return
+     */
+    public Builder language(
+        com.lark.oapi.service.docx.v1.enums.TextStyleCodeLanguageEnum language) {
       this.language = language.getValue();
       return this;
     }
 
+
+    /**
+     * 代码块是否自动换行
+     * <p> 示例值：true
+     *
+     * @param wrap
+     * @return
+     */
     public Builder wrap(Boolean wrap) {
       this.wrap = wrap;
       return this;

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.attendance.v1.model.ListGroupReq;
 import com.lark.oapi.service.attendance.v1.model.ListGroupResp;
 
-// HTTP PATH: /open-apis/attendance/v1/groups"
+// GET /open-apis/attendance/v1/groups
 public class ListGroupSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class ListGroupSample {
     // 创建请求对象
     ListGroupReq req = ListGroupReq.newBuilder()
         .pageSize(10)
-        .pageToken("")
+        .pageToken("wgNOR1rmxogRvAsGl6CXlQ==")
         .build();
 
     // 发起请求

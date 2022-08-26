@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.calendar.v4.model.GetExchangeBindingReq;
 import com.lark.oapi.service.calendar.v4.model.GetExchangeBindingResp;
 
-// HTTP PATH: /open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
+// GET /open-apis/calendar/v4/exchange_bindings/:exchange_binding_id
 public class GetExchangeBindingSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,8 @@ public class GetExchangeBindingSample {
 
     // 创建请求对象
     GetExchangeBindingReq req = GetExchangeBindingReq.newBuilder()
-        .exchangeBindingId("")
+        .exchangeBindingId(
+            "ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=")
         .userIdType("user_id")
         .build();
 

@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class CalendarAcl {
 
+  /**
+   * acl资源ID。参见[ACL ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
+   * <p> 示例值：user_xxxxxx
+   */
   @SerializedName("acl_id")
   private String aclId;
+  /**
+   * 对日历的访问权限
+   * <p> 示例值：writer
+   */
   @SerializedName("role")
   private String role;
+  /**
+   * 权限范围
+   * <p> 示例值：
+   */
   @SerializedName("scope")
   private AclScope scope;
 
@@ -29,8 +41,20 @@ public class CalendarAcl {
   }
 
   public CalendarAcl(Builder builder) {
+    /**
+     * acl资源ID。参见[ACL ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
+     * <p> 示例值：user_xxxxxx
+     */
     this.aclId = builder.aclId;
+    /**
+     * 对日历的访问权限
+     * <p> 示例值：writer
+     */
     this.role = builder.role;
+    /**
+     * 权限范围
+     * <p> 示例值：
+     */
     this.scope = builder.scope;
   }
 
@@ -64,25 +88,68 @@ public class CalendarAcl {
 
   public static class Builder {
 
+    /**
+     * acl资源ID。参见[ACL ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
+     * <p> 示例值：user_xxxxxx
+     */
     private String aclId;
+    /**
+     * 对日历的访问权限
+     * <p> 示例值：writer
+     */
     private String role;
+    /**
+     * 权限范围
+     * <p> 示例值：
+     */
     private AclScope scope;
 
+    /**
+     * acl资源ID。参见[ACL ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
+     * <p> 示例值：user_xxxxxx
+     *
+     * @param aclId
+     * @return
+     */
     public Builder aclId(String aclId) {
       this.aclId = aclId;
       return this;
     }
 
+
+    /**
+     * 对日历的访问权限
+     * <p> 示例值：writer
+     *
+     * @param role
+     * @return
+     */
     public Builder role(String role) {
       this.role = role;
       return this;
     }
 
-    public Builder role(com.lark.oapi.service.calendar.v4.enums.CalendarAccessRoleEnum role) {
+    /**
+     * 对日历的访问权限
+     * <p> 示例值：writer
+     *
+     * @param role {@link com.lark.oapi.service.calendar.v4.enums.CalendarAclCalendarAccessRoleEnum}
+     * @return
+     */
+    public Builder role(
+        com.lark.oapi.service.calendar.v4.enums.CalendarAclCalendarAccessRoleEnum role) {
       this.role = role.getValue();
       return this;
     }
 
+
+    /**
+     * 权限范围
+     * <p> 示例值：
+     *
+     * @param scope
+     * @return
+     */
     public Builder scope(AclScope scope) {
       this.scope = scope;
       return this;

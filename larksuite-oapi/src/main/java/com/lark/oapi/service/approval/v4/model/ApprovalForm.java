@@ -17,6 +17,11 @@ import com.google.gson.annotations.SerializedName;
 
 public class ApprovalForm {
 
+  /**
+   * 审批定义表单，json 数组，见下方form_content字段说明
+   * <p> 示例值：[{\"id\":\"user_name\", \"type\": \"input\", \"required\":true,
+   * \"name\":\"@i18n@widget1\"}]
+   */
   @SerializedName("form_content")
   private String formContent;
 
@@ -25,6 +30,10 @@ public class ApprovalForm {
   }
 
   public ApprovalForm(Builder builder) {
+    /**
+     * 审批定义表单，json 数组，见下方form_content字段说明
+     * <p> 示例值：[{\"id\":\"user_name\", \"type\": \"input\", \"required\":true, \"name\":\"@i18n@widget1\"}]
+     */
     this.formContent = builder.formContent;
   }
 
@@ -42,8 +51,21 @@ public class ApprovalForm {
 
   public static class Builder {
 
+    /**
+     * 审批定义表单，json 数组，见下方form_content字段说明
+     * <p> 示例值：[{\"id\":\"user_name\", \"type\": \"input\", \"required\":true,
+     * \"name\":\"@i18n@widget1\"}]
+     */
     private String formContent;
 
+    /**
+     * 审批定义表单，json 数组，见下方form_content字段说明
+     * <p> 示例值：[{\"id\":\"user_name\", \"type\": \"input\", \"required\":true,
+     * \"name\":\"@i18n@widget1\"}]
+     *
+     * @param formContent
+     * @return
+     */
     public Builder formContent(String formContent) {
       this.formContent = formContent;
       return this;

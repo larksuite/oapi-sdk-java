@@ -18,9 +18,17 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DeleteTaskReminderReq {
 
+  /**
+   * 任务 ID
+   * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+   */
   @Path
   @SerializedName("task_id")
   private String taskId;
+  /**
+   * 任务提醒时间设置的 ID（即 reminder.id）
+   * <p> 示例值：1
+   */
   @Path
   @SerializedName("reminder_id")
   private String reminderId;
@@ -30,7 +38,15 @@ public class DeleteTaskReminderReq {
   }
 
   public DeleteTaskReminderReq(Builder builder) {
+    /**
+     * 任务 ID
+     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     */
     this.taskId = builder.taskId;
+    /**
+     * 任务提醒时间设置的 ID（即 reminder.id）
+     * <p> 示例值：1
+     */
     this.reminderId = builder.reminderId;
   }
 
@@ -56,14 +72,29 @@ public class DeleteTaskReminderReq {
 
   public static class Builder {
 
-    private String taskId;
-    private String reminderId;
+    private String taskId; // 任务 ID
+    private String reminderId; // 任务提醒时间设置的 ID（即 reminder.id）
 
+    /**
+     * 任务 ID
+     * <p> 示例值：83912691-2e43-47fc-94a4-d512e03984fa
+     *
+     * @param taskId
+     * @return
+     */
     public Builder taskId(String taskId) {
       this.taskId = taskId;
       return this;
     }
 
+
+    /**
+     * 任务提醒时间设置的 ID（即 reminder.id）
+     * <p> 示例值：1
+     *
+     * @param reminderId
+     * @return
+     */
     public Builder reminderId(String reminderId) {
       this.reminderId = reminderId;
       return this;

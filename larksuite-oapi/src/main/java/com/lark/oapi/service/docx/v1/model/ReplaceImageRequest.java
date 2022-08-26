@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class ReplaceImageRequest {
 
+  /**
+   * 图片 token
+   * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
+   */
   @SerializedName("token")
   private String token;
 
@@ -25,6 +29,10 @@ public class ReplaceImageRequest {
   }
 
   public ReplaceImageRequest(Builder builder) {
+    /**
+     * 图片 token
+     * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
+     */
     this.token = builder.token;
   }
 
@@ -42,8 +50,19 @@ public class ReplaceImageRequest {
 
   public static class Builder {
 
+    /**
+     * 图片 token
+     * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
+     */
     private String token;
 
+    /**
+     * 图片 token
+     * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
+     *
+     * @param token
+     * @return
+     */
     public Builder token(String token) {
       this.token = token;
       return this;

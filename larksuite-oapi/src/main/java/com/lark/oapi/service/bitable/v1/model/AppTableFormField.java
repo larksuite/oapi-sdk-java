@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class AppTableFormField {
 
+  /**
+   * 表单问题 ID
+   * <p> 示例值：fldjX7dUj5
+   */
   @SerializedName("field_id")
   private String fieldId;
+  /**
+   * 表单问题
+   * <p> 示例值：多行文本
+   */
   @SerializedName("title")
   private String title;
+  /**
+   * 问题描述
+   * <p> 示例值：多行文本描述
+   */
   @SerializedName("description")
   private String description;
+  /**
+   * 是否必填
+   * <p> 示例值：true
+   */
   @SerializedName("required")
   private Boolean required;
+  /**
+   * 是否可见
+   * <p> 示例值：true
+   */
   @SerializedName("visible")
   private Boolean visible;
 
@@ -33,10 +53,30 @@ public class AppTableFormField {
   }
 
   public AppTableFormField(Builder builder) {
+    /**
+     * 表单问题 ID
+     * <p> 示例值：fldjX7dUj5
+     */
     this.fieldId = builder.fieldId;
+    /**
+     * 表单问题
+     * <p> 示例值：多行文本
+     */
     this.title = builder.title;
+    /**
+     * 问题描述
+     * <p> 示例值：多行文本描述
+     */
     this.description = builder.description;
+    /**
+     * 是否必填
+     * <p> 示例值：true
+     */
     this.required = builder.required;
+    /**
+     * 是否可见
+     * <p> 示例值：true
+     */
     this.visible = builder.visible;
   }
 
@@ -86,32 +126,91 @@ public class AppTableFormField {
 
   public static class Builder {
 
+    /**
+     * 表单问题 ID
+     * <p> 示例值：fldjX7dUj5
+     */
     private String fieldId;
+    /**
+     * 表单问题
+     * <p> 示例值：多行文本
+     */
     private String title;
+    /**
+     * 问题描述
+     * <p> 示例值：多行文本描述
+     */
     private String description;
+    /**
+     * 是否必填
+     * <p> 示例值：true
+     */
     private Boolean required;
+    /**
+     * 是否可见
+     * <p> 示例值：true
+     */
     private Boolean visible;
 
+    /**
+     * 表单问题 ID
+     * <p> 示例值：fldjX7dUj5
+     *
+     * @param fieldId
+     * @return
+     */
     public Builder fieldId(String fieldId) {
       this.fieldId = fieldId;
       return this;
     }
 
+
+    /**
+     * 表单问题
+     * <p> 示例值：多行文本
+     *
+     * @param title
+     * @return
+     */
     public Builder title(String title) {
       this.title = title;
       return this;
     }
 
+
+    /**
+     * 问题描述
+     * <p> 示例值：多行文本描述
+     *
+     * @param description
+     * @return
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
+
+    /**
+     * 是否必填
+     * <p> 示例值：true
+     *
+     * @param required
+     * @return
+     */
     public Builder required(Boolean required) {
       this.required = required;
       return this;
     }
 
+
+    /**
+     * 是否可见
+     * <p> 示例值：true
+     *
+     * @param visible
+     * @return
+     */
     public Builder visible(Boolean visible) {
       this.visible = visible;
       return this;

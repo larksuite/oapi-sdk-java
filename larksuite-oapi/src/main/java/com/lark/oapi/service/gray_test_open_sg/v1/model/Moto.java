@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class Moto {
 
+  /**
+   * desc
+   * <p> 示例值：
+   */
   @SerializedName("moto_id")
   private String motoId;
+  /**
+   * desc2
+   * <p> 示例值：
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * name
+   * <p> 示例值：
+   */
   @SerializedName("user_name")
   private String userName;
+  /**
+   * type
+   * <p> 示例值：
+   */
   @SerializedName("type")
   private String type;
 
@@ -31,9 +47,25 @@ public class Moto {
   }
 
   public Moto(Builder builder) {
+    /**
+     * desc
+     * <p> 示例值：
+     */
     this.motoId = builder.motoId;
+    /**
+     * desc2
+     * <p> 示例值：
+     */
     this.id = builder.id;
+    /**
+     * name
+     * <p> 示例值：
+     */
     this.userName = builder.userName;
+    /**
+     * type
+     * <p> 示例值：
+     */
     this.type = builder.type;
   }
 
@@ -75,26 +107,73 @@ public class Moto {
 
   public static class Builder {
 
+    /**
+     * desc
+     * <p> 示例值：
+     */
     private String motoId;
+    /**
+     * desc2
+     * <p> 示例值：
+     */
     private String id;
+    /**
+     * name
+     * <p> 示例值：
+     */
     private String userName;
+    /**
+     * type
+     * <p> 示例值：
+     */
     private String type;
 
+    /**
+     * desc
+     * <p> 示例值：
+     *
+     * @param motoId
+     * @return
+     */
     public Builder motoId(String motoId) {
       this.motoId = motoId;
       return this;
     }
 
+
+    /**
+     * desc2
+     * <p> 示例值：
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * name
+     * <p> 示例值：
+     *
+     * @param userName
+     * @return
+     */
     public Builder userName(String userName) {
       this.userName = userName;
       return this;
     }
 
+
+    /**
+     * type
+     * <p> 示例值：
+     *
+     * @param type
+     * @return
+     */
     public Builder type(String type) {
       this.type = type;
       return this;

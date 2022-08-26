@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchCreateUserDailyShiftReqBody {
 
+  /**
+   * 班表信息列表
+   * <p> 示例值：
+   */
   @SerializedName("user_daily_shifts")
   private UserDailyShift[] userDailyShifts;
+  /**
+   * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+   * <p> 示例值：dd31248a
+   */
   @SerializedName("operator_id")
   private String operatorId;
 
@@ -27,7 +35,15 @@ public class BatchCreateUserDailyShiftReqBody {
   }
 
   public BatchCreateUserDailyShiftReqBody(Builder builder) {
+    /**
+     * 班表信息列表
+     * <p> 示例值：
+     */
     this.userDailyShifts = builder.userDailyShifts;
+    /**
+     * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+     * <p> 示例值：dd31248a
+     */
     this.operatorId = builder.operatorId;
   }
 
@@ -53,14 +69,37 @@ public class BatchCreateUserDailyShiftReqBody {
 
   public static class Builder {
 
+    /**
+     * 班表信息列表
+     * <p> 示例值：
+     */
     private UserDailyShift[] userDailyShifts;
+    /**
+     * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+     * <p> 示例值：dd31248a
+     */
     private String operatorId;
 
+    /**
+     * 班表信息列表
+     * <p> 示例值：
+     *
+     * @param userDailyShifts
+     * @return
+     */
     public Builder userDailyShifts(UserDailyShift[] userDailyShifts) {
       this.userDailyShifts = userDailyShifts;
       return this;
     }
 
+
+    /**
+     * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+     * <p> 示例值：dd31248a
+     *
+     * @param operatorId
+     * @return
+     */
     public Builder operatorId(String operatorId) {
       this.operatorId = operatorId;
       return this;

@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.application.v6.model.PatchApplicationFeedbackReq;
 import com.lark.oapi.service.application.v6.model.PatchApplicationFeedbackResp;
 
-// HTTP PATH: /open-apis/application/v6/applications/:app_id/feedbacks/:feedback_id"
+// PATCH /open-apis/application/v6/applications/:app_id/feedbacks/:feedback_id
 public class PatchApplicationFeedbackSample {
 
   public static void main(String arg[]) throws Exception {
@@ -17,7 +17,7 @@ public class PatchApplicationFeedbackSample {
         .appId("cli_9f115af860f7901b")
         .feedbackId("7057888018203574291")
         .userIdType("open_id")
-        .status(0)
+        .status(1)
         .operatorId("ou_9565b69967831233761cc2f11b4c089f")
         .build();
 

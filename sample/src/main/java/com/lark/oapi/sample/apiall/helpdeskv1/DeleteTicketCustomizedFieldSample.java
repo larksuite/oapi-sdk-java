@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.helpdesk.v1.model.DeleteTicketCustomizedFieldReq;
 import com.lark.oapi.service.helpdesk.v1.model.DeleteTicketCustomizedFieldResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id"
+// DELETE /open-apis/helpdesk/v1/ticket_customized_fields/:ticket_customized_field_id
 public class DeleteTicketCustomizedFieldSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class DeleteTicketCustomizedFieldSample {
 
     // 创建请求对象
     DeleteTicketCustomizedFieldReq req = DeleteTicketCustomizedFieldReq.newBuilder()
-        .ticketCustomizedFieldId("")
+        .ticketCustomizedFieldId("6948728206392295444")
         .build();
 
     // 发起请求

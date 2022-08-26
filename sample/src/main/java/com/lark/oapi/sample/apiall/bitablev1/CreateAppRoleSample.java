@@ -3,11 +3,12 @@ package com.lark.oapi.sample.apiall.bitablev1;
 import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.bitable.v1.model.AppRole;
+import com.lark.oapi.service.bitable.v1.model.AppRoleBlockRole;
 import com.lark.oapi.service.bitable.v1.model.AppRoleTableRole;
 import com.lark.oapi.service.bitable.v1.model.CreateAppRoleReq;
 import com.lark.oapi.service.bitable.v1.model.CreateAppRoleResp;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/roles"
+// POST /open-apis/bitable/v1/apps/:app_token/roles
 public class CreateAppRoleSample {
 
   public static void main(String arg[]) throws Exception {
@@ -20,6 +21,7 @@ public class CreateAppRoleSample {
         .appRole(AppRole.newBuilder()
             .roleName("自定义权限1")
             .tableRoles(new AppRoleTableRole[]{})
+            .blockRoles(new AppRoleBlockRole[]{})
             .build())
         .build();
 

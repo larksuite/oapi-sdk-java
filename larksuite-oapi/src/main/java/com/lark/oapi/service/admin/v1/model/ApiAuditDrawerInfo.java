@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class ApiAuditDrawerInfo {
 
+  /**
+   * key信息
+   * <p> 示例值：
+   */
   @SerializedName("info_key")
   private String infoKey;
+  /**
+   * val值
+   * <p> 示例值：
+   */
   @SerializedName("info_val")
   private String infoVal;
+  /**
+   * key对应的i18nkey
+   * <p> 示例值：
+   */
   @SerializedName("key_i18n_key")
   private String keyI18nKey;
+  /**
+   * val类型
+   * <p> 示例值：
+   */
   @SerializedName("val_type")
   private String valType;
+  /**
+   * val对应的i18nkey
+   * <p> 示例值：
+   */
   @SerializedName("val_i18n_key")
   private String valI18nKey;
 
@@ -33,10 +53,30 @@ public class ApiAuditDrawerInfo {
   }
 
   public ApiAuditDrawerInfo(Builder builder) {
+    /**
+     * key信息
+     * <p> 示例值：
+     */
     this.infoKey = builder.infoKey;
+    /**
+     * val值
+     * <p> 示例值：
+     */
     this.infoVal = builder.infoVal;
+    /**
+     * key对应的i18nkey
+     * <p> 示例值：
+     */
     this.keyI18nKey = builder.keyI18nKey;
+    /**
+     * val类型
+     * <p> 示例值：
+     */
     this.valType = builder.valType;
+    /**
+     * val对应的i18nkey
+     * <p> 示例值：
+     */
     this.valI18nKey = builder.valI18nKey;
   }
 
@@ -86,32 +126,91 @@ public class ApiAuditDrawerInfo {
 
   public static class Builder {
 
+    /**
+     * key信息
+     * <p> 示例值：
+     */
     private String infoKey;
+    /**
+     * val值
+     * <p> 示例值：
+     */
     private String infoVal;
+    /**
+     * key对应的i18nkey
+     * <p> 示例值：
+     */
     private String keyI18nKey;
+    /**
+     * val类型
+     * <p> 示例值：
+     */
     private String valType;
+    /**
+     * val对应的i18nkey
+     * <p> 示例值：
+     */
     private String valI18nKey;
 
+    /**
+     * key信息
+     * <p> 示例值：
+     *
+     * @param infoKey
+     * @return
+     */
     public Builder infoKey(String infoKey) {
       this.infoKey = infoKey;
       return this;
     }
 
+
+    /**
+     * val值
+     * <p> 示例值：
+     *
+     * @param infoVal
+     * @return
+     */
     public Builder infoVal(String infoVal) {
       this.infoVal = infoVal;
       return this;
     }
 
+
+    /**
+     * key对应的i18nkey
+     * <p> 示例值：
+     *
+     * @param keyI18nKey
+     * @return
+     */
     public Builder keyI18nKey(String keyI18nKey) {
       this.keyI18nKey = keyI18nKey;
       return this;
     }
 
+
+    /**
+     * val类型
+     * <p> 示例值：
+     *
+     * @param valType
+     * @return
+     */
     public Builder valType(String valType) {
       this.valType = valType;
       return this;
     }
 
+
+    /**
+     * val对应的i18nkey
+     * <p> 示例值：
+     *
+     * @param valI18nKey
+     * @return
+     */
     public Builder valI18nKey(String valI18nKey) {
       this.valI18nKey = valI18nKey;
       return this;

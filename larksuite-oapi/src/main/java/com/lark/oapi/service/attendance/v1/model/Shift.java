@@ -17,22 +17,64 @@ import com.google.gson.annotations.SerializedName;
 
 public class Shift {
 
+  /**
+   * 班次 ID
+   * <p> 示例值：6919358778597097404
+   */
   @SerializedName("shift_id")
   private String shiftId;
+  /**
+   * 班次名称
+   * <p> 示例值：早班
+   */
   @SerializedName("shift_name")
   private String shiftName;
+  /**
+   * 打卡次数
+   * <p> 示例值：1
+   */
   @SerializedName("punch_times")
   private Integer punchTimes;
+  /**
+   * 是否弹性打卡
+   * <p> 示例值：false
+   */
   @SerializedName("is_flexible")
   private Boolean isFlexible;
+  /**
+   * 弹性打卡时间，设置【上班最多可晚到】与【下班最多可早走】时间，如果不设置flexible_rule则生效
+   * <p> 示例值：60
+   */
   @SerializedName("flexible_minutes")
   private Integer flexibleMinutes;
+  /**
+   * 弹性打卡时间设置
+   * <p> 示例值：
+   */
+  @SerializedName("flexible_rule")
+  private FlexibleRule[] flexibleRule;
+  /**
+   * 不需要打下班卡
+   * <p> 示例值：true
+   */
   @SerializedName("no_need_off")
   private Boolean noNeedOff;
+  /**
+   * 打卡规则
+   * <p> 示例值：
+   */
   @SerializedName("punch_time_rule")
   private PunchTimeRule[] punchTimeRule;
+  /**
+   * 晚走晚到规则
+   * <p> 示例值：
+   */
   @SerializedName("late_off_late_on_rule")
   private LateOffLateOnRule[] lateOffLateOnRule;
+  /**
+   * 休息规则
+   * <p> 示例值：
+   */
   @SerializedName("rest_time_rule")
   private RestRule[] restTimeRule;
 
@@ -41,14 +83,55 @@ public class Shift {
   }
 
   public Shift(Builder builder) {
+    /**
+     * 班次 ID
+     * <p> 示例值：6919358778597097404
+     */
     this.shiftId = builder.shiftId;
+    /**
+     * 班次名称
+     * <p> 示例值：早班
+     */
     this.shiftName = builder.shiftName;
+    /**
+     * 打卡次数
+     * <p> 示例值：1
+     */
     this.punchTimes = builder.punchTimes;
+    /**
+     * 是否弹性打卡
+     * <p> 示例值：false
+     */
     this.isFlexible = builder.isFlexible;
+    /**
+     * 弹性打卡时间，设置【上班最多可晚到】与【下班最多可早走】时间，如果不设置flexible_rule则生效
+     * <p> 示例值：60
+     */
     this.flexibleMinutes = builder.flexibleMinutes;
+    /**
+     * 弹性打卡时间设置
+     * <p> 示例值：
+     */
+    this.flexibleRule = builder.flexibleRule;
+    /**
+     * 不需要打下班卡
+     * <p> 示例值：true
+     */
     this.noNeedOff = builder.noNeedOff;
+    /**
+     * 打卡规则
+     * <p> 示例值：
+     */
     this.punchTimeRule = builder.punchTimeRule;
+    /**
+     * 晚走晚到规则
+     * <p> 示例值：
+     */
     this.lateOffLateOnRule = builder.lateOffLateOnRule;
+    /**
+     * 休息规则
+     * <p> 示例值：
+     */
     this.restTimeRule = builder.restTimeRule;
   }
 
@@ -96,6 +179,14 @@ public class Shift {
     this.flexibleMinutes = flexibleMinutes;
   }
 
+  public FlexibleRule[] getFlexibleRule() {
+    return this.flexibleRule;
+  }
+
+  public void setFlexibleRule(FlexibleRule[] flexibleRule) {
+    this.flexibleRule = flexibleRule;
+  }
+
   public Boolean getNoNeedOff() {
     return this.noNeedOff;
   }
@@ -130,56 +221,181 @@ public class Shift {
 
   public static class Builder {
 
+    /**
+     * 班次 ID
+     * <p> 示例值：6919358778597097404
+     */
     private String shiftId;
+    /**
+     * 班次名称
+     * <p> 示例值：早班
+     */
     private String shiftName;
+    /**
+     * 打卡次数
+     * <p> 示例值：1
+     */
     private Integer punchTimes;
+    /**
+     * 是否弹性打卡
+     * <p> 示例值：false
+     */
     private Boolean isFlexible;
+    /**
+     * 弹性打卡时间，设置【上班最多可晚到】与【下班最多可早走】时间，如果不设置flexible_rule则生效
+     * <p> 示例值：60
+     */
     private Integer flexibleMinutes;
+    /**
+     * 弹性打卡时间设置
+     * <p> 示例值：
+     */
+    private FlexibleRule[] flexibleRule;
+    /**
+     * 不需要打下班卡
+     * <p> 示例值：true
+     */
     private Boolean noNeedOff;
+    /**
+     * 打卡规则
+     * <p> 示例值：
+     */
     private PunchTimeRule[] punchTimeRule;
+    /**
+     * 晚走晚到规则
+     * <p> 示例值：
+     */
     private LateOffLateOnRule[] lateOffLateOnRule;
+    /**
+     * 休息规则
+     * <p> 示例值：
+     */
     private RestRule[] restTimeRule;
 
+    /**
+     * 班次 ID
+     * <p> 示例值：6919358778597097404
+     *
+     * @param shiftId
+     * @return
+     */
     public Builder shiftId(String shiftId) {
       this.shiftId = shiftId;
       return this;
     }
 
+
+    /**
+     * 班次名称
+     * <p> 示例值：早班
+     *
+     * @param shiftName
+     * @return
+     */
     public Builder shiftName(String shiftName) {
       this.shiftName = shiftName;
       return this;
     }
 
+
+    /**
+     * 打卡次数
+     * <p> 示例值：1
+     *
+     * @param punchTimes
+     * @return
+     */
     public Builder punchTimes(Integer punchTimes) {
       this.punchTimes = punchTimes;
       return this;
     }
 
+
+    /**
+     * 是否弹性打卡
+     * <p> 示例值：false
+     *
+     * @param isFlexible
+     * @return
+     */
     public Builder isFlexible(Boolean isFlexible) {
       this.isFlexible = isFlexible;
       return this;
     }
 
+
+    /**
+     * 弹性打卡时间，设置【上班最多可晚到】与【下班最多可早走】时间，如果不设置flexible_rule则生效
+     * <p> 示例值：60
+     *
+     * @param flexibleMinutes
+     * @return
+     */
     public Builder flexibleMinutes(Integer flexibleMinutes) {
       this.flexibleMinutes = flexibleMinutes;
       return this;
     }
 
+
+    /**
+     * 弹性打卡时间设置
+     * <p> 示例值：
+     *
+     * @param flexibleRule
+     * @return
+     */
+    public Builder flexibleRule(FlexibleRule[] flexibleRule) {
+      this.flexibleRule = flexibleRule;
+      return this;
+    }
+
+
+    /**
+     * 不需要打下班卡
+     * <p> 示例值：true
+     *
+     * @param noNeedOff
+     * @return
+     */
     public Builder noNeedOff(Boolean noNeedOff) {
       this.noNeedOff = noNeedOff;
       return this;
     }
 
+
+    /**
+     * 打卡规则
+     * <p> 示例值：
+     *
+     * @param punchTimeRule
+     * @return
+     */
     public Builder punchTimeRule(PunchTimeRule[] punchTimeRule) {
       this.punchTimeRule = punchTimeRule;
       return this;
     }
 
+
+    /**
+     * 晚走晚到规则
+     * <p> 示例值：
+     *
+     * @param lateOffLateOnRule
+     * @return
+     */
     public Builder lateOffLateOnRule(LateOffLateOnRule[] lateOffLateOnRule) {
       this.lateOffLateOnRule = lateOffLateOnRule;
       return this;
     }
 
+
+    /**
+     * 休息规则
+     * <p> 示例值：
+     *
+     * @param restTimeRule
+     * @return
+     */
     public Builder restTimeRule(RestRule[] restTimeRule) {
       this.restTimeRule = restTimeRule;
       return this;

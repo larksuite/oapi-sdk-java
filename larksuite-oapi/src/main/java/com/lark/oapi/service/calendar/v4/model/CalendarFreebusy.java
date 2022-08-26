@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class CalendarFreebusy {
 
+  /**
+   * 忙闲信息开始时间，RFC3339 date_time格式
+   * <p> 示例值：
+   */
   @SerializedName("start_time")
   private String startTime;
+  /**
+   * 忙闲信息结束时间，RFC3339 date_time格式
+   * <p> 示例值：
+   */
   @SerializedName("end_time")
   private String endTime;
+  /**
+   * 日历id
+   * <p> 示例值：
+   */
   @SerializedName("calendar_id")
   private String calendarId;
 
@@ -29,8 +41,20 @@ public class CalendarFreebusy {
   }
 
   public CalendarFreebusy(Builder builder) {
+    /**
+     * 忙闲信息开始时间，RFC3339 date_time格式
+     * <p> 示例值：
+     */
     this.startTime = builder.startTime;
+    /**
+     * 忙闲信息结束时间，RFC3339 date_time格式
+     * <p> 示例值：
+     */
     this.endTime = builder.endTime;
+    /**
+     * 日历id
+     * <p> 示例值：
+     */
     this.calendarId = builder.calendarId;
   }
 
@@ -64,20 +88,55 @@ public class CalendarFreebusy {
 
   public static class Builder {
 
+    /**
+     * 忙闲信息开始时间，RFC3339 date_time格式
+     * <p> 示例值：
+     */
     private String startTime;
+    /**
+     * 忙闲信息结束时间，RFC3339 date_time格式
+     * <p> 示例值：
+     */
     private String endTime;
+    /**
+     * 日历id
+     * <p> 示例值：
+     */
     private String calendarId;
 
+    /**
+     * 忙闲信息开始时间，RFC3339 date_time格式
+     * <p> 示例值：
+     *
+     * @param startTime
+     * @return
+     */
     public Builder startTime(String startTime) {
       this.startTime = startTime;
       return this;
     }
 
+
+    /**
+     * 忙闲信息结束时间，RFC3339 date_time格式
+     * <p> 示例值：
+     *
+     * @param endTime
+     * @return
+     */
     public Builder endTime(String endTime) {
       this.endTime = endTime;
       return this;
     }
 
+
+    /**
+     * 日历id
+     * <p> 示例值：
+     *
+     * @param calendarId
+     * @return
+     */
     public Builder calendarId(String calendarId) {
       this.calendarId = calendarId;
       return this;

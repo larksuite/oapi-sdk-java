@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListApplicationFeedback {
 
+  /**
+   * 应用的反馈列表
+   * <p> 示例值：
+   */
   @SerializedName("feedback_list")
   private ApplicationFeedback[] feedbackList;
+  /**
+   * 是否还有更多用户反馈列表，true：是，false：否
+   * <p> 示例值：true
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 拉取下一页应用反馈列表时使用的 page_token
+   * <p> 示例值：7064688334618378259
+   */
   @SerializedName("page_token")
   private String pageToken;
 

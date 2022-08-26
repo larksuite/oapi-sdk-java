@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class CustomizationOption {
 
+  /**
+   * 每个选项的唯一ID
+   * <p> 示例值：16281481596185
+   */
   @SerializedName("option_key")
   private String optionKey;
+  /**
+   * 当type类型为其它选项时，该参数需要填入
+   * <p> 示例值：xxx
+   */
   @SerializedName("others_content")
   private String othersContent;
 
@@ -27,7 +35,15 @@ public class CustomizationOption {
   }
 
   public CustomizationOption(Builder builder) {
+    /**
+     * 每个选项的唯一ID
+     * <p> 示例值：16281481596185
+     */
     this.optionKey = builder.optionKey;
+    /**
+     * 当type类型为其它选项时，该参数需要填入
+     * <p> 示例值：xxx
+     */
     this.othersContent = builder.othersContent;
   }
 
@@ -53,14 +69,37 @@ public class CustomizationOption {
 
   public static class Builder {
 
+    /**
+     * 每个选项的唯一ID
+     * <p> 示例值：16281481596185
+     */
     private String optionKey;
+    /**
+     * 当type类型为其它选项时，该参数需要填入
+     * <p> 示例值：xxx
+     */
     private String othersContent;
 
+    /**
+     * 每个选项的唯一ID
+     * <p> 示例值：16281481596185
+     *
+     * @param optionKey
+     * @return
+     */
     public Builder optionKey(String optionKey) {
       this.optionKey = optionKey;
       return this;
     }
 
+
+    /**
+     * 当type类型为其它选项时，该参数需要填入
+     * <p> 示例值：xxx
+     *
+     * @param othersContent
+     * @return
+     */
     public Builder othersContent(String othersContent) {
       this.othersContent = othersContent;
       return this;

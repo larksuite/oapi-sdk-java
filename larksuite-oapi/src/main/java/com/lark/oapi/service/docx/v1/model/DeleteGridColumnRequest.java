@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class DeleteGridColumnRequest {
 
+  /**
+   * 删除列索引，从 0 开始，如 0 表示删除第一列（-1表示删除最后一列）
+   * <p> 示例值：0
+   */
   @SerializedName("column_index")
   private Integer columnIndex;
 
@@ -25,6 +29,10 @@ public class DeleteGridColumnRequest {
   }
 
   public DeleteGridColumnRequest(Builder builder) {
+    /**
+     * 删除列索引，从 0 开始，如 0 表示删除第一列（-1表示删除最后一列）
+     * <p> 示例值：0
+     */
     this.columnIndex = builder.columnIndex;
   }
 
@@ -42,8 +50,19 @@ public class DeleteGridColumnRequest {
 
   public static class Builder {
 
+    /**
+     * 删除列索引，从 0 开始，如 0 表示删除第一列（-1表示删除最后一列）
+     * <p> 示例值：0
+     */
     private Integer columnIndex;
 
+    /**
+     * 删除列索引，从 0 开始，如 0 表示删除第一列（-1表示删除最后一列）
+     * <p> 示例值：0
+     *
+     * @param columnIndex
+     * @return
+     */
     public Builder columnIndex(Integer columnIndex) {
       this.columnIndex = columnIndex;
       return this;

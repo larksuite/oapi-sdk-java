@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Query;
 
 public class QueryShiftReq {
 
+  /**
+   * 班次名称
+   * <p> 示例值：早班
+   */
   @Query
   @SerializedName("shift_name")
   private String shiftName;
@@ -27,6 +31,10 @@ public class QueryShiftReq {
   }
 
   public QueryShiftReq(Builder builder) {
+    /**
+     * 班次名称
+     * <p> 示例值：早班
+     */
     this.shiftName = builder.shiftName;
   }
 
@@ -44,8 +52,16 @@ public class QueryShiftReq {
 
   public static class Builder {
 
-    private String shiftName;
+    private String shiftName; // 班次名称
 
+
+    /**
+     * 班次名称
+     * <p> 示例值：早班
+     *
+     * @param shiftName
+     * @return
+     */
     public Builder shiftName(String shiftName) {
       this.shiftName = shiftName;
       return this;

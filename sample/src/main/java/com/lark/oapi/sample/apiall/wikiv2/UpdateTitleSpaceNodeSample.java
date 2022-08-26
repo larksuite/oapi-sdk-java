@@ -6,7 +6,7 @@ import com.lark.oapi.service.wiki.v2.model.UpdateTitleSpaceNodeReq;
 import com.lark.oapi.service.wiki.v2.model.UpdateTitleSpaceNodeReqBody;
 import com.lark.oapi.service.wiki.v2.model.UpdateTitleSpaceNodeResp;
 
-// HTTP PATH: /open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/update_title"
+// POST /open-apis/wiki/v2/spaces/:space_id/nodes/:node_token/update_title
 public class UpdateTitleSpaceNodeSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,10 +15,10 @@ public class UpdateTitleSpaceNodeSample {
 
     // 创建请求对象
     UpdateTitleSpaceNodeReq req = UpdateTitleSpaceNodeReq.newBuilder()
-        .spaceId("")
-        .nodeToken("")
+        .spaceId("6946843325487912356")
+        .nodeToken("wikcnKQ1k3pcuo5uSK4t8Vabcef")
         .updateTitleSpaceNodeReqBody(UpdateTitleSpaceNodeReqBody.newBuilder()
-            .title("")
+            .title("新标题")
             .build())
         .build();
 

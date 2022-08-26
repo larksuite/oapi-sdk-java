@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class FindByDepartmentUser {
 
+  /**
+   * 是否有下一页数据
+   * <p> 示例值：true
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * 下一页分页的token
+   * <p> 示例值：AQD9/Rn9eij9Pm39ED40/RD/cIFmu77WxpxPB/2oHfQLZ%2BG8JG6tK7%2BZnHiT7COhD2hMSICh/eBl7cpzU6JEC3J7COKNe4jrQ8ExwBCR
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 用户信息列表
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private User[] items;
 

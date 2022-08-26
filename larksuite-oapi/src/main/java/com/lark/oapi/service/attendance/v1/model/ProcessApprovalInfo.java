@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class ProcessApprovalInfo {
 
+  /**
+   * 审批信息
+   * <p> 示例值：
+   */
   @SerializedName("approval_info")
   private ApprovalInfo approvalInfo;
 

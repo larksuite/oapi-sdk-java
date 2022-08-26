@@ -30,6 +30,11 @@ public class TenantService {
     this.tenant = new Tenant(config);
   }
 
+  /**
+   * 企业
+   *
+   * @return
+   */
   public Tenant tenant() {
     return tenant;
   }
@@ -42,6 +47,14 @@ public class TenantService {
       this.config = config;
     }
 
+    /**
+     * 获取企业信息，获取企业名称、企业编号等企业信息
+     * <p> 如果ISV应用是企业创建时默认安装，并且180天内企业未打开或使用过此应用，则无法通过此接口获取到企业信息。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2//QueryTenantSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2//QueryTenantSample.java</a>
+     * ;
+     */
     public QueryTenantResp query(RequestOptions reqOptions) throws Exception {
       // 请求参数选项
       if (reqOptions == null) {
@@ -60,6 +73,14 @@ public class TenantService {
       return resp;
     }
 
+    /**
+     * 获取企业信息，获取企业名称、企业编号等企业信息
+     * <p> 如果ISV应用是企业创建时默认安装，并且180天内企业未打开或使用过此应用，则无法通过此接口获取到企业信息。 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2//QueryTenantSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2//QueryTenantSample.java</a>
+     * ;
+     */
     public QueryTenantResp query() throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();

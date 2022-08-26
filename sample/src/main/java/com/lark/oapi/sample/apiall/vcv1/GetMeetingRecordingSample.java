@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.vc.v1.model.GetMeetingRecordingReq;
 import com.lark.oapi.service.vc.v1.model.GetMeetingRecordingResp;
 
-// HTTP PATH: /open-apis/vc/v1/meetings/:meeting_id/recording"
+// GET /open-apis/vc/v1/meetings/:meeting_id/recording
 public class GetMeetingRecordingSample {
 
   public static void main(String arg[]) throws Exception {

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class HighlightEntityReqBody {
 
+  /**
+   * 需要识别百科词条的内容（不超过1000字）
+   * <p> 示例值：企业百科是飞书提供的一款知识管理工具
+   */
   @SerializedName("text")
   private String text;
 
@@ -25,6 +29,10 @@ public class HighlightEntityReqBody {
   }
 
   public HighlightEntityReqBody(Builder builder) {
+    /**
+     * 需要识别百科词条的内容（不超过1000字）
+     * <p> 示例值：企业百科是飞书提供的一款知识管理工具
+     */
     this.text = builder.text;
   }
 
@@ -42,8 +50,19 @@ public class HighlightEntityReqBody {
 
   public static class Builder {
 
+    /**
+     * 需要识别百科词条的内容（不超过1000字）
+     * <p> 示例值：企业百科是飞书提供的一款知识管理工具
+     */
     private String text;
 
+    /**
+     * 需要识别百科词条的内容（不超过1000字）
+     * <p> 示例值：企业百科是飞书提供的一款知识管理工具
+     *
+     * @param text
+     * @return
+     */
     public Builder text(String text) {
       this.text = text;
       return this;

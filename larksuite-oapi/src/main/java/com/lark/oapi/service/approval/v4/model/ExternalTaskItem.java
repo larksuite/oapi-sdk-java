@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class ExternalTaskItem {
 
+  /**
+   * 审批任务 ID
+   * <p> 示例值：310
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * 审批任务状态
+   * <p> 示例值：PENDING
+   */
   @SerializedName("status")
   private String status;
+  /**
+   * 审批任务最后更新时间，单位 毫秒
+   * <p> 示例值：1621863215000
+   */
   @SerializedName("update_time")
   private String updateTime;
 
@@ -29,8 +41,20 @@ public class ExternalTaskItem {
   }
 
   public ExternalTaskItem(Builder builder) {
+    /**
+     * 审批任务 ID
+     * <p> 示例值：310
+     */
     this.id = builder.id;
+    /**
+     * 审批任务状态
+     * <p> 示例值：PENDING
+     */
     this.status = builder.status;
+    /**
+     * 审批任务最后更新时间，单位 毫秒
+     * <p> 示例值：1621863215000
+     */
     this.updateTime = builder.updateTime;
   }
 
@@ -64,25 +88,68 @@ public class ExternalTaskItem {
 
   public static class Builder {
 
+    /**
+     * 审批任务 ID
+     * <p> 示例值：310
+     */
     private String id;
+    /**
+     * 审批任务状态
+     * <p> 示例值：PENDING
+     */
     private String status;
+    /**
+     * 审批任务最后更新时间，单位 毫秒
+     * <p> 示例值：1621863215000
+     */
     private String updateTime;
 
+    /**
+     * 审批任务 ID
+     * <p> 示例值：310
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 审批任务状态
+     * <p> 示例值：PENDING
+     *
+     * @param status
+     * @return
+     */
     public Builder status(String status) {
       this.status = status;
       return this;
     }
 
-    public Builder status(com.lark.oapi.service.approval.v4.enums.StatusEnum status) {
+    /**
+     * 审批任务状态
+     * <p> 示例值：PENDING
+     *
+     * @param status {@link com.lark.oapi.service.approval.v4.enums.ExternalTaskItemExternalTaskStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.approval.v4.enums.ExternalTaskItemExternalTaskStatusEnum status) {
       this.status = status.getValue();
       return this;
     }
 
+
+    /**
+     * 审批任务最后更新时间，单位 毫秒
+     * <p> 示例值：1621863215000
+     *
+     * @param updateTime
+     * @return
+     */
     public Builder updateTime(String updateTime) {
       this.updateTime = updateTime;
       return this;

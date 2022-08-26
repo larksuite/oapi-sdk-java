@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.acs.v1.model.GetUserFaceReq;
 import com.lark.oapi.service.acs.v1.model.GetUserFaceResp;
 
-// HTTP PATH: /open-apis/acs/v1/users/:user_id/face"
+// GET /open-apis/acs/v1/users/:user_id/face
 public class GetUserFaceSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class GetUserFaceSample {
 
     // 创建请求对象
     GetUserFaceReq req = GetUserFaceReq.newBuilder()
-        .userId("")
+        .userId("ou_7dab8a3d3cdcc9da365777c7ad535d62")
         .isCropped(true)
         .userIdType("user_id")
         .build();

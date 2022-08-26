@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateTask {
 
+  /**
+   * 返回创建好的任务
+   * <p> 示例值：
+   */
   @SerializedName("task")
   private Task task;
 

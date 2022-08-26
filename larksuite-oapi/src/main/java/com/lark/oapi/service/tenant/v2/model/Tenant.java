@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class Tenant {
 
+  /**
+   * 企业名称
+   * <p> 示例值：企业名称
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 企业编号，平台内唯一
+   * <p> 示例值：F123456789
+   */
   @SerializedName("display_id")
   private String displayId;
+  /**
+   * 个人版/团队版标志
+   * <p> 示例值：0
+   */
   @SerializedName("tenant_tag")
   private Integer tenantTag;
+  /**
+   * 企业标识
+   * <p> 示例值：abcdefghi
+   */
   @SerializedName("tenant_key")
   private String tenantKey;
+  /**
+   * 企业头像
+   * <p> 示例值：
+   */
   @SerializedName("avatar")
   private Avatar avatar;
 
@@ -33,10 +53,30 @@ public class Tenant {
   }
 
   public Tenant(Builder builder) {
+    /**
+     * 企业名称
+     * <p> 示例值：企业名称
+     */
     this.name = builder.name;
+    /**
+     * 企业编号，平台内唯一
+     * <p> 示例值：F123456789
+     */
     this.displayId = builder.displayId;
+    /**
+     * 个人版/团队版标志
+     * <p> 示例值：0
+     */
     this.tenantTag = builder.tenantTag;
+    /**
+     * 企业标识
+     * <p> 示例值：abcdefghi
+     */
     this.tenantKey = builder.tenantKey;
+    /**
+     * 企业头像
+     * <p> 示例值：
+     */
     this.avatar = builder.avatar;
   }
 
@@ -86,37 +126,103 @@ public class Tenant {
 
   public static class Builder {
 
+    /**
+     * 企业名称
+     * <p> 示例值：企业名称
+     */
     private String name;
+    /**
+     * 企业编号，平台内唯一
+     * <p> 示例值：F123456789
+     */
     private String displayId;
+    /**
+     * 个人版/团队版标志
+     * <p> 示例值：0
+     */
     private Integer tenantTag;
+    /**
+     * 企业标识
+     * <p> 示例值：abcdefghi
+     */
     private String tenantKey;
+    /**
+     * 企业头像
+     * <p> 示例值：
+     */
     private Avatar avatar;
 
+    /**
+     * 企业名称
+     * <p> 示例值：企业名称
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 企业编号，平台内唯一
+     * <p> 示例值：F123456789
+     *
+     * @param displayId
+     * @return
+     */
     public Builder displayId(String displayId) {
       this.displayId = displayId;
       return this;
     }
 
+
+    /**
+     * 个人版/团队版标志
+     * <p> 示例值：0
+     *
+     * @param tenantTag
+     * @return
+     */
     public Builder tenantTag(Integer tenantTag) {
       this.tenantTag = tenantTag;
       return this;
     }
 
-    public Builder tenantTag(com.lark.oapi.service.tenant.v2.enums.TenantTagEnum tenantTag) {
+    /**
+     * 个人版/团队版标志
+     * <p> 示例值：0
+     *
+     * @param tenantTag {@link com.lark.oapi.service.tenant.v2.enums.TenantTenantTagEnum}
+     * @return
+     */
+    public Builder tenantTag(com.lark.oapi.service.tenant.v2.enums.TenantTenantTagEnum tenantTag) {
       this.tenantTag = tenantTag.getValue();
       return this;
     }
 
+
+    /**
+     * 企业标识
+     * <p> 示例值：abcdefghi
+     *
+     * @param tenantKey
+     * @return
+     */
     public Builder tenantKey(String tenantKey) {
       this.tenantKey = tenantKey;
       return this;
     }
 
+
+    /**
+     * 企业头像
+     * <p> 示例值：
+     *
+     * @param avatar
+     * @return
+     */
     public Builder avatar(Avatar avatar) {
       this.avatar = avatar;
       return this;

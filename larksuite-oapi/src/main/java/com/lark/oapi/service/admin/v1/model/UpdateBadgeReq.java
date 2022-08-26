@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class UpdateBadgeReq {
 
+  /**
+   * 勋章ID
+   * <p> 示例值：m_MzfKDM
+   */
   @Path
   @SerializedName("badge_id")
   private String badgeId;
@@ -30,6 +34,10 @@ public class UpdateBadgeReq {
   }
 
   public UpdateBadgeReq(Builder builder) {
+    /**
+     * 勋章ID
+     * <p> 示例值：m_MzfKDM
+     */
     this.badgeId = builder.badgeId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class UpdateBadgeReq {
 
   public static class Builder {
 
-    private String badgeId;
+    private String badgeId; // 勋章ID
     private Badge body;
 
+    /**
+     * 勋章ID
+     * <p> 示例值：m_MzfKDM
+     *
+     * @param badgeId
+     * @return
+     */
     public Builder badgeId(String badgeId) {
       this.badgeId = badgeId;
       return this;
@@ -68,6 +83,12 @@ public class UpdateBadgeReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder badge(Badge body) {
       this.body = body;
       return this;

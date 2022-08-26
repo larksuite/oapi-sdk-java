@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.contact.v3.model.DeleteUnitReq;
 import com.lark.oapi.service.contact.v3.model.DeleteUnitResp;
 
-// HTTP PATH: /open-apis/contact/v3/unit/:unit_id"
+// DELETE /open-apis/contact/v3/unit/:unit_id
 public class DeleteUnitSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class DeleteUnitSample {
 
     // 创建请求对象
     DeleteUnitReq req = DeleteUnitReq.newBuilder()
-        .unitId("")
+        .unitId("BU121")
         .build();
 
     // 发起请求

@@ -6,7 +6,7 @@ import com.lark.oapi.service.contact.v3.model.RemoveGroupMemberReq;
 import com.lark.oapi.service.contact.v3.model.RemoveGroupMemberReqBody;
 import com.lark.oapi.service.contact.v3.model.RemoveGroupMemberResp;
 
-// HTTP PATH: /open-apis/contact/v3/group/:group_id/member/remove"
+// POST /open-apis/contact/v3/group/:group_id/member/remove
 public class RemoveGroupMemberSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,10 +15,10 @@ public class RemoveGroupMemberSample {
 
     // 创建请求对象
     RemoveGroupMemberReq req = RemoveGroupMemberReq.newBuilder()
-        .groupId("")
+        .groupId("g198123")
         .removeGroupMemberReqBody(RemoveGroupMemberReqBody.newBuilder()
             .memberType("user")
-            .memberId("")
+            .memberId("xj82871k")
             .memberIdType("open_id")
             .build())
         .build();

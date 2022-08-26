@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetUser {
 
+  /**
+   * 用户信息
+   * <p> 示例值：
+   */
   @SerializedName("user")
   private User user;
 

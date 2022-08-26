@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class NotificationChat {
 
+  /**
+   * 非必填，会话ID
+   * <p> 示例值：oc_7277fd1262bfafc363d5b2a1f9c2ac90
+   */
   @SerializedName("chat_id")
   private String chatId;
+  /**
+   * 非必填，会话名称
+   * <p> 示例值：测试群聊
+   */
   @SerializedName("name")
   private String name;
 
@@ -27,7 +35,15 @@ public class NotificationChat {
   }
 
   public NotificationChat(Builder builder) {
+    /**
+     * 非必填，会话ID
+     * <p> 示例值：oc_7277fd1262bfafc363d5b2a1f9c2ac90
+     */
     this.chatId = builder.chatId;
+    /**
+     * 非必填，会话名称
+     * <p> 示例值：测试群聊
+     */
     this.name = builder.name;
   }
 
@@ -53,14 +69,37 @@ public class NotificationChat {
 
   public static class Builder {
 
+    /**
+     * 非必填，会话ID
+     * <p> 示例值：oc_7277fd1262bfafc363d5b2a1f9c2ac90
+     */
     private String chatId;
+    /**
+     * 非必填，会话名称
+     * <p> 示例值：测试群聊
+     */
     private String name;
 
+    /**
+     * 非必填，会话ID
+     * <p> 示例值：oc_7277fd1262bfafc363d5b2a1f9c2ac90
+     *
+     * @param chatId
+     * @return
+     */
     public Builder chatId(String chatId) {
       this.chatId = chatId;
       return this;
     }
 
+
+    /**
+     * 非必填，会话名称
+     * <p> 示例值：测试群聊
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;

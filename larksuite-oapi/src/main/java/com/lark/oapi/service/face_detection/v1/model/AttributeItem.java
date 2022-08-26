@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class AttributeItem {
 
+  /**
+   * 属性
+   * <p> 示例值：0
+   */
   @SerializedName("type")
   private Integer type;
+  /**
+   * 识别置信度，[0, 1]，代表判断正确的概率
+   * <p> 示例值：0.95566
+   */
   @SerializedName("probability")
   private Double probability;
 
@@ -27,7 +35,15 @@ public class AttributeItem {
   }
 
   public AttributeItem(Builder builder) {
+    /**
+     * 属性
+     * <p> 示例值：0
+     */
     this.type = builder.type;
+    /**
+     * 识别置信度，[0, 1]，代表判断正确的概率
+     * <p> 示例值：0.95566
+     */
     this.probability = builder.probability;
   }
 
@@ -53,14 +69,37 @@ public class AttributeItem {
 
   public static class Builder {
 
+    /**
+     * 属性
+     * <p> 示例值：0
+     */
     private Integer type;
+    /**
+     * 识别置信度，[0, 1]，代表判断正确的概率
+     * <p> 示例值：0.95566
+     */
     private Double probability;
 
+    /**
+     * 属性
+     * <p> 示例值：0
+     *
+     * @param type
+     * @return
+     */
     public Builder type(Integer type) {
       this.type = type;
       return this;
     }
 
+
+    /**
+     * 识别置信度，[0, 1]，代表判断正确的概率
+     * <p> 示例值：0.95566
+     *
+     * @param probability
+     * @return
+     */
     public Builder probability(Double probability) {
       this.probability = probability;
       return this;

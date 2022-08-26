@@ -6,7 +6,7 @@ import com.lark.oapi.service.approval.v4.model.PreviewInstanceReq;
 import com.lark.oapi.service.approval.v4.model.PreviewInstanceReqBody;
 import com.lark.oapi.service.approval.v4.model.PreviewInstanceResp;
 
-// HTTP PATH: /open-apis/approval/v4/instances/preview"
+// POST /open-apis/approval/v4/instances/preview
 public class PreviewInstanceSample {
 
   public static void main(String arg[]) throws Exception {

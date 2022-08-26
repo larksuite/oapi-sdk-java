@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class PatchFileCommentReqBody {
 
+  /**
+   * 评论解决标志
+   * <p> 示例值：true
+   */
   @SerializedName("is_solved")
   private Boolean isSolved;
 
@@ -25,6 +29,10 @@ public class PatchFileCommentReqBody {
   }
 
   public PatchFileCommentReqBody(Builder builder) {
+    /**
+     * 评论解决标志
+     * <p> 示例值：true
+     */
     this.isSolved = builder.isSolved;
   }
 
@@ -42,8 +50,19 @@ public class PatchFileCommentReqBody {
 
   public static class Builder {
 
+    /**
+     * 评论解决标志
+     * <p> 示例值：true
+     */
     private Boolean isSolved;
 
+    /**
+     * 评论解决标志
+     * <p> 示例值：true
+     *
+     * @param isSolved
+     * @return
+     */
     public Builder isSolved(Boolean isSolved) {
       this.isSolved = isSolved;
       return this;

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class Emoji {
 
+  /**
+   * emoji类型 [emoji类型列举](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)
+   * <p> 示例值：SMILE
+   */
   @SerializedName("emoji_type")
   private String emojiType;
 
@@ -25,6 +29,10 @@ public class Emoji {
   }
 
   public Emoji(Builder builder) {
+    /**
+     * emoji类型 [emoji类型列举](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)
+     * <p> 示例值：SMILE
+     */
     this.emojiType = builder.emojiType;
   }
 
@@ -42,8 +50,19 @@ public class Emoji {
 
   public static class Builder {
 
+    /**
+     * emoji类型 [emoji类型列举](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)
+     * <p> 示例值：SMILE
+     */
     private String emojiType;
 
+    /**
+     * emoji类型 [emoji类型列举](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)
+     * <p> 示例值：SMILE
+     *
+     * @param emojiType
+     * @return
+     */
     public Builder emojiType(String emojiType) {
       this.emojiType = emojiType;
       return this;

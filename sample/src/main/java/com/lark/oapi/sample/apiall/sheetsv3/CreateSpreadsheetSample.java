@@ -6,7 +6,7 @@ import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetReq;
 import com.lark.oapi.service.sheets.v3.model.CreateSpreadsheetResp;
 import com.lark.oapi.service.sheets.v3.model.Spreadsheet;
 
-// HTTP PATH: /open-apis/sheets/v3/spreadsheets"
+// POST /open-apis/sheets/v3/spreadsheets
 public class CreateSpreadsheetSample {
 
   public static void main(String arg[]) throws Exception {

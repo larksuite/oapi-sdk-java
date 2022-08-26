@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2UserUpdatedV3Data {
 
+  /**
+   * 变更后信息
+   * <p> 示例值：
+   */
   @SerializedName("object")
   private UserEvent object;
+  /**
+   * 变更前信息，body中只包含有变更的字段
+   * <p> 示例值：
+   */
   @SerializedName("old_object")
   private UserEvent oldObject;
 

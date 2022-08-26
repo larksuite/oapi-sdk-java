@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class SearchFaq {
 
+  /**
+   * if there's next page
+   * <p> 示例值：
+   */
   @SerializedName("has_more")
   private Boolean hasMore;
+  /**
+   * the next page token
+   * <p> 示例值：
+   */
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 知识库列表
+   * <p> 示例值：
+   */
   @SerializedName("items")
   private Faq[] items;
 

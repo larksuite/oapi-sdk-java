@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.vc.v1.model.EndMeetingReq;
 import com.lark.oapi.service.vc.v1.model.EndMeetingResp;
 
-// HTTP PATH: /open-apis/vc/v1/meetings/:meeting_id/end"
+// PATCH /open-apis/vc/v1/meetings/:meeting_id/end
 public class EndMeetingSample {
 
   public static void main(String arg[]) throws Exception {

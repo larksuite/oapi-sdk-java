@@ -6,7 +6,7 @@ import com.lark.oapi.service.approval.v4.model.CcInstanceReq;
 import com.lark.oapi.service.approval.v4.model.CcInstanceResp;
 import com.lark.oapi.service.approval.v4.model.InstanceCc;
 
-// HTTP PATH: /open-apis/approval/v4/instances/cc"
+// POST /open-apis/approval/v4/instances/cc
 public class CcInstanceSample {
 
   public static void main(String arg[]) throws Exception {

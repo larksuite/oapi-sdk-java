@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.contact.v3.model.GetUserReq;
 import com.lark.oapi.service.contact.v3.model.GetUserResp;
 
-// HTTP PATH: /open-apis/contact/v3/users/:user_id"
+// GET /open-apis/contact/v3/users/:user_id
 public class GetUserSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,7 +14,7 @@ public class GetUserSample {
 
     // 创建请求对象
     GetUserReq req = GetUserReq.newBuilder()
-        .userId("")
+        .userId("7be5fg9a")
         .userIdType("open_id")
         .departmentIdType("open_department_id")
         .build();

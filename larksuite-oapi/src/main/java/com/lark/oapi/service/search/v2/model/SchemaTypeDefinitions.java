@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class SchemaTypeDefinitions {
 
+  /**
+   * 标签类型的定义
+   * <p> 示例值：
+   */
   @SerializedName("tag")
   private SchemaTagOptions[] tag;
 
@@ -25,6 +29,10 @@ public class SchemaTypeDefinitions {
   }
 
   public SchemaTypeDefinitions(Builder builder) {
+    /**
+     * 标签类型的定义
+     * <p> 示例值：
+     */
     this.tag = builder.tag;
   }
 
@@ -42,8 +50,19 @@ public class SchemaTypeDefinitions {
 
   public static class Builder {
 
+    /**
+     * 标签类型的定义
+     * <p> 示例值：
+     */
     private SchemaTagOptions[] tag;
 
+    /**
+     * 标签类型的定义
+     * <p> 示例值：
+     *
+     * @param tag
+     * @return
+     */
     public Builder tag(SchemaTagOptions[] tag) {
       this.tag = tag;
       return this;

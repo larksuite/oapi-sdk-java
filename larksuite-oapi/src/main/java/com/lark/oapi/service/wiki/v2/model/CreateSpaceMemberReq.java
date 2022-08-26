@@ -20,9 +20,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class CreateSpaceMemberReq {
 
+  /**
+   * 添加权限后是否通知对方
+   * <p> 示例值：true/fasle
+   */
   @Query
   @SerializedName("need_notification")
   private Boolean needNotification;
+  /**
+   * 知识空间id
+   * <p> 示例值：1565676577122621
+   */
   @Path
   @SerializedName("space_id")
   private String spaceId;
@@ -34,7 +42,15 @@ public class CreateSpaceMemberReq {
   }
 
   public CreateSpaceMemberReq(Builder builder) {
+    /**
+     * 添加权限后是否通知对方
+     * <p> 示例值：true/fasle
+     */
     this.needNotification = builder.needNotification;
+    /**
+     * 知识空间id
+     * <p> 示例值：1565676577122621
+     */
     this.spaceId = builder.spaceId;
     this.body = builder.body;
   }
@@ -69,15 +85,29 @@ public class CreateSpaceMemberReq {
 
   public static class Builder {
 
-    private Boolean needNotification;
-    private String spaceId;
+    private Boolean needNotification; // 添加权限后是否通知对方
+    private String spaceId; // 知识空间id
     private Member body;
 
+    /**
+     * 添加权限后是否通知对方
+     * <p> 示例值：true/fasle
+     *
+     * @param needNotification
+     * @return
+     */
     public Builder needNotification(Boolean needNotification) {
       this.needNotification = needNotification;
       return this;
     }
 
+    /**
+     * 知识空间id
+     * <p> 示例值：1565676577122621
+     *
+     * @param spaceId
+     * @return
+     */
     public Builder spaceId(String spaceId) {
       this.spaceId = spaceId;
       return this;
@@ -87,6 +117,12 @@ public class CreateSpaceMemberReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder member(Member body) {
       this.body = body;
       return this;

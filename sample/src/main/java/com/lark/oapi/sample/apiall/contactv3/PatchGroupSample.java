@@ -6,7 +6,7 @@ import com.lark.oapi.service.contact.v3.model.PatchGroupReq;
 import com.lark.oapi.service.contact.v3.model.PatchGroupReqBody;
 import com.lark.oapi.service.contact.v3.model.PatchGroupResp;
 
-// HTTP PATH: /open-apis/contact/v3/group/:group_id"
+// PATCH /open-apis/contact/v3/group/:group_id
 public class PatchGroupSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,10 +15,10 @@ public class PatchGroupSample {
 
     // 创建请求对象
     PatchGroupReq req = PatchGroupReq.newBuilder()
-        .groupId("")
+        .groupId("g187131")
         .patchGroupReqBody(PatchGroupReqBody.newBuilder()
-            .name("")
-            .description("")
+            .name("外包 IT 用户组")
+            .description("IT 外包用户组，需要进行细粒度权限管控")
             .build())
         .build();
 

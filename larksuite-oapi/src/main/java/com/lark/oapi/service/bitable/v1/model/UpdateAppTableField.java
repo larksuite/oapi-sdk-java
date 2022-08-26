@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateAppTableField {
 
+  /**
+   * 字段
+   * <p> 示例值：
+   */
   @SerializedName("field")
   private AppTableField field;
 

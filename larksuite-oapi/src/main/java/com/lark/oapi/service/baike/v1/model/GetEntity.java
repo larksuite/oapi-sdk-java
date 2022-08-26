@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetEntity {
 
+  /**
+   * 实体词
+   * <p> 示例值：
+   */
   @SerializedName("entity")
   private Entity entity;
 

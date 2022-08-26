@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateGridColumnWidthRatioRequest {
 
+  /**
+   * 更新列宽比例时，需要传入所有列宽占比
+   * <p> 示例值：50
+   */
   @SerializedName("width_ratios")
   private Integer[] widthRatios;
 
@@ -25,6 +29,10 @@ public class UpdateGridColumnWidthRatioRequest {
   }
 
   public UpdateGridColumnWidthRatioRequest(Builder builder) {
+    /**
+     * 更新列宽比例时，需要传入所有列宽占比
+     * <p> 示例值：50
+     */
     this.widthRatios = builder.widthRatios;
   }
 
@@ -42,8 +50,19 @@ public class UpdateGridColumnWidthRatioRequest {
 
   public static class Builder {
 
+    /**
+     * 更新列宽比例时，需要传入所有列宽占比
+     * <p> 示例值：50
+     */
     private Integer[] widthRatios;
 
+    /**
+     * 更新列宽比例时，需要传入所有列宽占比
+     * <p> 示例值：50
+     *
+     * @param widthRatios
+     * @return
+     */
     public Builder widthRatios(Integer[] widthRatios) {
       this.widthRatios = widthRatios;
       return this;

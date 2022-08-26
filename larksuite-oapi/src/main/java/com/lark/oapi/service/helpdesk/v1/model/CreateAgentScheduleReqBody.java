@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateAgentScheduleReqBody {
 
+  /**
+   * 新客服日程
+   * <p> 示例值：
+   */
   @SerializedName("agent_schedules")
   private AgentScheduleUpdateInfo[] agentSchedules;
 
@@ -25,6 +29,10 @@ public class CreateAgentScheduleReqBody {
   }
 
   public CreateAgentScheduleReqBody(Builder builder) {
+    /**
+     * 新客服日程
+     * <p> 示例值：
+     */
     this.agentSchedules = builder.agentSchedules;
   }
 
@@ -42,8 +50,19 @@ public class CreateAgentScheduleReqBody {
 
   public static class Builder {
 
+    /**
+     * 新客服日程
+     * <p> 示例值：
+     */
     private AgentScheduleUpdateInfo[] agentSchedules;
 
+    /**
+     * 新客服日程
+     * <p> 示例值：
+     *
+     * @param agentSchedules
+     * @return
+     */
     public Builder agentSchedules(AgentScheduleUpdateInfo[] agentSchedules) {
       this.agentSchedules = agentSchedules;
       return this;

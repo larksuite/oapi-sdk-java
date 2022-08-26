@@ -8,7 +8,7 @@ import com.lark.oapi.service.baike.v1.model.Term;
 import com.lark.oapi.service.baike.v1.model.UpdateDraftReq;
 import com.lark.oapi.service.baike.v1.model.UpdateDraftResp;
 
-// HTTP PATH: /open-apis/baike/v1/drafts/:draft_id"
+// PUT /open-apis/baike/v1/drafts/:draft_id
 public class UpdateDraftSample {
 
   public static void main(String arg[]) throws Exception {
@@ -17,7 +17,7 @@ public class UpdateDraftSample {
 
     // 创建请求对象
     UpdateDraftReq req = UpdateDraftReq.newBuilder()
-        .draftId("42322")
+        .draftId("5347")
         .userIdType("user_id")
         .entity(Entity.newBuilder()
             .id("enterprise_40217521")

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class InviteMeeting {
 
+  /**
+   * 邀请结果
+   * <p> 示例值：
+   */
   @SerializedName("invite_results")
   private MeetingInviteStatus[] inviteResults;
 

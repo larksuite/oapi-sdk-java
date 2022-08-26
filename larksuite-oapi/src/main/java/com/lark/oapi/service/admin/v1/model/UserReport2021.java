@@ -17,54 +17,154 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserReport2021 {
 
+  /**
+   * 活跃时长> 0的天数
+   * <p> 示例值：111
+   */
   @SerializedName("active_day_count")
   private Integer activeDayCount;
+  /**
+   * 工作日平均活跃最长的一周，「2021W10」格式
+   * <p> 示例值：2021W33
+   */
   @SerializedName("busy_week")
   private String busyWeek;
+  /**
+   * 单聊过的人数（仅限普通单聊，不包括bot等，不限本人是否有过发送消息）
+   * <p> 示例值：3
+   */
   @SerializedName("p2p_chat_count")
   private String p2pChatCount;
+  /**
+   * 发过言的群数
+   * <p> 示例值：4
+   */
   @SerializedName("talked_chat_count")
   private String talkedChatCount;
+  /**
+   * 任何场景下发的表情次数最多的一个表情
+   * <p> 示例值：MUSCLE
+   */
   @SerializedName("favorite_emoji")
   private String favoriteEmoji;
+  /**
+   * 本人使用快捷表情的次数
+   * <p> 示例值：341
+   */
   @SerializedName("reaction_count")
   private String reactionCount;
+  /**
+   * 创建了日程并发起了视频会议的次数
+   * <p> 示例值：78
+   */
   @SerializedName("conference_create_count")
   private String conferenceCreateCount;
+  /**
+   * 创建日程中涉及到的总人次
+   * <p> 示例值：1
+   */
   @SerializedName("total_parti_count")
   private String totalPartiCount;
+  /**
+   * 录制了多少篇妙记
+   * <p> 示例值：0
+   */
   @SerializedName("minutes_object_count")
   private String minutesObjectCount;
+  /**
+   * 录制妙记累积时长（分钟）
+   * <p> 示例值：0
+   */
   @SerializedName("minutes_duration")
   private Double minutesDuration;
+  /**
+   * 创建及参与协作的文档篇数
+   * <p> 示例值：0
+   */
   @SerializedName("create_edit_file_count")
   private String createEditFileCount;
+  /**
+   * 创建文档数
+   * <p> 示例值：0
+   */
   @SerializedName("create_file_count")
   private String createFileCount;
+  /**
+   * 参与协作文档数
+   * <p> 示例值：0
+   */
   @SerializedName("cooperate_edit_file_count")
   private String cooperateEditFileCount;
+  /**
+   * 所属的文档共获得多少个点赞
+   * <p> 示例值：0
+   */
   @SerializedName("like_record_count")
   private String likeRecordCount;
+  /**
+   * 填写过的O的数量
+   * <p> 示例值：0
+   */
   @SerializedName("okr_cum_o_count")
   private String okrCumOCount;
+  /**
+   * 填写过的KR的数量
+   * <p> 示例值：0
+   */
   @SerializedName("okr_cum_kr_count")
   private String okrCumKrCount;
+  /**
+   * 被对齐次数最多的用户
+   * <p> 示例值：ou_XXXXXXX
+   */
   @SerializedName("okr_aligned_user_rankfirst")
   private String okrAlignedUserRankfirst;
+  /**
+   * 发起的审批流程数
+   * <p> 示例值：0
+   */
   @SerializedName("approval_start_count")
   private String approvalStartCount;
+  /**
+   * 处理的审批流程数
+   * <p> 示例值：0
+   */
   @SerializedName("approval_execute_count")
   private String approvalExecuteCount;
+  /**
+   * 审批协作次数最多的用户（在同一个审批实例中出现过即算为审批协作）
+   * <p> 示例值：ou_XXXXXXX
+   */
   @SerializedName("approval_relation_user_rankfirst")
   private String approvalRelationUserRankfirst;
+  /**
+   * 用户id
+   * <p> 示例值：ou_XXXXXXX
+   */
   @SerializedName("user_id")
   private String userId;
+  /**
+   * 工作日平均活跃最长的一周 的总活跃时长（分钟）
+   * <p> 示例值：1816
+   */
   @SerializedName("busy_week_sum_duration")
   private String busyWeekSumDuration;
+  /**
+   * 工作日平均活跃最长的一周 的最早工作日
+   * <p> 示例值：20210816
+   */
   @SerializedName("busy_week_mdate")
   private String busyWeekMdate;
+  /**
+   * 工作日平均活跃最长的一周 有活跃的工作日天数
+   * <p> 示例值：4
+   */
   @SerializedName("busy_week_act_days")
   private Integer busyWeekActDays;
+  /**
+   * 创建的文档被XXX人阅读过
+   * <p> 示例值：10
+   */
   @SerializedName("create_read_user_count")
   private String createReadUserCount;
 
@@ -73,30 +173,130 @@ public class UserReport2021 {
   }
 
   public UserReport2021(Builder builder) {
+    /**
+     * 活跃时长> 0的天数
+     * <p> 示例值：111
+     */
     this.activeDayCount = builder.activeDayCount;
+    /**
+     * 工作日平均活跃最长的一周，「2021W10」格式
+     * <p> 示例值：2021W33
+     */
     this.busyWeek = builder.busyWeek;
+    /**
+     * 单聊过的人数（仅限普通单聊，不包括bot等，不限本人是否有过发送消息）
+     * <p> 示例值：3
+     */
     this.p2pChatCount = builder.p2pChatCount;
+    /**
+     * 发过言的群数
+     * <p> 示例值：4
+     */
     this.talkedChatCount = builder.talkedChatCount;
+    /**
+     * 任何场景下发的表情次数最多的一个表情
+     * <p> 示例值：MUSCLE
+     */
     this.favoriteEmoji = builder.favoriteEmoji;
+    /**
+     * 本人使用快捷表情的次数
+     * <p> 示例值：341
+     */
     this.reactionCount = builder.reactionCount;
+    /**
+     * 创建了日程并发起了视频会议的次数
+     * <p> 示例值：78
+     */
     this.conferenceCreateCount = builder.conferenceCreateCount;
+    /**
+     * 创建日程中涉及到的总人次
+     * <p> 示例值：1
+     */
     this.totalPartiCount = builder.totalPartiCount;
+    /**
+     * 录制了多少篇妙记
+     * <p> 示例值：0
+     */
     this.minutesObjectCount = builder.minutesObjectCount;
+    /**
+     * 录制妙记累积时长（分钟）
+     * <p> 示例值：0
+     */
     this.minutesDuration = builder.minutesDuration;
+    /**
+     * 创建及参与协作的文档篇数
+     * <p> 示例值：0
+     */
     this.createEditFileCount = builder.createEditFileCount;
+    /**
+     * 创建文档数
+     * <p> 示例值：0
+     */
     this.createFileCount = builder.createFileCount;
+    /**
+     * 参与协作文档数
+     * <p> 示例值：0
+     */
     this.cooperateEditFileCount = builder.cooperateEditFileCount;
+    /**
+     * 所属的文档共获得多少个点赞
+     * <p> 示例值：0
+     */
     this.likeRecordCount = builder.likeRecordCount;
+    /**
+     * 填写过的O的数量
+     * <p> 示例值：0
+     */
     this.okrCumOCount = builder.okrCumOCount;
+    /**
+     * 填写过的KR的数量
+     * <p> 示例值：0
+     */
     this.okrCumKrCount = builder.okrCumKrCount;
+    /**
+     * 被对齐次数最多的用户
+     * <p> 示例值：ou_XXXXXXX
+     */
     this.okrAlignedUserRankfirst = builder.okrAlignedUserRankfirst;
+    /**
+     * 发起的审批流程数
+     * <p> 示例值：0
+     */
     this.approvalStartCount = builder.approvalStartCount;
+    /**
+     * 处理的审批流程数
+     * <p> 示例值：0
+     */
     this.approvalExecuteCount = builder.approvalExecuteCount;
+    /**
+     * 审批协作次数最多的用户（在同一个审批实例中出现过即算为审批协作）
+     * <p> 示例值：ou_XXXXXXX
+     */
     this.approvalRelationUserRankfirst = builder.approvalRelationUserRankfirst;
+    /**
+     * 用户id
+     * <p> 示例值：ou_XXXXXXX
+     */
     this.userId = builder.userId;
+    /**
+     * 工作日平均活跃最长的一周 的总活跃时长（分钟）
+     * <p> 示例值：1816
+     */
     this.busyWeekSumDuration = builder.busyWeekSumDuration;
+    /**
+     * 工作日平均活跃最长的一周 的最早工作日
+     * <p> 示例值：20210816
+     */
     this.busyWeekMdate = builder.busyWeekMdate;
+    /**
+     * 工作日平均活跃最长的一周 有活跃的工作日天数
+     * <p> 示例值：4
+     */
     this.busyWeekActDays = builder.busyWeekActDays;
+    /**
+     * 创建的文档被XXX人阅读过
+     * <p> 示例值：10
+     */
     this.createReadUserCount = builder.createReadUserCount;
   }
 
@@ -306,152 +506,451 @@ public class UserReport2021 {
 
   public static class Builder {
 
+    /**
+     * 活跃时长> 0的天数
+     * <p> 示例值：111
+     */
     private Integer activeDayCount;
+    /**
+     * 工作日平均活跃最长的一周，「2021W10」格式
+     * <p> 示例值：2021W33
+     */
     private String busyWeek;
+    /**
+     * 单聊过的人数（仅限普通单聊，不包括bot等，不限本人是否有过发送消息）
+     * <p> 示例值：3
+     */
     private String p2pChatCount;
+    /**
+     * 发过言的群数
+     * <p> 示例值：4
+     */
     private String talkedChatCount;
+    /**
+     * 任何场景下发的表情次数最多的一个表情
+     * <p> 示例值：MUSCLE
+     */
     private String favoriteEmoji;
+    /**
+     * 本人使用快捷表情的次数
+     * <p> 示例值：341
+     */
     private String reactionCount;
+    /**
+     * 创建了日程并发起了视频会议的次数
+     * <p> 示例值：78
+     */
     private String conferenceCreateCount;
+    /**
+     * 创建日程中涉及到的总人次
+     * <p> 示例值：1
+     */
     private String totalPartiCount;
+    /**
+     * 录制了多少篇妙记
+     * <p> 示例值：0
+     */
     private String minutesObjectCount;
+    /**
+     * 录制妙记累积时长（分钟）
+     * <p> 示例值：0
+     */
     private Double minutesDuration;
+    /**
+     * 创建及参与协作的文档篇数
+     * <p> 示例值：0
+     */
     private String createEditFileCount;
+    /**
+     * 创建文档数
+     * <p> 示例值：0
+     */
     private String createFileCount;
+    /**
+     * 参与协作文档数
+     * <p> 示例值：0
+     */
     private String cooperateEditFileCount;
+    /**
+     * 所属的文档共获得多少个点赞
+     * <p> 示例值：0
+     */
     private String likeRecordCount;
+    /**
+     * 填写过的O的数量
+     * <p> 示例值：0
+     */
     private String okrCumOCount;
+    /**
+     * 填写过的KR的数量
+     * <p> 示例值：0
+     */
     private String okrCumKrCount;
+    /**
+     * 被对齐次数最多的用户
+     * <p> 示例值：ou_XXXXXXX
+     */
     private String okrAlignedUserRankfirst;
+    /**
+     * 发起的审批流程数
+     * <p> 示例值：0
+     */
     private String approvalStartCount;
+    /**
+     * 处理的审批流程数
+     * <p> 示例值：0
+     */
     private String approvalExecuteCount;
+    /**
+     * 审批协作次数最多的用户（在同一个审批实例中出现过即算为审批协作）
+     * <p> 示例值：ou_XXXXXXX
+     */
     private String approvalRelationUserRankfirst;
+    /**
+     * 用户id
+     * <p> 示例值：ou_XXXXXXX
+     */
     private String userId;
+    /**
+     * 工作日平均活跃最长的一周 的总活跃时长（分钟）
+     * <p> 示例值：1816
+     */
     private String busyWeekSumDuration;
+    /**
+     * 工作日平均活跃最长的一周 的最早工作日
+     * <p> 示例值：20210816
+     */
     private String busyWeekMdate;
+    /**
+     * 工作日平均活跃最长的一周 有活跃的工作日天数
+     * <p> 示例值：4
+     */
     private Integer busyWeekActDays;
+    /**
+     * 创建的文档被XXX人阅读过
+     * <p> 示例值：10
+     */
     private String createReadUserCount;
 
+    /**
+     * 活跃时长> 0的天数
+     * <p> 示例值：111
+     *
+     * @param activeDayCount
+     * @return
+     */
     public Builder activeDayCount(Integer activeDayCount) {
       this.activeDayCount = activeDayCount;
       return this;
     }
 
+
+    /**
+     * 工作日平均活跃最长的一周，「2021W10」格式
+     * <p> 示例值：2021W33
+     *
+     * @param busyWeek
+     * @return
+     */
     public Builder busyWeek(String busyWeek) {
       this.busyWeek = busyWeek;
       return this;
     }
 
+
+    /**
+     * 单聊过的人数（仅限普通单聊，不包括bot等，不限本人是否有过发送消息）
+     * <p> 示例值：3
+     *
+     * @param p2pChatCount
+     * @return
+     */
     public Builder p2pChatCount(String p2pChatCount) {
       this.p2pChatCount = p2pChatCount;
       return this;
     }
 
+
+    /**
+     * 发过言的群数
+     * <p> 示例值：4
+     *
+     * @param talkedChatCount
+     * @return
+     */
     public Builder talkedChatCount(String talkedChatCount) {
       this.talkedChatCount = talkedChatCount;
       return this;
     }
 
+
+    /**
+     * 任何场景下发的表情次数最多的一个表情
+     * <p> 示例值：MUSCLE
+     *
+     * @param favoriteEmoji
+     * @return
+     */
     public Builder favoriteEmoji(String favoriteEmoji) {
       this.favoriteEmoji = favoriteEmoji;
       return this;
     }
 
+
+    /**
+     * 本人使用快捷表情的次数
+     * <p> 示例值：341
+     *
+     * @param reactionCount
+     * @return
+     */
     public Builder reactionCount(String reactionCount) {
       this.reactionCount = reactionCount;
       return this;
     }
 
+
+    /**
+     * 创建了日程并发起了视频会议的次数
+     * <p> 示例值：78
+     *
+     * @param conferenceCreateCount
+     * @return
+     */
     public Builder conferenceCreateCount(String conferenceCreateCount) {
       this.conferenceCreateCount = conferenceCreateCount;
       return this;
     }
 
+
+    /**
+     * 创建日程中涉及到的总人次
+     * <p> 示例值：1
+     *
+     * @param totalPartiCount
+     * @return
+     */
     public Builder totalPartiCount(String totalPartiCount) {
       this.totalPartiCount = totalPartiCount;
       return this;
     }
 
+
+    /**
+     * 录制了多少篇妙记
+     * <p> 示例值：0
+     *
+     * @param minutesObjectCount
+     * @return
+     */
     public Builder minutesObjectCount(String minutesObjectCount) {
       this.minutesObjectCount = minutesObjectCount;
       return this;
     }
 
+
+    /**
+     * 录制妙记累积时长（分钟）
+     * <p> 示例值：0
+     *
+     * @param minutesDuration
+     * @return
+     */
     public Builder minutesDuration(Double minutesDuration) {
       this.minutesDuration = minutesDuration;
       return this;
     }
 
+
+    /**
+     * 创建及参与协作的文档篇数
+     * <p> 示例值：0
+     *
+     * @param createEditFileCount
+     * @return
+     */
     public Builder createEditFileCount(String createEditFileCount) {
       this.createEditFileCount = createEditFileCount;
       return this;
     }
 
+
+    /**
+     * 创建文档数
+     * <p> 示例值：0
+     *
+     * @param createFileCount
+     * @return
+     */
     public Builder createFileCount(String createFileCount) {
       this.createFileCount = createFileCount;
       return this;
     }
 
+
+    /**
+     * 参与协作文档数
+     * <p> 示例值：0
+     *
+     * @param cooperateEditFileCount
+     * @return
+     */
     public Builder cooperateEditFileCount(String cooperateEditFileCount) {
       this.cooperateEditFileCount = cooperateEditFileCount;
       return this;
     }
 
+
+    /**
+     * 所属的文档共获得多少个点赞
+     * <p> 示例值：0
+     *
+     * @param likeRecordCount
+     * @return
+     */
     public Builder likeRecordCount(String likeRecordCount) {
       this.likeRecordCount = likeRecordCount;
       return this;
     }
 
+
+    /**
+     * 填写过的O的数量
+     * <p> 示例值：0
+     *
+     * @param okrCumOCount
+     * @return
+     */
     public Builder okrCumOCount(String okrCumOCount) {
       this.okrCumOCount = okrCumOCount;
       return this;
     }
 
+
+    /**
+     * 填写过的KR的数量
+     * <p> 示例值：0
+     *
+     * @param okrCumKrCount
+     * @return
+     */
     public Builder okrCumKrCount(String okrCumKrCount) {
       this.okrCumKrCount = okrCumKrCount;
       return this;
     }
 
+
+    /**
+     * 被对齐次数最多的用户
+     * <p> 示例值：ou_XXXXXXX
+     *
+     * @param okrAlignedUserRankfirst
+     * @return
+     */
     public Builder okrAlignedUserRankfirst(String okrAlignedUserRankfirst) {
       this.okrAlignedUserRankfirst = okrAlignedUserRankfirst;
       return this;
     }
 
+
+    /**
+     * 发起的审批流程数
+     * <p> 示例值：0
+     *
+     * @param approvalStartCount
+     * @return
+     */
     public Builder approvalStartCount(String approvalStartCount) {
       this.approvalStartCount = approvalStartCount;
       return this;
     }
 
+
+    /**
+     * 处理的审批流程数
+     * <p> 示例值：0
+     *
+     * @param approvalExecuteCount
+     * @return
+     */
     public Builder approvalExecuteCount(String approvalExecuteCount) {
       this.approvalExecuteCount = approvalExecuteCount;
       return this;
     }
 
+
+    /**
+     * 审批协作次数最多的用户（在同一个审批实例中出现过即算为审批协作）
+     * <p> 示例值：ou_XXXXXXX
+     *
+     * @param approvalRelationUserRankfirst
+     * @return
+     */
     public Builder approvalRelationUserRankfirst(String approvalRelationUserRankfirst) {
       this.approvalRelationUserRankfirst = approvalRelationUserRankfirst;
       return this;
     }
 
+
+    /**
+     * 用户id
+     * <p> 示例值：ou_XXXXXXX
+     *
+     * @param userId
+     * @return
+     */
     public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
+
+    /**
+     * 工作日平均活跃最长的一周 的总活跃时长（分钟）
+     * <p> 示例值：1816
+     *
+     * @param busyWeekSumDuration
+     * @return
+     */
     public Builder busyWeekSumDuration(String busyWeekSumDuration) {
       this.busyWeekSumDuration = busyWeekSumDuration;
       return this;
     }
 
+
+    /**
+     * 工作日平均活跃最长的一周 的最早工作日
+     * <p> 示例值：20210816
+     *
+     * @param busyWeekMdate
+     * @return
+     */
     public Builder busyWeekMdate(String busyWeekMdate) {
       this.busyWeekMdate = busyWeekMdate;
       return this;
     }
 
+
+    /**
+     * 工作日平均活跃最长的一周 有活跃的工作日天数
+     * <p> 示例值：4
+     *
+     * @param busyWeekActDays
+     * @return
+     */
     public Builder busyWeekActDays(Integer busyWeekActDays) {
       this.busyWeekActDays = busyWeekActDays;
       return this;
     }
 
+
+    /**
+     * 创建的文档被XXX人阅读过
+     * <p> 示例值：10
+     *
+     * @param createReadUserCount
+     * @return
+     */
     public Builder createReadUserCount(String createReadUserCount) {
       this.createReadUserCount = createReadUserCount;
       return this;

@@ -6,7 +6,7 @@ import com.lark.oapi.service.calendar.v4.model.SearchCalendarReq;
 import com.lark.oapi.service.calendar.v4.model.SearchCalendarReqBody;
 import com.lark.oapi.service.calendar.v4.model.SearchCalendarResp;
 
-// HTTP PATH: /open-apis/calendar/v4/calendars/search"
+// POST /open-apis/calendar/v4/calendars/search
 public class SearchCalendarSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,10 +15,10 @@ public class SearchCalendarSample {
 
     // 创建请求对象
     SearchCalendarReq req = SearchCalendarReq.newBuilder()
-        .pageToken("")
+        .pageToken("10")
         .pageSize(20)
         .searchCalendarReqBody(SearchCalendarReqBody.newBuilder()
-            .query("")
+            .query("query words")
             .build())
         .build();
 

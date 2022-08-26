@@ -7,7 +7,7 @@ import com.lark.oapi.service.translation.v1.model.TranslateTextReq;
 import com.lark.oapi.service.translation.v1.model.TranslateTextReqBody;
 import com.lark.oapi.service.translation.v1.model.TranslateTextResp;
 
-// HTTP PATH: /open-apis/translation/v1/text/translate"
+// POST /open-apis/translation/v1/text/translate
 public class TranslateTextSample {
 
   public static void main(String arg[]) throws Exception {
@@ -17,9 +17,9 @@ public class TranslateTextSample {
     // 创建请求对象
     TranslateTextReq req = TranslateTextReq.newBuilder()
         .translateTextReqBody(TranslateTextReqBody.newBuilder()
-            .sourceLanguage("")
-            .text("")
-            .targetLanguage("")
+            .sourceLanguage("zh")
+            .text("尝试使用一下飞书吧")
+            .targetLanguage("en")
             .glossary(new Term[]{})
             .build())
         .build();

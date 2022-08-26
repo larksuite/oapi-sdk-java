@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class BatchMessageReadUser {
 
+  /**
+   * 已读的人数
+   * <p> 示例值：
+   */
   @SerializedName("read_count")
   private String readCount;
+  /**
+   * 推送的总人数
+   * <p> 示例值：
+   */
   @SerializedName("total_count")
   private String totalCount;
 
@@ -27,7 +35,15 @@ public class BatchMessageReadUser {
   }
 
   public BatchMessageReadUser(Builder builder) {
+    /**
+     * 已读的人数
+     * <p> 示例值：
+     */
     this.readCount = builder.readCount;
+    /**
+     * 推送的总人数
+     * <p> 示例值：
+     */
     this.totalCount = builder.totalCount;
   }
 
@@ -53,14 +69,37 @@ public class BatchMessageReadUser {
 
   public static class Builder {
 
+    /**
+     * 已读的人数
+     * <p> 示例值：
+     */
     private String readCount;
+    /**
+     * 推送的总人数
+     * <p> 示例值：
+     */
     private String totalCount;
 
+    /**
+     * 已读的人数
+     * <p> 示例值：
+     *
+     * @param readCount
+     * @return
+     */
     public Builder readCount(String readCount) {
       this.readCount = readCount;
       return this;
     }
 
+
+    /**
+     * 推送的总人数
+     * <p> 示例值：
+     *
+     * @param totalCount
+     * @return
+     */
     public Builder totalCount(String totalCount) {
       this.totalCount = totalCount;
       return this;

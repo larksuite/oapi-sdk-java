@@ -19,12 +19,26 @@ import com.lark.oapi.core.annotation.Query;
 
 public class GetGroupReq {
 
+  /**
+   * 用户 ID 的类型
+   * <p> 示例值：employee_id
+   */
   @Query
   @SerializedName("employee_type")
   private String employeeType;
+  /**
+   * 部门 ID 的类型
+   * <p> 示例值：od-fcb45c28a45311afd441b8869541ece8
+   */
   @Query
   @SerializedName("dept_type")
   private String deptType;
+  /**
+   * 考勤组 ID，获取方式：1）[创建或修改考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create)
+   * 2）[按名称查询考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search)
+   * 3）[获取打卡结果](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
+   * <p> 示例值：6919358128597097404
+   */
   @Path
   @SerializedName("group_id")
   private String groupId;
@@ -34,8 +48,20 @@ public class GetGroupReq {
   }
 
   public GetGroupReq(Builder builder) {
+    /**
+     * 用户 ID 的类型
+     * <p> 示例值：employee_id
+     */
     this.employeeType = builder.employeeType;
+    /**
+     * 部门 ID 的类型
+     * <p> 示例值：od-fcb45c28a45311afd441b8869541ece8
+     */
     this.deptType = builder.deptType;
+    /**
+     * 考勤组 ID，获取方式：1）[创建或修改考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create) 2）[按名称查询考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search) 3）[获取打卡结果](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
+     * <p> 示例值：6919358128597097404
+     */
     this.groupId = builder.groupId;
   }
 
@@ -69,31 +95,69 @@ public class GetGroupReq {
 
   public static class Builder {
 
-    private String employeeType;
-    private String deptType;
-    private String groupId;
+    private String employeeType; // 用户 ID 的类型
+    private String deptType; // 部门 ID 的类型
+    private String groupId; // 考勤组 ID，获取方式：1）[创建或修改考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create) 2）[按名称查询考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search) 3）[获取打卡结果](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
 
+    /**
+     * 用户 ID 的类型
+     * <p> 示例值：employee_id
+     *
+     * @param employeeType
+     * @return
+     */
     public Builder employeeType(String employeeType) {
       this.employeeType = employeeType;
       return this;
     }
 
+    /**
+     * 用户 ID 的类型
+     * <p> 示例值：employee_id
+     *
+     * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.GetGroupEmployeeTypeEnum}
+     * @return
+     */
     public Builder employeeType(
-        com.lark.oapi.service.attendance.v1.enums.EmployeeTypeEnum employeeType) {
+        com.lark.oapi.service.attendance.v1.enums.GetGroupEmployeeTypeEnum employeeType) {
       this.employeeType = employeeType.getValue();
       return this;
     }
 
+    /**
+     * 部门 ID 的类型
+     * <p> 示例值：od-fcb45c28a45311afd441b8869541ece8
+     *
+     * @param deptType
+     * @return
+     */
     public Builder deptType(String deptType) {
       this.deptType = deptType;
       return this;
     }
 
-    public Builder deptType(com.lark.oapi.service.attendance.v1.enums.DeptTypeEnum deptType) {
+    /**
+     * 部门 ID 的类型
+     * <p> 示例值：od-fcb45c28a45311afd441b8869541ece8
+     *
+     * @param deptType {@link com.lark.oapi.service.attendance.v1.enums.GetGroupDeptTypeEnum}
+     * @return
+     */
+    public Builder deptType(
+        com.lark.oapi.service.attendance.v1.enums.GetGroupDeptTypeEnum deptType) {
       this.deptType = deptType.getValue();
       return this;
     }
 
+    /**
+     * 考勤组 ID，获取方式：1）[创建或修改考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create)
+     * 2）[按名称查询考勤组](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search)
+     * 3）[获取打卡结果](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
+     * <p> 示例值：6919358128597097404
+     *
+     * @param groupId
+     * @return
+     */
     public Builder groupId(String groupId) {
       this.groupId = groupId;
       return this;

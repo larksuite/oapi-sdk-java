@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class BatchDeleteAppTableReq {
 
+  /**
+   * bitable app token
+   * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+   */
   @Path
   @SerializedName("app_token")
   private String appToken;
@@ -30,6 +34,10 @@ public class BatchDeleteAppTableReq {
   }
 
   public BatchDeleteAppTableReq(Builder builder) {
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     */
     this.appToken = builder.appToken;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class BatchDeleteAppTableReq {
 
   public static class Builder {
 
-    private String appToken;
+    private String appToken; // bitable app token
     private BatchDeleteAppTableReqBody body;
 
+    /**
+     * bitable app token
+     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     *
+     * @param appToken
+     * @return
+     */
     public Builder appToken(String appToken) {
       this.appToken = appToken;
       return this;
@@ -68,6 +83,12 @@ public class BatchDeleteAppTableReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder batchDeleteAppTableReqBody(BatchDeleteAppTableReqBody body) {
       this.body = body;
       return this;

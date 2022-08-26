@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListAgentSkill {
 
+  /**
+   * 客服技能列表
+   * <p> 示例值：
+   */
   @SerializedName("agent_skills")
   private AgentSkill[] agentSkills;
 

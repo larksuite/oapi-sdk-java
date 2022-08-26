@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateUserApprovalReqBody {
 
+  /**
+   * 审批信息
+   * <p> 示例值：
+   */
   @SerializedName("user_approval")
   private UserApproval userApproval;
 
@@ -25,6 +29,10 @@ public class CreateUserApprovalReqBody {
   }
 
   public CreateUserApprovalReqBody(Builder builder) {
+    /**
+     * 审批信息
+     * <p> 示例值：
+     */
     this.userApproval = builder.userApproval;
   }
 
@@ -42,8 +50,19 @@ public class CreateUserApprovalReqBody {
 
   public static class Builder {
 
+    /**
+     * 审批信息
+     * <p> 示例值：
+     */
     private UserApproval userApproval;
 
+    /**
+     * 审批信息
+     * <p> 示例值：
+     *
+     * @param userApproval
+     * @return
+     */
     public Builder userApproval(UserApproval userApproval) {
       this.userApproval = userApproval;
       return this;

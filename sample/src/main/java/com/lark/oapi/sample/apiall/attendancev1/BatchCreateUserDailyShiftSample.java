@@ -7,7 +7,7 @@ import com.lark.oapi.service.attendance.v1.model.BatchCreateUserDailyShiftReqBod
 import com.lark.oapi.service.attendance.v1.model.BatchCreateUserDailyShiftResp;
 import com.lark.oapi.service.attendance.v1.model.UserDailyShift;
 
-// HTTP PATH: /open-apis/attendance/v1/user_daily_shifts/batch_create"
+// POST /open-apis/attendance/v1/user_daily_shifts/batch_create
 public class BatchCreateUserDailyShiftSample {
 
   public static void main(String arg[]) throws Exception {

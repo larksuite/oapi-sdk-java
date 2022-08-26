@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class DeleteGroupReq {
 
+  /**
+   * 需删除的用户组ID
+   * <p> 示例值：g1837191
+   */
   @Path
   @SerializedName("group_id")
   private String groupId;
@@ -27,6 +31,10 @@ public class DeleteGroupReq {
   }
 
   public DeleteGroupReq(Builder builder) {
+    /**
+     * 需删除的用户组ID
+     * <p> 示例值：g1837191
+     */
     this.groupId = builder.groupId;
   }
 
@@ -44,8 +52,15 @@ public class DeleteGroupReq {
 
   public static class Builder {
 
-    private String groupId;
+    private String groupId; // 需删除的用户组ID
 
+    /**
+     * 需删除的用户组ID
+     * <p> 示例值：g1837191
+     *
+     * @param groupId
+     * @return
+     */
     public Builder groupId(String groupId) {
       this.groupId = groupId;
       return this;

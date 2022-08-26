@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.im.v1.model.ListChatReq;
 import com.lark.oapi.service.im.v1.model.ListChatResp;
 
-// HTTP PATH: /open-apis/im/v1/chats"
+// GET /open-apis/im/v1/chats
 public class ListChatSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,8 @@ public class ListChatSample {
     // 创建请求对象
     ListChatReq req = ListChatReq.newBuilder()
         .userIdType("user_id")
-        .pageToken("")
+        .pageToken(
+            "dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==")
         .pageSize(20)
         .build();
 

@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2TicketUpdatedV1Data {
 
+  /**
+   * ticket after update
+   * <p> 示例值：
+   */
   @SerializedName("object")
   private TicketEvent object;
+  /**
+   * ticket before update, only has updated fields
+   * <p> 示例值：
+   */
   @SerializedName("old_object")
   private TicketEventUpdateInfo oldObject;
 

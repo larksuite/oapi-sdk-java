@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.bitable.v1.model.ListAppTableRecordReq;
 import com.lark.oapi.service.bitable.v1.model.ListAppTableRecordResp;
 
-// HTTP PATH: /open-apis/bitable/v1/apps/:app_token/tables/:table_id/records"
+// GET /open-apis/bitable/v1/apps/:app_token/tables/:table_id/records
 public class ListAppTableRecordSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,17 +14,17 @@ public class ListAppTableRecordSample {
 
     // 创建请求对象
     ListAppTableRecordReq req = ListAppTableRecordReq.newBuilder()
-        .appToken("")
-        .tableId("")
-        .viewId("")
-        .filter("")
+        .appToken("bascnCMII2ORej2RItqpZZUNMIe")
+        .tableId("tblxI2tWaxP5dG7p")
+        .viewId("vewqhz51lk")
+        .filter("示例表达式：;;AND(CurrentValue.[身高]>180, CurrentValue.[体重]>150)")
         .sort("")
         .fieldNames("")
-        .textFieldAsArray(false)
+        .textFieldAsArray(true)
         .userIdType("user_id")
-        .displayFormulaRef(false)
-        .automaticFields(false)
-        .pageToken("")
+        .displayFormulaRef(true)
+        .automaticFields(true)
+        .pageToken("recn0hoyXL")
         .pageSize(20)
         .build();
 

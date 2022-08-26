@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.attendance.v1.model.GetGroupReq;
 import com.lark.oapi.service.attendance.v1.model.GetGroupResp;
 
-// HTTP PATH: /open-apis/attendance/v1/groups/:group_id"
+// GET /open-apis/attendance/v1/groups/:group_id
 public class GetGroupSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class GetGroupSample {
     GetGroupReq req = GetGroupReq.newBuilder()
         .groupId("6919358128597097404")
         .employeeType("employee_id")
-        .deptType("open_id")
+        .deptType("od-fcb45c28a45311afd441b8869541ece8")
         .build();
 
     // 发起请求

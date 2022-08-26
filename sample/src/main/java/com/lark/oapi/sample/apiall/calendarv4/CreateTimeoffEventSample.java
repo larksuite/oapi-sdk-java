@@ -6,7 +6,7 @@ import com.lark.oapi.service.calendar.v4.model.CreateTimeoffEventReq;
 import com.lark.oapi.service.calendar.v4.model.CreateTimeoffEventResp;
 import com.lark.oapi.service.calendar.v4.model.TimeoffEvent;
 
-// HTTP PATH: /open-apis/calendar/v4/timeoff_events"
+// POST /open-apis/calendar/v4/timeoff_events
 public class CreateTimeoffEventSample {
 
   public static void main(String arg[]) throws Exception {

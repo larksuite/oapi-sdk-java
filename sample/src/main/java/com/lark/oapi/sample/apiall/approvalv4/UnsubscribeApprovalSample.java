@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.approval.v4.model.UnsubscribeApprovalReq;
 import com.lark.oapi.service.approval.v4.model.UnsubscribeApprovalResp;
 
-// HTTP PATH: /open-apis/approval/v4/approvals/:approval_code/unsubscribe"
+// POST /open-apis/approval/v4/approvals/:approval_code/unsubscribe
 public class UnsubscribeApprovalSample {
 
   public static void main(String arg[]) throws Exception {

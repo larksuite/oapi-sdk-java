@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.drive.v1.model.DeleteFileCommentReplyReq;
 import com.lark.oapi.service.drive.v1.model.DeleteFileCommentReplyResp;
 
-// HTTP PATH: /open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id"
+// DELETE /open-apis/drive/v1/files/:file_token/comments/:comment_id/replies/:reply_id
 public class DeleteFileCommentReplySample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,9 +14,9 @@ public class DeleteFileCommentReplySample {
 
     // 创建请求对象
     DeleteFileCommentReplyReq req = DeleteFileCommentReplyReq.newBuilder()
-        .fileToken("")
-        .commentId("")
-        .replyId("")
+        .fileToken("doccnHh7U87HOFpii5u5G*****")
+        .commentId("6916106822734578184")
+        .replyId("6916106822734594568")
         .fileType("doc")
         .build();
 

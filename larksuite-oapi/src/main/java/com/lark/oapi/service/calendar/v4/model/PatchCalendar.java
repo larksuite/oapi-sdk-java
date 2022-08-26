@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class PatchCalendar {
 
+  /**
+   * 更新后的日历实体
+   * <p> 示例值：
+   */
   @SerializedName("calendar")
   private Calendar calendar;
 

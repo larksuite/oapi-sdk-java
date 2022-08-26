@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2MeetingRoomUpdatedV1Data {
 
+  /**
+   * Meeting room name
+   * <p> 示例值：room1
+   */
   @SerializedName("room_name")
   private String roomName;
+  /**
+   * Meeting room ID
+   * <p> 示例值：omb_8d020b12fe49e82847c2af3c193d5754
+   */
   @SerializedName("room_id")
   private String roomId;
 

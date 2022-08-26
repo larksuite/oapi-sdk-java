@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class QueryUserTaskRemedy {
 
+  /**
+   * 补卡记录列表
+   * <p> 示例值：
+   */
   @SerializedName("user_remedys")
   private UserTaskRemedy[] userRemedys;
 

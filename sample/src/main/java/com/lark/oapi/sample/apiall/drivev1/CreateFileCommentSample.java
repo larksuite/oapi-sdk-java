@@ -7,7 +7,7 @@ import com.lark.oapi.service.drive.v1.model.CreateFileCommentResp;
 import com.lark.oapi.service.drive.v1.model.FileComment;
 import com.lark.oapi.service.drive.v1.model.ReplyList;
 
-// HTTP PATH: /open-apis/drive/v1/files/:file_token/comments"
+// POST /open-apis/drive/v1/files/:file_token/comments
 public class CreateFileCommentSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class CreateFileCommentSample {
 
     // 创建请求对象
     CreateFileCommentReq req = CreateFileCommentReq.newBuilder()
-        .fileToken("")
+        .fileToken("doccnGp4UK1UskrOEJwBXd3****")
         .fileType("doc")
         .userIdType("user_id")
         .fileComment(FileComment.newBuilder()
@@ -27,6 +27,10 @@ public class CreateFileCommentSample {
             .isSolved(false)
             .solvedTime(0)
             .solverUserId("")
+            .hasMore(false)
+            .pageToken("")
+            .isWhole(false)
+            .quote("")
             .replyList(ReplyList.newBuilder().build())
             .build())
         .build();

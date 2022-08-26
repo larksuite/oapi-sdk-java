@@ -6,7 +6,7 @@ import com.lark.oapi.service.im.v1.model.SortTabsChatTabReq;
 import com.lark.oapi.service.im.v1.model.SortTabsChatTabReqBody;
 import com.lark.oapi.service.im.v1.model.SortTabsChatTabResp;
 
-// HTTP PATH: /open-apis/im/v1/chats/:chat_id/chat_tabs/sort_tabs"
+// POST /open-apis/im/v1/chats/:chat_id/chat_tabs/sort_tabs
 public class SortTabsChatTabSample {
 
   public static void main(String arg[]) throws Exception {

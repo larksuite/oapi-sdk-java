@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.attendance.v1.model.DeleteShiftReq;
 import com.lark.oapi.service.attendance.v1.model.DeleteShiftResp;
 
-// HTTP PATH: /open-apis/attendance/v1/shifts/:shift_id"
+// DELETE /open-apis/attendance/v1/shifts/:shift_id
 public class DeleteShiftSample {
 
   public static void main(String arg[]) throws Exception {

@@ -6,7 +6,7 @@ import com.lark.oapi.service.sheets.v3.model.FilterView;
 import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetSheetFilterViewReq;
 import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetSheetFilterViewResp;
 
-// HTTP PATH: /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id"
+// PATCH /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/filter_views/:filter_view_id
 public class PatchSpreadsheetSheetFilterViewSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,9 +15,9 @@ public class PatchSpreadsheetSheetFilterViewSample {
 
     // 创建请求对象
     PatchSpreadsheetSheetFilterViewReq req = PatchSpreadsheetSheetFilterViewReq.newBuilder()
-        .spreadsheetToken("")
-        .sheetId("")
-        .filterViewId("")
+        .spreadsheetToken("shtcnmBA*****yGehy8")
+        .sheetId("0b**12")
+        .filterViewId("pH9hbVcCXA")
         .filterView(FilterView.newBuilder()
             .filterViewName("")
             .range("")

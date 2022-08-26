@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class I18nContent {
 
+  /**
+   * 语言版本
+   * <p> 示例值：zh_cn
+   */
   @SerializedName("locale")
   private String locale;
+  /**
+   * 字段名
+   * <p> 示例值：专家
+   */
   @SerializedName("value")
   private String value;
 
@@ -27,7 +35,15 @@ public class I18nContent {
   }
 
   public I18nContent(Builder builder) {
+    /**
+     * 语言版本
+     * <p> 示例值：zh_cn
+     */
     this.locale = builder.locale;
+    /**
+     * 字段名
+     * <p> 示例值：专家
+     */
     this.value = builder.value;
   }
 
@@ -53,14 +69,37 @@ public class I18nContent {
 
   public static class Builder {
 
+    /**
+     * 语言版本
+     * <p> 示例值：zh_cn
+     */
     private String locale;
+    /**
+     * 字段名
+     * <p> 示例值：专家
+     */
     private String value;
 
+    /**
+     * 语言版本
+     * <p> 示例值：zh_cn
+     *
+     * @param locale
+     * @return
+     */
     public Builder locale(String locale) {
       this.locale = locale;
       return this;
     }
 
+
+    /**
+     * 字段名
+     * <p> 示例值：专家
+     *
+     * @param value
+     * @return
+     */
     public Builder value(String value) {
       this.value = value;
       return this;

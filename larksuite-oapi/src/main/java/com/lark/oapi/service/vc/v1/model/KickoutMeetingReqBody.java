@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class KickoutMeetingReqBody {
 
+  /**
+   * 需踢出的用户列表
+   * <p> 示例值：
+   */
   @SerializedName("kickout_users")
   private MeetingUser[] kickoutUsers;
 
@@ -25,6 +29,10 @@ public class KickoutMeetingReqBody {
   }
 
   public KickoutMeetingReqBody(Builder builder) {
+    /**
+     * 需踢出的用户列表
+     * <p> 示例值：
+     */
     this.kickoutUsers = builder.kickoutUsers;
   }
 
@@ -42,8 +50,19 @@ public class KickoutMeetingReqBody {
 
   public static class Builder {
 
+    /**
+     * 需踢出的用户列表
+     * <p> 示例值：
+     */
     private MeetingUser[] kickoutUsers;
 
+    /**
+     * 需踢出的用户列表
+     * <p> 示例值：
+     *
+     * @param kickoutUsers
+     * @return
+     */
     public Builder kickoutUsers(MeetingUser[] kickoutUsers) {
       this.kickoutUsers = kickoutUsers;
       return this;

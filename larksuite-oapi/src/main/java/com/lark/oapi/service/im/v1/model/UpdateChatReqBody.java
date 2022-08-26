@@ -17,28 +17,77 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateChatReqBody {
 
+  /**
+   * 群头像对应的 Image Key，可通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)获取（注意：上传图片的
+   * ==image_type== 需要指定为 ==avatar==）
+   * <p> 示例值：default-avatar_44ae0ca3-e140-494b-956f-78091e348435
+   */
   @SerializedName("avatar")
   private String avatar;
+  /**
+   * 群名称
+   * <p> 示例值：群聊
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 群描述
+   * <p> 示例值：测试群描述
+   */
   @SerializedName("description")
   private String description;
+  /**
+   * 群国际化名称
+   * <p> 示例值：
+   */
   @SerializedName("i18n_names")
   private I18nNames i18nNames;
+  /**
+   * 加 user/bot 入群权限(all_members/only_owner)
+   * <p> 示例值：all_members
+   */
   @SerializedName("add_member_permission")
   private String addMemberPermission;
+  /**
+   * 群分享权限(allowed/not_allowed)
+   * <p> 示例值：allowed
+   */
   @SerializedName("share_card_permission")
   private String shareCardPermission;
+  /**
+   * at 所有人权限(all_members/only_owner)
+   * <p> 示例值：all_members
+   */
   @SerializedName("at_all_permission")
   private String atAllPermission;
+  /**
+   * 群编辑权限(all_members/only_owner)
+   * <p> 示例值：all_members
+   */
   @SerializedName("edit_permission")
   private String editPermission;
+  /**
+   * 新群主 ID
+   * <p> 示例值：4d7a3c6g
+   */
   @SerializedName("owner_id")
   private String ownerId;
+  /**
+   * 入群消息可见性(only_owner/all_members/not_anyone)
+   * <p> 示例值：only_owner
+   */
   @SerializedName("join_message_visibility")
   private String joinMessageVisibility;
+  /**
+   * 出群消息可见性(only_owner/all_members/not_anyone)
+   * <p> 示例值：only_owner
+   */
   @SerializedName("leave_message_visibility")
   private String leaveMessageVisibility;
+  /**
+   * 加群审批(no_approval_required/approval_required)
+   * <p> 示例值：no_approval_required
+   */
   @SerializedName("membership_approval")
   private String membershipApproval;
 
@@ -47,17 +96,65 @@ public class UpdateChatReqBody {
   }
 
   public UpdateChatReqBody(Builder builder) {
+    /**
+     * 群头像对应的 Image Key，可通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)获取（注意：上传图片的 ==image_type== 需要指定为 ==avatar==）
+     * <p> 示例值：default-avatar_44ae0ca3-e140-494b-956f-78091e348435
+     */
     this.avatar = builder.avatar;
+    /**
+     * 群名称
+     * <p> 示例值：群聊
+     */
     this.name = builder.name;
+    /**
+     * 群描述
+     * <p> 示例值：测试群描述
+     */
     this.description = builder.description;
+    /**
+     * 群国际化名称
+     * <p> 示例值：
+     */
     this.i18nNames = builder.i18nNames;
+    /**
+     * 加 user/bot 入群权限(all_members/only_owner)
+     * <p> 示例值：all_members
+     */
     this.addMemberPermission = builder.addMemberPermission;
+    /**
+     * 群分享权限(allowed/not_allowed)
+     * <p> 示例值：allowed
+     */
     this.shareCardPermission = builder.shareCardPermission;
+    /**
+     * at 所有人权限(all_members/only_owner)
+     * <p> 示例值：all_members
+     */
     this.atAllPermission = builder.atAllPermission;
+    /**
+     * 群编辑权限(all_members/only_owner)
+     * <p> 示例值：all_members
+     */
     this.editPermission = builder.editPermission;
+    /**
+     * 新群主 ID
+     * <p> 示例值：4d7a3c6g
+     */
     this.ownerId = builder.ownerId;
+    /**
+     * 入群消息可见性(only_owner/all_members/not_anyone)
+     * <p> 示例值：only_owner
+     */
     this.joinMessageVisibility = builder.joinMessageVisibility;
+    /**
+     * 出群消息可见性(only_owner/all_members/not_anyone)
+     * <p> 示例值：only_owner
+     */
     this.leaveMessageVisibility = builder.leaveMessageVisibility;
+    /**
+     * 加群审批(no_approval_required/approval_required)
+     * <p> 示例值：no_approval_required
+     */
     this.membershipApproval = builder.membershipApproval;
   }
 
@@ -163,74 +260,219 @@ public class UpdateChatReqBody {
 
   public static class Builder {
 
+    /**
+     * 群头像对应的 Image Key，可通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)获取（注意：上传图片的
+     * ==image_type== 需要指定为 ==avatar==）
+     * <p> 示例值：default-avatar_44ae0ca3-e140-494b-956f-78091e348435
+     */
     private String avatar;
+    /**
+     * 群名称
+     * <p> 示例值：群聊
+     */
     private String name;
+    /**
+     * 群描述
+     * <p> 示例值：测试群描述
+     */
     private String description;
+    /**
+     * 群国际化名称
+     * <p> 示例值：
+     */
     private I18nNames i18nNames;
+    /**
+     * 加 user/bot 入群权限(all_members/only_owner)
+     * <p> 示例值：all_members
+     */
     private String addMemberPermission;
+    /**
+     * 群分享权限(allowed/not_allowed)
+     * <p> 示例值：allowed
+     */
     private String shareCardPermission;
+    /**
+     * at 所有人权限(all_members/only_owner)
+     * <p> 示例值：all_members
+     */
     private String atAllPermission;
+    /**
+     * 群编辑权限(all_members/only_owner)
+     * <p> 示例值：all_members
+     */
     private String editPermission;
+    /**
+     * 新群主 ID
+     * <p> 示例值：4d7a3c6g
+     */
     private String ownerId;
+    /**
+     * 入群消息可见性(only_owner/all_members/not_anyone)
+     * <p> 示例值：only_owner
+     */
     private String joinMessageVisibility;
+    /**
+     * 出群消息可见性(only_owner/all_members/not_anyone)
+     * <p> 示例值：only_owner
+     */
     private String leaveMessageVisibility;
+    /**
+     * 加群审批(no_approval_required/approval_required)
+     * <p> 示例值：no_approval_required
+     */
     private String membershipApproval;
 
+    /**
+     * 群头像对应的 Image Key，可通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)获取（注意：上传图片的
+     * ==image_type== 需要指定为 ==avatar==）
+     * <p> 示例值：default-avatar_44ae0ca3-e140-494b-956f-78091e348435
+     *
+     * @param avatar
+     * @return
+     */
     public Builder avatar(String avatar) {
       this.avatar = avatar;
       return this;
     }
 
+
+    /**
+     * 群名称
+     * <p> 示例值：群聊
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 群描述
+     * <p> 示例值：测试群描述
+     *
+     * @param description
+     * @return
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
+
+    /**
+     * 群国际化名称
+     * <p> 示例值：
+     *
+     * @param i18nNames
+     * @return
+     */
     public Builder i18nNames(I18nNames i18nNames) {
       this.i18nNames = i18nNames;
       return this;
     }
 
+
+    /**
+     * 加 user/bot 入群权限(all_members/only_owner)
+     * <p> 示例值：all_members
+     *
+     * @param addMemberPermission
+     * @return
+     */
     public Builder addMemberPermission(String addMemberPermission) {
       this.addMemberPermission = addMemberPermission;
       return this;
     }
 
+
+    /**
+     * 群分享权限(allowed/not_allowed)
+     * <p> 示例值：allowed
+     *
+     * @param shareCardPermission
+     * @return
+     */
     public Builder shareCardPermission(String shareCardPermission) {
       this.shareCardPermission = shareCardPermission;
       return this;
     }
 
+
+    /**
+     * at 所有人权限(all_members/only_owner)
+     * <p> 示例值：all_members
+     *
+     * @param atAllPermission
+     * @return
+     */
     public Builder atAllPermission(String atAllPermission) {
       this.atAllPermission = atAllPermission;
       return this;
     }
 
+
+    /**
+     * 群编辑权限(all_members/only_owner)
+     * <p> 示例值：all_members
+     *
+     * @param editPermission
+     * @return
+     */
     public Builder editPermission(String editPermission) {
       this.editPermission = editPermission;
       return this;
     }
 
+
+    /**
+     * 新群主 ID
+     * <p> 示例值：4d7a3c6g
+     *
+     * @param ownerId
+     * @return
+     */
     public Builder ownerId(String ownerId) {
       this.ownerId = ownerId;
       return this;
     }
 
+
+    /**
+     * 入群消息可见性(only_owner/all_members/not_anyone)
+     * <p> 示例值：only_owner
+     *
+     * @param joinMessageVisibility
+     * @return
+     */
     public Builder joinMessageVisibility(String joinMessageVisibility) {
       this.joinMessageVisibility = joinMessageVisibility;
       return this;
     }
 
+
+    /**
+     * 出群消息可见性(only_owner/all_members/not_anyone)
+     * <p> 示例值：only_owner
+     *
+     * @param leaveMessageVisibility
+     * @return
+     */
     public Builder leaveMessageVisibility(String leaveMessageVisibility) {
       this.leaveMessageVisibility = leaveMessageVisibility;
       return this;
     }
 
+
+    /**
+     * 加群审批(no_approval_required/approval_required)
+     * <p> 示例值：no_approval_required
+     *
+     * @param membershipApproval
+     * @return
+     */
     public Builder membershipApproval(String membershipApproval) {
       this.membershipApproval = membershipApproval;
       return this;

@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserAnnualReport {
 
+  /**
+   * 2021用户年度报告
+   * <p> 示例值：
+   */
   @SerializedName("year_2021")
   private UserReport2021 year2021;
 
@@ -25,6 +29,10 @@ public class UserAnnualReport {
   }
 
   public UserAnnualReport(Builder builder) {
+    /**
+     * 2021用户年度报告
+     * <p> 示例值：
+     */
     this.year2021 = builder.year2021;
   }
 
@@ -42,8 +50,19 @@ public class UserAnnualReport {
 
   public static class Builder {
 
+    /**
+     * 2021用户年度报告
+     * <p> 示例值：
+     */
     private UserReport2021 year2021;
 
+    /**
+     * 2021用户年度报告
+     * <p> 示例值：
+     *
+     * @param year2021
+     * @return
+     */
     public Builder year2021(UserReport2021 year2021) {
       this.year2021 = year2021;
       return this;

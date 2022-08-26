@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class TaskResult {
 
+  /**
+   * 任务id
+   * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+   */
   @SerializedName("task_id")
   private String taskId;
+  /**
+   * MoveDocsToWiki任务结果
+   * <p> 示例值：
+   */
   @SerializedName("move_result")
   private MoveResult[] moveResult;
 
@@ -27,7 +35,15 @@ public class TaskResult {
   }
 
   public TaskResult(Builder builder) {
+    /**
+     * 任务id
+     * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+     */
     this.taskId = builder.taskId;
+    /**
+     * MoveDocsToWiki任务结果
+     * <p> 示例值：
+     */
     this.moveResult = builder.moveResult;
   }
 
@@ -53,14 +69,37 @@ public class TaskResult {
 
   public static class Builder {
 
+    /**
+     * 任务id
+     * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+     */
     private String taskId;
+    /**
+     * MoveDocsToWiki任务结果
+     * <p> 示例值：
+     */
     private MoveResult[] moveResult;
 
+    /**
+     * 任务id
+     * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+     *
+     * @param taskId
+     * @return
+     */
     public Builder taskId(String taskId) {
       this.taskId = taskId;
       return this;
     }
 
+
+    /**
+     * MoveDocsToWiki任务结果
+     * <p> 示例值：
+     *
+     * @param moveResult
+     * @return
+     */
     public Builder moveResult(MoveResult[] moveResult) {
       this.moveResult = moveResult;
       return this;

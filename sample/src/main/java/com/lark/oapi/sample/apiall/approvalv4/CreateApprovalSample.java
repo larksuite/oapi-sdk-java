@@ -12,7 +12,7 @@ import com.lark.oapi.service.approval.v4.model.CreateApprovalReq;
 import com.lark.oapi.service.approval.v4.model.CreateApprovalResp;
 import com.lark.oapi.service.approval.v4.model.I18nResource;
 
-// HTTP PATH: /open-apis/approval/v4/approvals"
+// POST /open-apis/approval/v4/approvals
 public class CreateApprovalSample {
 
   public static void main(String arg[]) throws Exception {
@@ -34,6 +34,7 @@ public class CreateApprovalSample {
             .config(ApprovalConfig.newBuilder().build())
             .icon(0)
             .i18nResources(new I18nResource[]{})
+            .processManagerIds(new String[]{})
             .build())
         .build();
 

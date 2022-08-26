@@ -7,7 +7,7 @@ import com.lark.oapi.service.approval.v4.model.CheckExternalInstanceReqBody;
 import com.lark.oapi.service.approval.v4.model.CheckExternalInstanceResp;
 import com.lark.oapi.service.approval.v4.model.ExteranlInstanceCheck;
 
-// HTTP PATH: /open-apis/approval/v4/external_instances/check"
+// POST /open-apis/approval/v4/external_instances/check
 public class CheckExternalInstanceSample {
 
   public static void main(String arg[]) throws Exception {

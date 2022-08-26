@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.ehr.v1.model.ListEmployeeReq;
 import com.lark.oapi.service.ehr.v1.model.ListEmployeeResp;
 
-// HTTP PATH: /open-apis/ehr/v1/employees"
+// GET /open-apis/ehr/v1/employees
 public class ListEmployeeSample {
 
   public static void main(String arg[]) throws Exception {
@@ -21,8 +21,8 @@ public class ListEmployeeSample {
         .endTime("1608690517811")
         .userIdType("user_id")
         .userIds(new String[]{})
-        .pageToken("")
-        .pageSize(0)
+        .pageToken("10")
+        .pageSize(10)
         .build();
 
     // 发起请求

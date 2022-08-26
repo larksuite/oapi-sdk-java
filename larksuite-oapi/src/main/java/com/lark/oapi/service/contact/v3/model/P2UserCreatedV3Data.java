@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2UserCreatedV3Data {
 
+  /**
+   * 事件信息
+   * <p> 示例值：
+   */
   @SerializedName("object")
   private UserEvent object;
 

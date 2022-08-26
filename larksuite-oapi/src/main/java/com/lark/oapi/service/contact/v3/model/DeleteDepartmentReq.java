@@ -19,9 +19,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class DeleteDepartmentReq {
 
+  /**
+   * 此次调用中使用的部门ID的类型
+   * <p> 示例值：open_department_id
+   */
   @Query
   @SerializedName("department_id_type")
   private String departmentIdType;
+  /**
+   * 部门ID，需要与查询参数中传入的department_id_type类型保持一致。
+   * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+   */
   @Path
   @SerializedName("department_id")
   private String departmentId;
@@ -31,7 +39,15 @@ public class DeleteDepartmentReq {
   }
 
   public DeleteDepartmentReq(Builder builder) {
+    /**
+     * 此次调用中使用的部门ID的类型
+     * <p> 示例值：open_department_id
+     */
     this.departmentIdType = builder.departmentIdType;
+    /**
+     * 部门ID，需要与查询参数中传入的department_id_type类型保持一致。
+     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     */
     this.departmentId = builder.departmentId;
   }
 
@@ -57,20 +73,41 @@ public class DeleteDepartmentReq {
 
   public static class Builder {
 
-    private String departmentIdType;
-    private String departmentId;
+    private String departmentIdType; // 此次调用中使用的部门ID的类型
+    private String departmentId; // 部门ID，需要与查询参数中传入的department_id_type类型保持一致。
 
+    /**
+     * 此次调用中使用的部门ID的类型
+     * <p> 示例值：open_department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
     public Builder departmentIdType(String departmentIdType) {
       this.departmentIdType = departmentIdType;
       return this;
     }
 
+    /**
+     * 此次调用中使用的部门ID的类型
+     * <p> 示例值：open_department_id
+     *
+     * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.DeleteDepartmentDepartmentIdTypeEnum}
+     * @return
+     */
     public Builder departmentIdType(
-        com.lark.oapi.service.contact.v3.enums.DepartmentIdTypeEnum departmentIdType) {
+        com.lark.oapi.service.contact.v3.enums.DeleteDepartmentDepartmentIdTypeEnum departmentIdType) {
       this.departmentIdType = departmentIdType.getValue();
       return this;
     }
 
+    /**
+     * 部门ID，需要与查询参数中传入的department_id_type类型保持一致。
+     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param departmentId
+     * @return
+     */
     public Builder departmentId(String departmentId) {
       this.departmentId = departmentId;
       return this;

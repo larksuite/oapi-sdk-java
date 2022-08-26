@@ -17,14 +17,34 @@ import com.google.gson.annotations.SerializedName;
 
 public class RoomDigitalSignage {
 
+  /**
+   * 是否开启数字标牌功能
+   * <p> 示例值：true
+   */
   @SerializedName("enable")
   private Boolean enable;
+  /**
+   * 是否静音播放
+   * <p> 示例值：true
+   */
   @SerializedName("mute")
   private Boolean mute;
+  /**
+   * 日程会议开始前n分钟结束播放
+   * <p> 示例值：3
+   */
   @SerializedName("start_display")
   private Integer startDisplay;
+  /**
+   * 会议结束后n分钟开始播放
+   * <p> 示例值：3
+   */
   @SerializedName("stop_display")
   private Integer stopDisplay;
+  /**
+   * 素材列表
+   * <p> 示例值：
+   */
   @SerializedName("materials")
   private RoomDigitalSignageMaterial[] materials;
 
@@ -33,10 +53,30 @@ public class RoomDigitalSignage {
   }
 
   public RoomDigitalSignage(Builder builder) {
+    /**
+     * 是否开启数字标牌功能
+     * <p> 示例值：true
+     */
     this.enable = builder.enable;
+    /**
+     * 是否静音播放
+     * <p> 示例值：true
+     */
     this.mute = builder.mute;
+    /**
+     * 日程会议开始前n分钟结束播放
+     * <p> 示例值：3
+     */
     this.startDisplay = builder.startDisplay;
+    /**
+     * 会议结束后n分钟开始播放
+     * <p> 示例值：3
+     */
     this.stopDisplay = builder.stopDisplay;
+    /**
+     * 素材列表
+     * <p> 示例值：
+     */
     this.materials = builder.materials;
   }
 
@@ -86,32 +126,91 @@ public class RoomDigitalSignage {
 
   public static class Builder {
 
+    /**
+     * 是否开启数字标牌功能
+     * <p> 示例值：true
+     */
     private Boolean enable;
+    /**
+     * 是否静音播放
+     * <p> 示例值：true
+     */
     private Boolean mute;
+    /**
+     * 日程会议开始前n分钟结束播放
+     * <p> 示例值：3
+     */
     private Integer startDisplay;
+    /**
+     * 会议结束后n分钟开始播放
+     * <p> 示例值：3
+     */
     private Integer stopDisplay;
+    /**
+     * 素材列表
+     * <p> 示例值：
+     */
     private RoomDigitalSignageMaterial[] materials;
 
+    /**
+     * 是否开启数字标牌功能
+     * <p> 示例值：true
+     *
+     * @param enable
+     * @return
+     */
     public Builder enable(Boolean enable) {
       this.enable = enable;
       return this;
     }
 
+
+    /**
+     * 是否静音播放
+     * <p> 示例值：true
+     *
+     * @param mute
+     * @return
+     */
     public Builder mute(Boolean mute) {
       this.mute = mute;
       return this;
     }
 
+
+    /**
+     * 日程会议开始前n分钟结束播放
+     * <p> 示例值：3
+     *
+     * @param startDisplay
+     * @return
+     */
     public Builder startDisplay(Integer startDisplay) {
       this.startDisplay = startDisplay;
       return this;
     }
 
+
+    /**
+     * 会议结束后n分钟开始播放
+     * <p> 示例值：3
+     *
+     * @param stopDisplay
+     * @return
+     */
     public Builder stopDisplay(Integer stopDisplay) {
       this.stopDisplay = stopDisplay;
       return this;
     }
 
+
+    /**
+     * 素材列表
+     * <p> 示例值：
+     *
+     * @param materials
+     * @return
+     */
     public Builder materials(RoomDigitalSignageMaterial[] materials) {
       this.materials = materials;
       return this;

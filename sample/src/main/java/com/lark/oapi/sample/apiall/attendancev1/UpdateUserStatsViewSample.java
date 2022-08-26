@@ -7,7 +7,7 @@ import com.lark.oapi.service.attendance.v1.model.UpdateUserStatsViewReqBody;
 import com.lark.oapi.service.attendance.v1.model.UpdateUserStatsViewResp;
 import com.lark.oapi.service.attendance.v1.model.UserStatsView;
 
-// HTTP PATH: /open-apis/attendance/v1/user_stats_views/:user_stats_view_id"
+// PUT /open-apis/attendance/v1/user_stats_views/:user_stats_view_id
 public class UpdateUserStatsViewSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,7 +16,7 @@ public class UpdateUserStatsViewSample {
 
     // 创建请求对象
     UpdateUserStatsViewReq req = UpdateUserStatsViewReq.newBuilder()
-        .userStatsViewId("")
+        .userStatsViewId("TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09")
         .employeeType("employee_id")
         .updateUserStatsViewReqBody(UpdateUserStatsViewReqBody.newBuilder()
             .view(UserStatsView.newBuilder().build())

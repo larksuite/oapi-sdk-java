@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.im.v1.model.MeJoinChatMembersReq;
 import com.lark.oapi.service.im.v1.model.MeJoinChatMembersResp;
 
-// HTTP PATH: /open-apis/im/v1/chats/:chat_id/members/me_join"
+// PATCH /open-apis/im/v1/chats/:chat_id/members/me_join
 public class MeJoinChatMembersSample {
 
   public static void main(String arg[]) throws Exception {

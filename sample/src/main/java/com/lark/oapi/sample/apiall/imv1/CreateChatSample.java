@@ -7,7 +7,7 @@ import com.lark.oapi.service.im.v1.model.CreateChatReqBody;
 import com.lark.oapi.service.im.v1.model.CreateChatResp;
 import com.lark.oapi.service.im.v1.model.I18nNames;
 
-// HTTP PATH: /open-apis/im/v1/chats"
+// POST /open-apis/im/v1/chats
 public class CreateChatSample {
 
   public static void main(String arg[]) throws Exception {
@@ -27,11 +27,11 @@ public class CreateChatSample {
             .userIdList(new String[]{})
             .botIdList(new String[]{})
             .chatMode("group")
-            .chatType("private/public")
+            .chatType("private")
             .external(false)
-            .joinMessageVisibility("only_owner/all_members/not_anyone")
-            .leaveMessageVisibility("only_owner/all_members/not_anyone")
-            .membershipApproval("no_approval_required/approval_required")
+            .joinMessageVisibility("all_members")
+            .leaveMessageVisibility("all_members")
+            .membershipApproval("no_approval_required")
             .build())
         .build();
 

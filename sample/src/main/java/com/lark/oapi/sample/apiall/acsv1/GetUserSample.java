@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.acs.v1.model.GetUserReq;
 import com.lark.oapi.service.acs.v1.model.GetUserResp;
 
-// HTTP PATH: /open-apis/acs/v1/users/:user_id"
+// GET /open-apis/acs/v1/users/:user_id
 public class GetUserSample {
 
   public static void main(String arg[]) throws Exception {

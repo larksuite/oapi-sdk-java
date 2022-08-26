@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Freebusy {
 
+  /**
+   * 忙闲信息开始时间，RFC3339 date_time 格式
+   * <p> 示例值：2020-10-28T22:30:00+08:00
+   */
   @SerializedName("start_time")
   private String startTime;
+  /**
+   * 忙闲信息结束时间，RFC3339 date_time 格式
+   * <p> 示例值：2020-10-28T22:45:00+08:00
+   */
   @SerializedName("end_time")
   private String endTime;
 
@@ -27,7 +35,15 @@ public class Freebusy {
   }
 
   public Freebusy(Builder builder) {
+    /**
+     * 忙闲信息开始时间，RFC3339 date_time 格式
+     * <p> 示例值：2020-10-28T22:30:00+08:00
+     */
     this.startTime = builder.startTime;
+    /**
+     * 忙闲信息结束时间，RFC3339 date_time 格式
+     * <p> 示例值：2020-10-28T22:45:00+08:00
+     */
     this.endTime = builder.endTime;
   }
 
@@ -53,14 +69,37 @@ public class Freebusy {
 
   public static class Builder {
 
+    /**
+     * 忙闲信息开始时间，RFC3339 date_time 格式
+     * <p> 示例值：2020-10-28T22:30:00+08:00
+     */
     private String startTime;
+    /**
+     * 忙闲信息结束时间，RFC3339 date_time 格式
+     * <p> 示例值：2020-10-28T22:45:00+08:00
+     */
     private String endTime;
 
+    /**
+     * 忙闲信息开始时间，RFC3339 date_time 格式
+     * <p> 示例值：2020-10-28T22:30:00+08:00
+     *
+     * @param startTime
+     * @return
+     */
     public Builder startTime(String startTime) {
       this.startTime = startTime;
       return this;
     }
 
+
+    /**
+     * 忙闲信息结束时间，RFC3339 date_time 格式
+     * <p> 示例值：2020-10-28T22:45:00+08:00
+     *
+     * @param endTime
+     * @return
+     */
     public Builder endTime(String endTime) {
       this.endTime = endTime;
       return this;

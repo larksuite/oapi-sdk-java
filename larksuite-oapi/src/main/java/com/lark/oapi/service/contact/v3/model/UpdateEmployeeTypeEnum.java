@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateEmployeeTypeEnum {
 
+  /**
+   * 更新后的人员类型字段
+   * <p> 示例值：
+   */
   @SerializedName("employee_type_enum")
   private EmployeeTypeEnum employeeTypeEnum;
 

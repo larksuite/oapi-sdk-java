@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class UploadInfo {
 
+  /**
+   * 文件名
+   * <p> 示例值：
+   */
   @SerializedName("file_name")
   private String fileName;
+  /**
+   * 父节点类型（父文件系统类型）
+   * <p> 示例值：
+   */
   @SerializedName("parent_type")
   private String parentType;
+  /**
+   * 父节点
+   * <p> 示例值：
+   */
   @SerializedName("parent_node")
   private String parentNode;
+  /**
+   * 文件大小
+   * <p> 示例值：
+   */
   @SerializedName("size")
   private Integer size;
 
@@ -31,9 +47,25 @@ public class UploadInfo {
   }
 
   public UploadInfo(Builder builder) {
+    /**
+     * 文件名
+     * <p> 示例值：
+     */
     this.fileName = builder.fileName;
+    /**
+     * 父节点类型（父文件系统类型）
+     * <p> 示例值：
+     */
     this.parentType = builder.parentType;
+    /**
+     * 父节点
+     * <p> 示例值：
+     */
     this.parentNode = builder.parentNode;
+    /**
+     * 文件大小
+     * <p> 示例值：
+     */
     this.size = builder.size;
   }
 
@@ -75,31 +107,86 @@ public class UploadInfo {
 
   public static class Builder {
 
+    /**
+     * 文件名
+     * <p> 示例值：
+     */
     private String fileName;
+    /**
+     * 父节点类型（父文件系统类型）
+     * <p> 示例值：
+     */
     private String parentType;
+    /**
+     * 父节点
+     * <p> 示例值：
+     */
     private String parentNode;
+    /**
+     * 文件大小
+     * <p> 示例值：
+     */
     private Integer size;
 
+    /**
+     * 文件名
+     * <p> 示例值：
+     *
+     * @param fileName
+     * @return
+     */
     public Builder fileName(String fileName) {
       this.fileName = fileName;
       return this;
     }
 
+
+    /**
+     * 父节点类型（父文件系统类型）
+     * <p> 示例值：
+     *
+     * @param parentType
+     * @return
+     */
     public Builder parentType(String parentType) {
       this.parentType = parentType;
       return this;
     }
 
-    public Builder parentType(com.lark.oapi.service.drive.v1.enums.ParentTypeEnum parentType) {
+    /**
+     * 父节点类型（父文件系统类型）
+     * <p> 示例值：
+     *
+     * @param parentType {@link com.lark.oapi.service.drive.v1.enums.UploadInfoParentTypeEnum}
+     * @return
+     */
+    public Builder parentType(
+        com.lark.oapi.service.drive.v1.enums.UploadInfoParentTypeEnum parentType) {
       this.parentType = parentType.getValue();
       return this;
     }
 
+
+    /**
+     * 父节点
+     * <p> 示例值：
+     *
+     * @param parentNode
+     * @return
+     */
     public Builder parentNode(String parentNode) {
       this.parentNode = parentNode;
       return this;
     }
 
+
+    /**
+     * 文件大小
+     * <p> 示例值：
+     *
+     * @param size
+     * @return
+     */
     public Builder size(Integer size) {
       this.size = size;
       return this;

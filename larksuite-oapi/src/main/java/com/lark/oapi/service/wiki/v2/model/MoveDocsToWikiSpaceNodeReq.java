@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class MoveDocsToWikiSpaceNodeReq {
 
+  /**
+   * 知识库id
+   * <p> 示例值：1565676577122621
+   */
   @Path
   @SerializedName("space_id")
   private String spaceId;
@@ -30,6 +34,10 @@ public class MoveDocsToWikiSpaceNodeReq {
   }
 
   public MoveDocsToWikiSpaceNodeReq(Builder builder) {
+    /**
+     * 知识库id
+     * <p> 示例值：1565676577122621
+     */
     this.spaceId = builder.spaceId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class MoveDocsToWikiSpaceNodeReq {
 
   public static class Builder {
 
-    private String spaceId;
+    private String spaceId; // 知识库id
     private MoveDocsToWikiSpaceNodeReqBody body;
 
+    /**
+     * 知识库id
+     * <p> 示例值：1565676577122621
+     *
+     * @param spaceId
+     * @return
+     */
     public Builder spaceId(String spaceId) {
       this.spaceId = spaceId;
       return this;
@@ -68,6 +83,12 @@ public class MoveDocsToWikiSpaceNodeReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder moveDocsToWikiSpaceNodeReqBody(MoveDocsToWikiSpaceNodeReqBody body) {
       this.body = body;
       return this;

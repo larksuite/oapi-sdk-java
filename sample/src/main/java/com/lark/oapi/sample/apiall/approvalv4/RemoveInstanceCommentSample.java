@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.approval.v4.model.RemoveInstanceCommentReq;
 import com.lark.oapi.service.approval.v4.model.RemoveInstanceCommentResp;
 
-// HTTP PATH: /open-apis/approval/v4/instances/:instance_id/comments/remove"
+// POST /open-apis/approval/v4/instances/:instance_id/comments/remove
 public class RemoveInstanceCommentSample {
 
   public static void main(String arg[]) throws Exception {
@@ -14,9 +14,9 @@ public class RemoveInstanceCommentSample {
 
     // 创建请求对象
     RemoveInstanceCommentReq req = RemoveInstanceCommentReq.newBuilder()
-        .instanceId("")
-        .userIdType("open_id")
-        .userId("")
+        .instanceId("6A123516-FB88-470D-A428-9AF58B71B3C0")
+        .userIdType("user_id")
+        .userId("ou_806a18fb5bdf525e38ba219733bdbd73")
         .build();
 
     // 发起请求

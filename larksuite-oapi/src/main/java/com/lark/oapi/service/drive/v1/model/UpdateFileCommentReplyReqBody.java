@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class UpdateFileCommentReplyReqBody {
 
+  /**
+   * 回复内容
+   * <p> 示例值：
+   */
   @SerializedName("content")
   private ReplyContent content;
 
@@ -25,6 +29,10 @@ public class UpdateFileCommentReplyReqBody {
   }
 
   public UpdateFileCommentReplyReqBody(Builder builder) {
+    /**
+     * 回复内容
+     * <p> 示例值：
+     */
     this.content = builder.content;
   }
 
@@ -42,8 +50,19 @@ public class UpdateFileCommentReplyReqBody {
 
   public static class Builder {
 
+    /**
+     * 回复内容
+     * <p> 示例值：
+     */
     private ReplyContent content;
 
+    /**
+     * 回复内容
+     * <p> 示例值：
+     *
+     * @param content
+     * @return
+     */
     public Builder content(ReplyContent content) {
       this.content = content;
       return this;

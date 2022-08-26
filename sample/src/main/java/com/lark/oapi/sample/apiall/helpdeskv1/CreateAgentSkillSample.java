@@ -7,7 +7,7 @@ import com.lark.oapi.service.helpdesk.v1.model.CreateAgentSkillReq;
 import com.lark.oapi.service.helpdesk.v1.model.CreateAgentSkillReqBody;
 import com.lark.oapi.service.helpdesk.v1.model.CreateAgentSkillResp;
 
-// HTTP PATH: /open-apis/helpdesk/v1/agent_skills"
+// POST /open-apis/helpdesk/v1/agent_skills
 public class CreateAgentSkillSample {
 
   public static void main(String arg[]) throws Exception {
@@ -17,7 +17,7 @@ public class CreateAgentSkillSample {
     // 创建请求对象
     CreateAgentSkillReq req = CreateAgentSkillReq.newBuilder()
         .createAgentSkillReqBody(CreateAgentSkillReqBody.newBuilder()
-            .name("")
+            .name("test-skill")
             .rules(new AgentSkillRule[]{})
             .agentIds(new String[]{})
             .build())

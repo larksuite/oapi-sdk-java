@@ -19,18 +19,38 @@ import com.lark.oapi.core.annotation.Query;
 
 public class ListAppTableFormFieldReq {
 
+  /**
+   * 分页大小
+   * <p> 示例值：10
+   */
   @Query
   @SerializedName("page_size")
   private Integer pageSize;
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   * <p> 示例值：vewTpR1urY
+   */
   @Query
   @SerializedName("page_token")
   private String pageToken;
+  /**
+   * 多维表格文档 Token
+   * <p> 示例值：bascnCMII2ORej2RItqpZZUNMIe
+   */
   @Path
   @SerializedName("app_token")
   private String appToken;
+  /**
+   * 表格 ID
+   * <p> 示例值：tblxI2tWaxP5dG7p
+   */
   @Path
   @SerializedName("table_id")
   private String tableId;
+  /**
+   * 表单 ID
+   * <p> 示例值：vewTpR1urY
+   */
   @Path
   @SerializedName("form_id")
   private String formId;
@@ -40,10 +60,30 @@ public class ListAppTableFormFieldReq {
   }
 
   public ListAppTableFormFieldReq(Builder builder) {
+    /**
+     * 分页大小
+     * <p> 示例值：10
+     */
     this.pageSize = builder.pageSize;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：vewTpR1urY
+     */
     this.pageToken = builder.pageToken;
+    /**
+     * 多维表格文档 Token
+     * <p> 示例值：bascnCMII2ORej2RItqpZZUNMIe
+     */
     this.appToken = builder.appToken;
+    /**
+     * 表格 ID
+     * <p> 示例值：tblxI2tWaxP5dG7p
+     */
     this.tableId = builder.tableId;
+    /**
+     * 表单 ID
+     * <p> 示例值：vewTpR1urY
+     */
     this.formId = builder.formId;
   }
 
@@ -93,32 +133,69 @@ public class ListAppTableFormFieldReq {
 
   public static class Builder {
 
-    private Integer pageSize;
-    private String pageToken;
-    private String appToken;
-    private String tableId;
-    private String formId;
+    private Integer pageSize; // 分页大小
+    private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+    private String appToken; // 多维表格文档 Token
+    private String tableId; // 表格 ID
+    private String formId; // 表单 ID
 
+    /**
+     * 分页大小
+     * <p> 示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
     public Builder pageSize(Integer pageSize) {
       this.pageSize = pageSize;
       return this;
     }
 
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     * <p> 示例值：vewTpR1urY
+     *
+     * @param pageToken
+     * @return
+     */
     public Builder pageToken(String pageToken) {
       this.pageToken = pageToken;
       return this;
     }
 
+    /**
+     * 多维表格文档 Token
+     * <p> 示例值：bascnCMII2ORej2RItqpZZUNMIe
+     *
+     * @param appToken
+     * @return
+     */
     public Builder appToken(String appToken) {
       this.appToken = appToken;
       return this;
     }
 
+
+    /**
+     * 表格 ID
+     * <p> 示例值：tblxI2tWaxP5dG7p
+     *
+     * @param tableId
+     * @return
+     */
     public Builder tableId(String tableId) {
       this.tableId = tableId;
       return this;
     }
 
+
+    /**
+     * 表单 ID
+     * <p> 示例值：vewTpR1urY
+     *
+     * @param formId
+     * @return
+     */
     public Builder formId(String formId) {
       this.formId = formId;
       return this;

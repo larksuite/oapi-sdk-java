@@ -17,20 +17,56 @@ import com.google.gson.annotations.SerializedName;
 
 public class PatchMailgroup {
 
+  /**
+   * The unique ID of a mail group
+   * <p> 示例值：xxxxxxxxxxxxxxx
+   */
   @SerializedName("mailgroup_id")
   private String mailgroupId;
+  /**
+   * The mail group's email address
+   * <p> 示例值：test_mail_group@xxx.xx
+   */
   @SerializedName("email")
   private String email;
+  /**
+   * The mail group's display name
+   * <p> 示例值：test mail group
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * The mail group's description
+   * <p> 示例值：mail group for testing
+   */
   @SerializedName("description")
   private String description;
+  /**
+   * The number of mail group's direct members
+   * <p> 示例值：10
+   */
   @SerializedName("direct_members_count")
   private String directMembersCount;
+  /**
+   * Value is true if this mail group has external member
+   * <p> 示例值：true
+   */
   @SerializedName("include_external_member")
   private Boolean includeExternalMember;
+  /**
+   * Value is true if all company members are in this mail group
+   * <p> 示例值：false
+   */
   @SerializedName("include_all_company_member")
   private Boolean includeAllCompanyMember;
+  /**
+   * Who can send mail to this mail group. Possible values are:;- ANYONE: Any Internet user can send
+   * mail to this mail group;- ALL_INTERNAL_USERS: Anyone in the team can send mail to this mail
+   * group;- ALL_GROUP_MEMBERS: Any group member can send mail to this mail group;- CUSTOM_MEMBERS:
+   * Only custom members can send mail to this mail group, define in mailgroup.permission_members
+   * resoure
+   * <p> 示例值：ALL_INTERNAL_USERS
+   */
   @SerializedName("who_can_send_mail")
   private String whoCanSendMail;
 

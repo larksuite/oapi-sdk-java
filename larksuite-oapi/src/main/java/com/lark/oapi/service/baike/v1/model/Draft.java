@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Draft {
 
+  /**
+   * 草稿 ID
+   * <p> 示例值：42322
+   */
   @SerializedName("draft_id")
   private String draftId;
+  /**
+   * 词条信息
+   * <p> 示例值：
+   */
   @SerializedName("entity")
   private Entity entity;
 
@@ -27,7 +35,15 @@ public class Draft {
   }
 
   public Draft(Builder builder) {
+    /**
+     * 草稿 ID
+     * <p> 示例值：42322
+     */
     this.draftId = builder.draftId;
+    /**
+     * 词条信息
+     * <p> 示例值：
+     */
     this.entity = builder.entity;
   }
 
@@ -53,14 +69,37 @@ public class Draft {
 
   public static class Builder {
 
+    /**
+     * 草稿 ID
+     * <p> 示例值：42322
+     */
     private String draftId;
+    /**
+     * 词条信息
+     * <p> 示例值：
+     */
     private Entity entity;
 
+    /**
+     * 草稿 ID
+     * <p> 示例值：42322
+     *
+     * @param draftId
+     * @return
+     */
     public Builder draftId(String draftId) {
       this.draftId = draftId;
       return this;
     }
 
+
+    /**
+     * 词条信息
+     * <p> 示例值：
+     *
+     * @param entity
+     * @return
+     */
     public Builder entity(Entity entity) {
       this.entity = entity;
       return this;

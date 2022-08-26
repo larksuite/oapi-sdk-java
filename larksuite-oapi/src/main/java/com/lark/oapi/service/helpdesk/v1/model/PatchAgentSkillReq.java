@@ -19,6 +19,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class PatchAgentSkillReq {
 
+  /**
+   * agent skill id
+   * <p> 示例值：test-skill-id
+   */
   @Path
   @SerializedName("agent_skill_id")
   private String agentSkillId;
@@ -30,6 +34,10 @@ public class PatchAgentSkillReq {
   }
 
   public PatchAgentSkillReq(Builder builder) {
+    /**
+     * agent skill id
+     * <p> 示例值：test-skill-id
+     */
     this.agentSkillId = builder.agentSkillId;
     this.body = builder.body;
   }
@@ -56,9 +64,16 @@ public class PatchAgentSkillReq {
 
   public static class Builder {
 
-    private String agentSkillId;
+    private String agentSkillId; // agent skill id
     private PatchAgentSkillReqBody body;
 
+    /**
+     * agent skill id
+     * <p> 示例值：test-skill-id
+     *
+     * @param agentSkillId
+     * @return
+     */
     public Builder agentSkillId(String agentSkillId) {
       this.agentSkillId = agentSkillId;
       return this;
@@ -68,6 +83,12 @@ public class PatchAgentSkillReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder patchAgentSkillReqBody(PatchAgentSkillReqBody body) {
       this.body = body;
       return this;

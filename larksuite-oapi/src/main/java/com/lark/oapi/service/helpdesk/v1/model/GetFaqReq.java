@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class GetFaqReq {
 
+  /**
+   * 知识库ID
+   * <p> 示例值：6856395634652479491
+   */
   @Path
   @SerializedName("id")
   private String id;
@@ -27,6 +31,10 @@ public class GetFaqReq {
   }
 
   public GetFaqReq(Builder builder) {
+    /**
+     * 知识库ID
+     * <p> 示例值：6856395634652479491
+     */
     this.id = builder.id;
   }
 
@@ -44,8 +52,15 @@ public class GetFaqReq {
 
   public static class Builder {
 
-    private String id;
+    private String id; // 知识库ID
 
+    /**
+     * 知识库ID
+     * <p> 示例值：6856395634652479491
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;

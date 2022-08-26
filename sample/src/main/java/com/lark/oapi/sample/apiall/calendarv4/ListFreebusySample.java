@@ -6,7 +6,7 @@ import com.lark.oapi.service.calendar.v4.model.ListFreebusyReq;
 import com.lark.oapi.service.calendar.v4.model.ListFreebusyReqBody;
 import com.lark.oapi.service.calendar.v4.model.ListFreebusyResp;
 
-// HTTP PATH: /open-apis/calendar/v4/freebusy/list"
+// POST /open-apis/calendar/v4/freebusy/list
 public class ListFreebusySample {
 
   public static void main(String arg[]) throws Exception {
@@ -17,10 +17,10 @@ public class ListFreebusySample {
     ListFreebusyReq req = ListFreebusyReq.newBuilder()
         .userIdType("user_id")
         .listFreebusyReqBody(ListFreebusyReqBody.newBuilder()
-            .timeMin("")
-            .timeMax("")
-            .userId("")
-            .roomId("")
+            .timeMin("2020-10-28T12:00:00+08:00")
+            .timeMax("2020-12-28T12:00:00+08:00")
+            .userId("ou_xxxxxxxxxx")
+            .roomId("omm_xxxxxxxxxx")
             .build())
         .build();
 

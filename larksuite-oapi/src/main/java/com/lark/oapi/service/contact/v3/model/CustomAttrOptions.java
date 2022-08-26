@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class CustomAttrOptions {
 
+  /**
+   * 默认选项id
+   * <p> 示例值：qasdefgr
+   */
   @SerializedName("default_option_id")
   private String defaultOptionId;
+  /**
+   * 选项类型
+   * <p> 示例值：TEXT
+   */
   @SerializedName("option_type")
   private String optionType;
+  /**
+   * 选项列表
+   * <p> 示例值：[]
+   */
   @SerializedName("options")
   private CustomAttrOption[] options;
 
@@ -29,8 +41,20 @@ public class CustomAttrOptions {
   }
 
   public CustomAttrOptions(Builder builder) {
+    /**
+     * 默认选项id
+     * <p> 示例值：qasdefgr
+     */
     this.defaultOptionId = builder.defaultOptionId;
+    /**
+     * 选项类型
+     * <p> 示例值：TEXT
+     */
     this.optionType = builder.optionType;
+    /**
+     * 选项列表
+     * <p> 示例值：[]
+     */
     this.options = builder.options;
   }
 
@@ -64,25 +88,68 @@ public class CustomAttrOptions {
 
   public static class Builder {
 
+    /**
+     * 默认选项id
+     * <p> 示例值：qasdefgr
+     */
     private String defaultOptionId;
+    /**
+     * 选项类型
+     * <p> 示例值：TEXT
+     */
     private String optionType;
+    /**
+     * 选项列表
+     * <p> 示例值：[]
+     */
     private CustomAttrOption[] options;
 
+    /**
+     * 默认选项id
+     * <p> 示例值：qasdefgr
+     *
+     * @param defaultOptionId
+     * @return
+     */
     public Builder defaultOptionId(String defaultOptionId) {
       this.defaultOptionId = defaultOptionId;
       return this;
     }
 
+
+    /**
+     * 选项类型
+     * <p> 示例值：TEXT
+     *
+     * @param optionType
+     * @return
+     */
     public Builder optionType(String optionType) {
       this.optionType = optionType;
       return this;
     }
 
-    public Builder optionType(com.lark.oapi.service.contact.v3.enums.OptionTypeEnum optionType) {
+    /**
+     * 选项类型
+     * <p> 示例值：TEXT
+     *
+     * @param optionType {@link com.lark.oapi.service.contact.v3.enums.CustomAttrOptionsOptionTypeEnum}
+     * @return
+     */
+    public Builder optionType(
+        com.lark.oapi.service.contact.v3.enums.CustomAttrOptionsOptionTypeEnum optionType) {
       this.optionType = optionType.getValue();
       return this;
     }
 
+
+    /**
+     * 选项列表
+     * <p> 示例值：[]
+     *
+     * @param options
+     * @return
+     */
     public Builder options(CustomAttrOption[] options) {
       this.options = options;
       return this;

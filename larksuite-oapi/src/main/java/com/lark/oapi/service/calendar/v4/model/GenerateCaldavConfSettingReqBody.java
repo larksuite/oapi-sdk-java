@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class GenerateCaldavConfSettingReqBody {
 
+  /**
+   * 需要同步日历的设备名，在日历中展示用来管理密码
+   * <p> 示例值：iPhone
+   */
   @SerializedName("device_name")
   private String deviceName;
 
@@ -25,6 +29,10 @@ public class GenerateCaldavConfSettingReqBody {
   }
 
   public GenerateCaldavConfSettingReqBody(Builder builder) {
+    /**
+     * 需要同步日历的设备名，在日历中展示用来管理密码
+     * <p> 示例值：iPhone
+     */
     this.deviceName = builder.deviceName;
   }
 
@@ -42,8 +50,19 @@ public class GenerateCaldavConfSettingReqBody {
 
   public static class Builder {
 
+    /**
+     * 需要同步日历的设备名，在日历中展示用来管理密码
+     * <p> 示例值：iPhone
+     */
     private String deviceName;
 
+    /**
+     * 需要同步日历的设备名，在日历中展示用来管理密码
+     * <p> 示例值：iPhone
+     *
+     * @param deviceName
+     * @return
+     */
     public Builder deviceName(String deviceName) {
       this.deviceName = deviceName;
       return this;

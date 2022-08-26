@@ -6,7 +6,7 @@ import com.lark.oapi.service.sheets.v3.model.FloatImage;
 import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetSheetFloatImageReq;
 import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetSheetFloatImageResp;
 
-// HTTP PATH: /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id"
+// PATCH /open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id/float_images/:float_image_id
 public class PatchSpreadsheetSheetFloatImageSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,9 +15,9 @@ public class PatchSpreadsheetSheetFloatImageSample {
 
     // 创建请求对象
     PatchSpreadsheetSheetFloatImageReq req = PatchSpreadsheetSheetFloatImageReq.newBuilder()
-        .spreadsheetToken("")
-        .sheetId("")
-        .floatImageId("")
+        .spreadsheetToken("shtcnmBA*****yGehy8")
+        .sheetId("0b**12")
+        .floatImageId("ye06SS14ph")
         .floatImage(FloatImage.newBuilder()
             .floatImageToken("")
             .range("")

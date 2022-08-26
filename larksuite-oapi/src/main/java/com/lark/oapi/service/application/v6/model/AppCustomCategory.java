@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class AppCustomCategory {
 
+  /**
+   * 国际化语言的 key
+   * <p> 示例值：zh_cn
+   */
   @SerializedName("i18n_key")
   private String i18nKey;
+  /**
+   * 应用权限的国际化描述
+   * <p> 示例值：获取应用信息
+   */
   @SerializedName("description")
   private String description;
+  /**
+   * 在该分组下的应用 id 列表
+   * <p> 示例值：
+   */
   @SerializedName("app_ids")
   private String[] appIds;
 
@@ -29,8 +41,20 @@ public class AppCustomCategory {
   }
 
   public AppCustomCategory(Builder builder) {
+    /**
+     * 国际化语言的 key
+     * <p> 示例值：zh_cn
+     */
     this.i18nKey = builder.i18nKey;
+    /**
+     * 应用权限的国际化描述
+     * <p> 示例值：获取应用信息
+     */
     this.description = builder.description;
+    /**
+     * 在该分组下的应用 id 列表
+     * <p> 示例值：
+     */
     this.appIds = builder.appIds;
   }
 
@@ -64,25 +88,68 @@ public class AppCustomCategory {
 
   public static class Builder {
 
+    /**
+     * 国际化语言的 key
+     * <p> 示例值：zh_cn
+     */
     private String i18nKey;
+    /**
+     * 应用权限的国际化描述
+     * <p> 示例值：获取应用信息
+     */
     private String description;
+    /**
+     * 在该分组下的应用 id 列表
+     * <p> 示例值：
+     */
     private String[] appIds;
 
+    /**
+     * 国际化语言的 key
+     * <p> 示例值：zh_cn
+     *
+     * @param i18nKey
+     * @return
+     */
     public Builder i18nKey(String i18nKey) {
       this.i18nKey = i18nKey;
       return this;
     }
 
-    public Builder i18nKey(com.lark.oapi.service.application.v6.enums.I18nKeyEnum i18nKey) {
+    /**
+     * 国际化语言的 key
+     * <p> 示例值：zh_cn
+     *
+     * @param i18nKey {@link com.lark.oapi.service.application.v6.enums.AppCustomCategoryI18nKeyEnum}
+     * @return
+     */
+    public Builder i18nKey(
+        com.lark.oapi.service.application.v6.enums.AppCustomCategoryI18nKeyEnum i18nKey) {
       this.i18nKey = i18nKey.getValue();
       return this;
     }
 
+
+    /**
+     * 应用权限的国际化描述
+     * <p> 示例值：获取应用信息
+     *
+     * @param description
+     * @return
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
+
+    /**
+     * 在该分组下的应用 id 列表
+     * <p> 示例值：
+     *
+     * @param appIds
+     * @return
+     */
     public Builder appIds(String[] appIds) {
       this.appIds = appIds;
       return this;

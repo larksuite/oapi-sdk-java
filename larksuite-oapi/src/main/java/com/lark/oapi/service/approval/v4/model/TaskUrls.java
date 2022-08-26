@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class TaskUrls {
 
+  /**
+   * 帮助服务台 URL
+   * <p> 示例值：https://blabla
+   */
   @SerializedName("helpdesk")
   private String helpdesk;
+  /**
+   * 移动端 URL
+   * <p> 示例值：https://blabla
+   */
   @SerializedName("mobile")
   private String mobile;
+  /**
+   * PC 端 URL
+   * <p> 示例值：https://blabla
+   */
   @SerializedName("pc")
   private String pc;
 
@@ -29,8 +41,20 @@ public class TaskUrls {
   }
 
   public TaskUrls(Builder builder) {
+    /**
+     * 帮助服务台 URL
+     * <p> 示例值：https://blabla
+     */
     this.helpdesk = builder.helpdesk;
+    /**
+     * 移动端 URL
+     * <p> 示例值：https://blabla
+     */
     this.mobile = builder.mobile;
+    /**
+     * PC 端 URL
+     * <p> 示例值：https://blabla
+     */
     this.pc = builder.pc;
   }
 
@@ -64,20 +88,55 @@ public class TaskUrls {
 
   public static class Builder {
 
+    /**
+     * 帮助服务台 URL
+     * <p> 示例值：https://blabla
+     */
     private String helpdesk;
+    /**
+     * 移动端 URL
+     * <p> 示例值：https://blabla
+     */
     private String mobile;
+    /**
+     * PC 端 URL
+     * <p> 示例值：https://blabla
+     */
     private String pc;
 
+    /**
+     * 帮助服务台 URL
+     * <p> 示例值：https://blabla
+     *
+     * @param helpdesk
+     * @return
+     */
     public Builder helpdesk(String helpdesk) {
       this.helpdesk = helpdesk;
       return this;
     }
 
+
+    /**
+     * 移动端 URL
+     * <p> 示例值：https://blabla
+     *
+     * @param mobile
+     * @return
+     */
     public Builder mobile(String mobile) {
       this.mobile = mobile;
       return this;
     }
 
+
+    /**
+     * PC 端 URL
+     * <p> 示例值：https://blabla
+     *
+     * @param pc
+     * @return
+     */
     public Builder pc(String pc) {
       this.pc = pc;
       return this;

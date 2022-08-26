@@ -17,20 +17,52 @@ import com.google.gson.annotations.SerializedName;
 
 public class SchemaPropertyDefinition {
 
+  /**
+   * 属性名称
+   * <p> 示例值：
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 搜索中是否可作为搜索结果返回
+   * <p> 示例值：false
+   */
   @SerializedName("is_returnable")
   private Boolean isReturnable;
+  /**
+   * 是否允许重复
+   * <p> 示例值：false
+   */
   @SerializedName("is_repeatable")
   private Boolean isRepeatable;
+  /**
+   * 是否可用作排序
+   * <p> 示例值：false
+   */
   @SerializedName("is_sortable")
   private Boolean isSortable;
+  /**
+   * 是否可用来生成 facet，仅支持 Boolean，Enum，String 类型属性。
+   * <p> 示例值：false
+   */
   @SerializedName("is_facetable")
   private Boolean isFacetable;
+  /**
+   * 是否可以对该属性使用通配符搜索，只支持 String 类型属性。
+   * <p> 示例值：
+   */
   @SerializedName("is_wildcard_searchable")
   private Boolean isWildcardSearchable;
+  /**
+   * 属性数据类型
+   * <p> 示例值：INTEGER
+   */
   @SerializedName("type")
   private String type;
+  /**
+   * 属性对外展示可选项
+   * <p> 示例值：
+   */
   @SerializedName("display_options")
   private SchemaDisplayOption displayOptions;
 
@@ -39,13 +71,45 @@ public class SchemaPropertyDefinition {
   }
 
   public SchemaPropertyDefinition(Builder builder) {
+    /**
+     * 属性名称
+     * <p> 示例值：
+     */
     this.name = builder.name;
+    /**
+     * 搜索中是否可作为搜索结果返回
+     * <p> 示例值：false
+     */
     this.isReturnable = builder.isReturnable;
+    /**
+     * 是否允许重复
+     * <p> 示例值：false
+     */
     this.isRepeatable = builder.isRepeatable;
+    /**
+     * 是否可用作排序
+     * <p> 示例值：false
+     */
     this.isSortable = builder.isSortable;
+    /**
+     * 是否可用来生成 facet，仅支持 Boolean，Enum，String 类型属性。
+     * <p> 示例值：false
+     */
     this.isFacetable = builder.isFacetable;
+    /**
+     * 是否可以对该属性使用通配符搜索，只支持 String 类型属性。
+     * <p> 示例值：
+     */
     this.isWildcardSearchable = builder.isWildcardSearchable;
+    /**
+     * 属性数据类型
+     * <p> 示例值：INTEGER
+     */
     this.type = builder.type;
+    /**
+     * 属性对外展示可选项
+     * <p> 示例值：
+     */
     this.displayOptions = builder.displayOptions;
   }
 
@@ -119,55 +183,158 @@ public class SchemaPropertyDefinition {
 
   public static class Builder {
 
+    /**
+     * 属性名称
+     * <p> 示例值：
+     */
     private String name;
+    /**
+     * 搜索中是否可作为搜索结果返回
+     * <p> 示例值：false
+     */
     private Boolean isReturnable;
+    /**
+     * 是否允许重复
+     * <p> 示例值：false
+     */
     private Boolean isRepeatable;
+    /**
+     * 是否可用作排序
+     * <p> 示例值：false
+     */
     private Boolean isSortable;
+    /**
+     * 是否可用来生成 facet，仅支持 Boolean，Enum，String 类型属性。
+     * <p> 示例值：false
+     */
     private Boolean isFacetable;
+    /**
+     * 是否可以对该属性使用通配符搜索，只支持 String 类型属性。
+     * <p> 示例值：
+     */
     private Boolean isWildcardSearchable;
+    /**
+     * 属性数据类型
+     * <p> 示例值：INTEGER
+     */
     private String type;
+    /**
+     * 属性对外展示可选项
+     * <p> 示例值：
+     */
     private SchemaDisplayOption displayOptions;
 
+    /**
+     * 属性名称
+     * <p> 示例值：
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 搜索中是否可作为搜索结果返回
+     * <p> 示例值：false
+     *
+     * @param isReturnable
+     * @return
+     */
     public Builder isReturnable(Boolean isReturnable) {
       this.isReturnable = isReturnable;
       return this;
     }
 
+
+    /**
+     * 是否允许重复
+     * <p> 示例值：false
+     *
+     * @param isRepeatable
+     * @return
+     */
     public Builder isRepeatable(Boolean isRepeatable) {
       this.isRepeatable = isRepeatable;
       return this;
     }
 
+
+    /**
+     * 是否可用作排序
+     * <p> 示例值：false
+     *
+     * @param isSortable
+     * @return
+     */
     public Builder isSortable(Boolean isSortable) {
       this.isSortable = isSortable;
       return this;
     }
 
+
+    /**
+     * 是否可用来生成 facet，仅支持 Boolean，Enum，String 类型属性。
+     * <p> 示例值：false
+     *
+     * @param isFacetable
+     * @return
+     */
     public Builder isFacetable(Boolean isFacetable) {
       this.isFacetable = isFacetable;
       return this;
     }
 
+
+    /**
+     * 是否可以对该属性使用通配符搜索，只支持 String 类型属性。
+     * <p> 示例值：
+     *
+     * @param isWildcardSearchable
+     * @return
+     */
     public Builder isWildcardSearchable(Boolean isWildcardSearchable) {
       this.isWildcardSearchable = isWildcardSearchable;
       return this;
     }
 
+
+    /**
+     * 属性数据类型
+     * <p> 示例值：INTEGER
+     *
+     * @param type
+     * @return
+     */
     public Builder type(String type) {
       this.type = type;
       return this;
     }
 
-    public Builder type(com.lark.oapi.service.search.v2.enums.PropertyTypeEnum type) {
+    /**
+     * 属性数据类型
+     * <p> 示例值：INTEGER
+     *
+     * @param type {@link com.lark.oapi.service.search.v2.enums.SchemaPropertyDefinitionPropertyTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.search.v2.enums.SchemaPropertyDefinitionPropertyTypeEnum type) {
       this.type = type.getValue();
       return this;
     }
 
+
+    /**
+     * 属性对外展示可选项
+     * <p> 示例值：
+     *
+     * @param displayOptions
+     * @return
+     */
     public Builder displayOptions(SchemaDisplayOption displayOptions) {
       this.displayOptions = displayOptions;
       return this;

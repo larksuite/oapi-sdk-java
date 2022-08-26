@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListEntity {
 
+  /**
+   * 词条列表
+   * <p> 示例值：
+   */
   @SerializedName("entities")
   private Entity[] entities;
+  /**
+   * 分页标记，当还有下一页时会返回新的 page_token，否则 page_token 为空
+   * <p> 示例值：408ecac018b2e3518db37275e812aad7bb8ad3e755fc886f322ac6c430ba
+   */
   @SerializedName("page_token")
   private String pageToken;
 

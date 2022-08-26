@@ -17,12 +17,28 @@ import com.google.gson.annotations.SerializedName;
 
 public class P2CalendarAclDeletedV4Data {
 
+  /**
+   * acl资源ID
+   * <p> 示例值：
+   */
   @SerializedName("acl_id")
   private String aclId;
+  /**
+   * 对日历的访问权限
+   * <p> 示例值：
+   */
   @SerializedName("role")
   private String role;
+  /**
+   * 权限范围
+   * <p> 示例值：
+   */
   @SerializedName("scope")
   private AclScopeEvent scope;
+  /**
+   * 需要推送事件的用户列表
+   * <p> 示例值：
+   */
   @SerializedName("user_id_list")
   private UserId[] userIdList;
 

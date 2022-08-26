@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class MoveSpaceNodeReqBody {
 
+  /**
+   * 移动到的父节点token
+   * <p> 示例值：wikbcd6ydSUyOEzbdlt1BfpA5Yc
+   */
   @SerializedName("target_parent_token")
   private String targetParentToken;
+  /**
+   * 移动到的知识空间ID
+   * <p> 示例值：
+   */
   @SerializedName("target_space_id")
   private String targetSpaceId;
 
@@ -27,7 +35,15 @@ public class MoveSpaceNodeReqBody {
   }
 
   public MoveSpaceNodeReqBody(Builder builder) {
+    /**
+     * 移动到的父节点token
+     * <p> 示例值：wikbcd6ydSUyOEzbdlt1BfpA5Yc
+     */
     this.targetParentToken = builder.targetParentToken;
+    /**
+     * 移动到的知识空间ID
+     * <p> 示例值：
+     */
     this.targetSpaceId = builder.targetSpaceId;
   }
 
@@ -53,14 +69,37 @@ public class MoveSpaceNodeReqBody {
 
   public static class Builder {
 
+    /**
+     * 移动到的父节点token
+     * <p> 示例值：wikbcd6ydSUyOEzbdlt1BfpA5Yc
+     */
     private String targetParentToken;
+    /**
+     * 移动到的知识空间ID
+     * <p> 示例值：
+     */
     private String targetSpaceId;
 
+    /**
+     * 移动到的父节点token
+     * <p> 示例值：wikbcd6ydSUyOEzbdlt1BfpA5Yc
+     *
+     * @param targetParentToken
+     * @return
+     */
     public Builder targetParentToken(String targetParentToken) {
       this.targetParentToken = targetParentToken;
       return this;
     }
 
+
+    /**
+     * 移动到的知识空间ID
+     * <p> 示例值：
+     *
+     * @param targetSpaceId
+     * @return
+     */
     public Builder targetSpaceId(String targetSpaceId) {
       this.targetSpaceId = targetSpaceId;
       return this;

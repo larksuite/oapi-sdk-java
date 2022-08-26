@@ -7,7 +7,7 @@ import com.lark.oapi.service.helpdesk.v1.model.AnswerUserQueryTicketReqBody;
 import com.lark.oapi.service.helpdesk.v1.model.AnswerUserQueryTicketResp;
 import com.lark.oapi.service.helpdesk.v1.model.UserQueryFaqInfo;
 
-// HTTP PATH: /open-apis/helpdesk/v1/tickets/:ticket_id/answer_user_query"
+// POST /open-apis/helpdesk/v1/tickets/:ticket_id/answer_user_query
 public class AnswerUserQueryTicketSample {
 
   public static void main(String arg[]) throws Exception {
@@ -16,9 +16,9 @@ public class AnswerUserQueryTicketSample {
 
     // 创建请求对象
     AnswerUserQueryTicketReq req = AnswerUserQueryTicketReq.newBuilder()
-        .ticketId("")
+        .ticketId("6945345902185807891")
         .answerUserQueryTicketReqBody(AnswerUserQueryTicketReqBody.newBuilder()
-            .eventId("")
+            .eventId("abcd")
             .faqs(new UserQueryFaqInfo[]{})
             .build())
         .build();

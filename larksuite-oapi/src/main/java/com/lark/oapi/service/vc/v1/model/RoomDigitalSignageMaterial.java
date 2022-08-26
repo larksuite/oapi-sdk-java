@@ -17,22 +17,58 @@ import com.google.gson.annotations.SerializedName;
 
 public class RoomDigitalSignageMaterial {
 
+  /**
+   * 素材ID
+   * <p> 示例值：7847784676276
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * 素材名称
+   * <p> 示例值：name
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 素材类型
+   * <p> 示例值：0
+   */
   @SerializedName("material_type")
   private Integer materialType;
+  /**
+   * 素材url
+   * <p> 示例值：url
+   */
   @SerializedName("url")
   private String url;
+  /**
+   * 播放时长（单位sec）
+   * <p> 示例值：15
+   */
   @SerializedName("duration")
   private Integer duration;
+  /**
+   * 素材封面url
+   * <p> 示例值：url
+   */
   @SerializedName("cover")
   private String cover;
+  /**
+   * 素材文件md5
+   * <p> 示例值：md5
+   */
   @SerializedName("md5")
   private String md5;
+  /**
+   * 素材文件vid
+   * <p> 示例值：vid
+   */
   @SerializedName("vid")
   private String vid;
+  /**
+   * 素材文件大小（单位byte）
+   * <p> 示例值：100
+   */
   @SerializedName("size")
   private String size;
 
@@ -41,14 +77,50 @@ public class RoomDigitalSignageMaterial {
   }
 
   public RoomDigitalSignageMaterial(Builder builder) {
+    /**
+     * 素材ID
+     * <p> 示例值：7847784676276
+     */
     this.id = builder.id;
+    /**
+     * 素材名称
+     * <p> 示例值：name
+     */
     this.name = builder.name;
+    /**
+     * 素材类型
+     * <p> 示例值：0
+     */
     this.materialType = builder.materialType;
+    /**
+     * 素材url
+     * <p> 示例值：url
+     */
     this.url = builder.url;
+    /**
+     * 播放时长（单位sec）
+     * <p> 示例值：15
+     */
     this.duration = builder.duration;
+    /**
+     * 素材封面url
+     * <p> 示例值：url
+     */
     this.cover = builder.cover;
+    /**
+     * 素材文件md5
+     * <p> 示例值：md5
+     */
     this.md5 = builder.md5;
+    /**
+     * 素材文件vid
+     * <p> 示例值：vid
+     */
     this.vid = builder.vid;
+    /**
+     * 素材文件大小（单位byte）
+     * <p> 示例值：100
+     */
     this.size = builder.size;
   }
 
@@ -130,61 +202,176 @@ public class RoomDigitalSignageMaterial {
 
   public static class Builder {
 
+    /**
+     * 素材ID
+     * <p> 示例值：7847784676276
+     */
     private String id;
+    /**
+     * 素材名称
+     * <p> 示例值：name
+     */
     private String name;
+    /**
+     * 素材类型
+     * <p> 示例值：0
+     */
     private Integer materialType;
+    /**
+     * 素材url
+     * <p> 示例值：url
+     */
     private String url;
+    /**
+     * 播放时长（单位sec）
+     * <p> 示例值：15
+     */
     private Integer duration;
+    /**
+     * 素材封面url
+     * <p> 示例值：url
+     */
     private String cover;
+    /**
+     * 素材文件md5
+     * <p> 示例值：md5
+     */
     private String md5;
+    /**
+     * 素材文件vid
+     * <p> 示例值：vid
+     */
     private String vid;
+    /**
+     * 素材文件大小（单位byte）
+     * <p> 示例值：100
+     */
     private String size;
 
+    /**
+     * 素材ID
+     * <p> 示例值：7847784676276
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 素材名称
+     * <p> 示例值：name
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 素材类型
+     * <p> 示例值：0
+     *
+     * @param materialType
+     * @return
+     */
     public Builder materialType(Integer materialType) {
       this.materialType = materialType;
       return this;
     }
 
-    public Builder materialType(com.lark.oapi.service.vc.v1.enums.MaterialTypeEnum materialType) {
+    /**
+     * 素材类型
+     * <p> 示例值：0
+     *
+     * @param materialType {@link com.lark.oapi.service.vc.v1.enums.RoomDigitalSignageMaterialMaterialTypeEnum}
+     * @return
+     */
+    public Builder materialType(
+        com.lark.oapi.service.vc.v1.enums.RoomDigitalSignageMaterialMaterialTypeEnum materialType) {
       this.materialType = materialType.getValue();
       return this;
     }
 
+
+    /**
+     * 素材url
+     * <p> 示例值：url
+     *
+     * @param url
+     * @return
+     */
     public Builder url(String url) {
       this.url = url;
       return this;
     }
 
+
+    /**
+     * 播放时长（单位sec）
+     * <p> 示例值：15
+     *
+     * @param duration
+     * @return
+     */
     public Builder duration(Integer duration) {
       this.duration = duration;
       return this;
     }
 
+
+    /**
+     * 素材封面url
+     * <p> 示例值：url
+     *
+     * @param cover
+     * @return
+     */
     public Builder cover(String cover) {
       this.cover = cover;
       return this;
     }
 
+
+    /**
+     * 素材文件md5
+     * <p> 示例值：md5
+     *
+     * @param md5
+     * @return
+     */
     public Builder md5(String md5) {
       this.md5 = md5;
       return this;
     }
 
+
+    /**
+     * 素材文件vid
+     * <p> 示例值：vid
+     *
+     * @param vid
+     * @return
+     */
     public Builder vid(String vid) {
       this.vid = vid;
       return this;
     }
 
+
+    /**
+     * 素材文件大小（单位byte）
+     * <p> 示例值：100
+     *
+     * @param size
+     * @return
+     */
     public Builder size(String size) {
       this.size = size;
       return this;

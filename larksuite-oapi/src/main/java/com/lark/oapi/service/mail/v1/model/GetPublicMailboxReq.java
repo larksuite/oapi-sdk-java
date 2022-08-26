@@ -18,6 +18,10 @@ import com.lark.oapi.core.annotation.Path;
 
 public class GetPublicMailboxReq {
 
+  /**
+   * 公共邮箱唯一标识或公共邮箱地址
+   * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
+   */
   @Path
   @SerializedName("public_mailbox_id")
   private String publicMailboxId;
@@ -27,6 +31,10 @@ public class GetPublicMailboxReq {
   }
 
   public GetPublicMailboxReq(Builder builder) {
+    /**
+     * 公共邮箱唯一标识或公共邮箱地址
+     * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
+     */
     this.publicMailboxId = builder.publicMailboxId;
   }
 
@@ -44,8 +52,15 @@ public class GetPublicMailboxReq {
 
   public static class Builder {
 
-    private String publicMailboxId;
+    private String publicMailboxId; // 公共邮箱唯一标识或公共邮箱地址
 
+    /**
+     * 公共邮箱唯一标识或公共邮箱地址
+     * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
+     *
+     * @param publicMailboxId
+     * @return
+     */
     public Builder publicMailboxId(String publicMailboxId) {
       this.publicMailboxId = publicMailboxId;
       return this;

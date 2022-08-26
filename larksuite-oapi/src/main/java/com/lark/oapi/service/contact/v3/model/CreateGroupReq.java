@@ -48,6 +48,12 @@ public class CreateGroupReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder createGroupReqBody(CreateGroupReqBody body) {
       this.body = body;
       return this;

@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateSheetFilter {
 
+  /**
+   * 筛选应用范围
+   * <p> 示例值：xxxxxx!C1:H14
+   */
   @SerializedName("range")
   private String range;
+  /**
+   * 设置筛选条件的列
+   * <p> 示例值：E
+   */
   @SerializedName("col")
   private String col;
+  /**
+   * 筛选的条件
+   * <p> 示例值：
+   */
   @SerializedName("condition")
   private Condition condition;
 
@@ -29,8 +41,20 @@ public class CreateSheetFilter {
   }
 
   public CreateSheetFilter(Builder builder) {
+    /**
+     * 筛选应用范围
+     * <p> 示例值：xxxxxx!C1:H14
+     */
     this.range = builder.range;
+    /**
+     * 设置筛选条件的列
+     * <p> 示例值：E
+     */
     this.col = builder.col;
+    /**
+     * 筛选的条件
+     * <p> 示例值：
+     */
     this.condition = builder.condition;
   }
 
@@ -64,20 +88,55 @@ public class CreateSheetFilter {
 
   public static class Builder {
 
+    /**
+     * 筛选应用范围
+     * <p> 示例值：xxxxxx!C1:H14
+     */
     private String range;
+    /**
+     * 设置筛选条件的列
+     * <p> 示例值：E
+     */
     private String col;
+    /**
+     * 筛选的条件
+     * <p> 示例值：
+     */
     private Condition condition;
 
+    /**
+     * 筛选应用范围
+     * <p> 示例值：xxxxxx!C1:H14
+     *
+     * @param range
+     * @return
+     */
     public Builder range(String range) {
       this.range = range;
       return this;
     }
 
+
+    /**
+     * 设置筛选条件的列
+     * <p> 示例值：E
+     *
+     * @param col
+     * @return
+     */
     public Builder col(String col) {
       this.col = col;
       return this;
     }
 
+
+    /**
+     * 筛选的条件
+     * <p> 示例值：
+     *
+     * @param condition
+     * @return
+     */
     public Builder condition(Condition condition) {
       this.condition = condition;
       return this;

@@ -14,16 +14,31 @@
 package com.lark.oapi.service.bitable.v1.model;
 
 import com.google.gson.annotations.SerializedName;
-import java.util.Objects;
 
 public class Person {
 
+  /**
+   * 人员Id
+   * <p> 示例值：testesttest
+   */
   @SerializedName("id")
   private String id;
+  /**
+   * 中文姓名
+   * <p> 示例值：黄泡泡
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 英文姓名
+   * <p> 示例值：Paopao Huang
+   */
   @SerializedName("en_name")
   private String enName;
+  /**
+   * 邮箱
+   * <p> 示例值：huangpaopao@feishu.cn
+   */
   @SerializedName("email")
   private String email;
 
@@ -32,9 +47,25 @@ public class Person {
   }
 
   public Person(Builder builder) {
+    /**
+     * 人员Id
+     * <p> 示例值：testesttest
+     */
     this.id = builder.id;
+    /**
+     * 中文姓名
+     * <p> 示例值：黄泡泡
+     */
     this.name = builder.name;
+    /**
+     * 英文姓名
+     * <p> 示例值：Paopao Huang
+     */
     this.enName = builder.enName;
+    /**
+     * 邮箱
+     * <p> 示例值：huangpaopao@feishu.cn
+     */
     this.email = builder.email;
   }
 
@@ -74,57 +105,75 @@ public class Person {
     this.email = email;
   }
 
-  @Override
-  public String toString() {
-    return "Person{" +
-        "id='" + id + '\'' +
-        ", name='" + name + '\'' +
-        ", enName='" + enName + '\'' +
-        ", email='" + email + '\'' +
-        '}';
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Person person = (Person) o;
-    return Objects.equals(id, person.id) && Objects.equals(name, person.name)
-        && Objects.equals(enName, person.enName) && Objects.equals(email,
-        person.email);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, name, enName, email);
-  }
-
   public static class Builder {
 
+    /**
+     * 人员Id
+     * <p> 示例值：testesttest
+     */
     private String id;
+    /**
+     * 中文姓名
+     * <p> 示例值：黄泡泡
+     */
     private String name;
+    /**
+     * 英文姓名
+     * <p> 示例值：Paopao Huang
+     */
     private String enName;
+    /**
+     * 邮箱
+     * <p> 示例值：huangpaopao@feishu.cn
+     */
     private String email;
 
+    /**
+     * 人员Id
+     * <p> 示例值：testesttest
+     *
+     * @param id
+     * @return
+     */
     public Builder id(String id) {
       this.id = id;
       return this;
     }
 
+
+    /**
+     * 中文姓名
+     * <p> 示例值：黄泡泡
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 英文姓名
+     * <p> 示例值：Paopao Huang
+     *
+     * @param enName
+     * @return
+     */
     public Builder enName(String enName) {
       this.enName = enName;
       return this;
     }
 
+
+    /**
+     * 邮箱
+     * <p> 示例值：huangpaopao@feishu.cn
+     *
+     * @param email
+     * @return
+     */
     public Builder email(String email) {
       this.email = email;
       return this;

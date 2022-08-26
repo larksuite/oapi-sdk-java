@@ -6,7 +6,7 @@ import com.lark.oapi.service.approval.v4.model.TaskTransfer;
 import com.lark.oapi.service.approval.v4.model.TransferTaskReq;
 import com.lark.oapi.service.approval.v4.model.TransferTaskResp;
 
-// HTTP PATH: /open-apis/approval/v4/tasks/transfer"
+// POST /open-apis/approval/v4/tasks/transfer
 public class TransferTaskSample {
 
   public static void main(String arg[]) throws Exception {

@@ -6,7 +6,7 @@ import com.lark.oapi.service.attendance.v1.model.QueryUserSettingReq;
 import com.lark.oapi.service.attendance.v1.model.QueryUserSettingReqBody;
 import com.lark.oapi.service.attendance.v1.model.QueryUserSettingResp;
 
-// HTTP PATH: /open-apis/attendance/v1/user_settings/query"
+// GET /open-apis/attendance/v1/user_settings/query
 public class QueryUserSettingSample {
 
   public static void main(String arg[]) throws Exception {

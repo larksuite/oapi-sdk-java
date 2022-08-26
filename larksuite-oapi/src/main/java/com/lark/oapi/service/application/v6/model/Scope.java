@@ -17,8 +17,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Scope {
 
+  /**
+   * 权限名称，形如 user.phone:readonly
+   * <p> 示例值：
+   */
   @SerializedName("scope_name")
   private String scopeName;
+  /**
+   * 租户应用权限授予状态
+   * <p> 示例值：
+   */
   @SerializedName("grant_status")
   private Integer grantStatus;
 
@@ -27,7 +35,15 @@ public class Scope {
   }
 
   public Scope(Builder builder) {
+    /**
+     * 权限名称，形如 user.phone:readonly
+     * <p> 示例值：
+     */
     this.scopeName = builder.scopeName;
+    /**
+     * 租户应用权限授予状态
+     * <p> 示例值：
+     */
     this.grantStatus = builder.grantStatus;
   }
 
@@ -53,21 +69,51 @@ public class Scope {
 
   public static class Builder {
 
+    /**
+     * 权限名称，形如 user.phone:readonly
+     * <p> 示例值：
+     */
     private String scopeName;
+    /**
+     * 租户应用权限授予状态
+     * <p> 示例值：
+     */
     private Integer grantStatus;
 
+    /**
+     * 权限名称，形如 user.phone:readonly
+     * <p> 示例值：
+     *
+     * @param scopeName
+     * @return
+     */
     public Builder scopeName(String scopeName) {
       this.scopeName = scopeName;
       return this;
     }
 
+
+    /**
+     * 租户应用权限授予状态
+     * <p> 示例值：
+     *
+     * @param grantStatus
+     * @return
+     */
     public Builder grantStatus(Integer grantStatus) {
       this.grantStatus = grantStatus;
       return this;
     }
 
+    /**
+     * 租户应用权限授予状态
+     * <p> 示例值：
+     *
+     * @param grantStatus {@link com.lark.oapi.service.application.v6.enums.ScopeGrantStatusEnum}
+     * @return
+     */
     public Builder grantStatus(
-        com.lark.oapi.service.application.v6.enums.GrantStatusEnum grantStatus) {
+        com.lark.oapi.service.application.v6.enums.ScopeGrantStatusEnum grantStatus) {
       this.grantStatus = grantStatus.getValue();
       return this;
     }

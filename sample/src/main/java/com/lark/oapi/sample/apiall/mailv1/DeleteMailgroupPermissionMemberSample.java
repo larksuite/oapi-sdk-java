@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.mail.v1.model.DeleteMailgroupPermissionMemberReq;
 import com.lark.oapi.service.mail.v1.model.DeleteMailgroupPermissionMemberResp;
 
-// HTTP PATH: /open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members/:permission_member_id"
+// DELETE /open-apis/mail/v1/mailgroups/:mailgroup_id/permission_members/:permission_member_id
 public class DeleteMailgroupPermissionMemberSample {
 
   public static void main(String arg[]) throws Exception {

@@ -6,7 +6,7 @@ import com.lark.oapi.service.approval.v4.model.ListExternalTaskReq;
 import com.lark.oapi.service.approval.v4.model.ListExternalTaskReqBody;
 import com.lark.oapi.service.approval.v4.model.ListExternalTaskResp;
 
-// HTTP PATH: /open-apis/approval/v4/external_tasks"
+// GET /open-apis/approval/v4/external_tasks
 public class ListExternalTaskSample {
 
   public static void main(String arg[]) throws Exception {
@@ -15,7 +15,7 @@ public class ListExternalTaskSample {
 
     // 创建请求对象
     ListExternalTaskReq req = ListExternalTaskReq.newBuilder()
-        .pageSize(1000)
+        .pageSize(50)
         .pageToken("nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU")
         .listExternalTaskReqBody(ListExternalTaskReqBody.newBuilder()
             .approvalCodes(new String[]{})

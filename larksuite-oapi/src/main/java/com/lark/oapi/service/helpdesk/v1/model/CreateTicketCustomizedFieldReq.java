@@ -48,6 +48,12 @@ public class CreateTicketCustomizedFieldReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder ticketCustomizedField(TicketCustomizedField body) {
       this.body = body;
       return this;

@@ -20,9 +20,17 @@ import com.lark.oapi.core.annotation.Query;
 
 public class PatchNotificationReq {
 
+  /**
+   * 此次调用中使用的用户ID的类型
+   * <p> 示例值：
+   */
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
+  /**
+   * push任务唯一id
+   * <p> 示例值：6985032626234982420
+   */
   @Path
   @SerializedName("notification_id")
   private String notificationId;
@@ -34,7 +42,15 @@ public class PatchNotificationReq {
   }
 
   public PatchNotificationReq(Builder builder) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     */
     this.userIdType = builder.userIdType;
+    /**
+     * push任务唯一id
+     * <p> 示例值：6985032626234982420
+     */
     this.notificationId = builder.notificationId;
     this.body = builder.body;
   }
@@ -69,20 +85,42 @@ public class PatchNotificationReq {
 
   public static class Builder {
 
-    private String userIdType;
-    private String notificationId;
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String notificationId; // push任务唯一id
     private Notification body;
 
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
       return this;
     }
 
-    public Builder userIdType(com.lark.oapi.service.helpdesk.v1.enums.UserIdTypeEnum userIdType) {
+    /**
+     * 此次调用中使用的用户ID的类型
+     * <p> 示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.helpdesk.v1.enums.PatchNotificationUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.helpdesk.v1.enums.PatchNotificationUserIdTypeEnum userIdType) {
       this.userIdType = userIdType.getValue();
       return this;
     }
 
+    /**
+     * push任务唯一id
+     * <p> 示例值：6985032626234982420
+     *
+     * @param notificationId
+     * @return
+     */
     public Builder notificationId(String notificationId) {
       this.notificationId = notificationId;
       return this;
@@ -92,6 +130,12 @@ public class PatchNotificationReq {
       return this.body;
     }
 
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
     public Builder notification(Notification body) {
       this.body = body;
       return this;

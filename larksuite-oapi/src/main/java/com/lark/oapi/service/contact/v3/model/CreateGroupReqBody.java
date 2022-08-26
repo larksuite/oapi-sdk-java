@@ -17,12 +17,29 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateGroupReqBody {
 
+  /**
+   * 自定义用户组ID，可在创建时自定义，不自定义则由系统自动生成，已创建用户组不允许修改 group_id 。;;自定义group_id数据校验规则：;;最大长度：64
+   * 字符;;校验规则：数字、大小写字母的组合，不能包含空格
+   * <p> 示例值：g122817
+   */
   @SerializedName("group_id")
   private String groupId;
+  /**
+   * 用户组的名字，企业内唯一，最大长度：100 字符
+   * <p> 示例值：IT 外包组
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 用户组描述
+   * <p> 示例值：IT服务人员的集合
+   */
   @SerializedName("description")
   private String description;
+  /**
+   * 用户组的类型。默认为1表示普通用户组
+   * <p> 示例值：1
+   */
   @SerializedName("type")
   private Integer type;
 
@@ -31,9 +48,25 @@ public class CreateGroupReqBody {
   }
 
   public CreateGroupReqBody(Builder builder) {
+    /**
+     * 自定义用户组ID，可在创建时自定义，不自定义则由系统自动生成，已创建用户组不允许修改 group_id 。;;自定义group_id数据校验规则：;;最大长度：64 字符;;校验规则：数字、大小写字母的组合，不能包含空格
+     * <p> 示例值：g122817
+     */
     this.groupId = builder.groupId;
+    /**
+     * 用户组的名字，企业内唯一，最大长度：100 字符
+     * <p> 示例值：IT 外包组
+     */
     this.name = builder.name;
+    /**
+     * 用户组描述
+     * <p> 示例值：IT服务人员的集合
+     */
     this.description = builder.description;
+    /**
+     * 用户组的类型。默认为1表示普通用户组
+     * <p> 示例值：1
+     */
     this.type = builder.type;
   }
 
@@ -75,32 +108,88 @@ public class CreateGroupReqBody {
 
   public static class Builder {
 
+    /**
+     * 自定义用户组ID，可在创建时自定义，不自定义则由系统自动生成，已创建用户组不允许修改 group_id 。;;自定义group_id数据校验规则：;;最大长度：64
+     * 字符;;校验规则：数字、大小写字母的组合，不能包含空格
+     * <p> 示例值：g122817
+     */
     private String groupId;
+    /**
+     * 用户组的名字，企业内唯一，最大长度：100 字符
+     * <p> 示例值：IT 外包组
+     */
     private String name;
+    /**
+     * 用户组描述
+     * <p> 示例值：IT服务人员的集合
+     */
     private String description;
+    /**
+     * 用户组的类型。默认为1表示普通用户组
+     * <p> 示例值：1
+     */
     private Integer type;
 
+    /**
+     * 自定义用户组ID，可在创建时自定义，不自定义则由系统自动生成，已创建用户组不允许修改 group_id 。;;自定义group_id数据校验规则：;;最大长度：64
+     * 字符;;校验规则：数字、大小写字母的组合，不能包含空格
+     * <p> 示例值：g122817
+     *
+     * @param groupId
+     * @return
+     */
     public Builder groupId(String groupId) {
       this.groupId = groupId;
       return this;
     }
 
+
+    /**
+     * 用户组的名字，企业内唯一，最大长度：100 字符
+     * <p> 示例值：IT 外包组
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 用户组描述
+     * <p> 示例值：IT服务人员的集合
+     *
+     * @param description
+     * @return
+     */
     public Builder description(String description) {
       this.description = description;
       return this;
     }
 
+
+    /**
+     * 用户组的类型。默认为1表示普通用户组
+     * <p> 示例值：1
+     *
+     * @param type
+     * @return
+     */
     public Builder type(Integer type) {
       this.type = type;
       return this;
     }
 
-    public Builder type(com.lark.oapi.service.contact.v3.enums.CreateGroupTypeEnum type) {
+    /**
+     * 用户组的类型。默认为1表示普通用户组
+     * <p> 示例值：1
+     *
+     * @param type {@link com.lark.oapi.service.contact.v3.enums.CreateGroupGroupTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.contact.v3.enums.CreateGroupGroupTypeEnum type) {
       this.type = type.getValue();
       return this;
     }

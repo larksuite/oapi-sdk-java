@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.task.v1.model.CompleteTaskReq;
 import com.lark.oapi.service.task.v1.model.CompleteTaskResp;
 
-// HTTP PATH: /open-apis/task/v1/tasks/:task_id/complete"
+// POST /open-apis/task/v1/tasks/:task_id/complete
 public class CompleteTaskSample {
 
   public static void main(String arg[]) throws Exception {

@@ -4,7 +4,7 @@ import com.lark.oapi.Client;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.tenant.v2.model.QueryTenantResp;
 
-// HTTP PATH: /open-apis/tenant/v2/tenant/query"
+// GET /open-apis/tenant/v2/tenant/query
 public class QueryTenantSample {
 
   public static void main(String arg[]) throws Exception {

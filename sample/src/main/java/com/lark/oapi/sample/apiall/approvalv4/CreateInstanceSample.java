@@ -8,7 +8,7 @@ import com.lark.oapi.service.approval.v4.model.InstanceCreate;
 import com.lark.oapi.service.approval.v4.model.NodeApprover;
 import com.lark.oapi.service.approval.v4.model.NodeCc;
 
-// HTTP PATH: /open-apis/approval/v4/instances"
+// POST /open-apis/approval/v4/instances
 public class CreateInstanceSample {
 
   public static void main(String arg[]) throws Exception {
@@ -28,6 +28,8 @@ public class CreateInstanceSample {
             .nodeCcUserIdList(new NodeCc[]{})
             .nodeCcOpenIdList(new NodeCc[]{})
             .uuid("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX")
+            .allowResubmit(false)
+            .allowSubmitAgain(false)
             .build())
         .build();
 

@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class TicketEventUpdateInfo {
 
+  /**
+   * ticket stage
+   * <p> 示例值：1
+   */
   @SerializedName("stage")
   private Integer stage;
+  /**
+   * ticket status
+   * <p> 示例值：50
+   */
   @SerializedName("status")
   private Integer status;
+  /**
+   * ticket update time
+   * <p> 示例值：1616920429000
+   */
   @SerializedName("updated_at")
   private Integer updatedAt;
 
@@ -29,8 +41,20 @@ public class TicketEventUpdateInfo {
   }
 
   public TicketEventUpdateInfo(Builder builder) {
+    /**
+     * ticket stage
+     * <p> 示例值：1
+     */
     this.stage = builder.stage;
+    /**
+     * ticket status
+     * <p> 示例值：50
+     */
     this.status = builder.status;
+    /**
+     * ticket update time
+     * <p> 示例值：1616920429000
+     */
     this.updatedAt = builder.updatedAt;
   }
 
@@ -64,20 +88,55 @@ public class TicketEventUpdateInfo {
 
   public static class Builder {
 
+    /**
+     * ticket stage
+     * <p> 示例值：1
+     */
     private Integer stage;
+    /**
+     * ticket status
+     * <p> 示例值：50
+     */
     private Integer status;
+    /**
+     * ticket update time
+     * <p> 示例值：1616920429000
+     */
     private Integer updatedAt;
 
+    /**
+     * ticket stage
+     * <p> 示例值：1
+     *
+     * @param stage
+     * @return
+     */
     public Builder stage(Integer stage) {
       this.stage = stage;
       return this;
     }
 
+
+    /**
+     * ticket status
+     * <p> 示例值：50
+     *
+     * @param status
+     * @return
+     */
     public Builder status(Integer status) {
       this.status = status;
       return this;
     }
 
+
+    /**
+     * ticket update time
+     * <p> 示例值：1616920429000
+     *
+     * @param updatedAt
+     * @return
+     */
     public Builder updatedAt(Integer updatedAt) {
       this.updatedAt = updatedAt;
       return this;

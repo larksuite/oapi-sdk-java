@@ -17,6 +17,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class DeleteChatMembers {
 
+  /**
+   * 无效成员列表
+   * <p> 示例值：
+   */
   @SerializedName("invalid_id_list")
   private String[] invalidIdList;
 

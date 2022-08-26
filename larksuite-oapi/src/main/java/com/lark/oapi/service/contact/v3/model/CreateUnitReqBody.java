@@ -17,10 +17,22 @@ import com.google.gson.annotations.SerializedName;
 
 public class CreateUnitReqBody {
 
+  /**
+   * 单位自定义ID。不带默认自动生成。1-64字节范围大小，需为数字字母
+   * <p> 示例值：BU121
+   */
   @SerializedName("unit_id")
   private String unitId;
+  /**
+   * 单位的名字，长度范围为1-100个字
+   * <p> 示例值：消费者事业部
+   */
   @SerializedName("name")
   private String name;
+  /**
+   * 单位类型，长度范围为1-100个字，创建后不可修改
+   * <p> 示例值：事业部
+   */
   @SerializedName("unit_type")
   private String unitType;
 
@@ -29,8 +41,20 @@ public class CreateUnitReqBody {
   }
 
   public CreateUnitReqBody(Builder builder) {
+    /**
+     * 单位自定义ID。不带默认自动生成。1-64字节范围大小，需为数字字母
+     * <p> 示例值：BU121
+     */
     this.unitId = builder.unitId;
+    /**
+     * 单位的名字，长度范围为1-100个字
+     * <p> 示例值：消费者事业部
+     */
     this.name = builder.name;
+    /**
+     * 单位类型，长度范围为1-100个字，创建后不可修改
+     * <p> 示例值：事业部
+     */
     this.unitType = builder.unitType;
   }
 
@@ -64,20 +88,55 @@ public class CreateUnitReqBody {
 
   public static class Builder {
 
+    /**
+     * 单位自定义ID。不带默认自动生成。1-64字节范围大小，需为数字字母
+     * <p> 示例值：BU121
+     */
     private String unitId;
+    /**
+     * 单位的名字，长度范围为1-100个字
+     * <p> 示例值：消费者事业部
+     */
     private String name;
+    /**
+     * 单位类型，长度范围为1-100个字，创建后不可修改
+     * <p> 示例值：事业部
+     */
     private String unitType;
 
+    /**
+     * 单位自定义ID。不带默认自动生成。1-64字节范围大小，需为数字字母
+     * <p> 示例值：BU121
+     *
+     * @param unitId
+     * @return
+     */
     public Builder unitId(String unitId) {
       this.unitId = unitId;
       return this;
     }
 
+
+    /**
+     * 单位的名字，长度范围为1-100个字
+     * <p> 示例值：消费者事业部
+     *
+     * @param name
+     * @return
+     */
     public Builder name(String name) {
       this.name = name;
       return this;
     }
 
+
+    /**
+     * 单位类型，长度范围为1-100个字，创建后不可修改
+     * <p> 示例值：事业部
+     *
+     * @param unitType
+     * @return
+     */
     public Builder unitType(String unitType) {
       this.unitType = unitType;
       return this;
