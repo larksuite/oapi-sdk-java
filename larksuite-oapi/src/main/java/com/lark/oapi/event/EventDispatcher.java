@@ -1302,6 +1302,9 @@ public class EventDispatcher implements IHandler {
     }
 
 
+    /**
+     * 订阅事件扩展：开发者可自己传递事件类型，并传递对应事件类型的处理器
+     */
     public Builder onCustomizedEvent(String eventType, CustomEventHandler handler) {
       if (eventType2EventHandler.containsKey(eventType)) {
         throw new EventTypeAlreadyHasHandlerException(eventType);
@@ -1310,6 +1313,10 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 用户阅读机器人发送的消息后触发此事件。
+     * <p> 事件描述文档链接：<a href="https://open.feishu.cn/document/ukTMukTMukTM/ugzMugzMugzM/event/message-read">https://open.feishu.cn/document/ukTMukTMukTM/ugzMugzMugzM/event/message-read</a>
+     */
     public Builder onP1MessageReadV1(ImService.P1MessageReadV1Handler handler) {
       if (eventType2EventHandler.containsKey("message_read")) {
         throw new EventTypeAlreadyHasHandlerException("message_read");
@@ -1318,6 +1325,10 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 当用户发送消息给机器人或在群聊中@机器人时触发此事件。
+     * <p> 事件描述文档链接：<a href="https://open.feishu.cn/document/ukTMukTMukTM/ugzMugzMugzM/event/receive-message">https://open.feishu.cn/document/ukTMukTMukTM/ugzMugzMugzM/event/receive-message</a>
+     */
     public Builder onP1MessageReceivedV1(ImService.P1MessageReceivedV1Handler handler) {
       if (eventType2EventHandler.containsKey("message")) {
         throw new EventTypeAlreadyHasHandlerException("message");
@@ -1326,6 +1337,10 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 当员工加入企业（user_add）、离职（user_leave）、个人信息发生变化（user_update）时，推送此事件。
+     * <p> 事件描述文档链接：<a href="https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM//event/employee-change">https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM//event/employee-change</a>
+     */
     public Builder onP1UserChangedV3(ContactService.P1UserChangedV3Handler handler) {
       if (eventType2EventHandler.containsKey("user_add")) {
         throw new EventTypeAlreadyHasHandlerException("user_add");
@@ -1344,6 +1359,10 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 当员工的激活、暂停账号/恢复账号、操作离职时会触发此事件。此事件不依赖于任何权限。
+     * <p> 事件描述文档链接：<a href="https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM//event/user-status-changed">https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM//event/user-status-changed</a>
+     */
     public Builder onP1UserStatusChangedV3(ContactService.P1UserStatusChangedV3Handler handler) {
       if (eventType2EventHandler.containsKey("user_status_change")) {
         throw new EventTypeAlreadyHasHandlerException("user_status_change");
@@ -1352,6 +1371,10 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 当应用申请了 以应用身份访问通讯录 权限后，管理员可以配置应用的通讯录授权范围,当此范围变化时，就会触发授权范围变化事件。
+     * <p> 事件描述文档链接：<a href="https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM//event/scope-change">https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM//event/scope-change</a>
+     */
     public Builder onP1ContactScopeChangedV3(
         ContactService.P1ContactScopeChangedV3Handler handler) {
       if (eventType2EventHandler.containsKey("contact_scope_change")) {
@@ -1361,6 +1384,10 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 当新建部门（dept_add）、删除部门（dept_delete）、修改部门（dept_update）时，推送此事件。
+     * <p> 事件描述文档链接：<a href="https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM//event/department-update">https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM//event/department-update</a>
+     */
     public Builder onP1DepartmentChangedV3(ContactService.P1DepartmentChangedV3Handler handler) {
       if (eventType2EventHandler.containsKey("dept_add")) {
         throw new EventTypeAlreadyHasHandlerException("dept_add");
@@ -1379,6 +1406,10 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 首次会话是用户了解应用的重要机会，你可以发送操作说明、配置地址来指导用户开始使用你的应用。
+     * <p> 事件描述文档链接：<a href="https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/bot-events">https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/bot-events</a>
+     */
     public Builder onP1P2PChatCreatedV1(ImService.P1P2PChatCreatedV1Handler handler) {
       if (eventType2EventHandler.containsKey("p2p_chat_create")) {
         throw new EventTypeAlreadyHasHandlerException("p2p_chat_create");
@@ -1387,6 +1418,10 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 当添加了第三方会议室的日程发生变动时（创建/更新/删除）触发此事件。
+     * <p> 事件描述文档链接：<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/meeting_room-v1/event/third-room-event-changes">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/meeting_room-v1/event/third-room-event-changes</a>
+     */
     public Builder onP1ThirdPartyMeetingRoomChangedV1(
         MeetingRoomService.P1ThirdPartyMeetingRoomChangedV1Handler handler) {
       if (eventType2EventHandler.containsKey("third_party_meeting_room_event_created")) {
@@ -1407,7 +1442,10 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
-
+    /**
+     * <p> 审批」应用的表单里如果包含 请假控件组，则在此表单审批通过后触发此事件。
+     * <p> 事件描述文档链接：<a href="https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/leave">https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/leave</a>
+     */
     public Builder onP1LeaveApprovalV4(ApprovalService.P1LeaveApprovalV4Handler handler) {
       if (eventType2EventHandler.containsKey("leave_approvalV2")) {
         throw new EventTypeAlreadyHasHandlerException("leave_approvalV2");
@@ -1416,6 +1454,10 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 审批」应用的表单里如果包含 加班控件组，则在此表单审批通过后触发此事件。
+     * <p> 事件描述文档链接：<a href="https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/overtime">https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/overtime</a>
+     */
     public Builder onP1WorkApprovalV4(ApprovalService.P1WorkApprovalV4Handler handler) {
       if (eventType2EventHandler.containsKey("work_approval")) {
         throw new EventTypeAlreadyHasHandlerException("work_approval");
@@ -1424,6 +1466,10 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 包含换班控件组的换班申请审批通过后触发此事件。
+     * <p> 事件描述文档链接：<a href="https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/shift-change">https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/shift-change</a>
+     */
     public Builder onP1ShiftApprovalV4(ApprovalService.P1ShiftApprovalV4Handler handler) {
       if (eventType2EventHandler.containsKey("shift_approval")) {
         throw new EventTypeAlreadyHasHandlerException("shift_approval");
@@ -1432,6 +1478,10 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 补卡申请审批通过后触发此事件。 你可以在「打卡」应用里提交补卡申请。
+     * <p> 事件描述文档链接：<a href="https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/attendance-record-correction">https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/attendance-record-correction</a>
+     */
     public Builder onP1RemedyApprovalV4(ApprovalService.P1RemedyApprovalV4Handler handler) {
       if (eventType2EventHandler.containsKey("remedy_approval")) {
         throw new EventTypeAlreadyHasHandlerException("remedy_approval");
@@ -1440,6 +1490,11 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+
+    /**
+     * <p> 审批」应用的表单里如果包含 出差控件组，则在此表单审批通过后触发此事件。
+     * <p> 事件描述文档链接：<a href="https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/business-trip">https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/business-trip</a>
+     */
     public Builder onP1TripApprovalV4(ApprovalService.P1TripApprovalV4Handler handler) {
       if (eventType2EventHandler.containsKey("trip_approval")) {
         throw new EventTypeAlreadyHasHandlerException("trip_approval");
@@ -1448,6 +1503,10 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 审批」应用的表单里如果包含 外出控件组，则在此表单审批通过后触发此事件。
+     * <p> 事件描述文档链接：<a href="https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/out-of-office">https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/out-of-office</a>
+     */
     public Builder onP1OutApprovalV4(ApprovalService.P1OutApprovalV4Handler handler) {
       if (eventType2EventHandler.containsKey("out_approval")) {
         throw new EventTypeAlreadyHasHandlerException("out_approval");
@@ -1456,6 +1515,10 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 当租户第一次安装并启用此应用时触发此事件。
+     * <p> 事件描述文档链接：<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/event/app-first-enabled">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/event/app-first-enabled</a>
+     */
     public Builder onP1AppOpenV6(ApplicationService.P1AppOpenV6Handler handler) {
       if (eventType2EventHandler.containsKey("app_open")) {
         throw new EventTypeAlreadyHasHandlerException("app_open");
@@ -1464,6 +1527,10 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 当企业管理员在管理员后台启用、停用应用，或应用被平台停用时，开放平台推送 app_status_change 事件到请求网址。
+     * <p> 事件描述文档链接：<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/event/app-enabled-or-disabled">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/event/app-enabled-or-disabled</a>
+     */
     public Builder onP1AppStatusChangedV6(ApplicationService.P1AppStatusChangedV6Handler handler) {
       if (eventType2EventHandler.containsKey("app_status_change")) {
         throw new EventTypeAlreadyHasHandlerException("app_status_change");
@@ -1472,6 +1539,10 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 用户购买应用商店付费应用成功后发送给应用ISV的通知事件。
+     * <p> 事件描述文档链接：<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/event/public-app-purchase">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/event/public-app-purchase</a>
+     */
     public Builder onP1OrderPaidV6(ApplicationService.P1OrderPaidV6Handler handler) {
       if (eventType2EventHandler.containsKey("order_paid")) {
         throw new EventTypeAlreadyHasHandlerException("order_paid");
@@ -1480,6 +1551,10 @@ public class EventDispatcher implements IHandler {
       return this;
     }
 
+    /**
+     * <p> 企业解散后会推送此事件。商店应用开发者可在收到此事件后进行相应的账户注销、数据清理等处理。
+     * <p> 事件描述文档链接：<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/event/app-uninstalled">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/event/app-uninstalled</a>
+     */
     public Builder onP1AppUninstalledV6(ApplicationService.P1AppUninstalledV6Handler handler) {
       if (eventType2EventHandler.containsKey("app_uninstalled")) {
         throw new EventTypeAlreadyHasHandlerException("app_uninstalled");

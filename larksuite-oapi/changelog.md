@@ -2,8 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## 2.0.0-rc11-2022-08-26
+## 2.0.2
+Added
+- P1消息协议的消息事件注册函数添加注释
 
+## 2.0.1
 Added
 
 - API，Event，结构体，添加文字注释。

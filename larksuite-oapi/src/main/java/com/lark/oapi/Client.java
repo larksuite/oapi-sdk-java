@@ -47,6 +47,7 @@ import com.lark.oapi.service.ehr.v1.EhrService;
 import com.lark.oapi.service.event.v1.EventService;
 import com.lark.oapi.service.ext.ExtService;
 import com.lark.oapi.service.face_detection.v1.FaceDetectionService;
+import com.lark.oapi.service.gray_test_open_sg.v1.GrayTestOpenSgService;
 import com.lark.oapi.service.helpdesk.v1.HelpdeskService;
 import com.lark.oapi.service.human_authentication.v1.HumanAuthenticationService;
 import com.lark.oapi.service.im.v1.ImService;
@@ -84,6 +85,7 @@ public class Client {
   private EhrService ehr; // 智能人事
   private EventService event; // 事件订阅
   private FaceDetectionService faceDetection; // AI能力
+  private GrayTestOpenSgService grayTestOpenSg; //
   private HelpdeskService helpdesk; // 服务台
   private HumanAuthenticationService humanAuthentication; // 实名认证
   private ImService im; // 消息与群组
@@ -247,6 +249,13 @@ public class Client {
    */
   public FaceDetectionService faceDetection() {
     return faceDetection;
+  }
+
+  /**
+   * @return
+   */
+  public GrayTestOpenSgService grayTestOpenSg() {
+    return grayTestOpenSg;
   }
 
   /**
@@ -578,6 +587,7 @@ public class Client {
       client.ehr = new EhrService(config);
       client.event = new EventService(config);
       client.faceDetection = new FaceDetectionService(config);
+      client.grayTestOpenSg = new GrayTestOpenSgService(config);
       client.helpdesk = new HelpdeskService(config);
       client.humanAuthentication = new HumanAuthenticationService(config);
       client.im = new ImService(config);
