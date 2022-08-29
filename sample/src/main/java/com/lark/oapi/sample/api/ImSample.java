@@ -201,13 +201,8 @@ public class ImSample {
         .build();
 
     // 发起请求，并处理结果
-    Map<String, List<String>> headers = new HashMap<>();
-    List<String> list = new ArrayList<>();
-    list.add("ss");
-
     try {
-      CreateMessageResp resp = client.im().message()
-          .create(req, RequestOptions.newBuilder().headers(headers).build());
+      CreateMessageResp resp = client.im().message().create(req);
       if (resp.getCode() != 0) {
         System.out.println(String.format("code:%d,msg:%s,err:%s"
             , resp.getCode(), resp.getMsg(), Jsons.DEFAULT.toJson(resp.getError())));
