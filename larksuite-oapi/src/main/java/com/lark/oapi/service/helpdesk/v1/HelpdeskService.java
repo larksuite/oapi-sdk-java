@@ -126,19 +126,19 @@ import java.io.ByteArrayOutputStream;
 
 public class HelpdeskService {
 
-  private final Agent agent;
-  private final AgentSchedules agentSchedules;
-  private final AgentSchedule agentSchedule;
-  private final AgentSkill agentSkill;
-  private final AgentSkillRule agentSkillRule;
-  private final BotMessage botMessage;
-  private final Category category;
-  private final Event event;
-  private final Faq faq;
-  private final Notification notification;
-  private final Ticket ticket;
-  private final TicketMessage ticketMessage;
-  private final TicketCustomizedField ticketCustomizedField;
+  private final Agent agent; // 客服
+  private final AgentSchedules agentSchedules; // 客服工作日程
+  private final AgentSchedule agentSchedule; // agent_schedule
+  private final AgentSkill agentSkill; // 客服技能
+  private final AgentSkillRule agentSkillRule; // 客服技能规则
+  private final BotMessage botMessage; // 机器人消息
+  private final Category category; // 知识库分类
+  private final Event event; // 事件订阅
+  private final Faq faq; // 知识库
+  private final Notification notification; // 推送中心
+  private final Ticket ticket; // 工单
+  private final TicketMessage ticketMessage; // 工单消息
+  private final TicketCustomizedField ticketCustomizedField; // 工单自定义字段
 
   public HelpdeskService(Config config) {
     this.agent = new Agent(config);
@@ -175,7 +175,7 @@ public class HelpdeskService {
   }
 
   /**
-   * 客服工作日程
+   * agent_schedule
    *
    * @return
    */

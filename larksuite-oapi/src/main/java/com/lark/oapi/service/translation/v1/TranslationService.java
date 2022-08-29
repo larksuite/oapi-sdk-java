@@ -27,7 +27,7 @@ import com.lark.oapi.service.translation.v1.model.TranslateTextResp;
 
 public class TranslationService {
 
-  private final Text text;
+  private final Text text; // 文本
 
   public TranslationService(Config config) {
     this.text = new Text(config);

@@ -24,7 +24,7 @@ import com.lark.oapi.service.tenant.v2.model.QueryTenantResp;
 
 public class TenantService {
 
-  private final Tenant tenant;
+  private final Tenant tenant; // 企业
 
   public TenantService(Config config) {
     this.tenant = new Tenant(config);

@@ -51,11 +51,11 @@ import com.lark.oapi.service.wiki.v2.model.UpdateTitleSpaceNodeResp;
 
 public class WikiService {
 
-  private final Space space;
-  private final SpaceMember spaceMember;
-  private final SpaceNode spaceNode;
-  private final SpaceSetting spaceSetting;
-  private final Task task;
+  private final Space space; // 知识空间
+  private final SpaceMember spaceMember; // 空间成员
+  private final SpaceNode spaceNode; // 节点
+  private final SpaceSetting spaceSetting; // 空间设置
+  private final Task task; // 云文档
 
   public WikiService(Config config) {
     this.space = new Space(config);
@@ -66,7 +66,7 @@ public class WikiService {
   }
 
   /**
-   * 节点
+   * 知识空间
    *
    * @return
    */
@@ -705,8 +705,7 @@ public class WikiService {
 
     /**
      * 添加已有云文档至知识库，该接口允许添加已有云文档至知识库，并挂载在指定父页面下
-     * <p> ### 移动操作 ###;移动后，文档将从“我的空间”或“共享空间”转移至“知识库”，并将从以下功能入口消失：;- 云空间主页：最近访问、快速访问;- 我的空间;-
-     * 共享空间;-
+     * <p> ### 移动操作 ###;移动后，文档将从“我的空间”或“共享空间”转移至“知识库”，并将从以下功能入口消失：;- 云空间主页：最近访问、快速访问;- 我的空间;- 共享空间;-
      * 收藏;;### 权限变更 ###;移动后，文档会向所有可查看“页面树”的用户显示，默认继承父页面的权限设置。;</md-alert ;
      * <p> 仅支持文档所有者发起请求;;此接口为异步接口。若移动已完成（或节点已在Wiki中），则直接返回结果（Wiki token）。若尚未完成，则返回task
      * id。请使用[获取任务结果](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/task/get)接口进行查询。;;知识库权限要求：;-
@@ -740,8 +739,7 @@ public class WikiService {
 
     /**
      * 添加已有云文档至知识库，该接口允许添加已有云文档至知识库，并挂载在指定父页面下
-     * <p> ### 移动操作 ###;移动后，文档将从“我的空间”或“共享空间”转移至“知识库”，并将从以下功能入口消失：;- 云空间主页：最近访问、快速访问;- 我的空间;-
-     * 共享空间;-
+     * <p> ### 移动操作 ###;移动后，文档将从“我的空间”或“共享空间”转移至“知识库”，并将从以下功能入口消失：;- 云空间主页：最近访问、快速访问;- 我的空间;- 共享空间;-
      * 收藏;;### 权限变更 ###;移动后，文档会向所有可查看“页面树”的用户显示，默认继承父页面的权限设置。;</md-alert ;
      * <p> 仅支持文档所有者发起请求;;此接口为异步接口。若移动已完成（或节点已在Wiki中），则直接返回结果（Wiki token）。若尚未完成，则返回task
      * id。请使用[获取任务结果](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/task/get)接口进行查询。;;知识库权限要求：;-

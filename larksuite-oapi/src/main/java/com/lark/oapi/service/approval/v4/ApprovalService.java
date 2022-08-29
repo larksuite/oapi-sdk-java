@@ -87,13 +87,13 @@ import com.lark.oapi.service.approval.v4.model.UnsubscribeApprovalResp;
 
 public class ApprovalService {
 
-  private final Approval approval;
-  private final ExternalApproval externalApproval;
-  private final ExternalInstance externalInstance;
-  private final ExternalTask externalTask;
-  private final Instance instance;
-  private final InstanceComment instanceComment;
-  private final Task task;
+  private final Approval approval; // 审批定义
+  private final ExternalApproval externalApproval; // 三方审批定义
+  private final ExternalInstance externalInstance; // 三方审批实例
+  private final ExternalTask externalTask; // 三方审批任务
+  private final Instance instance; // 审批实例
+  private final InstanceComment instanceComment; // 评论
+  private final Task task; // 审批任务
 
   public ApprovalService(Config config) {
     this.approval = new Approval(config);

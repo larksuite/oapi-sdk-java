@@ -43,9 +43,9 @@ import com.lark.oapi.service.docx.v1.model.RawContentDocumentResp;
 
 public class DocxService {
 
-  private final Document document;
-  private final DocumentBlock documentBlock;
-  private final DocumentBlockChildren documentBlockChildren;
+  private final Document document; // 文档
+  private final DocumentBlock documentBlock; // 块
+  private final DocumentBlockChildren documentBlockChildren; // document.block.children
 
   public DocxService(Config config) {
     this.document = new Document(config);
@@ -72,7 +72,7 @@ public class DocxService {
   }
 
   /**
-   * 块
+   * document.block.children
    *
    * @return
    */

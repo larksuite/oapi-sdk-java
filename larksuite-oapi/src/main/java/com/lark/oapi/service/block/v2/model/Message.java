@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class Message {
 
   /**
-   * 消息体
+   * 协同数据内容
    * <p> 示例值：{"id":"7094066727704592403","token":"test_123456789"}
    */
   @SerializedName("body")
@@ -54,7 +54,7 @@ public class Message {
 
   public Message(Builder builder) {
     /**
-     * 消息体
+     * 协同数据内容
      * <p> 示例值：{"id":"7094066727704592403","token":"test_123456789"}
      */
     this.body = builder.body;
@@ -127,7 +127,7 @@ public class Message {
   public static class Builder {
 
     /**
-     * 消息体
+     * 协同数据内容
      * <p> 示例值：{"id":"7094066727704592403","token":"test_123456789"}
      */
     private String body;
@@ -153,7 +153,7 @@ public class Message {
     private String[] openIds;
 
     /**
-     * 消息体
+     * 协同数据内容
      * <p> 示例值：{"id":"7094066727704592403","token":"test_123456789"}
      *
      * @param body

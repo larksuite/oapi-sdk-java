@@ -95,16 +95,16 @@ import com.lark.oapi.service.mail.v1.model.UpdatePublicMailboxResp;
 
 public class MailService {
 
-  private final Mailgroup mailgroup;
-  private final MailgroupAlias mailgroupAlias;
-  private final MailgroupMember mailgroupMember;
-  private final MailgroupPermissionMember mailgroupPermissionMember;
-  private final PublicMailbox publicMailbox;
-  private final PublicMailboxAlias publicMailboxAlias;
-  private final PublicMailboxMember publicMailboxMember;
-  private final User user;
-  private final UserMailbox userMailbox;
-  private final UserMailboxAlias userMailboxAlias;
+  private final Mailgroup mailgroup; // 邮件组
+  private final MailgroupAlias mailgroupAlias; // 邮件组别名
+  private final MailgroupMember mailgroupMember; // 邮件组成员
+  private final MailgroupPermissionMember mailgroupPermissionMember; // 邮件组权限成员
+  private final PublicMailbox publicMailbox; // 公共邮箱
+  private final PublicMailboxAlias publicMailboxAlias; // 公共邮箱别名
+  private final PublicMailboxMember publicMailboxMember; // 公共邮箱成员
+  private final User user; // 邮箱地址
+  private final UserMailbox userMailbox; // 用户邮箱
+  private final UserMailboxAlias userMailboxAlias; // 用户邮箱别名
 
   public MailService(Config config) {
     this.mailgroup = new Mailgroup(config);

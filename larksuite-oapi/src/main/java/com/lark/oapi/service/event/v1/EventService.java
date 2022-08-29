@@ -25,7 +25,7 @@ import com.lark.oapi.service.event.v1.model.ListOutboundIpResp;
 
 public class EventService {
 
-  private final OutboundIp outboundIp;
+  private final OutboundIp outboundIp; // 事件出口IP
 
   public EventService(Config config) {
     this.outboundIp = new OutboundIp(config);

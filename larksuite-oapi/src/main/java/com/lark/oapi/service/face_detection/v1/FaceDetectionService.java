@@ -25,7 +25,7 @@ import com.lark.oapi.service.face_detection.v1.model.DetectFaceAttributesImageRe
 
 public class FaceDetectionService {
 
-  private final Image image;
+  private final Image image; // 图片
 
   public FaceDetectionService(Config config) {
     this.image = new Image(config);

@@ -35,6 +35,12 @@ public class CopyFileReqBody {
    */
   @SerializedName("folder_token")
   private String folderToken;
+  /**
+   * 用户自定义请求附加参数，用于实现特殊的复制语义
+   * <p> 示例值：
+   */
+  @SerializedName("extra")
+  private Property[] extra;
 
   // builder 开始
   public CopyFileReqBody() {
@@ -56,6 +62,11 @@ public class CopyFileReqBody {
      * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
      */
     this.folderToken = builder.folderToken;
+    /**
+     * 用户自定义请求附加参数，用于实现特殊的复制语义
+     * <p> 示例值：
+     */
+    this.extra = builder.extra;
   }
 
   public static Builder newBuilder() {
@@ -86,6 +97,14 @@ public class CopyFileReqBody {
     this.folderToken = folderToken;
   }
 
+  public Property[] getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(Property[] extra) {
+    this.extra = extra;
+  }
+
   public static class Builder {
 
     /**
@@ -103,6 +122,11 @@ public class CopyFileReqBody {
      * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
      */
     private String folderToken;
+    /**
+     * 用户自定义请求附加参数，用于实现特殊的复制语义
+     * <p> 示例值：
+     */
+    private Property[] extra;
 
     /**
      * 被复制文件的新名称
@@ -151,6 +175,19 @@ public class CopyFileReqBody {
      */
     public Builder folderToken(String folderToken) {
       this.folderToken = folderToken;
+      return this;
+    }
+
+
+    /**
+     * 用户自定义请求附加参数，用于实现特殊的复制语义
+     * <p> 示例值：
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(Property[] extra) {
+      this.extra = extra;
       return this;
     }
 

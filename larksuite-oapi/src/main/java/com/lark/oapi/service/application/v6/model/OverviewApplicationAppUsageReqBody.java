@@ -32,7 +32,7 @@ public class OverviewApplicationAppUsageReqBody {
   private Integer cycleType;
   /**
    * 查询的部门id，获取方法可参考[部门ID概述](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview);-
-   * 若部门id为空，则返回当前租户的使用数据；若填写部门id，则返回当前部门的使用数据（包含子部门的用户）； ;-  若路径参数中department_id_type为空或者为open_department_id，则此处应该填写部门的
+   *  若部门id为空，则返回当前租户的使用数据；若填写部门id，则返回当前部门的使用数据（包含子部门的用户）； ;-  若路径参数中department_id_type为空或者为open_department_id，则此处应该填写部门的
    * open_department_id；若路径参数中department_id_type为department_id，则此处应该填写部门的 department_id。
    * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
    */
@@ -123,7 +123,7 @@ public class OverviewApplicationAppUsageReqBody {
     private Integer cycleType;
     /**
      * 查询的部门id，获取方法可参考[部门ID概述](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview);-
-     * 若部门id为空，则返回当前租户的使用数据；若填写部门id，则返回当前部门的使用数据（包含子部门的用户）； ;-  若路径参数中department_id_type为空或者为open_department_id，则此处应该填写部门的
+     *  若部门id为空，则返回当前租户的使用数据；若填写部门id，则返回当前部门的使用数据（包含子部门的用户）； ;-  若路径参数中department_id_type为空或者为open_department_id，则此处应该填写部门的
      * open_department_id；若路径参数中department_id_type为department_id，则此处应该填写部门的 department_id。
      * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      */
@@ -176,7 +176,7 @@ public class OverviewApplicationAppUsageReqBody {
 
     /**
      * 查询的部门id，获取方法可参考[部门ID概述](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview);-
-     * 若部门id为空，则返回当前租户的使用数据；若填写部门id，则返回当前部门的使用数据（包含子部门的用户）； ;-  若路径参数中department_id_type为空或者为open_department_id，则此处应该填写部门的
+     *  若部门id为空，则返回当前租户的使用数据；若填写部门id，则返回当前部门的使用数据（包含子部门的用户）； ;-  若路径参数中department_id_type为空或者为open_department_id，则此处应该填写部门的
      * open_department_id；若路径参数中department_id_type为department_id，则此处应该填写部门的 department_id。
      * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      *

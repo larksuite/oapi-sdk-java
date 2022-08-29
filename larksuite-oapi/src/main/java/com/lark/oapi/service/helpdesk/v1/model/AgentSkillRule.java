@@ -39,7 +39,8 @@ public class AgentSkillRule {
   /**
    * rule 操作数的值
    * <p> 示例值：{;                "selected_departments": [;                    {;
-   * "id": "部门ID",;                        "name": "IT";                    };                ]; }
+   *   "id": "部门ID",;                        "name": "IT";                    };                ];
+   * }
    */
   @SerializedName("operand")
   private String operand;
@@ -166,7 +167,8 @@ public class AgentSkillRule {
     /**
      * rule 操作数的值
      * <p> 示例值：{;                "selected_departments": [;                    {;
-     * "id": "部门ID",;                        "name": "IT";                    }; ];            }
+     *     "id": "部门ID",;                        "name": "IT";                    };
+     * ];            }
      */
     private String operand;
     /**
@@ -223,7 +225,8 @@ public class AgentSkillRule {
     /**
      * rule 操作数的值
      * <p> 示例值：{;                "selected_departments": [;                    {;
-     * "id": "部门ID",;                        "name": "IT";                    }; ];            }
+     *     "id": "部门ID",;                        "name": "IT";                    };
+     * ];            }
      *
      * @param operand
      * @return

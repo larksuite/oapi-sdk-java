@@ -47,12 +47,10 @@ import com.lark.oapi.service.ehr.v1.EhrService;
 import com.lark.oapi.service.event.v1.EventService;
 import com.lark.oapi.service.ext.ExtService;
 import com.lark.oapi.service.face_detection.v1.FaceDetectionService;
-import com.lark.oapi.service.gray_test_open_sg.v1.GrayTestOpenSgService;
 import com.lark.oapi.service.helpdesk.v1.HelpdeskService;
 import com.lark.oapi.service.human_authentication.v1.HumanAuthenticationService;
 import com.lark.oapi.service.im.v1.ImService;
 import com.lark.oapi.service.mail.v1.MailService;
-import com.lark.oapi.service.mdm.v1.MdmService;
 import com.lark.oapi.service.meeting_room.v1.MeetingRoomService;
 import com.lark.oapi.service.optical_char_recognition.v1.OpticalCharRecognitionService;
 import com.lark.oapi.service.passport.v1.PassportService;
@@ -86,12 +84,10 @@ public class Client {
   private EhrService ehr; // 智能人事
   private EventService event; // 事件订阅
   private FaceDetectionService faceDetection; // AI能力
-  private GrayTestOpenSgService grayTestOpenSg; //
   private HelpdeskService helpdesk; // 服务台
   private HumanAuthenticationService humanAuthentication; // 实名认证
   private ImService im; // 消息与群组
   private MailService mail; // 邮箱
-  private MdmService mdm; // 主数据
   private MeetingRoomService meetingRoom; //
   private OpticalCharRecognitionService opticalCharRecognition; // AI能力
   private PassportService passport; // 帐号
@@ -254,13 +250,6 @@ public class Client {
   }
 
   /**
-   * @return
-   */
-  public GrayTestOpenSgService grayTestOpenSg() {
-    return grayTestOpenSg;
-  }
-
-  /**
    * 服务台
    *
    * @return
@@ -294,15 +283,6 @@ public class Client {
    */
   public MailService mail() {
     return mail;
-  }
-
-  /**
-   * 主数据
-   *
-   * @return
-   */
-  public MdmService mdm() {
-    return mdm;
   }
 
   /**
@@ -598,12 +578,10 @@ public class Client {
       client.ehr = new EhrService(config);
       client.event = new EventService(config);
       client.faceDetection = new FaceDetectionService(config);
-      client.grayTestOpenSg = new GrayTestOpenSgService(config);
       client.helpdesk = new HelpdeskService(config);
       client.humanAuthentication = new HumanAuthenticationService(config);
       client.im = new ImService(config);
       client.mail = new MailService(config);
-      client.mdm = new MdmService(config);
       client.meetingRoom = new MeetingRoomService(config);
       client.opticalCharRecognition = new OpticalCharRecognitionService(config);
       client.passport = new PassportService(config);

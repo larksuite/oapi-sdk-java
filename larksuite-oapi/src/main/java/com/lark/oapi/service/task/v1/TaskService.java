@@ -73,11 +73,11 @@ import com.lark.oapi.service.task.v1.model.UpdateTaskCommentResp;
 
 public class TaskService {
 
-  private final Task task;
-  private final TaskCollaborator taskCollaborator;
-  private final TaskComment taskComment;
-  private final TaskFollower taskFollower;
-  private final TaskReminder taskReminder;
+  private final Task task; // 任务
+  private final TaskCollaborator taskCollaborator; // 执行者
+  private final TaskComment taskComment; // 评论
+  private final TaskFollower taskFollower; // 关注人
+  private final TaskReminder taskReminder; // 提醒
 
   public TaskService(Config config) {
     this.task = new Task(config);

@@ -79,12 +79,12 @@ import com.lark.oapi.service.vc.v1.model.UpdateReserveResp;
 
 public class VcService {
 
-  private final Export export;
-  private final Meeting meeting;
-  private final MeetingRecording meetingRecording;
-  private final Report report;
-  private final Reserve reserve;
-  private final RoomConfig roomConfig;
+  private final Export export; // 导出
+  private final Meeting meeting; // 会议
+  private final MeetingRecording meetingRecording; // 录制
+  private final Report report; // 会议报告
+  private final Reserve reserve; // 预约
+  private final RoomConfig roomConfig; // 会议室配置
 
   public VcService(Config config) {
     this.export = new Export(config);

@@ -127,15 +127,15 @@ import com.lark.oapi.service.contact.v3.model.UpdateUserResp;
 
 public class ContactService {
 
-  private final CustomAttr customAttr;
-  private final CustomAttrEvent customAttrEvent;
-  private final Department department;
-  private final EmployeeTypeEnum employeeTypeEnum;
-  private final Group group;
-  private final GroupMember groupMember;
-  private final Scope scope;
-  private final Unit unit;
-  private final User user;
+  private final CustomAttr customAttr; // 自定义用户字段
+  private final CustomAttrEvent customAttrEvent; // 事件
+  private final Department department; // 部门
+  private final EmployeeTypeEnum employeeTypeEnum; // 人员类型
+  private final Group group; // 用户组
+  private final GroupMember groupMember; // 用户组成员
+  private final Scope scope; // 通讯录权限范围
+  private final Unit unit; // 单位
+  private final User user; // 用户
 
   public ContactService(Config config) {
     this.customAttr = new CustomAttr(config);
@@ -159,7 +159,7 @@ public class ContactService {
   }
 
   /**
-   * custom_attr_event
+   * 事件
    *
    * @return
    */
@@ -558,8 +558,7 @@ public class ContactService {
      * 使用 ; tenant_access_token 则基于应用的通讯录权限范围进行权限校验与过滤。由于 ; parent_department_id
      * 是非必填参数，填与不填存在<b>两种数据权限校验与返回</b>情况：;<br> <br>1、请求设置了 ; parent_department_id
      * 为A（根部门0），会检验A是否在通讯录权限内，若在( parent_department_id=0 时会校验是否为全员权限），则返回部门下子部门列表（根据fetch_child决定是否递归），否则返回无部门通讯录权限错误码。;<br>
-     * <br>2、请求未带 ; parent_department_id 参数，如通讯录范围为全员权限，只返回根部门ID(部门ID为0)，否则返回根据通讯录范围配置的部门ID及子部门(根据
-     * ;
+     * <br>2、请求未带 ; parent_department_id 参数，如通讯录范围为全员权限，只返回根部门ID(部门ID为0)，否则返回根据通讯录范围配置的部门ID及子部门(根据 ;
      * fetch_child 决定是否递归)。 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/list</a>
      * ;
@@ -594,8 +593,7 @@ public class ContactService {
      * 使用 ; tenant_access_token 则基于应用的通讯录权限范围进行权限校验与过滤。由于 ; parent_department_id
      * 是非必填参数，填与不填存在<b>两种数据权限校验与返回</b>情况：;<br> <br>1、请求设置了 ; parent_department_id
      * 为A（根部门0），会检验A是否在通讯录权限内，若在( parent_department_id=0 时会校验是否为全员权限），则返回部门下子部门列表（根据fetch_child决定是否递归），否则返回无部门通讯录权限错误码。;<br>
-     * <br>2、请求未带 ; parent_department_id 参数，如通讯录范围为全员权限，只返回根部门ID(部门ID为0)，否则返回根据通讯录范围配置的部门ID及子部门(根据
-     * ;
+     * <br>2、请求未带 ; parent_department_id 参数，如通讯录范围为全员权限，只返回根部门ID(部门ID为0)，否则返回根据通讯录范围配置的部门ID及子部门(根据 ;
      * fetch_child 决定是否递归)。 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/list</a>
      * ;
@@ -2544,7 +2542,7 @@ public class ContactService {
     /**
      * 获取用户列表，基于部门ID获取部门下直属用户列表。;[常见问题答疑](/ssl:ttdoc/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN)。
      * <p> - 使用 user_access_token 情况下根据个人组织架构的通讯录可见范围进行权限过滤，返回个人组织架构通讯录范围（[登陆企业管理后台进行权限配置](https://www.feishu.cn/admin/security/permission/visibility)）内可见的用户数据。;-
-     * tenant_access_token  基于应用通讯录范围进行权限鉴定。由于 department_id 是非必填参数，填与不填存在<b>两种数据权限校验与返回</b>情况：<br>1、请求设置了
+     *  tenant_access_token  基于应用通讯录范围进行权限鉴定。由于 department_id 是非必填参数，填与不填存在<b>两种数据权限校验与返回</b>情况：<br>1、请求设置了
      * department_id ;（根部门为0），会检验所带部门ID是否具有通讯录权限（如果带上 ; department_id=0 会校验是否有全员权限），有则返回部门下直属的成员列表,
      * 否则提示无部门权限的错误码返回。<br>2、请求未带 ;  department_id 参数，则会返回权限范围内的独立用户（权限范围直接包含了某用户，则该用户视为权限范围内的独立用户）。
      * ;
@@ -2576,7 +2574,7 @@ public class ContactService {
     /**
      * 获取用户列表，基于部门ID获取部门下直属用户列表。;[常见问题答疑](/ssl:ttdoc/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN)。
      * <p> - 使用 user_access_token 情况下根据个人组织架构的通讯录可见范围进行权限过滤，返回个人组织架构通讯录范围（[登陆企业管理后台进行权限配置](https://www.feishu.cn/admin/security/permission/visibility)）内可见的用户数据。;-
-     * tenant_access_token  基于应用通讯录范围进行权限鉴定。由于 department_id 是非必填参数，填与不填存在<b>两种数据权限校验与返回</b>情况：<br>1、请求设置了
+     *  tenant_access_token  基于应用通讯录范围进行权限鉴定。由于 department_id 是非必填参数，填与不填存在<b>两种数据权限校验与返回</b>情况：<br>1、请求设置了
      * department_id ;（根部门为0），会检验所带部门ID是否具有通讯录权限（如果带上 ; department_id=0 会校验是否有全员权限），有则返回部门下直属的成员列表,
      * 否则提示无部门权限的错误码返回。<br>2、请求未带 ;  department_id 参数，则会返回权限范围内的独立用户（权限范围直接包含了某用户，则该用户视为权限范围内的独立用户）。
      * ;

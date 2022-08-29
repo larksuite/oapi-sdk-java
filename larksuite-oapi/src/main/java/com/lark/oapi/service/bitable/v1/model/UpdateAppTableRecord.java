@@ -20,7 +20,7 @@ public class UpdateAppTableRecord {
   /**
    * {;    "fields": {;        "人力评估": 2,;        "任务执行人": [;            {;                "id":
    * "ou_debc524b2d8cb187704df652b43d29de";            };        ],;        "任务描述": "多渠道收集用户反馈",;
-   * "对应 OKR": [;            "recqwIwhc6",;            "recOuEJMvN";        ],;        "截止日期":
+   *     "对应 OKR": [;            "recqwIwhc6",;            "recOuEJMvN";        ],;        "截止日期":
    * 1609516800000,;        "是否完成": true,;        "状态": "已结束",;        "相关部门": [;            "销售",;
    * "客服";        ];    };}
    * <p> 示例值：

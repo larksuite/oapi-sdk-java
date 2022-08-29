@@ -144,8 +144,7 @@ public class FaqUpdateInfo {
     private String answer;
     /**
      * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](/ssl:ttdoc/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
-     * <p> 示例值：[{;                        "content": "这只是一个测试，医保问题",;
-     * "type":
+     * <p> 示例值：[{;                        "content": "这只是一个测试，医保问题",;                        "type":
      * "text";                    }]
      */
     private String answerRichtext;
@@ -196,8 +195,7 @@ public class FaqUpdateInfo {
 
     /**
      * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](/ssl:ttdoc/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
-     * <p> 示例值：[{;                        "content": "这只是一个测试，医保问题",;
-     * "type":
+     * <p> 示例值：[{;                        "content": "这只是一个测试，医保问题",;                        "type":
      * "text";                    }]
      *
      * @param answerRichtext

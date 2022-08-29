@@ -474,8 +474,8 @@ public class Notification {
      * 必填，推送内容，详见：https://open.feishu.cn/tool/cardbuilder?from=howtoguide
      * <p> 示例值：{   \"config\": {     \"wide_screen_mode\": true   },   \"elements\": [     {
      * \"tag\": \"div\",       \"text\": {         \"tag\": \"lark_md\",         \"content\":
-     * \"[飞书](https://www.feishu.cn)整合即时沟通、日历、音视频会议、云文档、云盘、工作台等功能于一体，成就组织和个人，更高效、更愉悦。\"       } }
-     * ] }
+     * \"[飞书](https://www.feishu.cn)整合即时沟通、日历、音视频会议、云文档、云盘、工作台等功能于一体，成就组织和个人，更高效、更愉悦。\"       }
+     * }   ] }
      */
     private String pushContent;
     /**
@@ -667,8 +667,8 @@ public class Notification {
      * 必填，推送内容，详见：https://open.feishu.cn/tool/cardbuilder?from=howtoguide
      * <p> 示例值：{   \"config\": {     \"wide_screen_mode\": true   },   \"elements\": [     {
      * \"tag\": \"div\",       \"text\": {         \"tag\": \"lark_md\",         \"content\":
-     * \"[飞书](https://www.feishu.cn)整合即时沟通、日历、音视频会议、云文档、云盘、工作台等功能于一体，成就组织和个人，更高效、更愉悦。\"       } }
-     * ] }
+     * \"[飞书](https://www.feishu.cn)整合即时沟通、日历、音视频会议、云文档、云盘、工作台等功能于一体，成就组织和个人，更高效、更愉悦。\"       }
+     * }   ] }
      *
      * @param pushContent
      * @return

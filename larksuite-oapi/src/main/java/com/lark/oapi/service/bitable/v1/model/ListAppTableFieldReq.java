@@ -27,6 +27,13 @@ public class ListAppTableFieldReq {
   @SerializedName("view_id")
   private String viewId;
   /**
+   * 控制描述（多行文本格式）字段数据的返回格式, true 表示以数组形式返回
+   * <p> 示例值：
+   */
+  @Query
+  @SerializedName("text_field_as_array")
+  private Boolean textFieldAsArray;
+  /**
    * <p> 示例值：fldwJ4YrtB
    */
   @Query
@@ -64,6 +71,11 @@ public class ListAppTableFieldReq {
      */
     this.viewId = builder.viewId;
     /**
+     * 控制描述（多行文本格式）字段数据的返回格式, true 表示以数组形式返回
+     * <p> 示例值：
+     */
+    this.textFieldAsArray = builder.textFieldAsArray;
+    /**
      *
      * <p> 示例值：fldwJ4YrtB
      */
@@ -95,6 +107,14 @@ public class ListAppTableFieldReq {
 
   public void setViewId(String viewId) {
     this.viewId = viewId;
+  }
+
+  public Boolean getTextFieldAsArray() {
+    return this.textFieldAsArray;
+  }
+
+  public void setTextFieldAsArray(Boolean textFieldAsArray) {
+    this.textFieldAsArray = textFieldAsArray;
   }
 
   public String getPageToken() {
@@ -132,6 +152,7 @@ public class ListAppTableFieldReq {
   public static class Builder {
 
     private String viewId; // 视图 ID
+    private Boolean textFieldAsArray; // 控制描述（多行文本格式）字段数据的返回格式, true 表示以数组形式返回
     private String pageToken; //
     private Integer pageSize; //
     private String appToken; // bitable app token
@@ -146,6 +167,18 @@ public class ListAppTableFieldReq {
      */
     public Builder viewId(String viewId) {
       this.viewId = viewId;
+      return this;
+    }
+
+    /**
+     * 控制描述（多行文本格式）字段数据的返回格式, true 表示以数组形式返回
+     * <p> 示例值：
+     *
+     * @param textFieldAsArray
+     * @return
+     */
+    public Builder textFieldAsArray(Boolean textFieldAsArray) {
+      this.textFieldAsArray = textFieldAsArray;
       return this;
     }
 

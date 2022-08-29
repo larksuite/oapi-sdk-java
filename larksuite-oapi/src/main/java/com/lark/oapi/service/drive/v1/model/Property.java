@@ -11,66 +11,103 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.sheets.v3.model;
+package com.lark.oapi.service.drive.v1.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class RichValue {
+public class Property {
 
   /**
-   * 数据，数据结构参见[单元格数据结构](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
-   * <p> 示例值：数据
+   * 自定义属性键对象
+   * <p> 示例值：
    */
-  @SerializedName("values")
-  private CellValue[][][] values;
+  @SerializedName("key")
+  private String key;
+  /**
+   * 自定义属性值对象
+   * <p> 示例值：
+   */
+  @SerializedName("value")
+  private String value;
 
   // builder 开始
-  public RichValue() {
+  public Property() {
   }
 
-  public RichValue(Builder builder) {
+  public Property(Builder builder) {
     /**
-     * 数据，数据结构参见[单元格数据结构](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
-     * <p> 示例值：数据
+     * 自定义属性键对象
+     * <p> 示例值：
      */
-    this.values = builder.values;
+    this.key = builder.key;
+    /**
+     * 自定义属性值对象
+     * <p> 示例值：
+     */
+    this.value = builder.value;
   }
 
   public static Builder newBuilder() {
     return new Builder();
   }
 
-  public CellValue[][][] getValues() {
-    return this.values;
+  public String getKey() {
+    return this.key;
   }
 
-  public void setValues(CellValue[][][] values) {
-    this.values = values;
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
   }
 
   public static class Builder {
 
     /**
-     * 数据，数据结构参见[单元格数据结构](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
-     * <p> 示例值：数据
+     * 自定义属性键对象
+     * <p> 示例值：
      */
-    private CellValue[][][] values;
+    private String key;
+    /**
+     * 自定义属性值对象
+     * <p> 示例值：
+     */
+    private String value;
 
     /**
-     * 数据，数据结构参见[单元格数据结构](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
-     * <p> 示例值：数据
+     * 自定义属性键对象
+     * <p> 示例值：
      *
-     * @param values
+     * @param key
      * @return
      */
-    public Builder values(CellValue[][][] values) {
-      this.values = values;
+    public Builder key(String key) {
+      this.key = key;
       return this;
     }
 
 
-    public RichValue build() {
-      return new RichValue(this);
+    /**
+     * 自定义属性值对象
+     * <p> 示例值：
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
+    }
+
+
+    public Property build() {
+      return new Property(this);
     }
   }
 }

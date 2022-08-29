@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class NotificationOption {
 
   /**
-   * 通道列表，枚举值，可多选：;- `sms`：短信邀请;- `email`：邮件邀请
+   * 通道列表
    * <p> 示例值：["sms", "email"]
    */
   @SerializedName("channels")
@@ -36,7 +36,7 @@ public class NotificationOption {
 
   public NotificationOption(Builder builder) {
     /**
-     * 通道列表，枚举值，可多选：;- `sms`：短信邀请;- `email`：邮件邀请
+     * 通道列表
      * <p> 示例值：["sms", "email"]
      */
     this.channels = builder.channels;
@@ -70,7 +70,7 @@ public class NotificationOption {
   public static class Builder {
 
     /**
-     * 通道列表，枚举值，可多选：;- `sms`：短信邀请;- `email`：邮件邀请
+     * 通道列表
      * <p> 示例值：["sms", "email"]
      */
     private String[] channels;
@@ -81,7 +81,7 @@ public class NotificationOption {
     private String language;
 
     /**
-     * 通道列表，枚举值，可多选：;- `sms`：短信邀请;- `email`：邮件邀请
+     * 通道列表
      * <p> 示例值：["sms", "email"]
      *
      * @param channels

@@ -27,7 +27,7 @@ import com.lark.oapi.service.speech_to_text.v1.model.StreamRecognizeSpeechResp;
 
 public class SpeechToTextService {
 
-  private final Speech speech;
+  private final Speech speech; // 语音识别
 
   public SpeechToTextService(Config config) {
     this.speech = new Speech(config);

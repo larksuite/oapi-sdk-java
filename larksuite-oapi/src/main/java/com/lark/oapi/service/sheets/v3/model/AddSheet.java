@@ -15,62 +15,99 @@ package com.lark.oapi.service.sheets.v3.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class RichValue {
+public class AddSheet {
 
   /**
-   * 数据，数据结构参见[单元格数据结构](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
-   * <p> 示例值：数据
+   * 工作表标题
+   * <p> 示例值：abc
    */
-  @SerializedName("values")
-  private CellValue[][][] values;
+  @SerializedName("title")
+  private String title;
+  /**
+   * 工作表位置
+   * <p> 示例值：0
+   */
+  @SerializedName("index")
+  private Integer index;
 
   // builder 开始
-  public RichValue() {
+  public AddSheet() {
   }
 
-  public RichValue(Builder builder) {
+  public AddSheet(Builder builder) {
     /**
-     * 数据，数据结构参见[单元格数据结构](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
-     * <p> 示例值：数据
+     * 工作表标题
+     * <p> 示例值：abc
      */
-    this.values = builder.values;
+    this.title = builder.title;
+    /**
+     * 工作表位置
+     * <p> 示例值：0
+     */
+    this.index = builder.index;
   }
 
   public static Builder newBuilder() {
     return new Builder();
   }
 
-  public CellValue[][][] getValues() {
-    return this.values;
+  public String getTitle() {
+    return this.title;
   }
 
-  public void setValues(CellValue[][][] values) {
-    this.values = values;
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public Integer getIndex() {
+    return this.index;
+  }
+
+  public void setIndex(Integer index) {
+    this.index = index;
   }
 
   public static class Builder {
 
     /**
-     * 数据，数据结构参见[单元格数据结构](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
-     * <p> 示例值：数据
+     * 工作表标题
+     * <p> 示例值：abc
      */
-    private CellValue[][][] values;
+    private String title;
+    /**
+     * 工作表位置
+     * <p> 示例值：0
+     */
+    private Integer index;
 
     /**
-     * 数据，数据结构参见[单元格数据结构](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
-     * <p> 示例值：数据
+     * 工作表标题
+     * <p> 示例值：abc
      *
-     * @param values
+     * @param title
      * @return
      */
-    public Builder values(CellValue[][][] values) {
-      this.values = values;
+    public Builder title(String title) {
+      this.title = title;
       return this;
     }
 
 
-    public RichValue build() {
-      return new RichValue(this);
+    /**
+     * 工作表位置
+     * <p> 示例值：0
+     *
+     * @param index
+     * @return
+     */
+    public Builder index(Integer index) {
+      this.index = index;
+      return this;
+    }
+
+
+    public AddSheet build() {
+      return new AddSheet(this);
     }
   }
 }

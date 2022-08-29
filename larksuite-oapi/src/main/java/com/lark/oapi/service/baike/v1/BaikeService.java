@@ -43,9 +43,9 @@ import com.lark.oapi.service.baike.v1.model.UpdateEntityResp;
 
 public class BaikeService {
 
-  private final Classification classification;
-  private final Draft draft;
-  private final Entity entity;
+  private final Classification classification; // 分类
+  private final Draft draft; // 草稿
+  private final Entity entity; // 词条
 
   public BaikeService(Config config) {
     this.classification = new Classification(config);

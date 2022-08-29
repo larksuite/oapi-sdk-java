@@ -84,19 +84,19 @@ import java.io.ByteArrayOutputStream;
 
 public class AttendanceService {
 
-  private final ApprovalInfo approvalInfo;
-  private final File file;
-  private final Group group;
-  private final Shift shift;
-  private final UserApproval userApproval;
-  private final UserDailyShift userDailyShift;
-  private final UserFlow userFlow;
-  private final UserSetting userSetting;
-  private final UserStatsData userStatsData;
-  private final UserStatsField userStatsField;
-  private final UserStatsView userStatsView;
-  private final UserTask userTask;
-  private final UserTaskRemedy userTaskRemedy;
+  private final ApprovalInfo approvalInfo; // approval_info
+  private final File file; // 文件
+  private final Group group; // 考勤组管理
+  private final Shift shift; // 考勤班次
+  private final UserApproval userApproval; // 假勤审批
+  private final UserDailyShift userDailyShift; // 考勤排班
+  private final UserFlow userFlow; // user_flow
+  private final UserSetting userSetting; // 用户设置
+  private final UserStatsData userStatsData; // 考勤统计
+  private final UserStatsField userStatsField; // user_stats_field
+  private final UserStatsView userStatsView; // user_stats_view
+  private final UserTask userTask; // 考勤记录
+  private final UserTaskRemedy userTaskRemedy; // 考勤补卡
 
   public AttendanceService(Config config) {
     this.approvalInfo = new ApprovalInfo(config);
@@ -115,7 +115,7 @@ public class AttendanceService {
   }
 
   /**
-   * 假勤审批
+   * approval_info
    *
    * @return
    */
@@ -169,7 +169,7 @@ public class AttendanceService {
   }
 
   /**
-   * 考勤记录
+   * user_flow
    *
    * @return
    */
@@ -196,7 +196,7 @@ public class AttendanceService {
   }
 
   /**
-   * 考勤统计
+   * user_stats_field
    *
    * @return
    */
@@ -205,7 +205,7 @@ public class AttendanceService {
   }
 
   /**
-   * 考勤统计
+   * user_stats_view
    *
    * @return
    */

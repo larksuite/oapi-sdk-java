@@ -25,7 +25,7 @@ import com.lark.oapi.service.passport.v1.model.QuerySessionResp;
 
 public class PassportService {
 
-  private final Session session;
+  private final Session session; // 登录态
 
   public PassportService(Config config) {
     this.session = new Session(config);

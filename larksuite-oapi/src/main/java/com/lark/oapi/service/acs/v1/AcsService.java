@@ -42,11 +42,11 @@ import java.io.ByteArrayOutputStream;
 
 public class AcsService {
 
-  private final AccessRecord accessRecord;
-  private final AccessRecordAccessPhoto accessRecordAccessPhoto;
-  private final Device device;
-  private final User user;
-  private final UserFace userFace;
+  private final AccessRecord accessRecord; // 门禁记录
+  private final AccessRecordAccessPhoto accessRecordAccessPhoto; // 识别图片
+  private final Device device; // 门禁设备
+  private final User user; // 用户
+  private final UserFace userFace; // 人脸图片
 
   public AcsService(Config config) {
     this.accessRecord = new AccessRecord(config);

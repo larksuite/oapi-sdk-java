@@ -28,8 +28,8 @@ import java.io.ByteArrayOutputStream;
 
 public class EhrService {
 
-  private final Attachment attachment;
-  private final Employee employee;
+  private final Attachment attachment; // 附件
+  private final Employee employee; // 员工
 
   public EhrService(Config config) {
     this.attachment = new Attachment(config);

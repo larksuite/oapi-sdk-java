@@ -18,19 +18,19 @@ import com.google.gson.annotations.SerializedName;
 public class User {
 
   /**
-   * 用户的union_id，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 用户的union_id，应用开发商发布的不同应用中同一用户的标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
    * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
    */
   @SerializedName("union_id")
   private String unionId;
   /**
-   * 租户内用户的唯一标识，用户的user_id，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 用户的user_id，租户内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
    * <p> 示例值：3e3cf96b
    */
   @SerializedName("user_id")
   private String userId;
   /**
-   * 用户的open_id，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 用户的open_id，应用内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
    * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
    */
   @SerializedName("open_id")
@@ -78,7 +78,7 @@ public class User {
   @SerializedName("gender")
   private Integer gender;
   /**
-   * 头像的文件Key，可通过“消息与群组/消息/图片信息”中的“上传图片”接口上传并获取头像文件 Key;;“上传图片”接口文档：[上传图片](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
+   * 头像的文件Key，可通过“消息与群组/消息/图片信息”中的“上传图片”接口上传并获取头像文件 Key;;“上传图片”功能参见[上传图片](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
    * <p> 示例值：2500c7a9-5fff-4d9a-a2de-3d59614ae28g
    */
   @SerializedName("avatar_key")
@@ -146,7 +146,7 @@ public class User {
   private String employeeNo;
   /**
    * 员工类型，可选值有：;- `1`：正式员工;- `2`：实习生;- `3`：外包;- `4`：劳务;- `5`：顾问   ;同时可读取到自定义员工类型的 int
-   * 值，可通过下方接口获取到该租户的自定义员工类型的名称   ;[获取人员类型](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)
+   * 值，可通过下方接口获取到该租户的自定义员工类型的名称，参见[获取人员类型](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)
    * <p> 示例值：1
    */
   @SerializedName("employee_type")
@@ -181,6 +181,12 @@ public class User {
    */
   @SerializedName("is_frozen")
   private Boolean isFrozen;
+  /**
+   * 数据驻留地
+   * <p> 示例值：cn
+   */
+  @SerializedName("geo")
+  private String geo;
 
   // builder 开始
   public User() {
@@ -188,17 +194,17 @@ public class User {
 
   public User(Builder builder) {
     /**
-     * 用户的union_id，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的union_id，应用开发商发布的不同应用中同一用户的标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
      * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
      */
     this.unionId = builder.unionId;
     /**
-     * 租户内用户的唯一标识，用户的user_id，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的user_id，租户内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
      * <p> 示例值：3e3cf96b
      */
     this.userId = builder.userId;
     /**
-     * 用户的open_id，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的open_id，应用内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
     this.openId = builder.openId;
@@ -238,7 +244,7 @@ public class User {
      */
     this.gender = builder.gender;
     /**
-     * 头像的文件Key，可通过“消息与群组/消息/图片信息”中的“上传图片”接口上传并获取头像文件 Key;;“上传图片”接口文档：[上传图片](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
+     * 头像的文件Key，可通过“消息与群组/消息/图片信息”中的“上传图片”接口上传并获取头像文件 Key;;“上传图片”功能参见[上传图片](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
      * <p> 示例值：2500c7a9-5fff-4d9a-a2de-3d59614ae28g
      */
     this.avatarKey = builder.avatarKey;
@@ -293,7 +299,7 @@ public class User {
      */
     this.employeeNo = builder.employeeNo;
     /**
-     * 员工类型，可选值有：;- `1`：正式员工;- `2`：实习生;- `3`：外包;- `4`：劳务;- `5`：顾问   ;同时可读取到自定义员工类型的 int 值，可通过下方接口获取到该租户的自定义员工类型的名称   ;[获取人员类型](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)
+     * 员工类型，可选值有：;- `1`：正式员工;- `2`：实习生;- `3`：外包;- `4`：劳务;- `5`：顾问   ;同时可读取到自定义员工类型的 int 值，可通过下方接口获取到该租户的自定义员工类型的名称，参见[获取人员类型](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)
      * <p> 示例值：1
      */
     this.employeeType = builder.employeeType;
@@ -322,6 +328,11 @@ public class User {
      * <p> 示例值：false
      */
     this.isFrozen = builder.isFrozen;
+    /**
+     * 数据驻留地
+     * <p> 示例值：cn
+     */
+    this.geo = builder.geo;
   }
 
   public static Builder newBuilder() {
@@ -544,20 +555,28 @@ public class User {
     this.isFrozen = isFrozen;
   }
 
+  public String getGeo() {
+    return this.geo;
+  }
+
+  public void setGeo(String geo) {
+    this.geo = geo;
+  }
+
   public static class Builder {
 
     /**
-     * 用户的union_id，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的union_id，应用开发商发布的不同应用中同一用户的标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
      * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
      */
     private String unionId;
     /**
-     * 租户内用户的唯一标识，用户的user_id，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的user_id，租户内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
      * <p> 示例值：3e3cf96b
      */
     private String userId;
     /**
-     * 用户的open_id，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的open_id，应用内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
     private String openId;
@@ -597,7 +616,7 @@ public class User {
      */
     private Integer gender;
     /**
-     * 头像的文件Key，可通过“消息与群组/消息/图片信息”中的“上传图片”接口上传并获取头像文件 Key;;“上传图片”接口文档：[上传图片](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
+     * 头像的文件Key，可通过“消息与群组/消息/图片信息”中的“上传图片”接口上传并获取头像文件 Key;;“上传图片”功能参见[上传图片](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
      * <p> 示例值：2500c7a9-5fff-4d9a-a2de-3d59614ae28g
      */
     private String avatarKey;
@@ -654,7 +673,7 @@ public class User {
     private String employeeNo;
     /**
      * 员工类型，可选值有：;- `1`：正式员工;- `2`：实习生;- `3`：外包;- `4`：劳务;- `5`：顾问   ;同时可读取到自定义员工类型的 int
-     * 值，可通过下方接口获取到该租户的自定义员工类型的名称   ;[获取人员类型](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)
+     * 值，可通过下方接口获取到该租户的自定义员工类型的名称，参见[获取人员类型](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)
      * <p> 示例值：1
      */
     private Integer employeeType;
@@ -683,9 +702,14 @@ public class User {
      * <p> 示例值：false
      */
     private Boolean isFrozen;
+    /**
+     * 数据驻留地
+     * <p> 示例值：cn
+     */
+    private String geo;
 
     /**
-     * 用户的union_id，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的union_id，应用开发商发布的不同应用中同一用户的标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
      * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
      *
      * @param unionId
@@ -698,7 +722,7 @@ public class User {
 
 
     /**
-     * 租户内用户的唯一标识，用户的user_id，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的user_id，租户内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
      * <p> 示例值：3e3cf96b
      *
      * @param userId
@@ -711,7 +735,7 @@ public class User {
 
 
     /**
-     * 用户的open_id，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的open_id，应用内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      *
      * @param openId
@@ -827,7 +851,7 @@ public class User {
 
 
     /**
-     * 头像的文件Key，可通过“消息与群组/消息/图片信息”中的“上传图片”接口上传并获取头像文件 Key;;“上传图片”接口文档：[上传图片](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
+     * 头像的文件Key，可通过“消息与群组/消息/图片信息”中的“上传图片”接口上传并获取头像文件 Key;;“上传图片”功能参见[上传图片](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
      * <p> 示例值：2500c7a9-5fff-4d9a-a2de-3d59614ae28g
      *
      * @param avatarKey
@@ -972,7 +996,7 @@ public class User {
 
     /**
      * 员工类型，可选值有：;- `1`：正式员工;- `2`：实习生;- `3`：外包;- `4`：劳务;- `5`：顾问   ;同时可读取到自定义员工类型的 int
-     * 值，可通过下方接口获取到该租户的自定义员工类型的名称   ;[获取人员类型](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)
+     * 值，可通过下方接口获取到该租户的自定义员工类型的名称，参见[获取人员类型](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)
      * <p> 示例值：1
      *
      * @param employeeType
@@ -1045,6 +1069,19 @@ public class User {
      */
     public Builder isFrozen(Boolean isFrozen) {
       this.isFrozen = isFrozen;
+      return this;
+    }
+
+
+    /**
+     * 数据驻留地
+     * <p> 示例值：cn
+     *
+     * @param geo
+     * @return
+     */
+    public Builder geo(String geo) {
+      this.geo = geo;
       return this;
     }
 

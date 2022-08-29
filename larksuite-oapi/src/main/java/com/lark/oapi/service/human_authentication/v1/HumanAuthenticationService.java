@@ -25,7 +25,7 @@ import com.lark.oapi.service.human_authentication.v1.model.CreateIdentityResp;
 
 public class HumanAuthenticationService {
 
-  private final Identity identity;
+  private final Identity identity; // 身份
 
   public HumanAuthenticationService(Config config) {
     this.identity = new Identity(config);

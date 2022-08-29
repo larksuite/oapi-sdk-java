@@ -129,21 +129,21 @@ import java.io.ByteArrayOutputStream;
 
 public class ImService {
 
-  private final BatchMessage batchMessage;
-  private final Chat chat;
-  private final ChatAnnouncement chatAnnouncement;
-  private final ChatManagers chatManagers;
-  private final ChatMemberBot chatMemberBot;
-  private final ChatMemberUser chatMemberUser;
-  private final ChatMembers chatMembers;
-  private final ChatModeration chatModeration;
-  private final ChatTab chatTab;
-  private final ChatTopNotice chatTopNotice;
-  private final File file;
-  private final Image image;
-  private final Message message;
-  private final MessageReaction messageReaction;
-  private final MessageResource messageResource;
+  private final BatchMessage batchMessage; // 消息 - 批量消息
+  private final Chat chat; // 群组
+  private final ChatAnnouncement chatAnnouncement; // 群组 - 群公告
+  private final ChatManagers chatManagers; // 群组 - 群成员
+  private final ChatMemberBot chatMemberBot; // 事件
+  private final ChatMemberUser chatMemberUser; // 事件
+  private final ChatMembers chatMembers; // 群组 - 群成员
+  private final ChatModeration chatModeration; // chat.moderation
+  private final ChatTab chatTab; // 群组 - 会话标签页
+  private final ChatTopNotice chatTopNotice; // chat.top_notice
+  private final File file; // 消息 - 文件信息
+  private final Image image; // 消息 - 图片信息
+  private final Message message; // 消息
+  private final MessageReaction messageReaction; // 消息 - 表情回复
+  private final MessageResource messageResource; // message.resource
 
   public ImService(Config config) {
     this.batchMessage = new BatchMessage(config);
@@ -200,7 +200,7 @@ public class ImService {
   }
 
   /**
-   * chat.member.bot
+   * 事件
    *
    * @return
    */
@@ -209,7 +209,7 @@ public class ImService {
   }
 
   /**
-   * chat.member.user
+   * 事件
    *
    * @return
    */
@@ -227,7 +227,7 @@ public class ImService {
   }
 
   /**
-   * 群组
+   * chat.moderation
    *
    * @return
    */
@@ -245,7 +245,7 @@ public class ImService {
   }
 
   /**
-   * 群组
+   * chat.top_notice
    *
    * @return
    */
@@ -290,7 +290,7 @@ public class ImService {
   }
 
   /**
-   * 消息
+   * message.resource
    *
    * @return
    */
@@ -498,8 +498,8 @@ public class ImService {
     /**
      * 创建群，创建群并设置群头像、群名、群描述等。
      * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
-     * 本接口只支持创建群，如果需要拉用户或者机器人入群参考 [将用户或机器人拉入群聊](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create)接口;-
-     * 每次请求，最多拉 50 个用户或者 5 个机器人，并且群组最多容纳 15 个机器人; - 拉机器人入群请使用 ==app_id== ;
+     * 本接口支持在创建群的同时拉用户或机器人进群；如果仅需要拉用户或者机器人入群参考 [将用户或机器人拉入群聊](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create)接口
+     * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1//CreateChatSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1//CreateChatSample.java</a>
@@ -528,8 +528,8 @@ public class ImService {
     /**
      * 创建群，创建群并设置群头像、群名、群描述等。
      * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
-     * 本接口只支持创建群，如果需要拉用户或者机器人入群参考 [将用户或机器人拉入群聊](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create)接口;-
-     * 每次请求，最多拉 50 个用户或者 5 个机器人，并且群组最多容纳 15 个机器人; - 拉机器人入群请使用 ==app_id== ;
+     * 本接口支持在创建群的同时拉用户或机器人进群；如果仅需要拉用户或者机器人入群参考 [将用户或机器人拉入群聊](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create)接口
+     * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1//CreateChatSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1//CreateChatSample.java</a>
@@ -1128,8 +1128,7 @@ public class ImService {
      * 将用户或机器人拉入群聊，将用户或机器人拉入群聊。
      * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app); -
      * 如需拉用户进群，需要机器人对用户有可见性; - 在开启 ==仅群主和群管理员可添加群成员== 的设置时，仅有群主/管理员 或 创建群组且具备 ==更新应用所创建群的群信息==
-     * 权限的机器人，可以拉用户或者机器人进群; - 在未开启 ==仅群主和群管理员可添加群成员== 的设置时，所有群成员都可以拉用户或机器人进群; -
-     * 每次请求，最多拉50个用户或者5个机器人，并且群组最多容纳15个机器人; - 拉机器人入群请使用 ==app_id== ;
+     * 权限的机器人，可以拉用户或者机器人进群; - 在未开启 ==仅群主和群管理员可添加群成员== 的设置时，所有群成员都可以拉用户或机器人进群 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1//CreateChatMembersSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1//CreateChatMembersSample.java</a>
@@ -1161,8 +1160,7 @@ public class ImService {
      * 将用户或机器人拉入群聊，将用户或机器人拉入群聊。
      * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app); -
      * 如需拉用户进群，需要机器人对用户有可见性; - 在开启 ==仅群主和群管理员可添加群成员== 的设置时，仅有群主/管理员 或 创建群组且具备 ==更新应用所创建群的群信息==
-     * 权限的机器人，可以拉用户或者机器人进群; - 在未开启 ==仅群主和群管理员可添加群成员== 的设置时，所有群成员都可以拉用户或机器人进群; -
-     * 每次请求，最多拉50个用户或者5个机器人，并且群组最多容纳15个机器人; - 拉机器人入群请使用 ==app_id== ;
+     * 权限的机器人，可以拉用户或者机器人进群; - 在未开启 ==仅群主和群管理员可添加群成员== 的设置时，所有群成员都可以拉用户或机器人进群 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1//CreateChatMembersSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1//CreateChatMembersSample.java</a>
@@ -2124,8 +2122,7 @@ public class ImService {
 
     /**
      * 上传图片，上传图片接口，可以上传 JPEG、PNG、WEBP、GIF、TIFF、BMP、ICO格式图片
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
-     * 上传的图片大小不能超过10MB ;
+     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app) ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1//CreateImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1//CreateImageSample.java</a>
@@ -2154,8 +2151,7 @@ public class ImService {
 
     /**
      * 上传图片，上传图片接口，可以上传 JPEG、PNG、WEBP、GIF、TIFF、BMP、ICO格式图片
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
-     * 上传的图片大小不能超过10MB ;
+     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app) ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1//CreateImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1//CreateImageSample.java</a>
@@ -2272,9 +2268,7 @@ public class ImService {
      * 发送消息，给指定用户或者会话发送消息，支持文本、富文本、可交互的[消息卡片](/ssl:ttdoc/ukTMukTMukTM/uczM3QjL3MzN04yNzcDN)、群名片、个人名片、图片、视频、音频、文件、表情包。
      * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
      * 给用户发送消息，需要机器人对用户有[可用性](/ssl:ttdoc/home/introduction-to-scope-and-authorization/availability);-
-     * 给群组发送消息，需要机器人在群中;- 文本消息请求体最大不能超过150KB;- 卡片及富文本消息请求体最大不能超过30KB;- 消息卡片的
-     * `update_multi`（是否为共享卡片）字段在卡片内容的`config`结构体中设置。详细参考文档[配置卡片属性](/ssl:ttdoc/ukTMukTMukTM/uAjNwUjLwYDM14CM2ATN)
-     * ;
+     * 给群组发送消息，需要机器人在群中 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1//CreateMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1//CreateMessageSample.java</a>
@@ -2306,9 +2300,7 @@ public class ImService {
      * 发送消息，给指定用户或者会话发送消息，支持文本、富文本、可交互的[消息卡片](/ssl:ttdoc/ukTMukTMukTM/uczM3QjL3MzN04yNzcDN)、群名片、个人名片、图片、视频、音频、文件、表情包。
      * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
      * 给用户发送消息，需要机器人对用户有[可用性](/ssl:ttdoc/home/introduction-to-scope-and-authorization/availability);-
-     * 给群组发送消息，需要机器人在群中;- 文本消息请求体最大不能超过150KB;- 卡片及富文本消息请求体最大不能超过30KB;- 消息卡片的
-     * `update_multi`（是否为共享卡片）字段在卡片内容的`config`结构体中设置。详细参考文档[配置卡片属性](/ssl:ttdoc/ukTMukTMukTM/uAjNwUjLwYDM14CM2ATN)
-     * ;
+     * 给群组发送消息，需要机器人在群中 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1//CreateMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1//CreateMessageSample.java</a>
@@ -2510,8 +2502,7 @@ public class ImService {
 
     /**
      * 更新应用发送的消息，更新应用已发送的消息卡片内容。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 当前仅支持更新
+     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;- 当前仅支持更新
      * **卡片消息**;- **不支持更新批量消息**;- 只支持对所有人都更新的[「共享卡片」](ukTMukTMukTM/uAjNwUjLwYDM14CM2ATN)，也即需要在卡片的`config`属性中，显式声明`"update_multi":true`。<br>如果你只想更新特定人的消息卡片，必须要用户在卡片操作交互后触发，开发文档参考[「独享卡片」](/ssl:ttdoc/ukTMukTMukTM/uYjNwUjL2YDM14iN2ATN#49904b71);-
      * 单条消息更新频控为**5QPS** ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/patch</a>
@@ -2541,8 +2532,7 @@ public class ImService {
 
     /**
      * 更新应用发送的消息，更新应用已发送的消息卡片内容。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 当前仅支持更新
+     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;- 当前仅支持更新
      * **卡片消息**;- **不支持更新批量消息**;- 只支持对所有人都更新的[「共享卡片」](ukTMukTMukTM/uAjNwUjLwYDM14CM2ATN)，也即需要在卡片的`config`属性中，显式声明`"update_multi":true`。<br>如果你只想更新特定人的消息卡片，必须要用户在卡片操作交互后触发，开发文档参考[「独享卡片」](/ssl:ttdoc/ukTMukTMukTM/uYjNwUjL2YDM14iN2ATN#49904b71);-
      * 单条消息更新频控为**5QPS** ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/patch</a>

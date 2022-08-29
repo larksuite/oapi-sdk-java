@@ -24,14 +24,14 @@ import com.lark.oapi.service.meeting_room.v1.model.P2MeetingRoomUpdatedV1;
 
 public class MeetingRoomService {
 
-  private final MeetingRoom meetingRoom;
+  private final MeetingRoom meetingRoom; // 事件
 
   public MeetingRoomService(Config config) {
     this.meetingRoom = new MeetingRoom(config);
   }
 
   /**
-   * meeting_room
+   * 事件
    *
    * @return
    */

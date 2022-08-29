@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class CreateChatMembersReqBody {
 
   /**
-   * 成员列表
+   * 成员列表;;<b>注意：</b>每次请求，最多拉50个用户或者5个机器人，并且群组最多容纳15个机器人
    * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
    */
   @SerializedName("id_list")
@@ -30,7 +30,7 @@ public class CreateChatMembersReqBody {
 
   public CreateChatMembersReqBody(Builder builder) {
     /**
-     * 成员列表
+     * 成员列表;;<b>注意：</b>每次请求，最多拉50个用户或者5个机器人，并且群组最多容纳15个机器人
      * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
      */
     this.idList = builder.idList;
@@ -51,13 +51,13 @@ public class CreateChatMembersReqBody {
   public static class Builder {
 
     /**
-     * 成员列表
+     * 成员列表;;<b>注意：</b>每次请求，最多拉50个用户或者5个机器人，并且群组最多容纳15个机器人
      * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
      */
     private String[] idList;
 
     /**
-     * 成员列表
+     * 成员列表;;<b>注意：</b>每次请求，最多拉50个用户或者5个机器人，并且群组最多容纳15个机器人
      * <p> 示例值：["ou_9204a37300b3700d61effaa439f34295"]
      *
      * @param idList

@@ -47,9 +47,9 @@ import com.lark.oapi.service.search.v2.model.PatchSchemaResp;
 
 public class SearchService {
 
-  private final DataSource dataSource;
-  private final DataSourceItem dataSourceItem;
-  private final Schema schema;
+  private final DataSource dataSource; // 数据源
+  private final DataSourceItem dataSourceItem; // 数据项
+  private final Schema schema; // 数据范式
 
   public SearchService(Config config) {
     this.dataSource = new DataSource(config);

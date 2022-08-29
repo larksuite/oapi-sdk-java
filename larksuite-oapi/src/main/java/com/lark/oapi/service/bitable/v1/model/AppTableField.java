@@ -41,6 +41,12 @@ public class AppTableField {
    */
   @SerializedName("property")
   private AppTableFieldProperty property;
+  /**
+   * 字段的描述
+   * <p> 示例值：
+   */
+  @SerializedName("description")
+  private AppTableFieldDescription description;
 
   // builder 开始
   public AppTableField() {
@@ -67,6 +73,11 @@ public class AppTableField {
      * <p> 示例值：
      */
     this.property = builder.property;
+    /**
+     * 字段的描述
+     * <p> 示例值：
+     */
+    this.description = builder.description;
   }
 
   public static Builder newBuilder() {
@@ -105,6 +116,14 @@ public class AppTableField {
     this.property = property;
   }
 
+  public AppTableFieldDescription getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(AppTableFieldDescription description) {
+    this.description = description;
+  }
+
   public static class Builder {
 
     /**
@@ -127,6 +146,11 @@ public class AppTableField {
      * <p> 示例值：
      */
     private AppTableFieldProperty property;
+    /**
+     * 字段的描述
+     * <p> 示例值：
+     */
+    private AppTableFieldDescription description;
 
     /**
      * 多维表格字段 id
@@ -188,6 +212,19 @@ public class AppTableField {
      */
     public Builder property(AppTableFieldProperty property) {
       this.property = property;
+      return this;
+    }
+
+
+    /**
+     * 字段的描述
+     * <p> 示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(AppTableFieldDescription description) {
+      this.description = description;
       return this;
     }
 

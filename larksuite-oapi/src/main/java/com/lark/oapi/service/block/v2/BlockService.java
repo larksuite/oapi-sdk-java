@@ -29,8 +29,8 @@ import com.lark.oapi.service.block.v2.model.UpdateEntityResp;
 
 public class BlockService {
 
-  private final Entity entity;
-  private final Message message;
+  private final Entity entity; // 服务端 API
+  private final Message message; // 服务端 API
 
   public BlockService(Config config) {
     this.entity = new Entity(config);
@@ -38,7 +38,7 @@ public class BlockService {
   }
 
   /**
-   * entity
+   * 服务端 API
    *
    * @return
    */
@@ -47,7 +47,7 @@ public class BlockService {
   }
 
   /**
-   * message
+   * 服务端 API
    *
    * @return
    */
@@ -179,7 +179,7 @@ public class BlockService {
     }
 
     /**
-     * Block消息推送，根据BlockID向指定用户列表推送消息。
+     * Block协同数据推送，根据BlockID向指定用户列表推送协同数据。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/message/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/message/create</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2//CreateMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2//CreateMessageSample.java</a>
@@ -208,7 +208,7 @@ public class BlockService {
     }
 
     /**
-     * Block消息推送，根据BlockID向指定用户列表推送消息。
+     * Block协同数据推送，根据BlockID向指定用户列表推送协同数据。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/message/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/block-v2/message/create</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2//CreateMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/blockv2//CreateMessageSample.java</a>

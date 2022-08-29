@@ -25,7 +25,7 @@ import com.lark.oapi.service.optical_char_recognition.v1.model.BasicRecognizeIma
 
 public class OpticalCharRecognitionService {
 
-  private final Image image;
+  private final Image image; // 图片识别
 
   public OpticalCharRecognitionService(Config config) {
     this.image = new Image(config);

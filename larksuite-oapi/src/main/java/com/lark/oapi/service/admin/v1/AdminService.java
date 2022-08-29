@@ -49,12 +49,12 @@ import com.lark.oapi.service.admin.v1.model.UpdateBadgeResp;
 
 public class AdminService {
 
-  private final AdminDeptStat adminDeptStat;
-  private final AdminUserStat adminUserStat;
-  private final Badge badge;
-  private final BadgeGrant badgeGrant;
-  private final BadgeImage badgeImage;
-  private final Password password;
+  private final AdminDeptStat adminDeptStat; // 部门维度的数据报表
+  private final AdminUserStat adminUserStat; // 用户维度的数据报表
+  private final Badge badge; // 勋章
+  private final BadgeGrant badgeGrant; // 勋章授予名单
+  private final BadgeImage badgeImage; // 勋章图片
+  private final Password password; // 密码
 
   public AdminService(Config config) {
     this.adminDeptStat = new AdminDeptStat(config);

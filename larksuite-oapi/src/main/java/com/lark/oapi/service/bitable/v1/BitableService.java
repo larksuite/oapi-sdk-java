@@ -95,16 +95,16 @@ import com.lark.oapi.service.bitable.v1.model.UpdateAppTableRecordResp;
 
 public class BitableService {
 
-  private final App app;
-  private final AppDashboard appDashboard;
-  private final AppRole appRole;
-  private final AppRoleMember appRoleMember;
-  private final AppTable appTable;
-  private final AppTableField appTableField;
-  private final AppTableForm appTableForm;
-  private final AppTableFormField appTableFormField;
-  private final AppTableRecord appTableRecord;
-  private final AppTableView appTableView;
+  private final App app; // 多维表格
+  private final AppDashboard appDashboard; // 仪表盘
+  private final AppRole appRole; // 自定义角色
+  private final AppRoleMember appRoleMember; // 协作者
+  private final AppTable appTable; // 数据表
+  private final AppTableField appTableField; // 字段
+  private final AppTableForm appTableForm; // 表单
+  private final AppTableFormField appTableFormField; // 表单
+  private final AppTableRecord appTableRecord; // 记录
+  private final AppTableView appTableView; // 视图
 
   public BitableService(Config config) {
     this.app = new App(config);

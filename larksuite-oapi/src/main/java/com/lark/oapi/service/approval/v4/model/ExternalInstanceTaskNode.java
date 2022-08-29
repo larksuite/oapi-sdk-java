@@ -95,6 +95,12 @@ public class ExternalInstanceTaskNode {
    */
   @SerializedName("display_method")
   private String displayMethod;
+  /**
+   * 三方任务支持不纳入效率统计
+   * <p> 示例值：true
+   */
+  @SerializedName("exclude_statistics")
+  private Boolean excludeStatistics;
 
   // builder 开始
   public ExternalInstanceTaskNode() {
@@ -166,6 +172,11 @@ public class ExternalInstanceTaskNode {
      * <p> 示例值：BROWSER
      */
     this.displayMethod = builder.displayMethod;
+    /**
+     * 三方任务支持不纳入效率统计
+     * <p> 示例值：true
+     */
+    this.excludeStatistics = builder.excludeStatistics;
   }
 
   public static Builder newBuilder() {
@@ -276,6 +287,14 @@ public class ExternalInstanceTaskNode {
     this.displayMethod = displayMethod;
   }
 
+  public Boolean getExcludeStatistics() {
+    return this.excludeStatistics;
+  }
+
+  public void setExcludeStatistics(Boolean excludeStatistics) {
+    this.excludeStatistics = excludeStatistics;
+  }
+
   public static class Builder {
 
     /**
@@ -343,6 +362,11 @@ public class ExternalInstanceTaskNode {
      * <p> 示例值：BROWSER
      */
     private String displayMethod;
+    /**
+     * 三方任务支持不纳入效率统计
+     * <p> 示例值：true
+     */
+    private Boolean excludeStatistics;
 
     /**
      * 审批实例内的唯一标识，用于更新审批任务时定位数据
@@ -535,6 +559,19 @@ public class ExternalInstanceTaskNode {
     public Builder displayMethod(
         com.lark.oapi.service.approval.v4.enums.ExternalInstanceTaskNodeDisplayMethodEnum displayMethod) {
       this.displayMethod = displayMethod.getValue();
+      return this;
+    }
+
+
+    /**
+     * 三方任务支持不纳入效率统计
+     * <p> 示例值：true
+     *
+     * @param excludeStatistics
+     * @return
+     */
+    public Builder excludeStatistics(Boolean excludeStatistics) {
+      this.excludeStatistics = excludeStatistics;
       return this;
     }
 

@@ -61,7 +61,6 @@ public class UpdateFileCommentReplyReq {
   // builder 开始
   public UpdateFileCommentReplyReq() {
   }
-
   public UpdateFileCommentReplyReq(Builder builder) {
     /**
      * 文档类型

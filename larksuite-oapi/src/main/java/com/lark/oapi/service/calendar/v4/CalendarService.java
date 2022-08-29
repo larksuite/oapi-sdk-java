@@ -96,15 +96,15 @@ import com.lark.oapi.service.calendar.v4.model.UnsubscriptionCalendarResp;
 
 public class CalendarService {
 
-  private final Calendar calendar;
-  private final CalendarAcl calendarAcl;
-  private final CalendarEvent calendarEvent;
-  private final CalendarEventAttendee calendarEventAttendee;
-  private final CalendarEventAttendeeChatMember calendarEventAttendeeChatMember;
-  private final ExchangeBinding exchangeBinding;
-  private final Freebusy freebusy;
-  private final Setting setting;
-  private final TimeoffEvent timeoffEvent;
+  private final Calendar calendar; // 日历
+  private final CalendarAcl calendarAcl; // 用户访问控制
+  private final CalendarEvent calendarEvent; // 日程
+  private final CalendarEventAttendee calendarEventAttendee; // 日程参与人
+  private final CalendarEventAttendeeChatMember calendarEventAttendeeChatMember; // 日程参与人群成员
+  private final ExchangeBinding exchangeBinding; // Exchange绑定
+  private final Freebusy freebusy; // 忙闲
+  private final Setting setting; // 日历设置
+  private final TimeoffEvent timeoffEvent; // 请假
 
   public CalendarService(Config config) {
     this.calendar = new Calendar(config);
