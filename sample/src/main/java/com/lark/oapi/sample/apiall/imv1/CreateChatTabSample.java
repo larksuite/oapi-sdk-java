@@ -7,7 +7,7 @@ import com.lark.oapi.service.im.v1.model.CreateChatTabReq;
 import com.lark.oapi.service.im.v1.model.CreateChatTabReqBody;
 import com.lark.oapi.service.im.v1.model.CreateChatTabResp;
 
-// HTTP PATH: /open-apis/im/v1/chats/:chat_id/chat_tabs"
+// POST /open-apis/im/v1/chats/:chat_id/chat_tabs
 public class CreateChatTabSample {
 
   public static void main(String arg[]) throws Exception {

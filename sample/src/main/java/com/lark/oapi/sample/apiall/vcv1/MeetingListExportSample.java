@@ -6,7 +6,7 @@ import com.lark.oapi.service.vc.v1.model.MeetingListExportReq;
 import com.lark.oapi.service.vc.v1.model.MeetingListExportReqBody;
 import com.lark.oapi.service.vc.v1.model.MeetingListExportResp;
 
-// HTTP PATH: /open-apis/vc/v1/exports/meeting_list"
+// POST /open-apis/vc/v1/exports/meeting_list
 public class MeetingListExportSample {
 
   public static void main(String arg[]) throws Exception {

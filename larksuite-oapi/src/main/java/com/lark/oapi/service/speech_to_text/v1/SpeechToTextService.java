@@ -55,7 +55,7 @@ public class SpeechToTextService {
      * <p> 单租户限流：20QPS，同租户下的应用没有限流，共享本租户的 20QPS 限流 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/speech_to_text-v1/speech/file_recognize">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/speech_to_text-v1/speech/file_recognize</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/speech_to_textv1//FileRecognizeSpeechSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/speech_to_textv1//FileRecognizeSpeechSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/speech_to_textv1/FileRecognizeSpeechSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/speech_to_textv1/FileRecognizeSpeechSample.java</a>
      * ;
      */
     public FileRecognizeSpeechResp fileRecognize(FileRecognizeSpeechReq req,
@@ -85,7 +85,7 @@ public class SpeechToTextService {
      * <p> 单租户限流：20QPS，同租户下的应用没有限流，共享本租户的 20QPS 限流 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/speech_to_text-v1/speech/file_recognize">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/speech_to_text-v1/speech/file_recognize</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/speech_to_textv1//FileRecognizeSpeechSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/speech_to_textv1//FileRecognizeSpeechSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/speech_to_textv1/FileRecognizeSpeechSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/speech_to_textv1/FileRecognizeSpeechSample.java</a>
      * ;
      */
     public FileRecognizeSpeechResp fileRecognize(FileRecognizeSpeechReq req) throws Exception {
@@ -112,7 +112,7 @@ public class SpeechToTextService {
      * <p> 单租户限流：20 路（一个 stream_id 称为一路会话），同租户下的应用没有限流，共享本租户的 20路限流 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/speech_to_text-v1/speech/stream_recognize">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/speech_to_text-v1/speech/stream_recognize</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/speech_to_textv1//StreamRecognizeSpeechSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/speech_to_textv1//StreamRecognizeSpeechSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/speech_to_textv1/StreamRecognizeSpeechSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/speech_to_textv1/StreamRecognizeSpeechSample.java</a>
      * ;
      */
     public StreamRecognizeSpeechResp streamRecognize(StreamRecognizeSpeechReq req,
@@ -142,7 +142,7 @@ public class SpeechToTextService {
      * <p> 单租户限流：20 路（一个 stream_id 称为一路会话），同租户下的应用没有限流，共享本租户的 20路限流 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/speech_to_text-v1/speech/stream_recognize">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/speech_to_text-v1/speech/stream_recognize</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/speech_to_textv1//StreamRecognizeSpeechSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/speech_to_textv1//StreamRecognizeSpeechSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/speech_to_textv1/StreamRecognizeSpeechSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/speech_to_textv1/StreamRecognizeSpeechSample.java</a>
      * ;
      */
     public StreamRecognizeSpeechResp streamRecognize(StreamRecognizeSpeechReq req)

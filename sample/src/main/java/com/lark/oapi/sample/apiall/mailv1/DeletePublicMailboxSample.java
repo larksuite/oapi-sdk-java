@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.mail.v1.model.DeletePublicMailboxReq;
 import com.lark.oapi.service.mail.v1.model.DeletePublicMailboxResp;
 
-// HTTP PATH: /open-apis/mail/v1/public_mailboxes/:public_mailbox_id"
+// DELETE /open-apis/mail/v1/public_mailboxes/:public_mailbox_id
 public class DeletePublicMailboxSample {
 
   public static void main(String arg[]) throws Exception {

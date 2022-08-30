@@ -53,7 +53,7 @@ public class OpticalCharRecognitionService {
      * <p> 单租户限流：20QPS，同租户下的应用没有限流，共享本租户的 20QPS 限流 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/optical_char_recognition-v1/image/basic_recognize">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/optical_char_recognition-v1/image/basic_recognize</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/optical_char_recognitionv1//BasicRecognizeImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/optical_char_recognitionv1//BasicRecognizeImageSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/optical_char_recognitionv1/BasicRecognizeImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/optical_char_recognitionv1/BasicRecognizeImageSample.java</a>
      * ;
      */
     public BasicRecognizeImageResp basicRecognize(BasicRecognizeImageReq req,
@@ -83,7 +83,7 @@ public class OpticalCharRecognitionService {
      * <p> 单租户限流：20QPS，同租户下的应用没有限流，共享本租户的 20QPS 限流 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/optical_char_recognition-v1/image/basic_recognize">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/optical_char_recognition-v1/image/basic_recognize</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/optical_char_recognitionv1//BasicRecognizeImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/optical_char_recognitionv1//BasicRecognizeImageSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/optical_char_recognitionv1/BasicRecognizeImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/optical_char_recognitionv1/BasicRecognizeImageSample.java</a>
      * ;
      */
     public BasicRecognizeImageResp basicRecognize(BasicRecognizeImageReq req) throws Exception {

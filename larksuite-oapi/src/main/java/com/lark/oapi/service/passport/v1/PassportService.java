@@ -52,7 +52,7 @@ public class PassportService {
      * 批量获取用户登录信息（脱敏），该接口用于查询用户的登录信息
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/passport-v1/session/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/passport-v1/session/query</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/passportv1//QuerySessionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/passportv1//QuerySessionSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/passportv1/QuerySessionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/passportv1/QuerySessionSample.java</a>
      * ;
      */
     public QuerySessionResp query(QuerySessionReq req, RequestOptions reqOptions) throws Exception {
@@ -79,7 +79,7 @@ public class PassportService {
      * 批量获取用户登录信息（脱敏），该接口用于查询用户的登录信息
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/passport-v1/session/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/passport-v1/session/query</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/passportv1//QuerySessionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/passportv1//QuerySessionSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/passportv1/QuerySessionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/passportv1/QuerySessionSample.java</a>
      * ;
      */
     public QuerySessionResp query(QuerySessionReq req) throws Exception {

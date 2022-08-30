@@ -53,7 +53,7 @@ public class EventService {
      * <p> IP段有变更可能，建议企业每隔6小时定时拉取IP段更新防火墙设置，这样因IP变更导致推送失败的事件还可以通过重试解决。 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-v1/outbound_ip/list">https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-v1/outbound_ip/list</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/eventv1//ListOutboundIpSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/eventv1//ListOutboundIpSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/eventv1/ListOutboundIpSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/eventv1/ListOutboundIpSample.java</a>
      * ;
      */
     public ListOutboundIpResp list(ListOutboundIpReq req, RequestOptions reqOptions)
@@ -83,7 +83,7 @@ public class EventService {
      * <p> IP段有变更可能，建议企业每隔6小时定时拉取IP段更新防火墙设置，这样因IP变更导致推送失败的事件还可以通过重试解决。 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-v1/outbound_ip/list">https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-v1/outbound_ip/list</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/eventv1//ListOutboundIpSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/eventv1//ListOutboundIpSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/eventv1/ListOutboundIpSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/eventv1/ListOutboundIpSample.java</a>
      * ;
      */
     public ListOutboundIpResp list(ListOutboundIpReq req) throws Exception {

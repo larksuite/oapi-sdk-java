@@ -56,7 +56,7 @@ public class GrayTestOpenSgService {
      * ，
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=gray_test_open_sg&resource=moto&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=gray_test_open_sg&resource=moto&version=v1</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1//CreateMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1//CreateMotoSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/CreateMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/CreateMotoSample.java</a>
      * ;
      */
     public CreateMotoResp create(CreateMotoReq req, RequestOptions reqOptions) throws Exception {
@@ -83,7 +83,7 @@ public class GrayTestOpenSgService {
      * ，
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=gray_test_open_sg&resource=moto&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=gray_test_open_sg&resource=moto&version=v1</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1//CreateMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1//CreateMotoSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/CreateMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/CreateMotoSample.java</a>
      * ;
      */
     public CreateMotoResp create(CreateMotoReq req) throws Exception {
@@ -108,7 +108,7 @@ public class GrayTestOpenSgService {
      * ，
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=gray_test_open_sg&resource=moto&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=gray_test_open_sg&resource=moto&version=v1</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1//GetMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1//GetMotoSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/GetMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/GetMotoSample.java</a>
      * ;
      */
     public GetMotoResp get(GetMotoReq req, RequestOptions reqOptions) throws Exception {
@@ -135,7 +135,7 @@ public class GrayTestOpenSgService {
      * ，
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=gray_test_open_sg&resource=moto&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=gray_test_open_sg&resource=moto&version=v1</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1//GetMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1//GetMotoSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/GetMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/GetMotoSample.java</a>
      * ;
      */
     public GetMotoResp get(GetMotoReq req) throws Exception {
@@ -160,7 +160,7 @@ public class GrayTestOpenSgService {
      * ，
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=gray_test_open_sg&resource=moto&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=gray_test_open_sg&resource=moto&version=v1</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1//ListMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1//ListMotoSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/ListMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/ListMotoSample.java</a>
      * ;
      */
     public ListMotoResp list(ListMotoReq req, RequestOptions reqOptions) throws Exception {
@@ -187,7 +187,7 @@ public class GrayTestOpenSgService {
      * ，
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=gray_test_open_sg&resource=moto&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=gray_test_open_sg&resource=moto&version=v1</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1//ListMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1//ListMotoSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/ListMotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/gray_test_open_sgv1/ListMotoSample.java</a>
      * ;
      */
     public ListMotoResp list(ListMotoReq req) throws Exception {

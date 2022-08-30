@@ -53,7 +53,7 @@ public class FaceDetectionService {
      * <p> 注意：返回值为 -1 表示该功能还暂未实现 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/face_detection-v1/image/detect_face_attributes">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/face_detection-v1/image/detect_face_attributes</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/face_detectionv1//DetectFaceAttributesImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/face_detectionv1//DetectFaceAttributesImageSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/face_detectionv1/DetectFaceAttributesImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/face_detectionv1/DetectFaceAttributesImageSample.java</a>
      * ;
      */
     public DetectFaceAttributesImageResp detectFaceAttributes(DetectFaceAttributesImageReq req,
@@ -83,7 +83,7 @@ public class FaceDetectionService {
      * <p> 注意：返回值为 -1 表示该功能还暂未实现 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/face_detection-v1/image/detect_face_attributes">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/ai/face_detection-v1/image/detect_face_attributes</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/face_detectionv1//DetectFaceAttributesImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/face_detectionv1//DetectFaceAttributesImageSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/face_detectionv1/DetectFaceAttributesImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/face_detectionv1/DetectFaceAttributesImageSample.java</a>
      * ;
      */
     public DetectFaceAttributesImageResp detectFaceAttributes(DetectFaceAttributesImageReq req)

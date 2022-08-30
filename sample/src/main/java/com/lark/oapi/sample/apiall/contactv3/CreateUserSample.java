@@ -42,6 +42,7 @@ public class CreateUserSample {
             .customAttrs(new UserCustomAttr[]{})
             .enterpriseEmail("")
             .jobTitle("")
+            .geo("")
             .build())
         .build();
 

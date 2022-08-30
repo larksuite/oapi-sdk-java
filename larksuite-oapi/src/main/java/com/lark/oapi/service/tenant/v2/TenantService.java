@@ -52,7 +52,7 @@ public class TenantService {
      * <p> 如果ISV应用是企业创建时默认安装，并且180天内企业未打开或使用过此应用，则无法通过此接口获取到企业信息。 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant/query</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2//QueryTenantSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2//QueryTenantSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2/QueryTenantSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2/QueryTenantSample.java</a>
      * ;
      */
     public QueryTenantResp query(RequestOptions reqOptions) throws Exception {
@@ -78,7 +78,7 @@ public class TenantService {
      * <p> 如果ISV应用是企业创建时默认安装，并且180天内企业未打开或使用过此应用，则无法通过此接口获取到企业信息。 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant/query">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant/query</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2//QueryTenantSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2//QueryTenantSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2/QueryTenantSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/tenantv2/QueryTenantSample.java</a>
      * ;
      */
     public QueryTenantResp query() throws Exception {

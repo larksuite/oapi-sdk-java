@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.im.v1.model.DeleteTopNoticeChatTopNoticeReq;
 import com.lark.oapi.service.im.v1.model.DeleteTopNoticeChatTopNoticeResp;
 
-// HTTP PATH: /open-apis/im/v1/chats/:chat_id/top_notice/delete_top_notice"
+// POST /open-apis/im/v1/chats/:chat_id/top_notice/delete_top_notice
 public class DeleteTopNoticeChatTopNoticeSample {
 
   public static void main(String arg[]) throws Exception {

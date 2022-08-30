@@ -6,7 +6,7 @@ import com.lark.oapi.service.im.v1.model.ReplyMessageReq;
 import com.lark.oapi.service.im.v1.model.ReplyMessageReqBody;
 import com.lark.oapi.service.im.v1.model.ReplyMessageResp;
 
-// HTTP PATH: /open-apis/im/v1/messages/:message_id/reply"
+// POST /open-apis/im/v1/messages/:message_id/reply
 public class ReplyMessageSample {
 
   public static void main(String arg[]) throws Exception {

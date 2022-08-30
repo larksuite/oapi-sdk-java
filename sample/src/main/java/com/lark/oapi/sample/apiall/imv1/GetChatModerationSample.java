@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.im.v1.model.GetChatModerationReq;
 import com.lark.oapi.service.im.v1.model.GetChatModerationResp;
 
-// HTTP PATH: /open-apis/im/v1/chats/:chat_id/moderation"
+// GET /open-apis/im/v1/chats/:chat_id/moderation
 public class GetChatModerationSample {
 
   public static void main(String arg[]) throws Exception {

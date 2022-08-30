@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.mail.v1.model.ListPublicMailboxReq;
 import com.lark.oapi.service.mail.v1.model.ListPublicMailboxResp;
 
-// HTTP PATH: /open-apis/mail/v1/public_mailboxes"
+// GET /open-apis/mail/v1/public_mailboxes
 public class ListPublicMailboxSample {
 
   public static void main(String arg[]) throws Exception {

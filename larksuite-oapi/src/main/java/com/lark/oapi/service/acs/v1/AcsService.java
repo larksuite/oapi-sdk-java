@@ -113,7 +113,7 @@ public class AcsService {
      * 获取门禁记录列表，用户在门禁考勤机上成功开门或打卡后，智能门禁应用都会生成一条门禁记录。;;该接口返回满足查询参数的识别记录
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record/list</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//ListAccessRecordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//ListAccessRecordSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListAccessRecordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListAccessRecordSample.java</a>
      * ;
      */
     public ListAccessRecordResp list(ListAccessRecordReq req, RequestOptions reqOptions)
@@ -142,7 +142,7 @@ public class AcsService {
      * 获取门禁记录列表，用户在门禁考勤机上成功开门或打卡后，智能门禁应用都会生成一条门禁记录。;;该接口返回满足查询参数的识别记录
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record/list</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//ListAccessRecordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//ListAccessRecordSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListAccessRecordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListAccessRecordSample.java</a>
      * ;
      */
     public ListAccessRecordResp list(ListAccessRecordReq req) throws Exception {
@@ -177,7 +177,7 @@ public class AcsService {
      * 下载人脸识别图片，用户在门禁考勤机上成功开门或打卡后，智能门禁应用都会生成一条门禁记录，对于使用人脸识别方式进行开门的识别记录，还会有抓拍图。;;可以用该接口下载开门时的人脸识别照片
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record-access_photo/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record-access_photo/get</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//GetAccessRecordAccessPhotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//GetAccessRecordAccessPhotoSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetAccessRecordAccessPhotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetAccessRecordAccessPhotoSample.java</a>
      * ;
      */
     public GetAccessRecordAccessPhotoResp get(GetAccessRecordAccessPhotoReq req,
@@ -216,7 +216,7 @@ public class AcsService {
      * 下载人脸识别图片，用户在门禁考勤机上成功开门或打卡后，智能门禁应用都会生成一条门禁记录，对于使用人脸识别方式进行开门的识别记录，还会有抓拍图。;;可以用该接口下载开门时的人脸识别照片
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record-access_photo/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/access_record-access_photo/get</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//GetAccessRecordAccessPhotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//GetAccessRecordAccessPhotoSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetAccessRecordAccessPhotoSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetAccessRecordAccessPhotoSample.java</a>
      * ;
      */
     public GetAccessRecordAccessPhotoResp get(GetAccessRecordAccessPhotoReq req) throws Exception {
@@ -262,7 +262,7 @@ public class AcsService {
      * 获取设备列表，使用该接口获取租户内所有设备
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/device/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/device/list</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//ListDeviceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//ListDeviceSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListDeviceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListDeviceSample.java</a>
      * ;
      */
     public ListDeviceResp list(RequestOptions reqOptions) throws Exception {
@@ -287,7 +287,7 @@ public class AcsService {
      * 获取设备列表，使用该接口获取租户内所有设备
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/device/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/device/list</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//ListDeviceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//ListDeviceSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListDeviceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListDeviceSample.java</a>
      * ;
      */
     public ListDeviceResp list() throws Exception {
@@ -320,7 +320,7 @@ public class AcsService {
      * <p> 只能获取已加入智能门禁权限组的用户 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/get</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//GetUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//GetUserSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserSample.java</a>
      * ;
      */
     public GetUserResp get(GetUserReq req, RequestOptions reqOptions) throws Exception {
@@ -348,7 +348,7 @@ public class AcsService {
      * <p> 只能获取已加入智能门禁权限组的用户 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/get</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//GetUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//GetUserSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserSample.java</a>
      * ;
      */
     public GetUserResp get(GetUserReq req) throws Exception {
@@ -374,7 +374,7 @@ public class AcsService {
      * <p> 只能获取已加入智能门禁权限组的用户 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/list</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//ListUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//ListUserSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListUserSample.java</a>
      * ;
      */
     public ListUserResp list(ListUserReq req, RequestOptions reqOptions) throws Exception {
@@ -402,7 +402,7 @@ public class AcsService {
      * <p> 只能获取已加入智能门禁权限组的用户 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/list</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//ListUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//ListUserSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/ListUserSample.java</a>
      * ;
      */
     public ListUserResp list(ListUserReq req) throws Exception {
@@ -427,7 +427,7 @@ public class AcsService {
      * 修改用户部分信息，飞书智能门禁在人脸识别成功后会有韦根信号输出，输出用户的卡号。;对于使用韦根协议的门禁系统，企业可使用该接口录入用户卡号。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/patch</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//PatchUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//PatchUserSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/PatchUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/PatchUserSample.java</a>
      * ;
      */
     public PatchUserResp patch(PatchUserReq req, RequestOptions reqOptions) throws Exception {
@@ -454,7 +454,7 @@ public class AcsService {
      * 修改用户部分信息，飞书智能门禁在人脸识别成功后会有韦根信号输出，输出用户的卡号。;对于使用韦根协议的门禁系统，企业可使用该接口录入用户卡号。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user/patch</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//PatchUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//PatchUserSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/PatchUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/PatchUserSample.java</a>
      * ;
      */
     public PatchUserResp patch(PatchUserReq req) throws Exception {
@@ -488,7 +488,7 @@ public class AcsService {
      * 下载人脸图片，对于已经录入人脸图片的用户，可以使用该接口下载用户人脸图片
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/get</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//GetUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//GetUserFaceSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserFaceSample.java</a>
      * ;
      */
     public GetUserFaceResp get(GetUserFaceReq req, RequestOptions reqOptions) throws Exception {
@@ -525,7 +525,7 @@ public class AcsService {
      * 下载人脸图片，对于已经录入人脸图片的用户，可以使用该接口下载用户人脸图片
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/get</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//GetUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//GetUserFaceSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserFaceSample.java</a>
      * ;
      */
     public GetUserFaceResp get(GetUserFaceReq req) throws Exception {
@@ -561,7 +561,7 @@ public class AcsService {
      * 上传人脸图片，用户需要录入人脸图片才可以使用门禁考勤机。使用该 API 上传门禁用户的人脸图片。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/update</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//UpdateUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//UpdateUserFaceSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/UpdateUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/UpdateUserFaceSample.java</a>
      * ;
      */
     public UpdateUserFaceResp update(UpdateUserFaceReq req, RequestOptions reqOptions)
@@ -591,7 +591,7 @@ public class AcsService {
      * 上传人脸图片，用户需要录入人脸图片才可以使用门禁考勤机。使用该 API 上传门禁用户的人脸图片。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/update</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//UpdateUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1//UpdateUserFaceSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/UpdateUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/UpdateUserFaceSample.java</a>
      * ;
      */
     public UpdateUserFaceResp update(UpdateUserFaceReq req) throws Exception {

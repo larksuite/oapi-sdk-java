@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.vc.v1.model.ListByNoMeetingReq;
 import com.lark.oapi.service.vc.v1.model.ListByNoMeetingResp;
 
-// HTTP PATH: /open-apis/vc/v1/meetings/list_by_no"
+// GET /open-apis/vc/v1/meetings/list_by_no
 public class ListByNoMeetingSample {
 
   public static void main(String arg[]) throws Exception {

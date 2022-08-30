@@ -122,7 +122,7 @@ public class ApplicationService {
      * 获取应用信息，根据app_id获取应用的基础信息
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/get</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//GetApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//GetApplicationSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/GetApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/GetApplicationSample.java</a>
      * ;
      */
     public GetApplicationResp get(GetApplicationReq req, RequestOptions reqOptions)
@@ -151,7 +151,7 @@ public class ApplicationService {
      * 获取应用信息，根据app_id获取应用的基础信息
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/get</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//GetApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//GetApplicationSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/GetApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/GetApplicationSample.java</a>
      * ;
      */
     public GetApplicationResp get(GetApplicationReq req) throws Exception {
@@ -177,7 +177,7 @@ public class ApplicationService {
      * 更新应用分组信息，更新应用的分组信息（分组会影响应用在工作台中的分类情况，请谨慎更新）
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/patch</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/PatchApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/PatchApplicationSample.java</a>
      * ;
      */
     public PatchApplicationResp patch(PatchApplicationReq req, RequestOptions reqOptions)
@@ -206,7 +206,7 @@ public class ApplicationService {
      * 更新应用分组信息，更新应用的分组信息（分组会影响应用在工作台中的分类情况，请谨慎更新）
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/patch</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/PatchApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/PatchApplicationSample.java</a>
      * ;
      */
     public PatchApplicationResp patch(PatchApplicationReq req) throws Exception {
@@ -232,7 +232,7 @@ public class ApplicationService {
      * 查看待审核的应用列表，查看本企业下所有待审核的自建应用列表
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/underauditlist">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/underauditlist</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//UnderauditlistApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//UnderauditlistApplicationSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/UnderauditlistApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/UnderauditlistApplicationSample.java</a>
      * ;
      */
     public UnderauditlistApplicationResp underauditlist(UnderauditlistApplicationReq req,
@@ -261,7 +261,7 @@ public class ApplicationService {
      * 查看待审核的应用列表，查看本企业下所有待审核的自建应用列表
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/underauditlist">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application/underauditlist</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//UnderauditlistApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//UnderauditlistApplicationSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/UnderauditlistApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/UnderauditlistApplicationSample.java</a>
      * ;
      */
     public UnderauditlistApplicationResp underauditlist(UnderauditlistApplicationReq req)
@@ -300,7 +300,7 @@ public class ApplicationService {
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_usage/overview">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_usage/overview</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//OverviewApplicationAppUsageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//OverviewApplicationAppUsageSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/OverviewApplicationAppUsageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/OverviewApplicationAppUsageSample.java</a>
      * ;
      */
     public OverviewApplicationAppUsageResp overview(OverviewApplicationAppUsageReq req,
@@ -332,7 +332,7 @@ public class ApplicationService {
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_usage/overview">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_usage/overview</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//OverviewApplicationAppUsageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//OverviewApplicationAppUsageSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/OverviewApplicationAppUsageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/OverviewApplicationAppUsageSample.java</a>
      * ;
      */
     public OverviewApplicationAppUsageResp overview(OverviewApplicationAppUsageReq req)
@@ -368,7 +368,7 @@ public class ApplicationService {
      * 获取应用版本信息，根据 app_id，version_id 获取对应应用版本的信息
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/get</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//GetApplicationAppVersionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//GetApplicationAppVersionSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/GetApplicationAppVersionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/GetApplicationAppVersionSample.java</a>
      * ;
      */
     public GetApplicationAppVersionResp get(GetApplicationAppVersionReq req,
@@ -397,7 +397,7 @@ public class ApplicationService {
      * 获取应用版本信息，根据 app_id，version_id 获取对应应用版本的信息
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/get</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//GetApplicationAppVersionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//GetApplicationAppVersionSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/GetApplicationAppVersionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/GetApplicationAppVersionSample.java</a>
      * ;
      */
     public GetApplicationAppVersionResp get(GetApplicationAppVersionReq req) throws Exception {
@@ -423,7 +423,7 @@ public class ApplicationService {
      * 更新应用审核状态，通过接口来更新应用版本的审核结果：通过后应用可以直接上架；拒绝后则开发者可以看到拒绝理由，并在修改后再次申请发布。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/patch</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationAppVersionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationAppVersionSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/PatchApplicationAppVersionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/PatchApplicationAppVersionSample.java</a>
      * ;
      */
     public PatchApplicationAppVersionResp patch(PatchApplicationAppVersionReq req,
@@ -452,7 +452,7 @@ public class ApplicationService {
      * 更新应用审核状态，通过接口来更新应用版本的审核结果：通过后应用可以直接上架；拒绝后则开发者可以看到拒绝理由，并在修改后再次申请发布。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-app_version/patch</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationAppVersionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationAppVersionSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/PatchApplicationAppVersionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/PatchApplicationAppVersionSample.java</a>
      * ;
      */
     public PatchApplicationAppVersionResp patch(PatchApplicationAppVersionReq req)
@@ -488,7 +488,7 @@ public class ApplicationService {
      * 获取应用反馈列表，查询应用的反馈数据
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-feedback/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-feedback/list</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//ListApplicationFeedbackSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//ListApplicationFeedbackSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/ListApplicationFeedbackSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/ListApplicationFeedbackSample.java</a>
      * ;
      */
     public ListApplicationFeedbackResp list(ListApplicationFeedbackReq req,
@@ -517,7 +517,7 @@ public class ApplicationService {
      * 获取应用反馈列表，查询应用的反馈数据
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-feedback/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-feedback/list</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//ListApplicationFeedbackSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//ListApplicationFeedbackSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/ListApplicationFeedbackSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/ListApplicationFeedbackSample.java</a>
      * ;
      */
     public ListApplicationFeedbackResp list(ListApplicationFeedbackReq req) throws Exception {
@@ -543,7 +543,7 @@ public class ApplicationService {
      * 更新应用反馈，更新应用的反馈数据
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-feedback/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-feedback/patch</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationFeedbackSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationFeedbackSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/PatchApplicationFeedbackSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/PatchApplicationFeedbackSample.java</a>
      * ;
      */
     public PatchApplicationFeedbackResp patch(PatchApplicationFeedbackReq req,
@@ -572,7 +572,7 @@ public class ApplicationService {
      * 更新应用反馈，更新应用的反馈数据
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-feedback/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/application-feedback/patch</a>
      * ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationFeedbackSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6//PatchApplicationFeedbackSample.java</a>
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/PatchApplicationFeedbackSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/PatchApplicationFeedbackSample.java</a>
      * ;
      */
     public PatchApplicationFeedbackResp patch(PatchApplicationFeedbackReq req) throws Exception {

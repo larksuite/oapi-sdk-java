@@ -6,7 +6,7 @@ import com.lark.oapi.service.mail.v1.model.PatchPublicMailboxReq;
 import com.lark.oapi.service.mail.v1.model.PatchPublicMailboxResp;
 import com.lark.oapi.service.mail.v1.model.PublicMailbox;
 
-// HTTP PATH: /open-apis/mail/v1/public_mailboxes/:public_mailbox_id"
+// PATCH /open-apis/mail/v1/public_mailboxes/:public_mailbox_id
 public class PatchPublicMailboxSample {
 
   public static void main(String arg[]) throws Exception {
@@ -17,6 +17,7 @@ public class PatchPublicMailboxSample {
     PatchPublicMailboxReq req = PatchPublicMailboxReq.newBuilder()
         .publicMailboxId("xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx")
         .publicMailbox(PublicMailbox.newBuilder()
+            .email("test_public_mailbox@xxx.xx")
             .name("test public mailbox")
             .build())
         .build();

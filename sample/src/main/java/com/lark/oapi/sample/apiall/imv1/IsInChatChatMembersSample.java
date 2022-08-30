@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.im.v1.model.IsInChatChatMembersReq;
 import com.lark.oapi.service.im.v1.model.IsInChatChatMembersResp;
 
-// HTTP PATH: /open-apis/im/v1/chats/:chat_id/members/is_in_chat"
+// GET /open-apis/im/v1/chats/:chat_id/members/is_in_chat
 public class IsInChatChatMembersSample {
 
   public static void main(String arg[]) throws Exception {

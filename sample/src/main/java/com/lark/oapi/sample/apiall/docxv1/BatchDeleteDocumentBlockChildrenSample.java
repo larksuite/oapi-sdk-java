@@ -6,7 +6,7 @@ import com.lark.oapi.service.docx.v1.model.BatchDeleteDocumentBlockChildrenReq;
 import com.lark.oapi.service.docx.v1.model.BatchDeleteDocumentBlockChildrenReqBody;
 import com.lark.oapi.service.docx.v1.model.BatchDeleteDocumentBlockChildrenResp;
 
-// HTTP PATH: /open-apis/docx/v1/documents/:document_id/blocks/:block_id/children/batch_delete"
+// DELETE /open-apis/docx/v1/documents/:document_id/blocks/:block_id/children/batch_delete
 public class BatchDeleteDocumentBlockChildrenSample {
 
   public static void main(String arg[]) throws Exception {

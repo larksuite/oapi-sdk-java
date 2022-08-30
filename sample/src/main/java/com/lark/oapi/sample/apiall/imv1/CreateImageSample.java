@@ -7,7 +7,7 @@ import com.lark.oapi.service.im.v1.model.CreateImageReqBody;
 import com.lark.oapi.service.im.v1.model.CreateImageResp;
 import java.io.File;
 
-// HTTP PATH: /open-apis/im/v1/images"
+// POST /open-apis/im/v1/images
 public class CreateImageSample {
 
   public static void main(String arg[]) throws Exception {

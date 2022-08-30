@@ -17,6 +17,7 @@ public class UpdateMailgroupSample {
     UpdateMailgroupReq req = UpdateMailgroupReq.newBuilder()
         .mailgroupId("xxxxxxxxxxxxxxx 或 test_mail_group@xxx.xx")
         .mailgroup(Mailgroup.newBuilder()
+            .email("test_mail_group@xxx.xx")
             .name("test mail group")
             .description("mail group for testing")
             .whoCanSendMail("ALL_INTERNAL_USERS")

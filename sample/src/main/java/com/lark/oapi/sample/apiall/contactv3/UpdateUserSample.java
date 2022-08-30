@@ -42,6 +42,7 @@ public class UpdateUserSample {
             .enterpriseEmail("")
             .jobTitle("")
             .isFrozen(false)
+            .geo("")
             .build())
         .build();
 

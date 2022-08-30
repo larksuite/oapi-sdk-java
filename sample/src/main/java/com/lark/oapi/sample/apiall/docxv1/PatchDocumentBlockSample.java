@@ -21,7 +21,7 @@ import com.lark.oapi.service.docx.v1.model.UpdateTextElementsRequest;
 import com.lark.oapi.service.docx.v1.model.UpdateTextRequest;
 import com.lark.oapi.service.docx.v1.model.UpdateTextStyleRequest;
 
-// HTTP PATH: /open-apis/docx/v1/documents/:document_id/blocks/:block_id"
+// PATCH /open-apis/docx/v1/documents/:document_id/blocks/:block_id
 public class PatchDocumentBlockSample {
 
   public static void main(String arg[]) throws Exception {

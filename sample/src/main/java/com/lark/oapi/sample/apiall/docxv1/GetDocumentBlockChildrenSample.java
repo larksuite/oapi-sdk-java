@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.docx.v1.model.GetDocumentBlockChildrenReq;
 import com.lark.oapi.service.docx.v1.model.GetDocumentBlockChildrenResp;
 
-// HTTP PATH: /open-apis/docx/v1/documents/:document_id/blocks/:block_id/children"
+// GET /open-apis/docx/v1/documents/:document_id/blocks/:block_id/children
 public class GetDocumentBlockChildrenSample {
 
   public static void main(String arg[]) throws Exception {

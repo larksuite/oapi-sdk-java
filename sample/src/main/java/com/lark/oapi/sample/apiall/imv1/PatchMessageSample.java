@@ -6,7 +6,7 @@ import com.lark.oapi.service.im.v1.model.PatchMessageReq;
 import com.lark.oapi.service.im.v1.model.PatchMessageReqBody;
 import com.lark.oapi.service.im.v1.model.PatchMessageResp;
 
-// HTTP PATH: /open-apis/im/v1/messages/:message_id"
+// PATCH /open-apis/im/v1/messages/:message_id
 public class PatchMessageSample {
 
   public static void main(String arg[]) throws Exception {

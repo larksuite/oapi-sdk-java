@@ -42,6 +42,7 @@ public class PatchUserSample {
             .enterpriseEmail("")
             .jobTitle("")
             .isFrozen(false)
+            .geo("")
             .build())
         .build();
 

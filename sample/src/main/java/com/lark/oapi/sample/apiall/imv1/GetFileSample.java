@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.im.v1.model.GetFileReq;
 import com.lark.oapi.service.im.v1.model.GetFileResp;
 
-// HTTP PATH: /open-apis/im/v1/files/:file_key"
+// GET /open-apis/im/v1/files/:file_key
 public class GetFileSample {
 
   public static void main(String arg[]) throws Exception {

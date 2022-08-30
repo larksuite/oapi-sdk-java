@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.docx.v1.model.ListDocumentBlockReq;
 import com.lark.oapi.service.docx.v1.model.ListDocumentBlockResp;
 
-// HTTP PATH: /open-apis/docx/v1/documents/:document_id/blocks"
+// GET /open-apis/docx/v1/documents/:document_id/blocks
 public class ListDocumentBlockSample {
 
   public static void main(String arg[]) throws Exception {

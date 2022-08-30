@@ -49,10 +49,12 @@ import com.lark.oapi.service.ext.ExtService;
 import com.lark.oapi.service.face_detection.v1.FaceDetectionService;
 import com.lark.oapi.service.gray_test_open_sg.v1.GrayTestOpenSgService;
 import com.lark.oapi.service.helpdesk.v1.HelpdeskService;
+import com.lark.oapi.service.hire.v1.HireService;
 import com.lark.oapi.service.human_authentication.v1.HumanAuthenticationService;
 import com.lark.oapi.service.im.v1.ImService;
 import com.lark.oapi.service.mail.v1.MailService;
 import com.lark.oapi.service.meeting_room.v1.MeetingRoomService;
+import com.lark.oapi.service.okr.v1.OkrService;
 import com.lark.oapi.service.optical_char_recognition.v1.OpticalCharRecognitionService;
 import com.lark.oapi.service.passport.v1.PassportService;
 import com.lark.oapi.service.search.v2.SearchService;
@@ -87,10 +89,12 @@ public class Client {
   private FaceDetectionService faceDetection; // AI能力
   private GrayTestOpenSgService grayTestOpenSg; //
   private HelpdeskService helpdesk; // 服务台
+  private HireService hire; // 招聘
   private HumanAuthenticationService humanAuthentication; // 实名认证
   private ImService im; // 消息与群组
   private MailService mail; // 邮箱
   private MeetingRoomService meetingRoom; //
+  private OkrService okr; // OKR
   private OpticalCharRecognitionService opticalCharRecognition; // AI能力
   private PassportService passport; // 帐号
   private SearchService search; // 搜索
@@ -268,6 +272,15 @@ public class Client {
   }
 
   /**
+   * 招聘
+   *
+   * @return
+   */
+  public HireService hire() {
+    return hire;
+  }
+
+  /**
    * 实名认证
    *
    * @return
@@ -299,6 +312,15 @@ public class Client {
    */
   public MeetingRoomService meetingRoom() {
     return meetingRoom;
+  }
+
+  /**
+   * OKR
+   *
+   * @return
+   */
+  public OkrService okr() {
+    return okr;
   }
 
   /**
@@ -589,10 +611,12 @@ public class Client {
       client.faceDetection = new FaceDetectionService(config);
       client.grayTestOpenSg = new GrayTestOpenSgService(config);
       client.helpdesk = new HelpdeskService(config);
+      client.hire = new HireService(config);
       client.humanAuthentication = new HumanAuthenticationService(config);
       client.im = new ImService(config);
       client.mail = new MailService(config);
       client.meetingRoom = new MeetingRoomService(config);
+      client.okr = new OkrService(config);
       client.opticalCharRecognition = new OpticalCharRecognitionService(config);
       client.passport = new PassportService(config);
       client.search = new SearchService(config);

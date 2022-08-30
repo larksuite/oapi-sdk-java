@@ -5,6 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.drive.v1.model.CopyFileReq;
 import com.lark.oapi.service.drive.v1.model.CopyFileReqBody;
 import com.lark.oapi.service.drive.v1.model.CopyFileResp;
+import com.lark.oapi.service.drive.v1.model.Property;
 
 // POST /open-apis/drive/v1/files/:file_token/copy
 public class CopyFileSample {
@@ -20,6 +21,7 @@ public class CopyFileSample {
             .name("123.txt")
             .type("file")
             .folderToken("fldbcO1UuPz8VwnpPx5a92abcef")
+            .extra(new Property[]{})
             .build())
         .build();
 

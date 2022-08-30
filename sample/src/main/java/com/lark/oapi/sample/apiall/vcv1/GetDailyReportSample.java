@@ -5,7 +5,7 @@ import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.vc.v1.model.GetDailyReportReq;
 import com.lark.oapi.service.vc.v1.model.GetDailyReportResp;
 
-// HTTP PATH: /open-apis/vc/v1/reports/get_daily"
+// GET /open-apis/vc/v1/reports/get_daily
 public class GetDailyReportSample {
 
   public static void main(String arg[]) throws Exception {

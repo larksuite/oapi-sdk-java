@@ -6,7 +6,7 @@ import com.lark.oapi.service.mail.v1.model.CreatePublicMailboxReq;
 import com.lark.oapi.service.mail.v1.model.CreatePublicMailboxResp;
 import com.lark.oapi.service.mail.v1.model.PublicMailbox;
 
-// HTTP PATH: /open-apis/mail/v1/public_mailboxes"
+// POST /open-apis/mail/v1/public_mailboxes
 public class CreatePublicMailboxSample {
 
   public static void main(String arg[]) throws Exception {

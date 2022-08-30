@@ -17,6 +17,7 @@ public class UpdatePublicMailboxSample {
     UpdatePublicMailboxReq req = UpdatePublicMailboxReq.newBuilder()
         .publicMailboxId("xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx")
         .publicMailbox(PublicMailbox.newBuilder()
+            .email("test_public_mailbox@xxx.xx")
             .name("test public mailbox")
             .build())
         .build();

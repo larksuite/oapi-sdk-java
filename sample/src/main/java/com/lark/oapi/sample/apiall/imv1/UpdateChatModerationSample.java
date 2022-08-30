@@ -6,7 +6,7 @@ import com.lark.oapi.service.im.v1.model.UpdateChatModerationReq;
 import com.lark.oapi.service.im.v1.model.UpdateChatModerationReqBody;
 import com.lark.oapi.service.im.v1.model.UpdateChatModerationResp;
 
-// HTTP PATH: /open-apis/im/v1/chats/:chat_id/moderation"
+// PUT /open-apis/im/v1/chats/:chat_id/moderation
 public class UpdateChatModerationSample {
 
   public static void main(String arg[]) throws Exception {

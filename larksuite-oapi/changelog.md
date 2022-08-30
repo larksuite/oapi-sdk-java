@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
-## 2.0.2
+## 2.0.2-rc1-2022-08-30
 Added
+- 添加okr,hire业务API
+
+## 2.0.2-2022-08-28
+
+Added
+
 - P1消息协议的消息事件注册函数添加注释
 
-## 2.0.1
+## 2.0.1-2022-08-28
+
 Added
 
 - API，Event，结构体，添加文字注释。
