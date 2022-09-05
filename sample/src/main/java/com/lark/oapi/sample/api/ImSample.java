@@ -1149,7 +1149,7 @@ public class ImSample {
 //            .build())
         .build();
 
-    sendInteractiveMonitorMsg(client);
+    sendTextMsg(client);
     // downLoadFile(client);
   }
 }

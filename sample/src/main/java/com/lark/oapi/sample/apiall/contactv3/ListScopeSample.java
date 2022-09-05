@@ -10,7 +10,7 @@ public class ListScopeSample {
 
   public static void main(String arg[]) throws Exception {
     // 构建client
-    Client client = Client.newBuilder("appId", "appSecret").build();
+    Client client = Client.newBuilder("cli_a1eccc36c278900d", "uvNOxS6mplA6Nf3YPt8rUbbShON1Ocj5").build();
 
     // 创建请求对象
     ListScopeReq req = ListScopeReq.newBuilder()
@@ -22,7 +22,7 @@ public class ListScopeSample {
         .build();
 
     // 发起请求
-    ListScopeResp resp = client.contact().scope().list(req);
+    ListScopeResp resp = client.contact().scope().list(req,null);
 
     // 处理服务端错误
     if (!resp.success()) {
