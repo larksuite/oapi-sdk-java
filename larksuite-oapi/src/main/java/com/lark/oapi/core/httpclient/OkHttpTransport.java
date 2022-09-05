@@ -52,7 +52,7 @@ public class OkHttpTransport implements IHttpTransport {
           .setType(MediaType.parse(contentType));
 
       for (Map.Entry<String, Object> entry : ((FormData) body).getParams().entrySet()) {
-        builder.addFormDataPart(entry.getKey(), (String) entry.getValue());
+        builder.addFormDataPart(entry.getKey(), entry.getValue().toString());
       }
 
       for (FormDataFile file : ((FormData) body).getFiles()) {
