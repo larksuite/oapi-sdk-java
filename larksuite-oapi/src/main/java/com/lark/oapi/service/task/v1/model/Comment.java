@@ -42,7 +42,7 @@ public class Comment {
   @SerializedName("create_milli_time")
   private String createMilliTime;
   /**
-   * 富文本评论内容。语法格式参见[Markdown模块](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
+   * 富文本评论内容。语法格式参见[Markdown模块](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
    * <p> 示例值：举杯邀明月，对影成三人<at id=7058204817822318612></at>
    */
   @SerializedName("rich_content")
@@ -74,7 +74,7 @@ public class Comment {
      */
     this.createMilliTime = builder.createMilliTime;
     /**
-     * 富文本评论内容。语法格式参见[Markdown模块](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
+     * 富文本评论内容。语法格式参见[Markdown模块](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
      * <p> 示例值：举杯邀明月，对影成三人<at id=7058204817822318612></at>
      */
     this.richContent = builder.richContent;
@@ -147,7 +147,7 @@ public class Comment {
      */
     private String createMilliTime;
     /**
-     * 富文本评论内容。语法格式参见[Markdown模块](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
+     * 富文本评论内容。语法格式参见[Markdown模块](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
      * <p> 示例值：举杯邀明月，对影成三人<at id=7058204817822318612></at>
      */
     private String richContent;
@@ -205,7 +205,7 @@ public class Comment {
 
 
     /**
-     * 富文本评论内容。语法格式参见[Markdown模块](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
+     * 富文本评论内容。语法格式参见[Markdown模块](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
      * <p> 示例值：举杯邀明月，对影成三人<at id=7058204817822318612></at>
      *
      * @param richContent

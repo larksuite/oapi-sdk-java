@@ -18,13 +18,13 @@ import com.google.gson.annotations.SerializedName;
 public class CalendarEvent {
 
   /**
-   * 日程ID。参见[日程ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
+   * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
    * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
    */
   @SerializedName("event_id")
   private String eventId;
   /**
-   * 日程组织者日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+   * 日程组织者日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
    * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
    */
   @SerializedName("organizer_calendar_id")
@@ -139,12 +139,12 @@ public class CalendarEvent {
 
   public CalendarEvent(Builder builder) {
     /**
-     * 日程ID。参见[日程ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
+     * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
      * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
      */
     this.eventId = builder.eventId;
     /**
-     * 日程组织者日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * 日程组织者日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
     this.organizerCalendarId = builder.organizerCalendarId;
@@ -394,12 +394,12 @@ public class CalendarEvent {
   public static class Builder {
 
     /**
-     * 日程ID。参见[日程ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
+     * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
      * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
      */
     private String eventId;
     /**
-     * 日程组织者日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * 日程组织者日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
     private String organizerCalendarId;
@@ -491,7 +491,7 @@ public class CalendarEvent {
     private Schema[] schemas;
 
     /**
-     * 日程ID。参见[日程ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
+     * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
      * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
      *
      * @param eventId
@@ -504,7 +504,7 @@ public class CalendarEvent {
 
 
     /**
-     * 日程组织者日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * 日程组织者日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      *
      * @param organizerCalendarId

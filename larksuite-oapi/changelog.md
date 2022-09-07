@@ -3,11 +3,15 @@
 All notable changes to this project will be documented in this file.
 
 ## 2.0.2-rc2-2022-09-05
+
 Fixed
+
 - 修复云文档上传文件时，类型转换错误
 
 ## 2.0.2-rc1-2022-08-30
+
 Added
+
 - 添加okr,hire业务API
 
 ## 2.0.2-2022-08-28

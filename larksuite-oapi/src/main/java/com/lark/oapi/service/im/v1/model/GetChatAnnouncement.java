@@ -43,8 +43,8 @@ public class GetChatAnnouncement {
   private String updateTime;
   /**
    * 文档所有者的 ID 类型;;- 如果所有者是用户，则与查询参数中的user_id_type 相同；取值为`open_id` `user_id` `union_id` 其中之一，不同 ID
-   * 的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction);-
-   * 如果所有者是机器人，为机器人应用的 `app_id`，详情参见  [获取应用身份访问凭证](/ssl:ttdoc/ukTMukTMukTM/ukDNz4SO0MjL5QzM/g)
+   * 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);-
+   * 如果所有者是机器人，为机器人应用的 `app_id`，详情参见  [获取应用身份访问凭证](https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/g)
    * <p> 示例值：open_id
    */
   @SerializedName("owner_id_type")
@@ -57,8 +57,8 @@ public class GetChatAnnouncement {
   private String ownerId;
   /**
    * 文档最新修改者 id 类型;; - 如果修改者是用户，则与查询参数中的user_id_type 相同；取值为`open_id` `user_id` `union_id` 其中之一，不同 ID
-   * 的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction);-
-   * 如果修改者是机器人，为机器人应用的 `app_id`，详情参见  [获取应用身份访问凭证](/ssl:ttdoc/ukTMukTMukTM/ukDNz4SO0MjL5QzM/g)
+   * 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);-
+   * 如果修改者是机器人，为机器人应用的 `app_id`，详情参见  [获取应用身份访问凭证](https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/g)
    * <p> 示例值：open_id
    */
   @SerializedName("modifier_id_type")

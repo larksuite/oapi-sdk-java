@@ -49,7 +49,7 @@ public class AppTableRecord {
   @SerializedName("last_modified_time")
   private Integer lastModifiedTime;
   /**
-   * 记录字段;;关于支持新增的字段类型，请参考[接入指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/bitable/notification)
+   * 记录字段;;关于支持新增的字段类型，请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)
    * <p> 示例值：
    */
   @SerializedName("fields")
@@ -86,7 +86,7 @@ public class AppTableRecord {
      */
     this.lastModifiedTime = builder.lastModifiedTime;
     /**
-     * 记录字段;;关于支持新增的字段类型，请参考[接入指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/bitable/notification)
+     * 记录字段;;关于支持新增的字段类型，请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)
      * <p> 示例值：
      */
     this.fields = builder.fields;
@@ -172,7 +172,7 @@ public class AppTableRecord {
      */
     private Integer lastModifiedTime;
     /**
-     * 记录字段;;关于支持新增的字段类型，请参考[接入指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/bitable/notification)
+     * 记录字段;;关于支持新增的字段类型，请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)
      * <p> 示例值：
      */
     private Map<String, Object> fields;
@@ -243,7 +243,7 @@ public class AppTableRecord {
 
 
     /**
-     * 记录字段;;关于支持新增的字段类型，请参考[接入指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/bitable/notification)
+     * 记录字段;;关于支持新增的字段类型，请参考[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification)
      * <p> 示例值：
      *
      * @param fields

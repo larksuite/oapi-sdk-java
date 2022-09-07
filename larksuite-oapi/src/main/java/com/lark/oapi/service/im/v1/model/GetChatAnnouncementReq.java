@@ -27,7 +27,7 @@ public class GetChatAnnouncementReq {
   @SerializedName("user_id_type")
   private String userIdType;
   /**
-   * 待获取公告的群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+   * 待获取公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
    * <p> 示例值：oc_5ad11d72b830411d72b836c20
    */
   @Path
@@ -45,7 +45,7 @@ public class GetChatAnnouncementReq {
      */
     this.userIdType = builder.userIdType;
     /**
-     * 待获取公告的群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 待获取公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_5ad11d72b830411d72b836c20
      */
     this.chatId = builder.chatId;
@@ -74,7 +74,7 @@ public class GetChatAnnouncementReq {
   public static class Builder {
 
     private String userIdType; // 此次调用中使用的用户ID的类型
-    private String chatId; // 待获取公告的群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+    private String chatId; // 待获取公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
 
     /**
      * 此次调用中使用的用户ID的类型
@@ -102,7 +102,7 @@ public class GetChatAnnouncementReq {
     }
 
     /**
-     * 待获取公告的群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 待获取公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_5ad11d72b830411d72b836c20
      *
      * @param chatId

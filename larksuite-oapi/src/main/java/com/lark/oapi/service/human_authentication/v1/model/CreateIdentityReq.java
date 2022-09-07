@@ -21,7 +21,7 @@ public class CreateIdentityReq {
 
   /**
    * 用户的唯一标识（使用的ID类型见下一参数描述，不同ID类型的区别和获取，参考文档：[如何获得 User ID、Open ID 和 Union
-   * ID？](/ssl:ttdoc/home/user-identity-introduction/how-to-get)）
+   * ID？](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)）
    * <p> 示例值：ou_2eb5483cb377daa5054bc6f86e2089a5
    */
   @Query
@@ -43,7 +43,7 @@ public class CreateIdentityReq {
 
   public CreateIdentityReq(Builder builder) {
     /**
-     * 用户的唯一标识（使用的ID类型见下一参数描述，不同ID类型的区别和获取，参考文档：[如何获得 User ID、Open ID 和 Union ID？](/ssl:ttdoc/home/user-identity-introduction/how-to-get)）
+     * 用户的唯一标识（使用的ID类型见下一参数描述，不同ID类型的区别和获取，参考文档：[如何获得 User ID、Open ID 和 Union ID？](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)）
      * <p> 示例值：ou_2eb5483cb377daa5054bc6f86e2089a5
      */
     this.userId = builder.userId;
@@ -85,13 +85,13 @@ public class CreateIdentityReq {
 
   public static class Builder {
 
-    private String userId; // 用户的唯一标识（使用的ID类型见下一参数描述，不同ID类型的区别和获取，参考文档：[如何获得 User ID、Open ID 和 Union ID？](/ssl:ttdoc/home/user-identity-introduction/how-to-get)）
+    private String userId; // 用户的唯一标识（使用的ID类型见下一参数描述，不同ID类型的区别和获取，参考文档：[如何获得 User ID、Open ID 和 Union ID？](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)）
     private String userIdType; // 用户ID类型 open_id/user_id/union_id
     private CreateIdentityReqBody body;
 
     /**
      * 用户的唯一标识（使用的ID类型见下一参数描述，不同ID类型的区别和获取，参考文档：[如何获得 User ID、Open ID 和 Union
-     * ID？](/ssl:ttdoc/home/user-identity-introduction/how-to-get)）
+     * ID？](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)）
      * <p> 示例值：ou_2eb5483cb377daa5054bc6f86e2089a5
      *
      * @param userId

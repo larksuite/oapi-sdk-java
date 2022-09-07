@@ -27,7 +27,7 @@ public class BatchGetTmpDownloadUrlMediaReq {
   private String[] fileTokens;
   /**
    * 拓展信息(可选)
-   * <p> 示例值：[请参考-上传点类型及对应Extra说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
+   * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
    */
   @Query
   @SerializedName("extra")
@@ -45,7 +45,7 @@ public class BatchGetTmpDownloadUrlMediaReq {
     this.fileTokens = builder.fileTokens;
     /**
      * 拓展信息(可选)
-     * <p> 示例值：[请参考-上传点类型及对应Extra说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
+     * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
      */
     this.extra = builder.extra;
   }
@@ -91,7 +91,7 @@ public class BatchGetTmpDownloadUrlMediaReq {
 
     /**
      * 拓展信息(可选)
-     * <p> 示例值：[请参考-上传点类型及对应Extra说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
+     * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
      *
      * @param extra
      * @return

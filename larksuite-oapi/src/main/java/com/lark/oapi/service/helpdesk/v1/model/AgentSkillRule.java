@@ -18,20 +18,20 @@ import com.google.gson.annotations.SerializedName;
 public class AgentSkillRule {
 
   /**
-   * rule id, 参考[获取客服技能rules](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent_skill_rule/list)
+   * rule id, 参考[获取客服技能rules](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent_skill_rule/list)
    * 用于获取rules options
    * <p> 示例值：test-skill-id
    */
   @SerializedName("id")
   private String id;
   /**
-   * 运算符比较, 参考[客服技能运算符选项](/ssl:ttdoc/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
+   * 运算符比较, 参考[客服技能运算符选项](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
    * <p> 示例值：8
    */
   @SerializedName("selected_operator")
   private Integer selectedOperator;
   /**
-   * rule操作数value，[客服技能及运算符](/ssl:ttdoc/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
+   * rule操作数value，[客服技能及运算符](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
    * <p> 示例值：[3]
    */
   @SerializedName("operator_options")
@@ -63,17 +63,17 @@ public class AgentSkillRule {
 
   public AgentSkillRule(Builder builder) {
     /**
-     * rule id, 参考[获取客服技能rules](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent_skill_rule/list) 用于获取rules options
+     * rule id, 参考[获取客服技能rules](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent_skill_rule/list) 用于获取rules options
      * <p> 示例值：test-skill-id
      */
     this.id = builder.id;
     /**
-     * 运算符比较, 参考[客服技能运算符选项](/ssl:ttdoc/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
+     * 运算符比较, 参考[客服技能运算符选项](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
      * <p> 示例值：8
      */
     this.selectedOperator = builder.selectedOperator;
     /**
-     * rule操作数value，[客服技能及运算符](/ssl:ttdoc/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
+     * rule操作数value，[客服技能及运算符](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
      * <p> 示例值：[3]
      */
     this.operatorOptions = builder.operatorOptions;
@@ -149,18 +149,18 @@ public class AgentSkillRule {
   public static class Builder {
 
     /**
-     * rule id, 参考[获取客服技能rules](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent_skill_rule/list)
+     * rule id, 参考[获取客服技能rules](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent_skill_rule/list)
      * 用于获取rules options
      * <p> 示例值：test-skill-id
      */
     private String id;
     /**
-     * 运算符比较, 参考[客服技能运算符选项](/ssl:ttdoc/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
+     * 运算符比较, 参考[客服技能运算符选项](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
      * <p> 示例值：8
      */
     private Integer selectedOperator;
     /**
-     * rule操作数value，[客服技能及运算符](/ssl:ttdoc/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
+     * rule操作数value，[客服技能及运算符](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
      * <p> 示例值：[3]
      */
     private Integer[] operatorOptions;
@@ -183,7 +183,7 @@ public class AgentSkillRule {
     private String displayName;
 
     /**
-     * rule id, 参考[获取客服技能rules](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent_skill_rule/list)
+     * rule id, 参考[获取客服技能rules](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/agent_skill_rule/list)
      * 用于获取rules options
      * <p> 示例值：test-skill-id
      *
@@ -197,7 +197,7 @@ public class AgentSkillRule {
 
 
     /**
-     * 运算符比较, 参考[客服技能运算符选项](/ssl:ttdoc/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
+     * 运算符比较, 参考[客服技能运算符选项](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
      * <p> 示例值：8
      *
      * @param selectedOperator
@@ -210,7 +210,7 @@ public class AgentSkillRule {
 
 
     /**
-     * rule操作数value，[客服技能及运算符](/ssl:ttdoc/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
+     * rule操作数value，[客服技能及运算符](https://open.feishu.cn/document/ukTMukTMukTM/ucDOyYjL3gjM24yN4IjN/operator-options)
      * <p> 示例值：[3]
      *
      * @param operatorOptions

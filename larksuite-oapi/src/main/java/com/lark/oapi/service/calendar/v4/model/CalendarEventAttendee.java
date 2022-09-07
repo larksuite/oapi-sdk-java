@@ -24,7 +24,7 @@ public class CalendarEventAttendee {
   @SerializedName("type")
   private String type;
   /**
-   * 参与人ID。参见[参与人ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
+   * 参与人ID。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
    * <p> 示例值：user_xxxxxx
    */
   @SerializedName("attendee_id")
@@ -67,13 +67,13 @@ public class CalendarEventAttendee {
   private AttendeeChatMember[] chatMembers;
   /**
    * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id，参见[用户相关的 ID
-   * 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：ou_xxxxxxxx
    */
   @SerializedName("user_id")
   private String userId;
   /**
-   * chat类型参与人的群组chat_id，参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+   * chat类型参与人的群组chat_id，参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
    * <p> 示例值：oc_xxxxxxxxx
    */
   @SerializedName("chat_id")
@@ -91,7 +91,7 @@ public class CalendarEventAttendee {
   @SerializedName("third_party_email")
   private String thirdPartyEmail;
   /**
-   * 如果日程是使用应用身份创建的，在添加会议室的时候，用来指定会议室的联系人，在会议室视图展示。参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 如果日程是使用应用身份创建的，在添加会议室的时候，用来指定会议室的联系人，在会议室视图展示。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：ou_xxxxxxxx
    */
   @SerializedName("operate_id")
@@ -114,7 +114,7 @@ public class CalendarEventAttendee {
      */
     this.type = builder.type;
     /**
-     * 参与人ID。参见[参与人ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
+     * 参与人ID。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
      * <p> 示例值：user_xxxxxx
      */
     this.attendeeId = builder.attendeeId;
@@ -149,12 +149,12 @@ public class CalendarEventAttendee {
      */
     this.chatMembers = builder.chatMembers;
     /**
-     * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_xxxxxxxx
      */
     this.userId = builder.userId;
     /**
-     * chat类型参与人的群组chat_id，参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * chat类型参与人的群组chat_id，参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_xxxxxxxxx
      */
     this.chatId = builder.chatId;
@@ -169,7 +169,7 @@ public class CalendarEventAttendee {
      */
     this.thirdPartyEmail = builder.thirdPartyEmail;
     /**
-     * 如果日程是使用应用身份创建的，在添加会议室的时候，用来指定会议室的联系人，在会议室视图展示。参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 如果日程是使用应用身份创建的，在添加会议室的时候，用来指定会议室的联系人，在会议室视图展示。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_xxxxxxxx
      */
     this.operateId = builder.operateId;
@@ -305,7 +305,7 @@ public class CalendarEventAttendee {
      */
     private String type;
     /**
-     * 参与人ID。参见[参与人ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
+     * 参与人ID。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
      * <p> 示例值：user_xxxxxx
      */
     private String attendeeId;
@@ -341,12 +341,12 @@ public class CalendarEventAttendee {
     private AttendeeChatMember[] chatMembers;
     /**
      * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id，参见[用户相关的 ID
-     * 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_xxxxxxxx
      */
     private String userId;
     /**
-     * chat类型参与人的群组chat_id，参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * chat类型参与人的群组chat_id，参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_xxxxxxxxx
      */
     private String chatId;
@@ -361,7 +361,7 @@ public class CalendarEventAttendee {
      */
     private String thirdPartyEmail;
     /**
-     * 如果日程是使用应用身份创建的，在添加会议室的时候，用来指定会议室的联系人，在会议室视图展示。参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 如果日程是使用应用身份创建的，在添加会议室的时候，用来指定会议室的联系人，在会议室视图展示。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_xxxxxxxx
      */
     private String operateId;
@@ -398,7 +398,7 @@ public class CalendarEventAttendee {
 
 
     /**
-     * 参与人ID。参见[参与人ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
+     * 参与人ID。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
      * <p> 示例值：user_xxxxxx
      *
      * @param attendeeId
@@ -503,7 +503,7 @@ public class CalendarEventAttendee {
 
     /**
      * 参与人的用户id，依赖于user_id_type返回对应的取值，当is_external为true时，此字段只会返回open_id或者union_id，参见[用户相关的 ID
-     * 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_xxxxxxxx
      *
      * @param userId
@@ -516,7 +516,7 @@ public class CalendarEventAttendee {
 
 
     /**
-     * chat类型参与人的群组chat_id，参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * chat类型参与人的群组chat_id，参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_xxxxxxxxx
      *
      * @param chatId
@@ -555,7 +555,7 @@ public class CalendarEventAttendee {
 
 
     /**
-     * 如果日程是使用应用身份创建的，在添加会议室的时候，用来指定会议室的联系人，在会议室视图展示。参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 如果日程是使用应用身份创建的，在添加会议室的时候，用来指定会议室的联系人，在会议室视图展示。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_xxxxxxxx
      *
      * @param operateId

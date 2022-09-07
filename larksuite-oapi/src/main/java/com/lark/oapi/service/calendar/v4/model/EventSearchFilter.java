@@ -30,7 +30,7 @@ public class EventSearchFilter {
   @SerializedName("end_time")
   private TimeInfo endTime;
   /**
-   * 搜索过滤项，参与人的用户ID列表，被搜索日程中必须包含至少一个其中的参与人。参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 搜索过滤项，参与人的用户ID列表，被搜索日程中必须包含至少一个其中的参与人。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：xxxxx
    */
   @SerializedName("user_ids")
@@ -42,7 +42,7 @@ public class EventSearchFilter {
   @SerializedName("room_ids")
   private String[] roomIds;
   /**
-   * 搜索过滤项，群ID列表，被搜索日程的参与人中必须包含至少一个其中的群。参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+   * 搜索过滤项，群ID列表，被搜索日程的参与人中必须包含至少一个其中的群。参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
    * <p> 示例值：xxxxx
    */
   @SerializedName("chat_ids")
@@ -64,7 +64,7 @@ public class EventSearchFilter {
      */
     this.endTime = builder.endTime;
     /**
-     * 搜索过滤项，参与人的用户ID列表，被搜索日程中必须包含至少一个其中的参与人。参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 搜索过滤项，参与人的用户ID列表，被搜索日程中必须包含至少一个其中的参与人。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：xxxxx
      */
     this.userIds = builder.userIds;
@@ -74,7 +74,7 @@ public class EventSearchFilter {
      */
     this.roomIds = builder.roomIds;
     /**
-     * 搜索过滤项，群ID列表，被搜索日程的参与人中必须包含至少一个其中的群。参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 搜索过滤项，群ID列表，被搜索日程的参与人中必须包含至少一个其中的群。参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：xxxxx
      */
     this.chatIds = builder.chatIds;
@@ -137,7 +137,7 @@ public class EventSearchFilter {
      */
     private TimeInfo endTime;
     /**
-     * 搜索过滤项，参与人的用户ID列表，被搜索日程中必须包含至少一个其中的参与人。参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 搜索过滤项，参与人的用户ID列表，被搜索日程中必须包含至少一个其中的参与人。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：xxxxx
      */
     private String[] userIds;
@@ -147,7 +147,7 @@ public class EventSearchFilter {
      */
     private String[] roomIds;
     /**
-     * 搜索过滤项，群ID列表，被搜索日程的参与人中必须包含至少一个其中的群。参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 搜索过滤项，群ID列表，被搜索日程的参与人中必须包含至少一个其中的群。参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：xxxxx
      */
     private String[] chatIds;
@@ -179,7 +179,7 @@ public class EventSearchFilter {
 
 
     /**
-     * 搜索过滤项，参与人的用户ID列表，被搜索日程中必须包含至少一个其中的参与人。参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 搜索过滤项，参与人的用户ID列表，被搜索日程中必须包含至少一个其中的参与人。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：xxxxx
      *
      * @param userIds
@@ -205,7 +205,7 @@ public class EventSearchFilter {
 
 
     /**
-     * 搜索过滤项，群ID列表，被搜索日程的参与人中必须包含至少一个其中的群。参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 搜索过滤项，群ID列表，被搜索日程的参与人中必须包含至少一个其中的群。参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：xxxxx
      *
      * @param chatIds

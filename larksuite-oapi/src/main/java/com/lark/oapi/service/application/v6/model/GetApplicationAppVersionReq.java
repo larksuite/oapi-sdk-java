@@ -34,7 +34,7 @@ public class GetApplicationAppVersionReq {
   @SerializedName("user_id_type")
   private String userIdType;
   /**
-   * 应用的 app_id，需要查询其他应用版本信息时，必须申请[获取应用版本信息](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用版本信息时，可填入
+   * 应用的 app_id，需要查询其他应用版本信息时，必须申请[获取应用版本信息](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用版本信息时，可填入
    * "me" 或者应用自身 app_id
    * <p> 示例值：cli_9f3ca975326b501b
    */
@@ -65,7 +65,7 @@ public class GetApplicationAppVersionReq {
      */
     this.userIdType = builder.userIdType;
     /**
-     * 应用的 app_id，需要查询其他应用版本信息时，必须申请[获取应用版本信息](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用版本信息时，可填入 "me" 或者应用自身 app_id
+     * 应用的 app_id，需要查询其他应用版本信息时，必须申请[获取应用版本信息](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用版本信息时，可填入 "me" 或者应用自身 app_id
      * <p> 示例值：cli_9f3ca975326b501b
      */
     this.appId = builder.appId;
@@ -116,7 +116,7 @@ public class GetApplicationAppVersionReq {
 
     private String lang; // 应用信息的语言版本
     private String userIdType; // 此次调用中使用的用户ID的类型
-    private String appId; // 应用的 app_id，需要查询其他应用版本信息时，必须申请[获取应用版本信息](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用版本信息时，可填入 "me" 或者应用自身 app_id
+    private String appId; // 应用的 app_id，需要查询其他应用版本信息时，必须申请[获取应用版本信息](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用版本信息时，可填入 "me" 或者应用自身 app_id
     private String versionId; // 唯一标识应用版本的 ID
 
     /**
@@ -170,7 +170,7 @@ public class GetApplicationAppVersionReq {
     }
 
     /**
-     * 应用的 app_id，需要查询其他应用版本信息时，必须申请[获取应用版本信息](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用版本信息时，可填入
+     * 应用的 app_id，需要查询其他应用版本信息时，必须申请[获取应用版本信息](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用版本信息时，可填入
      * "me" 或者应用自身 app_id
      * <p> 示例值：cli_9f3ca975326b501b
      *

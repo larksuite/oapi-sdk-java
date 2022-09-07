@@ -405,7 +405,7 @@ public class EventDispatcher implements IHandler {
     /**
      * <p> 日历变更,当订阅用户的日历列表有日历变动时触发此事件。
      * <p> 应用首先需要调用上述接口建立订阅关系。应用收到该事件后，使用事件的 user_list 字段中的用户对应的 user_access_token
-     * 调用[获取日历列表](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list)接口拉取增量的变更数据
+     * 调用[获取日历列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list)接口拉取增量的变更数据
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/events/changed">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/events/changed</a>
      *
      * @param handler
@@ -453,8 +453,8 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 日程变更,当被订阅的用户日历下有日程变更时触发此事件。
-     * <p> 应用首先需要调用[订阅日程变更事件接口](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/subscription)建立订阅关系。应用收到该事件后，使用事件的
-     * user_list 字段中的用户对应的 user_access_token 调用[获取日程列表](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list)接口拉取事件中
+     * <p> 应用首先需要调用[订阅日程变更事件接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/subscription)建立订阅关系。应用收到该事件后，使用事件的
+     * user_list 字段中的用户对应的 user_access_token 调用[获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list)接口拉取事件中
      * calendar_id 字段对应的日历下的日程数据
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/events/changed">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/events/changed</a>
      *
@@ -489,7 +489,7 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 部门创建事件,创建通讯录部门时发送该事件给订阅应用。
-     * <p> 只有当应用拥有被改动字段的数据权限时，才会接收到事件。具体的数据权限与字段的关系请参考[应用权限](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)，或查看事件体参数列表的字段描述。
+     * <p> 只有当应用拥有被改动字段的数据权限时，才会接收到事件。具体的数据权限与字段的关系请参考[应用权限](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)，或查看事件体参数列表的字段描述。
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/events/created</a>
      *
      * @param handler
@@ -505,7 +505,7 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 部门被删除,订阅这一事件可以获得被删除部门的信息。
-     * <p> 只有当应用拥有被改动字段的数据权限时，才会接收到事件。具体的数据权限与字段的关系请参考[应用权限](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)，或查看事件体参数列表的字段描述。
+     * <p> 只有当应用拥有被改动字段的数据权限时，才会接收到事件。具体的数据权限与字段的关系请参考[应用权限](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)，或查看事件体参数列表的字段描述。
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/events/deleted">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/events/deleted</a>
      *
      * @param handler
@@ -521,7 +521,7 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 修改部门,通过该事件订阅部门更新。old_object只展示被更新字段的原始值。应用身份访问通讯录的权限为历史版本，不推荐申请。
-     * <p> 只有当应用拥有被改动字段的数据权限时，才会接收到事件。具体的数据权限与字段的关系请参考[应用权限](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)，或查看事件体参数列表的字段描述。
+     * <p> 只有当应用拥有被改动字段的数据权限时，才会接收到事件。具体的数据权限与字段的关系请参考[应用权限](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)，或查看事件体参数列表的字段描述。
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/events/updated</a>
      *
      * @param handler
@@ -632,7 +632,7 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 员工入职,通过该事件订阅员工入职。
-     * <p> 只有当应用拥有被改动字段的数据权限时，才会接收到事件。具体的数据权限与字段的关系请参考[应用权限](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)，或查看事件体参数列表的字段描述。
+     * <p> 只有当应用拥有被改动字段的数据权限时，才会接收到事件。具体的数据权限与字段的关系请参考[应用权限](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)，或查看事件体参数列表的字段描述。
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/events/created</a>
      *
      * @param handler
@@ -648,7 +648,7 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 员工离职,通过该事件订阅员工离职。应用身份访问通讯录的权限为历史版本，不推荐申请。
-     * <p> 只有当应用拥有被改动字段的数据权限时，才会接收到事件。具体的数据权限与字段的关系请参考[应用权限](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)，或查看事件体参数列表的字段描述。
+     * <p> 只有当应用拥有被改动字段的数据权限时，才会接收到事件。具体的数据权限与字段的关系请参考[应用权限](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)，或查看事件体参数列表的字段描述。
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/events/deleted">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/events/deleted</a>
      *
      * @param handler
@@ -664,7 +664,7 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 员工变更,通过该事件订阅员工变更。old_object中只展示更新的字段的原始值。
-     * <p> 只有当应用拥有被改动字段的数据权限时，才会接收到事件。具体的数据权限与字段的关系请参考[应用权限](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)，或查看事件体参数列表的字段描述。
+     * <p> 只有当应用拥有被改动字段的数据权限时，才会接收到事件。具体的数据权限与字段的关系请参考[应用权限](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)，或查看事件体参数列表的字段描述。
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/events/updated</a>
      *
      * @param handler
@@ -804,7 +804,7 @@ public class EventDispatcher implements IHandler {
     }
 
     /**
-     * <p> 工单创建事件,可监听服务台的工单创建事件。需使用订阅接口订阅：[事件订阅](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/event/overview)
+     * <p> 工单创建事件,可监听服务台的工单创建事件。需使用订阅接口订阅：[事件订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/event/overview)
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created</a>
      *
      * @param handler
@@ -819,7 +819,7 @@ public class EventDispatcher implements IHandler {
     }
 
     /**
-     * <p> 工单状态变更事件,可监听工单状态和阶段变更事件。需使用订阅接口订阅：[事件订阅](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/event/overview)
+     * <p> 工单状态变更事件,可监听工单状态和阶段变更事件。需使用订阅接口订阅：[事件订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/event/overview)
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/updated</a>
      *
      * @param handler
@@ -834,7 +834,7 @@ public class EventDispatcher implements IHandler {
     }
 
     /**
-     * <p> 工单消息事件,该消息事件属于工单消息事件。需使用订阅接口订阅：[事件订阅](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/event/overview)
+     * <p> 工单消息事件,该消息事件属于工单消息事件。需使用订阅接口订阅：[事件订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/event/overview)
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_message/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_message/events/created</a>
      *
      * @param handler
@@ -852,8 +852,8 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 群解散,群组被解散后触发此事件。
-     * <p> 注意事项：;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);- 需要订阅
-     * ==消息与群组== 分类下的 ==解散群== 事件;- 事件会向群内订阅了该事件的机器人进行推送
+     * <p> 注意事项：;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * 需要订阅 ==消息与群组== 分类下的 ==解散群== 事件;- 事件会向群内订阅了该事件的机器人进行推送
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/events/disbanded">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/events/disbanded</a>
      *
      * @param handler
@@ -870,8 +870,8 @@ public class EventDispatcher implements IHandler {
     /**
      * <p> 群配置修改,群组配置被修改后触发此事件，包含：;- 群主转移;- 群基本信息修改(群头像/群名称/群描述/群国际化名称);-
      * 群权限修改(加人入群权限/群编辑权限/at所有人权限/群分享权限)。
-     * <p> 注意事项：; - 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);- 需要订阅
-     * ==消息与群组== 分类下的 ==群配置修改== 事件;- 事件会向群内订阅了该事件的机器人进行推送
+     * <p> 注意事项：; - 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * 需要订阅 ==消息与群组== 分类下的 ==群配置修改== 事件;- 事件会向群内订阅了该事件的机器人进行推送
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/events/updated</a>
      *
      * @param handler
@@ -887,8 +887,8 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 机器人进群,机器人被用户添加至群聊时触发此事件。
-     * <p> 注意事项：;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);- 需要订阅
-     * ==消息与群组== 分类下的 ==机器人进群== 事件;- 事件会向进群的机器人进行推送;- 机器人邀请机器人不会触发事件
+     * <p> 注意事项：;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * 需要订阅 ==消息与群组== 分类下的 ==机器人进群== 事件;- 事件会向进群的机器人进行推送;- 机器人邀请机器人不会触发事件
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-bot/events/added">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-bot/events/added</a>
      *
      * @param handler
@@ -904,8 +904,8 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 机器人被移出群,机器人被移出群聊后触发此事件。
-     * <p> 注意事项：;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);- 需要订阅
-     * ==消息与群组== 分类下的 ==机器人被移出群== 事件;- 事件会向被移出群的机器人进行推送
+     * <p> 注意事项：;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * 需要订阅 ==消息与群组== 分类下的 ==机器人被移出群== 事件;- 事件会向被移出群的机器人进行推送
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-bot/events/deleted">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-bot/events/deleted</a>
      *
      * @param handler
@@ -921,8 +921,8 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 用户进群,新用户进群触发此事件。
-     * <p> 注意事项：;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);- 需要订阅
-     * ==消息与群组== 分类下的 ==用户进群== 事件;- 事件会向群内订阅了该事件的机器人进行推送
+     * <p> 注意事项：;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * 需要订阅 ==消息与群组== 分类下的 ==用户进群== 事件;- 事件会向群内订阅了该事件的机器人进行推送
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-user/events/added">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-user/events/added</a>
      *
      * @param handler
@@ -938,7 +938,7 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 用户主动退群或被移出群聊,用户主动退群或被移出群聊时推送事件。
-     * <p> 注意事项：;- 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)并且机器人所在群发生上述变化;-
+     * <p> 注意事项：;- 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)并且机器人所在群发生上述变化;-
      * 机器人需要订阅 ==消息与群组== 分类下的 ==用户主动退群或被移出群聊== 事件;- 事件会向群内订阅了该事件的机器人进行推送
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-user/events/deleted">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-user/events/deleted</a>
      *
@@ -955,8 +955,8 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 撤销拉用户进群,撤销拉用户进群后触发此事件。
-     * <p> 注意事项：;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);- 需要订阅
-     * ==消息与群组== 分类下的 ==撤销拉用户进群== 事件;- 事件会向群内订阅了该事件的机器人进行推送
+     * <p> 注意事项：;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * 需要订阅 ==消息与群组== 分类下的 ==撤销拉用户进群== 事件;- 事件会向群内订阅了该事件的机器人进行推送
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-user/events/withdrawn">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-member-user/events/withdrawn</a>
      *
      * @param handler
@@ -973,8 +973,8 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 消息已读,用户阅读机器人发送的单聊消息后触发此事件。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;- 需要订阅
-     * ==消息与群组== 分类下的 ==消息已读== 事件
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 需要订阅 ==消息与群组== 分类下的 ==消息已读== 事件
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/message_read">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/message_read</a>
      *
      * @param handler
@@ -990,8 +990,8 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 接收消息,机器人接收到用户发送的消息后触发此事件。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ，并订阅
-     * ==消息与群组== 分类下的 ==接收消息v2.0== 事件才可接收推送;- 同时，将根据应用具备的权限，判断可推送的信息：;	-
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     *  ，并订阅 ==消息与群组== 分类下的 ==接收消息v2.0== 事件才可接收推送;- 同时，将根据应用具备的权限，判断可推送的信息：;	-
      * 当具备==获取用户发给机器人的单聊消息==权限或者==读取用户发给机器人的单聊消息（历史权限）==，可接收与机器人单聊会话中用户发送的所有消息;	- 当具备==获取群组中所有消息==
      * 权限时，可接收与机器人所在群聊会话中用户发送的所有消息;	- 当具备==获取用户在群组中@机器人的消息== 权限或者==获取用户在群聊中@机器人的消息（历史权限）==，可接收机器人所在群聊中用户
      * @ 机器人的消息
@@ -1010,8 +1010,8 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 新增消息表情回复,消息被添加某一个表情回复后触发此事件
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)
-     * ，具备==获取单聊、群组消息== 或 ==获取与发送单聊、群组消息==权限，并订阅 ==消息与群组== 分类下的 ==消息被reaction== 事件才可接收推送;-
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     *  ，具备==获取单聊、群组消息== 或 ==获取与发送单聊、群组消息==权限，并订阅 ==消息与群组== 分类下的 ==消息被reaction== 事件才可接收推送;-
      * 机器人只能收到所在群聊内的消息被添加表情回复事件
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/events/created</a>
      *
@@ -1029,8 +1029,8 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 删除消息表情回复,消息被删除某一个表情回复后触发此事件
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)
-     * ，具备==获取单聊、群组消息== 或 ==获取与发送单聊、群组消息==权限，并订阅 ==消息与群组== 分类下的 ==消息被取消reaction== 事件才可接收推送;-
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     *  ，具备==获取单聊、群组消息== 或 ==获取与发送单聊、群组消息==权限，并订阅 ==消息与群组== 分类下的 ==消息被取消reaction== 事件才可接收推送;-
      * 机器人只能收到所在群聊内的消息被删除表情回复事件
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/events/deleted">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/events/deleted</a>
      *
@@ -1049,7 +1049,7 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 会议室创建,会议室被创建将触发此事件。
-     * <p> 了解事件订阅的使用场景和配置流程，请点击查看 [事件订阅概述](/ssl:ttdoc/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
+     * <p> 了解事件订阅的使用场景和配置流程，请点击查看 [事件订阅概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/meeting_room-v1/meeting_room/events/created">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/meeting_room-v1/meeting_room/events/created</a>
      *
      * @param handler
@@ -1066,7 +1066,7 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 会议室删除,会议室被删除将触发此事件。
-     * <p> 了解事件订阅的使用场景和配置流程，请点击查看 [事件订阅概述](/ssl:ttdoc/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
+     * <p> 了解事件订阅的使用场景和配置流程，请点击查看 [事件订阅概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/meeting_room-v1/meeting_room/events/deleted">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/meeting_room-v1/meeting_room/events/deleted</a>
      *
      * @param handler
@@ -1083,7 +1083,7 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 会议室状态信息变更,会议室状态信息变更将触发此事件。
-     * <p> 了解事件订阅的使用场景和配置流程，请点击查看 [事件订阅概述](/ssl:ttdoc/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
+     * <p> 了解事件订阅的使用场景和配置流程，请点击查看 [事件订阅概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/meeting_room-v1/meeting_room/events/status_changed">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/meeting_room-v1/meeting_room/events/status_changed</a>
      *
      * @param handler
@@ -1101,7 +1101,7 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> 会议室属性变更,会议室属性更新将触发此事件。
-     * <p> 了解事件订阅的使用场景和配置流程，请点击查看 [事件订阅概述](/ssl:ttdoc/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
+     * <p> 了解事件订阅的使用场景和配置流程，请点击查看 [事件订阅概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
      * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/meeting_room-v1/meeting_room/events/updated">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/meeting_room-v1/meeting_room/events/updated</a>
      *
      * @param handler

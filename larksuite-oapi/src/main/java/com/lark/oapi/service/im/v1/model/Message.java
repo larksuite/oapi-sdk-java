@@ -18,25 +18,25 @@ import com.google.gson.annotations.SerializedName;
 public class Message {
 
   /**
-   * 消息id，说明参见：[消息ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+   * 消息id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
    * <p> 示例值：om_dc13264520392913993dd051dba21dcf
    */
   @SerializedName("message_id")
   private String messageId;
   /**
-   * 根消息id，说明参见：[消息ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+   * 根消息id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
    * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
    */
   @SerializedName("root_id")
   private String rootId;
   /**
-   * 父消息的id，说明参见：[消息ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+   * 父消息的id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
    * <p> 示例值：om_d4be107c616aed9c1da8ed8068570a9f
    */
   @SerializedName("parent_id")
   private String parentId;
   /**
-   * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息content说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+   * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
    * <p> 示例值：card
    */
   @SerializedName("msg_type")
@@ -90,7 +90,7 @@ public class Message {
   @SerializedName("mentions")
   private Mention[] mentions;
   /**
-   * 合并转发消息中，上一层级的消息id message_id，说明参见：[消息ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+   * 合并转发消息中，上一层级的消息id message_id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
    * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
    */
   @SerializedName("upper_message_id")
@@ -102,22 +102,22 @@ public class Message {
 
   public Message(Builder builder) {
     /**
-     * 消息id，说明参见：[消息ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+     * 消息id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
      */
     this.messageId = builder.messageId;
     /**
-     * 根消息id，说明参见：[消息ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+     * 根消息id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
      * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
      */
     this.rootId = builder.rootId;
     /**
-     * 父消息的id，说明参见：[消息ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+     * 父消息的id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
      * <p> 示例值：om_d4be107c616aed9c1da8ed8068570a9f
      */
     this.parentId = builder.parentId;
     /**
-     * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息content说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+     * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
      * <p> 示例值：card
      */
     this.msgType = builder.msgType;
@@ -162,7 +162,7 @@ public class Message {
      */
     this.mentions = builder.mentions;
     /**
-     * 合并转发消息中，上一层级的消息id message_id，说明参见：[消息ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+     * 合并转发消息中，上一层级的消息id message_id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
      * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
      */
     this.upperMessageId = builder.upperMessageId;
@@ -279,22 +279,22 @@ public class Message {
   public static class Builder {
 
     /**
-     * 消息id，说明参见：[消息ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+     * 消息id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
      */
     private String messageId;
     /**
-     * 根消息id，说明参见：[消息ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+     * 根消息id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
      * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
      */
     private String rootId;
     /**
-     * 父消息的id，说明参见：[消息ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+     * 父消息的id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
      * <p> 示例值：om_d4be107c616aed9c1da8ed8068570a9f
      */
     private String parentId;
     /**
-     * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息content说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+     * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
      * <p> 示例值：card
      */
     private String msgType;
@@ -339,13 +339,13 @@ public class Message {
      */
     private Mention[] mentions;
     /**
-     * 合并转发消息中，上一层级的消息id message_id，说明参见：[消息ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+     * 合并转发消息中，上一层级的消息id message_id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
      * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
      */
     private String upperMessageId;
 
     /**
-     * 消息id，说明参见：[消息ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+     * 消息id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
      * <p> 示例值：om_dc13264520392913993dd051dba21dcf
      *
      * @param messageId
@@ -358,7 +358,7 @@ public class Message {
 
 
     /**
-     * 根消息id，说明参见：[消息ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+     * 根消息id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
      * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
      *
      * @param rootId
@@ -371,7 +371,7 @@ public class Message {
 
 
     /**
-     * 父消息的id，说明参见：[消息ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+     * 父消息的id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
      * <p> 示例值：om_d4be107c616aed9c1da8ed8068570a9f
      *
      * @param parentId
@@ -384,7 +384,7 @@ public class Message {
 
 
     /**
-     * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息content说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+     * 消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考[发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
      * <p> 示例值：card
      *
      * @param msgType
@@ -501,7 +501,7 @@ public class Message {
 
 
     /**
-     * 合并转发消息中，上一层级的消息id message_id，说明参见：[消息ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
+     * 合并转发消息中，上一层级的消息id message_id，说明参见：[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
      * <p> 示例值：om_40eb06e7b84dc71c03e009ad3c754195
      *
      * @param upperMessageId

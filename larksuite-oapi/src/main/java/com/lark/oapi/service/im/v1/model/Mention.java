@@ -30,7 +30,7 @@ public class Mention {
   @SerializedName("id")
   private String id;
   /**
-   * 被@的用户或机器人 id 类型，目前仅支持 `open_id` ([什么是 Open ID？](/ssl:ttdoc/home/user-identity-introduction/open-id))
+   * 被@的用户或机器人 id 类型，目前仅支持 `open_id` ([什么是 Open ID？](https://open.feishu.cn/document/home/user-identity-introduction/open-id))
    * <p> 示例值：open_id
    */
   @SerializedName("id_type")
@@ -64,7 +64,7 @@ public class Mention {
      */
     this.id = builder.id;
     /**
-     * 被@的用户或机器人 id 类型，目前仅支持 `open_id` ([什么是 Open ID？](/ssl:ttdoc/home/user-identity-introduction/open-id))
+     * 被@的用户或机器人 id 类型，目前仅支持 `open_id` ([什么是 Open ID？](https://open.feishu.cn/document/home/user-identity-introduction/open-id))
      * <p> 示例值：open_id
      */
     this.idType = builder.idType;
@@ -137,7 +137,7 @@ public class Mention {
      */
     private String id;
     /**
-     * 被@的用户或机器人 id 类型，目前仅支持 `open_id` ([什么是 Open ID？](/ssl:ttdoc/home/user-identity-introduction/open-id))
+     * 被@的用户或机器人 id 类型，目前仅支持 `open_id` ([什么是 Open ID？](https://open.feishu.cn/document/home/user-identity-introduction/open-id))
      * <p> 示例值：open_id
      */
     private String idType;
@@ -179,7 +179,7 @@ public class Mention {
 
 
     /**
-     * 被@的用户或机器人 id 类型，目前仅支持 `open_id` ([什么是 Open ID？](/ssl:ttdoc/home/user-identity-introduction/open-id))
+     * 被@的用户或机器人 id 类型，目前仅支持 `open_id` ([什么是 Open ID？](https://open.feishu.cn/document/home/user-identity-introduction/open-id))
      * <p> 示例值：open_id
      *
      * @param idType

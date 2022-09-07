@@ -27,9 +27,9 @@ public class GetUserFlowReq {
   @SerializedName("employee_type")
   private String employeeType;
   /**
-   * 打卡流水记录 ID，获取方式：1）[批量查询打卡流水记录](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query)
-   * 2）[获取打卡结果](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
-   * 3）[导入打卡流水记录](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)
+   * 打卡流水记录 ID，获取方式：1）[批量查询打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query)
+   * 2）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
+   * 3）[导入打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)
    * <p> 示例值：6708236686834352397
    */
   @Path
@@ -47,7 +47,7 @@ public class GetUserFlowReq {
      */
     this.employeeType = builder.employeeType;
     /**
-     * 打卡流水记录 ID，获取方式：1）[批量查询打卡流水记录](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query) 2）[获取打卡结果](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query) 3）[导入打卡流水记录](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)
+     * 打卡流水记录 ID，获取方式：1）[批量查询打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query) 2）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query) 3）[导入打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)
      * <p> 示例值：6708236686834352397
      */
     this.userFlowId = builder.userFlowId;
@@ -76,7 +76,7 @@ public class GetUserFlowReq {
   public static class Builder {
 
     private String employeeType; // 响应体中的 user_id 和 creator_id 的员工工号类型
-    private String userFlowId; // 打卡流水记录 ID，获取方式：1）[批量查询打卡流水记录](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query) 2）[获取打卡结果](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query) 3）[导入打卡流水记录](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)
+    private String userFlowId; // 打卡流水记录 ID，获取方式：1）[批量查询打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query) 2）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query) 3）[导入打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)
 
     /**
      * 响应体中的 user_id 和 creator_id 的员工工号类型
@@ -104,9 +104,9 @@ public class GetUserFlowReq {
     }
 
     /**
-     * 打卡流水记录 ID，获取方式：1）[批量查询打卡流水记录](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query)
-     * 2）[获取打卡结果](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
-     * 3）[导入打卡流水记录](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)
+     * 打卡流水记录 ID，获取方式：1）[批量查询打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query)
+     * 2）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
+     * 3）[导入打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)
      * <p> 示例值：6708236686834352397
      *
      * @param userFlowId

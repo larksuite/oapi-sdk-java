@@ -40,6 +40,8 @@ import com.lark.oapi.service.sheets.v3.model.DeleteSpreadsheetSheetFloatImageReq
 import com.lark.oapi.service.sheets.v3.model.DeleteSpreadsheetSheetFloatImageResp;
 import com.lark.oapi.service.sheets.v3.model.FindSpreadsheetSheetReq;
 import com.lark.oapi.service.sheets.v3.model.FindSpreadsheetSheetResp;
+import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetReq;
+import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetResp;
 import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetFilterReq;
 import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetFilterResp;
 import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetFilterViewConditionReq;
@@ -48,8 +50,12 @@ import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetFilterViewReq;
 import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetFilterViewResp;
 import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetFloatImageReq;
 import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetFloatImageResp;
+import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetReq;
+import com.lark.oapi.service.sheets.v3.model.GetSpreadsheetSheetResp;
 import com.lark.oapi.service.sheets.v3.model.MoveDimensionSpreadsheetSheetReq;
 import com.lark.oapi.service.sheets.v3.model.MoveDimensionSpreadsheetSheetResp;
+import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetReq;
+import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetResp;
 import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetSheetFilterViewReq;
 import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetSheetFilterViewResp;
 import com.lark.oapi.service.sheets.v3.model.PatchSpreadsheetSheetFloatImageReq;
@@ -60,6 +66,8 @@ import com.lark.oapi.service.sheets.v3.model.QuerySpreadsheetSheetFilterViewReq;
 import com.lark.oapi.service.sheets.v3.model.QuerySpreadsheetSheetFilterViewResp;
 import com.lark.oapi.service.sheets.v3.model.QuerySpreadsheetSheetFloatImageReq;
 import com.lark.oapi.service.sheets.v3.model.QuerySpreadsheetSheetFloatImageResp;
+import com.lark.oapi.service.sheets.v3.model.QuerySpreadsheetSheetReq;
+import com.lark.oapi.service.sheets.v3.model.QuerySpreadsheetSheetResp;
 import com.lark.oapi.service.sheets.v3.model.ReplaceSpreadsheetSheetReq;
 import com.lark.oapi.service.sheets.v3.model.ReplaceSpreadsheetSheetResp;
 import com.lark.oapi.service.sheets.v3.model.UpdateSpreadsheetSheetFilterReq;
@@ -70,7 +78,7 @@ import com.lark.oapi.service.sheets.v3.model.UpdateSpreadsheetSheetFilterViewCon
 public class SheetsService {
 
   private final Spreadsheet spreadsheet; // 表格
-  private final SpreadsheetSheet spreadsheetSheet; // 单元格
+  private final SpreadsheetSheet spreadsheetSheet; // 工作表
   private final SpreadsheetSheetFilter spreadsheetSheetFilter; // 筛选
   private final SpreadsheetSheetFilterView spreadsheetSheetFilterView; // 筛选视图
   private final SpreadsheetSheetFilterViewCondition spreadsheetSheetFilterViewCondition; // 筛选条件
@@ -95,7 +103,7 @@ public class SheetsService {
   }
 
   /**
-   * 单元格
+   * 工作表
    *
    * @return
    */
@@ -201,6 +209,116 @@ public class SheetsService {
 
       return resp;
     }
+
+    /**
+     * 获取电子表格信息，该接口用于获取电子表格的基础信息。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSample.java</a>
+     * ;
+     */
+    public GetSpreadsheetResp get(GetSpreadsheetReq req, RequestOptions reqOptions)
+        throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      GetSpreadsheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          GetSpreadsheetResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 获取电子表格信息，该接口用于获取电子表格的基础信息。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSample.java</a>
+     * ;
+     */
+    public GetSpreadsheetResp get(GetSpreadsheetReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      GetSpreadsheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          GetSpreadsheetResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 修改电子表格属性，该接口用于修改电子表格的属性
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSample.java</a>
+     * ;
+     */
+    public PatchSpreadsheetResp patch(PatchSpreadsheetReq req, RequestOptions reqOptions)
+        throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      PatchSpreadsheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          PatchSpreadsheetResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 修改电子表格属性，该接口用于修改电子表格的属性
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet/patch</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/PatchSpreadsheetSample.java</a>
+     * ;
+     */
+    public PatchSpreadsheetResp patch(PatchSpreadsheetReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
+          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      PatchSpreadsheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          PatchSpreadsheetResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
   }
 
   public static class SpreadsheetSheet {
@@ -267,6 +385,61 @@ public class SheetsService {
     }
 
     /**
+     * 查询工作表，该接口用于通过工作表ID查询工作表属性信息。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetSample.java</a>
+     * ;
+     */
+    public GetSpreadsheetSheetResp get(GetSpreadsheetSheetReq req, RequestOptions reqOptions)
+        throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      GetSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          GetSpreadsheetSheetResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 查询工作表，该接口用于通过工作表ID查询工作表属性信息。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/get</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/GetSpreadsheetSheetSample.java</a>
+     * ;
+     */
+    public GetSpreadsheetSheetResp get(GetSpreadsheetSheetReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/:sheet_id"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      GetSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          GetSpreadsheetSheetResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
      * 移动行列，该接口用于移动行列，行列被移动到目标位置后，原本在目标位置的行列会对应右移或下移。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/move_dimension">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/move_dimension</a>
      * ;
@@ -316,6 +489,61 @@ public class SheetsService {
       // 反序列化
       MoveDimensionSpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           MoveDimensionSpreadsheetSheetResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 获取工作表，该接口用于获取电子表格下所有工作表及其属性。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetSample.java</a>
+     * ;
+     */
+    public QuerySpreadsheetSheetResp query(QuerySpreadsheetSheetReq req, RequestOptions reqOptions)
+        throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/query"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      QuerySpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          QuerySpreadsheetSheetResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 获取工作表，该接口用于获取电子表格下所有工作表及其属性。
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sheetsv3/QuerySpreadsheetSheetSample.java</a>
+     * ;
+     */
+    public QuerySpreadsheetSheetResp query(QuerySpreadsheetSheetReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/sheets/v3/spreadsheets/:spreadsheet_token/sheets/query"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      QuerySpreadsheetSheetResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          QuerySpreadsheetSheetResp.class);
       resp.setRawResponse(httpResponse);
       resp.setRequest(req);
 
@@ -390,7 +618,7 @@ public class SheetsService {
 
     /**
      * 创建筛选，在子表内创建筛选。
-     * <p> 参数值可参考[筛选指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)
+     * <p> 参数值可参考[筛选指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/create</a>
      * ;
@@ -421,7 +649,7 @@ public class SheetsService {
 
     /**
      * 创建筛选，在子表内创建筛选。
-     * <p> 参数值可参考[筛选指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)
+     * <p> 参数值可参考[筛选指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/create</a>
      * ;
@@ -561,7 +789,7 @@ public class SheetsService {
 
     /**
      * 更新筛选，更新子表筛选范围中的列筛选条件。
-     * <p> 参数值可参考[筛选指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)
+     * <p> 参数值可参考[筛选指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/update</a>
      * ;
@@ -592,7 +820,7 @@ public class SheetsService {
 
     /**
      * 更新筛选，更新子表筛选范围中的列筛选条件。
-     * <p> 参数值可参考[筛选指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)
+     * <p> 参数值可参考[筛选指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/update</a>
      * ;
@@ -631,7 +859,7 @@ public class SheetsService {
     /**
      * 创建筛选视图，根据传入的参数创建一个筛选视图。Id 和 名字可选，不填的话会默认生成；range 必填。Id 长度为10，由 0-9、a-z、A-Z
      * 组合生成。名字长度不超过100。单个子表内的筛选视图个数不超过 150。
-     * <p> 筛选范围的设置参考：[筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * <p> 筛选范围的设置参考：[筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/create</a>
      * ;
@@ -663,7 +891,7 @@ public class SheetsService {
     /**
      * 创建筛选视图，根据传入的参数创建一个筛选视图。Id 和 名字可选，不填的话会默认生成；range 必填。Id 长度为10，由 0-9、a-z、A-Z
      * 组合生成。名字长度不超过100。单个子表内的筛选视图个数不超过 150。
-     * <p> 筛选范围的设置参考：[筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * <p> 筛选范围的设置参考：[筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/create</a>
      * ;
@@ -808,7 +1036,7 @@ public class SheetsService {
 
     /**
      * 更新筛选视图，更新筛选视图的名字或者筛选范围。名字长度不超过100，不能重复即子表内唯一；筛选范围不超过子表的最大范围。
-     * <p> 筛选范围的设置参考：[筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * <p> 筛选范围的设置参考：[筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/patch</a>
      * ;
@@ -840,7 +1068,7 @@ public class SheetsService {
 
     /**
      * 更新筛选视图，更新筛选视图的名字或者筛选范围。名字长度不超过100，不能重复即子表内唯一；筛选范围不超过子表的最大范围。
-     * <p> 筛选范围的设置参考：[筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * <p> 筛选范围的设置参考：[筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/patch</a>
      * ;
@@ -937,7 +1165,7 @@ public class SheetsService {
 
     /**
      * 创建筛选条件，在筛选视图的筛选范围的某一列创建筛选条件。
-     * <p> 筛选条件参考 [筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * <p> 筛选条件参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/create</a>
      * ;
@@ -970,7 +1198,7 @@ public class SheetsService {
 
     /**
      * 创建筛选条件，在筛选视图的筛选范围的某一列创建筛选条件。
-     * <p> 筛选条件参考 [筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * <p> 筛选条件参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/create</a>
      * ;
@@ -1059,7 +1287,7 @@ public class SheetsService {
 
     /**
      * 获取筛选条件，获取筛选视图某列的筛选条件信息。
-     * <p> 筛选条件含义参考 [筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * <p> 筛选条件含义参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/get</a>
      * ;
@@ -1091,7 +1319,7 @@ public class SheetsService {
 
     /**
      * 获取筛选条件，获取筛选视图某列的筛选条件信息。
-     * <p> 筛选条件含义参考 [筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * <p> 筛选条件含义参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/get</a>
      * ;
@@ -1121,7 +1349,7 @@ public class SheetsService {
 
     /**
      * 查询筛选条件，查询一个筛选视图的所有筛选条件，返回筛选视图的筛选范围内的筛选条件。
-     * <p> 筛选条件含义可参考 [筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * <p> 筛选条件含义可参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/query</a>
      * ;
@@ -1154,7 +1382,7 @@ public class SheetsService {
 
     /**
      * 查询筛选条件，查询一个筛选视图的所有筛选条件，返回筛选视图的筛选范围内的筛选条件。
-     * <p> 筛选条件含义可参考 [筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * <p> 筛选条件含义可参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/query</a>
      * ;
@@ -1184,7 +1412,7 @@ public class SheetsService {
 
     /**
      * 更新筛选条件，更新筛选视图范围的某列的筛选条件，condition id 即为列的字母号。
-     * <p> 筛选条件参数可参考 [筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * <p> 筛选条件参数可参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/update</a>
      * ;
@@ -1217,7 +1445,7 @@ public class SheetsService {
 
     /**
      * 更新筛选条件，更新筛选视图范围的某列的筛选条件，condition id 即为列的字母号。
-     * <p> 筛选条件参数可参考 [筛选视图的筛选条件指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
+     * <p> 筛选条件参数可参考 [筛选视图的筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/update</a>
      * ;
@@ -1255,10 +1483,10 @@ public class SheetsService {
     }
 
     /**
-     * 创建浮动图片，根据传入的参数创建一张浮动图片。Float_image_token （[上传图片至表格后得到](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)）和range（只支持一个单元格）
+     * 创建浮动图片，根据传入的参数创建一张浮动图片。Float_image_token （[上传图片至表格后得到](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)）和range（只支持一个单元格）
      * 必填。Float_image_id 可选，不填的话会默认生成，长度为10，由 0-9、a-z、A-Z 组合生成。表格内不重复的图片（浮动图片+单元格图片）总数不超过4000。width
      * 和 height 为图片展示的宽高，可选，不填的话会使用图片的真实宽高。offset_x 和 offset_y 为图片左上角距离所在单元格左上角的偏移，可选，默认为 0。
-     * <p> 浮动图片的设置参考：[浮动图片指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
+     * <p> 浮动图片的设置参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/create</a>
      * ;
@@ -1288,10 +1516,10 @@ public class SheetsService {
     }
 
     /**
-     * 创建浮动图片，根据传入的参数创建一张浮动图片。Float_image_token （[上传图片至表格后得到](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)）和range（只支持一个单元格）
+     * 创建浮动图片，根据传入的参数创建一张浮动图片。Float_image_token （[上传图片至表格后得到](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)）和range（只支持一个单元格）
      * 必填。Float_image_id 可选，不填的话会默认生成，长度为10，由 0-9、a-z、A-Z 组合生成。表格内不重复的图片（浮动图片+单元格图片）总数不超过4000。width
      * 和 height 为图片展示的宽高，可选，不填的话会使用图片的真实宽高。offset_x 和 offset_y 为图片左上角距离所在单元格左上角的偏移，可选，默认为 0。
-     * <p> 浮动图片的设置参考：[浮动图片指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
+     * <p> 浮动图片的设置参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/create">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/create</a>
      * ;
@@ -1378,7 +1606,7 @@ public class SheetsService {
 
     /**
      * 获取浮动图片，根据 float_image_id 获取对应浮动图片的信息。
-     * <p> 浮动图片参考：[浮动图片指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
+     * <p> 浮动图片参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/get</a>
      * ;
@@ -1410,7 +1638,7 @@ public class SheetsService {
 
     /**
      * 获取浮动图片，根据 float_image_id 获取对应浮动图片的信息。
-     * <p> 浮动图片参考：[浮动图片指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
+     * <p> 浮动图片参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/get">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/get</a>
      * ;
@@ -1441,7 +1669,7 @@ public class SheetsService {
     /**
      * 更新浮动图片，更新已有的浮动图片位置和宽高，包括 range、width、height、offset_x 和 offset_y，不包括 float_image_id 和
      * float_image_token。
-     * <p> 浮动图片更新参考：[浮动图片指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
+     * <p> 浮动图片更新参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/patch</a>
      * ;
@@ -1474,7 +1702,7 @@ public class SheetsService {
     /**
      * 更新浮动图片，更新已有的浮动图片位置和宽高，包括 range、width、height、offset_x 和 offset_y，不包括 float_image_id 和
      * float_image_token。
-     * <p> 浮动图片更新参考：[浮动图片指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
+     * <p> 浮动图片更新参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/patch">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/patch</a>
      * ;
@@ -1504,7 +1732,7 @@ public class SheetsService {
 
     /**
      * 查询浮动图片，返回子表内所有的浮动图片信息。
-     * <p> 浮动图片参考：[浮动图片指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
+     * <p> 浮动图片参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query</a>
      * ;
@@ -1536,7 +1764,7 @@ public class SheetsService {
 
     /**
      * 查询浮动图片，返回子表内所有的浮动图片信息。
-     * <p> 浮动图片参考：[浮动图片指南](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
+     * <p> 浮动图片参考：[浮动图片指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/float-image-user-guide)
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query</a>
      * ;

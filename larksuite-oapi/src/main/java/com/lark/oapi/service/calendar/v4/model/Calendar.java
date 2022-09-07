@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class Calendar {
 
   /**
-   * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+   * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
    * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
    */
   @SerializedName("calendar_id")
@@ -84,7 +84,7 @@ public class Calendar {
 
   public Calendar(Builder builder) {
     /**
-     * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
     this.calendarId = builder.calendarId;
@@ -222,7 +222,7 @@ public class Calendar {
   public static class Builder {
 
     /**
-     * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
     private String calendarId;
@@ -273,7 +273,7 @@ public class Calendar {
     private String role;
 
     /**
-     * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      *
      * @param calendarId

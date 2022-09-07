@@ -18,19 +18,19 @@ import com.google.gson.annotations.SerializedName;
 public class UserEvent {
 
   /**
-   * 用户的open_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 用户的open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
    */
   @SerializedName("open_id")
   private String openId;
   /**
-   * 用户的union_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 用户的union_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：on_576833b917gda3d939b9a3c2d53e72c8
    */
   @SerializedName("union_id")
   private String unionId;
   /**
-   * 租户内用户的唯一标识 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 租户内用户的唯一标识 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：e33ggbyz
    */
   @SerializedName("user_id")
@@ -102,7 +102,7 @@ public class UserEvent {
   @SerializedName("department_ids")
   private String[] departmentIds;
   /**
-   * 用户的直接主管的用户open_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 用户的直接主管的用户open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：ou_3ghm8a2u0eftg0ff377125s5dd275z09
    */
   @SerializedName("leader_user_id")
@@ -162,17 +162,17 @@ public class UserEvent {
 
   public UserEvent(Builder builder) {
     /**
-     * 用户的open_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
     this.openId = builder.openId;
     /**
-     * 用户的union_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的union_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：on_576833b917gda3d939b9a3c2d53e72c8
      */
     this.unionId = builder.unionId;
     /**
-     * 租户内用户的唯一标识 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 租户内用户的唯一标识 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：e33ggbyz
      */
     this.userId = builder.userId;
@@ -232,7 +232,7 @@ public class UserEvent {
      */
     this.departmentIds = builder.departmentIds;
     /**
-     * 用户的直接主管的用户open_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的直接主管的用户open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_3ghm8a2u0eftg0ff377125s5dd275z09
      */
     this.leaderUserId = builder.leaderUserId;
@@ -469,17 +469,17 @@ public class UserEvent {
   public static class Builder {
 
     /**
-     * 用户的open_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
     private String openId;
     /**
-     * 用户的union_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的union_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：on_576833b917gda3d939b9a3c2d53e72c8
      */
     private String unionId;
     /**
-     * 租户内用户的唯一标识 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 租户内用户的唯一标识 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：e33ggbyz
      */
     private String userId;
@@ -539,7 +539,7 @@ public class UserEvent {
      */
     private String[] departmentIds;
     /**
-     * 用户的直接主管的用户open_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的直接主管的用户open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_3ghm8a2u0eftg0ff377125s5dd275z09
      */
     private String leaderUserId;
@@ -585,7 +585,7 @@ public class UserEvent {
     private UserCustomAttr[] customAttrs;
 
     /**
-     * 用户的open_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      *
      * @param openId
@@ -598,7 +598,7 @@ public class UserEvent {
 
 
     /**
-     * 用户的union_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的union_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：on_576833b917gda3d939b9a3c2d53e72c8
      *
      * @param unionId
@@ -611,7 +611,7 @@ public class UserEvent {
 
 
     /**
-     * 租户内用户的唯一标识 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 租户内用户的唯一标识 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：e33ggbyz
      *
      * @param userId
@@ -779,7 +779,7 @@ public class UserEvent {
 
 
     /**
-     * 用户的直接主管的用户open_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的直接主管的用户open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_3ghm8a2u0eftg0ff377125s5dd275z09
      *
      * @param leaderUserId

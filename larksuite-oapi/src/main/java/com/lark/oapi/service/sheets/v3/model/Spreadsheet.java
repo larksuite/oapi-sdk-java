@@ -24,7 +24,7 @@ public class Spreadsheet {
   @SerializedName("title")
   private String title;
   /**
-   * 文件夹token，获取方式见[概述](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+   * 文件夹token，获取方式见[概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
    * <p> 示例值：fldcnMsNb*****hIW9IjG1LVswg
    */
   @SerializedName("folder_token")
@@ -53,7 +53,7 @@ public class Spreadsheet {
      */
     this.title = builder.title;
     /**
-     * 文件夹token，获取方式见[概述](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+     * 文件夹token，获取方式见[概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
      * <p> 示例值：fldcnMsNb*****hIW9IjG1LVswg
      */
     this.folderToken = builder.folderToken;
@@ -113,7 +113,7 @@ public class Spreadsheet {
      */
     private String title;
     /**
-     * 文件夹token，获取方式见[概述](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+     * 文件夹token，获取方式见[概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
      * <p> 示例值：fldcnMsNb*****hIW9IjG1LVswg
      */
     private String folderToken;
@@ -142,7 +142,7 @@ public class Spreadsheet {
 
 
     /**
-     * 文件夹token，获取方式见[概述](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+     * 文件夹token，获取方式见[概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
      * <p> 示例值：fldcnMsNb*****hIW9IjG1LVswg
      *
      * @param folderToken

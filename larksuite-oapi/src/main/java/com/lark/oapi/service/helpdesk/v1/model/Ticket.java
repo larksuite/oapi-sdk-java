@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class Ticket {
 
   /**
-   * 工单ID;;[可以从工单列表里面取](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list);;[也可以订阅工单创建事件获取](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created)
+   * 工单ID;;[可以从工单列表里面取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list);;[也可以订阅工单创建事件获取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created)
    * <p> 示例值：6626871355780366331
    */
   @SerializedName("ticket_id")
@@ -114,7 +114,7 @@ public class Ticket {
   @SerializedName("collaborators")
   private TicketUser[] collaborators;
   /**
-   * 自定义字段列表，没有值时不设置  ;下拉菜单的value对应工单字段里面的children.display_name;[获取全部工单自定义字段](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/list-ticket-customized-fields)
+   * 自定义字段列表，没有值时不设置  ;下拉菜单的value对应工单字段里面的children.display_name;[获取全部工单自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/list-ticket-customized-fields)
    * <p> 示例值：
    */
   @SerializedName("customized_fields")
@@ -180,7 +180,7 @@ public class Ticket {
 
   public Ticket(Builder builder) {
     /**
-     * 工单ID;;[可以从工单列表里面取](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list);;[也可以订阅工单创建事件获取](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created)
+     * 工单ID;;[可以从工单列表里面取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list);;[也可以订阅工单创建事件获取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created)
      * <p> 示例值：6626871355780366331
      */
     this.ticketId = builder.ticketId;
@@ -260,7 +260,7 @@ public class Ticket {
      */
     this.collaborators = builder.collaborators;
     /**
-     * 自定义字段列表，没有值时不设置  ;下拉菜单的value对应工单字段里面的children.display_name;[获取全部工单自定义字段](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/list-ticket-customized-fields)
+     * 自定义字段列表，没有值时不设置  ;下拉菜单的value对应工单字段里面的children.display_name;[获取全部工单自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/list-ticket-customized-fields)
      * <p> 示例值：
      */
     this.customizedFields = builder.customizedFields;
@@ -526,7 +526,7 @@ public class Ticket {
   public static class Builder {
 
     /**
-     * 工单ID;;[可以从工单列表里面取](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list);;[也可以订阅工单创建事件获取](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created)
+     * 工单ID;;[可以从工单列表里面取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list);;[也可以订阅工单创建事件获取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created)
      * <p> 示例值：6626871355780366331
      */
     private String ticketId;
@@ -606,7 +606,7 @@ public class Ticket {
      */
     private TicketUser[] collaborators;
     /**
-     * 自定义字段列表，没有值时不设置  ;下拉菜单的value对应工单字段里面的children.display_name;[获取全部工单自定义字段](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/list-ticket-customized-fields)
+     * 自定义字段列表，没有值时不设置  ;下拉菜单的value对应工单字段里面的children.display_name;[获取全部工单自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/list-ticket-customized-fields)
      * <p> 示例值：
      */
     private CustomizedFieldDisplayItem[] customizedFields;
@@ -657,7 +657,7 @@ public class Ticket {
     private TicketUser agentOwner;
 
     /**
-     * 工单ID;;[可以从工单列表里面取](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list);;[也可以订阅工单创建事件获取](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created)
+     * 工单ID;;[可以从工单列表里面取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list);;[也可以订阅工单创建事件获取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created)
      * <p> 示例值：6626871355780366331
      *
      * @param ticketId
@@ -865,7 +865,7 @@ public class Ticket {
 
 
     /**
-     * 自定义字段列表，没有值时不设置  ;下拉菜单的value对应工单字段里面的children.display_name;[获取全部工单自定义字段](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/list-ticket-customized-fields)
+     * 自定义字段列表，没有值时不设置  ;下拉菜单的value对应工单字段里面的children.display_name;[获取全部工单自定义字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket_customized_field/list-ticket-customized-fields)
      * <p> 示例值：
      *
      * @param customizedFields

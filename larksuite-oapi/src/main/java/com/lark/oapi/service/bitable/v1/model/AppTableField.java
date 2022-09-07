@@ -36,7 +36,7 @@ public class AppTableField {
   @SerializedName("type")
   private Integer type;
   /**
-   * 字段属性，具体参考：[字段编辑指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
+   * 字段属性，具体参考：[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
    * <p> 示例值：
    */
   @SerializedName("property")
@@ -69,7 +69,7 @@ public class AppTableField {
      */
     this.type = builder.type;
     /**
-     * 字段属性，具体参考：[字段编辑指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
+     * 字段属性，具体参考：[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
      * <p> 示例值：
      */
     this.property = builder.property;
@@ -142,7 +142,7 @@ public class AppTableField {
      */
     private Integer type;
     /**
-     * 字段属性，具体参考：[字段编辑指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
+     * 字段属性，具体参考：[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
      * <p> 示例值：
      */
     private AppTableFieldProperty property;
@@ -204,7 +204,7 @@ public class AppTableField {
 
 
     /**
-     * 字段属性，具体参考：[字段编辑指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
+     * 字段属性，具体参考：[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)
      * <p> 示例值：
      *
      * @param property

@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class AgentScheduleUpdateInfo {
 
   /**
-   * 客服id;;[可以以普通用户身份在服务台发起工单，从工单详情里面获取用户guest.id](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)
+   * 客服id;;[可以以普通用户身份在服务台发起工单，从工单详情里面获取用户guest.id](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)
    * <p> 示例值：agent-id
    */
   @SerializedName("agent_id")
@@ -42,7 +42,7 @@ public class AgentScheduleUpdateInfo {
 
   public AgentScheduleUpdateInfo(Builder builder) {
     /**
-     * 客服id;;[可以以普通用户身份在服务台发起工单，从工单详情里面获取用户guest.id](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)
+     * 客服id;;[可以以普通用户身份在服务台发起工单，从工单详情里面获取用户guest.id](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)
      * <p> 示例值：agent-id
      */
     this.agentId = builder.agentId;
@@ -89,7 +89,7 @@ public class AgentScheduleUpdateInfo {
   public static class Builder {
 
     /**
-     * 客服id;;[可以以普通用户身份在服务台发起工单，从工单详情里面获取用户guest.id](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)
+     * 客服id;;[可以以普通用户身份在服务台发起工单，从工单详情里面获取用户guest.id](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)
      * <p> 示例值：agent-id
      */
     private String agentId;
@@ -105,7 +105,7 @@ public class AgentScheduleUpdateInfo {
     private String[] agentSkillIds;
 
     /**
-     * 客服id;;[可以以普通用户身份在服务台发起工单，从工单详情里面获取用户guest.id](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)
+     * 客服id;;[可以以普通用户身份在服务台发起工单，从工单详情里面获取用户guest.id](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)
      * <p> 示例值：agent-id
      *
      * @param agentId

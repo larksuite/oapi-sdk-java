@@ -30,7 +30,7 @@ public class ListFreebusyReqBody {
   @SerializedName("time_max")
   private String timeMax;
   /**
-   * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：ou_xxxxxxxxxx
    */
   @SerializedName("user_id")
@@ -58,7 +58,7 @@ public class ListFreebusyReqBody {
      */
     this.timeMax = builder.timeMax;
     /**
-     * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_xxxxxxxxxx
      */
     this.userId = builder.userId;
@@ -118,7 +118,7 @@ public class ListFreebusyReqBody {
      */
     private String timeMax;
     /**
-     * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_xxxxxxxxxx
      */
     private String userId;
@@ -155,7 +155,7 @@ public class ListFreebusyReqBody {
 
 
     /**
-     * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_xxxxxxxxxx
      *
      * @param userId

@@ -35,7 +35,7 @@ public class UpdatePermissionMemberReq {
   @SerializedName("type")
   private String type;
   /**
-   * 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+   * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
    * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
    */
   @Path
@@ -67,7 +67,7 @@ public class UpdatePermissionMemberReq {
      */
     this.type = builder.type;
     /**
-     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
      * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
      */
     this.token = builder.token;
@@ -127,7 +127,7 @@ public class UpdatePermissionMemberReq {
 
     private Boolean needNotification; // 更新权限后是否通知对方;;**注意：** 使用`tenant_access_token`访问不支持该参数
     private String type; // 文件类型，放于query参数中，如：`?type=doc`
-    private String token; // 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+    private String token; // 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
     private String memberId; // 权限成员的ID，与`member_type`相对应
     private BaseMember body;
 
@@ -169,7 +169,7 @@ public class UpdatePermissionMemberReq {
     }
 
     /**
-     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
      * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
      *
      * @param token

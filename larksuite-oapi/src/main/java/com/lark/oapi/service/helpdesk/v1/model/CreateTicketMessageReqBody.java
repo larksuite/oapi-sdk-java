@@ -24,8 +24,8 @@ public class CreateTicketMessageReqBody {
   @SerializedName("msg_type")
   private String msgType;
   /**
-   * - 纯文本，参考[发送文本消息](/ssl:ttdoc/ukTMukTMukTM/uUjNz4SN2MjL1YzM)中的content；;-
-   * 富文本，参考[发送富文本消息](/ssl:ttdoc/ukTMukTMukTM/uMDMxEjLzATMx4yMwETM)中的content
+   * - 纯文本，参考[发送文本消息](https://open.feishu.cn/document/ukTMukTMukTM/uUjNz4SN2MjL1YzM)中的content；;-
+   * 富文本，参考[发送富文本消息](https://open.feishu.cn/document/ukTMukTMukTM/uMDMxEjLzATMx4yMwETM)中的content
    * <p> 示例值：{;    "msg_type": "post",;    "content": {;        "post": {;            "zh_cn": {;
    *             "title": "this is title",;                "content": [;                    [;
    *                  {;                            "tag": "text",;
@@ -52,7 +52,7 @@ public class CreateTicketMessageReqBody {
      */
     this.msgType = builder.msgType;
     /**
-     * - 纯文本，参考[发送文本消息](/ssl:ttdoc/ukTMukTMukTM/uUjNz4SN2MjL1YzM)中的content；;- 富文本，参考[发送富文本消息](/ssl:ttdoc/ukTMukTMukTM/uMDMxEjLzATMx4yMwETM)中的content
+     * - 纯文本，参考[发送文本消息](https://open.feishu.cn/document/ukTMukTMukTM/uUjNz4SN2MjL1YzM)中的content；;- 富文本，参考[发送富文本消息](https://open.feishu.cn/document/ukTMukTMukTM/uMDMxEjLzATMx4yMwETM)中的content
      * <p> 示例值：{;    "msg_type": "post",;    "content": {;        "post": {;            "zh_cn": {;                "title": "this is title",;                "content": [;                    [;                        {;                            "tag": "text",;                            "un_escape": true,;                            "text": "第一行&nbsp;:";                        },;                        {;                            "tag": "a",;                            "text": "超链接",;                            "href": "http://www.feishu.cn";                        };                    ],;                    [;                        {;                            "tag": "text",;                            "text": "第二行 :";                        },;                        {;                            "tag": "text",;                            "text": "文本测试";                        };                    ];                ];            };        };    };}
      */
     this.content = builder.content;
@@ -86,8 +86,8 @@ public class CreateTicketMessageReqBody {
      */
     private String msgType;
     /**
-     * - 纯文本，参考[发送文本消息](/ssl:ttdoc/ukTMukTMukTM/uUjNz4SN2MjL1YzM)中的content；;-
-     * 富文本，参考[发送富文本消息](/ssl:ttdoc/ukTMukTMukTM/uMDMxEjLzATMx4yMwETM)中的content
+     * - 纯文本，参考[发送文本消息](https://open.feishu.cn/document/ukTMukTMukTM/uUjNz4SN2MjL1YzM)中的content；;-
+     * 富文本，参考[发送富文本消息](https://open.feishu.cn/document/ukTMukTMukTM/uMDMxEjLzATMx4yMwETM)中的content
      * <p> 示例值：{;    "msg_type": "post",;    "content": {;        "post": {;            "zh_cn": {;
      *               "title": "this is title",;                "content": [;                    [;
      *                      {;                            "tag": "text",;
@@ -116,8 +116,8 @@ public class CreateTicketMessageReqBody {
 
 
     /**
-     * - 纯文本，参考[发送文本消息](/ssl:ttdoc/ukTMukTMukTM/uUjNz4SN2MjL1YzM)中的content；;-
-     * 富文本，参考[发送富文本消息](/ssl:ttdoc/ukTMukTMukTM/uMDMxEjLzATMx4yMwETM)中的content
+     * - 纯文本，参考[发送文本消息](https://open.feishu.cn/document/ukTMukTMukTM/uUjNz4SN2MjL1YzM)中的content；;-
+     * 富文本，参考[发送富文本消息](https://open.feishu.cn/document/ukTMukTMukTM/uMDMxEjLzATMx4yMwETM)中的content
      * <p> 示例值：{;    "msg_type": "post",;    "content": {;        "post": {;            "zh_cn": {;
      *               "title": "this is title",;                "content": [;                    [;
      *                      {;                            "tag": "text",;

@@ -18,13 +18,13 @@ import com.google.gson.annotations.SerializedName;
 public class TimeoffEvent {
 
   /**
-   * 请假日程ID。参见[请假日程ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
+   * 请假日程ID。参见[请假日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
    * <p> 示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39-XXXXXX
    */
   @SerializedName("timeoff_event_id")
   private String timeoffEventId;
   /**
-   * 用户id，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 用户id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：ou_XXXXXXXXXX
    */
   @SerializedName("user_id")
@@ -66,12 +66,12 @@ public class TimeoffEvent {
 
   public TimeoffEvent(Builder builder) {
     /**
-     * 请假日程ID。参见[请假日程ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
+     * 请假日程ID。参见[请假日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
      * <p> 示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39-XXXXXX
      */
     this.timeoffEventId = builder.timeoffEventId;
     /**
-     * 用户id，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_XXXXXXXXXX
      */
     this.userId = builder.userId;
@@ -165,12 +165,12 @@ public class TimeoffEvent {
   public static class Builder {
 
     /**
-     * 请假日程ID。参见[请假日程ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
+     * 请假日程ID。参见[请假日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
      * <p> 示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39-XXXXXX
      */
     private String timeoffEventId;
     /**
-     * 用户id，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_XXXXXXXXXX
      */
     private String userId;
@@ -201,7 +201,7 @@ public class TimeoffEvent {
     private String description;
 
     /**
-     * 请假日程ID。参见[请假日程ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
+     * 请假日程ID。参见[请假日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
      * <p> 示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39-XXXXXX
      *
      * @param timeoffEventId
@@ -214,7 +214,7 @@ public class TimeoffEvent {
 
 
     /**
-     * 用户id，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_XXXXXXXXXX
      *
      * @param userId

@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class RequestDoc {
 
   /**
-   * 文件的 token，获取方式见[如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+   * 文件的 token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
    * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
    */
   @SerializedName("doc_token")
@@ -36,7 +36,7 @@ public class RequestDoc {
 
   public RequestDoc(Builder builder) {
     /**
-     * 文件的 token，获取方式见[如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+     * 文件的 token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
      * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
      */
     this.docToken = builder.docToken;
@@ -70,7 +70,7 @@ public class RequestDoc {
   public static class Builder {
 
     /**
-     * 文件的 token，获取方式见[如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+     * 文件的 token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
      * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
      */
     private String docToken;
@@ -81,7 +81,7 @@ public class RequestDoc {
     private String docType;
 
     /**
-     * 文件的 token，获取方式见[如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+     * 文件的 token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
      * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
      *
      * @param docToken

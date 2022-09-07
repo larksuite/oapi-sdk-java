@@ -39,21 +39,21 @@ public class ListCalendarEventAttendeeChatMemberReq {
   @SerializedName("user_id_type")
   private String userIdType;
   /**
-   * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+   * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
    * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
    */
   @Path
   @SerializedName("calendar_id")
   private String calendarId;
   /**
-   * 日程ID。参见[日程ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
+   * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
    * <p> 示例值：xxxxxxxxx_0
    */
   @Path
   @SerializedName("event_id")
   private String eventId;
   /**
-   * 群参与人 ID。参见[参与人ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
+   * 群参与人 ID。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
    * <p> 示例值：chat_xxxxxx
    */
   @Path
@@ -81,17 +81,17 @@ public class ListCalendarEventAttendeeChatMemberReq {
      */
     this.userIdType = builder.userIdType;
     /**
-     * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
     this.calendarId = builder.calendarId;
     /**
-     * 日程ID。参见[日程ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
+     * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
      * <p> 示例值：xxxxxxxxx_0
      */
     this.eventId = builder.eventId;
     /**
-     * 群参与人 ID。参见[参与人ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
+     * 群参与人 ID。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
      * <p> 示例值：chat_xxxxxx
      */
     this.attendeeId = builder.attendeeId;
@@ -154,9 +154,9 @@ public class ListCalendarEventAttendeeChatMemberReq {
     private String pageToken; //
     private Integer pageSize; //
     private String userIdType; // 此次调用中使用的用户ID的类型
-    private String calendarId; // 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-    private String eventId; // 日程ID。参见[日程ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
-    private String attendeeId; // 群参与人 ID。参见[参与人ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
+    private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+    private String eventId; // 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
+    private String attendeeId; // 群参与人 ID。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
 
     /**
      * <p> 示例值：23jhysaxxxxsysy
@@ -206,7 +206,7 @@ public class ListCalendarEventAttendeeChatMemberReq {
     }
 
     /**
-     * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      *
      * @param calendarId
@@ -219,7 +219,7 @@ public class ListCalendarEventAttendeeChatMemberReq {
 
 
     /**
-     * 日程ID。参见[日程ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
+     * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
      * <p> 示例值：xxxxxxxxx_0
      *
      * @param eventId
@@ -232,7 +232,7 @@ public class ListCalendarEventAttendeeChatMemberReq {
 
 
     /**
-     * 群参与人 ID。参见[参与人ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
+     * 群参与人 ID。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
      * <p> 示例值：chat_xxxxxx
      *
      * @param attendeeId

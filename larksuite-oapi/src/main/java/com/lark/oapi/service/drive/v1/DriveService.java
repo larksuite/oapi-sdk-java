@@ -111,7 +111,7 @@ import java.io.ByteArrayOutputStream;
 public class DriveService {
 
   private final ExportTask exportTask; // 导出
-  private final File file; // 分片上传
+  private final File file; // 文件夹
   private final FileComment fileComment; // 评论
   private final FileCommentReply fileCommentReply; // 评论
   private final FileStatistics fileStatistics; // file.statistics
@@ -146,7 +146,7 @@ public class DriveService {
   }
 
   /**
-   * 分片上传
+   * 文件夹
    *
    * @return
    */
@@ -552,7 +552,7 @@ public class DriveService {
      * 删除文件，删除用户在云空间内的文件或者文件夹。文件或者文件夹被删除后，会进入用户回收站里。
      * <p> 要删除文件需要确保应用具有下述两种权限之一：;1. 该应用是文件所有者并且具有该文件所在父文件夹的编辑权限。;2. 该应用并非文件所有者，但是是该文件所在父文件夹的所有者或者拥有该父文件夹的所有权限（full
      * access）。 ;
-     * <p> 该接口不支持并发调用，且调用频率上限为5QPS。删除文件夹会异步执行并返回一个task_id，可以使用[task_check](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check)接口查询任务执行状态。
+     * <p> 该接口不支持并发调用，且调用频率上限为5QPS。删除文件夹会异步执行并返回一个task_id，可以使用[task_check](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check)接口查询任务执行状态。
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete</a>
      * ;
@@ -583,7 +583,7 @@ public class DriveService {
      * 删除文件，删除用户在云空间内的文件或者文件夹。文件或者文件夹被删除后，会进入用户回收站里。
      * <p> 要删除文件需要确保应用具有下述两种权限之一：;1. 该应用是文件所有者并且具有该文件所在父文件夹的编辑权限。;2. 该应用并非文件所有者，但是是该文件所在父文件夹的所有者或者拥有该父文件夹的所有权限（full
      * access）。 ;
-     * <p> 该接口不支持并发调用，且调用频率上限为5QPS。删除文件夹会异步执行并返回一个task_id，可以使用[task_check](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check)接口查询任务执行状态。
+     * <p> 该接口不支持并发调用，且调用频率上限为5QPS。删除文件夹会异步执行并返回一个task_id，可以使用[task_check](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/task_check)接口查询任务执行状态。
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete</a>
      * ;
@@ -789,7 +789,7 @@ public class DriveService {
     }
 
     /**
-     * 订阅云文档事件，该接口仅支持**文档拥有者**订阅自己文档的通知事件，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](/ssl:ttdoc/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](/ssl:ttdoc/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。
+     * 订阅云文档事件，该接口仅支持**文档拥有者**订阅自己文档的通知事件，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/SubscribeFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/SubscribeFileSample.java</a>
@@ -818,7 +818,7 @@ public class DriveService {
     }
 
     /**
-     * 订阅云文档事件，该接口仅支持**文档拥有者**订阅自己文档的通知事件，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](/ssl:ttdoc/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](/ssl:ttdoc/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。
+     * 订阅云文档事件，该接口仅支持**文档拥有者**订阅自己文档的通知事件，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/SubscribeFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/SubscribeFileSample.java</a>
@@ -900,7 +900,7 @@ public class DriveService {
 
     /**
      * 上传文件，向云空间指定目录下上传一个小文件。
-     * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/multipart-upload-file-/introduction)。
+     * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/multipart-upload-file-/introduction)。
      * ;
      * <p> 该接口支持调用频率上限为5QPS ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all</a>
@@ -933,7 +933,7 @@ public class DriveService {
 
     /**
      * 上传文件，向云空间指定目录下上传一个小文件。
-     * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/multipart-upload-file-/introduction)。
+     * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/multipart-upload-file-/introduction)。
      * ;
      * <p> 该接口支持调用频率上限为5QPS ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all</a>
@@ -1734,7 +1734,7 @@ public class DriveService {
     }
 
     /**
-     * 创建导入任务，创建导入任务。支持导入为 doc、docx、sheet、bitable，参考[导入用户指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)
+     * 创建导入任务，创建导入任务。支持导入为 doc、docx、sheet、bitable，参考[导入用户指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateImportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateImportTaskSample.java</a>
@@ -1763,7 +1763,7 @@ public class DriveService {
     }
 
     /**
-     * 创建导入任务，创建导入任务。支持导入为 doc、docx、sheet、bitable，参考[导入用户指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)
+     * 创建导入任务，创建导入任务。支持导入为 doc、docx、sheet、bitable，参考[导入用户指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateImportTaskSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/CreateImportTaskSample.java</a>
@@ -1989,7 +1989,7 @@ public class DriveService {
 
     /**
      * 上传素材，将文件、图片、视频等素材文件上传到指定云文档中。素材文件在云空间中不会显示，只会显示在对应云文档中。
-     * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/multipart-upload-media/introduction)。
+     * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/multipart-upload-media/introduction)。
      * ;
      * <p> 该接口支持调用频率上限为5QPS ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all</a>
@@ -2022,7 +2022,7 @@ public class DriveService {
 
     /**
      * 上传素材，将文件、图片、视频等素材文件上传到指定云文档中。素材文件在云空间中不会显示，只会显示在对应云文档中。
-     * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/multipart-upload-media/introduction)。
+     * <p> 请不要使用这个接口上传大于20MB的文件，如果有这个需求可以尝试使用[分片上传接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/multipart-upload-media/introduction)。
      * ;
      * <p> 该接口支持调用频率上限为5QPS ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all</a>
@@ -2410,7 +2410,7 @@ public class DriveService {
 
     /**
      * 更新协作者权限，该接口用于根据 filetoken 更新文档协作者的权限。
-     * <p> 该接口要求文档协作者已存在，如还未对文档协作者授权请先调用[「增加权限」 ](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create)接口进行授权。
+     * <p> 该接口要求文档协作者已存在，如还未对文档协作者授权请先调用[「增加权限」 ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create)接口进行授权。
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/update</a>
      * ;
@@ -2441,7 +2441,7 @@ public class DriveService {
 
     /**
      * 更新协作者权限，该接口用于根据 filetoken 更新文档协作者的权限。
-     * <p> 该接口要求文档协作者已存在，如还未对文档协作者授权请先调用[「增加权限」 ](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create)接口进行授权。
+     * <p> 该接口要求文档协作者已存在，如还未对文档协作者授权请先调用[「增加权限」 ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create)接口进行授权。
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/update</a>
      * ;

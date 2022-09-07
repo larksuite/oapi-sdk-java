@@ -47,6 +47,12 @@ public class CollaborationTenant {
    */
   @SerializedName("avatar")
   private AvatarInfo avatar;
+  /**
+   * 租户品牌
+   * <p> 示例值：
+   */
+  @SerializedName("brand")
+  private String brand;
 
   // builder 开始
   public CollaborationTenant() {
@@ -78,6 +84,11 @@ public class CollaborationTenant {
      * <p> 示例值：
      */
     this.avatar = builder.avatar;
+    /**
+     * 租户品牌
+     * <p> 示例值：
+     */
+    this.brand = builder.brand;
   }
 
   public static Builder newBuilder() {
@@ -124,6 +135,14 @@ public class CollaborationTenant {
     this.avatar = avatar;
   }
 
+  public String getBrand() {
+    return this.brand;
+  }
+
+  public void setBrand(String brand) {
+    this.brand = brand;
+  }
+
   public static class Builder {
 
     /**
@@ -151,6 +170,11 @@ public class CollaborationTenant {
      * <p> 示例值：
      */
     private AvatarInfo avatar;
+    /**
+     * 租户品牌
+     * <p> 示例值：
+     */
+    private String brand;
 
     /**
      * 关联租户ID
@@ -213,6 +237,19 @@ public class CollaborationTenant {
      */
     public Builder avatar(AvatarInfo avatar) {
       this.avatar = avatar;
+      return this;
+    }
+
+
+    /**
+     * 租户品牌
+     * <p> 示例值：
+     *
+     * @param brand
+     * @return
+     */
+    public Builder brand(String brand) {
+      this.brand = brand;
       return this;
     }
 

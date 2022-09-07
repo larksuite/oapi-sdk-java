@@ -19,14 +19,14 @@ import com.lark.oapi.core.annotation.Path;
 public class DeleteCalendarAclReq {
 
   /**
-   * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+   * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
    * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
    */
   @Path
   @SerializedName("calendar_id")
   private String calendarId;
   /**
-   * acl资源ID。参见[ACL ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
+   * acl资源ID。参见[ACL ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
    * <p> 示例值：user_xxxxxx
    */
   @Path
@@ -39,12 +39,12 @@ public class DeleteCalendarAclReq {
 
   public DeleteCalendarAclReq(Builder builder) {
     /**
-     * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
     this.calendarId = builder.calendarId;
     /**
-     * acl资源ID。参见[ACL ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
+     * acl资源ID。参见[ACL ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
      * <p> 示例值：user_xxxxxx
      */
     this.aclId = builder.aclId;
@@ -72,11 +72,11 @@ public class DeleteCalendarAclReq {
 
   public static class Builder {
 
-    private String calendarId; // 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-    private String aclId; // acl资源ID。参见[ACL ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
+    private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+    private String aclId; // acl资源ID。参见[ACL ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
 
     /**
-     * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      *
      * @param calendarId
@@ -89,7 +89,7 @@ public class DeleteCalendarAclReq {
 
 
     /**
-     * acl资源ID。参见[ACL ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
+     * acl资源ID。参见[ACL ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
      * <p> 示例值：user_xxxxxx
      *
      * @param aclId

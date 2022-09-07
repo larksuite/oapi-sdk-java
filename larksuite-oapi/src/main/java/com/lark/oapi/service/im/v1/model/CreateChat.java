@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class CreateChat {
 
   /**
-   * 群 ID，详情参见：[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+   * 群 ID，详情参见：[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
    * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
    */
   @SerializedName("chat_id")
@@ -48,7 +48,7 @@ public class CreateChat {
   @SerializedName("i18n_names")
   private I18nNames i18nNames;
   /**
-   * 群主 ID，ID值与查询参数中的 user_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction);;当群主是机器人时，该字段不返回
+   * 群主 ID，ID值与查询参数中的 user_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);;当群主是机器人时，该字段不返回
    * <p> 示例值：4d7a3c6g
    */
   @SerializedName("owner_id")

@@ -18,7 +18,8 @@ import com.google.gson.annotations.SerializedName;
 public class TokenType {
 
   /**
-   * 文件的 token，获取方式见 [对接前说明](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)的第 4 项
+   * 文件的 token，获取方式见 [对接前说明](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)的第 4
+   * 项
    * <p> 示例值：isvcnBKgoMyY5OMbUG6FioTXuBe
    */
   @SerializedName("token")
@@ -36,7 +37,7 @@ public class TokenType {
 
   public TokenType(Builder builder) {
     /**
-     * 文件的 token，获取方式见 [对接前说明](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)的第 4 项
+     * 文件的 token，获取方式见 [对接前说明](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)的第 4 项
      * <p> 示例值：isvcnBKgoMyY5OMbUG6FioTXuBe
      */
     this.token = builder.token;
@@ -70,7 +71,8 @@ public class TokenType {
   public static class Builder {
 
     /**
-     * 文件的 token，获取方式见 [对接前说明](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)的第 4 项
+     * 文件的 token，获取方式见 [对接前说明](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)的第
+     * 4 项
      * <p> 示例值：isvcnBKgoMyY5OMbUG6FioTXuBe
      */
     private String token;
@@ -81,7 +83,8 @@ public class TokenType {
     private String type;
 
     /**
-     * 文件的 token，获取方式见 [对接前说明](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)的第 4 项
+     * 文件的 token，获取方式见 [对接前说明](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)的第
+     * 4 项
      * <p> 示例值：isvcnBKgoMyY5OMbUG6FioTXuBe
      *
      * @param token

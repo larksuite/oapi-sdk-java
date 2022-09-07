@@ -18,19 +18,19 @@ import com.google.gson.annotations.SerializedName;
 public class User {
 
   /**
-   * 用户的union_id，应用开发商发布的不同应用中同一用户的标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 用户的union_id，应用开发商发布的不同应用中同一用户的标识，不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
    */
   @SerializedName("union_id")
   private String unionId;
   /**
-   * 用户的user_id，租户内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 用户的user_id，租户内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：3e3cf96b
    */
   @SerializedName("user_id")
   private String userId;
   /**
-   * 用户的open_id，应用内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 用户的open_id，应用内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
    */
   @SerializedName("open_id")
@@ -78,7 +78,7 @@ public class User {
   @SerializedName("gender")
   private Integer gender;
   /**
-   * 头像的文件Key，可通过“消息与群组/消息/图片信息”中的“上传图片”接口上传并获取头像文件 Key;;“上传图片”功能参见[上传图片](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
+   * 头像的文件Key，可通过“消息与群组/消息/图片信息”中的“上传图片”接口上传并获取头像文件 Key;;“上传图片”功能参见[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
    * <p> 示例值：2500c7a9-5fff-4d9a-a2de-3d59614ae28g
    */
   @SerializedName("avatar_key")
@@ -90,20 +90,20 @@ public class User {
   @SerializedName("avatar")
   private AvatarInfo avatar;
   /**
-   * 用户状态，枚举类型，包括is_frozen、is_resigned、is_activated、is_exited;;用户状态转移参见：[用户状态图](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview#4302b5a1)
+   * 用户状态，枚举类型，包括is_frozen、is_resigned、is_activated、is_exited;;用户状态转移参见：[用户状态图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview#4302b5a1)
    * <p> 示例值：
    */
   @SerializedName("status")
   private UserStatus status;
   /**
    * 用户所属部门的ID列表，一个用户可属于多个部门。;;ID值的类型与查询参数中的department_id_type 对应。;;不同 ID 的说明与department_id的获取方式参见
-   * [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+   * [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
    * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
    */
   @SerializedName("department_ids")
   private String[] departmentIds;
   /**
-   * 用户的直接主管的用户ID，ID值与查询参数中的user_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction);;获取方式参见[如何获取user_id](/ssl:ttdoc/home/user-identity-introduction/how-to-get)
+   * 用户的直接主管的用户ID，ID值与查询参数中的user_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);;获取方式参见[如何获取user_id](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)
    * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
    */
   @SerializedName("leader_user_id")
@@ -115,7 +115,7 @@ public class User {
   @SerializedName("city")
   private String city;
   /**
-   * 国家或地区Code缩写，具体写入格式请参考 [国家/地区码表](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/country-code-description)
+   * 国家或地区Code缩写，具体写入格式请参考 [国家/地区码表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/country-code-description)
    * <p> 示例值：CN
    */
   @SerializedName("country")
@@ -146,7 +146,7 @@ public class User {
   private String employeeNo;
   /**
    * 员工类型，可选值有：;- `1`：正式员工;- `2`：实习生;- `3`：外包;- `4`：劳务;- `5`：顾问   ;同时可读取到自定义员工类型的 int
-   * 值，可通过下方接口获取到该租户的自定义员工类型的名称，参见[获取人员类型](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)
+   * 值，可通过下方接口获取到该租户的自定义员工类型的名称，参见[获取人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)
    * <p> 示例值：1
    */
   @SerializedName("employee_type")
@@ -194,17 +194,17 @@ public class User {
 
   public User(Builder builder) {
     /**
-     * 用户的union_id，应用开发商发布的不同应用中同一用户的标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的union_id，应用开发商发布的不同应用中同一用户的标识，不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
      */
     this.unionId = builder.unionId;
     /**
-     * 用户的user_id，租户内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的user_id，租户内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：3e3cf96b
      */
     this.userId = builder.userId;
     /**
-     * 用户的open_id，应用内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的open_id，应用内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
     this.openId = builder.openId;
@@ -244,7 +244,7 @@ public class User {
      */
     this.gender = builder.gender;
     /**
-     * 头像的文件Key，可通过“消息与群组/消息/图片信息”中的“上传图片”接口上传并获取头像文件 Key;;“上传图片”功能参见[上传图片](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
+     * 头像的文件Key，可通过“消息与群组/消息/图片信息”中的“上传图片”接口上传并获取头像文件 Key;;“上传图片”功能参见[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
      * <p> 示例值：2500c7a9-5fff-4d9a-a2de-3d59614ae28g
      */
     this.avatarKey = builder.avatarKey;
@@ -254,17 +254,17 @@ public class User {
      */
     this.avatar = builder.avatar;
     /**
-     * 用户状态，枚举类型，包括is_frozen、is_resigned、is_activated、is_exited;;用户状态转移参见：[用户状态图](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview#4302b5a1)
+     * 用户状态，枚举类型，包括is_frozen、is_resigned、is_activated、is_exited;;用户状态转移参见：[用户状态图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview#4302b5a1)
      * <p> 示例值：
      */
     this.status = builder.status;
     /**
-     * 用户所属部门的ID列表，一个用户可属于多个部门。;;ID值的类型与查询参数中的department_id_type 对应。;;不同 ID 的说明与department_id的获取方式参见 [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 用户所属部门的ID列表，一个用户可属于多个部门。;;ID值的类型与查询参数中的department_id_type 对应。;;不同 ID 的说明与department_id的获取方式参见 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      */
     this.departmentIds = builder.departmentIds;
     /**
-     * 用户的直接主管的用户ID，ID值与查询参数中的user_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction);;获取方式参见[如何获取user_id](/ssl:ttdoc/home/user-identity-introduction/how-to-get)
+     * 用户的直接主管的用户ID，ID值与查询参数中的user_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);;获取方式参见[如何获取user_id](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
     this.leaderUserId = builder.leaderUserId;
@@ -274,7 +274,7 @@ public class User {
      */
     this.city = builder.city;
     /**
-     * 国家或地区Code缩写，具体写入格式请参考 [国家/地区码表](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/country-code-description)
+     * 国家或地区Code缩写，具体写入格式请参考 [国家/地区码表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/country-code-description)
      * <p> 示例值：CN
      */
     this.country = builder.country;
@@ -299,7 +299,7 @@ public class User {
      */
     this.employeeNo = builder.employeeNo;
     /**
-     * 员工类型，可选值有：;- `1`：正式员工;- `2`：实习生;- `3`：外包;- `4`：劳务;- `5`：顾问   ;同时可读取到自定义员工类型的 int 值，可通过下方接口获取到该租户的自定义员工类型的名称，参见[获取人员类型](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)
+     * 员工类型，可选值有：;- `1`：正式员工;- `2`：实习生;- `3`：外包;- `4`：劳务;- `5`：顾问   ;同时可读取到自定义员工类型的 int 值，可通过下方接口获取到该租户的自定义员工类型的名称，参见[获取人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)
      * <p> 示例值：1
      */
     this.employeeType = builder.employeeType;
@@ -566,17 +566,17 @@ public class User {
   public static class Builder {
 
     /**
-     * 用户的union_id，应用开发商发布的不同应用中同一用户的标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的union_id，应用开发商发布的不同应用中同一用户的标识，不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
      */
     private String unionId;
     /**
-     * 用户的user_id，租户内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的user_id，租户内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：3e3cf96b
      */
     private String userId;
     /**
-     * 用户的open_id，应用内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的open_id，应用内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
     private String openId;
@@ -616,7 +616,7 @@ public class User {
      */
     private Integer gender;
     /**
-     * 头像的文件Key，可通过“消息与群组/消息/图片信息”中的“上传图片”接口上传并获取头像文件 Key;;“上传图片”功能参见[上传图片](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
+     * 头像的文件Key，可通过“消息与群组/消息/图片信息”中的“上传图片”接口上传并获取头像文件 Key;;“上传图片”功能参见[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
      * <p> 示例值：2500c7a9-5fff-4d9a-a2de-3d59614ae28g
      */
     private String avatarKey;
@@ -626,18 +626,18 @@ public class User {
      */
     private AvatarInfo avatar;
     /**
-     * 用户状态，枚举类型，包括is_frozen、is_resigned、is_activated、is_exited;;用户状态转移参见：[用户状态图](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview#4302b5a1)
+     * 用户状态，枚举类型，包括is_frozen、is_resigned、is_activated、is_exited;;用户状态转移参见：[用户状态图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview#4302b5a1)
      * <p> 示例值：
      */
     private UserStatus status;
     /**
      * 用户所属部门的ID列表，一个用户可属于多个部门。;;ID值的类型与查询参数中的department_id_type 对应。;;不同 ID 的说明与department_id的获取方式参见
-     * [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      */
     private String[] departmentIds;
     /**
-     * 用户的直接主管的用户ID，ID值与查询参数中的user_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction);;获取方式参见[如何获取user_id](/ssl:ttdoc/home/user-identity-introduction/how-to-get)
+     * 用户的直接主管的用户ID，ID值与查询参数中的user_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);;获取方式参见[如何获取user_id](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
     private String leaderUserId;
@@ -647,7 +647,7 @@ public class User {
      */
     private String city;
     /**
-     * 国家或地区Code缩写，具体写入格式请参考 [国家/地区码表](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/country-code-description)
+     * 国家或地区Code缩写，具体写入格式请参考 [国家/地区码表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/country-code-description)
      * <p> 示例值：CN
      */
     private String country;
@@ -673,7 +673,7 @@ public class User {
     private String employeeNo;
     /**
      * 员工类型，可选值有：;- `1`：正式员工;- `2`：实习生;- `3`：外包;- `4`：劳务;- `5`：顾问   ;同时可读取到自定义员工类型的 int
-     * 值，可通过下方接口获取到该租户的自定义员工类型的名称，参见[获取人员类型](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)
+     * 值，可通过下方接口获取到该租户的自定义员工类型的名称，参见[获取人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)
      * <p> 示例值：1
      */
     private Integer employeeType;
@@ -709,7 +709,7 @@ public class User {
     private String geo;
 
     /**
-     * 用户的union_id，应用开发商发布的不同应用中同一用户的标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的union_id，应用开发商发布的不同应用中同一用户的标识，不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
      *
      * @param unionId
@@ -722,7 +722,7 @@ public class User {
 
 
     /**
-     * 用户的user_id，租户内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的user_id，租户内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：3e3cf96b
      *
      * @param userId
@@ -735,7 +735,7 @@ public class User {
 
 
     /**
-     * 用户的open_id，应用内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户的open_id，应用内用户的唯一标识，不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      *
      * @param openId
@@ -851,7 +851,7 @@ public class User {
 
 
     /**
-     * 头像的文件Key，可通过“消息与群组/消息/图片信息”中的“上传图片”接口上传并获取头像文件 Key;;“上传图片”功能参见[上传图片](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
+     * 头像的文件Key，可通过“消息与群组/消息/图片信息”中的“上传图片”接口上传并获取头像文件 Key;;“上传图片”功能参见[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
      * <p> 示例值：2500c7a9-5fff-4d9a-a2de-3d59614ae28g
      *
      * @param avatarKey
@@ -877,7 +877,7 @@ public class User {
 
 
     /**
-     * 用户状态，枚举类型，包括is_frozen、is_resigned、is_activated、is_exited;;用户状态转移参见：[用户状态图](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview#4302b5a1)
+     * 用户状态，枚举类型，包括is_frozen、is_resigned、is_activated、is_exited;;用户状态转移参见：[用户状态图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview#4302b5a1)
      * <p> 示例值：
      *
      * @param status
@@ -891,7 +891,7 @@ public class User {
 
     /**
      * 用户所属部门的ID列表，一个用户可属于多个部门。;;ID值的类型与查询参数中的department_id_type 对应。;;不同 ID 的说明与department_id的获取方式参见
-     * [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      *
      * @param departmentIds
@@ -904,7 +904,7 @@ public class User {
 
 
     /**
-     * 用户的直接主管的用户ID，ID值与查询参数中的user_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction);;获取方式参见[如何获取user_id](/ssl:ttdoc/home/user-identity-introduction/how-to-get)
+     * 用户的直接主管的用户ID，ID值与查询参数中的user_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);;获取方式参见[如何获取user_id](https://open.feishu.cn/document/home/user-identity-introduction/how-to-get)
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      *
      * @param leaderUserId
@@ -930,7 +930,7 @@ public class User {
 
 
     /**
-     * 国家或地区Code缩写，具体写入格式请参考 [国家/地区码表](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/country-code-description)
+     * 国家或地区Code缩写，具体写入格式请参考 [国家/地区码表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/country-code-description)
      * <p> 示例值：CN
      *
      * @param country
@@ -996,7 +996,7 @@ public class User {
 
     /**
      * 员工类型，可选值有：;- `1`：正式员工;- `2`：实习生;- `3`：外包;- `4`：劳务;- `5`：顾问   ;同时可读取到自定义员工类型的 int
-     * 值，可通过下方接口获取到该租户的自定义员工类型的名称，参见[获取人员类型](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)
+     * 值，可通过下方接口获取到该租户的自定义员工类型的名称，参见[获取人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)
      * <p> 示例值：1
      *
      * @param employeeType

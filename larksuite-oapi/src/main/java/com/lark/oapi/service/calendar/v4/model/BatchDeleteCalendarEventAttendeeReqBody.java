@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class BatchDeleteCalendarEventAttendeeReqBody {
 
   /**
-   * 要移除的参与人 ID 列表。参见[参与人ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
+   * 要移除的参与人 ID 列表。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
    * <p> 示例值：["user_xxxxx", "chat_xxxxx", "resource_xxxxx", "third_party_xxxxx"]
    */
   @SerializedName("attendee_ids")
@@ -54,7 +54,7 @@ public class BatchDeleteCalendarEventAttendeeReqBody {
 
   public BatchDeleteCalendarEventAttendeeReqBody(Builder builder) {
     /**
-     * 要移除的参与人 ID 列表。参见[参与人ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
+     * 要移除的参与人 ID 列表。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
      * <p> 示例值：["user_xxxxx", "chat_xxxxx", "resource_xxxxx", "third_party_xxxxx"]
      */
     this.attendeeIds = builder.attendeeIds;
@@ -127,7 +127,7 @@ public class BatchDeleteCalendarEventAttendeeReqBody {
   public static class Builder {
 
     /**
-     * 要移除的参与人 ID 列表。参见[参与人ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
+     * 要移除的参与人 ID 列表。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
      * <p> 示例值：["user_xxxxx", "chat_xxxxx", "resource_xxxxx", "third_party_xxxxx"]
      */
     private String[] attendeeIds;
@@ -153,7 +153,7 @@ public class BatchDeleteCalendarEventAttendeeReqBody {
     private Boolean isEnableAdmin;
 
     /**
-     * 要移除的参与人 ID 列表。参见[参与人ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
+     * 要移除的参与人 ID 列表。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
      * <p> 示例值：["user_xxxxx", "chat_xxxxx", "resource_xxxxx", "third_party_xxxxx"]
      *
      * @param attendeeIds

@@ -20,6 +20,7 @@ public enum CreateExportTaskFileExtensionEnum {
   DOCX("docx"), // word docx 格式
   PDF("pdf"), // pdf 格式
   XLSX("xlsx"), // excel xlsx 格式
+  CSV("csv"), // csv 格式
   ;
   private String value;
 

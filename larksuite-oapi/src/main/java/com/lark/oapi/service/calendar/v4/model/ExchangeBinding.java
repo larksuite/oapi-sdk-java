@@ -30,7 +30,7 @@ public class ExchangeBinding {
   @SerializedName("exchange_account")
   private String exchangeAccount;
   /**
-   * exchange账户绑定user唯一标识id，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * exchange账户绑定user唯一标识id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：ou_xxxxxxxxxxxxxxxxxx
    */
   @SerializedName("user_id")
@@ -42,7 +42,7 @@ public class ExchangeBinding {
   @SerializedName("status")
   private String status;
   /**
-   * exchange绑定唯一标识id。参见[exchange绑定ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
+   * exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
    * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
    */
   @SerializedName("exchange_binding_id")
@@ -64,7 +64,7 @@ public class ExchangeBinding {
      */
     this.exchangeAccount = builder.exchangeAccount;
     /**
-     * exchange账户绑定user唯一标识id，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * exchange账户绑定user唯一标识id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_xxxxxxxxxxxxxxxxxx
      */
     this.userId = builder.userId;
@@ -74,7 +74,7 @@ public class ExchangeBinding {
      */
     this.status = builder.status;
     /**
-     * exchange绑定唯一标识id。参见[exchange绑定ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
+     * exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
      * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
      */
     this.exchangeBindingId = builder.exchangeBindingId;
@@ -137,7 +137,7 @@ public class ExchangeBinding {
      */
     private String exchangeAccount;
     /**
-     * exchange账户绑定user唯一标识id，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * exchange账户绑定user唯一标识id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_xxxxxxxxxxxxxxxxxx
      */
     private String userId;
@@ -147,7 +147,7 @@ public class ExchangeBinding {
      */
     private String status;
     /**
-     * exchange绑定唯一标识id。参见[exchange绑定ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
+     * exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
      * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
      */
     private String exchangeBindingId;
@@ -179,7 +179,7 @@ public class ExchangeBinding {
 
 
     /**
-     * exchange账户绑定user唯一标识id，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * exchange账户绑定user唯一标识id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_xxxxxxxxxxxxxxxxxx
      *
      * @param userId
@@ -218,7 +218,7 @@ public class ExchangeBinding {
 
 
     /**
-     * exchange绑定唯一标识id。参见[exchange绑定ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
+     * exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
      * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
      *
      * @param exchangeBindingId

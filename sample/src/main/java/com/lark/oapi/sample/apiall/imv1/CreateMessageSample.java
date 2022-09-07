@@ -18,8 +18,8 @@ public class CreateMessageSample {
         .receiveIdType("open_id")
         .createMessageReqBody(CreateMessageReqBody.newBuilder()
             .receiveId("ou_7d8a6e6df7621556ce0d21922b676706ccs")
-            .content("")
             .msgType("text")
+            .content("")
             .uuid("a0d69e20-1dd1-458b-k525-dfeca4015204")
             .build())
         .build();

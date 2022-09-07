@@ -12,10 +12,10 @@ public class UploadAllFileSample {
 
   public static void main(String arg[]) throws Exception {
     // 构建client
-    Client client = Client.newBuilder("cli_a1eccc36c278900d", "uvNOxS6mplA6Nf3YPt8rUbbShON1Ocj5").build();
+    Client client = Client.newBuilder("appId", "appSecret").build();
 
     // 创建请求对象
-    File file = new File("/Users/bytedance/Downloads/b.jpeg");
+    File file = new File("filepath");
     UploadAllFileReq req = UploadAllFileReq.newBuilder()
         .uploadAllFileReqBody(UploadAllFileReqBody.newBuilder()
             .fileName("demo.pdf")

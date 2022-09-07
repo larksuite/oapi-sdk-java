@@ -19,7 +19,7 @@ import com.lark.oapi.core.annotation.Path;
 public class UnsubscribeCalendarReq {
 
   /**
-   * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+   * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
    * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
    */
   @Path
@@ -32,7 +32,7 @@ public class UnsubscribeCalendarReq {
 
   public UnsubscribeCalendarReq(Builder builder) {
     /**
-     * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
     this.calendarId = builder.calendarId;
@@ -52,10 +52,10 @@ public class UnsubscribeCalendarReq {
 
   public static class Builder {
 
-    private String calendarId; // 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+    private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
 
     /**
-     * 日历ID。参见[日历ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
+     * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
      * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      *
      * @param calendarId

@@ -28,7 +28,7 @@ public class AddManagersChatManagersReq {
   @SerializedName("member_id_type")
   private String memberIdType;
   /**
-   * 群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+   * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
    * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
    */
   @Path
@@ -48,7 +48,7 @@ public class AddManagersChatManagersReq {
      */
     this.memberIdType = builder.memberIdType;
     /**
-     * 群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
      */
     this.chatId = builder.chatId;
@@ -86,7 +86,7 @@ public class AddManagersChatManagersReq {
   public static class Builder {
 
     private String memberIdType; // 群成员 id 类型 open_id/user_id/union_id/app_id
-    private String chatId; // 群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+    private String chatId; // 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
     private AddManagersChatManagersReqBody body;
 
     /**
@@ -115,7 +115,7 @@ public class AddManagersChatManagersReq {
     }
 
     /**
-     * 群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
      *
      * @param chatId

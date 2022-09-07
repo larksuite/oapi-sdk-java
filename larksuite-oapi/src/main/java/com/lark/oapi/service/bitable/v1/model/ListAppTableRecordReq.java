@@ -28,7 +28,7 @@ public class ListAppTableRecordReq {
   private String viewId;
   /**
    * 筛选参数;;注意：;;1.筛选记录的表达式不超过2000个字符。;;2.不支持对“人员”以及“关联字段”的属性进行过滤筛选，如人员的
-   * OpenID。;;3.仅支持字段在页面展示字符值进行筛选。;;详细请参考[记录筛选开发指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/filter)
+   * OpenID。;;3.仅支持字段在页面展示字符值进行筛选。;;详细请参考[记录筛选开发指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/filter)
    * <p> 示例值：示例表达式：;;AND(CurrentValue.[身高]>180, CurrentValue.[体重]>150)
    */
   @Query
@@ -115,7 +115,7 @@ public class ListAppTableRecordReq {
      */
     this.viewId = builder.viewId;
     /**
-     * 筛选参数;;注意：;;1.筛选记录的表达式不超过2000个字符。;;2.不支持对“人员”以及“关联字段”的属性进行过滤筛选，如人员的 OpenID。;;3.仅支持字段在页面展示字符值进行筛选。;;详细请参考[记录筛选开发指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/filter)
+     * 筛选参数;;注意：;;1.筛选记录的表达式不超过2000个字符。;;2.不支持对“人员”以及“关联字段”的属性进行过滤筛选，如人员的 OpenID。;;3.仅支持字段在页面展示字符值进行筛选。;;详细请参考[记录筛选开发指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/filter)
      * <p> 示例值：示例表达式：;;AND(CurrentValue.[身高]>180, CurrentValue.[体重]>150)
      */
     this.filter = builder.filter;
@@ -274,7 +274,7 @@ public class ListAppTableRecordReq {
   public static class Builder {
 
     private String viewId; // 视图 id;;注意：如 filter 或 sort 有值，view_id 会被忽略。
-    private String filter; // 筛选参数;;注意：;;1.筛选记录的表达式不超过2000个字符。;;2.不支持对“人员”以及“关联字段”的属性进行过滤筛选，如人员的 OpenID。;;3.仅支持字段在页面展示字符值进行筛选。;;详细请参考[记录筛选开发指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/filter)
+    private String filter; // 筛选参数;;注意：;;1.筛选记录的表达式不超过2000个字符。;;2.不支持对“人员”以及“关联字段”的属性进行过滤筛选，如人员的 OpenID。;;3.仅支持字段在页面展示字符值进行筛选。;;详细请参考[记录筛选开发指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/filter)
     private String sort; // 排序参数;;注意：;;1.表达式需要不超过1000字符。;;2.不支持对带“公式”和“关联字段”的表的使用。
     private String fieldNames; // 字段名称
     private Boolean textFieldAsArray; // 控制多行文本字段数据的返回格式，true 表示以数组形式返回。;;注意：;;1.多行文本中如果有超链接部分，则会返回链接的 URL。;;2.目前可以返回多行文本中 URL 类型为多维表格链接、飞书 doc、飞书 sheet的URL类型以及@人员的数据结构。
@@ -300,7 +300,7 @@ public class ListAppTableRecordReq {
 
     /**
      * 筛选参数;;注意：;;1.筛选记录的表达式不超过2000个字符。;;2.不支持对“人员”以及“关联字段”的属性进行过滤筛选，如人员的
-     * OpenID。;;3.仅支持字段在页面展示字符值进行筛选。;;详细请参考[记录筛选开发指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/filter)
+     * OpenID。;;3.仅支持字段在页面展示字符值进行筛选。;;详细请参考[记录筛选开发指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/filter)
      * <p> 示例值：示例表达式：;;AND(CurrentValue.[身高]>180, CurrentValue.[体重]>150)
      *
      * @param filter

@@ -34,7 +34,7 @@ public class GetApplicationReq {
   @SerializedName("user_id_type")
   private String userIdType;
   /**
-   * 应用的 app_id，需要查询其他应用信息时，必须申请[获取应用信息](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用信息时，可填入
+   * 应用的 app_id，需要查询其他应用信息时，必须申请[获取应用信息](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用信息时，可填入
    * "me" 或者应用自身 app_id
    * <p> 示例值：cli_9b445f5258795107
    */
@@ -58,7 +58,7 @@ public class GetApplicationReq {
      */
     this.userIdType = builder.userIdType;
     /**
-     * 应用的 app_id，需要查询其他应用信息时，必须申请[获取应用信息](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用信息时，可填入 "me" 或者应用自身 app_id
+     * 应用的 app_id，需要查询其他应用信息时，必须申请[获取应用信息](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用信息时，可填入 "me" 或者应用自身 app_id
      * <p> 示例值：cli_9b445f5258795107
      */
     this.appId = builder.appId;
@@ -96,7 +96,7 @@ public class GetApplicationReq {
 
     private String lang; // 指定获取应用在该语言下的信息
     private String userIdType; // 此次调用中使用的用户ID的类型
-    private String appId; // 应用的 app_id，需要查询其他应用信息时，必须申请[获取应用信息](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用信息时，可填入 "me" 或者应用自身 app_id
+    private String appId; // 应用的 app_id，需要查询其他应用信息时，必须申请[获取应用信息](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用信息时，可填入 "me" 或者应用自身 app_id
 
     /**
      * 指定获取应用在该语言下的信息
@@ -148,7 +148,7 @@ public class GetApplicationReq {
     }
 
     /**
-     * 应用的 app_id，需要查询其他应用信息时，必须申请[获取应用信息](/ssl:ttdoc/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用信息时，可填入
+     * 应用的 app_id，需要查询其他应用信息时，必须申请[获取应用信息](https://open.feishu.cn/document/ukTMukTMukTM/uQjN3QjL0YzN04CN2cDN)权限，仅查询本应用信息时，可填入
      * "me" 或者应用自身 app_id
      * <p> 示例值：cli_9b445f5258795107
      *

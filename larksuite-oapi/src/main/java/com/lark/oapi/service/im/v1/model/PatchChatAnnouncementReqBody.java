@@ -24,7 +24,7 @@ public class PatchChatAnnouncementReqBody {
   @SerializedName("revision")
   private String revision;
   /**
-   * 修改文档请求的序列化字段;;更新公告信息的格式和更新[云文档](/ssl:ttdoc/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同
+   * 修改文档请求的序列化字段;;更新公告信息的格式和更新[云文档](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同
    * <p> 示例值：xxx
    */
   @SerializedName("requests")
@@ -41,7 +41,7 @@ public class PatchChatAnnouncementReqBody {
      */
     this.revision = builder.revision;
     /**
-     * 修改文档请求的序列化字段;;更新公告信息的格式和更新[云文档](/ssl:ttdoc/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同
+     * 修改文档请求的序列化字段;;更新公告信息的格式和更新[云文档](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同
      * <p> 示例值：xxx
      */
     this.requests = builder.requests;
@@ -75,7 +75,7 @@ public class PatchChatAnnouncementReqBody {
      */
     private String revision;
     /**
-     * 修改文档请求的序列化字段;;更新公告信息的格式和更新[云文档](/ssl:ttdoc/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同
+     * 修改文档请求的序列化字段;;更新公告信息的格式和更新[云文档](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同
      * <p> 示例值：xxx
      */
     private String[] requests;
@@ -94,7 +94,7 @@ public class PatchChatAnnouncementReqBody {
 
 
     /**
-     * 修改文档请求的序列化字段;;更新公告信息的格式和更新[云文档](/ssl:ttdoc/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同
+     * 修改文档请求的序列化字段;;更新公告信息的格式和更新[云文档](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同
      * <p> 示例值：xxx
      *
      * @param requests

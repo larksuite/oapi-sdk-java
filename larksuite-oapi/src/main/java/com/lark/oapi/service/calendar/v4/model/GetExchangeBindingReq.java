@@ -27,7 +27,7 @@ public class GetExchangeBindingReq {
   @SerializedName("user_id_type")
   private String userIdType;
   /**
-   * exchange绑定唯一标识id。参见[exchange绑定ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
+   * exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
    * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
    */
   @Path
@@ -45,7 +45,7 @@ public class GetExchangeBindingReq {
      */
     this.userIdType = builder.userIdType;
     /**
-     * exchange绑定唯一标识id。参见[exchange绑定ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
+     * exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
      * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
      */
     this.exchangeBindingId = builder.exchangeBindingId;
@@ -74,7 +74,7 @@ public class GetExchangeBindingReq {
   public static class Builder {
 
     private String userIdType; // 此次调用中使用的用户ID的类型
-    private String exchangeBindingId; // exchange绑定唯一标识id。参见[exchange绑定ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
+    private String exchangeBindingId; // exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
 
     /**
      * 此次调用中使用的用户ID的类型
@@ -102,7 +102,7 @@ public class GetExchangeBindingReq {
     }
 
     /**
-     * exchange绑定唯一标识id。参见[exchange绑定ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
+     * exchange绑定唯一标识id。参见[exchange绑定ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/introduction#12533d5e)
      * <p> 示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=
      *
      * @param exchangeBindingId

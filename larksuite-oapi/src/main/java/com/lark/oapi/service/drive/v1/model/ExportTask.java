@@ -42,6 +42,12 @@ public class ExportTask {
   @SerializedName("file_name")
   private String fileName;
   /**
+   * 导出子表ID，仅当将 sheet/bitable 导出为 csv 时使用
+   * <p> 示例值：tblKz5D60T4JlfcT
+   */
+  @SerializedName("sub_id")
+  private String subId;
+  /**
    * 导出文件 drive token
    * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
    */
@@ -91,6 +97,11 @@ public class ExportTask {
      * <p> 示例值：docName
      */
     this.fileName = builder.fileName;
+    /**
+     * 导出子表ID，仅当将 sheet/bitable 导出为 csv 时使用
+     * <p> 示例值：tblKz5D60T4JlfcT
+     */
+    this.subId = builder.subId;
     /**
      * 导出文件 drive token
      * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
@@ -149,6 +160,14 @@ public class ExportTask {
     this.fileName = fileName;
   }
 
+  public String getSubId() {
+    return this.subId;
+  }
+
+  public void setSubId(String subId) {
+    this.subId = subId;
+  }
+
   public String getFileToken() {
     return this.fileToken;
   }
@@ -203,6 +222,11 @@ public class ExportTask {
      * <p> 示例值：docName
      */
     private String fileName;
+    /**
+     * 导出子表ID，仅当将 sheet/bitable 导出为 csv 时使用
+     * <p> 示例值：tblKz5D60T4JlfcT
+     */
+    private String subId;
     /**
      * 导出文件 drive token
      * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
@@ -297,6 +321,19 @@ public class ExportTask {
      */
     public Builder fileName(String fileName) {
       this.fileName = fileName;
+      return this;
+    }
+
+
+    /**
+     * 导出子表ID，仅当将 sheet/bitable 导出为 csv 时使用
+     * <p> 示例值：tblKz5D60T4JlfcT
+     *
+     * @param subId
+     * @return
+     */
+    public Builder subId(String subId) {
+      this.subId = subId;
       return this;
     }
 

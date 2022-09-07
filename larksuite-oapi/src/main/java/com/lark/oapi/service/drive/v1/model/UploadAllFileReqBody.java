@@ -30,7 +30,7 @@ public class UploadAllFileReqBody {
   @SerializedName("parent_type")
   private String parentType;
   /**
-   * 文件夹token，;获取方式见 [概述](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+   * 文件夹token，;获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
    * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
    */
   @SerializedName("parent_node")
@@ -70,7 +70,7 @@ public class UploadAllFileReqBody {
      */
     this.parentType = builder.parentType;
     /**
-     * 文件夹token，;获取方式见 [概述](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+     * 文件夹token，;获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
      * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
      */
     this.parentNode = builder.parentNode;
@@ -156,7 +156,7 @@ public class UploadAllFileReqBody {
      */
     private String parentType;
     /**
-     * 文件夹token，;获取方式见 [概述](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+     * 文件夹token，;获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
      * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
      */
     private String parentNode;
@@ -216,7 +216,7 @@ public class UploadAllFileReqBody {
 
 
     /**
-     * 文件夹token，;获取方式见 [概述](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
+     * 文件夹token，;获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
      * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
      *
      * @param parentNode

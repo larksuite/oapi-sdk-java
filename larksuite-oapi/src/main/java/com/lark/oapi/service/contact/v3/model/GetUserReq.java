@@ -27,7 +27,7 @@ public class GetUserReq {
   @SerializedName("user_id_type")
   private String userIdType;
   /**
-   * 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+   * 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
    * <p> 示例值：open_department_id
    */
   @Query
@@ -35,7 +35,7 @@ public class GetUserReq {
   private String departmentIdType;
   /**
    * 用户ID，类型需要与查询参数中的user_id_type保持一致。;;例如user_id_type=open_id，user_id的类型需为open_id;;不同ID的说明参见 [用户相关的
-   * ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：7be5fg9a
    */
   @Path
@@ -53,12 +53,12 @@ public class GetUserReq {
      */
     this.userIdType = builder.userIdType;
     /**
-     * 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：open_department_id
      */
     this.departmentIdType = builder.departmentIdType;
     /**
-     * 用户ID，类型需要与查询参数中的user_id_type保持一致。;;例如user_id_type=open_id，user_id的类型需为open_id;;不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户ID，类型需要与查询参数中的user_id_type保持一致。;;例如user_id_type=open_id，user_id的类型需为open_id;;不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：7be5fg9a
      */
     this.userId = builder.userId;
@@ -95,8 +95,8 @@ public class GetUserReq {
   public static class Builder {
 
     private String userIdType; // 此次调用中使用的用户ID的类型
-    private String departmentIdType; // 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
-    private String userId; // 用户ID，类型需要与查询参数中的user_id_type保持一致。;;例如user_id_type=open_id，user_id的类型需为open_id;;不同ID的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+    private String departmentIdType; // 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+    private String userId; // 用户ID，类型需要与查询参数中的user_id_type保持一致。;;例如user_id_type=open_id，user_id的类型需为open_id;;不同ID的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
 
     /**
      * 此次调用中使用的用户ID的类型
@@ -124,7 +124,7 @@ public class GetUserReq {
     }
 
     /**
-     * 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：open_department_id
      *
      * @param departmentIdType
@@ -136,7 +136,7 @@ public class GetUserReq {
     }
 
     /**
-     * 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：open_department_id
      *
      * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.GetUserDepartmentIdTypeEnum}
@@ -150,7 +150,7 @@ public class GetUserReq {
 
     /**
      * 用户ID，类型需要与查询参数中的user_id_type保持一致。;;例如user_id_type=open_id，user_id的类型需为open_id;;不同ID的说明参见
-     * [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：7be5fg9a
      *
      * @param userId

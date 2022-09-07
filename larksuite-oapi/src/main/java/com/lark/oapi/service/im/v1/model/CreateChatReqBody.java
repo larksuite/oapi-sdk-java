@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class CreateChatReqBody {
 
   /**
-   * 群头像对应的 Image Key，可通过[上传图片](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)获取（注意：上传图片的
+   * 群头像对应的 Image Key，可通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)获取（注意：上传图片的
    * ==image_type== 需要指定为 ==avatar==）
    * <p> 示例值：default-avatar_44ae0ca3-e140-494b-956f-78091e348435
    */
@@ -44,7 +44,7 @@ public class CreateChatReqBody {
   private I18nNames i18nNames;
   /**
    * 创建群时指定的群主，不填时指定建群的机器人为群主。;;群主 ID，ID值与查询参数中的 user_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID
-   * 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：4d7a3c6g
    */
   @SerializedName("owner_id")
@@ -104,7 +104,7 @@ public class CreateChatReqBody {
 
   public CreateChatReqBody(Builder builder) {
     /**
-     * 群头像对应的 Image Key，可通过[上传图片](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)获取（注意：上传图片的 ==image_type== 需要指定为 ==avatar==）
+     * 群头像对应的 Image Key，可通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)获取（注意：上传图片的 ==image_type== 需要指定为 ==avatar==）
      * <p> 示例值：default-avatar_44ae0ca3-e140-494b-956f-78091e348435
      */
     this.avatar = builder.avatar;
@@ -124,7 +124,7 @@ public class CreateChatReqBody {
      */
     this.i18nNames = builder.i18nNames;
     /**
-     * 创建群时指定的群主，不填时指定建群的机器人为群主。;;群主 ID，ID值与查询参数中的 user_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 创建群时指定的群主，不填时指定建群的机器人为群主。;;群主 ID，ID值与查询参数中的 user_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：4d7a3c6g
      */
     this.ownerId = builder.ownerId;
@@ -281,7 +281,7 @@ public class CreateChatReqBody {
   public static class Builder {
 
     /**
-     * 群头像对应的 Image Key，可通过[上传图片](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)获取（注意：上传图片的
+     * 群头像对应的 Image Key，可通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)获取（注意：上传图片的
      * ==image_type== 需要指定为 ==avatar==）
      * <p> 示例值：default-avatar_44ae0ca3-e140-494b-956f-78091e348435
      */
@@ -303,7 +303,7 @@ public class CreateChatReqBody {
     private I18nNames i18nNames;
     /**
      * 创建群时指定的群主，不填时指定建群的机器人为群主。;;群主 ID，ID值与查询参数中的 user_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID
-     * 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：4d7a3c6g
      */
     private String ownerId;
@@ -349,7 +349,7 @@ public class CreateChatReqBody {
     private String membershipApproval;
 
     /**
-     * 群头像对应的 Image Key，可通过[上传图片](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)获取（注意：上传图片的
+     * 群头像对应的 Image Key，可通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)获取（注意：上传图片的
      * ==image_type== 需要指定为 ==avatar==）
      * <p> 示例值：default-avatar_44ae0ca3-e140-494b-956f-78091e348435
      *
@@ -403,7 +403,7 @@ public class CreateChatReqBody {
 
     /**
      * 创建群时指定的群主，不填时指定建群的机器人为群主。;;群主 ID，ID值与查询参数中的 user_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID
-     * 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：4d7a3c6g
      *
      * @param ownerId

@@ -26,7 +26,7 @@ public class TicketImageTicketReq {
   @SerializedName("ticket_id")
   private String ticketId;
   /**
-   * 消息ID;;[查询消息ID](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket-message/list)
+   * 消息ID;;[查询消息ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket-message/list)
    * <p> 示例值：12345
    */
   @Query
@@ -51,7 +51,7 @@ public class TicketImageTicketReq {
      */
     this.ticketId = builder.ticketId;
     /**
-     * 消息ID;;[查询消息ID](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket-message/list)
+     * 消息ID;;[查询消息ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket-message/list)
      * <p> 示例值：12345
      */
     this.msgId = builder.msgId;
@@ -93,7 +93,7 @@ public class TicketImageTicketReq {
   public static class Builder {
 
     private String ticketId; // 工单ID
-    private String msgId; // 消息ID;;[查询消息ID](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket-message/list)
+    private String msgId; // 消息ID;;[查询消息ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket-message/list)
     private Integer index; // index，当消息类型为post时，需指定图片index，index从0开始。当消息类型为img时，无需index
 
 
@@ -111,7 +111,7 @@ public class TicketImageTicketReq {
 
 
     /**
-     * 消息ID;;[查询消息ID](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket-message/list)
+     * 消息ID;;[查询消息ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket-message/list)
      * <p> 示例值：12345
      *
      * @param msgId

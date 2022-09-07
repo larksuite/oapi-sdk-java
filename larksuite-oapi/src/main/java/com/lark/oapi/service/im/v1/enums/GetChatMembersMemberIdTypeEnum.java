@@ -14,7 +14,7 @@
 package com.lark.oapi.service.im.v1.enums;
 
 /**
- * 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+ * 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
  */
 public enum GetChatMembersMemberIdTypeEnum {
   USER_ID("user_id"), // 以user_id来识别成员

@@ -24,25 +24,25 @@ public class DepartmentEvent {
   @SerializedName("name")
   private String name;
   /**
-   * 父部门的部门open_department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+   * 父部门的部门open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
    * <p> 示例值：jkfsd89782
    */
   @SerializedName("parent_department_id")
   private String parentDepartmentId;
   /**
-   * 本部门的department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+   * 本部门的department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
    * <p> 示例值：yd7sa8yf2j
    */
   @SerializedName("department_id")
   private String departmentId;
   /**
-   * 部门的open_department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+   * 部门的open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
    * <p> 示例值：od_j10j52hjksd9g0isdfg43
    */
   @SerializedName("open_department_id")
   private String openDepartmentId;
   /**
-   * 部门主管用户open_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 部门主管用户open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：ou_3j1kh45jk18fgh23hf
    */
   @SerializedName("leader_user_id")
@@ -83,22 +83,22 @@ public class DepartmentEvent {
      */
     this.name = builder.name;
     /**
-     * 父部门的部门open_department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 父部门的部门open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：jkfsd89782
      */
     this.parentDepartmentId = builder.parentDepartmentId;
     /**
-     * 本部门的department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 本部门的department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：yd7sa8yf2j
      */
     this.departmentId = builder.departmentId;
     /**
-     * 部门的open_department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 部门的open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：od_j10j52hjksd9g0isdfg43
      */
     this.openDepartmentId = builder.openDepartmentId;
     /**
-     * 部门主管用户open_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 部门主管用户open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_3j1kh45jk18fgh23hf
      */
     this.leaderUserId = builder.leaderUserId;
@@ -208,22 +208,22 @@ public class DepartmentEvent {
      */
     private String name;
     /**
-     * 父部门的部门open_department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 父部门的部门open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：jkfsd89782
      */
     private String parentDepartmentId;
     /**
-     * 本部门的department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 本部门的department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：yd7sa8yf2j
      */
     private String departmentId;
     /**
-     * 部门的open_department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 部门的open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：od_j10j52hjksd9g0isdfg43
      */
     private String openDepartmentId;
     /**
-     * 部门主管用户open_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 部门主管用户open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_3j1kh45jk18fgh23hf
      */
     private String leaderUserId;
@@ -262,7 +262,7 @@ public class DepartmentEvent {
 
 
     /**
-     * 父部门的部门open_department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 父部门的部门open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：jkfsd89782
      *
      * @param parentDepartmentId
@@ -275,7 +275,7 @@ public class DepartmentEvent {
 
 
     /**
-     * 本部门的department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 本部门的department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：yd7sa8yf2j
      *
      * @param departmentId
@@ -288,7 +288,7 @@ public class DepartmentEvent {
 
 
     /**
-     * 部门的open_department_id [部门相关ID概念](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 部门的open_department_id [部门相关ID概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：od_j10j52hjksd9g0isdfg43
      *
      * @param openDepartmentId
@@ -301,7 +301,7 @@ public class DepartmentEvent {
 
 
     /**
-     * 部门主管用户open_id [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 部门主管用户open_id [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_3j1kh45jk18fgh23hf
      *
      * @param leaderUserId

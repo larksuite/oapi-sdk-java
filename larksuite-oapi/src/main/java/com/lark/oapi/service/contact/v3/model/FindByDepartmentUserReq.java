@@ -26,7 +26,7 @@ public class FindByDepartmentUserReq {
   @SerializedName("user_id_type")
   private String userIdType;
   /**
-   * 此次调用中使用的部门ID的类型;;部门ID类型的区别参见[部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+   * 此次调用中使用的部门ID的类型;;部门ID类型的区别参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
    * <p> 示例值：open_department_id
    */
   @Query
@@ -34,7 +34,7 @@ public class FindByDepartmentUserReq {
   private String departmentIdType;
   /**
    * 填写该字段表示获取该部门下用户，必填。根部门的部门ID为0。;;ID值与查询参数中的department_id_type 对应。;;不同 ID
-   * 的说明与department_id的获取方式参见 [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+   * 的说明与department_id的获取方式参见 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
    * <p> 示例值：od-xxxxxxxxxxxxx
    */
   @Query
@@ -66,12 +66,12 @@ public class FindByDepartmentUserReq {
      */
     this.userIdType = builder.userIdType;
     /**
-     * 此次调用中使用的部门ID的类型;;部门ID类型的区别参见[部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 此次调用中使用的部门ID的类型;;部门ID类型的区别参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：open_department_id
      */
     this.departmentIdType = builder.departmentIdType;
     /**
-     * 填写该字段表示获取该部门下用户，必填。根部门的部门ID为0。;;ID值与查询参数中的department_id_type 对应。;;不同 ID 的说明与department_id的获取方式参见 [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 填写该字段表示获取该部门下用户，必填。根部门的部门ID为0。;;ID值与查询参数中的department_id_type 对应。;;不同 ID 的说明与department_id的获取方式参见 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：od-xxxxxxxxxxxxx
      */
     this.departmentId = builder.departmentId;
@@ -134,8 +134,8 @@ public class FindByDepartmentUserReq {
   public static class Builder {
 
     private String userIdType; // 此次调用中使用的用户ID的类型
-    private String departmentIdType; // 此次调用中使用的部门ID的类型;;部门ID类型的区别参见[部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
-    private String departmentId; // 填写该字段表示获取该部门下用户，必填。根部门的部门ID为0。;;ID值与查询参数中的department_id_type 对应。;;不同 ID 的说明与department_id的获取方式参见 [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+    private String departmentIdType; // 此次调用中使用的部门ID的类型;;部门ID类型的区别参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+    private String departmentId; // 填写该字段表示获取该部门下用户，必填。根部门的部门ID为0。;;ID值与查询参数中的department_id_type 对应。;;不同 ID 的说明与department_id的获取方式参见 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
     private Integer pageSize; // 分页大小
     private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
 
@@ -167,7 +167,7 @@ public class FindByDepartmentUserReq {
 
 
     /**
-     * 此次调用中使用的部门ID的类型;;部门ID类型的区别参见[部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 此次调用中使用的部门ID的类型;;部门ID类型的区别参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：open_department_id
      *
      * @param departmentIdType
@@ -179,7 +179,7 @@ public class FindByDepartmentUserReq {
     }
 
     /**
-     * 此次调用中使用的部门ID的类型;;部门ID类型的区别参见[部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 此次调用中使用的部门ID的类型;;部门ID类型的区别参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：open_department_id
      *
      * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.FindByDepartmentUserDepartmentIdTypeEnum}
@@ -194,7 +194,7 @@ public class FindByDepartmentUserReq {
 
     /**
      * 填写该字段表示获取该部门下用户，必填。根部门的部门ID为0。;;ID值与查询参数中的department_id_type 对应。;;不同 ID
-     * 的说明与department_id的获取方式参见 [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 的说明与department_id的获取方式参见 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：od-xxxxxxxxxxxxx
      *
      * @param departmentId

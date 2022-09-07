@@ -19,7 +19,7 @@ import com.lark.oapi.core.annotation.Path;
 public class DeleteTopNoticeChatTopNoticeReq {
 
   /**
-   * 待撤销置顶的群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+   * 待撤销置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
    * <p> 示例值：oc_5ad11d72b830411d72b836c20
    */
   @Path
@@ -32,7 +32,7 @@ public class DeleteTopNoticeChatTopNoticeReq {
 
   public DeleteTopNoticeChatTopNoticeReq(Builder builder) {
     /**
-     * 待撤销置顶的群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 待撤销置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_5ad11d72b830411d72b836c20
      */
     this.chatId = builder.chatId;
@@ -52,10 +52,10 @@ public class DeleteTopNoticeChatTopNoticeReq {
 
   public static class Builder {
 
-    private String chatId; // 待撤销置顶的群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+    private String chatId; // 待撤销置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
 
     /**
-     * 待撤销置顶的群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 待撤销置顶的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_5ad11d72b830411d72b836c20
      *
      * @param chatId

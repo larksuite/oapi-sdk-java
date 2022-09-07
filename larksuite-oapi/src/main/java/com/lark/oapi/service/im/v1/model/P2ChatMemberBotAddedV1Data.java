@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class P2ChatMemberBotAddedV1Data {
 
   /**
-   * 群组 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+   * 群组 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
    * <p> 示例值：oc_413871888e0d5492e25b173f0812efb7
    */
   @SerializedName("chat_id")

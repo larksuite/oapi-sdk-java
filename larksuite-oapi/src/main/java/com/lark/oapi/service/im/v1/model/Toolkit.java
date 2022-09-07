@@ -24,7 +24,7 @@ public class Toolkit {
   @SerializedName("toolkit_id")
   private String toolkitId;
   /**
-   * 快捷组件小图标 ;;上传message类型的图片[上传图片](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
+   * 快捷组件小图标 ;;上传message类型的图片[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
    * <p> 示例值：img_v2_2995edd9-a22c-44ca-9559-71bbc1e661bg
    */
   @SerializedName("image_key")
@@ -71,7 +71,7 @@ public class Toolkit {
      */
     this.toolkitId = builder.toolkitId;
     /**
-     * 快捷组件小图标 ;;上传message类型的图片[上传图片](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
+     * 快捷组件小图标 ;;上传message类型的图片[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
      * <p> 示例值：img_v2_2995edd9-a22c-44ca-9559-71bbc1e661bg
      */
     this.imageKey = builder.imageKey;
@@ -170,7 +170,7 @@ public class Toolkit {
      */
     private String toolkitId;
     /**
-     * 快捷组件小图标 ;;上传message类型的图片[上传图片](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
+     * 快捷组件小图标 ;;上传message类型的图片[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
      * <p> 示例值：img_v2_2995edd9-a22c-44ca-9559-71bbc1e661bg
      */
     private String imageKey;
@@ -214,7 +214,7 @@ public class Toolkit {
 
 
     /**
-     * 快捷组件小图标 ;;上传message类型的图片[上传图片](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
+     * 快捷组件小图标 ;;上传message类型的图片[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)
      * <p> 示例值：img_v2_2995edd9-a22c-44ca-9559-71bbc1e661bg
      *
      * @param imageKey

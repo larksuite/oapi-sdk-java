@@ -19,8 +19,8 @@ import com.lark.oapi.core.annotation.Path;
 public class GetShiftReq {
 
   /**
-   * 班次 ID，获取方式：1）[按名称查询班次](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query)
-   * 2）[创建班次](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
+   * 班次 ID，获取方式：1）[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query)
+   * 2）[创建班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
    * <p> 示例值：6919358778597097404
    */
   @Path
@@ -33,7 +33,7 @@ public class GetShiftReq {
 
   public GetShiftReq(Builder builder) {
     /**
-     * 班次 ID，获取方式：1）[按名称查询班次](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 2）[创建班次](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
+     * 班次 ID，获取方式：1）[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 2）[创建班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
      * <p> 示例值：6919358778597097404
      */
     this.shiftId = builder.shiftId;
@@ -53,11 +53,11 @@ public class GetShiftReq {
 
   public static class Builder {
 
-    private String shiftId; // 班次 ID，获取方式：1）[按名称查询班次](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 2）[创建班次](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
+    private String shiftId; // 班次 ID，获取方式：1）[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query) 2）[创建班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
 
     /**
-     * 班次 ID，获取方式：1）[按名称查询班次](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query)
-     * 2）[创建班次](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
+     * 班次 ID，获取方式：1）[按名称查询班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/query)
+     * 2）[创建班次](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/shift/create)
      * <p> 示例值：6919358778597097404
      *
      * @param shiftId

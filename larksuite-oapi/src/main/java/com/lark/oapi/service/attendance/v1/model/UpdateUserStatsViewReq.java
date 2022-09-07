@@ -28,7 +28,7 @@ public class UpdateUserStatsViewReq {
   @SerializedName("employee_type")
   private String employeeType;
   /**
-   * 用户视图 ID，获取方式：1）[查询统计设置](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)
+   * 用户视图 ID，获取方式：1）[查询统计设置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)
    * <p> 示例值：TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09
    */
   @Path
@@ -48,7 +48,7 @@ public class UpdateUserStatsViewReq {
      */
     this.employeeType = builder.employeeType;
     /**
-     * 用户视图 ID，获取方式：1）[查询统计设置](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)
+     * 用户视图 ID，获取方式：1）[查询统计设置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)
      * <p> 示例值：TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09
      */
     this.userStatsViewId = builder.userStatsViewId;
@@ -86,7 +86,7 @@ public class UpdateUserStatsViewReq {
   public static class Builder {
 
     private String employeeType; // 员工工号类型
-    private String userStatsViewId; // 用户视图 ID，获取方式：1）[查询统计设置](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)
+    private String userStatsViewId; // 用户视图 ID，获取方式：1）[查询统计设置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)
     private UpdateUserStatsViewReqBody body;
 
     /**
@@ -115,7 +115,7 @@ public class UpdateUserStatsViewReq {
     }
 
     /**
-     * 用户视图 ID，获取方式：1）[查询统计设置](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)
+     * 用户视图 ID，获取方式：1）[查询统计设置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)
      * <p> 示例值：TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09
      *
      * @param userStatsViewId

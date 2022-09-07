@@ -24,7 +24,7 @@ public class BotMessage {
   @SerializedName("msg_type")
   private String msgType;
   /**
-   * 消息内容，json格式结构序列化成string。格式说明参考: [发送消息content说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+   * 消息内容，json格式结构序列化成string。格式说明参考: [发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
    * <p> 示例值：{\"post\":{\"zh_cn\":{\"title\":\"some title\",\"content\":[[{\"tag\":\"text\",\"text\":\"some
    * content\"}]]}}}
    */
@@ -54,7 +54,7 @@ public class BotMessage {
      */
     this.msgType = builder.msgType;
     /**
-     * 消息内容，json格式结构序列化成string。格式说明参考: [发送消息content说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+     * 消息内容，json格式结构序列化成string。格式说明参考: [发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
      * <p> 示例值：{\"post\":{\"zh_cn\":{\"title\":\"some title\",\"content\":[[{\"tag\":\"text\",\"text\":\"some content\"}]]}}}
      */
     this.content = builder.content;
@@ -114,7 +114,7 @@ public class BotMessage {
      */
     private String msgType;
     /**
-     * 消息内容，json格式结构序列化成string。格式说明参考: [发送消息content说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+     * 消息内容，json格式结构序列化成string。格式说明参考: [发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
      * <p> 示例值：{\"post\":{\"zh_cn\":{\"title\":\"some title\",\"content\":[[{\"tag\":\"text\",\"text\":\"some
      * content\"}]]}}}
      */
@@ -156,7 +156,7 @@ public class BotMessage {
 
 
     /**
-     * 消息内容，json格式结构序列化成string。格式说明参考: [发送消息content说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+     * 消息内容，json格式结构序列化成string。格式说明参考: [发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
      * <p> 示例值：{\"post\":{\"zh_cn\":{\"title\":\"some title\",\"content\":[[{\"tag\":\"text\",\"text\":\"some
      * content\"}]]}}}
      *

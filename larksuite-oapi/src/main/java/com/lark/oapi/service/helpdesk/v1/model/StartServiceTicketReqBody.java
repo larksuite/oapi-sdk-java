@@ -24,19 +24,19 @@ public class StartServiceTicketReqBody {
   @SerializedName("human_service")
   private Boolean humanService;
   /**
-   * 客服 open ids (获取方式参考[获取单个用户信息](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get))，human_service需要为true
+   * 客服 open ids (获取方式参考[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get))，human_service需要为true
    * <p> 示例值：[ou_7dab8a3d3cdcc9da365777c7ad535d62]
    */
   @SerializedName("appointed_agents")
   private String[] appointedAgents;
   /**
-   * 用户 open id,(获取方式参考[获取单个用户信息](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get))
+   * 用户 open id,(获取方式参考[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get))
    * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
    */
   @SerializedName("open_id")
   private String openId;
   /**
-   * 工单来源自定义信息，长度限制1024字符，如设置，[获取工单详情](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)会返回此信息
+   * 工单来源自定义信息，长度限制1024字符，如设置，[获取工单详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)会返回此信息
    * <p> 示例值：测试自定义字段信息
    */
   @SerializedName("customized_info")
@@ -53,17 +53,17 @@ public class StartServiceTicketReqBody {
      */
     this.humanService = builder.humanService;
     /**
-     * 客服 open ids (获取方式参考[获取单个用户信息](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get))，human_service需要为true
+     * 客服 open ids (获取方式参考[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get))，human_service需要为true
      * <p> 示例值：[ou_7dab8a3d3cdcc9da365777c7ad535d62]
      */
     this.appointedAgents = builder.appointedAgents;
     /**
-     * 用户 open id,(获取方式参考[获取单个用户信息](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get))
+     * 用户 open id,(获取方式参考[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get))
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
     this.openId = builder.openId;
     /**
-     * 工单来源自定义信息，长度限制1024字符，如设置，[获取工单详情](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)会返回此信息
+     * 工单来源自定义信息，长度限制1024字符，如设置，[获取工单详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)会返回此信息
      * <p> 示例值：测试自定义字段信息
      */
     this.customizedInfo = builder.customizedInfo;
@@ -113,17 +113,17 @@ public class StartServiceTicketReqBody {
      */
     private Boolean humanService;
     /**
-     * 客服 open ids (获取方式参考[获取单个用户信息](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get))，human_service需要为true
+     * 客服 open ids (获取方式参考[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get))，human_service需要为true
      * <p> 示例值：[ou_7dab8a3d3cdcc9da365777c7ad535d62]
      */
     private String[] appointedAgents;
     /**
-     * 用户 open id,(获取方式参考[获取单个用户信息](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get))
+     * 用户 open id,(获取方式参考[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get))
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
     private String openId;
     /**
-     * 工单来源自定义信息，长度限制1024字符，如设置，[获取工单详情](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)会返回此信息
+     * 工单来源自定义信息，长度限制1024字符，如设置，[获取工单详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)会返回此信息
      * <p> 示例值：测试自定义字段信息
      */
     private String customizedInfo;
@@ -142,7 +142,7 @@ public class StartServiceTicketReqBody {
 
 
     /**
-     * 客服 open ids (获取方式参考[获取单个用户信息](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get))，human_service需要为true
+     * 客服 open ids (获取方式参考[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get))，human_service需要为true
      * <p> 示例值：[ou_7dab8a3d3cdcc9da365777c7ad535d62]
      *
      * @param appointedAgents
@@ -155,7 +155,7 @@ public class StartServiceTicketReqBody {
 
 
     /**
-     * 用户 open id,(获取方式参考[获取单个用户信息](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get))
+     * 用户 open id,(获取方式参考[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get))
      * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      *
      * @param openId
@@ -168,7 +168,7 @@ public class StartServiceTicketReqBody {
 
 
     /**
-     * 工单来源自定义信息，长度限制1024字符，如设置，[获取工单详情](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)会返回此信息
+     * 工单来源自定义信息，长度限制1024字符，如设置，[获取工单详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)会返回此信息
      * <p> 示例值：测试自定义字段信息
      *
      * @param customizedInfo

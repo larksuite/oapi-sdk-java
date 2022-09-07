@@ -24,7 +24,7 @@ public class CreateGroupReqBody {
   @SerializedName("group")
   private Group group;
   /**
-   * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+   * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
    * <p> 示例值：dd31248a
    */
   @SerializedName("operator_id")
@@ -41,7 +41,7 @@ public class CreateGroupReqBody {
      */
     this.group = builder.group;
     /**
-     * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+     * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
      * <p> 示例值：dd31248a
      */
     this.operatorId = builder.operatorId;
@@ -75,7 +75,7 @@ public class CreateGroupReqBody {
      */
     private Group group;
     /**
-     * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+     * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
      * <p> 示例值：dd31248a
      */
     private String operatorId;
@@ -94,7 +94,7 @@ public class CreateGroupReqBody {
 
 
     /**
-     * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
+     * 操作人uid，如果您未操作[考勤管理后台“API 接入”流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/attendance-development-guidelines)，则此字段为必填字段
      * <p> 示例值：dd31248a
      *
      * @param operatorId

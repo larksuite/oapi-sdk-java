@@ -27,14 +27,14 @@ public class GetDepartmentReq {
   @SerializedName("user_id_type")
   private String userIdType;
   /**
-   * 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+   * 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
    * <p> 示例值：open_department_id
    */
   @Query
   @SerializedName("department_id_type")
   private String departmentIdType;
   /**
-   * 需要获取的部门ID;;不同 ID 的说明及获取方式 参见[部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+   * 需要获取的部门ID;;不同 ID 的说明及获取方式 参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
    * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
    */
   @Path
@@ -52,12 +52,12 @@ public class GetDepartmentReq {
      */
     this.userIdType = builder.userIdType;
     /**
-     * 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：open_department_id
      */
     this.departmentIdType = builder.departmentIdType;
     /**
-     * 需要获取的部门ID;;不同 ID 的说明及获取方式 参见[部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 需要获取的部门ID;;不同 ID 的说明及获取方式 参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      */
     this.departmentId = builder.departmentId;
@@ -94,8 +94,8 @@ public class GetDepartmentReq {
   public static class Builder {
 
     private String userIdType; // 此次调用中使用的用户ID的类型
-    private String departmentIdType; // 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
-    private String departmentId; // 需要获取的部门ID;;不同 ID 的说明及获取方式 参见[部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+    private String departmentIdType; // 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+    private String departmentId; // 需要获取的部门ID;;不同 ID 的说明及获取方式 参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
 
     /**
      * 此次调用中使用的用户ID的类型
@@ -123,7 +123,7 @@ public class GetDepartmentReq {
     }
 
     /**
-     * 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：open_department_id
      *
      * @param departmentIdType
@@ -135,7 +135,7 @@ public class GetDepartmentReq {
     }
 
     /**
-     * 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 此次调用中使用的部门ID的类型;;不同 ID 的说明 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：open_department_id
      *
      * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.GetDepartmentDepartmentIdTypeEnum}
@@ -148,7 +148,7 @@ public class GetDepartmentReq {
     }
 
     /**
-     * 需要获取的部门ID;;不同 ID 的说明及获取方式 参见[部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 需要获取的部门ID;;不同 ID 的说明及获取方式 参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      *
      * @param departmentId

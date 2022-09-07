@@ -16,7 +16,7 @@ public class BatchGetTmpDownloadUrlMediaSample {
     BatchGetTmpDownloadUrlMediaReq req = BatchGetTmpDownloadUrlMediaReq.newBuilder()
         .fileTokens(new String[]{})
         .extra(
-            "[请参考-上传点类型及对应Extra说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)")
+            "[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)")
         .build();
 
     // 发起请求

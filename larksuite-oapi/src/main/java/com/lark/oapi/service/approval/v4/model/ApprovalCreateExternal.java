@@ -72,19 +72,19 @@ public class ApprovalCreateExternal {
   @SerializedName("enable_quick_operate")
   private Boolean enableQuickOperate;
   /**
-   * 三方系统的操作回调 url，【待审批】列表的任务审批人点同意或拒绝操作后，审批中心调用该地址通知三方系统，回调地址相关信息可参见：[三方审批快捷审批回调](/ssl:ttdoc/ukTMukTMukTM/ukjNyYjL5YjM24SO2IjN/quick-approval-callback)
+   * 三方系统的操作回调 url，【待审批】列表的任务审批人点同意或拒绝操作后，审批中心调用该地址通知三方系统，回调地址相关信息可参见：[三方审批快捷审批回调](https://open.feishu.cn/document/ukTMukTMukTM/ukjNyYjL5YjM24SO2IjN/quick-approval-callback)
    * <p> 示例值：http://www.feishu.cn/approval/openapi/instanceOperate
    */
   @SerializedName("action_callback_url")
   private String actionCallbackUrl;
   /**
-   * 回调时带的 token， 用于业务系统验证请求来自审批,具体参考 [开放平台文档](/ssl:ttdoc/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
+   * 回调时带的 token， 用于业务系统验证请求来自审批,具体参考 [开放平台文档](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
    * <p> 示例值：sdjkljkx9lsadf110
    */
   @SerializedName("action_callback_token")
   private String actionCallbackToken;
   /**
-   * 请求参数加密密钥，如果配置了该参数，则会对请求参数进行加密，业务需要对请求进行解密，加解密算法参考 [关联外部选项说明](/ssl:ttdoc/ukTMukTMukTM/uADM4QjLwADO04CMwgDN)
+   * 请求参数加密密钥，如果配置了该参数，则会对请求参数进行加密，业务需要对请求进行解密，加解密算法参考 [关联外部选项说明](https://open.feishu.cn/document/ukTMukTMukTM/uADM4QjLwADO04CMwgDN)
    * <p> 示例值：gfdqedvsadfgfsd
    */
   @SerializedName("action_callback_key")
@@ -153,17 +153,17 @@ public class ApprovalCreateExternal {
      */
     this.enableQuickOperate = builder.enableQuickOperate;
     /**
-     * 三方系统的操作回调 url，【待审批】列表的任务审批人点同意或拒绝操作后，审批中心调用该地址通知三方系统，回调地址相关信息可参见：[三方审批快捷审批回调](/ssl:ttdoc/ukTMukTMukTM/ukjNyYjL5YjM24SO2IjN/quick-approval-callback)
+     * 三方系统的操作回调 url，【待审批】列表的任务审批人点同意或拒绝操作后，审批中心调用该地址通知三方系统，回调地址相关信息可参见：[三方审批快捷审批回调](https://open.feishu.cn/document/ukTMukTMukTM/ukjNyYjL5YjM24SO2IjN/quick-approval-callback)
      * <p> 示例值：http://www.feishu.cn/approval/openapi/instanceOperate
      */
     this.actionCallbackUrl = builder.actionCallbackUrl;
     /**
-     * 回调时带的 token， 用于业务系统验证请求来自审批,具体参考 [开放平台文档](/ssl:ttdoc/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
+     * 回调时带的 token， 用于业务系统验证请求来自审批,具体参考 [开放平台文档](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
      * <p> 示例值：sdjkljkx9lsadf110
      */
     this.actionCallbackToken = builder.actionCallbackToken;
     /**
-     * 请求参数加密密钥，如果配置了该参数，则会对请求参数进行加密，业务需要对请求进行解密，加解密算法参考 [关联外部选项说明](/ssl:ttdoc/ukTMukTMukTM/uADM4QjLwADO04CMwgDN)
+     * 请求参数加密密钥，如果配置了该参数，则会对请求参数进行加密，业务需要对请求进行解密，加解密算法参考 [关联外部选项说明](https://open.feishu.cn/document/ukTMukTMukTM/uADM4QjLwADO04CMwgDN)
      * <p> 示例值：gfdqedvsadfgfsd
      */
     this.actionCallbackKey = builder.actionCallbackKey;
@@ -343,17 +343,17 @@ public class ApprovalCreateExternal {
      */
     private Boolean enableQuickOperate;
     /**
-     * 三方系统的操作回调 url，【待审批】列表的任务审批人点同意或拒绝操作后，审批中心调用该地址通知三方系统，回调地址相关信息可参见：[三方审批快捷审批回调](/ssl:ttdoc/ukTMukTMukTM/ukjNyYjL5YjM24SO2IjN/quick-approval-callback)
+     * 三方系统的操作回调 url，【待审批】列表的任务审批人点同意或拒绝操作后，审批中心调用该地址通知三方系统，回调地址相关信息可参见：[三方审批快捷审批回调](https://open.feishu.cn/document/ukTMukTMukTM/ukjNyYjL5YjM24SO2IjN/quick-approval-callback)
      * <p> 示例值：http://www.feishu.cn/approval/openapi/instanceOperate
      */
     private String actionCallbackUrl;
     /**
-     * 回调时带的 token， 用于业务系统验证请求来自审批,具体参考 [开放平台文档](/ssl:ttdoc/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
+     * 回调时带的 token， 用于业务系统验证请求来自审批,具体参考 [开放平台文档](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
      * <p> 示例值：sdjkljkx9lsadf110
      */
     private String actionCallbackToken;
     /**
-     * 请求参数加密密钥，如果配置了该参数，则会对请求参数进行加密，业务需要对请求进行解密，加解密算法参考 [关联外部选项说明](/ssl:ttdoc/ukTMukTMukTM/uADM4QjLwADO04CMwgDN)
+     * 请求参数加密密钥，如果配置了该参数，则会对请求参数进行加密，业务需要对请求进行解密，加解密算法参考 [关联外部选项说明](https://open.feishu.cn/document/ukTMukTMukTM/uADM4QjLwADO04CMwgDN)
      * <p> 示例值：gfdqedvsadfgfsd
      */
     private String actionCallbackKey;
@@ -486,7 +486,7 @@ public class ApprovalCreateExternal {
 
 
     /**
-     * 三方系统的操作回调 url，【待审批】列表的任务审批人点同意或拒绝操作后，审批中心调用该地址通知三方系统，回调地址相关信息可参见：[三方审批快捷审批回调](/ssl:ttdoc/ukTMukTMukTM/ukjNyYjL5YjM24SO2IjN/quick-approval-callback)
+     * 三方系统的操作回调 url，【待审批】列表的任务审批人点同意或拒绝操作后，审批中心调用该地址通知三方系统，回调地址相关信息可参见：[三方审批快捷审批回调](https://open.feishu.cn/document/ukTMukTMukTM/ukjNyYjL5YjM24SO2IjN/quick-approval-callback)
      * <p> 示例值：http://www.feishu.cn/approval/openapi/instanceOperate
      *
      * @param actionCallbackUrl
@@ -499,7 +499,7 @@ public class ApprovalCreateExternal {
 
 
     /**
-     * 回调时带的 token， 用于业务系统验证请求来自审批,具体参考 [开放平台文档](/ssl:ttdoc/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
+     * 回调时带的 token， 用于业务系统验证请求来自审批,具体参考 [开放平台文档](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)
      * <p> 示例值：sdjkljkx9lsadf110
      *
      * @param actionCallbackToken
@@ -512,7 +512,7 @@ public class ApprovalCreateExternal {
 
 
     /**
-     * 请求参数加密密钥，如果配置了该参数，则会对请求参数进行加密，业务需要对请求进行解密，加解密算法参考 [关联外部选项说明](/ssl:ttdoc/ukTMukTMukTM/uADM4QjLwADO04CMwgDN)
+     * 请求参数加密密钥，如果配置了该参数，则会对请求参数进行加密，业务需要对请求进行解密，加解密算法参考 [关联外部选项说明](https://open.feishu.cn/document/ukTMukTMukTM/uADM4QjLwADO04CMwgDN)
      * <p> 示例值：gfdqedvsadfgfsd
      *
      * @param actionCallbackKey

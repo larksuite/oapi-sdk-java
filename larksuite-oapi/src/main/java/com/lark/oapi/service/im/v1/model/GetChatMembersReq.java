@@ -20,7 +20,7 @@ import com.lark.oapi.core.annotation.Query;
 public class GetChatMembersReq {
 
   /**
-   * 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：open_id
    */
   @Query
@@ -39,7 +39,7 @@ public class GetChatMembersReq {
   @SerializedName("page_size")
   private Integer pageSize;
   /**
-   * 群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+   * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
    * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
    */
   @Path
@@ -52,7 +52,7 @@ public class GetChatMembersReq {
 
   public GetChatMembersReq(Builder builder) {
     /**
-     * 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：open_id
      */
     this.memberIdType = builder.memberIdType;
@@ -67,7 +67,7 @@ public class GetChatMembersReq {
      */
     this.pageSize = builder.pageSize;
     /**
-     * 群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
      */
     this.chatId = builder.chatId;
@@ -111,13 +111,13 @@ public class GetChatMembersReq {
 
   public static class Builder {
 
-    private String memberIdType; // 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+    private String memberIdType; // 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
     private String pageToken; //
     private Integer pageSize; //
-    private String chatId; // 群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+    private String chatId; // 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
 
     /**
-     * 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：open_id
      *
      * @param memberIdType
@@ -129,7 +129,7 @@ public class GetChatMembersReq {
     }
 
     /**
-     * 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 群成员 用户 ID 类型，详情参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：open_id
      *
      * @param memberIdType {@link com.lark.oapi.service.im.v1.enums.GetChatMembersMemberIdTypeEnum}
@@ -164,7 +164,7 @@ public class GetChatMembersReq {
     }
 
     /**
-     * 群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
      *
      * @param chatId

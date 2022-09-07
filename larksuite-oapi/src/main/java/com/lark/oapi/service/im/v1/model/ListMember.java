@@ -24,7 +24,7 @@ public class ListMember {
   @SerializedName("member_id_type")
   private String memberIdType;
   /**
-   * 成员的用户ID，ID值与查询参数中的 member_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 成员的用户ID，ID值与查询参数中的 member_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：ou_9204a37300b3700d61effaa439f34295
    */
   @SerializedName("member_id")
@@ -53,7 +53,7 @@ public class ListMember {
      */
     this.memberIdType = builder.memberIdType;
     /**
-     * 成员的用户ID，ID值与查询参数中的 member_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 成员的用户ID，ID值与查询参数中的 member_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_9204a37300b3700d61effaa439f34295
      */
     this.memberId = builder.memberId;
@@ -113,7 +113,7 @@ public class ListMember {
      */
     private String memberIdType;
     /**
-     * 成员的用户ID，ID值与查询参数中的 member_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 成员的用户ID，ID值与查询参数中的 member_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_9204a37300b3700d61effaa439f34295
      */
     private String memberId;
@@ -142,7 +142,7 @@ public class ListMember {
 
 
     /**
-     * 成员的用户ID，ID值与查询参数中的 member_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 成员的用户ID，ID值与查询参数中的 member_id_type 对应。;;不同 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_9204a37300b3700d61effaa439f34295
      *
      * @param memberId

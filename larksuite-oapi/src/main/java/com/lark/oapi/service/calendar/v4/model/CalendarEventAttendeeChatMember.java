@@ -36,7 +36,7 @@ public class CalendarEventAttendeeChatMember {
   @SerializedName("display_name")
   private String displayName;
   /**
-   * 参与人open_id，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction);;**示例值**："ou_xxxxxxxx"
+   * 参与人open_id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);;**示例值**："ou_xxxxxxxx"
    * <p> 示例值：ou_143669c5a53647f00f6c80a0253aa68b
    */
   @SerializedName("open_id")
@@ -75,7 +75,7 @@ public class CalendarEventAttendeeChatMember {
      */
     this.displayName = builder.displayName;
     /**
-     * 参与人open_id，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction);;**示例值**："ou_xxxxxxxx"
+     * 参与人open_id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);;**示例值**："ou_xxxxxxxx"
      * <p> 示例值：ou_143669c5a53647f00f6c80a0253aa68b
      */
     this.openId = builder.openId;
@@ -161,7 +161,7 @@ public class CalendarEventAttendeeChatMember {
      */
     private String displayName;
     /**
-     * 参与人open_id，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction);;**示例值**："ou_xxxxxxxx"
+     * 参与人open_id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);;**示例值**："ou_xxxxxxxx"
      * <p> 示例值：ou_143669c5a53647f00f6c80a0253aa68b
      */
     private String openId;
@@ -229,7 +229,7 @@ public class CalendarEventAttendeeChatMember {
 
 
     /**
-     * 参与人open_id，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction);;**示例值**："ou_xxxxxxxx"
+     * 参与人open_id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);;**示例值**："ou_xxxxxxxx"
      * <p> 示例值：ou_143669c5a53647f00f6c80a0253aa68b
      *
      * @param openId

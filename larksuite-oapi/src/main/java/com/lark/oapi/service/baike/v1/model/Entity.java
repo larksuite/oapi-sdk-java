@@ -60,12 +60,6 @@ public class Entity {
   @SerializedName("related_meta")
   private RelatedMeta relatedMeta;
   /**
-   * 词条标签
-   * <p> 示例值：
-   */
-  @SerializedName("categories")
-  private String[] categories;
-  /**
    * 当前词条收到的反馈数据
    * <p> 示例值：
    */
@@ -78,7 +72,7 @@ public class Entity {
   @SerializedName("outer_info")
   private OuterInfo outerInfo;
   /**
-   * 富文本格式（当填写富文本内容时，description字段将会失效可不填写），支持的格式参考[企业百科指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/overview)中的释义部分
+   * 富文本格式（当填写富文本内容时，description字段将会失效可不填写），支持的格式参考[企业百科指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/overview)中的释义部分
    * <p> 示例值：&lt;b&gt;加粗&lt;/b&gt;&lt;i&gt;斜体&lt;/i&gt;&lt;p&gt;&lt;a
    * href=\"https://feishu.cn\"&gt;链接&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;企业百科是飞书提供的一款知识管理工具，通过企业百科可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通&lt;/span&gt;&lt;/p&gt;
    */
@@ -126,11 +120,6 @@ public class Entity {
      */
     this.relatedMeta = builder.relatedMeta;
     /**
-     * 词条标签
-     * <p> 示例值：
-     */
-    this.categories = builder.categories;
-    /**
      * 当前词条收到的反馈数据
      * <p> 示例值：
      */
@@ -141,7 +130,7 @@ public class Entity {
      */
     this.outerInfo = builder.outerInfo;
     /**
-     * 富文本格式（当填写富文本内容时，description字段将会失效可不填写），支持的格式参考[企业百科指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/overview)中的释义部分
+     * 富文本格式（当填写富文本内容时，description字段将会失效可不填写），支持的格式参考[企业百科指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/overview)中的释义部分
      * <p> 示例值：&lt;b&gt;加粗&lt;/b&gt;&lt;i&gt;斜体&lt;/i&gt;&lt;p&gt;&lt;a href=\"https://feishu.cn\"&gt;链接&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;企业百科是飞书提供的一款知识管理工具，通过企业百科可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通&lt;/span&gt;&lt;/p&gt;
      */
     this.richText = builder.richText;
@@ -207,14 +196,6 @@ public class Entity {
     this.relatedMeta = relatedMeta;
   }
 
-  public String[] getCategories() {
-    return this.categories;
-  }
-
-  public void setCategories(String[] categories) {
-    this.categories = categories;
-  }
-
   public Statistics getStatistics() {
     return this.statistics;
   }
@@ -277,11 +258,6 @@ public class Entity {
      */
     private RelatedMeta relatedMeta;
     /**
-     * 词条标签
-     * <p> 示例值：
-     */
-    private String[] categories;
-    /**
      * 当前词条收到的反馈数据
      * <p> 示例值：
      */
@@ -292,7 +268,7 @@ public class Entity {
      */
     private OuterInfo outerInfo;
     /**
-     * 富文本格式（当填写富文本内容时，description字段将会失效可不填写），支持的格式参考[企业百科指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/overview)中的释义部分
+     * 富文本格式（当填写富文本内容时，description字段将会失效可不填写），支持的格式参考[企业百科指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/overview)中的释义部分
      * <p> 示例值：&lt;b&gt;加粗&lt;/b&gt;&lt;i&gt;斜体&lt;/i&gt;&lt;p&gt;&lt;a
      * href=\"https://feishu.cn\"&gt;链接&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;企业百科是飞书提供的一款知识管理工具，通过企业百科可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通&lt;/span&gt;&lt;/p&gt;
      */
@@ -390,19 +366,6 @@ public class Entity {
 
 
     /**
-     * 词条标签
-     * <p> 示例值：
-     *
-     * @param categories
-     * @return
-     */
-    public Builder categories(String[] categories) {
-      this.categories = categories;
-      return this;
-    }
-
-
-    /**
      * 当前词条收到的反馈数据
      * <p> 示例值：
      *
@@ -429,7 +392,7 @@ public class Entity {
 
 
     /**
-     * 富文本格式（当填写富文本内容时，description字段将会失效可不填写），支持的格式参考[企业百科指南](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/overview)中的释义部分
+     * 富文本格式（当填写富文本内容时，description字段将会失效可不填写），支持的格式参考[企业百科指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/baike-v1/overview)中的释义部分
      * <p> 示例值：&lt;b&gt;加粗&lt;/b&gt;&lt;i&gt;斜体&lt;/i&gt;&lt;p&gt;&lt;a
      * href=\"https://feishu.cn\"&gt;链接&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;企业百科是飞书提供的一款知识管理工具，通过企业百科可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通&lt;/span&gt;&lt;/p&gt;
      *

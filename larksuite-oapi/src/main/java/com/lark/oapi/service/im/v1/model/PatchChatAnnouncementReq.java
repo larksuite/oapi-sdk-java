@@ -20,7 +20,7 @@ import com.lark.oapi.core.annotation.Path;
 public class PatchChatAnnouncementReq {
 
   /**
-   * 待修改公告的群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+   * 待修改公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
    * <p> 示例值：oc_5ad11d72b830411d72b836c20
    */
   @Path
@@ -35,7 +35,7 @@ public class PatchChatAnnouncementReq {
 
   public PatchChatAnnouncementReq(Builder builder) {
     /**
-     * 待修改公告的群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 待修改公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_5ad11d72b830411d72b836c20
      */
     this.chatId = builder.chatId;
@@ -64,11 +64,11 @@ public class PatchChatAnnouncementReq {
 
   public static class Builder {
 
-    private String chatId; // 待修改公告的群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+    private String chatId; // 待修改公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
     private PatchChatAnnouncementReqBody body;
 
     /**
-     * 待修改公告的群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 待修改公告的群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_5ad11d72b830411d72b836c20
      *
      * @param chatId

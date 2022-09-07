@@ -24,6 +24,8 @@ import com.lark.oapi.service.baike.v1.model.CreateDraftReq;
 import com.lark.oapi.service.baike.v1.model.CreateDraftResp;
 import com.lark.oapi.service.baike.v1.model.CreateEntityReq;
 import com.lark.oapi.service.baike.v1.model.CreateEntityResp;
+import com.lark.oapi.service.baike.v1.model.DownloadFileReq;
+import com.lark.oapi.service.baike.v1.model.DownloadFileResp;
 import com.lark.oapi.service.baike.v1.model.GetEntityReq;
 import com.lark.oapi.service.baike.v1.model.GetEntityResp;
 import com.lark.oapi.service.baike.v1.model.HighlightEntityReq;
@@ -40,17 +42,22 @@ import com.lark.oapi.service.baike.v1.model.UpdateDraftReq;
 import com.lark.oapi.service.baike.v1.model.UpdateDraftResp;
 import com.lark.oapi.service.baike.v1.model.UpdateEntityReq;
 import com.lark.oapi.service.baike.v1.model.UpdateEntityResp;
+import com.lark.oapi.service.baike.v1.model.UploadFileReq;
+import com.lark.oapi.service.baike.v1.model.UploadFileResp;
+import java.io.ByteArrayOutputStream;
 
 public class BaikeService {
 
   private final Classification classification; // 分类
   private final Draft draft; // 草稿
   private final Entity entity; // 词条
+  private final File file; // file
 
   public BaikeService(Config config) {
     this.classification = new Classification(config);
     this.draft = new Draft(config);
     this.entity = new Entity(config);
+    this.file = new File(config);
   }
 
   /**
@@ -78,6 +85,15 @@ public class BaikeService {
    */
   public Entity entity() {
     return entity;
+  }
+
+  /**
+   * file
+   *
+   * @return
+   */
+  public File file() {
+    return file;
   }
 
   public static class Classification {
@@ -637,6 +653,143 @@ public class BaikeService {
 
       // 反序列化
       UpdateEntityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateEntityResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+  }
+
+  public static class File {
+
+    private final Config config;
+
+    public File(Config config) {
+      this.config = config;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=download&project=baike&resource=file&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=download&project=baike&resource=file&version=v1</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/baikev1/DownloadFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/baikev1/DownloadFileSample.java</a>
+     * ;
+     */
+    public DownloadFileResp download(DownloadFileReq req, RequestOptions reqOptions)
+        throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+      reqOptions.setSupportDownLoad(true);
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/baike/v1/files/:file_token/download"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      if (httpResponse.getStatusCode() == 200) {
+        DownloadFileResp resp = new DownloadFileResp();
+        resp.setRawResponse(httpResponse);
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        outputStream.write(httpResponse.getBody());
+        resp.setData(outputStream);
+        resp.setFileName(httpResponse.getFileName());
+        return resp;
+      }
+      // 反序列化
+      DownloadFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DownloadFileResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=download&project=baike&resource=file&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=download&project=baike&resource=file&version=v1</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/baikev1/DownloadFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/baikev1/DownloadFileSample.java</a>
+     * ;
+     */
+    public DownloadFileResp download(DownloadFileReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportDownLoad(true);
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/baike/v1/files/:file_token/download"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 下载请求，返回流
+      if (httpResponse.getStatusCode() == 200) {
+        DownloadFileResp resp = new DownloadFileResp();
+        resp.setRawResponse(httpResponse);
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        outputStream.write(httpResponse.getBody());
+        resp.setData(outputStream);
+        resp.setFileName(httpResponse.getFileName());
+        return resp;
+      }
+      // 反序列化
+      DownloadFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DownloadFileResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=upload&project=baike&resource=file&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=upload&project=baike&resource=file&version=v1</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/baikev1/UploadFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/baikev1/UploadFileSample.java</a>
+     * ;
+     */
+    public UploadFileResp upload(UploadFileReq req, RequestOptions reqOptions) throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+      reqOptions.setSupportUpload(true);
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/baike/v1/files/upload"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      UploadFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadFileResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=upload&project=baike&resource=file&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=upload&project=baike&resource=file&version=v1</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/baikev1/UploadFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/baikev1/UploadFileSample.java</a>
+     * ;
+     */
+    public UploadFileResp upload(UploadFileReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportUpload(true);
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/baike/v1/files/upload"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      UploadFileResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UploadFileResp.class);
       resp.setRawResponse(httpResponse);
       resp.setRequest(req);
 

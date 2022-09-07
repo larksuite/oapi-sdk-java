@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class RichValue {
 
   /**
-   * 数据，数据结构参见[单元格数据结构](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
+   * 数据，数据结构参见[单元格数据结构](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
    * <p> 示例值：数据
    */
   @SerializedName("values")
@@ -30,7 +30,7 @@ public class RichValue {
 
   public RichValue(Builder builder) {
     /**
-     * 数据，数据结构参见[单元格数据结构](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
+     * 数据，数据结构参见[单元格数据结构](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
      * <p> 示例值：数据
      */
     this.values = builder.values;
@@ -51,13 +51,13 @@ public class RichValue {
   public static class Builder {
 
     /**
-     * 数据，数据结构参见[单元格数据结构](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
+     * 数据，数据结构参见[单元格数据结构](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
      * <p> 示例值：数据
      */
     private CellValue[][][] values;
 
     /**
-     * 数据，数据结构参见[单元格数据结构](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
+     * 数据，数据结构参见[单元格数据结构](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
      * <p> 示例值：数据
      *
      * @param values

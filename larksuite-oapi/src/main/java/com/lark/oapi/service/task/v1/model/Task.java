@@ -128,13 +128,13 @@ public class Task {
   @SerializedName("repeat_rule")
   private String repeatRule;
   /**
-   * 富文本任务标题。创建任务时，如果没有标题填充，飞书服务器会将其视为无主题的任务。语法格式参见[Markdown模块](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
+   * 富文本任务标题。创建任务时，如果没有标题填充，飞书服务器会将其视为无主题的任务。语法格式参见[Markdown模块](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
    * <p> 示例值：每天喝八杯水，保持身心愉悦\[飞书开放平台\](https://open.feishu.cn/)
    */
   @SerializedName("rich_summary")
   private String richSummary;
   /**
-   * 富文本任务备注。语法格式参见[Markdown模块](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
+   * 富文本任务备注。语法格式参见[Markdown模块](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
    * <p> 示例值：多吃水果，多运动，健康生活，快乐工作。\[飞书开放平台](https://open.feishu.cn/)
    */
   @SerializedName("rich_description")
@@ -236,12 +236,12 @@ public class Task {
      */
     this.repeatRule = builder.repeatRule;
     /**
-     * 富文本任务标题。创建任务时，如果没有标题填充，飞书服务器会将其视为无主题的任务。语法格式参见[Markdown模块](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
+     * 富文本任务标题。创建任务时，如果没有标题填充，飞书服务器会将其视为无主题的任务。语法格式参见[Markdown模块](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
      * <p> 示例值：每天喝八杯水，保持身心愉悦\[飞书开放平台\](https://open.feishu.cn/)
      */
     this.richSummary = builder.richSummary;
     /**
-     * 富文本任务备注。语法格式参见[Markdown模块](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
+     * 富文本任务备注。语法格式参见[Markdown模块](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
      * <p> 示例值：多吃水果，多运动，健康生活，快乐工作。\[飞书开放平台](https://open.feishu.cn/)
      */
     this.richDescription = builder.richDescription;
@@ -506,12 +506,12 @@ public class Task {
      */
     private String repeatRule;
     /**
-     * 富文本任务标题。创建任务时，如果没有标题填充，飞书服务器会将其视为无主题的任务。语法格式参见[Markdown模块](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
+     * 富文本任务标题。创建任务时，如果没有标题填充，飞书服务器会将其视为无主题的任务。语法格式参见[Markdown模块](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
      * <p> 示例值：每天喝八杯水，保持身心愉悦\[飞书开放平台\](https://open.feishu.cn/)
      */
     private String richSummary;
     /**
-     * 富文本任务备注。语法格式参见[Markdown模块](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
+     * 富文本任务备注。语法格式参见[Markdown模块](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
      * <p> 示例值：多吃水果，多运动，健康生活，快乐工作。\[飞书开放平台](https://open.feishu.cn/)
      */
     private String richDescription;
@@ -765,7 +765,7 @@ public class Task {
 
 
     /**
-     * 富文本任务标题。创建任务时，如果没有标题填充，飞书服务器会将其视为无主题的任务。语法格式参见[Markdown模块](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
+     * 富文本任务标题。创建任务时，如果没有标题填充，飞书服务器会将其视为无主题的任务。语法格式参见[Markdown模块](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
      * <p> 示例值：每天喝八杯水，保持身心愉悦\[飞书开放平台\](https://open.feishu.cn/)
      *
      * @param richSummary
@@ -778,7 +778,7 @@ public class Task {
 
 
     /**
-     * 富文本任务备注。语法格式参见[Markdown模块](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
+     * 富文本任务备注。语法格式参见[Markdown模块](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
      * <p> 示例值：多吃水果，多运动，健康生活，快乐工作。\[飞书开放平台](https://open.feishu.cn/)
      *
      * @param richDescription

@@ -19,7 +19,7 @@ import com.lark.oapi.core.annotation.Path;
 public class DeleteChatReq {
 
   /**
-   * 群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+   * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
    * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
    */
   @Path
@@ -32,7 +32,7 @@ public class DeleteChatReq {
 
   public DeleteChatReq(Builder builder) {
     /**
-     * 群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
      */
     this.chatId = builder.chatId;
@@ -52,10 +52,10 @@ public class DeleteChatReq {
 
   public static class Builder {
 
-    private String chatId; // 群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+    private String chatId; // 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
 
     /**
-     * 群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
      *
      * @param chatId

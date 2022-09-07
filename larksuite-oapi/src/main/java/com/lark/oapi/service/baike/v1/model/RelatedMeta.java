@@ -59,6 +59,12 @@ public class RelatedMeta {
    */
   @SerializedName("classifications")
   private Classification[] classifications;
+  /**
+   * 上传的相关图片
+   * <p> 示例值：
+   */
+  @SerializedName("images")
+  private BaikeImage[] images;
 
   // builder 开始
   public RelatedMeta() {
@@ -100,6 +106,11 @@ public class RelatedMeta {
      * <p> 示例值：
      */
     this.classifications = builder.classifications;
+    /**
+     * 上传的相关图片
+     * <p> 示例值：
+     */
+    this.images = builder.images;
   }
 
   public static Builder newBuilder() {
@@ -162,6 +173,14 @@ public class RelatedMeta {
     this.classifications = classifications;
   }
 
+  public BaikeImage[] getImages() {
+    return this.images;
+  }
+
+  public void setImages(BaikeImage[] images) {
+    this.images = images;
+  }
+
   public static class Builder {
 
     /**
@@ -199,6 +218,11 @@ public class RelatedMeta {
      * <p> 示例值：
      */
     private Classification[] classifications;
+    /**
+     * 上传的相关图片
+     * <p> 示例值：
+     */
+    private BaikeImage[] images;
 
     /**
      * 相关联系人
@@ -287,6 +311,19 @@ public class RelatedMeta {
      */
     public Builder classifications(Classification[] classifications) {
       this.classifications = classifications;
+      return this;
+    }
+
+
+    /**
+     * 上传的相关图片
+     * <p> 示例值：
+     *
+     * @param images
+     * @return
+     */
+    public Builder images(BaikeImage[] images) {
+      this.images = images;
       return this;
     }
 

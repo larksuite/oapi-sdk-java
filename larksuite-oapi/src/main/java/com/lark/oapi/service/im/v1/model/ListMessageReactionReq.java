@@ -20,7 +20,7 @@ import com.lark.oapi.core.annotation.Query;
 public class ListMessageReactionReq {
 
   /**
-   * 待查询消息reaction的类型[emoji类型列举](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)。;;-
+   * 待查询消息reaction的类型[emoji类型列举](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)。;;-
    * 不传入该参数，表示拉取所有类型reaction
    * <p> 示例值：LAUGH
    */
@@ -62,7 +62,7 @@ public class ListMessageReactionReq {
 
   public ListMessageReactionReq(Builder builder) {
     /**
-     * 待查询消息reaction的类型[emoji类型列举](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)。;;- 不传入该参数，表示拉取所有类型reaction
+     * 待查询消息reaction的类型[emoji类型列举](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)。;;- 不传入该参数，表示拉取所有类型reaction
      * <p> 示例值：LAUGH
      */
     this.reactionType = builder.reactionType;
@@ -134,14 +134,14 @@ public class ListMessageReactionReq {
 
   public static class Builder {
 
-    private String reactionType; // 待查询消息reaction的类型[emoji类型列举](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)。;;- 不传入该参数，表示拉取所有类型reaction
+    private String reactionType; // 待查询消息reaction的类型[emoji类型列举](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)。;;- 不传入该参数，表示拉取所有类型reaction
     private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时，会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
     private Integer pageSize; // 分页大小
     private String userIdType; // 当操作人为用户时返回用户ID的类型
     private String messageId; // 待获取reaction的消息ID
 
     /**
-     * 待查询消息reaction的类型[emoji类型列举](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)。;;-
+     * 待查询消息reaction的类型[emoji类型列举](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)。;;-
      * 不传入该参数，表示拉取所有类型reaction
      * <p> 示例值：LAUGH
      *

@@ -24,7 +24,7 @@ public class AclScope {
   @SerializedName("type")
   private String type;
   /**
-   * 用户ID，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 用户ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：ou_xxxxxx
    */
   @SerializedName("user_id")
@@ -41,7 +41,7 @@ public class AclScope {
      */
     this.type = builder.type;
     /**
-     * 用户ID，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_xxxxxx
      */
     this.userId = builder.userId;
@@ -75,7 +75,7 @@ public class AclScope {
      */
     private String type;
     /**
-     * 用户ID，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_xxxxxx
      */
     private String userId;
@@ -106,7 +106,7 @@ public class AclScope {
 
 
     /**
-     * 用户ID，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 用户ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_xxxxxx
      *
      * @param userId

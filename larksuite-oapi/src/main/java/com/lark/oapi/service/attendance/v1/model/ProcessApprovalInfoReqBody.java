@@ -18,9 +18,9 @@ import com.google.gson.annotations.SerializedName;
 public class ProcessApprovalInfoReqBody {
 
   /**
-   * 审批实例 ID，获取方式：1）[获取审批通过数据](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query)
-   * 2）[写入审批结果](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/create)
-   * 3）[通知补卡审批发起（补卡情况下）](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/create)
+   * 审批实例 ID，获取方式：1）[获取审批通过数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query)
+   * 2）[写入审批结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/create)
+   * 3）[通知补卡审批发起（补卡情况下）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/create)
    * <p> 示例值：6737202939523236113
    */
   @SerializedName("approval_id")
@@ -44,7 +44,7 @@ public class ProcessApprovalInfoReqBody {
 
   public ProcessApprovalInfoReqBody(Builder builder) {
     /**
-     * 审批实例 ID，获取方式：1）[获取审批通过数据](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query) 2）[写入审批结果](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/create) 3）[通知补卡审批发起（补卡情况下）](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/create)
+     * 审批实例 ID，获取方式：1）[获取审批通过数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query) 2）[写入审批结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/create) 3）[通知补卡审批发起（补卡情况下）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/create)
      * <p> 示例值：6737202939523236113
      */
     this.approvalId = builder.approvalId;
@@ -91,9 +91,9 @@ public class ProcessApprovalInfoReqBody {
   public static class Builder {
 
     /**
-     * 审批实例 ID，获取方式：1）[获取审批通过数据](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query)
-     * 2）[写入审批结果](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/create)
-     * 3）[通知补卡审批发起（补卡情况下）](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/create)
+     * 审批实例 ID，获取方式：1）[获取审批通过数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query)
+     * 2）[写入审批结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/create)
+     * 3）[通知补卡审批发起（补卡情况下）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/create)
      * <p> 示例值：6737202939523236113
      */
     private String approvalId;
@@ -109,9 +109,9 @@ public class ProcessApprovalInfoReqBody {
     private Integer status;
 
     /**
-     * 审批实例 ID，获取方式：1）[获取审批通过数据](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query)
-     * 2）[写入审批结果](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/create)
-     * 3）[通知补卡审批发起（补卡情况下）](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/create)
+     * 审批实例 ID，获取方式：1）[获取审批通过数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/query)
+     * 2）[写入审批结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_approval/create)
+     * 3）[通知补卡审批发起（补卡情况下）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task_remedy/create)
      * <p> 示例值：6737202939523236113
      *
      * @param approvalId

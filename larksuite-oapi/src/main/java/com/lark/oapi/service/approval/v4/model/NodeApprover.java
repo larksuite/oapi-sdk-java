@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class NodeApprover {
 
   /**
-   * node id 或 custom node id，通过 [查看审批定义](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
+   * node id 或 custom node id，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
    * 获取
    * <p> 示例值：46e6d96cfa756980907209209ec03b64
    */
@@ -37,7 +37,7 @@ public class NodeApprover {
 
   public NodeApprover(Builder builder) {
     /**
-     * node id 或 custom node id，通过 [查看审批定义](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
+     * node id 或 custom node id，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
      * <p> 示例值：46e6d96cfa756980907209209ec03b64
      */
     this.key = builder.key;
@@ -71,7 +71,7 @@ public class NodeApprover {
   public static class Builder {
 
     /**
-     * node id 或 custom node id，通过 [查看审批定义](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
+     * node id 或 custom node id，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
      * 获取
      * <p> 示例值：46e6d96cfa756980907209209ec03b64
      */
@@ -83,7 +83,7 @@ public class NodeApprover {
     private String[] value;
 
     /**
-     * node id 或 custom node id，通过 [查看审批定义](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
+     * node id 或 custom node id，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
      * 获取
      * <p> 示例值：46e6d96cfa756980907209209ec03b64
      *

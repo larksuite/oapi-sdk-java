@@ -27,7 +27,7 @@ public class CreateUserReq {
   @SerializedName("user_id_type")
   private String userIdType;
   /**
-   * 此次调用中使用的部门ID的类型。;;不同 ID 的说明参见[部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+   * 此次调用中使用的部门ID的类型。;;不同 ID 的说明参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
    * <p> 示例值：open_department_id
    */
   @Query
@@ -54,7 +54,7 @@ public class CreateUserReq {
      */
     this.userIdType = builder.userIdType;
     /**
-     * 此次调用中使用的部门ID的类型。;;不同 ID 的说明参见[部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 此次调用中使用的部门ID的类型。;;不同 ID 的说明参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：open_department_id
      */
     this.departmentIdType = builder.departmentIdType;
@@ -105,7 +105,7 @@ public class CreateUserReq {
   public static class Builder {
 
     private String userIdType; // 此次调用中使用的用户ID的类型
-    private String departmentIdType; // 此次调用中使用的部门ID的类型。;;不同 ID 的说明参见[部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+    private String departmentIdType; // 此次调用中使用的部门ID的类型。;;不同 ID 的说明参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
     private String clientToken; // 用于幂等判断是否为同一请求，避免重复创建。字符串类型，自行生成。
     private User body;
 
@@ -135,7 +135,7 @@ public class CreateUserReq {
     }
 
     /**
-     * 此次调用中使用的部门ID的类型。;;不同 ID 的说明参见[部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 此次调用中使用的部门ID的类型。;;不同 ID 的说明参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：open_department_id
      *
      * @param departmentIdType
@@ -147,7 +147,7 @@ public class CreateUserReq {
     }
 
     /**
-     * 此次调用中使用的部门ID的类型。;;不同 ID 的说明参见[部门ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 此次调用中使用的部门ID的类型。;;不同 ID 的说明参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
      * <p> 示例值：open_department_id
      *
      * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.CreateUserDepartmentIdTypeEnum}

@@ -35,7 +35,7 @@ public class CreateChatMembersReq {
   @SerializedName("succeed_type")
   private Integer succeedType;
   /**
-   * 群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+   * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
    * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
    */
   @Path
@@ -60,7 +60,7 @@ public class CreateChatMembersReq {
      */
     this.succeedType = builder.succeedType;
     /**
-     * 群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
      */
     this.chatId = builder.chatId;
@@ -107,7 +107,7 @@ public class CreateChatMembersReq {
 
     private String memberIdType; // 进群成员 id 类型 open_id/user_id/union_id/app_id;;<b>注意：</b>拉机器人入群请使用 ==app_id==
     private Integer succeedType; // 出现不可用ID后的处理方式 0/1/2
-    private String chatId; // 群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+    private String chatId; // 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
     private CreateChatMembersReqBody body;
 
     /**
@@ -161,7 +161,7 @@ public class CreateChatMembersReq {
     }
 
     /**
-     * 群 ID，详情参见[群ID 说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
      * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
      *
      * @param chatId

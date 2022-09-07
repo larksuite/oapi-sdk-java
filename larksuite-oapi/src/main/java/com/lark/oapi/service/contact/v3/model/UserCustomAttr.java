@@ -19,7 +19,7 @@ public class UserCustomAttr {
 
   /**
    * 自定义字段类型   ;- `TEXT`：文本;- `HREF`：网页;- `ENUMERATION`：枚举;- `PICTURE_ENUM`：图片;-
-   * `GENERIC_USER`：用户;;具体说明参见常见问题的[用户接口相关问题](/ssl:ttdoc/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN#77061525)
+   * `GENERIC_USER`：用户;;具体说明参见常见问题的[用户接口相关问题](https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN#77061525)
    * <p> 示例值：TEXT
    */
   @SerializedName("type")
@@ -43,7 +43,7 @@ public class UserCustomAttr {
 
   public UserCustomAttr(Builder builder) {
     /**
-     * 自定义字段类型   ;- `TEXT`：文本;- `HREF`：网页;- `ENUMERATION`：枚举;- `PICTURE_ENUM`：图片;- `GENERIC_USER`：用户;;具体说明参见常见问题的[用户接口相关问题](/ssl:ttdoc/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN#77061525)
+     * 自定义字段类型   ;- `TEXT`：文本;- `HREF`：网页;- `ENUMERATION`：枚举;- `PICTURE_ENUM`：图片;- `GENERIC_USER`：用户;;具体说明参见常见问题的[用户接口相关问题](https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN#77061525)
      * <p> 示例值：TEXT
      */
     this.type = builder.type;
@@ -91,7 +91,7 @@ public class UserCustomAttr {
 
     /**
      * 自定义字段类型   ;- `TEXT`：文本;- `HREF`：网页;- `ENUMERATION`：枚举;- `PICTURE_ENUM`：图片;-
-     * `GENERIC_USER`：用户;;具体说明参见常见问题的[用户接口相关问题](/ssl:ttdoc/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN#77061525)
+     * `GENERIC_USER`：用户;;具体说明参见常见问题的[用户接口相关问题](https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN#77061525)
      * <p> 示例值：TEXT
      */
     private String type;
@@ -108,7 +108,7 @@ public class UserCustomAttr {
 
     /**
      * 自定义字段类型   ;- `TEXT`：文本;- `HREF`：网页;- `ENUMERATION`：枚举;- `PICTURE_ENUM`：图片;-
-     * `GENERIC_USER`：用户;;具体说明参见常见问题的[用户接口相关问题](/ssl:ttdoc/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN#77061525)
+     * `GENERIC_USER`：用户;;具体说明参见常见问题的[用户接口相关问题](https://open.feishu.cn/document/ugTN1YjL4UTN24CO1UjN/uQzN1YjL0cTN24CN3UjN#77061525)
      * <p> 示例值：TEXT
      *
      * @param type

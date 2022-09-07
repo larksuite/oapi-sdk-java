@@ -24,7 +24,7 @@ public class EmployeeTypeEnum {
   @SerializedName("enum_id")
   private String enumId;
   /**
-   * 枚举的编号值，创建新的人员类型后，系统生成对应编号。对应[创建用户接口](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create)中用户信息的employee_type字段值
+   * 枚举的编号值，创建新的人员类型后，系统生成对应编号。对应[创建用户接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create)中用户信息的employee_type字段值
    * <p> 示例值：2
    */
   @SerializedName("enum_value")
@@ -65,7 +65,7 @@ public class EmployeeTypeEnum {
      */
     this.enumId = builder.enumId;
     /**
-     * 枚举的编号值，创建新的人员类型后，系统生成对应编号。对应[创建用户接口](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create)中用户信息的employee_type字段值
+     * 枚举的编号值，创建新的人员类型后，系统生成对应编号。对应[创建用户接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create)中用户信息的employee_type字段值
      * <p> 示例值：2
      */
     this.enumValue = builder.enumValue;
@@ -151,7 +151,7 @@ public class EmployeeTypeEnum {
      */
     private String enumId;
     /**
-     * 枚举的编号值，创建新的人员类型后，系统生成对应编号。对应[创建用户接口](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create)中用户信息的employee_type字段值
+     * 枚举的编号值，创建新的人员类型后，系统生成对应编号。对应[创建用户接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create)中用户信息的employee_type字段值
      * <p> 示例值：2
      */
     private String enumValue;
@@ -190,7 +190,7 @@ public class EmployeeTypeEnum {
 
 
     /**
-     * 枚举的编号值，创建新的人员类型后，系统生成对应编号。对应[创建用户接口](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create)中用户信息的employee_type字段值
+     * 枚举的编号值，创建新的人员类型后，系统生成对应编号。对应[创建用户接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create)中用户信息的employee_type字段值
      * <p> 示例值：2
      *
      * @param enumValue

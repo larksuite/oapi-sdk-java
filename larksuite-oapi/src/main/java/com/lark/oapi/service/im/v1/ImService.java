@@ -37,6 +37,8 @@ import com.lark.oapi.service.im.v1.model.CreateMessageReactionReq;
 import com.lark.oapi.service.im.v1.model.CreateMessageReactionResp;
 import com.lark.oapi.service.im.v1.model.CreateMessageReq;
 import com.lark.oapi.service.im.v1.model.CreateMessageResp;
+import com.lark.oapi.service.im.v1.model.CreatePinReq;
+import com.lark.oapi.service.im.v1.model.CreatePinResp;
 import com.lark.oapi.service.im.v1.model.DeleteBatchMessageReq;
 import com.lark.oapi.service.im.v1.model.DeleteBatchMessageResp;
 import com.lark.oapi.service.im.v1.model.DeleteChatMembersReq;
@@ -49,6 +51,8 @@ import com.lark.oapi.service.im.v1.model.DeleteMessageReactionReq;
 import com.lark.oapi.service.im.v1.model.DeleteMessageReactionResp;
 import com.lark.oapi.service.im.v1.model.DeleteMessageReq;
 import com.lark.oapi.service.im.v1.model.DeleteMessageResp;
+import com.lark.oapi.service.im.v1.model.DeletePinReq;
+import com.lark.oapi.service.im.v1.model.DeletePinResp;
 import com.lark.oapi.service.im.v1.model.DeleteTabsChatTabReq;
 import com.lark.oapi.service.im.v1.model.DeleteTabsChatTabResp;
 import com.lark.oapi.service.im.v1.model.DeleteTopNoticeChatTopNoticeReq;
@@ -79,6 +83,8 @@ import com.lark.oapi.service.im.v1.model.ListMessageReactionReq;
 import com.lark.oapi.service.im.v1.model.ListMessageReactionResp;
 import com.lark.oapi.service.im.v1.model.ListMessageReq;
 import com.lark.oapi.service.im.v1.model.ListMessageResp;
+import com.lark.oapi.service.im.v1.model.ListPinReq;
+import com.lark.oapi.service.im.v1.model.ListPinResp;
 import com.lark.oapi.service.im.v1.model.ListTabsChatTabReq;
 import com.lark.oapi.service.im.v1.model.ListTabsChatTabResp;
 import com.lark.oapi.service.im.v1.model.MeJoinChatMembersReq;
@@ -144,6 +150,7 @@ public class ImService {
   private final Message message; // 消息
   private final MessageReaction messageReaction; // 消息 - 表情回复
   private final MessageResource messageResource; // message.resource
+  private final Pin pin; // 消息 - Pin
 
   public ImService(Config config) {
     this.batchMessage = new BatchMessage(config);
@@ -161,6 +168,7 @@ public class ImService {
     this.message = new Message(config);
     this.messageReaction = new MessageReaction(config);
     this.messageResource = new MessageResource(config);
+    this.pin = new Pin(config);
   }
 
   /**
@@ -298,6 +306,15 @@ public class ImService {
     return messageResource;
   }
 
+  /**
+   * 消息 - Pin
+   *
+   * @return
+   */
+  public Pin pin() {
+    return pin;
+  }
+
   public static class BatchMessage {
 
     private final Config config;
@@ -308,8 +325,8 @@ public class ImService {
 
     /**
      * 批量撤回消息，批量撤回消息
-     * <p> 注意事项：;- 只能撤回通过[批量发送消息](/ssl:ttdoc/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口产生的消息，单条消息的撤回请使用[撤回消息](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/delete)接口;-
-     * 路径参数**batch_message_id**为[批量发送消息](/ssl:ttdoc/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口返回值中的**message_id**字段，用于标识一次批量发送消息请求，格式为：**bm-xxx**;-
+     * <p> 注意事项：;- 只能撤回通过[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口产生的消息，单条消息的撤回请使用[撤回消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/delete)接口;-
+     * 路径参数**batch_message_id**为[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口返回值中的**message_id**字段，用于标识一次批量发送消息请求，格式为：**bm-xxx**;-
      * 一次调用涉及大量消息，所以为异步接口，会有一定延迟。 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/delete</a>
      * ;
@@ -340,8 +357,8 @@ public class ImService {
 
     /**
      * 批量撤回消息，批量撤回消息
-     * <p> 注意事项：;- 只能撤回通过[批量发送消息](/ssl:ttdoc/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口产生的消息，单条消息的撤回请使用[撤回消息](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/delete)接口;-
-     * 路径参数**batch_message_id**为[批量发送消息](/ssl:ttdoc/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口返回值中的**message_id**字段，用于标识一次批量发送消息请求，格式为：**bm-xxx**;-
+     * <p> 注意事项：;- 只能撤回通过[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口产生的消息，单条消息的撤回请使用[撤回消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/delete)接口;-
+     * 路径参数**batch_message_id**为[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口返回值中的**message_id**字段，用于标识一次批量发送消息请求，格式为：**bm-xxx**;-
      * 一次调用涉及大量消息，所以为异步接口，会有一定延迟。 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/delete</a>
      * ;
@@ -369,7 +386,7 @@ public class ImService {
 
     /**
      * 查询批量消息整体进度，查询批量消息整体进度
-     * <p> 注意事项:;* 该接口是[查询批量消息推送和阅读人数](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/read_user)接口的加强版;*
+     * <p> 注意事项:;* 该接口是[查询批量消息推送和阅读人数](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/read_user)接口的加强版;*
      * 该接口返回的数据为查询时刻的快照数据 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/get_progress">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/get_progress</a>
      * ;
@@ -400,7 +417,7 @@ public class ImService {
 
     /**
      * 查询批量消息整体进度，查询批量消息整体进度
-     * <p> 注意事项:;* 该接口是[查询批量消息推送和阅读人数](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/read_user)接口的加强版;*
+     * <p> 注意事项:;* 该接口是[查询批量消息推送和阅读人数](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/read_user)接口的加强版;*
      * 该接口返回的数据为查询时刻的快照数据 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/get_progress">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/get_progress</a>
      * ;
@@ -429,7 +446,7 @@ public class ImService {
 
     /**
      * 查询批量消息推送和阅读人数，查询批量消息推送和阅读人数
-     * <p> 注意事项：;- 只能查询通过[批量发送消息](/ssl:ttdoc/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口产生的消息;-
+     * <p> 注意事项：;- 只能查询通过[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口产生的消息;-
      * 该接口返回的数据为查询时刻的快照数据。 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/read_user">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/read_user</a>
      * ;
@@ -460,7 +477,7 @@ public class ImService {
 
     /**
      * 查询批量消息推送和阅读人数，查询批量消息推送和阅读人数
-     * <p> 注意事项：;- 只能查询通过[批量发送消息](/ssl:ttdoc/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口产生的消息;-
+     * <p> 注意事项：;- 只能查询通过[批量发送消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口产生的消息;-
      * 该接口返回的数据为查询时刻的快照数据。 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/read_user">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/batch_message/read_user</a>
      * ;
@@ -497,8 +514,8 @@ public class ImService {
 
     /**
      * 创建群，创建群并设置群头像、群名、群描述等。
-     * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
-     * 本接口支持在创建群的同时拉用户或机器人进群；如果仅需要拉用户或者机器人入群参考 [将用户或机器人拉入群聊](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create)接口
+     * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * 本接口支持在创建群的同时拉用户或机器人进群；如果仅需要拉用户或者机器人入群参考 [将用户或机器人拉入群聊](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create)接口
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create</a>
      * ;
@@ -527,8 +544,8 @@ public class ImService {
 
     /**
      * 创建群，创建群并设置群头像、群名、群描述等。
-     * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
-     * 本接口支持在创建群的同时拉用户或机器人进群；如果仅需要拉用户或者机器人入群参考 [将用户或机器人拉入群聊](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create)接口
+     * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * 本接口支持在创建群的同时拉用户或机器人进群；如果仅需要拉用户或者机器人入群参考 [将用户或机器人拉入群聊](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create)接口
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create</a>
      * ;
@@ -555,7 +572,7 @@ public class ImService {
 
     /**
      * 解散群，解散群组
-     * <p> 注意事项：;- 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * <p> 注意事项：;- 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
      * 如果使用tenant_access_token，需要机器人是群的创建者且具备==更新应用所创建群的群信息==权限才可解散群;-
      * 如果使用user_access_token，需要对应的用户是群主才可解散群 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/delete</a>
@@ -585,7 +602,7 @@ public class ImService {
 
     /**
      * 解散群，解散群组
-     * <p> 注意事项：;- 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * <p> 注意事项：;- 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
      * 如果使用tenant_access_token，需要机器人是群的创建者且具备==更新应用所创建群的群信息==权限才可解散群;-
      * 如果使用user_access_token，需要对应的用户是群主才可解散群 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/delete</a>
@@ -613,8 +630,8 @@ public class ImService {
 
     /**
      * 获取群信息，获取群名称、群描述、群头像、群主 ID 等群基本信息。
-     * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app); -
-     * 机器人或授权用户必须在群里（否则只会返回群名称、群头像等基本信息） ;
+     * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);
+     * - 机器人或授权用户必须在群里（否则只会返回群名称、群头像等基本信息） ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetChatSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetChatSample.java</a>
@@ -642,8 +659,8 @@ public class ImService {
 
     /**
      * 获取群信息，获取群名称、群描述、群头像、群主 ID 等群基本信息。
-     * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app); -
-     * 机器人或授权用户必须在群里（否则只会返回群名称、群头像等基本信息） ;
+     * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);
+     * - 机器人或授权用户必须在群里（否则只会返回群名称、群头像等基本信息） ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetChatSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetChatSample.java</a>
@@ -669,8 +686,9 @@ public class ImService {
 
     /**
      * 获取用户或机器人所在的群列表，获取用户或者机器人所在群列表。
-     * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);- 查询参数
-     * **user_id_type** 用于控制响应体中 owner_id 的类型，如果是获取机器人所在群列表该值可以不填;- 请注意区分本接口和[获取群信息](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)的请求
+     * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * 查询参数  **user_id_type** 用于控制响应体中 owner_id 的类型，如果是获取机器人所在群列表该值可以不填;-
+     * 请注意区分本接口和[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)的请求
      * URL;- 获取的群列表不包含p2p单聊群 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list</a>
      * ;
@@ -699,8 +717,9 @@ public class ImService {
 
     /**
      * 获取用户或机器人所在的群列表，获取用户或者机器人所在群列表。
-     * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);- 查询参数
-     * **user_id_type** 用于控制响应体中 owner_id 的类型，如果是获取机器人所在群列表该值可以不填;- 请注意区分本接口和[获取群信息](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)的请求
+     * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * 查询参数  **user_id_type** 用于控制响应体中 owner_id 的类型，如果是获取机器人所在群列表该值可以不填;-
+     * 请注意区分本接口和[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)的请求
      * URL;- 获取的群列表不包含p2p单聊群 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list</a>
      * ;
@@ -727,7 +746,8 @@ public class ImService {
 
     /**
      * 搜索对用户或机器人可见的群列表，搜索对用户或机器人可见的群列表，包括：用户或机器人所在的群、对用户或机器人公开的群。;搜索可获得的群信息包括：群ID（chat_id）、群名称、群描述等。
-     * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app) ;
+     * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/SearchChatSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/SearchChatSample.java</a>
@@ -755,7 +775,8 @@ public class ImService {
 
     /**
      * 搜索对用户或机器人可见的群列表，搜索对用户或机器人可见的群列表，包括：用户或机器人所在的群、对用户或机器人公开的群。;搜索可获得的群信息包括：群ID（chat_id）、群名称、群描述等。
-     * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app) ;
+     * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/SearchChatSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/SearchChatSample.java</a>
@@ -781,8 +802,8 @@ public class ImService {
 
     /**
      * 更新群信息，更新群头像、群名称、群描述、群配置、转让群主等。
-     * <p> 注意事项：;- 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);- 若群未开启
-     * ==仅群主和群管理员可编辑群信息== 配置：; 	- 群主/群管理员 或 创建群组且具备==更新应用所创建群的群信息==权限的机器人，可更新所有信息; 	-
+     * <p> 注意事项：;- 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * 若群未开启 ==仅群主和群管理员可编辑群信息== 配置：; 	- 群主/群管理员 或 创建群组且具备==更新应用所创建群的群信息==权限的机器人，可更新所有信息; 	-
      * 不满足上述条件的群成员或机器人，仅可更新群头像、群名称、群描述、群国际化名称信息 ;- 若群开启了==仅群主和群管理员可编辑群信息==配置：; 	- 群主/群管理员 或
      * 创建群组且具备==更新应用所创建群的群信息==权限的机器人，可更新所有信息; 	- 不满足上述条件的群成员或者机器人，任何群信息都不能修改 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/update</a>
@@ -812,8 +833,8 @@ public class ImService {
 
     /**
      * 更新群信息，更新群头像、群名称、群描述、群配置、转让群主等。
-     * <p> 注意事项：;- 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);- 若群未开启
-     * ==仅群主和群管理员可编辑群信息== 配置：; 	- 群主/群管理员 或 创建群组且具备==更新应用所创建群的群信息==权限的机器人，可更新所有信息; 	-
+     * <p> 注意事项：;- 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * 若群未开启 ==仅群主和群管理员可编辑群信息== 配置：; 	- 群主/群管理员 或 创建群组且具备==更新应用所创建群的群信息==权限的机器人，可更新所有信息; 	-
      * 不满足上述条件的群成员或机器人，仅可更新群头像、群名称、群描述、群国际化名称信息 ;- 若群开启了==仅群主和群管理员可编辑群信息==配置：; 	- 群主/群管理员 或
      * 创建群组且具备==更新应用所创建群的群信息==权限的机器人，可更新所有信息; 	- 不满足上述条件的群成员或者机器人，任何群信息都不能修改 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/update</a>
@@ -850,7 +871,8 @@ public class ImService {
 
     /**
      * 获取群公告信息，获取会话中的群公告信息，公告信息格式与[云文档](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同。
-     * <p> 注意事项：;- 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app) ;
+     * <p> 注意事项：;- 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-announcement/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-announcement/get</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetChatAnnouncementSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetChatAnnouncementSample.java</a>
@@ -880,7 +902,8 @@ public class ImService {
 
     /**
      * 获取群公告信息，获取会话中的群公告信息，公告信息格式与[云文档](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同。
-     * <p> 注意事项：;- 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app) ;
+     * <p> 注意事项：;- 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-announcement/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-announcement/get</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetChatAnnouncementSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetChatAnnouncementSample.java</a>
@@ -907,8 +930,8 @@ public class ImService {
 
     /**
      * 更新群公告信息，更新会话中的群公告信息，更新公告信息的格式和更新[云文档](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同。
-     * <p> 注意事项：;- 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);- 若群开启了
-     * ==仅群主和群管理员可编辑群信息== 配置，群主/群管理员 或 创建群组且具备 ==更新应用所创建群的群信息== 权限的机器人，可更新群公告;- 若群未开启
+     * <p> 注意事项：;- 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * 若群开启了 ==仅群主和群管理员可编辑群信息== 配置，群主/群管理员 或 创建群组且具备 ==更新应用所创建群的群信息== 权限的机器人，可更新群公告;- 若群未开启
      * ==仅群主和群管理员可编辑群信息== 配置，所有成员可以更新群公告 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-announcement/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-announcement/patch</a>
      * ;
@@ -939,8 +962,8 @@ public class ImService {
 
     /**
      * 更新群公告信息，更新会话中的群公告信息，更新公告信息的格式和更新[云文档](https://open.feishu.cn/document/ukTMukTMukTM/uAzM5YjLwMTO24CMzkjN)格式相同。
-     * <p> 注意事项：;- 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);- 若群开启了
-     * ==仅群主和群管理员可编辑群信息== 配置，群主/群管理员 或 创建群组且具备 ==更新应用所创建群的群信息== 权限的机器人，可更新群公告;- 若群未开启
+     * <p> 注意事项：;- 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * 若群开启了 ==仅群主和群管理员可编辑群信息== 配置，群主/群管理员 或 创建群组且具备 ==更新应用所创建群的群信息== 权限的机器人，可更新群公告;- 若群未开启
      * ==仅群主和群管理员可编辑群信息== 配置，所有成员可以更新群公告 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-announcement/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-announcement/patch</a>
      * ;
@@ -977,7 +1000,7 @@ public class ImService {
 
     /**
      * 指定群管理员，将用户或机器人指定为群管理员。
-     * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
      * 仅有群主可以指定群管理员;- 对于普通群，最多指定 10 个管理员;- 对于超大群，最多指定 20 个管理员;- 每次请求最多指定 50 个用户或者 5 个机器人;-
      * 指定机器人类型的管理员请使用 ==app_id== ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-managers/add_managers">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-managers/add_managers</a>
@@ -1009,7 +1032,7 @@ public class ImService {
 
     /**
      * 指定群管理员，将用户或机器人指定为群管理员。
-     * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
      * 仅有群主可以指定群管理员;- 对于普通群，最多指定 10 个管理员;- 对于超大群，最多指定 20 个管理员;- 每次请求最多指定 50 个用户或者 5 个机器人;-
      * 指定机器人类型的管理员请使用 ==app_id== ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-managers/add_managers">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-managers/add_managers</a>
@@ -1039,7 +1062,7 @@ public class ImService {
 
     /**
      * 删除群管理员，删除指定的群管理员（用户或机器人）
-     * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
      * 仅有群主可以删除群管理员;- 每次请求最多指定 50 个用户或者 5 个机器人;- 删除机器人类型的管理员请使用 ==app_id== ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-managers/delete_managers">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-managers/delete_managers</a>
      * ;
@@ -1070,7 +1093,7 @@ public class ImService {
 
     /**
      * 删除群管理员，删除指定的群管理员（用户或机器人）
-     * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
      * 仅有群主可以删除群管理员;- 每次请求最多指定 50 个用户或者 5 个机器人;- 删除机器人类型的管理员请使用 ==app_id== ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-managers/delete_managers">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-managers/delete_managers</a>
      * ;
@@ -1126,8 +1149,8 @@ public class ImService {
 
     /**
      * 将用户或机器人拉入群聊，将用户或机器人拉入群聊。
-     * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app); -
-     * 如需拉用户进群，需要机器人对用户有可见性; - 在开启 ==仅群主和群管理员可添加群成员== 的设置时，仅有群主/管理员 或 创建群组且具备 ==更新应用所创建群的群信息==
+     * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);
+     * - 如需拉用户进群，需要机器人对用户有可见性; - 在开启 ==仅群主和群管理员可添加群成员== 的设置时，仅有群主/管理员 或 创建群组且具备 ==更新应用所创建群的群信息==
      * 权限的机器人，可以拉用户或者机器人进群; - 在未开启 ==仅群主和群管理员可添加群成员== 的设置时，所有群成员都可以拉用户或机器人进群 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create</a>
      * ;
@@ -1158,8 +1181,8 @@ public class ImService {
 
     /**
      * 将用户或机器人拉入群聊，将用户或机器人拉入群聊。
-     * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app); -
-     * 如需拉用户进群，需要机器人对用户有可见性; - 在开启 ==仅群主和群管理员可添加群成员== 的设置时，仅有群主/管理员 或 创建群组且具备 ==更新应用所创建群的群信息==
+     * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);
+     * - 如需拉用户进群，需要机器人对用户有可见性; - 在开启 ==仅群主和群管理员可添加群成员== 的设置时，仅有群主/管理员 或 创建群组且具备 ==更新应用所创建群的群信息==
      * 权限的机器人，可以拉用户或者机器人进群; - 在未开启 ==仅群主和群管理员可添加群成员== 的设置时，所有群成员都可以拉用户或机器人进群 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/create</a>
      * ;
@@ -1187,7 +1210,7 @@ public class ImService {
 
     /**
      * 将用户或机器人移出群聊，将用户或机器人移出群聊。
-     * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
      * 用户或机器人在任何条件下均可移除自己出群（即主动退群）;- 仅有群主/管理员 或 创建群组并且具备 ==更新应用所创建群的群信息== 权限的机器人，可以移除其他用户或者机器人; -
      * 每次请求，最多移除50个用户或者5个机器人;- 移除机器人请使用 ==app_id== ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/delete</a>
@@ -1219,7 +1242,7 @@ public class ImService {
 
     /**
      * 将用户或机器人移出群聊，将用户或机器人移出群聊。
-     * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
      * 用户或机器人在任何条件下均可移除自己出群（即主动退群）;- 仅有群主/管理员 或 创建群组并且具备 ==更新应用所创建群的群信息== 权限的机器人，可以移除其他用户或者机器人; -
      * 每次请求，最多移除50个用户或者5个机器人;- 移除机器人请使用 ==app_id== ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/delete</a>
@@ -1248,8 +1271,8 @@ public class ImService {
 
     /**
      * 获取群成员列表，如果用户在群中，则返回该群的成员列表。
-     * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app); -
-     * 该接口不会返回群内的机器人成员; - 由于返回的群成员列表会过滤掉机器人成员，因此返回的群成员个数可能会小于指定的page_size; -
+     * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);
+     * - 该接口不会返回群内的机器人成员; - 由于返回的群成员列表会过滤掉机器人成员，因此返回的群成员个数可能会小于指定的page_size; -
      * 如果有同一时间加入群的群成员，会一次性返回，这会导致返回的群成员个数可能会大于指定的page_size ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/get</a>
      * ;
@@ -1280,8 +1303,8 @@ public class ImService {
 
     /**
      * 获取群成员列表，如果用户在群中，则返回该群的成员列表。
-     * <p> 注意事项：; - 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app); -
-     * 该接口不会返回群内的机器人成员; - 由于返回的群成员列表会过滤掉机器人成员，因此返回的群成员个数可能会小于指定的page_size; -
+     * <p> 注意事项：; - 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);
+     * - 该接口不会返回群内的机器人成员; - 由于返回的群成员列表会过滤掉机器人成员，因此返回的群成员个数可能会小于指定的page_size; -
      * 如果有同一时间加入群的群成员，会一次性返回，这会导致返回的群成员个数可能会大于指定的page_size ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/get</a>
      * ;
@@ -1364,8 +1387,8 @@ public class ImService {
 
     /**
      * 用户或机器人主动加入群聊，用户或机器人主动加入群聊。
-     * <p> 注意事项：;- 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app); -
-     * 目前仅支持加入公开群 ;
+     * <p> 注意事项：;- 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);
+     * - 目前仅支持加入公开群 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/me_join">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/me_join</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/MeJoinChatMembersSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/MeJoinChatMembersSample.java</a>
@@ -1395,8 +1418,8 @@ public class ImService {
 
     /**
      * 用户或机器人主动加入群聊，用户或机器人主动加入群聊。
-     * <p> 注意事项：;- 应用需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app); -
-     * 目前仅支持加入公开群 ;
+     * <p> 注意事项：;- 应用需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);
+     * - 目前仅支持加入公开群 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/me_join">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-members/me_join</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/MeJoinChatMembersSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/MeJoinChatMembersSample.java</a>
@@ -1976,7 +1999,7 @@ public class ImService {
 
     /**
      * 上传文件，上传文件，可以上传视频，音频和常见的文件类型
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
      * 不允许上传空文件;- 示例代码中需要自行替换文件路径和鉴权Token ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create</a>
      * ;
@@ -2006,7 +2029,7 @@ public class ImService {
 
     /**
      * 上传文件，上传文件，可以上传视频，音频和常见的文件类型
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
      * 不允许上传空文件;- 示例代码中需要自行替换文件路径和鉴权Token ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create</a>
      * ;
@@ -2034,8 +2057,8 @@ public class ImService {
 
     /**
      * 下载文件，下载文件接口，只能下载应用自己上传的文件
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
-     * 只能下载机器人自己上传的文件;- 下载用户发送的资源，请使用[获取消息中的资源文件](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get)接口
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * 只能下载机器人自己上传的文件;- 下载用户发送的资源，请使用[获取消息中的资源文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get)接口
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/get</a>
      * ;
@@ -2074,8 +2097,8 @@ public class ImService {
 
     /**
      * 下载文件，下载文件接口，只能下载应用自己上传的文件
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
-     * 只能下载机器人自己上传的文件;- 下载用户发送的资源，请使用[获取消息中的资源文件](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get)接口
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * 只能下载机器人自己上传的文件;- 下载用户发送的资源，请使用[获取消息中的资源文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get)接口
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/get</a>
      * ;
@@ -2122,7 +2145,8 @@ public class ImService {
 
     /**
      * 上传图片，上传图片接口，可以上传 JPEG、PNG、WEBP、GIF、TIFF、BMP、ICO格式图片
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app) ;
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreateImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreateImageSample.java</a>
@@ -2151,7 +2175,8 @@ public class ImService {
 
     /**
      * 上传图片，上传图片接口，可以上传 JPEG、PNG、WEBP、GIF、TIFF、BMP、ICO格式图片
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app) ;
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreateImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreateImageSample.java</a>
@@ -2178,8 +2203,8 @@ public class ImService {
 
     /**
      * 下载图片，下载图片资源，只能下载应用自己上传且图片类型为message的图片
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
-     * 只能下载机器人自己上传且图片类型为message的图片，avatar类型暂不支持下载；;- 下载用户发送的资源，请使用[获取消息中的资源文件](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get)接口
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * 只能下载机器人自己上传且图片类型为message的图片，avatar类型暂不支持下载；;- 下载用户发送的资源，请使用[获取消息中的资源文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get)接口
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/get</a>
      * ;
@@ -2218,8 +2243,8 @@ public class ImService {
 
     /**
      * 下载图片，下载图片资源，只能下载应用自己上传且图片类型为message的图片
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
-     * 只能下载机器人自己上传且图片类型为message的图片，avatar类型暂不支持下载；;- 下载用户发送的资源，请使用[获取消息中的资源文件](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get)接口
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * 只能下载机器人自己上传且图片类型为message的图片，avatar类型暂不支持下载；;- 下载用户发送的资源，请使用[获取消息中的资源文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get)接口
      * ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/get</a>
      * ;
@@ -2265,9 +2290,9 @@ public class ImService {
     }
 
     /**
-     * 发送消息，给指定用户或者会话发送消息，支持文本、富文本、可交互的[消息卡片](/ssl:ttdoc/ukTMukTMukTM/uczM3QjL3MzN04yNzcDN)、群名片、个人名片、图片、视频、音频、文件、表情包。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 给用户发送消息，需要机器人对用户有[可用性](/ssl:ttdoc/home/introduction-to-scope-and-authorization/availability);-
+     * 发送消息，给指定用户或者会话发送消息，支持文本、富文本、可交互的[消息卡片](https://open.feishu.cn/document/ukTMukTMukTM/uczM3QjL3MzN04yNzcDN)、群名片、个人名片、图片、视频、音频、文件、表情包。
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     *  ;- 给用户发送消息，需要机器人对用户有[可用性](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability);-
      * 给群组发送消息，需要机器人在群中 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create</a>
      * ;
@@ -2297,9 +2322,9 @@ public class ImService {
     }
 
     /**
-     * 发送消息，给指定用户或者会话发送消息，支持文本、富文本、可交互的[消息卡片](/ssl:ttdoc/ukTMukTMukTM/uczM3QjL3MzN04yNzcDN)、群名片、个人名片、图片、视频、音频、文件、表情包。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 给用户发送消息，需要机器人对用户有[可用性](/ssl:ttdoc/home/introduction-to-scope-and-authorization/availability);-
+     * 发送消息，给指定用户或者会话发送消息，支持文本、富文本、可交互的[消息卡片](https://open.feishu.cn/document/ukTMukTMukTM/uczM3QjL3MzN04yNzcDN)、群名片、个人名片、图片、视频、音频、文件、表情包。
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     *  ;- 给用户发送消息，需要机器人对用户有[可用性](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability);-
      * 给群组发送消息，需要机器人在群中 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create</a>
      * ;
@@ -2327,8 +2352,8 @@ public class ImService {
 
     /**
      * 撤回消息，机器人撤回机器人自己发送的消息或群主撤回群内消息。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)
-     * ，撤回消息时机器人仍需要在会话内;- 机器人可以撤回单聊和群组内，自己发送 且 发送时间不超过1天(24小时)的消息;- 若机器人要撤回群内他人发送的消息，则机器人必须是该群的群主、管理员
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     *  ，撤回消息时机器人仍需要在会话内;- 机器人可以撤回单聊和群组内，自己发送 且 发送时间不超过1天(24小时)的消息;- 若机器人要撤回群内他人发送的消息，则机器人必须是该群的群主、管理员
      * 或者 创建者，且消息发送时间不超过1年;- 无法撤回通过「批量发送消息接口」发送的消息 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/delete</a>
      * ;
@@ -2359,8 +2384,8 @@ public class ImService {
 
     /**
      * 撤回消息，机器人撤回机器人自己发送的消息或群主撤回群内消息。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)
-     * ，撤回消息时机器人仍需要在会话内;- 机器人可以撤回单聊和群组内，自己发送 且 发送时间不超过1天(24小时)的消息;- 若机器人要撤回群内他人发送的消息，则机器人必须是该群的群主、管理员
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     *  ，撤回消息时机器人仍需要在会话内;- 机器人可以撤回单聊和群组内，自己发送 且 发送时间不超过1天(24小时)的消息;- 若机器人要撤回群内他人发送的消息，则机器人必须是该群的群主、管理员
      * 或者 创建者，且消息发送时间不超过1年;- 无法撤回通过「批量发送消息接口」发送的消息 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/delete</a>
      * ;
@@ -2388,8 +2413,8 @@ public class ImService {
 
     /**
      * 获取指定消息的内容，通过 message_id 查询消息内容
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 机器人必须在群组中 ;
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 机器人必须在群组中 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/get</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetMessageSample.java</a>
@@ -2417,8 +2442,8 @@ public class ImService {
 
     /**
      * 获取指定消息的内容，通过 message_id 查询消息内容
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 机器人必须在群组中 ;
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 机器人必须在群组中 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/get</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetMessageSample.java</a>
@@ -2445,8 +2470,8 @@ public class ImService {
     /**
      * 获取会话历史消息，获取会话（包括单聊、群组）的历史消息（聊天记录）。
      * <p> 接口级别权限默认只能获取单聊（p2p）消息，如果需要获取群组（group）消息，应用还必须拥有 ***获取群组中所有消息*** 权限 ;
-     * <p> - 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 获取消息时，机器人必须在群组中 ;
+     * <p> - 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 获取消息时，机器人必须在群组中 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uADO3YjLwgzN24CM4cjN">https://open.feishu.cn/document/ukTMukTMukTM/uADO3YjLwgzN24CM4cjN</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ListMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ListMessageSample.java</a>
@@ -2475,8 +2500,8 @@ public class ImService {
     /**
      * 获取会话历史消息，获取会话（包括单聊、群组）的历史消息（聊天记录）。
      * <p> 接口级别权限默认只能获取单聊（p2p）消息，如果需要获取群组（group）消息，应用还必须拥有 ***获取群组中所有消息*** 权限 ;
-     * <p> - 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 获取消息时，机器人必须在群组中 ;
+     * <p> - 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 获取消息时，机器人必须在群组中 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uADO3YjLwgzN24CM4cjN">https://open.feishu.cn/document/ukTMukTMukTM/uADO3YjLwgzN24CM4cjN</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ListMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ListMessageSample.java</a>
@@ -2502,8 +2527,8 @@ public class ImService {
 
     /**
      * 更新应用发送的消息，更新应用已发送的消息卡片内容。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;- 当前仅支持更新
-     * **卡片消息**;- **不支持更新批量消息**;- 只支持对所有人都更新的[「共享卡片」](ukTMukTMukTM/uAjNwUjLwYDM14CM2ATN)，也即需要在卡片的`config`属性中，显式声明`"update_multi":true`。<br>如果你只想更新特定人的消息卡片，必须要用户在卡片操作交互后触发，开发文档参考[「独享卡片」](/ssl:ttdoc/ukTMukTMukTM/uYjNwUjL2YDM14iN2ATN#49904b71);-
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     *  ;- 当前仅支持更新 **卡片消息**;- **不支持更新批量消息**;- 只支持对所有人都更新的[「共享卡片」](ukTMukTMukTM/uAjNwUjLwYDM14CM2ATN)，也即需要在卡片的`config`属性中，显式声明`"update_multi":true`。<br>如果你只想更新特定人的消息卡片，必须要用户在卡片操作交互后触发，开发文档参考[「独享卡片」](https://open.feishu.cn/document/ukTMukTMukTM/uYjNwUjL2YDM14iN2ATN#49904b71);-
      * 单条消息更新频控为**5QPS** ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/patch</a>
      * ;
@@ -2532,8 +2557,8 @@ public class ImService {
 
     /**
      * 更新应用发送的消息，更新应用已发送的消息卡片内容。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;- 当前仅支持更新
-     * **卡片消息**;- **不支持更新批量消息**;- 只支持对所有人都更新的[「共享卡片」](ukTMukTMukTM/uAjNwUjLwYDM14CM2ATN)，也即需要在卡片的`config`属性中，显式声明`"update_multi":true`。<br>如果你只想更新特定人的消息卡片，必须要用户在卡片操作交互后触发，开发文档参考[「独享卡片」](/ssl:ttdoc/ukTMukTMukTM/uYjNwUjL2YDM14iN2ATN#49904b71);-
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     *  ;- 当前仅支持更新 **卡片消息**;- **不支持更新批量消息**;- 只支持对所有人都更新的[「共享卡片」](ukTMukTMukTM/uAjNwUjLwYDM14CM2ATN)，也即需要在卡片的`config`属性中，显式声明`"update_multi":true`。<br>如果你只想更新特定人的消息卡片，必须要用户在卡片操作交互后触发，开发文档参考[「独享卡片」](https://open.feishu.cn/document/ukTMukTMukTM/uYjNwUjL2YDM14iN2ATN#49904b71);-
      * 单条消息更新频控为**5QPS** ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/patch</a>
      * ;
@@ -2560,8 +2585,8 @@ public class ImService {
 
     /**
      * 查询消息已读信息，查询消息的已读信息。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 只能查询机器人自己发送，且发送时间不超过7天的消息;- 查询消息已读信息时机器人仍需要在会话内;- 本接口不支持查询批量消息 ;
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 只能查询机器人自己发送，且发送时间不超过7天的消息;- 查询消息已读信息时机器人仍需要在会话内;- 本接口不支持查询批量消息 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/read_users">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/read_users</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ReadUsersMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ReadUsersMessageSample.java</a>
@@ -2591,8 +2616,8 @@ public class ImService {
 
     /**
      * 查询消息已读信息，查询消息的已读信息。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 只能查询机器人自己发送，且发送时间不超过7天的消息;- 查询消息已读信息时机器人仍需要在会话内;- 本接口不支持查询批量消息 ;
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 只能查询机器人自己发送，且发送时间不超过7天的消息;- 查询消息已读信息时机器人仍需要在会话内;- 本接口不支持查询批量消息 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/read_users">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/read_users</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ReadUsersMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ReadUsersMessageSample.java</a>
@@ -2619,8 +2644,8 @@ public class ImService {
 
     /**
      * 回复消息，回复指定消息，支持文本、富文本、卡片、群名片、个人名片、图片、视频、文件等多种消息类型。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 回复私聊消息，需要机器人对用户有可用性;- 回复群组消息，需要机器人在群中 ;
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 回复私聊消息，需要机器人对用户有可用性;- 回复群组消息，需要机器人在群中 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/reply">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/reply</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ReplyMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ReplyMessageSample.java</a>
@@ -2648,8 +2673,8 @@ public class ImService {
 
     /**
      * 回复消息，回复指定消息，支持文本、富文本、卡片、群名片、个人名片、图片、视频、文件等多种消息类型。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 回复私聊消息，需要机器人对用户有可用性;- 回复群组消息，需要机器人在群中 ;
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 回复私聊消息，需要机器人对用户有可用性;- 回复群组消息，需要机器人在群中 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/reply">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/reply</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ReplyMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ReplyMessageSample.java</a>
@@ -2675,8 +2700,8 @@ public class ImService {
 
     /**
      * 发送应用内加急，对指定消息进行应用内加急。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 只能加急机器人自己发送的消息;- 加急时机器人仍需要在会话内 ;
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 只能加急机器人自己发送的消息;- 加急时机器人仍需要在会话内 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/urgent_app">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/urgent_app</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/UrgentAppMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/UrgentAppMessageSample.java</a>
@@ -2706,8 +2731,8 @@ public class ImService {
 
     /**
      * 发送应用内加急，对指定消息进行应用内加急。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 只能加急机器人自己发送的消息;- 加急时机器人仍需要在会话内 ;
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 只能加急机器人自己发送的消息;- 加急时机器人仍需要在会话内 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/urgent_app">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/urgent_app</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/UrgentAppMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/UrgentAppMessageSample.java</a>
@@ -2736,8 +2761,8 @@ public class ImService {
      * 发送电话加急，对指定消息进行应用内加急与电话加急
      * <p> 特别说明：;- 通过接口产生的电话加急将消耗企业的加急额度，请慎重调用。;- 通过租户管理后台-费用中心-短信/电话加急 可以查看当前额度。;- 默认接口限流为50
      * QPS，请谨慎调用。 ;
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 只能加急机器人自己发送的消息;- 加急时机器人仍需要在会话内 ;
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 只能加急机器人自己发送的消息;- 加急时机器人仍需要在会话内 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/urgent_phone">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/urgent_phone</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/UrgentPhoneMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/UrgentPhoneMessageSample.java</a>
@@ -2769,8 +2794,8 @@ public class ImService {
      * 发送电话加急，对指定消息进行应用内加急与电话加急
      * <p> 特别说明：;- 通过接口产生的电话加急将消耗企业的加急额度，请慎重调用。;- 通过租户管理后台-费用中心-短信/电话加急 可以查看当前额度。;- 默认接口限流为50
      * QPS，请谨慎调用。 ;
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 只能加急机器人自己发送的消息;- 加急时机器人仍需要在会话内 ;
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 只能加急机器人自己发送的消息;- 加急时机器人仍需要在会话内 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/urgent_phone">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/urgent_phone</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/UrgentPhoneMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/UrgentPhoneMessageSample.java</a>
@@ -2799,8 +2824,8 @@ public class ImService {
      * 发送短信加急，对指定消息进行应用内加急与短信加急。
      * <p> 特别说明：;- 通过接口产生的短信加急将消耗企业的加急额度，请慎重调用。;- 通过租户管理后台-费用中心-短信/电话加急 可以查看当前额度。;- 默认接口限流为50
      * QPS，请谨慎调用。 ;
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 只能加急机器人自己发送的消息;- 加急时机器人仍需要在会话内 ;
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 只能加急机器人自己发送的消息;- 加急时机器人仍需要在会话内 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/urgent_sms">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/urgent_sms</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/UrgentSmsMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/UrgentSmsMessageSample.java</a>
@@ -2832,8 +2857,8 @@ public class ImService {
      * 发送短信加急，对指定消息进行应用内加急与短信加急。
      * <p> 特别说明：;- 通过接口产生的短信加急将消耗企业的加急额度，请慎重调用。;- 通过租户管理后台-费用中心-短信/电话加急 可以查看当前额度。;- 默认接口限流为50
      * QPS，请谨慎调用。 ;
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 只能加急机器人自己发送的消息;- 加急时机器人仍需要在会话内 ;
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 只能加急机器人自己发送的消息;- 加急时机器人仍需要在会话内 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/urgent_sms">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/urgent_sms</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/UrgentSmsMessageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/UrgentSmsMessageSample.java</a>
@@ -2869,8 +2894,8 @@ public class ImService {
 
     /**
      * 添加消息表情回复，给指定消息添加指定类型的表情回复（reaction即表情回复，本说明文档统一用“reaction”代称）。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 待添加reaction的消息要真实存在，不能被撤回;- 给消息添加reaction，需要reaction的发送方（机器人或者用户）在消息所在的会话内 ;
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 待添加reaction的消息要真实存在，不能被撤回;- 给消息添加reaction，需要reaction的发送方（机器人或者用户）在消息所在的会话内 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreateMessageReactionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreateMessageReactionSample.java</a>
@@ -2900,8 +2925,8 @@ public class ImService {
 
     /**
      * 添加消息表情回复，给指定消息添加指定类型的表情回复（reaction即表情回复，本说明文档统一用“reaction”代称）。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 待添加reaction的消息要真实存在，不能被撤回;- 给消息添加reaction，需要reaction的发送方（机器人或者用户）在消息所在的会话内 ;
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 待添加reaction的消息要真实存在，不能被撤回;- 给消息添加reaction，需要reaction的发送方（机器人或者用户）在消息所在的会话内 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreateMessageReactionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreateMessageReactionSample.java</a>
@@ -2928,8 +2953,8 @@ public class ImService {
 
     /**
      * 删除消息表情回复，删除指定消息的表情回复（reaction即表情回复，本说明文档统一用“reaction”代称）。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 只能删除真实存在的reaction，并且删除reaction请求的操作者必须是reaction的原始添加者 ;
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 只能删除真实存在的reaction，并且删除reaction请求的操作者必须是reaction的原始添加者 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/delete</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/DeleteMessageReactionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/DeleteMessageReactionSample.java</a>
@@ -2959,8 +2984,8 @@ public class ImService {
 
     /**
      * 删除消息表情回复，删除指定消息的表情回复（reaction即表情回复，本说明文档统一用“reaction”代称）。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 只能删除真实存在的reaction，并且删除reaction请求的操作者必须是reaction的原始添加者 ;
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 只能删除真实存在的reaction，并且删除reaction请求的操作者必须是reaction的原始添加者 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/delete</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/DeleteMessageReactionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/DeleteMessageReactionSample.java</a>
@@ -2987,8 +3012,8 @@ public class ImService {
 
     /**
      * 获取消息表情回复，获取指定消息的特定类型表情回复列表（reaction即表情回复，本说明文档统一用“reaction”代称）。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 待获取reaction信息的消息要真实存在，不能被撤回;- 获取消息的reaction，需要request的授权主体（机器人或者用户）在消息所在的会话内 ;
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 待获取reaction信息的消息要真实存在，不能被撤回;- 获取消息的reaction，需要request的授权主体（机器人或者用户）在消息所在的会话内 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ListMessageReactionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ListMessageReactionSample.java</a>
@@ -3018,8 +3043,8 @@ public class ImService {
 
     /**
      * 获取消息表情回复，获取指定消息的特定类型表情回复列表（reaction即表情回复，本说明文档统一用“reaction”代称）。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app)  ;-
-     * 待获取reaction信息的消息要真实存在，不能被撤回;- 获取消息的reaction，需要request的授权主体（机器人或者用户）在消息所在的会话内 ;
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app)
+     * ;- 待获取reaction信息的消息要真实存在，不能被撤回;- 获取消息的reaction，需要request的授权主体（机器人或者用户）在消息所在的会话内 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ListMessageReactionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ListMessageReactionSample.java</a>
@@ -3055,7 +3080,7 @@ public class ImService {
 
     /**
      * 获取消息中的资源文件，获取消息中的资源文件，包括音频，视频，图片和文件，**暂不支持表情包资源下载**。当前仅支持 100M 以内的资源文件的下载。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
      * 机器人和消息需要在同一会话中;- 请求的 file_key 和 message_id 需要匹配;- 暂不支持获取合并转发消息中的子消息的资源文件;- 获取群组消息时，应用必须拥有
      * 获取群组中所有的消息 权限 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get</a>
@@ -3097,7 +3122,7 @@ public class ImService {
 
     /**
      * 获取消息中的资源文件，获取消息中的资源文件，包括音频，视频，图片和文件，**暂不支持表情包资源下载**。当前仅支持 100M 以内的资源文件的下载。
-     * <p> 注意事项:;- 需要开启[机器人能力](/ssl:ttdoc/home/develop-a-bot-in-5-minutes/create-an-app);-
+     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/home/develop-a-bot-in-5-minutes/create-an-app);-
      * 机器人和消息需要在同一会话中;- 请求的 file_key 和 message_id 需要匹配;- 暂不支持获取合并转发消息中的子消息的资源文件;- 获取群组消息时，应用必须拥有
      * 获取群组中所有的消息 权限 ;
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get</a>
@@ -3129,6 +3154,175 @@ public class ImService {
       // 反序列化
       GetMessageResourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetMessageResourceResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+  }
+
+  public static class Pin {
+
+    private final Config config;
+
+    public Pin(Config config) {
+      this.config = config;
+    }
+
+    /**
+     * Pin消息，Pin一条指定的消息
+     * <p> 注意事项:;- 若消息已经被Pin，返回该Pin的操作信息 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/pin/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/pin/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreatePinSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreatePinSample.java</a>
+     * ;
+     */
+    public CreatePinResp create(CreatePinReq req, RequestOptions reqOptions) throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/im/v1/pins"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      CreatePinResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreatePinResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * Pin消息，Pin一条指定的消息
+     * <p> 注意事项:;- 若消息已经被Pin，返回该Pin的操作信息 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/pin/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/pin/create</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreatePinSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreatePinSample.java</a>
+     * ;
+     */
+    public CreatePinResp create(CreatePinReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/im/v1/pins"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      CreatePinResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreatePinResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 移除Pin消息，移除一条指定消息的Pin
+     * <p> 注意事项：;- 若消息没有Pin或Pin已被移除，返回成功 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/pin/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/pin/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/DeletePinSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/DeletePinSample.java</a>
+     * ;
+     */
+    public DeletePinResp delete(DeletePinReq req, RequestOptions reqOptions) throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+          , "/open-apis/im/v1/pins/:message_id"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      DeletePinResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeletePinResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 移除Pin消息，移除一条指定消息的Pin
+     * <p> 注意事项：;- 若消息没有Pin或Pin已被移除，返回成功 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/pin/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/pin/delete</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/DeletePinSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/DeletePinSample.java</a>
+     * ;
+     */
+    public DeletePinResp delete(DeletePinReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
+          , "/open-apis/im/v1/pins/:message_id"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      DeletePinResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeletePinResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 获取群内Pin消息，获取所在群内指定时间范围内的所有Pin消息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/pin/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/pin/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ListPinSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ListPinSample.java</a>
+     * ;
+     */
+    public ListPinResp list(ListPinReq req, RequestOptions reqOptions) throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/im/v1/pins"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      ListPinResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListPinResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 获取群内Pin消息，获取所在群内指定时间范围内的所有Pin消息
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/pin/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/pin/list</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ListPinSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/ListPinSample.java</a>
+     * ;
+     */
+    public ListPinResp list(ListPinReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/im/v1/pins"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      ListPinResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListPinResp.class);
       resp.setRawResponse(httpResponse);
       resp.setRequest(req);
 

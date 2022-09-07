@@ -18,7 +18,8 @@ import com.google.gson.annotations.SerializedName;
 public class NodeCc {
 
   /**
-   * node id ，通过 [查看审批定义](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
+   * node id ，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
+   * 获取
    * <p> 示例值：46e6d96cfa756980907209209ec03b75
    */
   @SerializedName("key")
@@ -36,7 +37,7 @@ public class NodeCc {
 
   public NodeCc(Builder builder) {
     /**
-     * node id ，通过 [查看审批定义](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
+     * node id ，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
      * <p> 示例值：46e6d96cfa756980907209209ec03b75
      */
     this.key = builder.key;
@@ -70,7 +71,8 @@ public class NodeCc {
   public static class Builder {
 
     /**
-     * node id ，通过 [查看审批定义](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
+     * node id ，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
+     * 获取
      * <p> 示例值：46e6d96cfa756980907209209ec03b75
      */
     private String key;
@@ -81,7 +83,8 @@ public class NodeCc {
     private String[] value;
 
     /**
-     * node id ，通过 [查看审批定义](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
+     * node id ，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
+     * 获取
      * <p> 示例值：46e6d96cfa756980907209209ec03b75
      *
      * @param key

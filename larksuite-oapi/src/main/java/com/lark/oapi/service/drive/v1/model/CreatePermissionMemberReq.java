@@ -35,7 +35,7 @@ public class CreatePermissionMemberReq {
   @SerializedName("need_notification")
   private Boolean needNotification;
   /**
-   * 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+   * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
    * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
    */
   @Path
@@ -60,7 +60,7 @@ public class CreatePermissionMemberReq {
      */
     this.needNotification = builder.needNotification;
     /**
-     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
      * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
      */
     this.token = builder.token;
@@ -107,7 +107,7 @@ public class CreatePermissionMemberReq {
 
     private String type; // 文件类型，需要与文件的 token 相匹配
     private Boolean needNotification; // 添加权限后是否通知对方
-    private String token; // 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+    private String token; // 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
     private BaseMember body;
 
     /**
@@ -148,7 +148,7 @@ public class CreatePermissionMemberReq {
     }
 
     /**
-     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
      * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
      *
      * @param token

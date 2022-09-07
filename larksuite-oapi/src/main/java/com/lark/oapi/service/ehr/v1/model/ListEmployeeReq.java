@@ -63,7 +63,7 @@ public class ListEmployeeReq {
   /**
    * user_id、open_id 或 union_id，默认为 open_id。;;如果传入的值不是 open_id，需要一并传入 user_id_type 参数。;;可一次查询多个 id
    * 的用户，例如：user_ids=ou_8ebd4f35d7101ffdeb4771d7c8ec517e&user_ids=ou_7abc4f35d7101ffdeb4771dabcde;;[用户相关的
-   * ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：ou_8ebd4f35d7101ffdeb4771d7c8ec517e
    */
   @Query
@@ -121,7 +121,7 @@ public class ListEmployeeReq {
      */
     this.userIdType = builder.userIdType;
     /**
-     * user_id、open_id 或 union_id，默认为 open_id。;;如果传入的值不是 open_id，需要一并传入 user_id_type 参数。;;可一次查询多个 id 的用户，例如：user_ids=ou_8ebd4f35d7101ffdeb4771d7c8ec517e&user_ids=ou_7abc4f35d7101ffdeb4771dabcde;;[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * user_id、open_id 或 union_id，默认为 open_id。;;如果传入的值不是 open_id，需要一并传入 user_id_type 参数。;;可一次查询多个 id 的用户，例如：user_ids=ou_8ebd4f35d7101ffdeb4771d7c8ec517e&user_ids=ou_7abc4f35d7101ffdeb4771dabcde;;[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_8ebd4f35d7101ffdeb4771d7c8ec517e
      */
     this.userIds = builder.userIds;
@@ -221,7 +221,7 @@ public class ListEmployeeReq {
     private String startTime; // 查询开始时间（创建时间 &gt;= 此时间）
     private String endTime; // 查询结束时间（创建时间 &lt;= 此时间）
     private String userIdType; // 此次调用中使用的用户ID的类型
-    private String[] userIds; // user_id、open_id 或 union_id，默认为 open_id。;;如果传入的值不是 open_id，需要一并传入 user_id_type 参数。;;可一次查询多个 id 的用户，例如：user_ids=ou_8ebd4f35d7101ffdeb4771d7c8ec517e&user_ids=ou_7abc4f35d7101ffdeb4771dabcde;;[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+    private String[] userIds; // user_id、open_id 或 union_id，默认为 open_id。;;如果传入的值不是 open_id，需要一并传入 user_id_type 参数。;;可一次查询多个 id 的用户，例如：user_ids=ou_8ebd4f35d7101ffdeb4771d7c8ec517e&user_ids=ou_7abc4f35d7101ffdeb4771dabcde;;[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
     private String pageToken; // 分页标记，第一次请求可以不填，表示从头开始遍历；分页查询返回结果has_more 为 true 时会同时返回新的 page_token, 下次遍历可使用该返回的 page_token 获取更多信息。
     private Integer pageSize; // 分页大小，取值范围 1~100，默认 10
 
@@ -332,7 +332,7 @@ public class ListEmployeeReq {
     /**
      * user_id、open_id 或 union_id，默认为 open_id。;;如果传入的值不是 open_id，需要一并传入 user_id_type 参数。;;可一次查询多个 id
      * 的用户，例如：user_ids=ou_8ebd4f35d7101ffdeb4771d7c8ec517e&user_ids=ou_7abc4f35d7101ffdeb4771dabcde;;[用户相关的
-     * ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_8ebd4f35d7101ffdeb4771d7c8ec517e
      *
      * @param userIds

@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class ReplyMessageReqBody {
 
   /**
-   * 消息内容 json 格式，格式说明参考: [发送消息content说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+   * 消息内容 json 格式，格式说明参考: [发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
    * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom</at> test
    * content\"}
    */
@@ -43,7 +43,7 @@ public class ReplyMessageReqBody {
 
   public ReplyMessageReqBody(Builder builder) {
     /**
-     * 消息内容 json 格式，格式说明参考: [发送消息content说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+     * 消息内容 json 格式，格式说明参考: [发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
      * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom</at> test content\"}
      */
     this.content = builder.content;
@@ -90,7 +90,7 @@ public class ReplyMessageReqBody {
   public static class Builder {
 
     /**
-     * 消息内容 json 格式，格式说明参考: [发送消息content说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+     * 消息内容 json 格式，格式说明参考: [发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
      * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom</at> test
      * content\"}
      */
@@ -107,7 +107,7 @@ public class ReplyMessageReqBody {
     private String uuid;
 
     /**
-     * 消息内容 json 格式，格式说明参考: [发送消息content说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
+     * 消息内容 json 格式，格式说明参考: [发送消息content说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
      * <p> 示例值：{\"text\":\"<at user_id=\\\"ou_155184d1e73cbfb8973e5a9e698e74f2\\\">Tom</at> test
      * content\"}
      *

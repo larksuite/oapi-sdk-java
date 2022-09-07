@@ -24,7 +24,7 @@ public class UserSetting {
   @SerializedName("user_id")
   private String userId;
   /**
-   * 人脸照片文件 ID，获取方式：[文件上传](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)
+   * 人脸照片文件 ID，获取方式：[文件上传](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)
    * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
    */
   @SerializedName("face_key")
@@ -47,7 +47,7 @@ public class UserSetting {
      */
     this.userId = builder.userId;
     /**
-     * 人脸照片文件 ID，获取方式：[文件上传](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)
+     * 人脸照片文件 ID，获取方式：[文件上传](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)
      * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
      */
     this.faceKey = builder.faceKey;
@@ -94,7 +94,7 @@ public class UserSetting {
      */
     private String userId;
     /**
-     * 人脸照片文件 ID，获取方式：[文件上传](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)
+     * 人脸照片文件 ID，获取方式：[文件上传](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)
      * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
      */
     private String faceKey;
@@ -118,7 +118,7 @@ public class UserSetting {
 
 
     /**
-     * 人脸照片文件 ID，获取方式：[文件上传](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)
+     * 人脸照片文件 ID，获取方式：[文件上传](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/file/upload)
      * <p> 示例值：xxxxxb306842b1c189bc5212eefxxxxx
      *
      * @param faceKey

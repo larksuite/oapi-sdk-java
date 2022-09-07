@@ -36,7 +36,7 @@ public class FaqUpdateInfo {
   @SerializedName("answer")
   private String answer;
   /**
-   * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](/ssl:ttdoc/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
+   * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
    * <p> 示例值：[{;                        "content": "这只是一个测试，医保问题",;                        "type":
    * "text";                    }]
    */
@@ -70,7 +70,7 @@ public class FaqUpdateInfo {
      */
     this.answer = builder.answer;
     /**
-     * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](/ssl:ttdoc/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
+     * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
      * <p> 示例值：[{;                        "content": "这只是一个测试，医保问题",;                        "type": "text";                    }]
      */
     this.answerRichtext = builder.answerRichtext;
@@ -143,7 +143,7 @@ public class FaqUpdateInfo {
      */
     private String answer;
     /**
-     * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](/ssl:ttdoc/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
+     * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
      * <p> 示例值：[{;                        "content": "这只是一个测试，医保问题",;                        "type":
      * "text";                    }]
      */
@@ -194,7 +194,7 @@ public class FaqUpdateInfo {
 
 
     /**
-     * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](/ssl:ttdoc/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
+     * 富文本答案和答案必须有一个必填。Json Array格式，富文本结构请见[了解更多: 富文本](https://open.feishu.cn/document/ukTMukTMukTM/uITM0YjLyEDN24iMxQjN)
      * <p> 示例值：[{;                        "content": "这只是一个测试，医保问题",;                        "type":
      * "text";                    }]
      *

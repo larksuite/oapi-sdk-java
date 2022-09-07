@@ -24,7 +24,7 @@ public class Value {
   @SerializedName("range")
   private String range;
   /**
-   * 数据，数据结构参见[单元格数据结构](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
+   * 数据，数据结构参见[单元格数据结构](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
    * <p> 示例值：[]
    */
   @SerializedName("values")
@@ -41,7 +41,7 @@ public class Value {
      */
     this.range = builder.range;
     /**
-     * 数据，数据结构参见[单元格数据结构](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
+     * 数据，数据结构参见[单元格数据结构](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
      * <p> 示例值：[]
      */
     this.values = builder.values;
@@ -75,7 +75,7 @@ public class Value {
      */
     private String range;
     /**
-     * 数据，数据结构参见[单元格数据结构](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
+     * 数据，数据结构参见[单元格数据结构](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
      * <p> 示例值：[]
      */
     private CellValue[][][] values;
@@ -94,7 +94,7 @@ public class Value {
 
 
     /**
-     * 数据，数据结构参见[单元格数据结构](/ssl:ttdoc/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
+     * 数据，数据结构参见[单元格数据结构](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-value/cell-data-structure)
      * <p> 示例值：[]
      *
      * @param values

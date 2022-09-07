@@ -27,7 +27,7 @@ public class GetPermissionPublicReq {
   @SerializedName("type")
   private String type;
   /**
-   * 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+   * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
    * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
    */
   @Path
@@ -45,7 +45,7 @@ public class GetPermissionPublicReq {
      */
     this.type = builder.type;
     /**
-     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
      * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
      */
     this.token = builder.token;
@@ -74,7 +74,7 @@ public class GetPermissionPublicReq {
   public static class Builder {
 
     private String type; // 文件类型，放于query参数中，如：`?type=doc`
-    private String token; // 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+    private String token; // 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
 
     /**
      * 文件类型，放于query参数中，如：`?type=doc`
@@ -102,7 +102,7 @@ public class GetPermissionPublicReq {
     }
 
     /**
-     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](/ssl:ttdoc/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+     * 文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
      * <p> 示例值：doccnBKgoMyY5OMbUG6FioTXuBe
      *
      * @param token

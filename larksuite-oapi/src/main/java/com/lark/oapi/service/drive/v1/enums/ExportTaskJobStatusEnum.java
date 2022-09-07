@@ -23,8 +23,8 @@ public enum ExportTaskJobStatusEnum {
   INTERNALERROR(3), // 内部错误
   EXPORTSIZELIMIT(107), // 导出文档过大
   TIMEOUT(108), // 处理超时
-  INTERNALERROR1(109), // 内部错误
-  NOPERMISSION(110), // 无权限
+  EXPORTBLOCKNOTPERMITED(109), // 导出内容块无权限
+  NOPERMISSION(110), // 导出文档无权限
   DOCSDELETED(111), // 导出文档已删除
   EXPORTDENIEDONCOPYING(122), // 创建副本中禁止导出
   DOCSNOTEXIST(123), // 导出文档不存在

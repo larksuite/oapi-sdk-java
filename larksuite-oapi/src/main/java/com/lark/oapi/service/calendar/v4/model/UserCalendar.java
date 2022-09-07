@@ -24,7 +24,7 @@ public class UserCalendar {
   @SerializedName("calendar")
   private Calendar calendar;
   /**
-   * 日历的创建者user ID，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+   * 日历的创建者user ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
    * <p> 示例值：ou_xxxxxx
    */
   @SerializedName("user_id")
@@ -41,7 +41,7 @@ public class UserCalendar {
      */
     this.calendar = builder.calendar;
     /**
-     * 日历的创建者user ID，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 日历的创建者user ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_xxxxxx
      */
     this.userId = builder.userId;
@@ -75,7 +75,7 @@ public class UserCalendar {
      */
     private Calendar calendar;
     /**
-     * 日历的创建者user ID，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 日历的创建者user ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_xxxxxx
      */
     private String userId;
@@ -94,7 +94,7 @@ public class UserCalendar {
 
 
     /**
-     * 日历的创建者user ID，参见[用户相关的 ID 概念](/ssl:ttdoc/home/user-identity-introduction/introduction)
+     * 日历的创建者user ID，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
      * <p> 示例值：ou_xxxxxx
      *
      * @param userId

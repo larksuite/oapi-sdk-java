@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class CalendarAcl {
 
   /**
-   * acl资源ID。参见[ACL ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
+   * acl资源ID。参见[ACL ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
    * <p> 示例值：user_xxxxxx
    */
   @SerializedName("acl_id")
@@ -42,7 +42,7 @@ public class CalendarAcl {
 
   public CalendarAcl(Builder builder) {
     /**
-     * acl资源ID。参见[ACL ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
+     * acl资源ID。参见[ACL ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
      * <p> 示例值：user_xxxxxx
      */
     this.aclId = builder.aclId;
@@ -89,7 +89,7 @@ public class CalendarAcl {
   public static class Builder {
 
     /**
-     * acl资源ID。参见[ACL ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
+     * acl资源ID。参见[ACL ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
      * <p> 示例值：user_xxxxxx
      */
     private String aclId;
@@ -105,7 +105,7 @@ public class CalendarAcl {
     private AclScope scope;
 
     /**
-     * acl资源ID。参见[ACL ID说明](/ssl:ttdoc/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
+     * acl资源ID。参见[ACL ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
      * <p> 示例值：user_xxxxxx
      *
      * @param aclId
