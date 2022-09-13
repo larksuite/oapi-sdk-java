@@ -25,13 +25,13 @@ public class UserCustomAttrValue {
   private String text;
   /**
    * 字段类型为 HREF 时，该参数定义默认 URL，例如手机端跳转小程序，PC端跳转网页
-   * <p> 示例值：http://www.fs.cn
+   * <p> 示例值：http://www.feishu.cn
    */
   @SerializedName("url")
   private String url;
   /**
    * 字段类型为 HREF 时，该参数定义PC端 URL
-   * <p> 示例值：http://www.fs.cn
+   * <p> 示例值：http://www.feishu.cn
    */
   @SerializedName("pc_url")
   private String pcUrl;
@@ -78,12 +78,12 @@ public class UserCustomAttrValue {
     this.text = builder.text;
     /**
      * 字段类型为 HREF 时，该参数定义默认 URL，例如手机端跳转小程序，PC端跳转网页
-     * <p> 示例值：http://www.fs.cn
+     * <p> 示例值：http://www.feishu.cn
      */
     this.url = builder.url;
     /**
      * 字段类型为 HREF 时，该参数定义PC端 URL
-     * <p> 示例值：http://www.fs.cn
+     * <p> 示例值：http://www.feishu.cn
      */
     this.pcUrl = builder.pcUrl;
     /**
@@ -190,12 +190,12 @@ public class UserCustomAttrValue {
     private String text;
     /**
      * 字段类型为 HREF 时，该参数定义默认 URL，例如手机端跳转小程序，PC端跳转网页
-     * <p> 示例值：http://www.fs.cn
+     * <p> 示例值：http://www.feishu.cn
      */
     private String url;
     /**
      * 字段类型为 HREF 时，该参数定义PC端 URL
-     * <p> 示例值：http://www.fs.cn
+     * <p> 示例值：http://www.feishu.cn
      */
     private String pcUrl;
     /**
@@ -239,7 +239,7 @@ public class UserCustomAttrValue {
 
     /**
      * 字段类型为 HREF 时，该参数定义默认 URL，例如手机端跳转小程序，PC端跳转网页
-     * <p> 示例值：http://www.fs.cn
+     * <p> 示例值：http://www.feishu.cn
      *
      * @param url
      * @return
@@ -252,7 +252,7 @@ public class UserCustomAttrValue {
 
     /**
      * 字段类型为 HREF 时，该参数定义PC端 URL
-     * <p> 示例值：http://www.fs.cn
+     * <p> 示例值：http://www.feishu.cn
      *
      * @param pcUrl
      * @return

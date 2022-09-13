@@ -21,7 +21,7 @@ import com.lark.oapi.core.annotation.Query;
 public class CreateChatMembersReq {
 
   /**
-   * 进群成员 id 类型 open_id/user_id/union_id/app_id;;<b>注意：</b>拉机器人入群请使用 ==app_id==
+   * 进群成员 id 类型 open_id/user_id/union_id/app_id
    * <p> 示例值：open_id
    */
   @Query
@@ -50,7 +50,7 @@ public class CreateChatMembersReq {
 
   public CreateChatMembersReq(Builder builder) {
     /**
-     * 进群成员 id 类型 open_id/user_id/union_id/app_id;;<b>注意：</b>拉机器人入群请使用 ==app_id==
+     * 进群成员 id 类型 open_id/user_id/union_id/app_id
      * <p> 示例值：open_id
      */
     this.memberIdType = builder.memberIdType;
@@ -105,13 +105,13 @@ public class CreateChatMembersReq {
 
   public static class Builder {
 
-    private String memberIdType; // 进群成员 id 类型 open_id/user_id/union_id/app_id;;<b>注意：</b>拉机器人入群请使用 ==app_id==
+    private String memberIdType; // 进群成员 id 类型 open_id/user_id/union_id/app_id
     private Integer succeedType; // 出现不可用ID后的处理方式 0/1/2
     private String chatId; // 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
     private CreateChatMembersReqBody body;
 
     /**
-     * 进群成员 id 类型 open_id/user_id/union_id/app_id;;<b>注意：</b>拉机器人入群请使用 ==app_id==
+     * 进群成员 id 类型 open_id/user_id/union_id/app_id
      * <p> 示例值：open_id
      *
      * @param memberIdType
@@ -123,7 +123,7 @@ public class CreateChatMembersReq {
     }
 
     /**
-     * 进群成员 id 类型 open_id/user_id/union_id/app_id;;<b>注意：</b>拉机器人入群请使用 ==app_id==
+     * 进群成员 id 类型 open_id/user_id/union_id/app_id
      * <p> 示例值：open_id
      *
      * @param memberIdType {@link com.lark.oapi.service.im.v1.enums.CreateChatMembersMemberIdTypeEnum}

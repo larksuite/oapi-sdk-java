@@ -45,7 +45,7 @@ public class DocxService {
 
   private final Document document; // 文档
   private final DocumentBlock documentBlock; // 块
-  private final DocumentBlockChildren documentBlockChildren; // document.block.children
+  private final DocumentBlockChildren documentBlockChildren; // 块
 
   public DocxService(Config config) {
     this.document = new Document(config);
@@ -72,7 +72,7 @@ public class DocxService {
   }
 
   /**
-   * document.block.children
+   * 块
    *
    * @return
    */

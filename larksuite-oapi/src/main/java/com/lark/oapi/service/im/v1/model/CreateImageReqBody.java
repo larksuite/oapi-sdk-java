@@ -24,7 +24,7 @@ public class CreateImageReqBody {
   @SerializedName("image_type")
   private String imageType;
   /**
-   * 图片内容;; **注意：** 上传的图片大小不能超过10MB
+   * 图片内容
    * <p> 示例值：二进制文件
    */
   @SerializedName("image")
@@ -41,7 +41,7 @@ public class CreateImageReqBody {
      */
     this.imageType = builder.imageType;
     /**
-     * 图片内容;; **注意：** 上传的图片大小不能超过10MB
+     * 图片内容
      * <p> 示例值：二进制文件
      */
     this.image = builder.image;
@@ -75,7 +75,7 @@ public class CreateImageReqBody {
      */
     private String imageType;
     /**
-     * 图片内容;; **注意：** 上传的图片大小不能超过10MB
+     * 图片内容
      * <p> 示例值：二进制文件
      */
     private java.io.File image;
@@ -106,7 +106,7 @@ public class CreateImageReqBody {
 
 
     /**
-     * 图片内容;; **注意：** 上传的图片大小不能超过10MB
+     * 图片内容
      * <p> 示例值：二进制文件
      *
      * @param image

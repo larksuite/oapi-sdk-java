@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class TicketUserEvent {
 
   /**
-   * id
+   * 6626871355780366332
    * <p> 示例值：
    */
   @SerializedName("id")
@@ -30,7 +30,7 @@ public class TicketUserEvent {
   @SerializedName("avatar_url")
   private String avatarUrl;
   /**
-   * 名称
+   * 6626871355780366333
    * <p> 示例值：abc
    */
   @SerializedName("name")
@@ -48,7 +48,7 @@ public class TicketUserEvent {
 
   public TicketUserEvent(Builder builder) {
     /**
-     * id
+     * 6626871355780366332
      * <p> 示例值：
      */
     this.id = builder.id;
@@ -58,7 +58,7 @@ public class TicketUserEvent {
      */
     this.avatarUrl = builder.avatarUrl;
     /**
-     * 名称
+     * 6626871355780366333
      * <p> 示例值：abc
      */
     this.name = builder.name;
@@ -108,7 +108,7 @@ public class TicketUserEvent {
   public static class Builder {
 
     /**
-     * id
+     * 6626871355780366332
      * <p> 示例值：
      */
     private UserId id;
@@ -118,7 +118,7 @@ public class TicketUserEvent {
      */
     private String avatarUrl;
     /**
-     * 名称
+     * 6626871355780366333
      * <p> 示例值：abc
      */
     private String name;
@@ -129,7 +129,7 @@ public class TicketUserEvent {
     private String email;
 
     /**
-     * id
+     * 6626871355780366332
      * <p> 示例值：
      *
      * @param id
@@ -155,7 +155,7 @@ public class TicketUserEvent {
 
 
     /**
-     * 名称
+     * 6626871355780366333
      * <p> 示例值：abc
      *
      * @param name

@@ -11,66 +11,66 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.sheets.v3.model;
+package com.lark.oapi.service.hire.v1.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class RichValue {
+public class InternOfferOnboardingInfo {
 
   /**
-   * 数据
-   * <p> 示例值：数据
+   * 实际入职日期
+   * <p> 示例值：2022-01-01
    */
-  @SerializedName("values")
-  private CellValue[][][] values;
+  @SerializedName("actual_onboarding_date")
+  private String actualOnboardingDate;
 
   // builder 开始
-  public RichValue() {
+  public InternOfferOnboardingInfo() {
   }
 
-  public RichValue(Builder builder) {
+  public InternOfferOnboardingInfo(Builder builder) {
     /**
-     * 数据
-     * <p> 示例值：数据
+     * 实际入职日期
+     * <p> 示例值：2022-01-01
      */
-    this.values = builder.values;
+    this.actualOnboardingDate = builder.actualOnboardingDate;
   }
 
   public static Builder newBuilder() {
     return new Builder();
   }
 
-  public CellValue[][][] getValues() {
-    return this.values;
+  public String getActualOnboardingDate() {
+    return this.actualOnboardingDate;
   }
 
-  public void setValues(CellValue[][][] values) {
-    this.values = values;
+  public void setActualOnboardingDate(String actualOnboardingDate) {
+    this.actualOnboardingDate = actualOnboardingDate;
   }
 
   public static class Builder {
 
     /**
-     * 数据
-     * <p> 示例值：数据
+     * 实际入职日期
+     * <p> 示例值：2022-01-01
      */
-    private CellValue[][][] values;
+    private String actualOnboardingDate;
 
     /**
-     * 数据
-     * <p> 示例值：数据
+     * 实际入职日期
+     * <p> 示例值：2022-01-01
      *
-     * @param values
+     * @param actualOnboardingDate
      * @return
      */
-    public Builder values(CellValue[][][] values) {
-      this.values = values;
+    public Builder actualOnboardingDate(String actualOnboardingDate) {
+      this.actualOnboardingDate = actualOnboardingDate;
       return this;
     }
 
 
-    public RichValue build() {
-      return new RichValue(this);
+    public InternOfferOnboardingInfo build() {
+      return new InternOfferOnboardingInfo(this);
     }
   }
 }

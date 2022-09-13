@@ -74,7 +74,7 @@ public class HireService {
   private final Attachment attachment; // 附件
   private final Employee employee; // 入职
   private final Job job; // 职位
-  private final JobManager jobManager; // job.manager
+  private final JobManager jobManager; // 职位
   private final JobProcess jobProcess; // 流程
   private final Note note; // 备注
   private final OfferSchema offerSchema; // offer
@@ -143,7 +143,7 @@ public class HireService {
   }
 
   /**
-   * job.manager
+   * 职位
    *
    * @return
    */
@@ -215,7 +215,7 @@ public class HireService {
 
     /**
      * 创建投递，根据人才 ID 和职位 ID 创建投递
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uQzM1YjL0MTN24CNzUjN/create_application">https://open.feishu.cn/document/ukTMukTMukTM/uQzM1YjL0MTN24CNzUjN/create_application</a>
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/create">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/create</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateApplicationSample.java</a>
      * ;
@@ -244,7 +244,7 @@ public class HireService {
 
     /**
      * 创建投递，根据人才 ID 和职位 ID 创建投递
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uQzM1YjL0MTN24CNzUjN/create_application">https://open.feishu.cn/document/ukTMukTMukTM/uQzM1YjL0MTN24CNzUjN/create_application</a>
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/create">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/create</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/CreateApplicationSample.java</a>
      * ;
@@ -270,7 +270,7 @@ public class HireService {
 
     /**
      * 获取投递信息，根据投递 ID 获取单个投递信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uQzM1YjL0MTN24CNzUjN/get-application">https://open.feishu.cn/document/ukTMukTMukTM/uQzM1YjL0MTN24CNzUjN/get-application</a>
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetApplicationSample.java</a>
      * ;
@@ -299,7 +299,7 @@ public class HireService {
 
     /**
      * 获取投递信息，根据投递 ID 获取单个投递信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uQzM1YjL0MTN24CNzUjN/get-application">https://open.feishu.cn/document/ukTMukTMukTM/uQzM1YjL0MTN24CNzUjN/get-application</a>
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetApplicationSample.java</a>
      * ;
@@ -325,7 +325,7 @@ public class HireService {
 
     /**
      * 获取投递列表，根据限定条件获取投递列表信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uQzM1YjL0MTN24CNzUjN/get-application-list">https://open.feishu.cn/document/ukTMukTMukTM/uQzM1YjL0MTN24CNzUjN/get-application-list</a>
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListApplicationSample.java</a>
      * ;
@@ -354,7 +354,7 @@ public class HireService {
 
     /**
      * 获取投递列表，根据限定条件获取投递列表信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uQzM1YjL0MTN24CNzUjN/get-application-list">https://open.feishu.cn/document/ukTMukTMukTM/uQzM1YjL0MTN24CNzUjN/get-application-list</a>
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListApplicationSample.java</a>
      * ;
@@ -380,7 +380,7 @@ public class HireService {
 
     /**
      * 获取 Offer 信息，根据投递 ID 获取 Offer 信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uQzM1YjL0MTN24CNzUjN/get-application-offer">https://open.feishu.cn/document/ukTMukTMukTM/uQzM1YjL0MTN24CNzUjN/get-application-offer</a>
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/offer">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/offer</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/OfferApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/OfferApplicationSample.java</a>
      * ;
@@ -409,7 +409,7 @@ public class HireService {
 
     /**
      * 获取 Offer 信息，根据投递 ID 获取 Offer 信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uQzM1YjL0MTN24CNzUjN/get-application-offer">https://open.feishu.cn/document/ukTMukTMukTM/uQzM1YjL0MTN24CNzUjN/get-application-offer</a>
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/offer">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/offer</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/OfferApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/OfferApplicationSample.java</a>
      * ;
@@ -435,7 +435,7 @@ public class HireService {
 
     /**
      * 终止投递，根据投递 ID 修改投递状态为「已终止」
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uQzM1YjL0MTN24CNzUjN/terminate-application">https://open.feishu.cn/document/ukTMukTMukTM/uQzM1YjL0MTN24CNzUjN/terminate-application</a>
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/terminate">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/terminate</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TerminateApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TerminateApplicationSample.java</a>
      * ;
@@ -464,7 +464,7 @@ public class HireService {
 
     /**
      * 终止投递，根据投递 ID 修改投递状态为「已终止」
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uQzM1YjL0MTN24CNzUjN/terminate-application">https://open.feishu.cn/document/ukTMukTMukTM/uQzM1YjL0MTN24CNzUjN/terminate-application</a>
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/terminate">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/terminate</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TerminateApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TerminateApplicationSample.java</a>
      * ;
@@ -490,7 +490,7 @@ public class HireService {
 
     /**
      * 操作候选人入职，根据投递 ID 操作候选人入职并创建员工。投递须处于「待入职」阶段，可通过「转移阶段」接口变更投递状态
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uczM1YjL3MTN24yNzUjN">https://open.feishu.cn/document/ukTMukTMukTM/uczM1YjL3MTN24yNzUjN</a>
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/transfer_onboard">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/transfer_onboard</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TransferOnboardApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TransferOnboardApplicationSample.java</a>
      * ;
@@ -519,7 +519,7 @@ public class HireService {
 
     /**
      * 操作候选人入职，根据投递 ID 操作候选人入职并创建员工。投递须处于「待入职」阶段，可通过「转移阶段」接口变更投递状态
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uczM1YjL3MTN24yNzUjN">https://open.feishu.cn/document/ukTMukTMukTM/uczM1YjL3MTN24yNzUjN</a>
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/transfer_onboard">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/transfer_onboard</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TransferOnboardApplicationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/TransferOnboardApplicationSample.java</a>
      * ;
@@ -909,7 +909,7 @@ public class HireService {
 
     /**
      * 获取职位信息，根据职位 ID 获取职位信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/job/get-job">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/job/get-job</a>
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetJobSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetJobSample.java</a>
      * ;
@@ -936,7 +936,7 @@ public class HireService {
 
     /**
      * 获取职位信息，根据职位 ID 获取职位信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/job/get-job">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/job/get-job</a>
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetJobSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetJobSample.java</a>
      * ;
@@ -1033,7 +1033,7 @@ public class HireService {
 
     /**
      * 获取招聘流程信息，获取全部招聘流程信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/jop-process/get-process">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/jop-process/get-process</a>
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListJobProcessSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListJobProcessSample.java</a>
      * ;
@@ -1062,7 +1062,7 @@ public class HireService {
 
     /**
      * 获取招聘流程信息，获取全部招聘流程信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/jop-process/get-process">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/jop-process/get-process</a>
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListJobProcessSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListJobProcessSample.java</a>
      * ;
@@ -1507,7 +1507,7 @@ public class HireService {
 
     /**
      * 获取人才信息，根据人才 ID 获取人才信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUzM1YjL1MTN24SNzUjN/get-talent">https://open.feishu.cn/document/ukTMukTMukTM/uUzM1YjL1MTN24SNzUjN/get-talent</a>
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetTalentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetTalentSample.java</a>
      * ;
@@ -1534,7 +1534,7 @@ public class HireService {
 
     /**
      * 获取人才信息，根据人才 ID 获取人才信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUzM1YjL1MTN24SNzUjN/get-talent">https://open.feishu.cn/document/ukTMukTMukTM/uUzM1YjL1MTN24SNzUjN/get-talent</a>
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetTalentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/GetTalentSample.java</a>
      * ;

@@ -31,7 +31,7 @@ public class ListModerator {
   private String userId;
   /**
    * tenant key
-   * <p> 示例值：2ca1d211f64f6438
+   * <p> 示例值：
    */
   @SerializedName("tenant_key")
   private String tenantKey;
@@ -53,7 +53,7 @@ public class ListModerator {
     this.userId = builder.userId;
     /**
      * tenant key
-     * <p> 示例值：2ca1d211f64f6438
+     * <p> 示例值：
      */
     this.tenantKey = builder.tenantKey;
   }
@@ -100,7 +100,7 @@ public class ListModerator {
     private String userId;
     /**
      * tenant key
-     * <p> 示例值：2ca1d211f64f6438
+     * <p> 示例值：
      */
     private String tenantKey;
 
@@ -132,7 +132,7 @@ public class ListModerator {
 
     /**
      * tenant key
-     * <p> 示例值：2ca1d211f64f6438
+     * <p> 示例值：
      *
      * @param tenantKey
      * @return

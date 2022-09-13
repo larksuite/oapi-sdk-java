@@ -42,6 +42,12 @@ public class OfferListInfo {
   @SerializedName("offer_status")
   private Integer offerStatus;
   /**
+   * Offer 类型
+   * <p> 示例值：
+   */
+  @SerializedName("offer_type")
+  private Integer offerType;
+  /**
    * Offer 人员类型
    * <p> 示例值：
    */
@@ -79,6 +85,11 @@ public class OfferListInfo {
      * <p> 示例值：0
      */
     this.offerStatus = builder.offerStatus;
+    /**
+     * Offer 类型
+     * <p> 示例值：
+     */
+    this.offerType = builder.offerType;
     /**
      * Offer 人员类型
      * <p> 示例值：
@@ -127,6 +138,14 @@ public class OfferListInfo {
     this.offerStatus = offerStatus;
   }
 
+  public Integer getOfferType() {
+    return this.offerType;
+  }
+
+  public void setOfferType(Integer offerType) {
+    this.offerType = offerType;
+  }
+
   public BaseBilingualWithId getEmployeeType() {
     return this.employeeType;
   }
@@ -165,6 +184,11 @@ public class OfferListInfo {
      * <p> 示例值：0
      */
     private Integer offerStatus;
+    /**
+     * Offer 类型
+     * <p> 示例值：
+     */
+    private Integer offerType;
     /**
      * Offer 人员类型
      * <p> 示例值：
@@ -224,6 +248,19 @@ public class OfferListInfo {
      */
     public Builder offerStatus(Integer offerStatus) {
       this.offerStatus = offerStatus;
+      return this;
+    }
+
+
+    /**
+     * Offer 类型
+     * <p> 示例值：
+     *
+     * @param offerType
+     * @return
+     */
+    public Builder offerType(Integer offerType) {
+      this.offerType = offerType;
       return this;
     }
 

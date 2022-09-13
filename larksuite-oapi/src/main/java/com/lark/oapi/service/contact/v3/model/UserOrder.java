@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class UserOrder {
 
   /**
-   * 排序信息对应的部门ID， ID值与查询参数中的department_id_type 对应。;;表示用户所在的、且需要排序的部门。;;不同 ID 的说明参见及获取方式参见
+   * 排序信息对应的部门ID， ID值与查询参数中的department_id_type 对应。;;表示用户所在的、且需要排序的部门。;;不同 ID 的说明参见及获取方式
    * [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)
    * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
    */
@@ -43,7 +43,7 @@ public class UserOrder {
 
   public UserOrder(Builder builder) {
     /**
-     * 排序信息对应的部门ID， ID值与查询参数中的department_id_type 对应。;;表示用户所在的、且需要排序的部门。;;不同 ID 的说明参见及获取方式参见 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)
+     * 排序信息对应的部门ID， ID值与查询参数中的department_id_type 对应。;;表示用户所在的、且需要排序的部门。;;不同 ID 的说明参见及获取方式 [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)
      * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      */
     this.departmentId = builder.departmentId;
@@ -90,7 +90,7 @@ public class UserOrder {
   public static class Builder {
 
     /**
-     * 排序信息对应的部门ID， ID值与查询参数中的department_id_type 对应。;;表示用户所在的、且需要排序的部门。;;不同 ID 的说明参见及获取方式参见
+     * 排序信息对应的部门ID， ID值与查询参数中的department_id_type 对应。;;表示用户所在的、且需要排序的部门。;;不同 ID 的说明参见及获取方式
      * [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)
      * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      */
@@ -107,7 +107,7 @@ public class UserOrder {
     private Integer departmentOrder;
 
     /**
-     * 排序信息对应的部门ID， ID值与查询参数中的department_id_type 对应。;;表示用户所在的、且需要排序的部门。;;不同 ID 的说明参见及获取方式参见
+     * 排序信息对应的部门ID， ID值与查询参数中的department_id_type 对应。;;表示用户所在的、且需要排序的部门。;;不同 ID 的说明参见及获取方式
      * [部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)
      * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      *

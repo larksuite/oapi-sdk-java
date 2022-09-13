@@ -14,7 +14,7 @@
 package com.lark.oapi.service.im.v1.enums;
 
 /**
- * 进群成员 id 类型 open_id/user_id/union_id/app_id;;<b>注意：</b>拉机器人入群请使用 ==app_id==
+ * 进群成员 id 类型 open_id/user_id/union_id/app_id
  */
 public enum CreateChatMembersMemberIdTypeEnum {
   USER_ID("user_id"), // 以user_id来识别成员

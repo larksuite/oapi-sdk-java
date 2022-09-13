@@ -25,7 +25,7 @@ public class CreateChatReqBody {
   @SerializedName("avatar")
   private String avatar;
   /**
-   * 群名称;; **注意：** 公开群名称的长度不得少于2个字符
+   * 群名称
    * <p> 示例值：测试群名称
    */
   @SerializedName("name")
@@ -56,7 +56,7 @@ public class CreateChatReqBody {
   @SerializedName("user_id_list")
   private String[] userIdList;
   /**
-   * 创建群时邀请的群机器人; ;**注意：** 拉机器人入群请使用 ==app_id==
+   * 创建群时邀请的群机器人
    * <p> 示例值：["cli_a10fbf7e94b8d01d"]
    */
   @SerializedName("bot_id_list")
@@ -109,7 +109,7 @@ public class CreateChatReqBody {
      */
     this.avatar = builder.avatar;
     /**
-     * 群名称;; **注意：** 公开群名称的长度不得少于2个字符
+     * 群名称
      * <p> 示例值：测试群名称
      */
     this.name = builder.name;
@@ -134,7 +134,7 @@ public class CreateChatReqBody {
      */
     this.userIdList = builder.userIdList;
     /**
-     * 创建群时邀请的群机器人; ;**注意：** 拉机器人入群请使用 ==app_id==
+     * 创建群时邀请的群机器人
      * <p> 示例值：["cli_a10fbf7e94b8d01d"]
      */
     this.botIdList = builder.botIdList;
@@ -287,7 +287,7 @@ public class CreateChatReqBody {
      */
     private String avatar;
     /**
-     * 群名称;; **注意：** 公开群名称的长度不得少于2个字符
+     * 群名称
      * <p> 示例值：测试群名称
      */
     private String name;
@@ -313,7 +313,7 @@ public class CreateChatReqBody {
      */
     private String[] userIdList;
     /**
-     * 创建群时邀请的群机器人; ;**注意：** 拉机器人入群请使用 ==app_id==
+     * 创建群时邀请的群机器人
      * <p> 示例值：["cli_a10fbf7e94b8d01d"]
      */
     private String[] botIdList;
@@ -363,7 +363,7 @@ public class CreateChatReqBody {
 
 
     /**
-     * 群名称;; **注意：** 公开群名称的长度不得少于2个字符
+     * 群名称
      * <p> 示例值：测试群名称
      *
      * @param name
@@ -429,7 +429,7 @@ public class CreateChatReqBody {
 
 
     /**
-     * 创建群时邀请的群机器人; ;**注意：** 拉机器人入群请使用 ==app_id==
+     * 创建群时邀请的群机器人
      * <p> 示例值：["cli_a10fbf7e94b8d01d"]
      *
      * @param botIdList

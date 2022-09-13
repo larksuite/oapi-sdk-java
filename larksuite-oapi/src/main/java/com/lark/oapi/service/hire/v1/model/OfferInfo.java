@@ -37,6 +37,12 @@ public class OfferInfo {
   @SerializedName("schema_id")
   private String schemaId;
   /**
+   * Offer 类型
+   * <p> 示例值：1
+   */
+  @SerializedName("offer_type")
+  private Integer offerType;
+  /**
    * Offer 基本信息
    * <p> 示例值：
    */
@@ -75,6 +81,11 @@ public class OfferInfo {
      * <p> 示例值：7013318077945596204
      */
     this.schemaId = builder.schemaId;
+    /**
+     * Offer 类型
+     * <p> 示例值：1
+     */
+    this.offerType = builder.offerType;
     /**
      * Offer 基本信息
      * <p> 示例值：
@@ -120,6 +131,14 @@ public class OfferInfo {
     this.schemaId = schemaId;
   }
 
+  public Integer getOfferType() {
+    return this.offerType;
+  }
+
+  public void setOfferType(Integer offerType) {
+    this.offerType = offerType;
+  }
+
   public OfferBasicInfo getBasicInfo() {
     return this.basicInfo;
   }
@@ -162,6 +181,11 @@ public class OfferInfo {
      * <p> 示例值：7013318077945596204
      */
     private String schemaId;
+    /**
+     * Offer 类型
+     * <p> 示例值：1
+     */
+    private Integer offerType;
     /**
      * Offer 基本信息
      * <p> 示例值：
@@ -214,6 +238,19 @@ public class OfferInfo {
      */
     public Builder schemaId(String schemaId) {
       this.schemaId = schemaId;
+      return this;
+    }
+
+
+    /**
+     * Offer 类型
+     * <p> 示例值：1
+     *
+     * @param offerType
+     * @return
+     */
+    public Builder offerType(Integer offerType) {
+      this.offerType = offerType;
       return this;
     }
 

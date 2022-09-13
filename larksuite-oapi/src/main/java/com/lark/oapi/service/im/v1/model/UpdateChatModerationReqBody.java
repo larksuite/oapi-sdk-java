@@ -25,13 +25,13 @@ public class UpdateChatModerationReqBody {
   private String moderationSetting;
   /**
    * 选择部分用户可发言模式时，添加的可发言用户列表（自动过滤不在群内的用户）
-   * <p> 示例值：["4d7a3c6g"]
+   * <p> 示例值：
    */
   @SerializedName("moderator_added_list")
   private String[] moderatorAddedList;
   /**
    * 选择部分用户可发言模式时，移除的可发言用户列表（自动过滤不在群内的用户）
-   * <p> 示例值：["4d7a3ih6"]
+   * <p> 示例值：
    */
   @SerializedName("moderator_removed_list")
   private String[] moderatorRemovedList;
@@ -48,12 +48,12 @@ public class UpdateChatModerationReqBody {
     this.moderationSetting = builder.moderationSetting;
     /**
      * 选择部分用户可发言模式时，添加的可发言用户列表（自动过滤不在群内的用户）
-     * <p> 示例值：["4d7a3c6g"]
+     * <p> 示例值：
      */
     this.moderatorAddedList = builder.moderatorAddedList;
     /**
      * 选择部分用户可发言模式时，移除的可发言用户列表（自动过滤不在群内的用户）
-     * <p> 示例值：["4d7a3ih6"]
+     * <p> 示例值：
      */
     this.moderatorRemovedList = builder.moderatorRemovedList;
   }
@@ -95,12 +95,12 @@ public class UpdateChatModerationReqBody {
     private String moderationSetting;
     /**
      * 选择部分用户可发言模式时，添加的可发言用户列表（自动过滤不在群内的用户）
-     * <p> 示例值：["4d7a3c6g"]
+     * <p> 示例值：
      */
     private String[] moderatorAddedList;
     /**
      * 选择部分用户可发言模式时，移除的可发言用户列表（自动过滤不在群内的用户）
-     * <p> 示例值：["4d7a3ih6"]
+     * <p> 示例值：
      */
     private String[] moderatorRemovedList;
 
@@ -119,7 +119,7 @@ public class UpdateChatModerationReqBody {
 
     /**
      * 选择部分用户可发言模式时，添加的可发言用户列表（自动过滤不在群内的用户）
-     * <p> 示例值：["4d7a3c6g"]
+     * <p> 示例值：
      *
      * @param moderatorAddedList
      * @return
@@ -132,7 +132,7 @@ public class UpdateChatModerationReqBody {
 
     /**
      * 选择部分用户可发言模式时，移除的可发言用户列表（自动过滤不在群内的用户）
-     * <p> 示例值：["4d7a3ih6"]
+     * <p> 示例值：
      *
      * @param moderatorRemovedList
      * @return

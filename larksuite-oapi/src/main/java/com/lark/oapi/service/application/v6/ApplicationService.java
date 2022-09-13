@@ -53,9 +53,9 @@ public class ApplicationService {
 
   private final Application application; // 应用
   private final ApplicationAppUsage applicationAppUsage; // 应用使用情况
-  private final ApplicationAppVersion applicationAppVersion; // 事件
+  private final ApplicationAppVersion applicationAppVersion; // 应用
   private final ApplicationFeedback applicationFeedback; // 应用反馈
-  private final ApplicationVisibility applicationVisibility; // 事件
+  private final ApplicationVisibility applicationVisibility; // application.visibility
 
   public ApplicationService(Config config) {
     this.application = new Application(config);
@@ -84,7 +84,7 @@ public class ApplicationService {
   }
 
   /**
-   * 事件
+   * 应用
    *
    * @return
    */
@@ -102,7 +102,7 @@ public class ApplicationService {
   }
 
   /**
-   * 事件
+   * application.visibility
    *
    * @return
    */

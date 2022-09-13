@@ -31,7 +31,7 @@ public class AgentScheduleUpdateInfo {
   private WeekdaySchedule[] schedule;
   /**
    * 客服技能 ids
-   * <p> 示例值：[“test-skill-id”]
+   * <p> 示例值：[]
    */
   @SerializedName("agent_skill_ids")
   private String[] agentSkillIds;
@@ -53,7 +53,7 @@ public class AgentScheduleUpdateInfo {
     this.schedule = builder.schedule;
     /**
      * 客服技能 ids
-     * <p> 示例值：[“test-skill-id”]
+     * <p> 示例值：[]
      */
     this.agentSkillIds = builder.agentSkillIds;
   }
@@ -100,7 +100,7 @@ public class AgentScheduleUpdateInfo {
     private WeekdaySchedule[] schedule;
     /**
      * 客服技能 ids
-     * <p> 示例值：[“test-skill-id”]
+     * <p> 示例值：[]
      */
     private String[] agentSkillIds;
 
@@ -132,7 +132,7 @@ public class AgentScheduleUpdateInfo {
 
     /**
      * 客服技能 ids
-     * <p> 示例值：[“test-skill-id”]
+     * <p> 示例值：[]
      *
      * @param agentSkillIds
      * @return

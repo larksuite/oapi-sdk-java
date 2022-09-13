@@ -18,55 +18,55 @@ import com.google.gson.annotations.SerializedName;
 public class TicketEvent {
 
   /**
-   * 工单ID;;[可以从工单列表里面取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list);;[也可以订阅工单创建事件获取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created)
+   * 6626871355780366331
    * <p> 示例值：6626871355780366331
    */
   @SerializedName("ticket_id")
   private String ticketId;
   /**
-   * 服务台id
+   * 6626871355780366330
    * <p> 示例值：6626871355780366330
    */
   @SerializedName("helpdesk_id")
   private String helpdeskId;
   /**
-   * 用户id
+   * abc
    * <p> 示例值：
    */
   @SerializedName("guest")
   private TicketUserEvent guest;
   /**
-   * 工单阶段：1. 机器人 2. 人工
+   * 1
    * <p> 示例值：1
    */
   @SerializedName("stage")
   private Integer stage;
   /**
-   * 工单状态，1：已创建 2: 处理中 3: 排队中 4：待定 5：待用户响应 50: 被机器人关闭 51: 被客服关闭 52: 用户自己关闭
+   * 50
    * <p> 示例值：1
    */
   @SerializedName("status")
   private Integer status;
   /**
-   * 工单评分，1：不满意，2:一般，3:满意
+   * 1
    * <p> 示例值：1
    */
   @SerializedName("score")
   private Integer score;
   /**
-   * 创建时间
+   * 1616920429000
    * <p> 示例值：1616920429000
    */
   @SerializedName("created_at")
   private Integer createdAt;
   /**
-   * 工单更新时间，没有值时为-1
+   * 1616920429000
    * <p> 示例值：1616920429000
    */
   @SerializedName("updated_at")
   private Integer updatedAt;
   /**
-   * 关单时间
+   * 1616920429000
    * <p> 示例值：1616920429000
    */
   @SerializedName("closed_at")
@@ -78,13 +78,13 @@ public class TicketEvent {
   @SerializedName("agents")
   private TicketUserEvent[] agents;
   /**
-   * 工单渠道，描述：9：Open API 2：二维码 14：分享 13：搜索 其他数字：其他渠道
+   * 0
    * <p> 示例值：0
    */
   @SerializedName("channel")
   private Integer channel;
   /**
-   * 工单是否解决 1:没解决 2:已解决
+   * 1
    * <p> 示例值：1
    */
   @SerializedName("solve")
@@ -102,7 +102,7 @@ public class TicketEvent {
   @SerializedName("collaborators")
   private TicketUserEvent[] collaborators;
   /**
-   * 自定义字段
+   * []
    * <p> 示例值：
    */
   @SerializedName("customized_fields")
@@ -120,47 +120,47 @@ public class TicketEvent {
 
   public TicketEvent(Builder builder) {
     /**
-     * 工单ID;;[可以从工单列表里面取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list);;[也可以订阅工单创建事件获取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created)
+     * 6626871355780366331
      * <p> 示例值：6626871355780366331
      */
     this.ticketId = builder.ticketId;
     /**
-     * 服务台id
+     * 6626871355780366330
      * <p> 示例值：6626871355780366330
      */
     this.helpdeskId = builder.helpdeskId;
     /**
-     * 用户id
+     * abc
      * <p> 示例值：
      */
     this.guest = builder.guest;
     /**
-     * 工单阶段：1. 机器人 2. 人工
+     * 1
      * <p> 示例值：1
      */
     this.stage = builder.stage;
     /**
-     * 工单状态，1：已创建 2: 处理中 3: 排队中 4：待定 5：待用户响应 50: 被机器人关闭 51: 被客服关闭 52: 用户自己关闭
+     * 50
      * <p> 示例值：1
      */
     this.status = builder.status;
     /**
-     * 工单评分，1：不满意，2:一般，3:满意
+     * 1
      * <p> 示例值：1
      */
     this.score = builder.score;
     /**
-     * 创建时间
+     * 1616920429000
      * <p> 示例值：1616920429000
      */
     this.createdAt = builder.createdAt;
     /**
-     * 工单更新时间，没有值时为-1
+     * 1616920429000
      * <p> 示例值：1616920429000
      */
     this.updatedAt = builder.updatedAt;
     /**
-     * 关单时间
+     * 1616920429000
      * <p> 示例值：1616920429000
      */
     this.closedAt = builder.closedAt;
@@ -170,12 +170,12 @@ public class TicketEvent {
      */
     this.agents = builder.agents;
     /**
-     * 工单渠道，描述：9：Open API 2：二维码 14：分享 13：搜索 其他数字：其他渠道
+     * 0
      * <p> 示例值：0
      */
     this.channel = builder.channel;
     /**
-     * 工单是否解决 1:没解决 2:已解决
+     * 1
      * <p> 示例值：1
      */
     this.solve = builder.solve;
@@ -190,7 +190,7 @@ public class TicketEvent {
      */
     this.collaborators = builder.collaborators;
     /**
-     * 自定义字段
+     * []
      * <p> 示例值：
      */
     this.customizedFields = builder.customizedFields;
@@ -336,47 +336,47 @@ public class TicketEvent {
   public static class Builder {
 
     /**
-     * 工单ID;;[可以从工单列表里面取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list);;[也可以订阅工单创建事件获取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created)
+     * 6626871355780366331
      * <p> 示例值：6626871355780366331
      */
     private String ticketId;
     /**
-     * 服务台id
+     * 6626871355780366330
      * <p> 示例值：6626871355780366330
      */
     private String helpdeskId;
     /**
-     * 用户id
+     * abc
      * <p> 示例值：
      */
     private TicketUserEvent guest;
     /**
-     * 工单阶段：1. 机器人 2. 人工
+     * 1
      * <p> 示例值：1
      */
     private Integer stage;
     /**
-     * 工单状态，1：已创建 2: 处理中 3: 排队中 4：待定 5：待用户响应 50: 被机器人关闭 51: 被客服关闭 52: 用户自己关闭
+     * 50
      * <p> 示例值：1
      */
     private Integer status;
     /**
-     * 工单评分，1：不满意，2:一般，3:满意
+     * 1
      * <p> 示例值：1
      */
     private Integer score;
     /**
-     * 创建时间
+     * 1616920429000
      * <p> 示例值：1616920429000
      */
     private Integer createdAt;
     /**
-     * 工单更新时间，没有值时为-1
+     * 1616920429000
      * <p> 示例值：1616920429000
      */
     private Integer updatedAt;
     /**
-     * 关单时间
+     * 1616920429000
      * <p> 示例值：1616920429000
      */
     private Integer closedAt;
@@ -386,12 +386,12 @@ public class TicketEvent {
      */
     private TicketUserEvent[] agents;
     /**
-     * 工单渠道，描述：9：Open API 2：二维码 14：分享 13：搜索 其他数字：其他渠道
+     * 0
      * <p> 示例值：0
      */
     private Integer channel;
     /**
-     * 工单是否解决 1:没解决 2:已解决
+     * 1
      * <p> 示例值：1
      */
     private Integer solve;
@@ -406,7 +406,7 @@ public class TicketEvent {
      */
     private TicketUserEvent[] collaborators;
     /**
-     * 自定义字段
+     * []
      * <p> 示例值：
      */
     private CustomizedFieldDisplayItem[] customizedFields;
@@ -417,7 +417,7 @@ public class TicketEvent {
     private String chatId;
 
     /**
-     * 工单ID;;[可以从工单列表里面取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list);;[也可以订阅工单创建事件获取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created)
+     * 6626871355780366331
      * <p> 示例值：6626871355780366331
      *
      * @param ticketId
@@ -430,7 +430,7 @@ public class TicketEvent {
 
 
     /**
-     * 服务台id
+     * 6626871355780366330
      * <p> 示例值：6626871355780366330
      *
      * @param helpdeskId
@@ -443,7 +443,7 @@ public class TicketEvent {
 
 
     /**
-     * 用户id
+     * abc
      * <p> 示例值：
      *
      * @param guest
@@ -456,7 +456,7 @@ public class TicketEvent {
 
 
     /**
-     * 工单阶段：1. 机器人 2. 人工
+     * 1
      * <p> 示例值：1
      *
      * @param stage
@@ -469,7 +469,7 @@ public class TicketEvent {
 
 
     /**
-     * 工单状态，1：已创建 2: 处理中 3: 排队中 4：待定 5：待用户响应 50: 被机器人关闭 51: 被客服关闭 52: 用户自己关闭
+     * 50
      * <p> 示例值：1
      *
      * @param status
@@ -482,7 +482,7 @@ public class TicketEvent {
 
 
     /**
-     * 工单评分，1：不满意，2:一般，3:满意
+     * 1
      * <p> 示例值：1
      *
      * @param score
@@ -495,7 +495,7 @@ public class TicketEvent {
 
 
     /**
-     * 创建时间
+     * 1616920429000
      * <p> 示例值：1616920429000
      *
      * @param createdAt
@@ -508,7 +508,7 @@ public class TicketEvent {
 
 
     /**
-     * 工单更新时间，没有值时为-1
+     * 1616920429000
      * <p> 示例值：1616920429000
      *
      * @param updatedAt
@@ -521,7 +521,7 @@ public class TicketEvent {
 
 
     /**
-     * 关单时间
+     * 1616920429000
      * <p> 示例值：1616920429000
      *
      * @param closedAt
@@ -547,7 +547,7 @@ public class TicketEvent {
 
 
     /**
-     * 工单渠道，描述：9：Open API 2：二维码 14：分享 13：搜索 其他数字：其他渠道
+     * 0
      * <p> 示例值：0
      *
      * @param channel
@@ -560,7 +560,7 @@ public class TicketEvent {
 
 
     /**
-     * 工单是否解决 1:没解决 2:已解决
+     * 1
      * <p> 示例值：1
      *
      * @param solve
@@ -599,7 +599,7 @@ public class TicketEvent {
 
 
     /**
-     * 自定义字段
+     * []
      * <p> 示例值：
      *
      * @param customizedFields

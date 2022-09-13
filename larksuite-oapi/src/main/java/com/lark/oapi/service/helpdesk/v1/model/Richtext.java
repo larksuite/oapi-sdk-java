@@ -19,13 +19,13 @@ public class Richtext {
 
   /**
    * 内容
-   * <p> 示例值：我的答案
+   * <p> 示例值：
    */
   @SerializedName("content")
   private String content;
   /**
    * 类型
-   * <p> 示例值：text
+   * <p> 示例值：
    */
   @SerializedName("type")
   private String type;
@@ -37,12 +37,12 @@ public class Richtext {
   public Richtext(Builder builder) {
     /**
      * 内容
-     * <p> 示例值：我的答案
+     * <p> 示例值：
      */
     this.content = builder.content;
     /**
      * 类型
-     * <p> 示例值：text
+     * <p> 示例值：
      */
     this.type = builder.type;
   }
@@ -71,18 +71,18 @@ public class Richtext {
 
     /**
      * 内容
-     * <p> 示例值：我的答案
+     * <p> 示例值：
      */
     private String content;
     /**
      * 类型
-     * <p> 示例值：text
+     * <p> 示例值：
      */
     private String type;
 
     /**
      * 内容
-     * <p> 示例值：我的答案
+     * <p> 示例值：
      *
      * @param content
      * @return
@@ -95,7 +95,7 @@ public class Richtext {
 
     /**
      * 类型
-     * <p> 示例值：text
+     * <p> 示例值：
      *
      * @param type
      * @return

@@ -111,14 +111,14 @@ import java.io.ByteArrayOutputStream;
 public class DriveService {
 
   private final ExportTask exportTask; // 导出
-  private final File file; // 文件夹
+  private final File file; // 上传
   private final FileComment fileComment; // 评论
   private final FileCommentReply fileCommentReply; // 评论
-  private final FileStatistics fileStatistics; // file.statistics
+  private final FileStatistics fileStatistics; // 文件
   private final FileSubscription fileSubscription; // 订阅
   private final ImportTask importTask; // 导入
-  private final Media media; // 分片上传
-  private final Meta meta; // meta
+  private final Media media; // 素材
+  private final Meta meta; // 文件
   private final PermissionMember permissionMember; // 成员
   private final PermissionPublic permissionPublic; // 设置
 
@@ -146,7 +146,7 @@ public class DriveService {
   }
 
   /**
-   * 文件夹
+   * 上传
    *
    * @return
    */
@@ -173,7 +173,7 @@ public class DriveService {
   }
 
   /**
-   * file.statistics
+   * 文件
    *
    * @return
    */
@@ -200,7 +200,7 @@ public class DriveService {
   }
 
   /**
-   * 分片上传
+   * 素材
    *
    * @return
    */
@@ -209,7 +209,7 @@ public class DriveService {
   }
 
   /**
-   * meta
+   * 文件
    *
    * @return
    */
@@ -789,7 +789,7 @@ public class DriveService {
     }
 
     /**
-     * 订阅云文档事件，该接口仅支持**文档拥有者**订阅自己文档的通知事件，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。
+     * 订阅云文档事件，该接口**仅支持文档拥有者**订阅自己文档的通知事件，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/SubscribeFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/SubscribeFileSample.java</a>
@@ -818,7 +818,7 @@ public class DriveService {
     }
 
     /**
-     * 订阅云文档事件，该接口仅支持**文档拥有者**订阅自己文档的通知事件，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。
+     * 订阅云文档事件，该接口**仅支持文档拥有者**订阅自己文档的通知事件，可订阅的文档类型为**旧版文档**、**新版文档**、**电子表格**和**多维表格**。在调用该接口之前请确保正确[配置事件回调网址和订阅事件类型](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#2eb3504a)，事件类型参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。
      * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/subscribe</a>
      * ;
      * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/SubscribeFileSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/drivev1/SubscribeFileSample.java</a>

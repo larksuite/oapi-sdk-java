@@ -128,7 +128,7 @@ public class HelpdeskService {
 
   private final Agent agent; // 客服
   private final AgentSchedules agentSchedules; // 客服工作日程
-  private final AgentSchedule agentSchedule; // agent_schedule
+  private final AgentSchedule agentSchedule; // 客服工作日程
   private final AgentSkill agentSkill; // 客服技能
   private final AgentSkillRule agentSkillRule; // 客服技能规则
   private final BotMessage botMessage; // 机器人消息
@@ -175,7 +175,7 @@ public class HelpdeskService {
   }
 
   /**
-   * agent_schedule
+   * 客服工作日程
    *
    * @return
    */

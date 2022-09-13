@@ -60,7 +60,6 @@ public class EventDispatcher implements IHandler {
     this.verificationToken = builder.verificationToken;
     this.encryptKey = builder.encryptKey;
     this.eventType2EventHandler = builder.eventType2EventHandler;
-    eventType2EventHandler.put("app_ticket", new AppTicketEventHandler());
   }
 
   public static Builder newBuilder(String verificationToken, String encryptKey) {
@@ -229,6 +228,7 @@ public class EventDispatcher implements IHandler {
     public Builder(String verificationToken, String encryptKey) {
       this.verificationToken = verificationToken;
       this.encryptKey = encryptKey;
+      this.eventType2EventHandler.put("app_ticket", new AppTicketEventHandler());
     }
 
     public EventDispatcher build() {
@@ -371,7 +371,7 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> ,
-     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/event/app-availability-scope-extended">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v6/event/app-availability-scope-extended</a>
+     * <p> 事件描述文档链接:<a href=""></a>
      *
      * @param handler
      * @return
@@ -388,7 +388,7 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> ,
-     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/custom-approval-event">https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/custom-approval-event</a>
+     * <p> 事件描述文档链接:<a href=""></a>
      *
      * @param handler
      * @return
@@ -681,7 +681,7 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> ,
-     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-deleted-completely">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-deleted-completely</a>
+     * <p> 事件描述文档链接:<a href=""></a>
      *
      * @param handler
      * @return
@@ -696,7 +696,7 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> ,
-     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-edited">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-edited</a>
+     * <p> 事件描述文档链接:<a href=""></a>
      *
      * @param handler
      * @return
@@ -711,7 +711,7 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> ,
-     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-collaborator-add">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-collaborator-add</a>
+     * <p> 事件描述文档链接:<a href=""></a>
      *
      * @param handler
      * @return
@@ -727,7 +727,7 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> ,
-     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-collaborator-remove">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-collaborator-remove</a>
+     * <p> 事件描述文档链接:<a href=""></a>
      *
      * @param handler
      * @return
@@ -743,7 +743,7 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> ,
-     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-read">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-read</a>
+     * <p> 事件描述文档链接:<a href=""></a>
      *
      * @param handler
      * @return
@@ -758,7 +758,7 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> ,
-     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-title-update">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-title-update</a>
+     * <p> 事件描述文档链接:<a href=""></a>
      *
      * @param handler
      * @return
@@ -773,7 +773,7 @@ public class EventDispatcher implements IHandler {
 
     /**
      * <p> ,
-     * <p> 事件描述文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/delete-file-to-trash-can">https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/delete-file-to-trash-can</a>
+     * <p> 事件描述文档链接:<a href=""></a>
      *
      * @param handler
      * @return
