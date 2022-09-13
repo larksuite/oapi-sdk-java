@@ -80,7 +80,7 @@ public class P1AppOpenV6Data {
     this.installerEmployee = installerEmployee;
   }
 
-  private static class P1AppOpenApplicantV6 {
+  public static class P1AppOpenApplicantV6 {
 
     @SerializedName("open_id")
     private String openId;
@@ -94,7 +94,7 @@ public class P1AppOpenV6Data {
     }
   }
 
-  private static class P1AppOpenInstallerV6 {
+  public static class P1AppOpenInstallerV6 {
 
     @SerializedName("open_id")
     private String openId;
@@ -108,7 +108,7 @@ public class P1AppOpenV6Data {
     }
   }
 
-  private static class P1AppOpenInstallerEmployeeV6 {
+  public static class P1AppOpenInstallerEmployeeV6 {
 
     @SerializedName("open_id")
     private String openId;

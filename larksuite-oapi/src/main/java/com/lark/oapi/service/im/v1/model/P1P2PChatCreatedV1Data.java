@@ -77,7 +77,7 @@ public class P1P2PChatCreatedV1Data {
     this.user = user;
   }
 
-  private static class P1OperatorV1 {
+  public static class P1OperatorV1 {
 
     @SerializedName("open_id")
     private String openId;
@@ -101,7 +101,7 @@ public class P1P2PChatCreatedV1Data {
     }
   }
 
-  private static class P1UserV1 {
+  public static class P1UserV1 {
 
     @SerializedName("user_id")
     private String userId;

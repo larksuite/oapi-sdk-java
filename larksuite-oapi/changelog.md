@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.0.2-rc3-2022-09-13
+
+Fixed
+
+- V1消息事件，结构体修改为public
+
+
 ## 2.0.2-rc2-2022-09-05
 
 Fixed

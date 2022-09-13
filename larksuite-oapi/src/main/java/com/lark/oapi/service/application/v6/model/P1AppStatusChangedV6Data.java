@@ -68,7 +68,7 @@ public class P1AppStatusChangedV6Data {
     this.operator = operator;
   }
 
-  private static class P1AppStatusChangeOperatorV6 {
+  public static class P1AppStatusChangeOperatorV6 {
 
     @SerializedName("union_id")
     private String unionId;

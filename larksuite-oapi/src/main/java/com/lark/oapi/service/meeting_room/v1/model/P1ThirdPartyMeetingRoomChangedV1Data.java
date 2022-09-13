@@ -121,7 +121,7 @@ public class P1ThirdPartyMeetingRoomChangedV1Data {
     this.organizer = organizer;
   }
 
-  private static class P1EventTimeV1 {
+  public static class P1EventTimeV1 {
 
     @SerializedName("time_stamp")
     private String timeStamp;
@@ -135,7 +135,7 @@ public class P1ThirdPartyMeetingRoomChangedV1Data {
     }
   }
 
-  private static class P1MeetingRoomV1 {
+  public static class P1MeetingRoomV1 {
 
     @SerializedName("open_id")
     private String openId;
@@ -149,7 +149,7 @@ public class P1ThirdPartyMeetingRoomChangedV1Data {
     }
   }
 
-  private static class P1OrganizerV1 {
+  public static class P1OrganizerV1 {
 
     @SerializedName("open_id")
     private String openId;

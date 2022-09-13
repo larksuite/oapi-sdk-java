@@ -138,7 +138,7 @@ public class P1TripApprovalV4Data {
     this.endTime = endTime;
   }
 
-  private static class P1TripApprovalScheduleV4 {
+  public static class P1TripApprovalScheduleV4 {
 
     @SerializedName("trip_start_time")
     private String tripStartTime;

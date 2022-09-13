@@ -109,7 +109,7 @@ public class P1UserStatusChangedV3Data {
     this.changeTime = changeTime;
   }
 
-  private static class P1UserStatusV3 {
+  public static class P1UserStatusV3 {
 
 
     @SerializedName("is_frozen")

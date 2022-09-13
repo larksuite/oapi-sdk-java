@@ -179,7 +179,7 @@ public class P1OutApprovalV4Data {
     this.endTime = endTime;
   }
 
-  private static class P1OutApprovalI18nResourceV4 {
+  public static class P1OutApprovalI18nResourceV4 {
 
     @SerializedName("is_default")
     private boolean isDefault;

@@ -212,7 +212,7 @@ public class P1LeaveApprovalV4Data {
     this.i18nResources = i18nResources;
   }
 
-  private static class P1LeaveApprovalI18nResourceV4 {
+  public static class P1LeaveApprovalI18nResourceV4 {
 
     @SerializedName("locale")
     private String locale;
