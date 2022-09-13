@@ -17,7 +17,6 @@ public class SearchGroupSample {
     SearchGroupReq req = SearchGroupReq.newBuilder()
         .searchGroupReqBody(SearchGroupReqBody.newBuilder()
             .groupName("考勤组1")
-            .exactlyMatched(true)
             .build())
         .build();
 
