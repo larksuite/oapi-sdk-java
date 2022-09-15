@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.0.2-rc5-2022-09-15
+
+Fixed
+
+- 修改MessagePostContent中title注解
+
 ## 2.0.2-rc3-2022-09-13
 
 Fixed

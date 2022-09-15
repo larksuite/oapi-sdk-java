@@ -18,7 +18,7 @@ import java.util.List;
 
 public class MessagePostContent {
 
-  @SerializedName("text")
+  @SerializedName("title")
   private String title;
   @SerializedName("content")
   private MessagePostElement[][] content;
