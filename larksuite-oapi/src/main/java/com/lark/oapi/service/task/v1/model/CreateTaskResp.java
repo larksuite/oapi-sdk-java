@@ -15,6 +15,6 @@ package com.lark.oapi.service.task.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateTaskResp extends BaseResponse<CreateTask> {
+public class CreateTaskResp extends BaseResponse<CreateTaskRespBody> {
 
 }

@@ -15,6 +15,6 @@ package com.lark.oapi.service.approval.v4.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class SearchTaskResp extends BaseResponse<SearchTask> {
+public class SearchTaskResp extends BaseResponse<SearchTaskRespBody> {
 
 }

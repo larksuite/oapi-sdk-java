@@ -15,6 +15,6 @@ package com.lark.oapi.service.baike.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateDraftResp extends BaseResponse<CreateDraft> {
+public class CreateDraftResp extends BaseResponse<CreateDraftRespBody> {
 
 }

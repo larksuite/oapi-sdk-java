@@ -15,6 +15,6 @@ package com.lark.oapi.service.event.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListOutboundIpResp extends BaseResponse<ListOutboundIp> {
+public class ListOutboundIpResp extends BaseResponse<ListOutboundIpRespBody> {
 
 }

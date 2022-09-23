@@ -15,6 +15,6 @@ package com.lark.oapi.service.wiki.v2.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListSpaceNodeResp extends BaseResponse<ListSpaceNode> {
+public class ListSpaceNodeResp extends BaseResponse<ListSpaceNodeRespBody> {
 
 }

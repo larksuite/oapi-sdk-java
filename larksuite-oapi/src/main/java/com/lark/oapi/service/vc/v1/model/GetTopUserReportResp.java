@@ -15,6 +15,6 @@ package com.lark.oapi.service.vc.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetTopUserReportResp extends BaseResponse<GetTopUserReport> {
+public class GetTopUserReportResp extends BaseResponse<GetTopUserReportRespBody> {
 
 }

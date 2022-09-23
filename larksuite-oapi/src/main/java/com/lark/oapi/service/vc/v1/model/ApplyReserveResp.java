@@ -15,6 +15,6 @@ package com.lark.oapi.service.vc.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ApplyReserveResp extends BaseResponse<ApplyReserve> {
+public class ApplyReserveResp extends BaseResponse<ApplyReserveRespBody> {
 
 }

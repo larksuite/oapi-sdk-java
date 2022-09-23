@@ -15,6 +15,6 @@ package com.lark.oapi.service.docx.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class PatchDocumentBlockResp extends BaseResponse<PatchDocumentBlock> {
+public class PatchDocumentBlockResp extends BaseResponse<PatchDocumentBlockRespBody> {
 
 }

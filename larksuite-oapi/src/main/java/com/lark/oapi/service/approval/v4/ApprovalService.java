@@ -47,6 +47,8 @@ import com.lark.oapi.service.approval.v4.model.GetApprovalReq;
 import com.lark.oapi.service.approval.v4.model.GetApprovalResp;
 import com.lark.oapi.service.approval.v4.model.GetInstanceReq;
 import com.lark.oapi.service.approval.v4.model.GetInstanceResp;
+import com.lark.oapi.service.approval.v4.model.ListApprovalReq;
+import com.lark.oapi.service.approval.v4.model.ListApprovalResp;
 import com.lark.oapi.service.approval.v4.model.ListExternalTaskReq;
 import com.lark.oapi.service.approval.v4.model.ListExternalTaskResp;
 import com.lark.oapi.service.approval.v4.model.ListInstanceCommentReq;
@@ -279,6 +281,58 @@ public class ApprovalService {
 
       // 反序列化
       GetApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetApprovalResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=approval&resource=approval&version=v4">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=approval&resource=approval&version=v4</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/ListApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/ListApprovalSample.java</a>
+     * ;
+     */
+    public ListApprovalResp list(ListApprovalReq req, RequestOptions reqOptions) throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/approval/v4/approvals"
+          , Sets.newHashSet(AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      ListApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListApprovalResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=approval&resource=approval&version=v4">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=approval&resource=approval&version=v4</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/ListApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/ListApprovalSample.java</a>
+     * ;
+     */
+    public ListApprovalResp list(ListApprovalReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/approval/v4/approvals"
+          , Sets.newHashSet(AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      ListApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListApprovalResp.class);
       resp.setRawResponse(httpResponse);
       resp.setRequest(req);
 

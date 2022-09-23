@@ -15,9 +15,17 @@ package com.lark.oapi.service.hire.v1.model;
 
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
 
 public class GetAttachmentReq {
 
+  /**
+   * 附件类型
+   * <p> 示例值：1
+   */
+  @Query
+  @SerializedName("type")
+  private Integer type;
   /**
    * 附件id
    * <p> 示例值：6435242341238
@@ -32,6 +40,11 @@ public class GetAttachmentReq {
 
   public GetAttachmentReq(Builder builder) {
     /**
+     * 附件类型
+     * <p> 示例值：1
+     */
+    this.type = builder.type;
+    /**
      * 附件id
      * <p> 示例值：6435242341238
      */
@@ -40,6 +53,14 @@ public class GetAttachmentReq {
 
   public static Builder newBuilder() {
     return new Builder();
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
   }
 
   public String getAttachmentId() {
@@ -52,7 +73,20 @@ public class GetAttachmentReq {
 
   public static class Builder {
 
+    private Integer type; // 附件类型
     private String attachmentId; // 附件id
+
+    /**
+     * 附件类型
+     * <p> 示例值：1
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
+    }
 
     /**
      * 附件id

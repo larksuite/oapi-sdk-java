@@ -15,6 +15,6 @@ package com.lark.oapi.service.task.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListTaskReminderResp extends BaseResponse<ListTaskReminder> {
+public class ListTaskReminderResp extends BaseResponse<ListTaskReminderRespBody> {
 
 }

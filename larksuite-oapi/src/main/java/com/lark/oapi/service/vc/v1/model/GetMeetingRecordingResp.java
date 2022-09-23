@@ -15,6 +15,6 @@ package com.lark.oapi.service.vc.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetMeetingRecordingResp extends BaseResponse<GetMeetingRecording> {
+public class GetMeetingRecordingResp extends BaseResponse<GetMeetingRecordingRespBody> {
 
 }

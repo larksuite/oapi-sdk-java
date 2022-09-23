@@ -111,13 +111,13 @@ import java.io.ByteArrayOutputStream;
 public class DriveService {
 
   private final ExportTask exportTask; // 导出
-  private final File file; // 上传
+  private final File file; // 分片上传
   private final FileComment fileComment; // 评论
   private final FileCommentReply fileCommentReply; // 评论
   private final FileStatistics fileStatistics; // 文件
   private final FileSubscription fileSubscription; // 订阅
   private final ImportTask importTask; // 导入
-  private final Media media; // 素材
+  private final Media media; // 分片上传
   private final Meta meta; // 文件
   private final PermissionMember permissionMember; // 成员
   private final PermissionPublic permissionPublic; // 设置
@@ -146,7 +146,7 @@ public class DriveService {
   }
 
   /**
-   * 上传
+   * 分片上传
    *
    * @return
    */
@@ -200,7 +200,7 @@ public class DriveService {
   }
 
   /**
-   * 素材
+   * 分片上传
    *
    * @return
    */

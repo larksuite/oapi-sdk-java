@@ -15,6 +15,6 @@ package com.lark.oapi.service.approval.v4.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListExternalTaskResp extends BaseResponse<ListExternalTask> {
+public class ListExternalTaskResp extends BaseResponse<ListExternalTaskRespBody> {
 
 }

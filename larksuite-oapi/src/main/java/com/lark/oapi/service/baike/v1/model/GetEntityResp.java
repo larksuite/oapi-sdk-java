@@ -15,6 +15,6 @@ package com.lark.oapi.service.baike.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetEntityResp extends BaseResponse<GetEntity> {
+public class GetEntityResp extends BaseResponse<GetEntityRespBody> {
 
 }

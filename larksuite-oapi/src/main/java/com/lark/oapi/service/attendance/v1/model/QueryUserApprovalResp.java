@@ -15,6 +15,6 @@ package com.lark.oapi.service.attendance.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class QueryUserApprovalResp extends BaseResponse<QueryUserApproval> {
+public class QueryUserApprovalResp extends BaseResponse<QueryUserApprovalRespBody> {
 
 }

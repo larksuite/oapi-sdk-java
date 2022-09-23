@@ -15,6 +15,6 @@ package com.lark.oapi.service.bitable.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListAppTableViewResp extends BaseResponse<ListAppTableView> {
+public class ListAppTableViewResp extends BaseResponse<ListAppTableViewRespBody> {
 
 }

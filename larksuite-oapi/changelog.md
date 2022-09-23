@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2.0.2-rc6-2022-09-22
+
+Fixed
+
+- 请求响应体名称添加RespBody避免与数据类型名称重复
+
 ## 2.0.2-rc5-2022-09-15
 
 Fixed

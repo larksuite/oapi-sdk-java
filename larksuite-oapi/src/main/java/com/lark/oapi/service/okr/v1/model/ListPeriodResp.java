@@ -15,6 +15,6 @@ package com.lark.oapi.service.okr.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListPeriodResp extends BaseResponse<ListPeriod> {
+public class ListPeriodResp extends BaseResponse<ListPeriodRespBody> {
 
 }

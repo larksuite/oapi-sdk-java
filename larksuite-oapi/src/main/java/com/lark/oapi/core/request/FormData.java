@@ -12,6 +12,7 @@
 
 package com.lark.oapi.core.request;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -38,6 +39,13 @@ public class FormData {
   public void addFile(String field, FormDataFile file) {
     file.setFieldName(field);
     this.files.add(file);
+  }
+
+  public void addFile(String field, File file) {
+    FormDataFile formDataFile = new FormDataFile();
+    formDataFile.setFileName(field);
+    formDataFile.setFile(file);
+    this.files.add(formDataFile);
   }
 
   public void addField(String field, Object val) {

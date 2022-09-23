@@ -15,6 +15,6 @@ package com.lark.oapi.service.block.v2.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateEntityResp extends BaseResponse<CreateEntity> {
+public class CreateEntityResp extends BaseResponse<CreateEntityRespBody> {
 
 }

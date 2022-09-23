@@ -15,6 +15,6 @@ package com.lark.oapi.service.admin.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetBadgeGrantResp extends BaseResponse<GetBadgeGrant> {
+public class GetBadgeGrantResp extends BaseResponse<GetBadgeGrantRespBody> {
 
 }

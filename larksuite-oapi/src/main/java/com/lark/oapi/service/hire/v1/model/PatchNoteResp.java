@@ -15,6 +15,6 @@ package com.lark.oapi.service.hire.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class PatchNoteResp extends BaseResponse<PatchNote> {
+public class PatchNoteResp extends BaseResponse<PatchNoteRespBody> {
 
 }

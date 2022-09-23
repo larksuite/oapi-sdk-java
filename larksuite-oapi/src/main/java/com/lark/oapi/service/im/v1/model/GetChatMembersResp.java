@@ -15,6 +15,6 @@ package com.lark.oapi.service.im.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetChatMembersResp extends BaseResponse<GetChatMembers> {
+public class GetChatMembersResp extends BaseResponse<GetChatMembersRespBody> {
 
 }

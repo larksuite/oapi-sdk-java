@@ -15,6 +15,6 @@ package com.lark.oapi.service.task.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class BatchDeleteFollowerTaskResp extends BaseResponse<BatchDeleteFollowerTask> {
+public class BatchDeleteFollowerTaskResp extends BaseResponse<BatchDeleteFollowerTaskRespBody> {
 
 }

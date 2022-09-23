@@ -23,6 +23,7 @@ public enum CreateExternalInstanceStatusEnum {
   CANCELED("CANCELED"), // 审批发起人撤回
   DELETED("DELETED"), // 审批被删除
   HIDDEN("HIDDEN"), // 状态隐藏(不显示状态)
+  TERMINATED("TERMINATED"), // 审批终止
   ;
   private String value;
 

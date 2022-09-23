@@ -15,6 +15,6 @@ package com.lark.oapi.service.search.v2.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateSchemaResp extends BaseResponse<CreateSchema> {
+public class CreateSchemaResp extends BaseResponse<CreateSchemaRespBody> {
 
 }

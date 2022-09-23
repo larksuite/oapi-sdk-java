@@ -15,6 +15,6 @@ package com.lark.oapi.service.bitable.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateAppRoleResp extends BaseResponse<CreateAppRole> {
+public class CreateAppRoleResp extends BaseResponse<CreateAppRoleRespBody> {
 
 }

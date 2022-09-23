@@ -15,6 +15,6 @@ package com.lark.oapi.service.drive.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetFileCommentResp extends BaseResponse<GetFileComment> {
+public class GetFileCommentResp extends BaseResponse<GetFileCommentRespBody> {
 
 }

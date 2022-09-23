@@ -15,6 +15,6 @@ package com.lark.oapi.service.application.v6.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetApplicationAppVersionResp extends BaseResponse<GetApplicationAppVersion> {
+public class GetApplicationAppVersionResp extends BaseResponse<GetApplicationAppVersionRespBody> {
 
 }

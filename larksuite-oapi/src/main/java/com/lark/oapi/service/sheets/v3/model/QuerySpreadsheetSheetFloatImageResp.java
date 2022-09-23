@@ -16,6 +16,6 @@ package com.lark.oapi.service.sheets.v3.model;
 import com.lark.oapi.core.response.BaseResponse;
 
 public class QuerySpreadsheetSheetFloatImageResp extends
-    BaseResponse<QuerySpreadsheetSheetFloatImage> {
+    BaseResponse<QuerySpreadsheetSheetFloatImageRespBody> {
 
 }

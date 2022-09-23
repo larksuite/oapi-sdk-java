@@ -78,7 +78,7 @@ import com.lark.oapi.service.sheets.v3.model.UpdateSpreadsheetSheetFilterViewCon
 public class SheetsService {
 
   private final Spreadsheet spreadsheet; // 表格
-  private final SpreadsheetSheet spreadsheetSheet; // 单元格
+  private final SpreadsheetSheet spreadsheetSheet; // 行列
   private final SpreadsheetSheetFilter spreadsheetSheetFilter; // 筛选
   private final SpreadsheetSheetFilterView spreadsheetSheetFilterView; // 筛选视图
   private final SpreadsheetSheetFilterViewCondition spreadsheetSheetFilterViewCondition; // 筛选条件
@@ -103,7 +103,7 @@ public class SheetsService {
   }
 
   /**
-   * 单元格
+   * 行列
    *
    * @return
    */

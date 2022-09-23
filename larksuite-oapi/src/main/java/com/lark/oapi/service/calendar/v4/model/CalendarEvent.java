@@ -127,6 +127,12 @@ public class CalendarEvent {
   @SerializedName("recurring_event_id")
   private String recurringEventId;
   /**
+   * 日程的创建时间戳
+   * <p> 示例值：
+   */
+  @SerializedName("create_time")
+  private String createTime;
+  /**
    * 日程自定义信息；控制日程详情页的ui展示。
    * <p> 示例值：
    */
@@ -228,6 +234,11 @@ public class CalendarEvent {
      * <p> 示例值：1cd45aaa-fa70-4195-80b7-c93b2e208f45
      */
     this.recurringEventId = builder.recurringEventId;
+    /**
+     * 日程的创建时间戳
+     * <p> 示例值：
+     */
+    this.createTime = builder.createTime;
     /**
      * 日程自定义信息；控制日程详情页的ui展示。
      * <p> 示例值：
@@ -383,6 +394,14 @@ public class CalendarEvent {
     this.recurringEventId = recurringEventId;
   }
 
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
   public Schema[] getSchemas() {
     return this.schemas;
   }
@@ -484,6 +503,11 @@ public class CalendarEvent {
      * <p> 示例值：1cd45aaa-fa70-4195-80b7-c93b2e208f45
      */
     private String recurringEventId;
+    /**
+     * 日程的创建时间戳
+     * <p> 示例值：
+     */
+    private String createTime;
     /**
      * 日程自定义信息；控制日程详情页的ui展示。
      * <p> 示例值：
@@ -773,6 +797,19 @@ public class CalendarEvent {
      */
     public Builder recurringEventId(String recurringEventId) {
       this.recurringEventId = recurringEventId;
+      return this;
+    }
+
+
+    /**
+     * 日程的创建时间戳
+     * <p> 示例值：
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
       return this;
     }
 

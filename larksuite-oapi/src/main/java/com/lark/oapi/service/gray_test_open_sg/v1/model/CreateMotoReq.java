@@ -26,6 +26,13 @@ public class CreateMotoReq {
   @Query
   @SerializedName("department_id_type")
   private String departmentIdType;
+  /**
+   * desc
+   * <p> 示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
   @Body
   private Level body;
 
@@ -39,6 +46,11 @@ public class CreateMotoReq {
      * <p> 示例值：
      */
     this.departmentIdType = builder.departmentIdType;
+    /**
+     * desc
+     * <p> 示例值：
+     */
+    this.userIdType = builder.userIdType;
     this.body = builder.body;
   }
 
@@ -54,6 +66,14 @@ public class CreateMotoReq {
     this.departmentIdType = departmentIdType;
   }
 
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
   public Level getLevel() {
     return this.body;
   }
@@ -65,6 +85,7 @@ public class CreateMotoReq {
   public static class Builder {
 
     private String departmentIdType; // desc
+    private String userIdType; // desc
     private Level body;
 
     /**
@@ -76,6 +97,18 @@ public class CreateMotoReq {
      */
     public Builder departmentIdType(String departmentIdType) {
       this.departmentIdType = departmentIdType;
+      return this;
+    }
+
+    /**
+     * desc
+     * <p> 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
       return this;
     }
 

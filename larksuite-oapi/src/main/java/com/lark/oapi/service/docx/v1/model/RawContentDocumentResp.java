@@ -15,6 +15,6 @@ package com.lark.oapi.service.docx.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class RawContentDocumentResp extends BaseResponse<RawContentDocument> {
+public class RawContentDocumentResp extends BaseResponse<RawContentDocumentRespBody> {
 
 }

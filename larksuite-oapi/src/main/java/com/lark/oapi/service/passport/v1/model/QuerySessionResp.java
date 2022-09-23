@@ -15,6 +15,6 @@ package com.lark.oapi.service.passport.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class QuerySessionResp extends BaseResponse<QuerySession> {
+public class QuerySessionResp extends BaseResponse<QuerySessionRespBody> {
 
 }

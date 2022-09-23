@@ -15,6 +15,6 @@ package com.lark.oapi.service.helpdesk.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateCategoryResp extends BaseResponse<CreateCategory> {
+public class CreateCategoryResp extends BaseResponse<CreateCategoryRespBody> {
 
 }

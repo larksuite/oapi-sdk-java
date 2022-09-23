@@ -15,6 +15,6 @@ package com.lark.oapi.service.gray_test_open_sg.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListMotoResp extends BaseResponse<ListMoto> {
+public class ListMotoResp extends BaseResponse<ListMotoRespBody> {
 
 }

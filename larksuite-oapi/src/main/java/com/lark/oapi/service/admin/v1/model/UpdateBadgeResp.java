@@ -15,6 +15,6 @@ package com.lark.oapi.service.admin.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class UpdateBadgeResp extends BaseResponse<UpdateBadge> {
+public class UpdateBadgeResp extends BaseResponse<UpdateBadgeRespBody> {
 
 }

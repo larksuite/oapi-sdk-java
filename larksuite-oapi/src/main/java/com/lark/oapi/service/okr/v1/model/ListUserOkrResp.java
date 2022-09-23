@@ -15,6 +15,6 @@ package com.lark.oapi.service.okr.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListUserOkrResp extends BaseResponse<ListUserOkr> {
+public class ListUserOkrResp extends BaseResponse<ListUserOkrRespBody> {
 
 }

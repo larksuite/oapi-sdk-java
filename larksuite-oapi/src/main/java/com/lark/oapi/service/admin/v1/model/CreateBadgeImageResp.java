@@ -15,6 +15,6 @@ package com.lark.oapi.service.admin.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateBadgeImageResp extends BaseResponse<CreateBadgeImage> {
+public class CreateBadgeImageResp extends BaseResponse<CreateBadgeImageRespBody> {
 
 }

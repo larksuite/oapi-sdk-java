@@ -90,6 +90,12 @@ public class UpdateChatReqBody {
    */
   @SerializedName("membership_approval")
   private String membershipApproval;
+  /**
+   * 群快捷组件列表
+   * <p> 示例值：
+   */
+  @SerializedName("toolkit_ids")
+  private String[] toolkitIds;
 
   // builder 开始
   public UpdateChatReqBody() {
@@ -156,6 +162,11 @@ public class UpdateChatReqBody {
      * <p> 示例值：no_approval_required
      */
     this.membershipApproval = builder.membershipApproval;
+    /**
+     * 群快捷组件列表
+     * <p> 示例值：
+     */
+    this.toolkitIds = builder.toolkitIds;
   }
 
   public static Builder newBuilder() {
@@ -258,6 +269,14 @@ public class UpdateChatReqBody {
     this.membershipApproval = membershipApproval;
   }
 
+  public String[] getToolkitIds() {
+    return this.toolkitIds;
+  }
+
+  public void setToolkitIds(String[] toolkitIds) {
+    this.toolkitIds = toolkitIds;
+  }
+
   public static class Builder {
 
     /**
@@ -321,6 +340,11 @@ public class UpdateChatReqBody {
      * <p> 示例值：no_approval_required
      */
     private String membershipApproval;
+    /**
+     * 群快捷组件列表
+     * <p> 示例值：
+     */
+    private String[] toolkitIds;
 
     /**
      * 群头像对应的 Image Key，可通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)获取（注意：上传图片的
@@ -475,6 +499,19 @@ public class UpdateChatReqBody {
      */
     public Builder membershipApproval(String membershipApproval) {
       this.membershipApproval = membershipApproval;
+      return this;
+    }
+
+
+    /**
+     * 群快捷组件列表
+     * <p> 示例值：
+     *
+     * @param toolkitIds
+     * @return
+     */
+    public Builder toolkitIds(String[] toolkitIds) {
+      this.toolkitIds = toolkitIds;
       return this;
     }
 

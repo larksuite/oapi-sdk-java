@@ -15,6 +15,6 @@ package com.lark.oapi.service.task.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class UpdateTaskCommentResp extends BaseResponse<UpdateTaskComment> {
+public class UpdateTaskCommentResp extends BaseResponse<UpdateTaskCommentRespBody> {
 
 }

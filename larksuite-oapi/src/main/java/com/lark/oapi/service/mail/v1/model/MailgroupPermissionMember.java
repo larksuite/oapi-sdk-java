@@ -36,6 +36,12 @@ public class MailgroupPermissionMember {
   @SerializedName("department_id")
   private String departmentId;
   /**
+   * The member's email address. Value is valid when type is MAIL_GROUP/PUBLIC_MAILBOX
+   * <p> 示例值：xxx@xx.x
+   */
+  @SerializedName("email")
+  private String email;
+  /**
    * 成员类型
    * <p> 示例值：USER
    */
@@ -62,6 +68,11 @@ public class MailgroupPermissionMember {
      * <p> 示例值：xxxxxxxxxx
      */
     this.departmentId = builder.departmentId;
+    /**
+     * The member's email address. Value is valid when type is MAIL_GROUP/PUBLIC_MAILBOX
+     * <p> 示例值：xxx@xx.x
+     */
+    this.email = builder.email;
     /**
      * 成员类型
      * <p> 示例值：USER
@@ -97,6 +108,14 @@ public class MailgroupPermissionMember {
     this.departmentId = departmentId;
   }
 
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
   public String getType() {
     return this.type;
   }
@@ -122,6 +141,11 @@ public class MailgroupPermissionMember {
      * <p> 示例值：xxxxxxxxxx
      */
     private String departmentId;
+    /**
+     * The member's email address. Value is valid when type is MAIL_GROUP/PUBLIC_MAILBOX
+     * <p> 示例值：xxx@xx.x
+     */
+    private String email;
     /**
      * 成员类型
      * <p> 示例值：USER
@@ -163,6 +187,19 @@ public class MailgroupPermissionMember {
      */
     public Builder departmentId(String departmentId) {
       this.departmentId = departmentId;
+      return this;
+    }
+
+
+    /**
+     * The member's email address. Value is valid when type is MAIL_GROUP/PUBLIC_MAILBOX
+     * <p> 示例值：xxx@xx.x
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
       return this;
     }
 

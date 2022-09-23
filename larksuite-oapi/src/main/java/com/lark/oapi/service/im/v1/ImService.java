@@ -77,6 +77,8 @@ import com.lark.oapi.service.im.v1.model.GetProgressBatchMessageReq;
 import com.lark.oapi.service.im.v1.model.GetProgressBatchMessageResp;
 import com.lark.oapi.service.im.v1.model.IsInChatChatMembersReq;
 import com.lark.oapi.service.im.v1.model.IsInChatChatMembersResp;
+import com.lark.oapi.service.im.v1.model.LinkChatReq;
+import com.lark.oapi.service.im.v1.model.LinkChatResp;
 import com.lark.oapi.service.im.v1.model.ListChatReq;
 import com.lark.oapi.service.im.v1.model.ListChatResp;
 import com.lark.oapi.service.im.v1.model.ListMessageReactionReq;
@@ -147,7 +149,7 @@ public class ImService {
   private final ChatTopNotice chatTopNotice; // 群组
   private final File file; // 消息 - 文件信息
   private final Image image; // 消息 - 图片信息
-  private final Message message; // 消息 - 消息卡片
+  private final Message message; // 加急操作
   private final MessageReaction messageReaction; // 消息 - 表情回复
   private final MessageResource messageResource; // 消息
   private final Pin pin; // 消息 - Pin
@@ -280,7 +282,7 @@ public class ImService {
   }
 
   /**
-   * 消息 - 消息卡片
+   * 加急操作
    *
    * @return
    */
@@ -678,6 +680,60 @@ public class ImService {
 
       // 反序列化
       GetChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetChatResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 获取群分享链接，获取指定群的分享链接
+     * <p> 注意事项:;- 该接口遵守群分享权限管控;;- 单聊、密聊、团队群不支持分享群链接;;- 当Bot被停用或Bot退出群组时，Bot生成的群链接也将停用 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/link">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/link</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/LinkChatSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/LinkChatSample.java</a>
+     * ;
+     */
+    public LinkChatResp link(LinkChatReq req, RequestOptions reqOptions) throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/im/v1/chats/:chat_id/link"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      LinkChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, LinkChatResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * 获取群分享链接，获取指定群的分享链接
+     * <p> 注意事项:;- 该接口遵守群分享权限管控;;- 单聊、密聊、团队群不支持分享群链接;;- 当Bot被停用或Bot退出群组时，Bot生成的群链接也将停用 ;
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/link">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/link</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/LinkChatSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/LinkChatSample.java</a>
+     * ;
+     */
+    public LinkChatResp link(LinkChatReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+          , "/open-apis/im/v1/chats/:chat_id/link"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 反序列化
+      LinkChatResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, LinkChatResp.class);
       resp.setRawResponse(httpResponse);
       resp.setRequest(req);
 

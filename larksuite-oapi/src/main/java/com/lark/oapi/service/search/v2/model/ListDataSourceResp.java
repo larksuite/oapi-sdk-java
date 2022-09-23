@@ -15,6 +15,6 @@ package com.lark.oapi.service.search.v2.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListDataSourceResp extends BaseResponse<ListDataSource> {
+public class ListDataSourceResp extends BaseResponse<ListDataSourceRespBody> {
 
 }

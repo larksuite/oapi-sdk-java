@@ -15,6 +15,6 @@ package com.lark.oapi.service.baike.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class UploadFileResp extends BaseResponse<UploadFile> {
+public class UploadFileResp extends BaseResponse<UploadFileRespBody> {
 
 }

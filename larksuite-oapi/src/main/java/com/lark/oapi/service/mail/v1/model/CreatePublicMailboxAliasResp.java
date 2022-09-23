@@ -15,6 +15,6 @@ package com.lark.oapi.service.mail.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreatePublicMailboxAliasResp extends BaseResponse<CreatePublicMailboxAlias> {
+public class CreatePublicMailboxAliasResp extends BaseResponse<CreatePublicMailboxAliasRespBody> {
 
 }

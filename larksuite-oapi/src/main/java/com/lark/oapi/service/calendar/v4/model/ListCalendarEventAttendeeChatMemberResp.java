@@ -16,6 +16,6 @@ package com.lark.oapi.service.calendar.v4.model;
 import com.lark.oapi.core.response.BaseResponse;
 
 public class ListCalendarEventAttendeeChatMemberResp extends
-    BaseResponse<ListCalendarEventAttendeeChatMember> {
+    BaseResponse<ListCalendarEventAttendeeChatMemberRespBody> {
 
 }

@@ -15,6 +15,6 @@ package com.lark.oapi.service.hire.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetAttachmentResp extends BaseResponse<GetAttachment> {
+public class GetAttachmentResp extends BaseResponse<GetAttachmentRespBody> {
 
 }

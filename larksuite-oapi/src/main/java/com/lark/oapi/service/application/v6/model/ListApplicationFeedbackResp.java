@@ -15,6 +15,6 @@ package com.lark.oapi.service.application.v6.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListApplicationFeedbackResp extends BaseResponse<ListApplicationFeedback> {
+public class ListApplicationFeedbackResp extends BaseResponse<ListApplicationFeedbackRespBody> {
 
 }

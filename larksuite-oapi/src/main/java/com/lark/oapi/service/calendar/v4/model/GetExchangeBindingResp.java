@@ -15,6 +15,6 @@ package com.lark.oapi.service.calendar.v4.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetExchangeBindingResp extends BaseResponse<GetExchangeBinding> {
+public class GetExchangeBindingResp extends BaseResponse<GetExchangeBindingRespBody> {
 
 }

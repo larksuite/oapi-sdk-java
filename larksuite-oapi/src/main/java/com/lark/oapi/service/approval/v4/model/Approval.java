@@ -29,6 +29,12 @@ public class Approval {
    */
   @SerializedName("approval_name")
   private String approvalName;
+  /**
+   * 审批定义状态
+   * <p> 示例值：ACTIVE
+   */
+  @SerializedName("status")
+  private String status;
 
   // builder 开始
   public Approval() {
@@ -45,6 +51,11 @@ public class Approval {
      * <p> 示例值：
      */
     this.approvalName = builder.approvalName;
+    /**
+     * 审批定义状态
+     * <p> 示例值：ACTIVE
+     */
+    this.status = builder.status;
   }
 
   public static Builder newBuilder() {
@@ -67,6 +78,14 @@ public class Approval {
     this.approvalName = approvalName;
   }
 
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
   public static class Builder {
 
     /**
@@ -79,6 +98,11 @@ public class Approval {
      * <p> 示例值：
      */
     private String approvalName;
+    /**
+     * 审批定义状态
+     * <p> 示例值：ACTIVE
+     */
+    private String status;
 
     /**
      * 审批定义code
@@ -102,6 +126,32 @@ public class Approval {
      */
     public Builder approvalName(String approvalName) {
       this.approvalName = approvalName;
+      return this;
+    }
+
+
+    /**
+     * 审批定义状态
+     * <p> 示例值：ACTIVE
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
+    }
+
+    /**
+     * 审批定义状态
+     * <p> 示例值：ACTIVE
+     *
+     * @param status {@link com.lark.oapi.service.approval.v4.enums.ApprovalOpenApiApprovalStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.approval.v4.enums.ApprovalOpenApiApprovalStatusEnum status) {
+      this.status = status.getValue();
       return this;
     }
 

@@ -15,6 +15,6 @@ package com.lark.oapi.service.contact.v3.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateGroupResp extends BaseResponse<CreateGroup> {
+public class CreateGroupResp extends BaseResponse<CreateGroupRespBody> {
 
 }

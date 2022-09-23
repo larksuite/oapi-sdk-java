@@ -15,6 +15,6 @@ package com.lark.oapi.service.bitable.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class BatchCreateAppTableResp extends BaseResponse<BatchCreateAppTable> {
+public class BatchCreateAppTableResp extends BaseResponse<BatchCreateAppTableRespBody> {
 
 }

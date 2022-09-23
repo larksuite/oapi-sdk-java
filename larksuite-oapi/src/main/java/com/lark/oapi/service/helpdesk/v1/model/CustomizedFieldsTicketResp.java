@@ -15,6 +15,6 @@ package com.lark.oapi.service.helpdesk.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CustomizedFieldsTicketResp extends BaseResponse<CustomizedFieldsTicket> {
+public class CustomizedFieldsTicketResp extends BaseResponse<CustomizedFieldsTicketRespBody> {
 
 }

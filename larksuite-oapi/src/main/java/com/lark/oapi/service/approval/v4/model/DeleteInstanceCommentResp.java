@@ -15,6 +15,6 @@ package com.lark.oapi.service.approval.v4.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class DeleteInstanceCommentResp extends BaseResponse<DeleteInstanceComment> {
+public class DeleteInstanceCommentResp extends BaseResponse<DeleteInstanceCommentRespBody> {
 
 }

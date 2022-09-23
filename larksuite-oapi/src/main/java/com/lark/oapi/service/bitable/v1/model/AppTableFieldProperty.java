@@ -77,6 +77,12 @@ public class AppTableFieldProperty {
    */
   @SerializedName("location")
   private AppFieldPropertyLocation location;
+  /**
+   * 公式字段的表达式
+   * <p> 示例值：
+   */
+  @SerializedName("formula_expression")
+  private String formulaExpression;
 
   // builder 开始
   public AppTableFieldProperty() {
@@ -133,6 +139,11 @@ public class AppTableFieldProperty {
      * <p> 示例值：
      */
     this.location = builder.location;
+    /**
+     * 公式字段的表达式
+     * <p> 示例值：
+     */
+    this.formulaExpression = builder.formulaExpression;
   }
 
   public static Builder newBuilder() {
@@ -219,6 +230,14 @@ public class AppTableFieldProperty {
     this.location = location;
   }
 
+  public String getFormulaExpression() {
+    return this.formulaExpression;
+  }
+
+  public void setFormulaExpression(String formulaExpression) {
+    this.formulaExpression = formulaExpression;
+  }
+
   public static class Builder {
 
     /**
@@ -271,6 +290,11 @@ public class AppTableFieldProperty {
      * <p> 示例值：
      */
     private AppFieldPropertyLocation location;
+    /**
+     * 公式字段的表达式
+     * <p> 示例值：
+     */
+    private String formulaExpression;
 
     /**
      * 单选、多选字段的选项信息
@@ -398,6 +422,19 @@ public class AppTableFieldProperty {
      */
     public Builder location(AppFieldPropertyLocation location) {
       this.location = location;
+      return this;
+    }
+
+
+    /**
+     * 公式字段的表达式
+     * <p> 示例值：
+     *
+     * @param formulaExpression
+     * @return
+     */
+    public Builder formulaExpression(String formulaExpression) {
+      this.formulaExpression = formulaExpression;
       return this;
     }
 

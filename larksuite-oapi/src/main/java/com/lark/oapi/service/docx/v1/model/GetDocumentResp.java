@@ -15,6 +15,6 @@ package com.lark.oapi.service.docx.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetDocumentResp extends BaseResponse<GetDocument> {
+public class GetDocumentResp extends BaseResponse<GetDocumentRespBody> {
 
 }

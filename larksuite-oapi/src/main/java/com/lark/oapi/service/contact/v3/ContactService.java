@@ -129,7 +129,7 @@ public class ContactService {
 
   private final CustomAttr customAttr; // 自定义用户字段
   private final CustomAttrEvent customAttrEvent; // 事件
-  private final Department department; // 部门
+  private final Department department; // 部门管理
   private final EmployeeTypeEnum employeeTypeEnum; // 人员类型
   private final Group group; // 用户组
   private final GroupMember groupMember; // 用户组成员
@@ -168,7 +168,7 @@ public class ContactService {
   }
 
   /**
-   * 部门
+   * 部门管理
    *
    * @return
    */

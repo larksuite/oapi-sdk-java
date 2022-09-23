@@ -15,6 +15,6 @@ package com.lark.oapi.service.bitable.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetAppTableFormResp extends BaseResponse<GetAppTableForm> {
+public class GetAppTableFormResp extends BaseResponse<GetAppTableFormRespBody> {
 
 }

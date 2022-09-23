@@ -15,6 +15,6 @@ package com.lark.oapi.service.attendance.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class QueryShiftResp extends BaseResponse<QueryShift> {
+public class QueryShiftResp extends BaseResponse<QueryShiftRespBody> {
 
 }

@@ -15,6 +15,6 @@ package com.lark.oapi.service.attendance.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateUserTaskRemedyResp extends BaseResponse<CreateUserTaskRemedy> {
+public class CreateUserTaskRemedyResp extends BaseResponse<CreateUserTaskRemedyRespBody> {
 
 }

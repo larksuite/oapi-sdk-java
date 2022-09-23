@@ -15,6 +15,6 @@ package com.lark.oapi.service.okr.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateProgressRecordResp extends BaseResponse<CreateProgressRecord> {
+public class CreateProgressRecordResp extends BaseResponse<CreateProgressRecordRespBody> {
 
 }

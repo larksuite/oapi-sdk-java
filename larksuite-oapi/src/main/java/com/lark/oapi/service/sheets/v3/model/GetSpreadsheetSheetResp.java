@@ -15,6 +15,6 @@ package com.lark.oapi.service.sheets.v3.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetSpreadsheetSheetResp extends BaseResponse<GetSpreadsheetSheet> {
+public class GetSpreadsheetSheetResp extends BaseResponse<GetSpreadsheetSheetRespBody> {
 
 }

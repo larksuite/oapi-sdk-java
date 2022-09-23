@@ -101,6 +101,18 @@ public class ExternalInstanceTaskNode {
    */
   @SerializedName("exclude_statistics")
   private Boolean excludeStatistics;
+  /**
+   * 节点id
+   * <p> 示例值：
+   */
+  @SerializedName("node_id")
+  private String nodeId;
+  /**
+   * 节点名称，示例：i18n@name。需要在i18n_resources中传该名称对应的国际化文案
+   * <p> 示例值：
+   */
+  @SerializedName("node_name")
+  private String nodeName;
 
   // builder 开始
   public ExternalInstanceTaskNode() {
@@ -177,6 +189,16 @@ public class ExternalInstanceTaskNode {
      * <p> 示例值：true
      */
     this.excludeStatistics = builder.excludeStatistics;
+    /**
+     * 节点id
+     * <p> 示例值：
+     */
+    this.nodeId = builder.nodeId;
+    /**
+     * 节点名称，示例：i18n@name。需要在i18n_resources中传该名称对应的国际化文案
+     * <p> 示例值：
+     */
+    this.nodeName = builder.nodeName;
   }
 
   public static Builder newBuilder() {
@@ -295,6 +317,22 @@ public class ExternalInstanceTaskNode {
     this.excludeStatistics = excludeStatistics;
   }
 
+  public String getNodeId() {
+    return this.nodeId;
+  }
+
+  public void setNodeId(String nodeId) {
+    this.nodeId = nodeId;
+  }
+
+  public String getNodeName() {
+    return this.nodeName;
+  }
+
+  public void setNodeName(String nodeName) {
+    this.nodeName = nodeName;
+  }
+
   public static class Builder {
 
     /**
@@ -367,6 +405,16 @@ public class ExternalInstanceTaskNode {
      * <p> 示例值：true
      */
     private Boolean excludeStatistics;
+    /**
+     * 节点id
+     * <p> 示例值：
+     */
+    private String nodeId;
+    /**
+     * 节点名称，示例：i18n@name。需要在i18n_resources中传该名称对应的国际化文案
+     * <p> 示例值：
+     */
+    private String nodeName;
 
     /**
      * 审批实例内的唯一标识，用于更新审批任务时定位数据
@@ -572,6 +620,32 @@ public class ExternalInstanceTaskNode {
      */
     public Builder excludeStatistics(Boolean excludeStatistics) {
       this.excludeStatistics = excludeStatistics;
+      return this;
+    }
+
+
+    /**
+     * 节点id
+     * <p> 示例值：
+     *
+     * @param nodeId
+     * @return
+     */
+    public Builder nodeId(String nodeId) {
+      this.nodeId = nodeId;
+      return this;
+    }
+
+
+    /**
+     * 节点名称，示例：i18n@name。需要在i18n_resources中传该名称对应的国际化文案
+     * <p> 示例值：
+     *
+     * @param nodeName
+     * @return
+     */
+    public Builder nodeName(String nodeName) {
+      this.nodeName = nodeName;
       return this;
     }
 

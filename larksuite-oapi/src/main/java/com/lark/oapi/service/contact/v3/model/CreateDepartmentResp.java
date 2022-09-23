@@ -15,6 +15,6 @@ package com.lark.oapi.service.contact.v3.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateDepartmentResp extends BaseResponse<CreateDepartment> {
+public class CreateDepartmentResp extends BaseResponse<CreateDepartmentRespBody> {
 
 }

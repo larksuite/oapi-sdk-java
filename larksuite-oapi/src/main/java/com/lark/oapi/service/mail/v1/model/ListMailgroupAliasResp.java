@@ -15,6 +15,6 @@ package com.lark.oapi.service.mail.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListMailgroupAliasResp extends BaseResponse<ListMailgroupAlias> {
+public class ListMailgroupAliasResp extends BaseResponse<ListMailgroupAliasRespBody> {
 
 }

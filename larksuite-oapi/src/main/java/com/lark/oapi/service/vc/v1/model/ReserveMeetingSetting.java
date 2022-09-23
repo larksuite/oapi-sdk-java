@@ -47,6 +47,12 @@ public class ReserveMeetingSetting {
    */
   @SerializedName("auto_record")
   private Boolean autoRecord;
+  /**
+   * 指定主持人列表
+   * <p> 示例值：
+   */
+  @SerializedName("assign_host_list")
+  private ReserveAssignHost[] assignHostList;
 
   // builder 开始
   public ReserveMeetingSetting() {
@@ -78,6 +84,11 @@ public class ReserveMeetingSetting {
      * <p> 示例值：true
      */
     this.autoRecord = builder.autoRecord;
+    /**
+     * 指定主持人列表
+     * <p> 示例值：
+     */
+    this.assignHostList = builder.assignHostList;
   }
 
   public static Builder newBuilder() {
@@ -124,6 +135,14 @@ public class ReserveMeetingSetting {
     this.autoRecord = autoRecord;
   }
 
+  public ReserveAssignHost[] getAssignHostList() {
+    return this.assignHostList;
+  }
+
+  public void setAssignHostList(ReserveAssignHost[] assignHostList) {
+    this.assignHostList = assignHostList;
+  }
+
   public static class Builder {
 
     /**
@@ -151,6 +170,11 @@ public class ReserveMeetingSetting {
      * <p> 示例值：true
      */
     private Boolean autoRecord;
+    /**
+     * 指定主持人列表
+     * <p> 示例值：
+     */
+    private ReserveAssignHost[] assignHostList;
 
     /**
      * 会议主题
@@ -226,6 +250,19 @@ public class ReserveMeetingSetting {
      */
     public Builder autoRecord(Boolean autoRecord) {
       this.autoRecord = autoRecord;
+      return this;
+    }
+
+
+    /**
+     * 指定主持人列表
+     * <p> 示例值：
+     *
+     * @param assignHostList
+     * @return
+     */
+    public Builder assignHostList(ReserveAssignHost[] assignHostList) {
+      this.assignHostList = assignHostList;
       return this;
     }
 

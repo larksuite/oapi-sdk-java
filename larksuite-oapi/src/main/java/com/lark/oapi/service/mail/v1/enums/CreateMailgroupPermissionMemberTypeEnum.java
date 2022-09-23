@@ -20,6 +20,8 @@ package com.lark.oapi.service.mail.v1.enums;
 public enum CreateMailgroupPermissionMemberTypeEnum {
   USER("USER"), // internal user in the team
   DEPARTMENT("DEPARTMENT"), // member is a department
+  MAIL_GROUP("MAIL_GROUP"), // member is a mail group
+  PUBLIC_MAILBOX("PUBLIC_MAILBOX"), // member is a public mailbox
   ;
   private String value;
 

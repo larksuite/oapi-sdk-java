@@ -15,6 +15,6 @@ package com.lark.oapi.service.drive.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class UpdatePermissionMemberResp extends BaseResponse<UpdatePermissionMember> {
+public class UpdatePermissionMemberResp extends BaseResponse<UpdatePermissionMemberRespBody> {
 
 }

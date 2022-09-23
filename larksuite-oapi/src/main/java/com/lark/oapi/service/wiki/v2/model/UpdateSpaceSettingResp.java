@@ -15,6 +15,6 @@ package com.lark.oapi.service.wiki.v2.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class UpdateSpaceSettingResp extends BaseResponse<UpdateSpaceSetting> {
+public class UpdateSpaceSettingResp extends BaseResponse<UpdateSpaceSettingRespBody> {
 
 }

@@ -25,6 +25,8 @@ import com.lark.oapi.service.application.v6.model.GetApplicationAppVersionReq;
 import com.lark.oapi.service.application.v6.model.GetApplicationAppVersionResp;
 import com.lark.oapi.service.application.v6.model.GetApplicationReq;
 import com.lark.oapi.service.application.v6.model.GetApplicationResp;
+import com.lark.oapi.service.application.v6.model.ListApplicationAppVersionReq;
+import com.lark.oapi.service.application.v6.model.ListApplicationAppVersionResp;
 import com.lark.oapi.service.application.v6.model.ListApplicationFeedbackReq;
 import com.lark.oapi.service.application.v6.model.ListApplicationFeedbackResp;
 import com.lark.oapi.service.application.v6.model.OverviewApplicationAppUsageReq;
@@ -413,6 +415,61 @@ public class ApplicationService {
       // 反序列化
       GetApplicationAppVersionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
           GetApplicationAppVersionResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * ，获取应用版本列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=application&resource=application.app_version&version=v6">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=application&resource=application.app_version&version=v6</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/ListApplicationAppVersionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/ListApplicationAppVersionSample.java</a>
+     * ;
+     */
+    public ListApplicationAppVersionResp list(ListApplicationAppVersionReq req,
+        RequestOptions reqOptions) throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/application/v6/applications/:app_id/app_versions"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      ListApplicationAppVersionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          ListApplicationAppVersionResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * ，获取应用版本列表
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=application&resource=application.app_version&version=v6">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=application&resource=application.app_version&version=v6</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/ListApplicationAppVersionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/applicationv6/ListApplicationAppVersionSample.java</a>
+     * ;
+     */
+    public ListApplicationAppVersionResp list(ListApplicationAppVersionReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/application/v6/applications/:app_id/app_versions"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      ListApplicationAppVersionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          ListApplicationAppVersionResp.class);
       resp.setRawResponse(httpResponse);
       resp.setRequest(req);
 

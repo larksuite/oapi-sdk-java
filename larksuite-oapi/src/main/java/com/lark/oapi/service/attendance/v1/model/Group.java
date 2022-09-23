@@ -294,6 +294,18 @@ public class Group {
   @SerializedName("effect_time")
   private String effectTime;
   /**
+   * 固定班次生效时间，精确到秒的时间戳
+   * <p> 示例值：1611476284
+   */
+  @SerializedName("fixshift_effect_time")
+  private String fixshiftEffectTime;
+  /**
+   * 参加考勤的人员、部门变动生效时间，精确到秒的时间戳
+   * <p> 示例值：1611476284
+   */
+  @SerializedName("member_effect_time")
+  private String memberEffectTime;
+  /**
    * 休息日打卡需审批
    * <p> 示例值：true
    */
@@ -541,6 +553,16 @@ public class Group {
      * <p> 示例值：1611476284
      */
     this.effectTime = builder.effectTime;
+    /**
+     * 固定班次生效时间，精确到秒的时间戳
+     * <p> 示例值：1611476284
+     */
+    this.fixshiftEffectTime = builder.fixshiftEffectTime;
+    /**
+     * 参加考勤的人员、部门变动生效时间，精确到秒的时间戳
+     * <p> 示例值：1611476284
+     */
+    this.memberEffectTime = builder.memberEffectTime;
     /**
      * 休息日打卡需审批
      * <p> 示例值：true
@@ -925,6 +947,22 @@ public class Group {
     this.effectTime = effectTime;
   }
 
+  public String getFixshiftEffectTime() {
+    return this.fixshiftEffectTime;
+  }
+
+  public void setFixshiftEffectTime(String fixshiftEffectTime) {
+    this.fixshiftEffectTime = fixshiftEffectTime;
+  }
+
+  public String getMemberEffectTime() {
+    return this.memberEffectTime;
+  }
+
+  public void setMemberEffectTime(String memberEffectTime) {
+    this.memberEffectTime = memberEffectTime;
+  }
+
   public Boolean getRestClockInNeedApproval() {
     return this.restClockInNeedApproval;
   }
@@ -1173,6 +1211,16 @@ public class Group {
      * <p> 示例值：1611476284
      */
     private String effectTime;
+    /**
+     * 固定班次生效时间，精确到秒的时间戳
+     * <p> 示例值：1611476284
+     */
+    private String fixshiftEffectTime;
+    /**
+     * 参加考勤的人员、部门变动生效时间，精确到秒的时间戳
+     * <p> 示例值：1611476284
+     */
+    private String memberEffectTime;
     /**
      * 休息日打卡需审批
      * <p> 示例值：true
@@ -1778,6 +1826,32 @@ public class Group {
      */
     public Builder effectTime(String effectTime) {
       this.effectTime = effectTime;
+      return this;
+    }
+
+
+    /**
+     * 固定班次生效时间，精确到秒的时间戳
+     * <p> 示例值：1611476284
+     *
+     * @param fixshiftEffectTime
+     * @return
+     */
+    public Builder fixshiftEffectTime(String fixshiftEffectTime) {
+      this.fixshiftEffectTime = fixshiftEffectTime;
+      return this;
+    }
+
+
+    /**
+     * 参加考勤的人员、部门变动生效时间，精确到秒的时间戳
+     * <p> 示例值：1611476284
+     *
+     * @param memberEffectTime
+     * @return
+     */
+    public Builder memberEffectTime(String memberEffectTime) {
+      this.memberEffectTime = memberEffectTime;
       return this;
     }
 

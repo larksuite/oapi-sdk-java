@@ -15,6 +15,6 @@ package com.lark.oapi.service.ehr.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListEmployeeResp extends BaseResponse<ListEmployee> {
+public class ListEmployeeResp extends BaseResponse<ListEmployeeRespBody> {
 
 }

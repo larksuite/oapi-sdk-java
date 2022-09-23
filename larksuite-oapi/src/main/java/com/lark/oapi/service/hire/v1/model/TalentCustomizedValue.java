@@ -53,6 +53,12 @@ public class TalentCustomizedValue {
    */
   @SerializedName("number")
   private String number;
+  /**
+   * 当字段类型为附件时，从此字段取值
+   * <p> 示例值：
+   */
+  @SerializedName("customized_attachment")
+  private TalentCustomizedAttachment[] customizedAttachment;
 
   // builder 开始
   public TalentCustomizedValue() {
@@ -89,6 +95,11 @@ public class TalentCustomizedValue {
      * <p> 示例值：111
      */
     this.number = builder.number;
+    /**
+     * 当字段类型为附件时，从此字段取值
+     * <p> 示例值：
+     */
+    this.customizedAttachment = builder.customizedAttachment;
   }
 
   public static Builder newBuilder() {
@@ -143,6 +154,14 @@ public class TalentCustomizedValue {
     this.number = number;
   }
 
+  public TalentCustomizedAttachment[] getCustomizedAttachment() {
+    return this.customizedAttachment;
+  }
+
+  public void setCustomizedAttachment(TalentCustomizedAttachment[] customizedAttachment) {
+    this.customizedAttachment = customizedAttachment;
+  }
+
   public static class Builder {
 
     /**
@@ -175,6 +194,11 @@ public class TalentCustomizedValue {
      * <p> 示例值：111
      */
     private String number;
+    /**
+     * 当字段类型为附件时，从此字段取值
+     * <p> 示例值：
+     */
+    private TalentCustomizedAttachment[] customizedAttachment;
 
     /**
      * 当字段类型为单行文本、多行文本、模块、默认字段时，从此字段取值
@@ -250,6 +274,19 @@ public class TalentCustomizedValue {
      */
     public Builder number(String number) {
       this.number = number;
+      return this;
+    }
+
+
+    /**
+     * 当字段类型为附件时，从此字段取值
+     * <p> 示例值：
+     *
+     * @param customizedAttachment
+     * @return
+     */
+    public Builder customizedAttachment(TalentCustomizedAttachment[] customizedAttachment) {
+      this.customizedAttachment = customizedAttachment;
       return this;
     }
 

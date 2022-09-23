@@ -15,6 +15,6 @@ package com.lark.oapi.service.approval.v4.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateApprovalResp extends BaseResponse<CreateApproval> {
+public class CreateApprovalResp extends BaseResponse<CreateApprovalRespBody> {
 
 }

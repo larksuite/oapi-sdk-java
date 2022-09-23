@@ -15,6 +15,6 @@ package com.lark.oapi.service.acs.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class GetUserResp extends BaseResponse<GetUser> {
+public class GetUserResp extends BaseResponse<GetUserRespBody> {
 
 }

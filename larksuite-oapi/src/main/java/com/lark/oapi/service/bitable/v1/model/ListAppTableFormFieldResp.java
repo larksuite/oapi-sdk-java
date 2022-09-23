@@ -15,6 +15,6 @@ package com.lark.oapi.service.bitable.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListAppTableFormFieldResp extends BaseResponse<ListAppTableFormField> {
+public class ListAppTableFormFieldResp extends BaseResponse<ListAppTableFormFieldRespBody> {
 
 }

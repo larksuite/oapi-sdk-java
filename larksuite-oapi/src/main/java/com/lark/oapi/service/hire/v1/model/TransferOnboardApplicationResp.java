@@ -15,6 +15,7 @@ package com.lark.oapi.service.hire.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class TransferOnboardApplicationResp extends BaseResponse<TransferOnboardApplication> {
+public class TransferOnboardApplicationResp extends
+    BaseResponse<TransferOnboardApplicationRespBody> {
 
 }

@@ -15,6 +15,6 @@ package com.lark.oapi.service.calendar.v4.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class CreateCalendarAclResp extends BaseResponse<CreateCalendarAcl> {
+public class CreateCalendarAclResp extends BaseResponse<CreateCalendarAclRespBody> {
 
 }

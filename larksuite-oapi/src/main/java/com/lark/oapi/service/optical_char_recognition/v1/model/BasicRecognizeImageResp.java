@@ -15,6 +15,6 @@ package com.lark.oapi.service.optical_char_recognition.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class BasicRecognizeImageResp extends BaseResponse<BasicRecognizeImage> {
+public class BasicRecognizeImageResp extends BaseResponse<BasicRecognizeImageRespBody> {
 
 }

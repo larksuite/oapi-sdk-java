@@ -18,18 +18,170 @@ import com.google.gson.annotations.SerializedName;
 public class GetSpreadsheet {
 
   /**
-   * 电子表格属性
-   * <p> 示例值：
+   * 电子表格标题
+   * <p> 示例值：title
    */
-  @SerializedName("spreadsheet")
-  private GetSpreadsheet spreadsheet;
+  @SerializedName("title")
+  private String title;
+  /**
+   * 电子表格owner
+   * <p> 示例值：ou_xxxxxxxxxxxx
+   */
+  @SerializedName("owner_id")
+  private String ownerId;
+  /**
+   * 电子表格token
+   * <p> 示例值：shtxxxxxxxxxxxxxx
+   */
+  @SerializedName("token")
+  private String token;
+  /**
+   * 电子表格url
+   * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
+   */
+  @SerializedName("url")
+  private String url;
 
-  public GetSpreadsheet getSpreadsheet() {
-    return this.spreadsheet;
+  // builder 开始
+  public GetSpreadsheet() {
   }
 
-  public void setSpreadsheet(GetSpreadsheet spreadsheet) {
-    this.spreadsheet = spreadsheet;
+  public GetSpreadsheet(Builder builder) {
+    /**
+     * 电子表格标题
+     * <p> 示例值：title
+     */
+    this.title = builder.title;
+    /**
+     * 电子表格owner
+     * <p> 示例值：ou_xxxxxxxxxxxx
+     */
+    this.ownerId = builder.ownerId;
+    /**
+     * 电子表格token
+     * <p> 示例值：shtxxxxxxxxxxxxxx
+     */
+    this.token = builder.token;
+    /**
+     * 电子表格url
+     * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
+     */
+    this.url = builder.url;
   }
 
+  public static Builder newBuilder() {
+    return new Builder();
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getOwnerId() {
+    return this.ownerId;
+  }
+
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public static class Builder {
+
+    /**
+     * 电子表格标题
+     * <p> 示例值：title
+     */
+    private String title;
+    /**
+     * 电子表格owner
+     * <p> 示例值：ou_xxxxxxxxxxxx
+     */
+    private String ownerId;
+    /**
+     * 电子表格token
+     * <p> 示例值：shtxxxxxxxxxxxxxx
+     */
+    private String token;
+    /**
+     * 电子表格url
+     * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
+     */
+    private String url;
+
+    /**
+     * 电子表格标题
+     * <p> 示例值：title
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
+    }
+
+
+    /**
+     * 电子表格owner
+     * <p> 示例值：ou_xxxxxxxxxxxx
+     *
+     * @param ownerId
+     * @return
+     */
+    public Builder ownerId(String ownerId) {
+      this.ownerId = ownerId;
+      return this;
+    }
+
+
+    /**
+     * 电子表格token
+     * <p> 示例值：shtxxxxxxxxxxxxxx
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
+    }
+
+
+    /**
+     * 电子表格url
+     * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
+    }
+
+
+    public GetSpreadsheet build() {
+      return new GetSpreadsheet(this);
+    }
+  }
 }

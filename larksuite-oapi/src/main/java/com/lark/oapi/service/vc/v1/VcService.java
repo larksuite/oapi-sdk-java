@@ -25,6 +25,8 @@ import com.lark.oapi.service.vc.v1.model.ApplyReserveReq;
 import com.lark.oapi.service.vc.v1.model.ApplyReserveResp;
 import com.lark.oapi.service.vc.v1.model.DeleteReserveReq;
 import com.lark.oapi.service.vc.v1.model.DeleteReserveResp;
+import com.lark.oapi.service.vc.v1.model.DownloadExportReq;
+import com.lark.oapi.service.vc.v1.model.DownloadExportResp;
 import com.lark.oapi.service.vc.v1.model.EndMeetingReq;
 import com.lark.oapi.service.vc.v1.model.EndMeetingResp;
 import com.lark.oapi.service.vc.v1.model.GetActiveMeetingReserveReq;
@@ -45,6 +47,8 @@ import com.lark.oapi.service.vc.v1.model.InviteMeetingReq;
 import com.lark.oapi.service.vc.v1.model.InviteMeetingResp;
 import com.lark.oapi.service.vc.v1.model.KickoutMeetingReq;
 import com.lark.oapi.service.vc.v1.model.KickoutMeetingResp;
+import com.lark.oapi.service.vc.v1.model.ListAlertReq;
+import com.lark.oapi.service.vc.v1.model.ListAlertResp;
 import com.lark.oapi.service.vc.v1.model.ListByNoMeetingReq;
 import com.lark.oapi.service.vc.v1.model.ListByNoMeetingResp;
 import com.lark.oapi.service.vc.v1.model.MeetingListExportReq;
@@ -76,9 +80,11 @@ import com.lark.oapi.service.vc.v1.model.StopMeetingRecordingReq;
 import com.lark.oapi.service.vc.v1.model.StopMeetingRecordingResp;
 import com.lark.oapi.service.vc.v1.model.UpdateReserveReq;
 import com.lark.oapi.service.vc.v1.model.UpdateReserveResp;
+import java.io.ByteArrayOutputStream;
 
 public class VcService {
 
+  private final Alert alert; // alert
   private final Export export; // 导出
   private final Meeting meeting; // 会议
   private final MeetingRecording meetingRecording; // 录制
@@ -87,12 +93,22 @@ public class VcService {
   private final RoomConfig roomConfig; // 会议室配置
 
   public VcService(Config config) {
+    this.alert = new Alert(config);
     this.export = new Export(config);
     this.meeting = new Meeting(config);
     this.meetingRecording = new MeetingRecording(config);
     this.report = new Report(config);
     this.reserve = new Reserve(config);
     this.roomConfig = new RoomConfig(config);
+  }
+
+  /**
+   * alert
+   *
+   * @return
+   */
+  public Alert alert() {
+    return alert;
   }
 
   /**
@@ -149,12 +165,149 @@ public class VcService {
     return roomConfig;
   }
 
+  public static class Alert {
+
+    private final Config config;
+
+    public Alert(Config config) {
+      this.config = config;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=vc&resource=alert&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=vc&resource=alert&version=v1</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/ListAlertSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/ListAlertSample.java</a>
+     * ;
+     */
+    public ListAlertResp list(ListAlertReq req, RequestOptions reqOptions) throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/vc/v1/alerts"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      ListAlertResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAlertResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=vc&resource=alert&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=vc&resource=alert&version=v1</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/ListAlertSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/ListAlertSample.java</a>
+     * ;
+     */
+    public ListAlertResp list(ListAlertReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/vc/v1/alerts"
+          , Sets.newHashSet(AccessTokenType.Tenant)
+          , req);
+
+      // 反序列化
+      ListAlertResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListAlertResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+  }
+
   public static class Export {
 
     private final Config config;
 
     public Export(Config config) {
       this.config = config;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=download&project=vc&resource=export&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=download&project=vc&resource=export&version=v1</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/DownloadExportSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/DownloadExportSample.java</a>
+     * ;
+     */
+    public DownloadExportResp download(DownloadExportReq req, RequestOptions reqOptions)
+        throws Exception {
+      // 请求参数选项
+      if (reqOptions == null) {
+        reqOptions = new RequestOptions();
+      }
+      reqOptions.setSupportDownLoad(true);
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/vc/v1/exports/download"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      if (httpResponse.getStatusCode() == 200) {
+        DownloadExportResp resp = new DownloadExportResp();
+        resp.setRawResponse(httpResponse);
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        outputStream.write(httpResponse.getBody());
+        resp.setData(outputStream);
+        resp.setFileName(httpResponse.getFileName());
+        return resp;
+      }
+      // 反序列化
+      DownloadExportResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          DownloadExportResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
+    }
+
+    /**
+     * ，
+     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=download&project=vc&resource=export&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=download&project=vc&resource=export&version=v1</a>
+     * ;
+     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/DownloadExportSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/DownloadExportSample.java</a>
+     * ;
+     */
+    public DownloadExportResp download(DownloadExportReq req) throws Exception {
+      // 请求参数选项
+      RequestOptions reqOptions = new RequestOptions();
+      reqOptions.setSupportDownLoad(true);
+
+      // 发起请求
+      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
+          , "/open-apis/vc/v1/exports/download"
+          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+          , req);
+
+      // 下载请求，返回流
+      if (httpResponse.getStatusCode() == 200) {
+        DownloadExportResp resp = new DownloadExportResp();
+        resp.setRawResponse(httpResponse);
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        outputStream.write(httpResponse.getBody());
+        resp.setData(outputStream);
+        resp.setFileName(httpResponse.getFileName());
+        return resp;
+      }
+      // 反序列化
+      DownloadExportResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
+          DownloadExportResp.class);
+      resp.setRawResponse(httpResponse);
+      resp.setRequest(req);
+
+      return resp;
     }
 
     /**

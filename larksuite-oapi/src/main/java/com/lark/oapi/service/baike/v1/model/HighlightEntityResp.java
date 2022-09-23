@@ -15,6 +15,6 @@ package com.lark.oapi.service.baike.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class HighlightEntityResp extends BaseResponse<HighlightEntity> {
+public class HighlightEntityResp extends BaseResponse<HighlightEntityRespBody> {
 
 }

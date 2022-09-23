@@ -15,6 +15,6 @@ package com.lark.oapi.service.contact.v3.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class ListScopeResp extends BaseResponse<ListScope> {
+public class ListScopeResp extends BaseResponse<ListScopeRespBody> {
 
 }

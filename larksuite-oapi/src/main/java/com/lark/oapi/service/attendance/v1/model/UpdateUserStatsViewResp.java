@@ -15,6 +15,6 @@ package com.lark.oapi.service.attendance.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class UpdateUserStatsViewResp extends BaseResponse<UpdateUserStatsView> {
+public class UpdateUserStatsViewResp extends BaseResponse<UpdateUserStatsViewRespBody> {
 
 }

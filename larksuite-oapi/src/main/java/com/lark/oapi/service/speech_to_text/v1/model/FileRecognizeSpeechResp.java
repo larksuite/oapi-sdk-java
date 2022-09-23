@@ -15,6 +15,6 @@ package com.lark.oapi.service.speech_to_text.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class FileRecognizeSpeechResp extends BaseResponse<FileRecognizeSpeech> {
+public class FileRecognizeSpeechResp extends BaseResponse<FileRecognizeSpeechRespBody> {
 
 }

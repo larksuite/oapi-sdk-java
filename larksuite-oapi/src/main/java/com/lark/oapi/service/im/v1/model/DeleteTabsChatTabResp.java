@@ -15,6 +15,6 @@ package com.lark.oapi.service.im.v1.model;
 
 import com.lark.oapi.core.response.BaseResponse;
 
-public class DeleteTabsChatTabResp extends BaseResponse<DeleteTabsChatTab> {
+public class DeleteTabsChatTabResp extends BaseResponse<DeleteTabsChatTabRespBody> {
 
 }
