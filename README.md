@@ -31,6 +31,7 @@
     - [返回自定义消息](#返回自定义消息)
     - [卡片行为处理器内给对应租户发消息](#卡片行为处理器内给对应租户发消息)
 
+- [加入答疑群](#加入答疑群)
 - [License](#License)
 
 <!-- tocstop -->
@@ -989,6 +990,8 @@ public class CardActionController {
 
 更多卡片行为示例：[CardActionController.java](./sample/src/main/java/com/lark/oapi/sample/event/CardActionController.java)
 
+## 加入答疑群
+[单击加入答疑群](https://applink.feishu.cn/client/chat/chatter/add_by_link?link_token=858k8fd2-dc34-4cbf-bfc9-cbe0c1cb01dd)
 ## License
 
 使用 MIT
