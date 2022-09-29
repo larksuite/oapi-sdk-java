@@ -62,7 +62,7 @@
   Client client=Client.newBuilder("appId","appSecret").build();
 ```
 
-- 对于商店应用，需在创建 API Client 时，使用 marketplaceApp() 方法指定 AppType 为商店应用
+- 对于商店应用，需在创建 API Client 时，使用 marketplaceApp() 方法指定 AppType 为商店应用，商店应用开发指南可 [点击这里查看](https://bytedance.feishu.cn/docx/G4lndQqsgoenFhxcPlIc0Klinte)
 
 ```java 
 Client client = Client.newBuilder("appId", "appSecret")
@@ -254,6 +254,7 @@ public interface IHttpTransport {
 ## API调用
 
 创建完毕 API Client，我们可以使用 ``Client.业务域.资源.方法名称`` 来定位具体的 API 方法，然后对具体的 API 发起调用。
+商店应用开发指南可 [点击这里查看](https://bytedance.feishu.cn/docx/G4lndQqsgoenFhxcPlIc0Klinte)
 
 ![](doc/find_method.jpg)
 
