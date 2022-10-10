@@ -49,6 +49,21 @@
   <version>2.0.2-rc7</version>
 </dependency>
 ```
+- 如无法获取oapi-sdk依赖，请在 pom.xml 的 <project> 里增加 <repositories>
+```shell
+<project>
+    <repositories>
+        <repository>
+            <id>Central Repository</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>
+    <dependencies>
+        ...
+    </dependencies>
+</project>   
+```
+    
 
 ## API Client
 
